@@ -1,0 +1,121 @@
+<html>
+    <head>
+        <title>Mixernos site</title>
+        <link rel="stylesheet" href="odometer-theme-default.css" />
+        <link rel="stylesheet" href="odometer-theme-minimal.css" />
+        <script src="odometer.js"></script>
+        <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+
+        <style>
+            .odometer{
+                font-size: 100px;
+            }
+            body {
+                background-color: rgb(255, 255, 255);
+                color: #444;
+                font-family: Arial
+            }
+
+            div {
+                font-size: 36
+            }
+        </style>
+    </head>
+
+    <script type="text/javascript">
+        $(document).ready( function() {
+            var vidName = "";
+            
+            
+            
+            loadVideo("0e1MbM7gQ20");
+           
+
+            function loadVideo(namhe) {
+
+                vidName = namhe;
+                var url2 = 'https://www.googleapis.com/youtube/v3/videos?part=statistics&id='+namhe+'&key=AIzaSyCzyacCyMIvNgOoQGHLrtq8EH2-CnsjIOc'
+
+
+                $.getJSON(url2, function(data) {
+                    $('#viewcountodo').html(data.items[0].statistics.viewCount);
+                    $('#ytnewviewlike').html(data.items[0].statistics.likeCount);
+                    $('#ytnewviewdislike').html(data.items[0].statistics.dislikeCount);
+                    $('#ytnewviewcomments').html(data.items[0].statistics.commentCount);
+    
+                });
+                var url3 = 'https://www.googleapis.com/youtube/v3/videos?part=snippet&id='+namhe+'&key=AIzaSyCzyacCyMIvNgOoQGHLrtq8EH2-CnsjIOc'
+                $.getJSON(url3, function(data) {
+                    $('#ytnewvideoName').html(data.items[0].snippet.title);
+                    $('#ytvideoImage').html('<img src=\"'+data.items[0].snippet.thumbnails.medium.url+'\">')
+                });
+            }
+           
+
+            setInterval( function() {
+                var url2 = 'https://www.googleapis.com/youtube/v3/videos?part=statistics&id='+vidName+'&key=AIzaSyCzyacCyMIvNgOoQGHLrtq8EH2-CnsjIOc'
+
+
+                $.getJSON(url2, function(data) {
+                    $('#viewcountodo').html(data.items[0].statistics.viewCount);
+                    $('#ytnewviewlike').html(data.items[0].statistics.likeCount);
+                    $('#ytnewviewdislike').html(data.items[0].statistics.dislikeCount);
+                    $('#ytnewviewcomments').html(data.items[0].statistics.commentCount);
+                    $('#ytvideolikevdislike').html(data.items[0].statistics.likeCount - data.items[0].statistics.dislikeCount);
+    
+                });
+                var url3 = 'https://www.googleapis.com/youtube/v3/videos?part=snippet&id='+vidName+'&key=AIzaSyCzyacCyMIvNgOoQGHLrtq8EH2-CnsjIOc'
+                $.getJSON(url3, function(data) {
+                    $('#ytvideoImage').html('<img src=\"'+data.items[0].snippet.thumbnails.medium.url+'\">')
+                    $('#ytnewvideoName').html(data.items[0].snippet.title);
+                });
+
+    
+
+
+            }, 2000);
+            setInterval( function() {
+                
+                console.log("Is api quota full yet?")
+    
+
+
+            }, 1000);
+
+            
+            $('#updatevid').click( function() {
+                loadVideo($('#vidName').val());
+            });
+
+        
+        });
+    </script>
+
+        
+
+
+
+    <body>
+            <center>
+            <input type="text" id="vidName"></input>
+            <button id="updatevid">Search for video</button>
+            <br>  
+            <p id="ytvideoImage">ytvideoImage</p>
+            <p id="ytnewvideoName">ytnewvideoName</p>
+            <div id="viewcountodo" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div>
+            <p>views</p>
+            <div id="ytnewviewlike" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div> 
+            <p>Likes</p>
+            <div id="ytnewviewdislike" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div> 
+            <p>Dislikes</p>
+            <div id="ytnewviewcomments" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div> 
+            <p>Comments</p>
+            <br>
+            <br>
+            <p style="font-size: 25px;">Compares</p>
+            <br>
+            <div id="ytvideolikevdislike" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div> 
+            <p>Likes vs. Dislikes</p>
+            </center>
+    </body>
+</html>
