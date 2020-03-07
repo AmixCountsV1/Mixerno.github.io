@@ -46,8 +46,8 @@
                 });
                 var url3 = 'https://www.googleapis.com/youtube/v3/videos?part=snippet&id='+namhe+'&key=AIzaSyCzyacCyMIvNgOoQGHLrtq8EH2-CnsjIOc'
                 $.getJSON(url3, function(data) {
-                    $('#ytnewvideoName').html(data.items[0].snippet.title);
-                    $('#ytvideoImage').html('<img src=\"'+data.items[0].snippet.thumbnails.medium.url+'\">')
+                    $('#image').html(data.items[0].snippet.title);
+                    $('#image').html('<img src=\"'+data.items[0].snippet.thumbnails.medium.url+'\">')
                 });
             }
            
@@ -66,8 +66,8 @@
                 });
                 var url3 = 'https://www.googleapis.com/youtube/v3/videos?part=snippet&id='+vidName+'&key=AIzaSyCzyacCyMIvNgOoQGHLrtq8EH2-CnsjIOc'
                 $.getJSON(url3, function(data) {
-                    $('#ytvideoImage').html('<img src=\"'+data.items[0].snippet.thumbnails.medium.url+'\">')
-                    $('#ytnewvideoName').html(data.items[0].snippet.title);
+                    $('#image').html('<img src=\"'+data.items[0].snippet.thumbnails.medium.url+'\">')
+                    $('#name').html(data.items[0].snippet.title);
                 });
 
     
@@ -100,8 +100,8 @@
             <input type="text" id="vidName"></input>
             <button id="updatevid">Search for video</button>
             <br>  
-            <p id="ytvideoImage">ytvideoImage</p>
-            <p id="ytnewvideoName">ytnewvideoName</p>
+            <p id="image">0</p>
+            <p id="name">0</p>
             <div id="viewcountodo" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div>
             <p>views</p>
             <div id="ytnewviewlike" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div> 
@@ -117,5 +117,6 @@
             <div id="ytvideolikevdislike" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div> 
             <p>Likes vs. Dislikes</p>
             </center>
+            <p>:)</p>
     </body>
 </html>
