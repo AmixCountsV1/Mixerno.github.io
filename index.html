@@ -22,46 +22,6 @@
         </style>
     </head>
     <script type="text/javascript">
-        $(document).ready( function() {
-            var chanName = "";
-
-            
-            var url = 'https://www.googleapis.com/youtube/v3/channels?part=statistics&id='+name+'&key=AIzaSyAUEB14mBYOfYiVlj03O9TWw8vmlFbondM'
-            
-            
-            loadChannel("UCcHkSmoV6Y5OQjuwj8DBmrw");
-
-           
-
-            function loadChannel(name) {
-
-                chanName = name;
-                var url = 'https://www.googleapis.com/youtube/v3/channels?part=statistics&id='+name+'&key=AIzaSyAUEB14mBYOfYiVlj03O9TWw8vmlFbondM'
-                
-
-                $.getJSON(url, function(data) {
-                    $('#odometer').html(data.items[0].statistics.subscriberCount);
-                    
-                });
-            }
-            
-            setInterval( function() {
-                
-                var url = 'https://www.googleapis.com/youtube/v3/channels?part=statistics&id='+chanName+'&key=AIzaSyAUEB14mBYOfYiVlj03O9TWw8vmlFbondM'
-                $.getJSON(url, function(data) {
-                    $('#odometer').html(data.items[0].statistics.subscriberCount);
-                });
-
-    
-
-
-            }, 10000);
-
-
-    
-
-
-            }, 2000);
 
 
         
@@ -78,12 +38,11 @@
         <br>
         <a href="https://mixerno.github.io/minecraftsevrer.html">Minecraft server live counters</a>
         <br>
+        <a href="https://mixerno.github.io/gdstats.html">Geometry Dash User statistics</a>
         <br>
         <br>
         <br>
-        <a href="https://www.youtube.com/channel/UCcHkSmoV6Y5OQjuwj8DBmrw">Mixerno's Subscribers</a>
         <br>
-        <div id="odometer" class="odometer" style="font-family: cursive; font-size:50px;color:rgb(255, 255, 255)">0</div>
         </center>
     </body>
 </html>

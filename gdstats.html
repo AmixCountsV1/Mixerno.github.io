@@ -40,7 +40,7 @@
 
                 chanName = name;
                 $.ajax({
-                  url: 'https://www.gdbrowser.com/api/profile/'+usernamelol,
+                  url: 'https://gdbrowser.com/api/profile/'+chanName,
                   // Handle as Text
                   dataType: "text",
                   success: function(data) {
@@ -50,20 +50,21 @@
                         // Display Players
                         $('#viewcountodo').html(json.stars);
                         $('#name').html(json.username);
-                        $('#demons').html(json.demons);
-                        $('#userCoins').html(json.userCoins);
-                        $('#coins').html(json.coins);
                         $('#diamonds').html(json.diamonds);
+                        $('#coins').html(json.coins);
+                        $('#userCoins').html(json.userCoins);
+                        $('#demons').html(json.demons);
+                        $('#image').html(json.cp);
+                        
                 }
             });
     
 }
             setInterval( function() {
+            
 
-
-                chanName = name;
                 $.ajax({
-                  url: 'https://www.gdbrowser.com/api/profile/'+usernamelol,
+                  url: 'https://gdbrowser.com/api/profile/'+chanName,
                   // Handle as Text
                   dataType: "text",
                   success: function(data) {
@@ -73,14 +74,14 @@
                         // Display Players
                         $('#viewcountodo').html(json.stars);
                         $('#name').html(json.username);
-                        $('#demons').html(json.demons);
-                        $('#userCoins').html(json.userCoins);
-                        $('#coins').html(json.coins);
                         $('#diamonds').html(json.diamonds);
+                        $('#coins').html(json.coins);
+                        $('#userCoins').html(json.userCoins);
+                        $('#demons').html(json.demons);
+                        $('#image').html(json.cp);
+                        
                 }
             });
-
-    
 
 
             }, 2000);
@@ -105,15 +106,22 @@
             <br>  
             <p id="name">0</p>
             <div id="viewcountodo" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div>
-            <p>Stars</p>
+            <p>stars</p>
+            <br>
             <div id="diamonds" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div>
             <p>diamonds</p>
+            <br>
             <div id="coins" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div>
             <p>coins</p>
+            <br>
             <div id="userCoins" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div>
             <p>userCoins</p>
+            <br>
             <div id="demons" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div>
             <p>demons</p>
+            <br>
+            <div id="image" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div>
+            <p>creator points</p>
             </center>
             <p>:)</p>
     </body>
