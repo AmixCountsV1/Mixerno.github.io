@@ -1,7 +1,71 @@
 <html>
     <head>
         <title>Mixerno site</title>
+        <link rel="stylesheet" href="odometer-theme-default.css" />
+        <link rel="stylesheet" href="odometer-theme-minimal.css" />
+        <script src="odometer.js"></script>
+        <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+
+        <style>
+            .odometer{
+                font-size: 100px;
+            }
+            body {
+                background-color: rgb(0, 0, 0);
+                color: rgb(255, 255, 255);
+                font-family: Arial
+            }
+
+            div {
+                font-size: 36
+            }
+        </style>
     </head>
+    <script type="text/javascript">
+        $(document).ready( function() {
+            var chanName = "";
+
+            
+            var url = 'https://www.googleapis.com/youtube/v3/channels?part=statistics&id='+name+'&key=AIzaSyAUEB14mBYOfYiVlj03O9TWw8vmlFbondM'
+            
+            
+            loadChannel("UCcHkSmoV6Y5OQjuwj8DBmrw");
+
+           
+
+            function loadChannel(name) {
+
+                chanName = name;
+                var url = 'https://www.googleapis.com/youtube/v3/channels?part=statistics&id='+name+'&key=AIzaSyAUEB14mBYOfYiVlj03O9TWw8vmlFbondM'
+                
+
+                $.getJSON(url, function(data) {
+                    $('#odometer').html(data.items[0].statistics.subscriberCount);
+                    
+                });
+            }
+            
+            setInterval( function() {
+                
+                var url = 'https://www.googleapis.com/youtube/v3/channels?part=statistics&id='+chanName+'&key=AIzaSyAUEB14mBYOfYiVlj03O9TWw8vmlFbondM'
+                $.getJSON(url, function(data) {
+                    $('#odometer').html(data.items[0].statistics.subscriberCount);
+                });
+
+    
+
+
+            }, 10000);
+
+
+    
+
+
+            }, 2000);
+
+
+        
+    </script>
     <body>
         <center>
         <p>Welcome to mixerno site.</p>
@@ -10,6 +74,13 @@
         <a href="https://mixerno.github.io/subscribers.html">Youtube live subscriber counter</a>
         <br>
         <a href="https://mixerno.github.io/videos.html">Youtube live video counter</a>
+        <br>
+        <br>
+        <br>
+        <br>
+        <a href="https://www.youtube.com/channel/UCcHkSmoV6Y5OQjuwj8DBmrw">Mixerno's Subscribers</a>
+        <br>
+        <div id="odometer" class="odometer" style="font-family: cursive; font-size:50px;color:rgb(255, 255, 255)">0</div>
         </center>
     </body>
 </html>
