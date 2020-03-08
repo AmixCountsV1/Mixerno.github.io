@@ -28,8 +28,14 @@
 
 
     <script type="text/javascript">
-
+        jQuery.ajaxPrefilter(function(options) {
+            if (options.crossDomain && jQuery.support.cors) {
+                options.url = 'https://cors-anywhere.herokuapp.com/' + options.url;
+            }
+        });
         $(document).ready( function() {
+            
+            
             var chanName = "gahvila.net";
             
             usernamelol("gahvila.net");
@@ -41,19 +47,13 @@
                 var url1 = 'https://mcapi.xdefcon.com/server/'+chanName+'/full/json&jsoncallback=?';
                 chanName = name;
                 $.ajax({
+                    
+                    
+                    url: url1,
+                    dataType: "text",
                 
-                url: url1,
 
-                dataType: "jsonp",
-          
-              //type: 'GET',
-              mode: 'cors',
-              contentType: 'text/json',
-              crossDomain: true,
-              headers: {
-                'Content-Type': 'application/json',
-                "Accept": 'application/json',
-                },
+                
             
                 success: function(data) {
                       // Parse JSON file
@@ -78,30 +78,29 @@
             
                 var url1 = 'https://mcapi.xdefcon.com/server/'+chanName+'/full/json&jsoncallback=?';
                 $.ajax({
+                    
+                    
+                    url: url1,
+                    dataType: "text",
                 
-                  url: url1,
 
-                  dataType: "jsonp",
+                
             
-                type: 'GET',
-
-                contentType: 'text/json',
-                crossDomain: true,
-                  success: function(data) {
-                        // Parse JSON file
-                        var json = $.parseJSON(data);
-                        //Store data into a variable
-                        // Display Players
-                        $('#viewcountodo').html(json.players);
-                        $('#name').html(json.serverip);
-                        $('#diamonds').html(json.ping);
-                        $('#coins').html(json.serverStatus);
-                        $('#userCoins').html(json.maxplayers);
-                        $('#demons').html(json.protocol);
-                        $('#image').html('<img src=\"'+json.icon+'\">')
-                        
-                }
-            });
+                success: function(data) {
+                      // Parse JSON file
+                      var json = $.parseJSON(data);
+                      //Store data into a variable
+                      // Display Players
+                      $('#viewcountodo').html(json.players);
+                      $('#name').html(json.serverip);
+                      $('#diamonds').html(json.ping);
+                      $('#coins').html(json.serverStatus);
+                      $('#userCoins').html(json.maxplayers);
+                      $('#demons').html(json.protocol);
+                      $('#image').html('<img src=\"'+json.icon+'\">')
+                      
+              }
+          });
 
 
             }, 2000);
