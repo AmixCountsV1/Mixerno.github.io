@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Mixerno.github.io subscriber counter</title>
+        <title>Subscriber counter</title>
         <link rel="stylesheet" href="odometer-theme-default.css" />
         <link rel="stylesheet" href="odometer-theme-minimal.css" />
         <script src="odometer.js"></script>
@@ -49,7 +49,7 @@
                 var url1 = 'https://www.googleapis.com/youtube/v3/channels?part=snippet&id='+name+'&key=AIzaSyCzyacCyMIvNgOoQGHLrtq8EH2-CnsjIOc'
                 $.getJSON(url1, function(data) {
                     $('#ytName').html(data.items[0].snippet.title);
-                    $('#ytDesc').html('Description: ' + data.items[0].snippet.description);
+                    $('#ytDesc').html(data.items[0].snippet.description);
                     $('#ytImage').html('<img src=\"'+data.items[0].snippet.thumbnails.default.url+'\">')
                 });
             }
@@ -97,6 +97,7 @@
             <p>total views</p>
             <div id="vidsodo" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div>
             <p>videos</p>
+            <p id="ytDesc">Description</p>
             
             </center>
     </body>
