@@ -23,11 +23,33 @@
     </head>
 
     <script type="text/javascript">
+    
+
+
+
+
+
+     
         $(document).ready( function() {
             var chanName = "";
-
+            var textArray = [
+                'AIzaSyAGXBgJ9AXvf10GHcl56EAKXx0c7UeMtF4',
+                'AIzaSyCzyacCyMIvNgOoQGHLrtq8EH2-CnsjIOc',
+                'AIzaSyDkV2WiVMvxLyC60QsE3_Q7XXwTegLFQeY',
+                'AIzaSyDMcMpbTBg8yrgbEMisB_WmX_pWYKIUZMk',
+                'AIzaSyD8x2AAcVSQmRtzBsjbjweUhJ8rx3RTVWU',
+                'AIzaSyCogBaQlBRaKFadfENZbRjcBP57Tzsu4pY',
+                'AIzaSyC7VrhjyJQlgVO_O4ad_UejKWjqjn2l5Nk',
+                'AIzaSyB9op6LiO1I77m4ebx1QPnu9hJLw3czeUE',
+                ];
+                
+                
+            var randomNumber = Math.floor(Math.random()*textArray.length);
+            var key = "";
+            key = textArray[randomNumber];
             
-            var url = 'https://www.googleapis.com/youtube/v3/channels?part=statistics&id='+name+'&key=AIzaSyCzyacCyMIvNgOoQGHLrtq8EH2-CnsjIOc'
+            
+            var url = 'https://www.googleapis.com/youtube/v3/channels?part=statistics&id='+name+'&key='+key;
             
             
             loadChannel("UC-lHJZR3Gqxm24_Vd_AJ5Yw");
@@ -37,7 +59,7 @@
             function loadChannel(name) {
 
                 chanName = name;
-                var url = 'https://www.googleapis.com/youtube/v3/channels?part=statistics&id='+name+'&key=AIzaSyCzyacCyMIvNgOoQGHLrtq8EH2-CnsjIOc'
+                var url = 'https://www.googleapis.com/youtube/v3/channels?part=statistics&id='+name+'&key='+key;
                 
 
                 $.getJSON(url, function(data) {
@@ -46,7 +68,7 @@
                     $('#vidsodo').html(data.items[0].statistics.videoCount);
                     
                 });
-                var url1 = 'https://www.googleapis.com/youtube/v3/channels?part=snippet&id='+name+'&key=AIzaSyCzyacCyMIvNgOoQGHLrtq8EH2-CnsjIOc'
+                var url1 = 'https://www.googleapis.com/youtube/v3/channels?part=snippet&id='+name+'&key='+key
                 $.getJSON(url1, function(data) {
                     $('#ytName').html(data.items[0].snippet.title);
                     $('#ytDesc').html(data.items[0].snippet.description);
@@ -55,8 +77,23 @@
             }
             
             setInterval( function() {
+                var textArray = [
+                'AIzaSyAGXBgJ9AXvf10GHcl56EAKXx0c7UeMtF4',
+                'AIzaSyCzyacCyMIvNgOoQGHLrtq8EH2-CnsjIOc',
+                'AIzaSyDkV2WiVMvxLyC60QsE3_Q7XXwTegLFQeY',
+                'AIzaSyDMcMpbTBg8yrgbEMisB_WmX_pWYKIUZMk',
+                'AIzaSyD8x2AAcVSQmRtzBsjbjweUhJ8rx3RTVWU',
+                'AIzaSyCogBaQlBRaKFadfENZbRjcBP57Tzsu4pY',
+                'AIzaSyC7VrhjyJQlgVO_O4ad_UejKWjqjn2l5Nk',
+                'AIzaSyB9op6LiO1I77m4ebx1QPnu9hJLw3czeUE',
+                ];
                 
-                var url = 'https://www.googleapis.com/youtube/v3/channels?part=statistics&id='+chanName+'&key=AIzaSyCzyacCyMIvNgOoQGHLrtq8EH2-CnsjIOc'
+                
+                var randomNumber = Math.floor(Math.random()*textArray.length);
+                var key = "";
+                key = textArray[randomNumber];
+
+                var url = 'https://www.googleapis.com/youtube/v3/channels?part=statistics&id='+chanName+'&key='+key
                 $.getJSON(url, function(data) {
                     $('#odometer').html(data.items[0].statistics.subscriberCount);
                     $('#totvivodo').html(data.items[0].statistics.viewCount);
@@ -66,13 +103,13 @@
     
 
 
-            }, 20000);
+            }, 3000);
 
 
     
 
 
-            }, 2000);
+            }, 3000);
 
             $('#update').click( function() {
                 loadChannel($('#chnlName').val());
