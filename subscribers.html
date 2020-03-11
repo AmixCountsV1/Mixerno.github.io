@@ -38,7 +38,7 @@
             
             var chanName = "";
             chanName = params[1]
-            var textArray = [
+            var textArray = [ //13 stufflols :D
                 'AIzaSyAGXBgJ9AXvf10GHcl56EAKXx0c7UeMtF4',
                 'AIzaSyCzyacCyMIvNgOoQGHLrtq8EH2-CnsjIOc',
                 'AIzaSyDkV2WiVMvxLyC60QsE3_Q7XXwTegLFQeY',
@@ -47,15 +47,21 @@
                 'AIzaSyCogBaQlBRaKFadfENZbRjcBP57Tzsu4pY',
                 'AIzaSyC7VrhjyJQlgVO_O4ad_UejKWjqjn2l5Nk',
                 'AIzaSyB9op6LiO1I77m4ebx1QPnu9hJLw3czeUE',
+                'AIzaSyCqSObV0P-LGCpAU4OFLf_zVTZGm5lQCSE',
+                'AIzaSyAbIdSDEjzo49mSdnbJWae_Eb0OMbmAgk8',
+                'AIzaSyDMxzVzWYPzBUpqiPozsywOGom97VAKa14',
+                'AIzaSyDH7fY_2dNEp1RaaIbsr_Lzhx7p8t_kDg0',
+                'AIzaSyB6Imc7WyCqoi6Q-uArasdrcoYVZtG_2TE',
+                'AIzaSyCSDA9bmh2Ip75Lo7HmNlBhcyPjlXFK4WQ',
                 ];
                 
                 
             var randomNumber = Math.floor(Math.random()*textArray.length);
-            var key = "";
-            key = textArray[randomNumber];
+            var stufflol = "";
+            stufflol = textArray[randomNumber];
             
             
-            var url = 'https://www.googleapis.com/youtube/v3/channels?part=statistics&id='+name+'&key='+key;
+            var url = 'https://www.googleapis.com/youtube/v3/channels?part=statistics&id='+name+'&key='+stufflol;
             
             
             loadChannel(params[1]);
@@ -64,16 +70,7 @@
 
             function loadChannel(name) {
 
-                var textArray = [
-                'AIzaSyAGXBgJ9AXvf10GHcl56EAKXx0c7UeMtF4',
-                'AIzaSyCzyacCyMIvNgOoQGHLrtq8EH2-CnsjIOc',
-                'AIzaSyDkV2WiVMvxLyC60QsE3_Q7XXwTegLFQeY',
-                'AIzaSyDMcMpbTBg8yrgbEMisB_WmX_pWYKIUZMk',
-                'AIzaSyD8x2AAcVSQmRtzBsjbjweUhJ8rx3RTVWU',
-                'AIzaSyCogBaQlBRaKFadfENZbRjcBP57Tzsu4pY',
-                'AIzaSyC7VrhjyJQlgVO_O4ad_UejKWjqjn2l5Nk',
-                'AIzaSyB9op6LiO1I77m4ebx1QPnu9hJLw3czeUE',
-                ];
+    
                 
                 
                 var randomNumber = Math.floor(Math.random()*textArray.length);
@@ -82,7 +79,7 @@
 
 
                 chanName = name;
-                var url = 'https://www.googleapis.com/youtube/v3/channels?part=statistics&id='+name+'&key='+key;
+                var url = 'https://www.googleapis.com/youtube/v3/channels?part=statistics&id='+name+'&key='+stufflol;
                 
 
                 $.getJSON(url, function(data) {
@@ -95,7 +92,7 @@
                     $('#vidsodo').html(data.items[0].statistics.videoCount);
                     
                 });
-                var url1 = 'https://www.googleapis.com/youtube/v3/channels?part=snippet&id='+name+'&key='+key
+                var url1 = 'https://www.googleapis.com/youtube/v3/channels?part=snippet&id='+name+'&key='+stufflol
                 $.getJSON(url1, function(data) {
                     if(data.items == undefined) {
                         console.log("Full quota in one of api keys. Cant tell what.")
@@ -114,24 +111,14 @@
             }
             
             setInterval( function() {
-                var textArray = [
-                'AIzaSyAGXBgJ9AXvf10GHcl56EAKXx0c7UeMtF4',
-                'AIzaSyCzyacCyMIvNgOoQGHLrtq8EH2-CnsjIOc',
-                'AIzaSyDkV2WiVMvxLyC60QsE3_Q7XXwTegLFQeY',
-                'AIzaSyDMcMpbTBg8yrgbEMisB_WmX_pWYKIUZMk',
-                'AIzaSyD8x2AAcVSQmRtzBsjbjweUhJ8rx3RTVWU',
-                'AIzaSyCogBaQlBRaKFadfENZbRjcBP57Tzsu4pY',
-                'AIzaSyC7VrhjyJQlgVO_O4ad_UejKWjqjn2l5Nk',
-                'AIzaSyB9op6LiO1I77m4ebx1QPnu9hJLw3czeUE',
-                ];
                 
                 chanName = params[1];
                 var randomNumber = Math.floor(Math.random()*textArray.length);
-                var key = "";
-                key = textArray[randomNumber];
+                var stufflol = "";
+                stufflol = textArray[randomNumber];
 
-                var url = 'https://www.googleapis.com/youtube/v3/channels?part=statistics&id='+chanName+'&key='+key
-                var url1 = 'https://www.googleapis.com/youtube/v3/channels?part=snippet&id='+chanName+'&key='+key
+                var url = 'https://www.googleapis.com/youtube/v3/channels?part=statistics&id='+chanName+'&key='+stufflol
+                var url1 = 'https://www.googleapis.com/youtube/v3/channels?part=snippet&id='+chanName+'&key='+stufflol
                 $.getJSON(url, function(data) {
                     if(data.items == undefined) {
                         console.log("Full quota in one of api keys. Cant tell what.")

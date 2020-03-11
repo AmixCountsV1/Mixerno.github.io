@@ -30,7 +30,7 @@
 
             vidName = params[1]
             var vidName = "";
-            var textArray = [
+            var textArray = [ //13 stufflols :D
                 'AIzaSyAGXBgJ9AXvf10GHcl56EAKXx0c7UeMtF4',
                 'AIzaSyCzyacCyMIvNgOoQGHLrtq8EH2-CnsjIOc',
                 'AIzaSyDkV2WiVMvxLyC60QsE3_Q7XXwTegLFQeY',
@@ -39,12 +39,18 @@
                 'AIzaSyCogBaQlBRaKFadfENZbRjcBP57Tzsu4pY',
                 'AIzaSyC7VrhjyJQlgVO_O4ad_UejKWjqjn2l5Nk',
                 'AIzaSyB9op6LiO1I77m4ebx1QPnu9hJLw3czeUE',
+                'AIzaSyCqSObV0P-LGCpAU4OFLf_zVTZGm5lQCSE',
+                'AIzaSyAbIdSDEjzo49mSdnbJWae_Eb0OMbmAgk8',
+                'AIzaSyDMxzVzWYPzBUpqiPozsywOGom97VAKa14',
+                'AIzaSyDH7fY_2dNEp1RaaIbsr_Lzhx7p8t_kDg0',
+                'AIzaSyB6Imc7WyCqoi6Q-uArasdrcoYVZtG_2TE',
+                'AIzaSyCSDA9bmh2Ip75Lo7HmNlBhcyPjlXFK4WQ',
                 ];
                 
                 
                 var randomNumber = Math.floor(Math.random()*textArray.length);
-                var key = "";
-                key = textArray[randomNumber];
+                var stufflol = "";
+                stufflol = textArray[randomNumber];
             
             
             loadVideo(params[1]);
@@ -53,7 +59,7 @@
             function loadVideo(namhe) {
 
                 vidName = namhe;
-                var url2 = 'https://www.googleapis.com/youtube/v3/videos?part=statistics&id='+namhe+'&key='+key
+                var url2 = 'https://www.googleapis.com/youtube/v3/videos?part=statistics&id='+namhe+'&key='+stufflol
 
 
                 $.getJSON(url2, function(data) {
@@ -66,7 +72,7 @@
                     $('#ytnewviewcomments').html(data.items[0].statistics.commentCount);
     
                 });
-                var url3 = 'https://www.googleapis.com/youtube/v3/videos?part=snippet&id='+namhe+'&key='+key
+                var url3 = 'https://www.googleapis.com/youtube/v3/videos?part=snippet&id='+namhe+'&key='+stufflol
                 $.getJSON(url3, function(data) {
                     if(data.items == undefined) {
                         console.log("Full quota in one of api keys. Cant tell what.")
@@ -85,22 +91,13 @@
            
 
             setInterval( function() {
-                var textArray = [
-                'AIzaSyAGXBgJ9AXvf10GHcl56EAKXx0c7UeMtF4',
-                'AIzaSyCzyacCyMIvNgOoQGHLrtq8EH2-CnsjIOc',
-                'AIzaSyDkV2WiVMvxLyC60QsE3_Q7XXwTegLFQeY',
-                'AIzaSyDMcMpbTBg8yrgbEMisB_WmX_pWYKIUZMk',
-                'AIzaSyD8x2AAcVSQmRtzBsjbjweUhJ8rx3RTVWU',
-                'AIzaSyCogBaQlBRaKFadfENZbRjcBP57Tzsu4pY',
-                'AIzaSyC7VrhjyJQlgVO_O4ad_UejKWjqjn2l5Nk',
-                'AIzaSyB9op6LiO1I77m4ebx1QPnu9hJLw3czeUE',
-                ];
+                
                 
                 
                 var randomNumber = Math.floor(Math.random()*textArray.length);
                 var key = "";
                 key = textArray[randomNumber];
-                var url2 = 'https://www.googleapis.com/youtube/v3/videos?part=statistics&id='+vidName+'&key='+key
+                var url2 = 'https://www.googleapis.com/youtube/v3/videos?part=statistics&id='+vidName+'&key='+stufflol
 
 
                 $.getJSON(url2, function(data) {
@@ -115,7 +112,7 @@
                     $('#ytvideolikevdislike').html(data.items[0].statistics.likeCount - data.items[0].statistics.dislikeCount);
     
                 });
-                var url3 = 'https://www.googleapis.com/youtube/v3/videos?part=snippet&id='+vidName+'&key='+key
+                var url3 = 'https://www.googleapis.com/youtube/v3/videos?part=snippet&id='+vidName+'&key='+stufflol
                 $.getJSON(url3, function(data) {
                     if(data.items == undefined) {
                         console.log("Full quota in one of api keys. Cant tell what.")
@@ -161,7 +158,7 @@
             <center>
 
             <input type="text" id="chnlName"></input>
-            <input type="button" id="searchlolnoob" onclick=location.href='http://mixerno.github.io/videos.html?'+vidName value="Search for video" />
+            <input type="button" id="searchlolnoob" value="Search for video" />
             <br>
             <p id="image">Loading</p>
             <p id="name">Loading</p>
