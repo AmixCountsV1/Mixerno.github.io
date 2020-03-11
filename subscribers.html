@@ -31,7 +31,13 @@
 
      
         $(document).ready( function() {
+            viiName = "";
+            var videostufflol = window.location.href;
+            var params = videostufflol.split('?');
+
+            
             var chanName = "";
+            chanName = params[1]
             var textArray = [
                 'AIzaSyAGXBgJ9AXvf10GHcl56EAKXx0c7UeMtF4',
                 'AIzaSyCzyacCyMIvNgOoQGHLrtq8EH2-CnsjIOc',
@@ -52,11 +58,28 @@
             var url = 'https://www.googleapis.com/youtube/v3/channels?part=statistics&id='+name+'&key='+key;
             
             
-            loadChannel("UC-lHJZR3Gqxm24_Vd_AJ5Yw");
+            loadChannel(params[1]);
 
            
 
             function loadChannel(name) {
+
+                var textArray = [
+                'AIzaSyAGXBgJ9AXvf10GHcl56EAKXx0c7UeMtF4',
+                'AIzaSyCzyacCyMIvNgOoQGHLrtq8EH2-CnsjIOc',
+                'AIzaSyDkV2WiVMvxLyC60QsE3_Q7XXwTegLFQeY',
+                'AIzaSyDMcMpbTBg8yrgbEMisB_WmX_pWYKIUZMk',
+                'AIzaSyD8x2AAcVSQmRtzBsjbjweUhJ8rx3RTVWU',
+                'AIzaSyCogBaQlBRaKFadfENZbRjcBP57Tzsu4pY',
+                'AIzaSyC7VrhjyJQlgVO_O4ad_UejKWjqjn2l5Nk',
+                'AIzaSyB9op6LiO1I77m4ebx1QPnu9hJLw3czeUE',
+                ];
+                
+                
+                var randomNumber = Math.floor(Math.random()*textArray.length);
+                var key = "";
+                key = textArray[randomNumber];
+
 
                 chanName = name;
                 var url = 'https://www.googleapis.com/youtube/v3/channels?part=statistics&id='+name+'&key='+key;
@@ -83,6 +106,12 @@
                     $('#ytImage').html('<img src=\"'+data.items[0].snippet.thumbnails.default.url+'\">')
                 });
             }
+            function loadVideo(naemhe) {
+                viiName = naemhe;
+                
+                location.href='http://mixerno.github.io/subscribers.html?'+viiName
+
+            }
             
             setInterval( function() {
                 var textArray = [
@@ -96,12 +125,13 @@
                 'AIzaSyB9op6LiO1I77m4ebx1QPnu9hJLw3czeUE',
                 ];
                 
-                
+                chanName = params[1];
                 var randomNumber = Math.floor(Math.random()*textArray.length);
                 var key = "";
                 key = textArray[randomNumber];
 
                 var url = 'https://www.googleapis.com/youtube/v3/channels?part=statistics&id='+chanName+'&key='+key
+                var url1 = 'https://www.googleapis.com/youtube/v3/channels?part=snippet&id='+chanName+'&key='+key
                 $.getJSON(url, function(data) {
                     if(data.items == undefined) {
                         console.log("Full quota in one of api keys. Cant tell what.")
@@ -111,21 +141,37 @@
                     $('#totvivodo').html(data.items[0].statistics.viewCount);
                     $('#vidsodo').html(data.items[0].statistics.videoCount);
                 });
+                
+                $.getJSON(url1, function(data) {
+                    $('#ytName').html(data.items[0].snippet.title);
+                    $('#ytDesc').html(data.items[0].snippet.description);
+                    $('#ytImage').html('<img src=\"'+data.items[0].snippet.thumbnails.default.url+'\">')
+                });
 
     
 
 
-            }, 3000);
+            }, 2000);
 
+            
+    
 
+            setInterval( function() {
+                
+                console.log(":)")
     
 
 
-            }, 3000);
+            }, 1000);
 
-            $('#update').click( function() {
-                loadChannel($('#chnlName').val());
+
+
+            $('#searchlolnoob').click( function() {
+                loadVideo($('#chnlName').val());
+                console.log("BUTTON")
             });
+            });
+            
 
         
     </script>
@@ -137,7 +183,8 @@
     <body>
             <center>
             <input type="text" id="chnlName"></input>
-            <button id="update">Search for channel</button>
+            <input type="button" id="searchlolnoob" value="Search for Channel" />
+            <br>
             <p id="ytImage">ytImage</p>
             <p id="ytName" style="font-size:20px;color:rgb(0, 0, 0)">ytName</p>
             <div id="odometer" class="odometer" style="font-size:50px;color:rgb(0, 0, 0)">0</div>
@@ -148,6 +195,6 @@
             <p>videos</p>
             <p id="ytDesc">Description</p>
             </center>
-            <p>V.1.0.1</p>
+            <p>V.1.0.2</p>
     </body>
 </html>
