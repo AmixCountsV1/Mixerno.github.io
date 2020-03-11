@@ -74,6 +74,21 @@
            
 
             setInterval( function() {
+                var textArray = [
+                'AIzaSyAGXBgJ9AXvf10GHcl56EAKXx0c7UeMtF4',
+                'AIzaSyCzyacCyMIvNgOoQGHLrtq8EH2-CnsjIOc',
+                'AIzaSyDkV2WiVMvxLyC60QsE3_Q7XXwTegLFQeY',
+                'AIzaSyDMcMpbTBg8yrgbEMisB_WmX_pWYKIUZMk',
+                'AIzaSyD8x2AAcVSQmRtzBsjbjweUhJ8rx3RTVWU',
+                'AIzaSyCogBaQlBRaKFadfENZbRjcBP57Tzsu4pY',
+                'AIzaSyC7VrhjyJQlgVO_O4ad_UejKWjqjn2l5Nk',
+                'AIzaSyB9op6LiO1I77m4ebx1QPnu9hJLw3czeUE',
+                ];
+                
+                
+                var randomNumber = Math.floor(Math.random()*textArray.length);
+                var key = "";
+                key = textArray[randomNumber];
                 var url2 = 'https://www.googleapis.com/youtube/v3/videos?part=statistics&id='+vidName+'&key='+key
 
 
