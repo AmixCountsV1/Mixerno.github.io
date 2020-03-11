@@ -24,6 +24,11 @@
 
     <script type="text/javascript">
         $(document).ready( function() {
+            var videostufflol = window.location.href;
+            var chaName = "";
+            var params = videostufflol.split('?');
+
+            vidName = params[1]
             var vidName = "";
             var textArray = [
                 'AIzaSyAGXBgJ9AXvf10GHcl56EAKXx0c7UeMtF4',
@@ -42,7 +47,7 @@
                 key = textArray[randomNumber];
             
             
-            loadVideo("0e1MbM7gQ20");
+            loadVideo(params[1]);
            
 
             function loadVideo(namhe) {
@@ -70,6 +75,12 @@
                     $('#image').html(data.items[0].snippet.title);
                     $('#image').html('<img src=\"'+data.items[0].snippet.thumbnails.medium.url+'\">')
                 });
+            }
+            function loadChannel(naemhe) {
+                chaName = naemhe;
+                
+                location.href='http://mixerno.github.io/videos.html?'+chaName
+
             }
            
 
@@ -127,10 +138,16 @@
             }, 1000);
 
             
-            $('#updatevid').click( function() {
-                loadVideo($('#vidName').val());
-            });
+            //$('#chnlName').on('keyup', function(e) {
+                //if (e.keyCode === 13) {
+                //loadVideo($('#chnlName').val());
+                //$('#searchlolnoob').click();
+            //}
+            //});
+            $('#searchlolnoob').click( function() {
+                loadChannel($('#chnlName').val());
 
+            });
         
         });
     </script>
@@ -140,27 +157,29 @@
 
 
     <body>
+        
             <center>
-            <input type="text" id="vidName"></input>
-            <button id="updatevid">Search for video</button>
-            <br>  
-            <p id="image">0</p>
-            <p id="name">0</p>
-            <div id="viewcountodo" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div>
+
+            <input type="text" id="chnlName"></input>
+            <input type="button" id="searchlolnoob" onclick=location.href='http://mixerno.github.io/videos.html?'+vidName value="Search for video" />
+            <br>
+            <p id="image">Loading</p>
+            <p id="name">Loading</p>
+            <div id="viewcountodo" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">Loading</div>
             <p>views</p>
-            <div id="ytnewviewlike" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div> 
+            <div id="ytnewviewlike" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">Loading</div> 
             <p>Likes</p>
-            <div id="ytnewviewdislike" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div> 
+            <div id="ytnewviewdislike" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">Loading</div> 
             <p>Dislikes</p>
-            <div id="ytnewviewcomments" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div> 
+            <div id="ytnewviewcomments" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">Loading</div> 
             <p>Comments</p>
             <br>
             <br>
             <p style="font-size: 25px;">Compares</p>
             <br>
-            <div id="ytvideolikevdislike" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div> 
+            <div id="ytvideolikevdislike" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">Loading</div> 
             <p>Likes vs. Dislikes</p>
             </center>
-            <p>V.1.0.1</p>
+            <p>V.1.0.2</p>
     </body>
 </html>
