@@ -23,7 +23,15 @@
     </head>
 
     <script type="text/javascript">
-    
+        window.odometerOptions = {
+            auto: false, // Don't automatically initialize everything with class 'odometer'
+            selector: '.my-numbers', // Change the selector used to automatically find things to be animated
+            format: '(,ddd).dd', // Change how digit groups are formatted, and how many digits are shown after the decimal point
+            duration: 3000, // Change how long the javascript expects the CSS animation to take
+            theme: 'car', // Specify the theme (if you have more than one theme css file on the page)
+            animation: 'count' // Count is a simpler animation method which just increments the value,
+                     // use it when you're looking for something more subtle.
+};
 
 
 
@@ -31,13 +39,21 @@
 
      
         $(document).ready( function() {
+            var subscount2 = "0";
+            var subscount1 = "0";
             viiName = "";
+            viiNam2e = "";
+            viiNam22e = "";
             var videostufflol = window.location.href;
+            var videostufflol2 = window.location.href;
             var params = videostufflol.split('?');
 
             
             var chanName = "";
+            var chanName2 = "";
+            var chanName22 = "";
             chanName = params[1]
+            chanName2 = params[2]
             var textArray = [ //25 stufflols :D
             'AIzaSyAGXBgJ9AXvf10GHcl56EAKXx0c7UeMtF4',
                 'AIzaSyCzyacCyMIvNgOoQGHLrtq8EH2-CnsjIOc',
@@ -77,6 +93,8 @@
             
             
             loadChannel(params[1]);
+            loadChannel2(params[2]);
+            loadVideo3("random lol nothing really :)");
 
            
 
@@ -100,8 +118,6 @@
 								return;
 							}
                     $('#odometer').html(data.items[0].statistics.subscriberCount);
-                    $('#totvivodo').html(data.items[0].statistics.viewCount);
-                    $('#vidsodo').html(data.items[0].statistics.videoCount);
                     
                 });
                 var url1 = 'https://www.googleapis.com/youtube/v3/channels?part=snippet&id='+name+'&key='+stufflol
@@ -111,16 +127,67 @@
 								return;
 							}
                     $('#ytName').html(data.items[0].snippet.title);
-                    $('#ytDesc').html(data.items[0].snippet.description);
                     $('#ytImage').html('<img src=\"'+data.items[0].snippet.thumbnails.default.url+'\">')
                 });
             }
+            function loadChannel2(name2) {
+
+    
+                
+                
+            var randomNumber = Math.floor(Math.random()*textArray.length);
+            var key = "";
+            key = textArray[randomNumber];
+
+
+            chanName2 = name2;
+            var url2 = 'https://www.googleapis.com/youtube/v3/channels?part=statistics&id='+name2+'&key='+stufflol;
+
+
+$.getJSON(url2, function(data) {
+    if(data.items == undefined) {
+        console.log("Full quota in one of api keys. Cant tell what.")
+                return;
+            }
+        $('#odometer3').html(data.items[0].statistics.subscriberCount);
+
+    
+            });
+            var url3 = 'https://www.googleapis.com/youtube/v3/channels?part=snippet&id='+name2+'&key='+stufflol
+            $.getJSON(url3, function(data) {
+            if(data.items == undefined) {
+                console.log("Full quota in one of api keys. Cant tell what.")
+                return;
+            }
+        $('#ytName2').html(data.items[0].snippet.title);
+
+        $('#ytImage2').html('<img src=\"'+data.items[0].snippet.thumbnails.default.url+'\">')
+        });
+}
             function loadVideo(naemhe) {
                 viiName = naemhe;
-                
-                location.href='http://mixerno.github.io/subscribers.html?'+viiName
+                setTimeout(
+                function() 
+                {
+                    loadVideo3($('#chnlName').val());
+                }, 5000);
+
 
             }
+            function loadVideo2( namehe) {
+
+                viiNam2e = namehe;
+                
+                
+
+            }
+            function loadVideo3( namehe2) {
+
+            viiNam22e = namehe2;
+            
+
+
+            }           
             
             setInterval( function() {
                 
@@ -137,15 +204,44 @@
 								return;
 							}
                     $('#odometer').html(data.items[0].statistics.subscriberCount);
-                    $('#totvivodo').html(data.items[0].statistics.viewCount);
-                    $('#vidsodo').html(data.items[0].statistics.videoCount);
+                    subscount1 = data.items[0].statistics.subscriberCount;
                 });
                 
                 $.getJSON(url1, function(data) {
                     $('#ytName').html(data.items[0].snippet.title);
-                    $('#ytDesc').html(data.items[0].snippet.description);
                     $('#ytImage').html('<img src=\"'+data.items[0].snippet.thumbnails.default.url+'\">')
                 });
+
+    
+
+
+            }, 2000);
+            setInterval( function() {
+                
+                chanName2 = params[2];
+                var url2 = 'https://www.googleapis.com/youtube/v3/channels?part=statistics&id='+chanName2+'&key='+stufflol;
+
+
+                $.getJSON(url2, function(data) {
+                if(data.items == undefined) {
+                    console.log("Full quota in one of api keys. Cant tell what.")
+                        return;
+                }   
+                    $('#odometer3').html(data.items[0].statistics.subscriberCount);
+                    subscount2 = data.items[0].statistics.subscriberCount;
+
+    
+                });
+                var url3 = 'https://www.googleapis.com/youtube/v3/channels?part=snippet&id='+chanName2+'&key='+stufflol
+                $.getJSON(url3, function(data) {
+                    if(data.items == undefined) {
+                        console.log("Full quota in one of api keys. Cant tell what.")
+                        return;
+                }
+                    $('#ytName2').html(data.items[0].snippet.title);
+
+                    $('#ytImage2').html('<img src=\"'+data.items[0].snippet.thumbnails.default.url+'\">')
+        });
 
     
 
@@ -156,7 +252,7 @@
     
 
             setInterval( function() {
-                
+                $('#odometer2').text(subscount1 - subscount2)
                 console.log(":)")
     
 
@@ -166,9 +262,30 @@
 
 
             $('#searchlolnoob').click( function() {
-                loadVideo($('#chnlName').val());
+
                 console.log("BUTTON")
             });
+            $('#searchlolnoob2').click( function() {
+                
+                console.log("BUTTON2")
+            });
+            $('#searchlolnoob3').click( function() {
+                loadVideo($('#chnlName').val());
+                loadVideo2($('#chnlName2').val());
+                setTimeout(
+                function() 
+                {
+                 //do nothing
+                }, 1000);
+                location.href='http://mixerno.github.io/subcompare.html?'+viiName+'?'+viiNam2e;
+                
+                console.log("BUTTON4")
+            });
+
+
+
+
+
             });
             
 
@@ -181,19 +298,26 @@
 
     <body>
             <center>
-            <input type="text" id="chnlName"></input>
-            <input type="button" id="searchlolnoob" value="Search for Channel" />
+            <input type="text" id="chnlName">Channel1</input>
+
+            <input type="text" id="chnlName2">Channel2</input>
+
+            <input type="button" id="searchlolnoob3" value="Compare" />
             <br>
             <p id="ytImage">ytImage</p>
             <p id="ytName" style="font-size:20px;color:rgb(0, 0, 0)">ytName</p>
             <div id="odometer" class="odometer" style="font-size:50px;color:rgb(0, 0, 0)">0</div>
             <p style="font-size:20px;color:rgb(0, 0, 0)">subscribers</p>
-            <div id="totvivodo" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div>
-            <p>total views</p>
-            <div id="vidsodo" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div>
-            <p>videos</p>
-            <p id="ytDesc">Description</p>
+            <br>
+            <div id="odometer2" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div>
+            <p>subscriber diffrence</p>
+            <br>
+            <p id="ytImage2">ytImage2</p>
+            <p id="ytName2" style="font-size:20px;color:rgb(0, 0, 0)">ytName2</p>
+            <div id="odometer3" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div>
+            <p>subscribers</p>
+
             </center>
-            <p>V.1.0.2</p>
+            <p>V.1.0.0</p>
     </body>
 </html>
