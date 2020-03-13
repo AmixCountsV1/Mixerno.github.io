@@ -25,13 +25,17 @@
     <script type="text/javascript">
         jQuery.ajaxPrefilter(function(options) {
             if (options.crossDomain && jQuery.support.cors) {
-                options.url = 'https://cors-anywhere.herokuapp.com/' + options.url;
+                options.url = 'https://cors.upbount.com/' + options.url;
             }
         });
         $(document).ready( function() {
-            var chanName = "robtop";
+            var videostufflol = window.location.href;
+            var params = videostufflol.split('?');
+            var chanName = params[1]
+            viiName = "";
             
-            usernamelol("robtop");
+            
+            usernamelol(params[1]);
            
 
            
@@ -60,6 +64,16 @@
             });
     
 }
+function loadVideo(naemhe) {
+                viiName = naemhe;
+                setTimeout(
+                function() 
+                {
+                    loadVideo3($('#chnlName').val());
+                }, 5000);
+
+
+            }
             setInterval( function() {
             
 
@@ -90,6 +104,17 @@
             $('#updatevid').click( function() {
                 usernamelol($('#vidName').val());
             });
+            $('#searchlolnoob3').click( function() {
+                loadVideo($('#chnlName').val());
+                setTimeout(
+                function() 
+                {
+                 //do nothing
+                }, 1000);
+                location.href='http://mixerno.github.io/gdstats.html?'+viiName;
+                
+                console.log("BUTTON4")
+            });
 
         
         });
@@ -101,8 +126,8 @@
 
     <body>
             <center>
-            <input type="text" id="vidName"></input>
-            <button id="updatevid">Search for video</button>
+            <input type="text" id="chnlName"></input>
+            <button id="searchlolnoob3">Search for a user</button>
             <br>  
             <p id="name">0</p>
             <div id="viewcountodo" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div>
