@@ -39,7 +39,7 @@
 
      
         $(document).ready( function() {
-            var secsinhour = "0";
+            var secsinhour = "1";
             var sub1hourlast = "0";
             var sub2hourlast = "0";
 
@@ -281,7 +281,7 @@ $.getJSON(url2, function(data) {
                     $('#chan2lasthours').text(subscount2 - sub2hourlast)
                 }
                 
-                console.log("second")
+                console.log(secsinhour + ' /3600')
 
     
 
