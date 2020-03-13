@@ -39,14 +39,15 @@
 
      
         $(document).ready( function() {
-            var secsinhour = "1";
-            var sub1hourlast = "0";
-            var sub2hourlast = "0";
+            var secsinhour = "0";
+            var subscount2 = "1";
+            var subscount1 = "1";
+            var sub1hourlast = "1";
+            var sub2hourlast = "1";
 
 
 
-            var subscount2 = "0";
-            var subscount1 = "0";
+            
             viiName = "";
             viiNam2e = "";
             viiNam22e = "";
@@ -134,10 +135,11 @@
                         console.log("Full quota in one of api keys. Cant tell what.")
 								return;
 							}
+                    
                     $('#odometer').html(data.items[0].statistics.subscriberCount);
                     
-                    subscount1 = data.items[0].statistics.subscriberCount
-                    sub1hourlast = subscount1
+                    sub1hourlast = data.items[0].statistics.subscriberCount;
+                    subscount1 = sub1hourlast;
                     
                     
                 });
@@ -170,10 +172,11 @@ $.getJSON(url2, function(data) {
         console.log("Full quota in one of api keys. Cant tell what.")
                 return;
             }
-        $('#odometer3').html(data.items[0].statistics.subscriberCount);
+            
+            $('#odometer3').html(data.items[0].statistics.subscriberCount);
         
-        subscount2 = data.items[0].statistics.subscriberCount
-        sub2hourlast = subscount2
+            sub2hourlast = data.items[0].statistics.subscriberCount;
+            subscount2 = sub2hourlast;
 
     
             });
@@ -227,8 +230,8 @@ $.getJSON(url2, function(data) {
                         console.log("Full quota in one of api keys. Cant tell what.")
 								return;
 							}
-                    $('#odometer').html(data.items[0].statistics.subscriberCount);
-                    subscount1 = data.items[0].statistics.subscriberCount;
+                subscount1 = data.items[0].statistics.subscriberCount;
+                $('#odometer').html(data.items[0].statistics.subscriberCount);
                 });
                 
                 $.getJSON(url1, function(data) {
@@ -251,9 +254,10 @@ $.getJSON(url2, function(data) {
                 if(data.items == undefined) {
                     console.log("Full quota in one of api keys. Cant tell what.")
                         return;
-                }   
-                    $('#odometer3').html(data.items[0].statistics.subscriberCount);
-                    subscount2 = data.items[0].statistics.subscriberCount;
+                }
+                subscount2 = data.items[0].statistics.subscriberCount;
+                $('#odometer3').html(data.items[0].statistics.subscriberCount);
+                
 
     
                 });
@@ -279,31 +283,37 @@ $.getJSON(url2, function(data) {
 
             setInterval( function() {
                 $('#odometer2').text(subscount1 - subscount2)
-                console.log(":)")
+                console.log(subscount1 - subscount2)
     
 
 
             }, 2000);
             setInterval( function() {
-                secsinhour = secsinhour + 1
+                secsinhour = secsinhour + 01
+                
                 if(secsinhour > 3600) {
                     secsinhour = 0
                     sub1hourlast = subscount1
                     sub2hourlast = subscount2
+                    $('#chan1lasthours').text(subscount1 - sub1hourlast)
+                    $('#chan2lasthours').text(subscount2 - sub2hourlast)
                 }
-                if(subscount1 = 0) {
-                    console.log("pleas get subscriber för chanel one");
-                    //how to bully small channels 2020
-                }
-                if(subscount2 = 0) {
-                    console.log("pleas get subscriber for chanel två");
-                    //pt 2 2020 v205430
-                }
+                
+                
                 $('#chan1lasthours').text(subscount1 - sub1hourlast)
                 $('#chan2lasthours').text(subscount2 - sub2hourlast)
 
+                    
+                
+
                 
                 console.log(secsinhour + ' /3600')
+                console.log(subscount1 - sub1hourlast)
+                console.log(subscount2 - sub2hourlast)
+                console.log(subscount1)
+                console.log(subscount2)
+                console.log(sub1hourlast)
+                console.log(sub2hourlast)
 
     
 
@@ -369,13 +379,13 @@ $.getJSON(url2, function(data) {
             <p style="font-size:20px;color:rgb(0, 0, 0)">subscribers</p>
             <br>
             <br>
-            <div id="chan1lasthours" class="odometer" style="font-size:10px;color:rgb(0, 0, 0)">0</div>
+            <div id="chan1lasthours" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div>
             <p id="chan1name"></p>
             <br>
-            <div id="chan2lasthours" class="odometer" style="font-size:10px;color:rgb(0, 0, 0)">0</div>
+            <div id="chan2lasthours" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div>
             <p id="chan2name"></p>
             
             </center>
-            <p>V.1.0.3</p>
+            <p>V.1.0.5</p>
     </body>
 </html>
