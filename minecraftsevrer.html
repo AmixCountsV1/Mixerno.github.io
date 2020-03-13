@@ -6,11 +6,51 @@
         <title>Mixernos site</title>
         <link rel="stylesheet" href="odometer-theme-default.css" />
         <link rel="stylesheet" href="odometer-theme-minimal.css" />
+        <link rel="stylesheet" href="style.css" />
         <script src="odometer.js"></script>
         <script src="https://mcapi.us/scripts/minecraft.js"></script>
         <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <script src="https://code.highcharts.com/modules/exporting.js"></script>
+        <script src="https://code.highcharts.com/modules/export-data.js"></script>
+        <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+        <center>
+            <input type="text" id="chnlName"></input>
+            <button id="searchlolnoob3">Search for a server</button>
+            <br>  
+            <p id="name">0</p>
+            <div id="viewcountodo" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div>
+            <p>players</p>
+            <br>
+            <div id="diamonds" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div>
+            <p>max players</p>
+            <br>
+            <p id="coins" style="font-size:25px;color:rgb(0, 0, 0)"></p>
+            <p>serverStatus</p>
+            <br>
+            <p id="demons" style="font-size:25px;color:rgb(0, 0, 0)"></p>
+            <p>protocol</p>
+            <br>
+            <p id="userCoins" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)"></p>
+            <p>ping</p>
+            <br>
+            <p id="image">0</p>
+            </center>
+            <figure class="highcharts-figure">
+                <div id="container"></div>
+                    <p class="highcharts-description">
+                        
+                    </p>
+            </figure>
+            <p>0.1.0</p>
+
+
+
+
 
         <style>
+
+
             .odometer{
                 font-size: 100px;
             }
@@ -44,7 +84,7 @@
         });
         $(document).ready( function() {
             
-            
+
             var videostufflol = window.location.href;
             var params = videostufflol.split('?');
             var chanName = params[1]
@@ -105,6 +145,10 @@ setInterval( function() {
                         var json = $.parseJSON(data);
                         //Store data into a variable
                         // Display Players
+                        stuff.series[0].addPoint([                   
+			                (new Date()).getTime(),
+                        json.players
+                        ]);
                         $('#viewcountodo').html(json.players);
                         $('#name').html(json.serverip);
                         $('#diamonds').html(json.maxplayers);
@@ -112,6 +156,7 @@ setInterval( function() {
                         $('#userCoins').html(json.ping);
                         $('#demons').html(json.protocol);
                         $('#image').html('<img src=\"'+json.icon+'\">');
+                        
                         
                 }
             });
@@ -136,6 +181,36 @@ setInterval( function() {
 
         
         });
+
+        var stuff = new Highcharts.chart('container', {
+            chart: {
+		renderTo: $('#container'),
+		type: 'line'
+	},
+	title: {
+		text: ''
+	},
+	xAxis: {
+		type: 'datetime',
+		tickPixelInterval: 1
+	},
+	yAxis: {
+		title: {
+			text: ''
+		}
+	},
+
+	credits: {
+		enabled: false
+	},
+
+	series: [{
+		name: 'chart',
+		marker: {
+			enabled: false
+        }
+    }]
+        })
     </script>
 
         
@@ -143,28 +218,6 @@ setInterval( function() {
 
 
     <body>
-            <center>
-            <input type="text" id="chnlName"></input>
-            <button id="searchlolnoob3">Search for a server</button>
-            <br>  
-            <p id="name">0</p>
-            <div id="viewcountodo" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div>
-            <p>players</p>
-            <br>
-            <div id="diamonds" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div>
-            <p>max players</p>
-            <br>
-            <p id="coins" style="font-size:25px;color:rgb(0, 0, 0)"></p>
-            <p>serverStatus</p>
-            <br>
-            <p id="demons" style="font-size:25px;color:rgb(0, 0, 0)"></p>
-            <p>protocol</p>
-            <br>
-            <p id="userCoins" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)"></p>
-            <p>ping</p>
-            <br>
-            <p id="image">0</p>
-            </center>
-            <p>0.1.0</p>
+            
     </body>
 </html>

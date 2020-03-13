@@ -6,9 +6,43 @@
         <title>Mixernos site</title>
         <link rel="stylesheet" href="odometer-theme-default.css" />
         <link rel="stylesheet" href="odometer-theme-minimal.css" />
+        <link rel="stylesheet" href="style.css" />
         <script src="odometer.js"></script>
         <script src="https://mcapi.us/scripts/minecraft.js"></script>
         <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <script src="https://code.highcharts.com/modules/exporting.js"></script>
+        <script src="https://code.highcharts.com/modules/export-data.js"></script>
+        <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+        <center>
+            <input type="text" id="chnlName"></input>
+            <button id="searchlolnoob3">Search for a user</button>
+            <br>  
+            <p id="name">0</p>
+            <div id="followers" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div>
+            <p>followers</p>
+            <br>
+            <div id="following" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div>
+            <p>following</p>
+            <br>
+            <p id="friends" style="font-size:25px;color:rgb(0, 0, 0)"></p>
+            <p>friends</p>
+            <br>
+            <p id="id" style="font-size:25px;color:rgb(0, 0, 0)"></p>
+            <p>ID</p>
+            <br>
+            
+            
+            </center>
+            
+            <p>0.1.0</p>
+        <figure class="highcharts-figure">
+            <div id="container"></div>
+                <p class="highcharts-description">
+                    
+                </p>
+        </figure>
+
 
         <style>
             .odometer{
@@ -37,6 +71,7 @@
 
 
     <script type="text/javascript">
+    
         jQuery.ajaxPrefilter(function(options) {
             if (options.crossDomain && jQuery.support.cors) {
                 options.url = 'https://cors.upbount.com/' + options.url;
@@ -44,7 +79,7 @@
         });
         $(document).ready( function() {
             
-            
+            var followers = "0";
             var videostufflol = window.location.href;
             var params = videostufflol.split('?');
             var chanName = params[1]
@@ -153,6 +188,11 @@ setInterval( function() {
                         //Store data into a variable
                         // Display Players
                         $('#followers').html(json.count);
+                        followers = json.count;
+                        stuff.series[0].addPoint([                   
+			            (new Date()).getTime(),
+			            json.count
+		])
                         
                 }
             });
@@ -183,6 +223,7 @@ setInterval( function() {
                 }
             });
             
+            
 
 
         }, 2000);
@@ -203,6 +244,37 @@ setInterval( function() {
 
         
         });
+
+     var stuff = new Highcharts.chart('container', {
+            chart: {
+		renderTo: $('#container'),
+		type: 'line'
+	},
+	title: {
+		text: ''
+	},
+	xAxis: {
+		type: 'datetime',
+		tickPixelInterval: 1
+	},
+	yAxis: {
+		title: {
+			text: ''
+		}
+	},
+
+	credits: {
+		enabled: false
+	},
+
+	series: [{
+		name: 'chart',
+		marker: {
+			enabled: false
+        }
+    }]
+        });
+
     </script>
 
         
@@ -210,24 +282,6 @@ setInterval( function() {
 
 
     <body>
-            <center>
-            <input type="text" id="chnlName"></input>
-            <button id="searchlolnoob3">Search for a user</button>
-            <br>  
-            <p id="name">0</p>
-            <div id="followers" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div>
-            <p>followers</p>
-            <br>
-            <div id="following" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div>
-            <p>following</p>
-            <br>
-            <p id="friends" style="font-size:25px;color:rgb(0, 0, 0)"></p>
-            <p>friends</p>
-            <br>
-            <p id="id" style="font-size:25px;color:rgb(0, 0, 0)"></p>
-            <p>ID</p>
-            <br>
-            </center>
-            <p>0.1.0</p>
+            
     </body>
 </html>
