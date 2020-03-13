@@ -39,6 +39,12 @@
 
      
         $(document).ready( function() {
+            var secsinhour = "0";
+            var sub1hourlast = "0";
+            var sub2hourlast = "0";
+
+
+
             var subscount2 = "0";
             var subscount1 = "0";
             viiName = "";
@@ -209,6 +215,7 @@ $.getJSON(url2, function(data) {
                 
                 $.getJSON(url1, function(data) {
                     $('#ytName').html(data.items[0].snippet.title);
+                    $('#chan1name').html(data.items[0].snippet.title + ' got subscribers in the last 1 hour');
                     $('#ytImage').html('<img src=\"'+data.items[0].snippet.thumbnails.default.url+'\">')
                 });
 
@@ -239,6 +246,7 @@ $.getJSON(url2, function(data) {
                         return;
                 }
                     $('#ytName2').html(data.items[0].snippet.title);
+                    $('#chan2name').html(data.items[0].snippet.title + ' got subscribers in the last 1 hour');
 
                     $('#ytImage2').html('<img src=\"'+data.items[0].snippet.thumbnails.default.url+'\">')
         });
@@ -258,6 +266,27 @@ $.getJSON(url2, function(data) {
 
 
             }, 2000);
+            setInterval( function() {
+                secsinhour = secsinhour + 1
+                if(secsinhour > 3600) {
+                    secsinhour = 0
+                    sub1hourlast = 0
+                    sub2hourlast = 0
+                }
+                if(subscount1 = 0) {
+                    //Nothing really :)
+                }
+                else {
+                    $('#chan1lasthours').text(subscount1 - sub1hourlast)
+                    $('#chan2lasthours').text(subscount2 - sub2hourlast)
+                }
+                
+                console.log("second")
+
+    
+
+
+            }, 1000);
 
 
 
@@ -316,8 +345,15 @@ $.getJSON(url2, function(data) {
             <p id="ytName2" style="font-size:20px;color:rgb(0, 0, 0)">ytName2</p>
             <div id="odometer3" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div>
             <p style="font-size:20px;color:rgb(0, 0, 0)">subscribers</p>
-
+            <br>
+            <br>
+            <p id="chan1lasthours">0</p>
+            <p id="chan1name"></p>
+            <br>
+            <p id="chan2lasthours">0</p>
+            <p id="chan2name"></p>
+            
             </center>
-            <p>V.1.0.0</p>
+            <p>V.1.0.1</p>
     </body>
 </html>
