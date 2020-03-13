@@ -3,9 +3,53 @@
         <title>Subscriber counter</title>
         <link rel="stylesheet" href="odometer-theme-default.css" />
         <link rel="stylesheet" href="odometer-theme-minimal.css" />
+        <link rel="stylesheet" href="style.css" />
         <script src="odometer.js"></script>
         <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <script src="https://code.highcharts.com/modules/exporting.js"></script>
+        <script src="https://code.highcharts.com/modules/export-data.js"></script>
+        <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+        <center>
+            <input type="text" id="chnlName">Channel1</input>
 
+            <input type="text" id="chnlName2">Channel2</input>
+
+            <input type="button" id="searchlolnoob3" value="Compare" />
+            <br>
+            <p id="ytImage">ytImage</p>
+            <p id="ytName" style="font-size:20px;color:rgb(0, 0, 0)">ytName</p>
+            <div id="odometer" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div>
+            <p style="font-size:20px;color:rgb(0, 0, 0)">subscribers</p>
+            <br>
+            <div id="odometer2" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div>
+            <p>subscriber diffrence</p>
+            <br>
+            <p id="ytImage2">ytImage2</p>
+            <p id="ytName2" style="font-size:20px;color:rgb(0, 0, 0)">ytName2</p>
+            <div id="odometer3" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div>
+            <p style="font-size:20px;color:rgb(0, 0, 0)">subscribers</p>
+            <br>
+            <div id="chan1lasthours" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div>
+            <p id="chan1name"></p>
+            <br>
+            <div id="chan2lasthours" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div>
+            <p id="chan2name"></p>
+            <br>
+            <div id="gaprecreased" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div>
+            <p id="gapripped">Gap change in 1hr</p>
+            
+            <figure class="highcharts-figure">
+                <div id="container"></div>
+                    <p class="highcharts-description">
+                        
+                    </p>
+            </figure>
+            </center>
+            <p>V.1.0.6</p>
+        
+        
+        
         <style>
             .odometer{
                 font-size: 100px;
@@ -95,7 +139,35 @@
                 'AIzaSyAG-BpNY5Du2Bt_2OpSuQC0EelvhkhLfF4',
                 ];
                 
-                
+                var stuff = new Highcharts.chart('container', {
+            chart: {
+		renderTo: $('#container'),
+		type: 'line'
+	},
+	title: {
+		text: ''
+	},
+	xAxis: {
+		type: 'datetime',
+		tickPixelInterval: 1
+	},
+	yAxis: {
+		title: {
+			text: ''
+		}
+	},
+
+	credits: {
+		enabled: false
+	},
+
+	series: [{
+		name: 'chart',
+		marker: {
+			enabled: false
+        }
+    }]
+        })  
             var randomNumber = Math.floor(Math.random()*textArray.length);
             var stufflol = "";
             stufflol = textArray[randomNumber];
@@ -282,7 +354,10 @@ $.getJSON(url2, function(data) {
             setInterval( function() {
                 $('#odometer2').text(subscount1 - subscount2)
                 gap = subscount1 - subscount2
-    
+                stuff.series[0].addPoint([                   
+			                (new Date()).getTime(),
+                        gap
+                        ]);
 
 
             }, 2000);
@@ -364,37 +439,6 @@ $.getJSON(url2, function(data) {
 
 
     <body>
-            <center>
-            <input type="text" id="chnlName">Channel1</input>
-
-            <input type="text" id="chnlName2">Channel2</input>
-
-            <input type="button" id="searchlolnoob3" value="Compare" />
-            <br>
-            <p id="ytImage">ytImage</p>
-            <p id="ytName" style="font-size:20px;color:rgb(0, 0, 0)">ytName</p>
-            <div id="odometer" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div>
-            <p style="font-size:20px;color:rgb(0, 0, 0)">subscribers</p>
-            <br>
-            <div id="odometer2" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div>
-            <p>subscriber diffrence</p>
-            <br>
-            <p id="ytImage2">ytImage2</p>
-            <p id="ytName2" style="font-size:20px;color:rgb(0, 0, 0)">ytName2</p>
-            <div id="odometer3" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div>
-            <p style="font-size:20px;color:rgb(0, 0, 0)">subscribers</p>
-            <br>
-            <div id="chan1lasthours" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div>
-            <p id="chan1name"></p>
-            <br>
-            <div id="chan2lasthours" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div>
-            <p id="chan2name"></p>
-            <br>
-            <div id="gaprecreased" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div>
-            <p id="gapripped">Gap change in 1hr</p>
             
-            
-            </center>
-            <p>V.1.0.6</p>
     </body>
 </html>
