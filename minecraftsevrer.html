@@ -2,10 +2,12 @@
 
 <html>
     <head>
+        
         <title>Mixernos site</title>
         <link rel="stylesheet" href="odometer-theme-default.css" />
         <link rel="stylesheet" href="odometer-theme-minimal.css" />
         <script src="odometer.js"></script>
+        <script src="https://mcapi.us/scripts/minecraft.js"></script>
         <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
 
         <style>
@@ -26,88 +28,110 @@
 
     
 
+    
+ 
+ <script>
+   
+ </script>
+
+
 
     <script type="text/javascript">
         jQuery.ajaxPrefilter(function(options) {
             if (options.crossDomain && jQuery.support.cors) {
-                options.url = 'https://cors-anywhere.herokuapp.com/' + options.url;
+                options.url = 'https://cors.upbount.com/' + options.url;
             }
         });
         $(document).ready( function() {
             
             
-            var chanName = "gahvila.net";
+            var videostufflol = window.location.href;
+            var params = videostufflol.split('?');
+            var chanName = params[1]
+            viiName = "";
             
-            usernamelol("gahvila.net");
+            
+            usernamelol(params[1]);
            
 
            
 
             function usernamelol(name) {
-                var url1 = 'https://mcapi.xdefcon.com/server/'+chanName+'/full/json&jsoncallback=?';
+
                 chanName = name;
                 $.ajax({
-                    
-                    
-                    url: url1,
-                    dataType: "text",
-                
-
-                
-            
-                success: function(data) {
-                      // Parse JSON file
-                      var json = $.parseJSON(data);
-                      //Store data into a variable
-                      // Display Players
-                      $('#viewcountodo').html(json.players);
-                      $('#name').html(json.serverip);
-                      $('#diamonds').html(json.ping);
-                      $('#coins').html(json.serverStatus);
-                      $('#userCoins').html(json.maxplayers);
-                      $('#demons').html(json.protocol);
-                      $('#image').html('<img src=\"'+json.icon+'\">')
-                      
-              }
-          });
-                
-            };
+                  url: 'https://mcapi.xdefcon.com/server/'+chanName+'/full/json',
+                  // Handle as Text
+                  dataType: "text",
+                  success: function(data) {
+                        // Parse JSON file
+                        var json = $.parseJSON(data);
+                        //Store data into a variable
+                        // Display Players
+                        $('#viewcountodo').html(json.players);
+                        $('#name').html(json.serverip);
+                        $('#diamonds').html(json.maxplayers);
+                        $('#coins').html(json.serverStatus);
+                        $('#userCoins').html(json.ping);
+                        $('#demons').html(json.protocol);
+                        $('#image').html('<img src=\"'+json.icon+'\">');
+                        
+                }
+            });
     
+}  
 
-            setInterval( function() {
+function loadVideo(naemhe) {
+                viiName = naemhe;
+                setTimeout(
+                function() 
+                {
+                    loadVideo3($('#chnlName').val());
+                }, 5000);
+
+
+            }
+
+
+
+setInterval( function() {
             
-                var url1 = 'https://mcapi.xdefcon.com/server/'+chanName+'/full/json&jsoncallback=?';
-                $.ajax({
-                    
-                    
-                    url: url1,
-                    dataType: "text",
+    $.ajax({
+                  url: 'https://mcapi.xdefcon.com/server/'+chanName+'/full/json',
+                  // Handle as Text
+                  dataType: "text",
+                  success: function(data) {
+                        // Parse JSON file
+                        var json = $.parseJSON(data);
+                        //Store data into a variable
+                        // Display Players
+                        $('#viewcountodo').html(json.players);
+                        $('#name').html(json.serverip);
+                        $('#diamonds').html(json.maxplayers);
+                        $('#coins').html(json.serverStatus);
+                        $('#userCoins').html(json.ping);
+                        $('#demons').html(json.protocol);
+                        $('#image').html('<img src=\"'+json.icon+'\">');
+                        
+                }
+            });
+            
+
+
+        }, 2000);
+
+
+            
+        $('#searchlolnoob3').click( function() {
+                loadVideo($('#chnlName').val());
+                setTimeout(
+                function() 
+                {
+                 //do nothing
+                }, 1000);
+                location.href='http://mixerno.github.io/minecraftsevrer.html?'+viiName;
                 
-
-                
-            
-                success: function(data) {
-                      // Parse JSON file
-                      var json = $.parseJSON(data);
-                      //Store data into a variable
-                      // Display Players
-                      $('#viewcountodo').html(json.players);
-                      $('#name').html(json.serverip);
-                      $('#diamonds').html(json.ping);
-                      $('#coins').html(json.serverStatus);
-                      $('#userCoins').html(json.maxplayers);
-                      $('#demons').html(json.protocol);
-                      $('#image').html('<img src=\"'+json.icon+'\">')
-                      
-              }
-          });
-
-
-            }, 2000);
-
-            
-            $('#updatevid').click( function() {
-                usernamelol($('#vidName').val());
+                console.log("BUTTON4")
             });
 
         
@@ -120,27 +144,27 @@
 
     <body>
             <center>
-            <input type="text" id="vidName"></input>
-            <button id="updatevid">Search for video</button>
+            <input type="text" id="chnlName"></input>
+            <button id="searchlolnoob3">Search for a server</button>
             <br>  
             <p id="name">0</p>
             <div id="viewcountodo" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div>
             <p>players</p>
             <br>
             <div id="diamonds" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div>
-            <p>ping</p>
+            <p>max players</p>
             <br>
             <p id="coins" style="font-size:25px;color:rgb(0, 0, 0)"></p>
             <p>serverStatus</p>
             <br>
-            <div id="userCoins" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div>
-            <p>maxplayers</p>
-            <br>
             <p id="demons" style="font-size:25px;color:rgb(0, 0, 0)"></p>
             <p>protocol</p>
             <br>
+            <p id="userCoins" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)"></p>
+            <p>ping</p>
+            <br>
             <p id="image">0</p>
             </center>
-            <p>:)</p>
+            <p>0.1.0</p>
     </body>
 </html>
