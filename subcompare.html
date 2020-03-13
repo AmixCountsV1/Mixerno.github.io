@@ -299,11 +299,9 @@ $.getJSON(url2, function(data) {
                     console.log("pleas get subscriber for chanel två");
                     //pt 2 2020 v205430
                 }
+                $('#chan1lasthours').text(subscount1 - sub1hourlast)
+                $('#chan2lasthours').text(subscount2 - sub2hourlast)
 
-                else {
-                    $('#chan1lasthours').text(subscount1 - sub1hourlast)
-                    $('#chan2lasthours').text(subscount2 - sub2hourlast)
-                }
                 
                 console.log(secsinhour + ' /3600')
 
@@ -371,13 +369,13 @@ $.getJSON(url2, function(data) {
             <p style="font-size:20px;color:rgb(0, 0, 0)">subscribers</p>
             <br>
             <br>
-            <p id="chan1lasthours">0</p>
+            <div id="chan1lasthours" class="odometer" style="font-size:10px;color:rgb(0, 0, 0)">0</div>
             <p id="chan1name"></p>
             <br>
-            <p id="chan2lasthours">0</p>
+            <div id="chan2lasthours" class="odometer" style="font-size:10px;color:rgb(0, 0, 0)">0</div>
             <p id="chan2name"></p>
             
             </center>
-            <p>V.1.0.2</p>
+            <p>V.1.0.3</p>
     </body>
 </html>
