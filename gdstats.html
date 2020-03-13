@@ -29,10 +29,13 @@
             }
         });
         $(document).ready( function() {
+            
+            var starscount = "1";
             var videostufflol = window.location.href;
             var params = videostufflol.split('?');
             var chanName = params[1]
             viiName = "";
+            
             
             
             usernamelol(params[1]);
@@ -41,7 +44,7 @@
            
 
             function usernamelol(name) {
-
+                
                 chanName = name;
                 $.ajax({
                   url: 'https://gdbrowser.com/api/profile/'+chanName,
@@ -53,6 +56,7 @@
                         //Store data into a variable
                         // Display Players
                         $('#viewcountodo').html(json.stars);
+                        starscount = json.stars;
                         $('#name').html(json.username);
                         $('#diamonds').html(json.diamonds);
                         $('#coins').html(json.coins);
@@ -75,7 +79,7 @@ function loadVideo(naemhe) {
 
             }
             setInterval( function() {
-            
+                
 
                 $.ajax({
                   url: 'https://gdbrowser.com/api/profile/'+chanName,
@@ -87,12 +91,26 @@ function loadVideo(naemhe) {
                         //Store data into a variable
                         // Display Players
                         $('#viewcountodo').html(json.stars);
+                        starscount = json.stars;
                         $('#name').html(json.username);
                         $('#diamonds').html(json.diamonds);
                         $('#coins').html(json.coins);
                         $('#userCoins').html(json.userCoins);
                         $('#demons').html(json.demons);
                         $('#image').html(json.cp);
+                        if(a > starscount) {
+                    $('#starsgoal').text(a - starscount);
+                }
+                chart.series[0].addPoint([                   
+			        (new Date()).getTime(),
+			        data.count
+		        ])
+
+		
+		        if (chart.series[0].data.length >= 900) {
+			        chart.series[0].data[0].remove()
+		}
+                
                         
                 }
             });
