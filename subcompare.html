@@ -124,6 +124,8 @@
 								return;
 							}
                     $('#odometer').html(data.items[0].statistics.subscriberCount);
+                    sub1hourlast = data.items[0].statistics.subscriberCount
+                    
                     
                 });
                 var url1 = 'https://www.googleapis.com/youtube/v3/channels?part=snippet&id='+name+'&key='+stufflol
@@ -156,6 +158,7 @@ $.getJSON(url2, function(data) {
                 return;
             }
         $('#odometer3').html(data.items[0].statistics.subscriberCount);
+        sub2hourlast = data.items[0].statistics.subscriberCount
 
     
             });
@@ -270,12 +273,18 @@ $.getJSON(url2, function(data) {
                 secsinhour = secsinhour + 1
                 if(secsinhour > 3600) {
                     secsinhour = 0
-                    sub1hourlast = 0
-                    sub2hourlast = 0
+                    sub1hourlast = subscount1
+                    sub2hourlast = subscount2
                 }
                 if(subscount1 = 0) {
-                    //Nothing really :)
+                    console.log("pleas get subscriber för chanel one");
+                    //how to bully small channels 2020
                 }
+                if(subscount2 = 0) {
+                    console.log("pleas get subscriber for chanel två");
+                    //pt 2 2020 v205430
+                }
+
                 else {
                     $('#chan1lasthours').text(subscount1 - sub1hourlast)
                     $('#chan2lasthours').text(subscount2 - sub2hourlast)
