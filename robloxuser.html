@@ -1,0 +1,233 @@
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        
+        <title>Mixernos site</title>
+        <link rel="stylesheet" href="odometer-theme-default.css" />
+        <link rel="stylesheet" href="odometer-theme-minimal.css" />
+        <script src="odometer.js"></script>
+        <script src="https://mcapi.us/scripts/minecraft.js"></script>
+        <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+
+        <style>
+            .odometer{
+                font-size: 100px;
+            }
+            body {
+                background-color: rgb(255, 255, 255);
+                color: #444;
+                font-family: Arial
+            }
+
+            div {
+                font-size: 36
+            }
+        </style>
+    </head>
+
+    
+
+    
+ 
+ <script>
+   
+ </script>
+
+
+
+    <script type="text/javascript">
+        jQuery.ajaxPrefilter(function(options) {
+            if (options.crossDomain && jQuery.support.cors) {
+                options.url = 'https://cors.upbount.com/' + options.url;
+            }
+        });
+        $(document).ready( function() {
+            
+            
+            var videostufflol = window.location.href;
+            var params = videostufflol.split('?');
+            var chanName = params[1]
+            viiName = "";
+            
+            
+            usernamelol(params[1]);
+           
+
+           
+
+            function usernamelol(name) {
+
+                chanName = name;
+                $.ajax({
+                  url: 'https://api.roblox.com/users/'+chanName,
+                  // Handle as Text
+                  dataType: "text",
+                  success: function(data) {
+                        // Parse JSON file
+                        var json = $.parseJSON(data);
+                        //Store data into a variable
+                        // Display Players
+                        $('#name').html(json.Username);
+                        $('#id').html(json.Id);
+                        
+                }
+            });
+            $.ajax({
+                  url: 'https://friends.roblox.com/v1/users/'+chanName+'/followers/count',
+                  // Handle as Text
+                  dataType: "text",
+                  success: function(data) {
+                        // Parse JSON file
+                        var json = $.parseJSON(data);
+                        //Store data into a variable
+                        // Display Players
+                        $('#followers').html(json.count);
+                        
+                }
+            });
+            $.ajax({
+                  url: 'https://friends.roblox.com/v1/users/'+chanName+'/friends/count',
+                  // Handle as Text
+                  dataType: "text",
+                  success: function(data) {
+                        // Parse JSON file
+                        var json = $.parseJSON(data);
+                        //Store data into a variable
+                        // Display Players
+                        $('#friends').html(json.count);
+                        
+                }
+            });
+            $.ajax({
+                  url: 'https://friends.roblox.com/v1/users/'+chanName+'/followings/count',
+                  // Handle as Text
+                  dataType: "text",
+                  success: function(data) {
+                        // Parse JSON file
+                        var json = $.parseJSON(data);
+                        //Store data into a variable
+                        // Display Players
+                        $('#following').html(json.count);
+                        
+                }
+            });
+    
+}  
+
+function loadVideo(naemhe) {
+                viiName = naemhe;
+                setTimeout(
+                function() 
+                {
+                    loadVideo3($('#chnlName').val());
+                }, 5000);
+
+
+            }
+
+
+
+setInterval( function() {
+            
+    $.ajax({
+                  url: 'https://api.roblox.com/users/'+chanName,
+                  // Handle as Text
+                  dataType: "text",
+                  success: function(data) {
+                        // Parse JSON file
+                        var json = $.parseJSON(data);
+                        //Store data into a variable
+                        // Display Players
+                        $('#name').html(json.Username);
+                        
+                }
+            });
+            $.ajax({
+                  url: 'https://friends.roblox.com/v1/users/'+chanName+'/followers/count',
+                  // Handle as Text
+                  dataType: "text",
+                  success: function(data) {
+                        // Parse JSON file
+                        var json = $.parseJSON(data);
+                        //Store data into a variable
+                        // Display Players
+                        $('#followers').html(json.count);
+                        
+                }
+            });
+            $.ajax({
+                  url: 'https://friends.roblox.com/v1/users/'+chanName+'/friends/count',
+                  // Handle as Text
+                  dataType: "text",
+                  success: function(data) {
+                        // Parse JSON file
+                        var json = $.parseJSON(data);
+                        //Store data into a variable
+                        // Display Players
+                        $('#friends').html(json.count);
+                        
+                }
+            });
+            $.ajax({
+                  url: 'https://friends.roblox.com/v1/users/'+chanName+'/followings/count',
+                  // Handle as Text
+                  dataType: "text",
+                  success: function(data) {
+                        // Parse JSON file
+                        var json = $.parseJSON(data);
+                        //Store data into a variable
+                        // Display Players
+                        $('#following').html(json.count);
+                        
+                }
+            });
+            
+
+
+        }, 2000);
+
+
+            
+        $('#searchlolnoob3').click( function() {
+                loadVideo($('#chnlName').val());
+                setTimeout(
+                function() 
+                {
+                 //do nothing
+                }, 1000);
+                location.href='http://mixerno.github.io/robloxuser.html?'+viiName;
+                
+                console.log("BUTTON4")
+            });
+
+        
+        });
+    </script>
+
+        
+
+
+
+    <body>
+            <center>
+            <input type="text" id="chnlName"></input>
+            <button id="searchlolnoob3">Search for a user</button>
+            <br>  
+            <p id="name">0</p>
+            <div id="followers" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div>
+            <p>followers</p>
+            <br>
+            <div id="following" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div>
+            <p>following</p>
+            <br>
+            <p id="friends" style="font-size:25px;color:rgb(0, 0, 0)"></p>
+            <p>friends</p>
+            <br>
+            <p id="id" style="font-size:25px;color:rgb(0, 0, 0)"></p>
+            <p>ID</p>
+            <br>
+            </center>
+            <p>0.1.0</p>
+    </body>
+</html>
