@@ -93,7 +93,7 @@
 								return;
 							}
                     vidviewcount = data.items[0].statistics.viewCount;
-                    $('#viewcountodo').html(vidviewcount);
+                    $('#viewcountodo').html(data.items[0].statistics.viewCount);
                     vidview1hourlast = vidviewcount
                     
                     $('#ytnewviewlike').html(data.items[0].statistics.likeCount);
@@ -135,7 +135,7 @@
 								return;
 							}
                     vidviewcount = data.items[0].statistics.viewCount;
-                    $('#viewcountodo').html(vidviewcount);
+                    $('#viewcountodo').html(data.items[0].statistics.viewCount);
                     $('#ytnewviewlike').html(data.items[0].statistics.likeCount);
                     $('#ytnewviewdislike').html(data.items[0].statistics.dislikeCount);
                     $('#ytnewviewcomments').html(data.items[0].statistics.commentCount);
@@ -231,6 +231,6 @@
             <p id="chan1lasthours">0</p>
             <p>Views in 1hr</p>
             </center>
-            <p>V.1.0.2</p>
+            <p>V.1.0.3</p>
     </body>
 </html>
