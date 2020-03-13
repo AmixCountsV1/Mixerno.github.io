@@ -134,9 +134,10 @@
                         console.log("Full quota in one of api keys. Cant tell what.")
 								return;
 							}
-                    $('#odometer').html(subscount1);
-                    sub1hourlast = subscount1
+                    $('#odometer').html(data.items[0].statistics.subscriberCount);
+                    
                     subscount1 = data.items[0].statistics.subscriberCount
+                    sub1hourlast = subscount1
                     
                     
                 });
@@ -169,9 +170,10 @@ $.getJSON(url2, function(data) {
         console.log("Full quota in one of api keys. Cant tell what.")
                 return;
             }
-        $('#odometer3').html(subscount2);
-        sub2hourlast = subscount2
+        $('#odometer3').html(data.items[0].statistics.subscriberCount);
+        
         subscount2 = data.items[0].statistics.subscriberCount
+        sub2hourlast = subscount2
 
     
             });
