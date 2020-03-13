@@ -17,7 +17,7 @@
             }
 
             div {
-                font-size: 36
+                font-size: 26
             }
         </style>
     </head>
@@ -44,6 +44,8 @@
             var subscount1 = "1";
             var sub1hourlast = "1";
             var sub2hourlast = "1";
+            var gap = "0";
+            var gap1h = "0";
 
 
 
@@ -140,6 +142,8 @@
                     
                     sub1hourlast = data.items[0].statistics.subscriberCount;
                     subscount1 = sub1hourlast;
+                    gap1h = "0";
+                    gap = "0";
                     
                     
                 });
@@ -177,6 +181,8 @@ $.getJSON(url2, function(data) {
         
             sub2hourlast = data.items[0].statistics.subscriberCount;
             subscount2 = sub2hourlast;
+            gap1h = "0";
+            gap = "0";
 
     
             });
@@ -277,13 +283,13 @@ $.getJSON(url2, function(data) {
 
 
             }, 2000);
-
+            
             
     
 
             setInterval( function() {
                 $('#odometer2').text(subscount1 - subscount2)
-                console.log(subscount1 - subscount2)
+                gap = subscount1 - subscount2
     
 
 
@@ -295,25 +301,33 @@ $.getJSON(url2, function(data) {
                     secsinhour = 0
                     sub1hourlast = subscount1
                     sub2hourlast = subscount2
+                    sub2hourlast = subscount2
+                    gap1h = gap
+                    
                     $('#chan1lasthours').text(subscount1 - sub1hourlast)
                     $('#chan2lasthours').text(subscount2 - sub2hourlast)
+                    $('#gaprecreased').text(gap - gap1h)
                 }
                 
                 
                 $('#chan1lasthours').text(subscount1 - sub1hourlast)
                 $('#chan2lasthours').text(subscount2 - sub2hourlast)
+                $('#gaprecreased').text(gap - gap1h)
 
                     
                 
 
                 
                 console.log(secsinhour + ' /3600')
-                console.log(subscount1 - sub1hourlast)
-                console.log(subscount2 - sub2hourlast)
-                console.log(subscount1)
-                console.log(subscount2)
-                console.log(sub1hourlast)
-                console.log(sub2hourlast)
+                console.log(subscount1 - sub1hourlast + ' sub1 1hr')
+                console.log(subscount2 - sub2hourlast + ' sub2 1hr')
+                console.log(gap - gap1h + ' gap 1hr')
+                console.log(gap + ' gap')
+                console.log(gap1h + ' gap1h')
+                console.log(subscount1 + ' sub1')
+                console.log(subscount2 + ' sub2')
+                console.log(sub1hourlast + ' sub1hr')
+                console.log(sub2hourlast + ' sub2hr')
 
     
 
@@ -367,7 +381,7 @@ $.getJSON(url2, function(data) {
             <br>
             <p id="ytImage">ytImage</p>
             <p id="ytName" style="font-size:20px;color:rgb(0, 0, 0)">ytName</p>
-            <div id="odometer" class="odometer" style="font-size:50px;color:rgb(0, 0, 0)">0</div>
+            <div id="odometer" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div>
             <p style="font-size:20px;color:rgb(0, 0, 0)">subscribers</p>
             <br>
             <div id="odometer2" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div>
@@ -378,14 +392,17 @@ $.getJSON(url2, function(data) {
             <div id="odometer3" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div>
             <p style="font-size:20px;color:rgb(0, 0, 0)">subscribers</p>
             <br>
-            <br>
             <div id="chan1lasthours" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div>
             <p id="chan1name"></p>
             <br>
             <div id="chan2lasthours" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div>
             <p id="chan2name"></p>
+            <br>
+            <div id="gaprecreased" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div>
+            <p id="gapripped">Gap change in 1hr</p>
+            
             
             </center>
-            <p>V.1.0.5</p>
+            <p>V.1.0.6</p>
     </body>
 </html>
