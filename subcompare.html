@@ -227,7 +227,7 @@ $.getJSON(url2, function(data) {
                         console.log("Full quota in one of api keys. Cant tell what.")
 								return;
 							}
-                    $('#odometer').html(subscount1);
+                    $('#odometer').html(data.items[0].statistics.subscriberCount);
                     subscount1 = data.items[0].statistics.subscriberCount;
                 });
                 
@@ -252,7 +252,7 @@ $.getJSON(url2, function(data) {
                     console.log("Full quota in one of api keys. Cant tell what.")
                         return;
                 }   
-                    $('#odometer3').html(subscount2);
+                    $('#odometer3').html(data.items[0].statistics.subscriberCount);
                     subscount2 = data.items[0].statistics.subscriberCount;
 
     
@@ -378,6 +378,6 @@ $.getJSON(url2, function(data) {
             <p id="chan2name"></p>
             
             </center>
-            <p>V.1.0.1</p>
+            <p>V.1.0.2</p>
     </body>
 </html>
