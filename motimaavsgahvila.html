@@ -20,7 +20,7 @@
             <br> 
             <br>
             <br> 
-            <div id="pdiff" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div>
+            <div id="pdiff" style="font-size:25px;color:rgb(0, 0, 0)">0</div>
             <p>player diff</p>
             </center>
             <figure class="highcharts-figure">
@@ -29,6 +29,12 @@
                         
                     </p>
             </figure>
+            <p id="gahviplayerslol">0</p>
+            <br>
+            <p id="motiplayers">0</p>
+            <br>
+            <br>
+
             <p>0.1.0</p>
 
 
@@ -130,6 +136,7 @@
                         //Store data into a variable
                         // Display Players
                         gahviplay = json.players
+                        $('#gahviplayerslol').html(json.players)
                         
                         
                 }
@@ -144,7 +151,7 @@
                         //Store data into a variable
                         // Display Players
                         motiplay = json.players
-                        
+                        $('#motiplayers').html(json.players)
                         
                 }
             });
@@ -177,6 +184,7 @@ setInterval( function() {
                         //Store data into a variable
                         // Display Players
                         gahviplay = json.players
+                        $('#gahviplayerslol').html(json.players)
                         
                         
                         
@@ -193,6 +201,7 @@ setInterval( function() {
                         //Store data into a variable
                         // Display Players
                         motiplay = json.players
+                        $('#motiplayers').html(json.players)
                         
                         
                 }
