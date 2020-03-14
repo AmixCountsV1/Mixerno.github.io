@@ -5,19 +5,90 @@
         <link rel="stylesheet" href="odometer-theme-minimal.css" />
         <script src="odometer.js"></script>
         <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <script src="https://code.highcharts.com/modules/exporting.js"></script>
+        <script src="https://code.highcharts.com/modules/export-data.js"></script>
+        <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 
+
+
+        <center>
+
+            <input type="text" id="chnlName"></input>
+            <input type="button" id="searchlolnoob" value="Search for video" />
+            <br>
+            <p id="image">Loading</p>
+            <p id="name">Loading</p>
+            <div id="viewcountodo" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">Loading</div>
+            <p>views</p>
+            <div id="ytnewviewlike" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">Loading</div> 
+            <p>Likes</p>
+            <div id="ytnewviewdislike" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">Loading</div> 
+            <p>Dislikes</p>
+            <div id="ytnewviewcomments" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">Loading</div> 
+            <p>Comments</p>
+            <br>
+            <p style="font-size: 25px;">Other stuff lol</p>
+            <br>
+            <div id="ytvideolikevdislike" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">Loading</div> 
+            <p>Likes vs. Dislikes</p>
+            <br>
+            <div id="chan1lasthours" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">0</div>
+            <p id="chan1name">Views in 1hr</p>
+            <div id="chan2lasthours" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">0</div>
+            <p id="chan1name">Likes in 1hr</p>
+            <div id="chan3lasthours" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">0</div>
+            <p id="chan1name">Dislikes in 1hr</p>
+            <div id="chan4lasthours" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">0</div>
+            <p id="chan1name">Comments in 1hr</p>
+            </center>
+            
+            <p>V.1.0.4</p>
         <style>
+            .highcharts-figure, .highcharts-data-table table {
+    min-width: 100px; 
+    max-width: 700px;
+    margin: 1em auto;
+}
+
+.highcharts-data-table table {
+	font-family: Verdana, sans-serif;
+	border-collapse: collapse;
+	border: 1px solid rgb(0, 0, 0);
+	margin: 10px auto;
+	text-align: center;
+	width: 50%;
+	max-width: 250px;
+}
+.highcharts-data-table caption {
+    padding: 1em 0;
+    font-size: 1.2em;
+    color: rgb(255, 255, 255);
+}
+.highcharts-data-table th {
+	font-weight: 600;
+    padding: 0.5em;
+}
+.highcharts-data-table td, .highcharts-data-table th, .highcharts-data-table caption {
+    padding: 0.5em;
+}
+.highcharts-data-table thead tr, .highcharts-data-table tr:nth-child(even) {
+    background: #000000;
+}
+.highcharts-data-table tr:hover {
+    background: #000000;
+}
             .odometer{
                 font-size: 100px;
             }
             body {
-                background-color: rgb(255, 255, 255);
-                color: #444;
+                background-color: rgb(0, 0, 0);
+                color: rgb(255, 255, 255);
                 font-family: Arial
             }
 
             div {
-                font-size: 36
+                font-size: 26
             }
         </style>
     </head>
@@ -26,11 +97,18 @@
         $(document).ready( function() {
             var videostufflol = window.location.href;
             var chaName = "";
-            var vidview1hourlast = "";
+            var sub1hourlast = "";
+            var subscount1 = "";
+            var sub2hourlast = "";
+            var subscount2 = "";
+            var sub3hourlast = "";
+            var subscount3 = "";
+            var sub4hourlast = "";
+            var subscount4 = "";
             var secsinhour = "";
-            var vidviewcount = "";
+            
             var params = videostufflol.split('?');
-
+            
             vidName = params[1]
             var vidName = "";
             var textArray = [ //48 stufflols :D
@@ -92,9 +170,15 @@
                     if(data.items == undefined) {
 								return;
 							}
-                    vidviewcount = data.items[0].statistics.viewCount;
+                    subscount1 = data.items[0].statistics.viewCount;
+                    subscount2 = data.items[0].statistics.likeCount;
+                    subscount3 = data.items[0].statistics.dislikeCount;
+                    subscount4 = data.items[0].statistics.commentCount;
                     $('#viewcountodo').html(data.items[0].statistics.viewCount);
-                    vidview1hourlast = vidviewcount
+                    sub1hourlast = subscount1
+                    sub2hourlast = subscount2
+                    sub3hourlast = subscount3
+                    sub4hourlast = subscount4
                     
                     $('#ytnewviewlike').html(data.items[0].statistics.likeCount);
                     $('#ytnewviewdislike').html(data.items[0].statistics.dislikeCount);
@@ -134,7 +218,11 @@
                         console.log("Full quota in one of api keys. Cant tell what.")
 								return;
 							}
-                    vidviewcount = data.items[0].statistics.viewCount;
+                    subscount1 = data.items[0].statistics.viewCount;
+                    subscount2 = data.items[0].statistics.likeCount;
+                    subscount3 = data.items[0].statistics.dislikeCount;
+                    subscount4 = data.items[0].statistics.commentCount;
+                    
                     $('#viewcountodo').html(data.items[0].statistics.viewCount);
                     $('#ytnewviewlike').html(data.items[0].statistics.likeCount);
                     $('#ytnewviewdislike').html(data.items[0].statistics.dislikeCount);
@@ -163,22 +251,37 @@
 
 
             }, 1000);
+
+
+
             setInterval( function() {
-                secsinhour = secsinhour + 1
+                secsinhour = secsinhour + 01
+                
                 if(secsinhour > 3600) {
                     secsinhour = 0
-                    vidview1hourlast = vidviewcount
-                }
-                if(vidviewcount = 0) {
-                    console.log("No views. :(");
-                }
-            
-                else {
-                    $('#chan1lasthours').text(vidviewcount - vidview1hourlast)
+                    sub1hourlast = subscount1
+                    
+                    $('#chan1lasthours').text(subscount1 - sub1hourlast)
+                    $('#chan2lasthours').text(subscount2 - sub2hourlast)
+                    $('#chan3lasthours').text(subscount3 - sub3hourlast)
+                    $('#chan4lasthours').text(subscount4 - sub4hourlast)
                 }
                 
+                
+                $('#chan1lasthours').text(subscount1 - sub1hourlast)
+                $('#chan2lasthours').text(subscount2 - sub2hourlast)
+                $('#chan3lasthours').text(subscount3 - sub3hourlast)
+                $('#chan4lasthours').text(subscount4 - sub4hourlast)
+
+                    
+                
+
+                
                 console.log(secsinhour + ' /3600')
-                console.log(vidviewcount - vidview1hourlast)
+                console.log(subscount1 - sub1hourlast + ' sub1 1hr')
+                console.log(subscount1 + ' sub1')
+                console.log(sub1hourlast + ' sub1hr')
+                
 
     
 
@@ -198,6 +301,7 @@
             });
         
         });
+        
     </script>
 
         
@@ -206,31 +310,6 @@
 
     <body>
         
-            <center>
-
-            <input type="text" id="chnlName"></input>
-            <input type="button" id="searchlolnoob" value="Search for video" />
-            <br>
-            <p id="image">Loading</p>
-            <p id="name">Loading</p>
-            <div id="viewcountodo" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">Loading</div>
-            <p>views</p>
-            <div id="ytnewviewlike" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">Loading</div> 
-            <p>Likes</p>
-            <div id="ytnewviewdislike" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">Loading</div> 
-            <p>Dislikes</p>
-            <div id="ytnewviewcomments" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">Loading</div> 
-            <p>Comments</p>
-            <br>
-            <br>
-            <p style="font-size: 25px;">Other stuff lol</p>
-            <br>
-            <div id="ytvideolikevdislike" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">Loading</div> 
-            <p>Likes vs. Dislikes</p>
-            <br>
-            <p id="chan1lasthours">0</p>
-            <p>Views in 1hr</p>
-            </center>
-            <p>V.1.0.3</p>
+            
     </body>
 </html>
