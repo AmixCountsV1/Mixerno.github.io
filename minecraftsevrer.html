@@ -42,6 +42,11 @@
                         
                     </p>
             </figure>
+            <center>
+                <p id="p1h">0</p>
+            <p id="wat">Players in the last hour</p>
+            </center>
+            
             <p>0.1.0</p>
 
 
@@ -114,8 +119,9 @@
                 options.url = 'https://cors.upbount.com/' + options.url;
             }
         });
-            
-
+            var secsinhour = "1";
+            var playerscount = 0;
+            var play1h
             var videostufflol = window.location.href;
             var params = videostufflol.split('?');
             var chanName = params[1]
@@ -140,6 +146,8 @@
                         //Store data into a variable
                         // Display Players
                         $('#viewcountodo').html(json.players);
+                        playerscount = json.players;
+                        play1h = json.players;
                         $('#name').html(json.serverip);
                         $('#diamonds').html(json.maxplayers);
                         $('#coins').html(json.serverStatus);
@@ -149,10 +157,7 @@
                         
                 }
             });
-    
-}  
-
-function loadVideo(naemhe) {
+            function loadVideo(naemhe) {
                 viiName = naemhe;
                 setTimeout(
                 function() 
@@ -180,6 +185,7 @@ setInterval( function() {
 			                (new Date()).getTime(),
                         json.players
                         ]);
+                        playerscount = json.players;
                         $('#viewcountodo').html(json.players);
                         $('#name').html(json.serverip);
                         $('#diamonds').html(json.maxplayers);
@@ -195,27 +201,9 @@ setInterval( function() {
 
 
         }, 2000);
-
-
-            
-        $('#searchlolnoob3').click( function() {
-                loadVideo($('#chnlName').val());
-                setTimeout(
-                function() 
-                {
-                 //do nothing
-                }, 1000);
-                location.href='http://mixerno.github.io/minecraftsevrer.html?'+viiName;
-                
-                console.log("BUTTON4")
-            });
-
-        
-
-
-        var stuff = new Highcharts.chart('container', {
+            var stuff = new Highcharts.chart('container', {
             chart: {
-        backgroundColor: 'transparent',
+                backgroundColor: 'transparent',
 		renderTo: $('#container'),
 		type: 'line'
 	},
@@ -243,6 +231,58 @@ setInterval( function() {
         }
     }]
         })
+
+        setInterval( function() {
+                secsinhour = secsinhour + 01
+                
+                if(secsinhour > 3600) {
+                    secsinhour = 0
+                    play1h = playerscount
+                    
+                    $('#p1h').text(playerscount - play1h)
+                }
+                
+                
+                
+                $('#p1h').text(playerscount - play1h)
+
+                    
+                
+
+                
+                console.log(secsinhour + ' /3600')
+                
+                console.log(playerscount - play1h + ' Players 1hr')
+                console.log(playerscount + ' playerscount')
+                console.log(play1h + ' play1h')
+
+    
+
+
+            }, 1000);
+    
+}  
+
+
+
+
+            
+        $('#searchlolnoob3').click( function() {
+                loadVideo($('#chnlName').val());
+                setTimeout(
+                function() 
+                {
+                 //do nothing
+                }, 1000);
+                location.href='http://mixerno.github.io/minecraftsevrer.html?'+viiName;
+                
+                console.log("BUTTON4")
+            });
+
+        
+
+
+        
     </script>
 
         
