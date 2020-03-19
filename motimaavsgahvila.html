@@ -29,13 +29,13 @@
                         
                     </p>
             </figure>
-            <p id="gahviplayerslol">0</p>
+            <p id="gahviplayerslol" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">1</p>
             <br>
-            <p id="motiplayers">0</p>
+            <p id="motiplayers" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">1</p>
             <br>
             <br>
 
-            <p>0.1.0</p>
+            <p>0.2.0</p>
 
 
 
@@ -114,7 +114,6 @@
                 options.url = 'https://cors.upbount.com/' + options.url;
             }
         });
-        $(document).ready( function() {
             
 
             var videostufflol = window.location.href;
@@ -162,6 +161,62 @@
                         
                 }
             });
+            function loadVideo(naemhe) {
+                viiName = naemhe;
+                setTimeout(
+                function() 
+                {
+                    loadVideo3($('#chnlName').val());
+                }, 5000);
+
+
+            }
+
+
+
+setInterval( function() {
+            
+    $.ajax({
+                  url: 'https://mcapi.xdefcon.com/server/gahvila.net/full/json',
+                  // Handle as Text
+                  dataType: "text",
+                  success: function(data) {
+                        // Parse JSON file
+                        var json = $.parseJSON(data);
+                        //Store data into a variable
+                        // Display Players
+                        gahviplay = json.players
+                        $('#gahviplayerslol').html(json.players)
+                        
+                        
+                        
+                        
+                }
+            });
+            $.ajax({
+                  url: 'https://mcapi.xdefcon.com/server/motimaa.net/full/json',
+                  // Handle as Text
+                  dataType: "text",
+                  success: function(data) {
+                        // Parse JSON file
+                        var json = $.parseJSON(data);
+                        //Store data into a variable
+                        // Display Players
+                        motiplay = json.players
+                        $('#motiplayers').html(json.players)
+                        
+                        
+                }
+            });
+            $('#pdiff').text(motiplay - gahviplay);
+            stuff.series[0].addPoint([                   
+			                (new Date()).getTime(),
+                        motiplay - gahviplay
+                        ]);
+            
+
+
+        }, 2000);
 
     
 }  
@@ -238,7 +293,7 @@ setInterval( function() {
             });
 
         
-        });
+
 
         var stuff = new Highcharts.chart('container', {
             chart: {
