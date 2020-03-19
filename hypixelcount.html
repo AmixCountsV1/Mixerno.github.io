@@ -37,7 +37,7 @@
             </figure>
             <center>
                 <p id="p1h">0</p>
-            <p id="wat">Players in the last hour</p>
+            <p id="wat">Player change last 1 min</p>
             </center>
             <p>0.1.0</p>
 
@@ -187,6 +187,7 @@ setInterval( function() {
                         $('#image').html('<img src=\"'+json.icon+'\">');
                         
                         
+                        
                 }
             });
             
@@ -224,9 +225,9 @@ setInterval( function() {
     }]
         })
         setInterval( function() {
-                secsinhour = secsinhour + 01
                 
-                if(secsinhour > 3600) {
+            secsinhour = secsinhour + 100
+                if(secsinhour > 60000) {
                     secsinhour = 0
                     play1h = playerscount
                     
@@ -241,16 +242,16 @@ setInterval( function() {
                 
 
                 
-                console.log(secsinhour + ' /3600')
+                console.log(secsinhour + ' /60000')
                 
-                console.log(playerscount - play1h + ' Players 1hr')
+                console.log(playerscount - play1h + ' Players 1min')
                 console.log(playerscount + ' playerscount')
-                console.log(play1h + ' play1h')
+                console.log(play1h + ' play1min')
 
     
 
 
-            }, 1000);
+            }, 100);
     
 }  
 

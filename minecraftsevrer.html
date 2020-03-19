@@ -233,33 +233,33 @@ setInterval( function() {
         })
 
         setInterval( function() {
-                secsinhour = secsinhour + 01
                 
-                if(secsinhour > 3600) {
-                    secsinhour = 0
-                    play1h = playerscount
+                secsinhour = secsinhour + 100
+                    if(secsinhour > 60000) {
+                        secsinhour = 0
+                        play1h = playerscount
+                        
+                        $('#p1h').text(playerscount - play1h)
+                    }
+                    
+                    
                     
                     $('#p1h').text(playerscount - play1h)
-                }
-                
-                
-                
-                $('#p1h').text(playerscount - play1h)
-
-                    
-                
-
-                
-                console.log(secsinhour + ' /3600')
-                
-                console.log(playerscount - play1h + ' Players 1hr')
-                console.log(playerscount + ' playerscount')
-                console.log(play1h + ' play1h')
-
     
-
-
-            }, 1000);
+                        
+                    
+    
+                    
+                    console.log(secsinhour + ' /60000')
+                    
+                    console.log(playerscount - play1h + ' Players 1min')
+                    console.log(playerscount + ' playerscount')
+                    console.log(play1h + ' play1min')
+    
+        
+    
+    
+                }, 100);
     
 }  
 
