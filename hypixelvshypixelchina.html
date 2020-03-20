@@ -210,10 +210,9 @@
           var json = $.parseJSON(data);
           //Store data into a variable
           // Display Players
-          if (gahviplay > "-1") {
-            gahviplay = json.players
-            $('#gahviplayerslol').html(json.players)
-          }
+          gahviplay = json.players
+          $('#gahviplayerslol').html(json.players)
+
 
 
 
@@ -232,11 +231,9 @@
           var json = $.parseJSON(data);
           //Store data into a variable
           // Display Players
-          if (motiplay > "-1") {
-            motiplay = json.players
-            $('#motiplayers').html(json.players)
+          motiplay = json.players
+          $('#motiplayers').html(json.players)
 
-          }
 
 
         }
