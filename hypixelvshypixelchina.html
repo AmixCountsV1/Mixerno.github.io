@@ -30,9 +30,9 @@
 
     </p>
   </figure>
-  <p id="gahviplayerslol" style="font-size:25px;color:rgb(255, 255, 255)">1</p>
+  <p id="gahviplayerslol" style="font-size:25px;color:rgb(255, 255, 255)">0</p>
   <br>
-  <p id="motiplayers" style="font-size:25px;color:rgb(255, 255, 255)">1</p>
+  <p id="motiplayers" style="font-size:25px;color:rgb(255, 255, 255)">0</p>
   <br>
   <br>
 
@@ -122,7 +122,7 @@
 <script type="text/javascript">
   jQuery.ajaxPrefilter(function(options) {
     if (options.crossDomain && jQuery.support.cors) {
-      options.url = 'https://cors.upbount.com/' + options.url;
+      options.url = 'https://corseverywheremiks.herokuapp.com/' + options.url;
     }
   });
 
@@ -133,6 +133,7 @@
   viiName = "";
   var motiplay = 0;
   var gahviplay = 0;
+  var gap = 0;
 
 
   usernamelol(params[1]);
@@ -196,8 +197,13 @@
           var json = $.parseJSON(data);
           //Store data into a variable
           // Display Players
-          gahviplay = json.players
-          $('#gahviplayerslol').html(json.players)
+          if (gahviplay > "-1") {
+            gahviplay = json.players
+            $('#gahviplayerslol').html(json.players)
+          }
+
+
+
 
 
 
@@ -213,18 +219,32 @@
           var json = $.parseJSON(data);
           //Store data into a variable
           // Display Players
-          motiplay = json.players
-          $('#motiplayers').html(json.players)
+          if (motiplay > "-1") {
+            motiplay = json.players
+            $('#motiplayers').html(json.players)
+
+          }
 
 
         }
+
       });
-      if (gahviplay - motiplay > "-1") {
-        $('#pdiff').text(gahviplay - motiplay);
+      gap = gahviplay - motiplay;
+      if (gap > "0") {
+        $('#pdiff').text(gap);
         stuff.series[0].addPoint([
           (new Date()).getTime(),
-          gahviplay - motiplay
+          gap
         ]);
+
+      }
+      if (gap < "0") {
+        $('#pdiff').text(gap);
+        stuff.series[0].addPoint([
+          (new Date()).getTime(),
+          gap
+        ]);
+
       }
 
 
