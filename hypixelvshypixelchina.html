@@ -193,6 +193,9 @@
 
 
     }
+    if (readygap > 010) {
+      gap1min = gap
+    }
 
 
 
@@ -301,6 +304,9 @@
       if (gap > "-1") {
         $('#gap1m').text(gap - gap1min)
       }
+      if (gap < "-1") {
+        $('#gap1m').text(gap - gap1min)
+      }
       secsinhour = secsinhour + 1000
       if (secsinhour > 60000) {
         secsinhour = 0
@@ -319,7 +325,7 @@
 
       console.log(secsinhour + ' /60000')
 
-      console.log(gap - gap1m + ' gap1min')
+      console.log(gap - gap1min + ' gap1min')
       console.log(gap + ' gap')
       console.log(gap1min + ' gap1min')
 
