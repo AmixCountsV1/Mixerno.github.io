@@ -131,8 +131,8 @@
   var params = videostufflol.split('?');
   var chanName = params[1]
   viiName = "";
-  var motiplay = "0";
-  var gahviplay = "0";
+  var motiplay = 0;
+  var gahviplay = 0;
 
 
   usernamelol(params[1]);
@@ -219,11 +219,16 @@
 
         }
       });
-      $('#pdiff').text(gahviplay - motiplay);
-      stuff.series[0].addPoint([
-        (new Date()).getTime(),
-        gahviplay - motiplay
-      ]);
+      if (gahviplay - motiplay > "-1") {
+        $('#pdiff').text(gahviplay - motiplay);
+        stuff.series[0].addPoint([
+          (new Date()).getTime(),
+          gahviplay - motiplay
+        ]);
+      }
+
+
+
 
 
 

@@ -124,12 +124,12 @@
   });
 
   var playerscount = 0;
-  var secsinhour = "60000";
-  var secsinhour2 = "3600000";
-  var secsinhour3 = "86400000";
-  var play1h = "0";
-  var play1day = "0";
-  var play1min = "0";
+  var secsinhour = 60000;
+  var secsinhour2 = 3600000;
+  var secsinhour3 = 86400000;
+  var play1h = 0;
+  var play1day = 0;
+  var play1min = 0;
   var videostufflol = window.location.href;
   var params = videostufflol.split('?');
   var chanName = params[1]
@@ -189,10 +189,6 @@
           var json = $.parseJSON(data);
           //Store data into a variable
           // Display Players
-          stuff.series[0].addPoint([
-            (new Date()).getTime(),
-            json.players
-          ]);
           playerscount = json.players;
           $('#viewcountodo').html(json.players);
           $('#name').html(json.serverip);
@@ -201,6 +197,12 @@
           $('#userCoins').html(json.ping);
           $('#demons').html(json.protocol);
           $('#image').html('<img src=\"' + json.icon + '\">');
+          if (playerscount > "-1") {
+            stuff.series[0].addPoint([
+              (new Date()).getTime(),
+              json.players
+            ]);
+          }
 
 
 
