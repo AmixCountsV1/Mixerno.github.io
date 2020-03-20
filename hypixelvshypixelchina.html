@@ -131,9 +131,9 @@
   var params = videostufflol.split('?');
   var chanName = params[1]
   viiName = "";
-  var motiplay = 0;
-  var gahviplay = 0;
-  var gap = 0;
+  var motiplay = "0";
+  var gahviplay = "0";
+  var gap = "0";
   var readygap = "0";
   var secsinhour = "0";
   var gap1min = "0";
@@ -297,15 +297,15 @@
       secsinhour = secsinhour + 1000
       if (secsinhour > 60000) {
         secsinhour = 0
-        gap1min = gap
+        gap1min = (gahviplay - motiplay)
 
-        $('#gap1m').text(gap - gap1min)
+        $('#gap1m').text((gahviplay - motiplay) - gap1min)
       }
       if (gap > "-1") {
-        $('#gap1m').text(gap - gap1min)
+        $('#gap1m').text((gahviplay - motiplay) - gap1min)
       }
       if (gap < "-1") {
-        $('#gap1m').text(gap - gap1min)
+        $('#gap1m').text((gahviplay - motiplay) - gap1min)
       }
 
 
@@ -321,6 +321,8 @@
       console.log(gap - gap1min + ' gap1min')
       console.log(gap + ' gap')
       console.log(gap1min + ' gap1min')
+      console.log(gahviplay + ' normal')
+      console.log(motiplay + ' china')
 
 
 
