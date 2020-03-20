@@ -298,17 +298,19 @@
       }]
     })
     setInterval(function() {
-      if (gap > "-1") {
-        $('#gap1m').text(gap - gap1min)
-      }
-      if (gap < "-1") {
-        $('#gap1m').text(gap - gap1min)
-      }
+
+
       secsinhour = secsinhour + 1000
       if (secsinhour > 60000) {
         secsinhour = 0
         gap1min = gap
 
+        $('#gap1m').text(gap - gap1min)
+      }
+      if (gap > "-1") {
+        $('#gap1m').text(gap - gap1min)
+      }
+      if (gap < "-1") {
         $('#gap1m').text(gap - gap1min)
       }
 

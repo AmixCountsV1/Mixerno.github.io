@@ -243,9 +243,7 @@
       }]
     })
     setInterval(function() {
-      if (playerscount > "-1") {
-        $('#p1h').text(playerscount - play1day)
-      }
+
       secsinhour = secsinhour + 1000
       if (secsinhour > 60000) {
         secsinhour = 0
@@ -253,7 +251,9 @@
 
         $('#p1h').text(playerscount - play1min)
       }
-
+      if (playerscount > "-1") {
+        $('#p1h').text(playerscount - play1day)
+      }
 
 
 
@@ -273,14 +273,15 @@
 
     }, 1000);
     setInterval(function() {
-      if (playerscount > "-1") {
-        $('#p1h3').text(playerscount - play1day)
-      }
+
       secsinhour3 = secsinhour3 + 1000
       if (secsinhour3 > 86400000) {
         secsinhour3 = 0
         play1day = playerscount
 
+        $('#p1h3').text(playerscount - play1day)
+      }
+      if (playerscount > "-1") {
         $('#p1h3').text(playerscount - play1day)
       }
 
@@ -303,15 +304,16 @@
 
     }, 1000);
     setInterval(function() {
-      if (playerscount > "-1") {
-        $('#p1h2').text(playerscount - play1day)
-      }
+
       secsinhour2 = secsinhour2 + 1000
       if (secsinhour2 > 3600000) {
         secsinhour2 = 0
         play1h = playerscount
 
         $('#p1h2').text(playerscount - play1h)
+      }
+      if (playerscount > "-1") {
+        $('#p1h2').text(playerscount - play1day)
       }
 
 
