@@ -19,10 +19,10 @@
     <input type="text" id="chnlName"></input>
     <button id="searchlolnoob3">Search for a server</button>
     <br>
-    <br>
-    <br>
     <div id="pdiff" style="font-size:25px;color:rgb(255, 255, 255)">0</div>
     <p>player diff</p>
+    <p id="gap1m">0</p>
+    <p id="gfdhjh">Gap change in 1 minute</p>
   </center>
   <figure class="highcharts-figure">
     <div id="container"></div>
@@ -135,6 +135,8 @@
   var gahviplay = 0;
   var gap = 0;
   var readygap = "0";
+  var secsinhour = "0";
+  var gap1min
 
 
   usernamelol(params[1]);
@@ -295,6 +297,36 @@
         }
       }]
     })
+    setInterval(function() {
+      if (gap > "-1") {
+        $('#gap1m').text(gap - gap1min)
+      }
+      secsinhour = secsinhour + 1000
+      if (secsinhour > 60000) {
+        secsinhour = 0
+        gap1min = gap
+
+        $('#gap1m').text(gap - gap1min)
+      }
+
+
+
+
+
+
+
+
+
+      console.log(secsinhour + ' /60000')
+
+      console.log(gap - gap1m + ' gap1min')
+      console.log(gap + ' gap')
+      console.log(gap1min + ' gap1min')
+
+
+
+
+    }, 1000);
 
 
 
