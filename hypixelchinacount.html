@@ -159,7 +159,7 @@
           var json = $.parseJSON(data);
           //Store data into a variable
           // Display Players
-          $('#viewcountodo').html(json.players);
+          viewcountodo.innerHTML = json.players;
           playerscount = json.players;
           play1min = json.players;
           play1h = json.players;
@@ -196,7 +196,7 @@
             //Store data into a variable
             // Display Players
             playerscount = json.players;
-            $('#viewcountodo').html(json.players);
+            viewcountodo.innerHTML = json.players;
             $('#name').html(json.serverip);
             $('#diamonds').html(json.maxplayers);
             $('#coins').html(json.serverStatus);
