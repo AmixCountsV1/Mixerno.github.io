@@ -134,6 +134,7 @@
   var motiplay = 0;
   var gahviplay = 0;
   var gap = 0;
+  var readygap = "0";
 
 
   usernamelol(params[1]);
@@ -143,8 +144,10 @@
 
   function usernamelol(name) {
 
+
     chanName = name;
     $.ajax({
+
       url: 'https://mcapi.xdefcon.com/server/mc.hypixel.net/full/json',
       // Handle as Text
       dataType: "text",
@@ -155,11 +158,14 @@
         // Display Players
         gahviplay = json.players
         $('#gahviplayerslol').html(json.players)
+        readygap = readygap + "1"
+
 
 
       }
     });
     $.ajax({
+
       url: 'https://mcapi.xdefcon.com/server/x19hypixel.nie.netease.com/full/json',
       // Handle as Text
       dataType: "text",
@@ -170,6 +176,8 @@
         // Display Players
         motiplay = json.players
         $('#motiplayers').html(json.players)
+        readygap = readygap + "1"
+
 
       }
     });
@@ -187,7 +195,7 @@
 
 
     setInterval(function() {
-
+      console.log(readygap)
       $.ajax({
         url: 'https://mcapi.xdefcon.com/server/mc.hypixel.net/full/json',
         // Handle as Text
@@ -229,23 +237,27 @@
         }
 
       });
-      gap = gahviplay - motiplay;
-      if (gap > "0") {
-        $('#pdiff').text(gap);
-        stuff.series[0].addPoint([
-          (new Date()).getTime(),
-          gap
-        ]);
+      if (readygap > "010") {
+        console.log(gap)
+        gap = gahviplay - motiplay;
+        if (gap > "0") {
+          $('#pdiff').text(gap);
+          stuff.series[0].addPoint([
+            (new Date()).getTime(),
+            gap
+          ]);
 
-      }
-      if (gap < "0") {
-        $('#pdiff').text(gap);
-        stuff.series[0].addPoint([
-          (new Date()).getTime(),
-          gap
-        ]);
+        }
+        if (gap < "0") {
+          $('#pdiff').text(gap);
+          stuff.series[0].addPoint([
+            (new Date()).getTime(),
+            gap
+          ]);
 
+        }
       }
+
 
 
 
