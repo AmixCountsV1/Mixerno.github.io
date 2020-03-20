@@ -248,11 +248,11 @@
       if (secsinhour > 60000) {
         secsinhour = 0
         play1min = playerscount
-
         $('#p1h').text(playerscount - play1min)
       }
+
       if (playerscount > "-1") {
-        $('#p1h').text(playerscount - play1day)
+        $('#p1h').text(playerscount - play1min)
       }
 
 
@@ -313,7 +313,7 @@
         $('#p1h2').text(playerscount - play1h)
       }
       if (playerscount > "-1") {
-        $('#p1h2').text(playerscount - play1day)
+        $('#p1h2').text(playerscount - play1h)
       }
 
 
