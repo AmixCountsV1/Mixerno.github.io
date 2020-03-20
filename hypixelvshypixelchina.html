@@ -245,16 +245,10 @@
       if (readygap > "010") {
         console.log(gap)
         gap = gahviplay - motiplay;
-
-        $('#pdiff').text(gap);
+        $('#pdiff').text(gahviplay - motiplay);
         stuff.series[0].addPoint([
           (new Date()).getTime(),
-          gap
-        ]);
-        $('#pdiff').text(gap);
-        stuff.series[0].addPoint([
-          (new Date()).getTime(),
-          gap
+          gahviplay - motiplay
         ]);
 
 
