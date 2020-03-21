@@ -19,7 +19,7 @@
     <button id="searchlolnoob3">Search for a server</button>
     <p id="image">0</p>
     <p id="name">0</p>
-    <div id="viewcountodo" class="odometer odometer-default" style="font-size:25px;color:rgb(255, 255, 255)">0</div>
+    <div id="viewcountodo" style="font-size:25px;color:rgb(255, 255, 255)">0</div>
     <p id="playersid">players</p>
     <div id="diamonds" style="font-size:25px;color:rgb(255, 255, 255)">0</div>
     <p id="mplayersid">max players</p>
@@ -138,6 +138,7 @@
     var videostufflol = window.location.href;
     var params = videostufflol.split('?');
     var chanName = params[1]
+    var maxPoints = 450 //30 min :)
     viiName = "";
 
 
@@ -204,6 +205,7 @@
             $('#demons').html(json.protocol);
             $('#image').html('<img src=\"' + json.icon + '\">');
             if (playerscount > "-1") {
+              if (stuff.series[0].points.length == maxPoints) stuff.series[0].data[0].remove();
               stuff.series[0].addPoint([
                 (new Date()).getTime(),
                 json.players
@@ -219,145 +221,156 @@
 
       }, 2000);
       var stuff = new Highcharts.chart('container', {
-        chart: {
-          backgroundColor: 'transparent',
-          renderTo: $('#container'),
-          type: 'line'
-        },
-        title: {
-          text: ''
-        },
-        xAxis: {
-          type: 'datetime',
-          tickPixelInterval: 1
-        },
-        yAxis: {
+          chart: {
+            backgroundColor: 'transparent',
+            renderTo: $('#container'),
+            type: 'line'
+          },
           title: {
             text: ''
-          }
-        },
+          },
+          xAxis: {
+            type: 'datetime',
+            tickPixelInterval: 500
+          },
+          yAxis: {
+            title: {
+              text: ''
+            }
+          },
 
-        credits: {
-          enabled: false
-        },
-
-        series: [{
-          name: 'chart',
-          marker: {
+          credits: {
             enabled: false
-          }
-        }]
+          },
+
+          series: [{
+              name: 'Players',
+              marker: {
+                enabled: false
+              },
+              legend: {
+                enabled: false
+              },
+              labels: {
+                enabled: false
+              },
+              exporting: {
+                enabled: false
+              },
+
+            }
+          }]
       })
-      setInterval(function() {
+    setInterval(function() {
 
-        secsinhour = secsinhour + 1000
-        if (secsinhour > 60000) {
-          secsinhour = 0
-          play1min = playerscount
-          $('#p1h').text(playerscount - play1min)
-        }
+      secsinhour = secsinhour + 1000
+      if (secsinhour > 60000) {
+        secsinhour = 0
+        play1min = playerscount
+        $('#p1h').text(playerscount - play1min)
+      }
 
-        if (playerscount > "-1") {
-          $('#p1h').text(playerscount - play1min)
-        }
-
-
+      if (playerscount > "-1") {
+        $('#p1h').text(playerscount - play1min)
+      }
 
 
 
 
 
 
-        console.log(secsinhour + ' /60000')
-
-        console.log(playerscount - play1min + ' Players 1min')
-        console.log(playerscount + ' playerscount')
-        console.log(play1min + ' play1min')
 
 
+      console.log(secsinhour + ' /60000')
+
+      console.log(playerscount - play1min + ' Players 1min')
+      console.log(playerscount + ' playerscount')
+      console.log(play1min + ' play1min')
 
 
+
+
+    }, 1000);
+    setInterval(function() {
+
+      secsinhour3 = secsinhour3 + 1000
+      if (secsinhour3 > 86400000) {
+        secsinhour3 = 0
+        play1day = playerscount
+
+        $('#p1h3').text(playerscount - play1day)
+      }
+      if (playerscount > "-1") {
+        $('#p1h3').text(playerscount - play1day)
+      }
+
+
+
+
+
+
+
+
+
+      console.log(secsinhour3 + ' /86400000')
+
+      console.log(playerscount - play1day + ' Players 1day')
+      console.log(playerscount + ' playerscount')
+      console.log(play1day + ' play1day')
+
+
+
+
+    }, 1000);
+    setInterval(function() {
+
+      secsinhour2 = secsinhour2 + 1000
+      if (secsinhour2 > 3600000) {
+        secsinhour2 = 0
+        play1h = playerscount
+
+        $('#p1h2').text(playerscount - play1h)
+      }
+      if (playerscount > "-1") {
+        $('#p1h2').text(playerscount - play1h)
+      }
+
+
+
+
+
+
+
+
+
+      console.log(secsinhour2 + ' /3600000')
+
+      console.log(playerscount - play1h + ' Players 1h')
+      console.log(playerscount + ' playerscount')
+      console.log(play1h + ' play1h')
+
+
+
+
+    }, 1000);
+
+
+  }
+
+
+
+
+
+  $('#searchlolnoob3').click(function() {
+    loadVideo($('#chnlName').val());
+    setTimeout(
+      function() {
+        //do nothing
       }, 1000);
-      setInterval(function() {
+    location.href = 'http://mixerno.github.io/minecraftsevrer.html?' + viiName;
 
-        secsinhour3 = secsinhour3 + 1000
-        if (secsinhour3 > 86400000) {
-          secsinhour3 = 0
-          play1day = playerscount
-
-          $('#p1h3').text(playerscount - play1day)
-        }
-        if (playerscount > "-1") {
-          $('#p1h3').text(playerscount - play1day)
-        }
-
-
-
-
-
-
-
-
-
-        console.log(secsinhour3 + ' /86400000')
-
-        console.log(playerscount - play1day + ' Players 1day')
-        console.log(playerscount + ' playerscount')
-        console.log(play1day + ' play1day')
-
-
-
-
-      }, 1000);
-      setInterval(function() {
-
-        secsinhour2 = secsinhour2 + 1000
-        if (secsinhour2 > 3600000) {
-          secsinhour2 = 0
-          play1h = playerscount
-
-          $('#p1h2').text(playerscount - play1h)
-        }
-        if (playerscount > "-1") {
-          $('#p1h2').text(playerscount - play1h)
-        }
-
-
-
-
-
-
-
-
-
-        console.log(secsinhour2 + ' /3600000')
-
-        console.log(playerscount - play1h + ' Players 1h')
-        console.log(playerscount + ' playerscount')
-        console.log(play1h + ' play1h')
-
-
-
-
-      }, 1000);
-
-
-    }
-
-
-
-
-
-    $('#searchlolnoob3').click(function() {
-      loadVideo($('#chnlName').val());
-      setTimeout(
-        function() {
-          //do nothing
-        }, 1000);
-      location.href = 'http://mixerno.github.io/minecraftsevrer.html?' + viiName;
-
-      console.log("BUTTON4")
-    });
+    console.log("BUTTON4")
+  });
 
   });
 </script>

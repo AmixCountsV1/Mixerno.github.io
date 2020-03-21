@@ -19,7 +19,7 @@
     <input type="text" id="chnlName"></input>
     <button id="searchlolnoob3">Search for a server</button>
     <br>
-    <div id="pdiff" class="odometer odometer-default" style="font-size:25px;color:rgb(255, 255, 255)">0</div>
+    <div id="pdiff" style="font-size:25px;color:rgb(255, 255, 255)">0</div>
     <p>player diff</p>
     <p id="gap1m">0</p>
     <p id="gfdhjh">Gap change in 1 minute</p>
@@ -142,6 +142,7 @@
     var readygap = "0";
     var secsinhour = "0";
     var gap1min = "0";
+    var maxPoints = 450 //30 min :)
 
 
     usernamelol(params[1]);
@@ -248,6 +249,7 @@
           console.log(gap)
           gap = gahviplay - motiplay;
           pdiff.innerHTML = gahviplay - motiplay;
+          if (stuff.series[0].points.length == maxPoints) stuff.series[0].data[0].remove();
           stuff.series[0].addPoint([
             (new Date()).getTime(),
             gahviplay - motiplay
@@ -264,98 +266,109 @@
 
       }, 2000);
       var stuff = new Highcharts.chart('container', {
-        chart: {
-          backgroundColor: 'transparent',
-          renderTo: $('#container'),
-          type: 'line'
-        },
-        title: {
-          text: ''
-        },
-        xAxis: {
-          type: 'datetime',
-          tickPixelInterval: 1
-        },
-        yAxis: {
+          chart: {
+            backgroundColor: 'transparent',
+            renderTo: $('#container'),
+            type: 'line'
+          },
           title: {
             text: ''
-          }
-        },
+          },
+          xAxis: {
+            type: 'datetime',
+            tickPixelInterval: 500
+          },
+          yAxis: {
+            title: {
+              text: ''
+            }
+          },
 
-        credits: {
-          enabled: false
-        },
-
-        series: [{
-          name: 'chart',
-          marker: {
+          credits: {
             enabled: false
-          }
-        }]
+          },
+
+          series: [{
+              name: 'Player Diffrence',
+              marker: {
+                enabled: false
+              },
+              legend: {
+                enabled: false
+              },
+              labels: {
+                enabled: false
+              },
+              exporting: {
+                enabled: false
+              },
+
+            }
+          }]
       })
-      setInterval(function() {
+    setInterval(function() {
 
 
-        secsinhour = secsinhour + 1000
-        if (secsinhour > 60000) {
-          secsinhour = 0
-          gap1min = (gahviplay - motiplay)
+      secsinhour = secsinhour + 1000
+      if (secsinhour > 60000) {
+        secsinhour = 0
+        gap1min = (gahviplay - motiplay)
 
-          $('#gap1m').text(gap - gap1min)
-        }
-        if (gap > "-1") {
-          $('#gap1m').text(gap - gap1min)
-        }
-        if (gap < "-1") {
-          $('#gap1m').text(gap - gap1min)
-        }
-
-
-
+        $('#gap1m').text(gap - gap1min)
+      }
+      if (gap > "-1") {
+        $('#gap1m').text(gap - gap1min)
+      }
+      if (gap < "-1") {
+        $('#gap1m').text(gap - gap1min)
+      }
 
 
 
 
 
 
-        console.log(secsinhour + ' /60000')
-
-        console.log(gap - gap1min + ' gap1min')
-        console.log(gap + ' gap')
-        console.log(gap1min + ' gap1min')
-        console.log(gahviplay + ' normal')
-        console.log(motiplay + ' china')
 
 
 
+      console.log(secsinhour + ' /60000')
 
-      }, 1000);
-
-
-
-      $('#searchlolnoob3').click(function() {
-        loadVideo($('#chnlName').val());
-        setTimeout(
-          function() {
-            //do nothing
-          }, 1000);
-        location.href = 'http://mixerno.github.io/minecraftsevrer.html?' + viiName;
-
-        console.log("BUTTON4")
-      });
+      console.log(gap - gap1min + ' gap1min')
+      console.log(gap + ' gap')
+      console.log(gap1min + ' gap1min')
+      console.log(gahviplay + ' normal')
+      console.log(motiplay + ' china')
 
 
-    }
 
-    function loadVideo(naemhe) {
-      viiName = naemhe;
+
+    }, 1000);
+
+
+
+    $('#searchlolnoob3').click(function() {
+      loadVideo($('#chnlName').val());
       setTimeout(
         function() {
-          loadVideo3($('#chnlName').val());
-        }, 5000);
+          //do nothing
+        }, 1000);
+      location.href = 'http://mixerno.github.io/minecraftsevrer.html?' + viiName;
+
+      console.log("BUTTON4")
+    });
 
 
-    }
+  }
+
+  function loadVideo(naemhe) {
+    viiName = naemhe;
+    setTimeout(
+      function() {
+        loadVideo3($('#chnlName').val());
+      }, 5000);
+
+
+  }
   });
 </script>
 
