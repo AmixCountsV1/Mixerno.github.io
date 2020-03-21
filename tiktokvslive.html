@@ -59,6 +59,13 @@
     Images:
     <p id="img1">1</p>
     <p id="img2">2</p>
+    Other Stats:
+    <br>
+    <p id="likes1" class="odometer" style="font-size:15px;color:rgb(255, 255, 255)">1</p>
+    hearts
+    <br>
+    <p id="likes2" class="odometer" style="font-size:15px;color:rgb(255, 255, 255)">2</p>
+    hearts
   </center>
   <style>
     .highcharts-figure,
@@ -144,7 +151,8 @@
 <script type="text/javascript">
   jQuery.ajaxPrefilter(function(options) {
     if (options.crossDomain && jQuery.support.cors) {
-      options.url = 'https://corseverywheremiks.herokuapp.com/' + options.url;
+      //options.url = 'https://corseverywheremiks.herokuapp.com/' + options.url;
+      options.url = 'https://cors.upbount.com/' + options.url;
     }
   });
   $(document).ready(function() {
@@ -190,6 +198,7 @@
           readygap = readygap + "1"
           gahviplayerslol.innerHTML = json.body.userData.fans;
           $('#img1').html('<img src=\"' + json.body.userData.covers + '\">')
+          likes2.innerHTML = json.body.userData.heart;
 
 
 
@@ -209,6 +218,7 @@
           //$('#motiplayers').html(json.body.userData.fans)
           readygap = readygap + "1"
           motiplayers.innerHTML = json.body.userData.fans;
+          likes1.innerHTML = json.body.userData.heart;
           $('#img2').html('<img src=\"' + json.body.userData.covers + '\">')
 
 
@@ -246,6 +256,7 @@
             gahviplay = json.body.userData.fans
             //$('#gahviplayerslol').html(json.body.userData.fans)
             gahviplayerslol.innerHTML = json.body.userData.fans;
+            likes2.innerHTML = json.body.userData.heart;
 
 
 
@@ -269,6 +280,8 @@
             //$('#motiplayers').html(json.body.userData.fans)
             motiplayers.innerHTML = json.body.userData.fans;
 
+            likes1.innerHTML = json.body.userData.heart;
+
 
 
           }
@@ -278,11 +291,8 @@
           console.log(gap)
           gap = gahviplay - motiplay;
           pdiff.innerHTML = gahviplay - motiplay;
-          if (stuff.series[0].points.length == maxPoints) stuff.series[0].data[0].remove();
-          stuff.series[0].addPoint([
-            (new Date()).getTime(),
-            gahviplay - motiplay
-          ]);
+
+
 
 
         }
@@ -294,6 +304,13 @@
 
 
       }, 2000);
+      setInterval(function() {
+        if (stuff.series[0].points.length == maxPoints) stuff.series[0].data[0].remove();
+        stuff.series[0].addPoint([
+          (new Date()).getTime(),
+          gahviplay - motiplay
+        ]);
+      }, 4000);
       var stuff = new Highcharts.chart('container', {
         chart: {
           backgroundColor: 'transparent',
