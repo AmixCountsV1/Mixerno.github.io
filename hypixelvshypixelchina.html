@@ -266,109 +266,108 @@
 
       }, 2000);
       var stuff = new Highcharts.chart('container', {
-          chart: {
-            backgroundColor: 'transparent',
-            renderTo: $('#container'),
-            type: 'line'
-          },
+        chart: {
+          backgroundColor: 'transparent',
+          renderTo: $('#container'),
+          type: 'line'
+        },
+        title: {
+          text: ''
+        },
+        xAxis: {
+          type: 'datetime',
+          tickPixelInterval: 500
+        },
+        yAxis: {
           title: {
             text: ''
-          },
-          xAxis: {
-            type: 'datetime',
-            tickPixelInterval: 500
-          },
-          yAxis: {
-            title: {
-              text: ''
-            }
-          },
+          }
+        },
 
-          credits: {
+        credits: {
+          enabled: false
+        },
+
+        series: [{
+          name: 'Player Diffrence',
+          marker: {
+            enabled: false
+          },
+          legend: {
+            enabled: false
+          },
+          labels: {
+            enabled: false
+          },
+          exporting: {
             enabled: false
           },
 
-          series: [{
-              name: 'Player Diffrence',
-              marker: {
-                enabled: false
-              },
-              legend: {
-                enabled: false
-              },
-              labels: {
-                enabled: false
-              },
-              exporting: {
-                enabled: false
-              },
-
-            }
-          }]
+        }]
       })
-    setInterval(function() {
+      setInterval(function() {
 
 
-      secsinhour = secsinhour + 1000
-      if (secsinhour > 60000) {
-        secsinhour = 0
-        gap1min = (gahviplay - motiplay)
+        secsinhour = secsinhour + 1000
+        if (secsinhour > 60000) {
+          secsinhour = 0
+          gap1min = (gahviplay - motiplay)
 
-        $('#gap1m').text(gap - gap1min)
-      }
-      if (gap > "-1") {
-        $('#gap1m').text(gap - gap1min)
-      }
-      if (gap < "-1") {
-        $('#gap1m').text(gap - gap1min)
-      }
-
-
-
+          $('#gap1m').text(gap - gap1min)
+        }
+        if (gap > "-1") {
+          $('#gap1m').text(gap - gap1min)
+        }
+        if (gap < "-1") {
+          $('#gap1m').text(gap - gap1min)
+        }
 
 
 
 
 
 
-      console.log(secsinhour + ' /60000')
-
-      console.log(gap - gap1min + ' gap1min')
-      console.log(gap + ' gap')
-      console.log(gap1min + ' gap1min')
-      console.log(gahviplay + ' normal')
-      console.log(motiplay + ' china')
 
 
 
+        console.log(secsinhour + ' /60000')
 
-    }, 1000);
+        console.log(gap - gap1min + ' gap1min')
+        console.log(gap + ' gap')
+        console.log(gap1min + ' gap1min')
+        console.log(gahviplay + ' normal')
+        console.log(motiplay + ' china')
 
 
 
-    $('#searchlolnoob3').click(function() {
-      loadVideo($('#chnlName').val());
+
+      }, 1000);
+
+
+
+      $('#searchlolnoob3').click(function() {
+        loadVideo($('#chnlName').val());
+        setTimeout(
+          function() {
+            //do nothing
+          }, 1000);
+        location.href = 'http://mixerno.github.io/minecraftsevrer.html?' + viiName;
+
+        console.log("BUTTON4")
+      });
+
+
+    }
+
+    function loadVideo(naemhe) {
+      viiName = naemhe;
       setTimeout(
         function() {
-          //do nothing
-        }, 1000);
-      location.href = 'http://mixerno.github.io/minecraftsevrer.html?' + viiName;
-
-      console.log("BUTTON4")
-    });
+          loadVideo3($('#chnlName').val());
+        }, 5000);
 
 
-  }
-
-  function loadVideo(naemhe) {
-    viiName = naemhe;
-    setTimeout(
-      function() {
-        loadVideo3($('#chnlName').val());
-      }, 5000);
-
-
-  }
+    }
   });
 </script>
 
