@@ -340,7 +340,7 @@
         secsinhour = secsinhour + 1000
         if (secsinhour > 60000) {
           secsinhour = 0
-          gap1min = (gahviplay - motiplay)
+          gap1min = gap
 
           //$('#gap1m').text(gap - gap1min)
           gap1m.innerHTML = gap - gap1min;
@@ -380,18 +380,18 @@
         secsinhour2 = secsinhour2 + 1000
         if (secsinhour2 > 3600000) {
           secsinhour2 = 0
-          gap1ho = (gahviplay - motiplay)
+          gap1ho = gap
 
           //$('#gap1m').text(gap - gap1min)
-          gap1h.innerHTML = gap - gap1min;
+          gap1h.innerHTML = gap - gap1ho;
         }
         if (gap > "-1") {
           //$('#gap1m').text(gap - gap1min)
-          gap1h.innerHTML = gap - gap1min;
+          gap1h.innerHTML = gap - gap1ho;
         }
         if (gap < "-1") {
           //$('#gap1m').text(gap - gap1min)
-          gap1h.innerHTML = gap - gap1min;
+          gap1h.innerHTML = gap - gap1ho;
         }
 
 
