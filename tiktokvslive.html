@@ -7,7 +7,7 @@
   <title>Mixernos site</title>
   <link rel="stylesheet" href="odometer-theme-default.css" />
   <link rel="stylesheet" href="odometer-theme-minimal.css" />
-
+  <meta http-equiv="refresh" content="7200" />
   <script src="odometer.js"></script>
   <script src="https://mcapi.us/scripts/minecraft.js"></script>
   <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
@@ -16,7 +16,7 @@
   <script src="https://code.highcharts.com/modules/export-data.js"></script>
   <script src="https://code.highcharts.com/modules/accessibility.js"></script>
   <center>
-    Tiktok Realtime compare v.0.1
+    Tiktok Realtime compare v.0.1.1
     <br>
     <br>
     <div class="row">
@@ -28,13 +28,13 @@
         <div class="col s12 col-md-6">
           <div class="card m-b-0 m-t-20">
             <h4 id="tiktoker1" class="text-truncate text-center" style="font-size:15px;color:rgb(255, 255, 255)">Charli d'amelio</h4>
-            <p id="gahviplayerslol" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">39000000</p>
+            <p id="gahviplayerslol" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">0</p>
           </div>
         </div>
         <div class="col s12 col-md-6">
           <div class="card m-b-0 m-t-20">
             <h4 id="tiktoker2" class="text-truncate text-center" style="font-size:15px;color:rgb(255, 255, 255)">Loren Gray</h4>
-            <p id="motiplayers" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">40000000</p>
+            <p id="motiplayers" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">0</p>
           </div>
         </div>
       </div>
@@ -149,9 +149,13 @@
 
 
 <script type="text/javascript">
+  setTimeout(function() {
+    location.reload();
+  }, 7200000);
+  var corsurl = "https://corseverywheremiks.herokuapp.com/" //required works only in mixerno.github.io/ | Sorry.
   jQuery.ajaxPrefilter(function(options) {
     if (options.crossDomain && jQuery.support.cors) {
-      options.url = 'https://corseverywheremiks.herokuapp.com/' + options.url;
+      options.url = corsurl + options.url;
     }
   });
   $(document).ready(function() {
@@ -169,7 +173,6 @@
     var gap1min = "0";
     var gap1ho = "0";
     var secsinhour2 = "0";
-    var maxPoints = 450 //30 min :)
 
 
     usernamelol(params[1]);
@@ -304,7 +307,6 @@
 
       }, 2000);
       setInterval(function() {
-        if (stuff.series[0].points.length == maxPoints) stuff.series[0].data[0].remove();
         stuff.series[0].addPoint([
           (new Date()).getTime(),
           gahviplay - motiplay
