@@ -29,12 +29,14 @@
           <div class="card m-b-0 m-t-20">
             <h4 id="tiktoker1" class="text-truncate text-center" style="font-size:15px;color:rgb(255, 255, 255)">Charli d'amelio</h4>
             <p id="gahviplayerslol" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">0</p>
+            <p id="1ohh1" style="font-size:15px;color:rgb(255, 255, 255)" class="odometer">0</p>
           </div>
         </div>
         <div class="col s12 col-md-6">
           <div class="card m-b-0 m-t-20">
             <h4 id="tiktoker2" class="text-truncate text-center" style="font-size:15px;color:rgb(255, 255, 255)">Loren Gray</h4>
             <p id="motiplayers" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">0</p>
+            <p id="1ohh2" style="font-size:15px;color:rgb(255, 255, 255)" class="odometer">0</p>
           </div>
         </div>
       </div>
@@ -68,7 +70,6 @@
     <p id="has2">tiktoker has</p>
     <p id="likes1" class="odometer" style="font-size:15px;color:rgb(255, 255, 255)">2</p>
     hearts
-    <br>
     <br>
     <br>
     <input type="text" id="chnlName">user1</input>
@@ -181,6 +182,8 @@
     var secsinhour = "0";
     var gap1min = "0";
     var gap1ho = "0";
+    var tik1 = "0";
+    var tik2 = "0";
     var secsinhour2 = "0";
     var chanName = "";
     var chanName2 = "";
@@ -449,17 +452,25 @@
       if (secsinhour2 > 3600000) {
         secsinhour2 = 0
         gap1ho = gap
+        tik1 = gahviplay
+        tik2 = motiplay
 
         //$('#gap1m').text(gap - gap1min)
         gap1h.innerHTML = gap - gap1ho;
+        1 ohh1.innerHTML = gahviplay - tik1;
+        1 ohh2.innerHTML = motiplay - tik2;
       }
       if (gap > "-1") {
         //$('#gap1m').text(gap - gap1min)
         gap1h.innerHTML = gap - gap1ho;
+        1 ohh1.innerHTML = gahviplay - tik1;
+        1 ohh2.innerHTML = motiplay - tik2;
       }
       if (gap < "-1") {
         //$('#gap1m').text(gap - gap1min)
         gap1h.innerHTML = gap - gap1ho;
+        1 ohh1.innerHTML = gahviplay - tik1;
+        1 ohh2.innerHTML = motiplay - tik2;
       }
 
 
