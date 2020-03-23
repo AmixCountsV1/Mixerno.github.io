@@ -12,11 +12,8 @@
   <script src="https://mcapi.us/scripts/minecraft.js"></script>
   <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
   <script src="https://code.highcharts.com/highcharts.js"></script>
-  <script src="https://code.highcharts.com/modules/exporting.js"></script>
-  <script src="https://code.highcharts.com/modules/export-data.js"></script>
-  <script src="https://code.highcharts.com/modules/accessibility.js"></script>
   <center>
-    Tiktok Realtime compare v.0.1.3
+    Tiktok Realtime compare v.0.1.4
     <br>
     <br>
     <div class="row">
@@ -373,12 +370,13 @@
         renderTo: $('#container'),
         type: 'line'
       },
+
       title: {
         text: ''
       },
       xAxis: {
         type: 'datetime',
-        tickPixelInterval: 500
+        tickPixelInterval: 1
       },
       yAxis: {
         title: {
@@ -391,14 +389,8 @@
       },
 
       series: [{
-        name: 'Player Diffrence',
+        name: 'Fan Diffrence',
         marker: {
-          enabled: false
-        },
-        legend: {
-          enabled: false
-        },
-        labels: {
           enabled: false
         },
         exporting: {
