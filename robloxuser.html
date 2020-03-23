@@ -7,7 +7,7 @@
   <title>MixCount | Roblox User stats</title>
   <link rel="stylesheet" href="odometer-theme-default.css" />
   <link rel="stylesheet" href="odometer-theme-minimal.css" />
-
+  <meta http-equiv="refresh" content="7200" />
   <script src="odometer.js"></script>
   <script src="https://mcapi.us/scripts/minecraft.js"></script>
   <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
@@ -36,7 +36,7 @@
 
   </center>
 
-  <p>0.1.0</p>
+  <p>0.2.0</p>
   <figure class="highcharts-figure">
     <div id="container"></div>
     <p class="highcharts-description">
@@ -116,6 +116,9 @@
 
 
 <script type="text/javascript">
+  setTimeout(function() {
+    location.reload();
+  }, 7200000);
   jQuery.ajaxPrefilter(function(options) {
     if (options.crossDomain && jQuery.support.cors) {
       options.url = 'https://corseverywheremiks.herokuapp.com/' + options.url;
@@ -147,8 +150,8 @@
         var json = $.parseJSON(data);
         //Store data into a variable
         // Display Players
-        $('#name').html(json.Username);
-        $('#id').html(json.Id);
+        name.innerHTML = json.Username
+        id.innerHTML = json.Id
 
       }
     });
@@ -161,8 +164,7 @@
         var json = $.parseJSON(data);
         //Store data into a variable
         // Display Players
-        $('#followers').html(json.count);
-
+        followers.innerHTML = json.count
       }
     });
     $.ajax({
@@ -174,7 +176,7 @@
         var json = $.parseJSON(data);
         //Store data into a variable
         // Display Players
-        $('#friends').html(json.count);
+        friends.innerHTML = json.count
 
       }
     });
@@ -187,7 +189,7 @@
         var json = $.parseJSON(data);
         //Store data into a variable
         // Display Players
-        $('#following').html(json.count);
+        following.innerHTML = json.count
 
       }
     });
@@ -217,8 +219,8 @@
         var json = $.parseJSON(data);
         //Store data into a variable
         // Display Players
-        $('#name').html(json.Username);
-
+        name.innerHTML = json.Username
+        id.innerHTML = json.Id
 
       }
     });
@@ -231,13 +233,7 @@
         var json = $.parseJSON(data);
         //Store data into a variable
         // Display Players
-        $('#followers').html(json.count);
-        followers = json.count;
-        stuff.series[0].addPoint([
-          (new Date()).getTime(),
-          json.count
-        ])
-
+        followers.innerHTML = json.count
       }
     });
     $.ajax({
@@ -249,7 +245,7 @@
         var json = $.parseJSON(data);
         //Store data into a variable
         // Display Players
-        $('#friends').html(json.count);
+        friends.innerHTML = json.count
 
       }
     });
@@ -262,7 +258,7 @@
         var json = $.parseJSON(data);
         //Store data into a variable
         // Display Players
-        $('#following').html(json.count);
+        following.innerHTML = json.count
 
       }
     });
