@@ -252,15 +252,6 @@
 
         }
       });
-      if (readygap > "010") {
-        console.log(gap)
-        gap = gahviplay - motiplay;
-        pdiff.innerHTML = gahviplay - motiplay;
-
-
-
-
-      }
 
 
 
@@ -272,7 +263,7 @@
     setInterval(function() {
       stuff.series[0].addPoint([
         (new Date()).getTime(),
-        gahviplay - motiplay
+        gahviplay
       ]);
     }, 4000);
     var stuff = new Highcharts.chart('container', {
@@ -349,7 +340,7 @@
         function() {
           //do nothing
         }, 1000);
-      location.href = 'http://mixerno.github.io/tiktokvslive.html?' + viiName + '?' + viiNam2e;
+      location.href = 'http://mixerno.github.io/tiktok.html?' + viiName;
 
       console.log("BUTTON4")
     });
