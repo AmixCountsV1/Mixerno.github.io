@@ -12,7 +12,7 @@
   <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
   <script src="https://code.highcharts.com/highcharts.js"></script>
   <center>
-    Tiktok Realtime v.0.1.0
+    Tiktok Realtime v.0.1.1
     <br>
     <br>
     <p id="img1">1</p>
@@ -22,7 +22,8 @@
     Growth in 1 hour: <p id="ohh1" style="font-size:15px;color:rgb(255, 255, 255)" class="odometer">0</p>
     <br>
     <p id="likes2" class="odometer" style="font-size:15px;color:rgb(255, 255, 255)">1</p>
-    hearts
+    Hearts
+
     <br>
 
 
@@ -33,7 +34,9 @@
 
     </p>
   </figure>
-
+  <br>
+  <p id="goal" class="odometer" style="font-size:15px;color:rgb(255, 255, 255)">1</p>
+  Fan Goal
   <br>
   <center>
     <input type="text" id="chnlName">user1</input>
@@ -154,6 +157,8 @@
     viiName = "";
     viiNam2e = "";
     viiNam22e = "";
+    var goal1 = 1;
+    var readygoal = "0";
 
 
     usernamelol(params[1]);
@@ -184,6 +189,7 @@
           tiktoker1.innerHTML = json.body.userData.nickName;
           $('#img1').html('<img src=\"' + json.body.userData.covers + '\">')
           likes2.innerHTML = json.body.userData.heart;
+          readygoal + "11"
 
 
 
@@ -217,9 +223,46 @@
 
 
     }
-    if (readygap > 010) {
-      gap1min = gap
-    }
+    setInterval(function() {
+      //Gonna add soon more but for now its gonna be like this. :)
+      console.log(goal1 - gahviplay)
+      goal.innerHTML = goal1 - gahviplay
+      if (gahviplay > goal1) {
+        if (gahviplay > 10 < 100) {
+          goal1 = 100;
+        }
+        if (gahviplay > 100 < 1000) {
+          //goal1 = gahviplay + 100;
+          goal1 = 1000
+        }
+        if (gahviplay > 1000 < 10000) {
+          //goal1 = gahviplay + 1000;
+          goal1 = 10000
+        }
+        if (gahviplay > 10000 < 100000) {
+          //  goal1 = gahviplay + 10000;
+          goal1 = 100000
+        }
+        if (gahviplay > 100000 < 1000000) {
+          //goal1 = gahviplay + 100000;
+          goal1 = 1000000
+        }
+        if (gahviplay > 1000000 < 10000000) {
+          //goal1 = gahviplay + 1000000;
+          goal1 = 10000000
+        }
+        if (gahviplay > 10000000 < 100000000) {
+          //goal1 = gahviplay + 10000000;
+          goal1 = 100000000
+        }
+        if (gahviplay > 100000000 < 10000000000) {
+          //Great job if you got here
+          goal1 = gahviplay
+        }
+      }
+
+    }, 500);
+
 
 
 
