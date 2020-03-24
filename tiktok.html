@@ -127,7 +127,7 @@
   var corsurl = "https://corseverywheremiks.herokuapp.com/" //required works only in mixerno.github.io/ | Sorry.
   jQuery.ajaxPrefilter(function(options) {
     if (options.crossDomain && jQuery.support.cors) {
-      //options.url = corsurl + options.url;
+      options.url = corsurl + options.url;
     }
   });
   $(document).ready(function() {
