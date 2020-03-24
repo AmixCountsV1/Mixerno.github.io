@@ -4,10 +4,11 @@
 
 <head>
 
-  <title>MixCount | Miencraft server stats</title>
+  <title>Mixerno | Miencraft server stats</title>
   <link rel="stylesheet" href="odometer-theme-default.css" />
   <link rel="stylesheet" href="odometer-theme-minimal.css" />
   <link rel="stylesheet" href="style.css" />
+  <meta http-equiv="refresh" content="7200" />
   <script src="odometer.js"></script>
   <script src="https://mcapi.us/scripts/minecraft.js"></script>
   <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
@@ -52,7 +53,7 @@
     <p id="wat3">Player change last 1 day</p>
   </center>
 
-  <p>0.1.0</p>
+  <p>0.2.0</p>
 
 
 
@@ -129,6 +130,9 @@
 
 
 <script type="text/javascript">
+  setTimeout(function() {
+    location.reload();
+  }, 7200000);
   jQuery.ajaxPrefilter(function(options) {
     if (options.crossDomain && jQuery.support.cors) {
       options.url = 'https://corseverywheremiks.herokuapp.com/' + options.url;
@@ -164,17 +168,17 @@
         var json = $.parseJSON(data);
         //Store data into a variable
         // Display Players
-        $('#viewcountodo').html(json.players);
         playerscount = json.players;
         play1min = json.players;
         play1h = json.players;
         play1day = json.players;
-        $('#name').html(json.serverip);
-        $('#diamonds').html(json.maxplayers);
-        $('#coins').html(json.serverStatus);
-        $('#userCoins').html(json.ping);
-        $('#demons').html(json.protocol);
-        $('#image').html('<img src=\"' + json.icon + '\">');
+        viewcountodo.innerHTML = json.players
+        name.innerHTML = json.serverip
+        diamonds.innerHTML = json.maxplayers
+        coins.innerHTML = json.serverStatus
+        userCoins.innerHTML = json.ping
+        demons.innerHTML = json.protocol
+        image.innerHTML = '<img src=\"' + json.icon + '\">'
 
       }
     });
@@ -207,13 +211,13 @@
             json.players
           ]);
           playerscount = json.players;
-          $('#viewcountodo').html(json.players);
-          $('#name').html(json.serverip);
-          $('#diamonds').html(json.maxplayers);
-          $('#coins').html(json.serverStatus);
-          $('#userCoins').html(json.ping);
-          $('#demons').html(json.protocol);
-          $('#image').html('<img src=\"' + json.icon + '\">');
+          viewcountodo.innerHTML = json.players
+          name.innerHTML = json.serverip
+          diamonds.innerHTML = json.maxplayers
+          coins.innerHTML = json.serverStatus
+          userCoins.innerHTML = json.ping
+          demons.innerHTML = json.protocol
+          image.innerHTML = '<img src=\"' + json.icon + '\">'
 
 
         }

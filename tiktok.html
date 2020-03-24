@@ -4,27 +4,27 @@
 
 <head>
 
-  <title>Mixerno | Ecosia counter</title>
+  <title>Mixerno | Tiktok counter</title>
   <link rel="stylesheet" href="odometer-theme-default.css" />
   <link rel="stylesheet" href="odometer-theme-minimal.css" />
   <meta http-equiv="refresh" content="7200" />
   <script src="odometer.js"></script>
-  <script src="https://mcapi.us/scripts/minecraft.js"></script>
   <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
   <script src="https://code.highcharts.com/highcharts.js"></script>
   <center>
-    Ecosia counter v.0.1.0
+    Tiktok Realtime v.0.1.0
     <br>
     <br>
-    <p id="pdiff" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">0</p>
+    <p id="img1">1</p>
+    <h4 id="tiktoker1" class="text-truncate text-center" style="font-size:15px;color:rgb(255, 255, 255)">Charli d'amelio</h4>
+    <p id="gahviplayerslol" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">0</p>
     <br>
-    <p>Trees planted</p>
+    Growth in 1 hour: <p id="ohh1" style="font-size:15px;color:rgb(255, 255, 255)" class="odometer">0</p>
     <br>
-    <div id="gahviplayerslol" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">0</div>
-    <p>Rate</p>
-    Counter change in 1 minute: <p id="gap1m" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">0</p>
+    <p id="likes2" class="odometer" style="font-size:15px;color:rgb(255, 255, 255)">1</p>
+    hearts
     <br>
-    Counter change in 1 hour: <p id="gap1h" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">0</p>
+
 
   </center>
   <figure class="highcharts-figure">
@@ -36,7 +36,8 @@
 
   <br>
   <center>
-
+    <input type="text" id="chnlName">user1</input>
+    <input type="button" id="searchlolnoob3" value="Compare" />
   </center>
   <style>
     .highcharts-figure,
@@ -126,7 +127,7 @@
   var corsurl = "https://corseverywheremiks.herokuapp.com/" //required works only in mixerno.github.io/ | Sorry.
   jQuery.ajaxPrefilter(function(options) {
     if (options.crossDomain && jQuery.support.cors) {
-      options.url = corsurl + options.url;
+      //options.url = corsurl + options.url;
     }
   });
   $(document).ready(function() {
@@ -142,10 +143,21 @@
     var secsinhour = "0";
     var gap1min = "0";
     var gap1ho = "0";
+    var tik1 = "0";
+    var tik2 = "0";
     var secsinhour2 = "0";
+    var chanName = "";
+    var chanName2 = "";
+    var chanName22 = "";
+    chanName = params[1]
+    chanName2 = params[2]
+    viiName = "";
+    viiNam2e = "";
+    viiNam22e = "";
 
 
     usernamelol(params[1]);
+    loadVideo3("random lol nothing really :)");
 
 
 
@@ -157,7 +169,7 @@
 
       $.ajax({
 
-        url: 'https://api.ecosia.org/v1/trees/count',
+        url: 'https://www.tiktok.com/node/share/user/@' + chanName,
         // Handle as Text
         dataType: "text",
         success: function(data) {
@@ -165,17 +177,19 @@
           var json = $.parseJSON(data);
           //Store data into a variable
           // Display Players
-          gahviplay = json.count
-          gap = json.count
+          gahviplay = json.body.userData.fans
           //$('#gahviplayerslol').html(json.body.userData.fans)
-          readygap = readygap + "11"
-          gahviplayerslol.innerHTML = json.rate;
-          pdiff.innerHTML = json.count;
+          readygap = readygap + "1"
+          gahviplayerslol.innerHTML = json.body.userData.fans;
+          tiktoker1.innerHTML = json.body.userData.nickName;
+          $('#img1').html('<img src=\"' + json.body.userData.covers + '\">')
+          likes2.innerHTML = json.body.userData.heart;
+
+
+
         }
       });
     }
-
-
 
 
     function loadVideo(naemhe) {
@@ -214,7 +228,7 @@
       chanName = params[1];
       $.ajax({
 
-        url: 'https://api.ecosia.org/v1/trees/count',
+        url: 'https://www.tiktok.com/node/share/user/@' + chanName,
         // Handle as Text
         dataType: "text",
         success: function(data) {
@@ -222,13 +236,31 @@
           var json = $.parseJSON(data);
           //Store data into a variable
           // Display Players
-          gahviplay = json.count
-          gap = json.count
+
+          gahviplay = json.body.userData.fans
           //$('#gahviplayerslol').html(json.body.userData.fans)
-          gahviplayerslol.innerHTML = json.rate;
-          pdiff.innerHTML = json.count;
+          gahviplayerslol.innerHTML = json.body.userData.fans;
+          likes2.innerHTML = json.body.userData.heart;
+          tiktoker1.innerHTML = json.body.userData.nickName;
+
+
+
+
+
+
+
+
         }
       });
+      if (readygap > "010") {
+        console.log(gap)
+        gap = gahviplay - motiplay;
+        pdiff.innerHTML = gahviplay - motiplay;
+
+
+
+
+      }
 
 
 
@@ -240,21 +272,22 @@
     setInterval(function() {
       stuff.series[0].addPoint([
         (new Date()).getTime(),
-        gahviplay
+        gahviplay - motiplay
       ]);
-    }, 2000);
+    }, 4000);
     var stuff = new Highcharts.chart('container', {
       chart: {
         backgroundColor: 'transparent',
         renderTo: $('#container'),
         type: 'line'
       },
+
       title: {
         text: ''
       },
       xAxis: {
         type: 'datetime',
-        tickPixelInterval: 500
+        tickPixelInterval: 1
       },
       yAxis: {
         title: {
@@ -267,14 +300,8 @@
       },
 
       series: [{
-        name: 'Player Diffrence',
+        name: 'Fans',
         marker: {
-          enabled: false
-        },
-        legend: {
-          enabled: false
-        },
-        labels: {
           enabled: false
         },
         exporting: {
@@ -283,82 +310,26 @@
 
       }]
     })
-    setInterval(function() {
 
-
-      secsinhour = secsinhour + 1000
-      if (secsinhour > 60000) {
-        secsinhour = 0
-        gap1min = gap
-
-        //$('#gap1m').text(gap - gap1min)
-        gap1m.innerHTML = gap - gap1min;
-      }
-      if (gahviplay > "-1") {
-        //$('#gap1m').text(gap - gap1min)
-        gap1m.innerHTML = gap - gap1min;
-      }
-      if (gahviplay < "-1") {
-        //$('#gap1m').text(gap - gap1min)
-        gap1m.innerHTML = gap - gap1min;
-      }
-
-
-
-
-
-
-
-
-
-      console.log(secsinhour + ' /60000')
-
-      console.log(gap - gap1min + ' gap1min')
-      console.log(gap + ' gap')
-      console.log(gap1min + ' gap1min')
-      console.log(gahviplay + ' normal')
-
-
-
-
-    }, 1000);
     setInterval(function() {
 
 
       secsinhour2 = secsinhour2 + 1000
       if (secsinhour2 > 3600000) {
         secsinhour2 = 0
-        gap1ho = gap
-
+        tik1 = gahviplay
         //$('#gap1m').text(gap - gap1min)
-        gap1h.innerHTML = gap - gap1ho;
+        ohh1.innerHTML = gahviplay - tik1;
       }
-      if (gahviplay > "-1") {
+      if (gap > "-1") {
         //$('#gap1m').text(gap - gap1min)
-        gap1h.innerHTML = gap - gap1ho;
+        ohh1.innerHTML = gahviplay - tik1;
       }
-      if (gahviplay < "-1") {
+      if (gap < "-1") {
         //$('#gap1m').text(gap - gap1min)
-        gap1h.innerHTML = gap - gap1ho;
+        ohh1.innerHTML = gahviplay - tik1;
       }
-
-
-
-
-
-
-
-
-
       console.log(secsinhour2 + ' /3600000')
-
-      console.log(gap - gap1ho + ' gap1ho')
-      console.log(gap1ho + ' gap1ho')
-
-
-
-
-
     }, 1000);
 
 

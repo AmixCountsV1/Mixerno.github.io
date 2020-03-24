@@ -1,10 +1,11 @@
 <html>
 
 <head>
-  <title>MixCount | GD Stats</title>
+  <title>Mixerno | GD Stats</title>
   <link rel="stylesheet" href="odometer-theme-default.css" />
   <link rel="stylesheet" href="odometer-theme-minimal.css" />
   <script src="odometer.js"></script>
+  <meta http-equiv="refresh" content="7200" />
   <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
   <script src="https://code.highcharts.com/highcharts.js"></script>
   <script src="https://code.highcharts.com/modules/exporting.js"></script>
@@ -109,6 +110,9 @@
 </head>
 
 <script type="text/javascript">
+  setTimeout(function() {
+    location.reload();
+  }, 7200000);
   jQuery.ajaxPrefilter(function(options) {
     if (options.crossDomain && jQuery.support.cors) {
       options.url = 'https://corseverywheremiks.herokuapp.com/' + options.url;
