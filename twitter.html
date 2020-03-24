@@ -184,26 +184,6 @@
 
 
       chanName = params[1];
-
-      $.ajax({
-
-        url: 'https://bastet.socialblade.com/twitter/lookup?query=' + chanName,
-        // Handle as Text
-        dataType: "text",
-        success: function(data) {
-          // Parse JSON file
-          var json = $.parseJSON(data);
-          //Store data into a variable
-          // Display Players
-          gahviplay = json
-          //$('#gahviplayerslol').html(json.body.userData.fans)
-          gahviplayerslol.innerHTML = json
-
-
-
-
-        }
-      });
       $.ajax({
 
         url: 'https://api.thesocialcounter.com/twitter/?name=' + chanName,
@@ -220,6 +200,8 @@
           $('#img1').html('<img src=\"' + json.profile_image_url + '\">');
           loc.innerHTML = 'Location: ' + json.location;
           desc.innerHTML = 'Description: ' + json.description;
+          gahviplayerslol.innerHTML = json.followers_count
+          gahviplay = json.followers_count
 
 
         }
@@ -256,25 +238,6 @@
       chanName = params[1];
       $.ajax({
 
-        url: 'https://bastet.socialblade.com/twitter/lookup?query=' + chanName,
-        // Handle as Text
-        dataType: "text",
-        success: function(data) {
-          // Parse JSON file
-          var json = $.parseJSON(data);
-          //Store data into a variable
-          // Display Players
-          gahviplay = json
-          //$('#gahviplayerslol').html(json.body.userData.fans)
-          gahviplayerslol.innerHTML = json
-
-
-
-
-        }
-      });
-      $.ajax({
-
         url: 'https://api.thesocialcounter.com/twitter/?name=' + chanName,
         // Handle as Text
         dataType: "text",
@@ -286,8 +249,11 @@
           //$('#gahviplayerslol').html(json.body.userData.fans)
           likes2.innerHTML = json.statuses_count;
           tiktoker1.innerHTML = json.screen_name;
-          $('#img1').html('<img src=\"' + json.profile_image_url + '\">')
-
+          $('#img1').html('<img src=\"' + json.profile_image_url + '\">');
+          loc.innerHTML = 'Location: ' + json.location;
+          desc.innerHTML = 'Description: ' + json.description;
+          gahviplayerslol.innerHTML = json.followers_count
+          gahviplay = json.followers_count
 
 
         }
