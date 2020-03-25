@@ -155,13 +155,7 @@
   var key = "";
   jQuery.ajaxPrefilter(function(options) {
     if (options.crossDomain && jQuery.support.cors) {
-      options.url = 'https://corseverywheremiks.herokuapp.com/' + options.url;
-      setInterval(function() {
-        var randomNumber = Math.floor(Math.random()*textArray.length);
-
-        key = textArray[randomNumber];
-      }, 1000);
-      options.url = key + options.url;
+      options.url = '' + options.url;
     }
   });
   $(document).ready(function() {
@@ -201,7 +195,24 @@
       chanName = params[1];
       $.ajax({
 
-        url: 'https://api.thesocialcounter.com/twitter/?name=' + chanName,
+        url: 'https://bastet.socialblade.com/twitter/lookup?query=' + chanName,
+        // Handle as Text
+        dataType: "text",
+        success: function(data) {
+          // Parse JSON file
+          var json = $.parseJSON(data);
+          //Store data into a variable
+          // Display Players
+          //$('#gahviplayerslol').html(json.body.userData.fans)
+          gahviplayerslol.innerHTML = json
+          gahviplay = json
+
+
+        }
+      });
+      $.ajax({
+
+        url: 'https://corseverywheremiks.herokuapp.com/https://api.thesocialcounter.com/twitter/?name=' + chanName,
         // Handle as Text
         dataType: "text",
         success: function(data) {
@@ -215,8 +226,8 @@
           $('#img1').html('<img src=\"' + json.profile_image_url + '\">');
           loc.innerHTML = 'Location: ' + json.location;
           desc.innerHTML = 'Description: ' + json.description;
-          gahviplayerslol.innerHTML = json.followers_count
-          gahviplay = json.followers_count
+          //gahviplayerslol.innerHTML = json.followers_count
+          //gahviplay = json.followers_count
 
 
         }
@@ -253,7 +264,24 @@
       chanName = params[1];
       $.ajax({
 
-        url: 'https://api.thesocialcounter.com/twitter/?name=' + chanName,
+        url: 'https://bastet.socialblade.com/twitter/lookup?query=' + chanName,
+        // Handle as Text
+        dataType: "text",
+        success: function(data) {
+          // Parse JSON file
+          var json = $.parseJSON(data);
+          //Store data into a variable
+          // Display Players
+          //$('#gahviplayerslol').html(json.body.userData.fans)
+          gahviplayerslol.innerHTML = json
+          gahviplay = json
+
+
+        }
+      });
+      $.ajax({
+
+        url: 'https://corseverywheremiks.herokuapp.com/https://api.thesocialcounter.com/twitter/?name=' + chanName,
         // Handle as Text
         dataType: "text",
         success: function(data) {
@@ -267,8 +295,8 @@
           $('#img1').html('<img src=\"' + json.profile_image_url + '\">');
           loc.innerHTML = 'Location: ' + json.location;
           desc.innerHTML = 'Description: ' + json.description;
-          gahviplayerslol.innerHTML = json.followers_count
-          gahviplay = json.followers_count
+          //gahviplayerslol.innerHTML = json.followers_count
+          //gahviplay = json.followers_count
 
 
         }
@@ -280,7 +308,7 @@
 
 
 
-    }, 4000);
+    }, 2000);
     setInterval(function() {
       stuff.series[0].addPoint([
         (new Date()).getTime(),
@@ -314,7 +342,7 @@
       series: [{
         name: 'Followers',
         marker: {
-          enabled: false
+          enabled: true
         },
         exporting: {
           enabled: false

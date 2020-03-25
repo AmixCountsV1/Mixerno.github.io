@@ -12,37 +12,37 @@
   <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
   <script src="https://code.highcharts.com/highcharts.js"></script>
   <center>
-    Twitter Realtime compare v.0.1.0
+    Twitter Realtime compare v.0.1.1
     <br>
     <br>
     <div class="container">
       <div class="row">
         <div class="">
           <div class="">
-            <p id="img1"></p>
-            <h4 id="tiktoker1" class="text-truncate text-center" style="font-size:15px;color:rgb(255, 255, 255)"></h4>
-            <p id="gahviplayerslol" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)"></p>
+            <p id="img1">0</p>
+            <h4 id="tiktoker1" class="text-truncate text-center" style="font-size:15px;color:rgb(255, 255, 255)">0</h4>
+            <p id="gahviplayerslol" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">0</p>
             <br>
-            Growth in 1 hour: <p id="ohh1" style="font-size:15px;color:rgb(255, 255, 255)" class="odometer"></p>
+            Growth in 1 hour: <p id="ohh1" style="font-size:15px;color:rgb(255, 255, 255)" class="odometer">0</p>
           </div>
         </div>
         <div class="">
           <div class="">
             <p id="img2"></p>
-            <h4 id="tiktoker2" class="text-truncate text-center" style="font-size:15px;color:rgb(255, 255, 255)"></h4>
-            <p id="motiplayers" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)"></p>
+            <h4 id="tiktoker2" class="text-truncate text-center" style="font-size:15px;color:rgb(255, 255, 255)">0</h4>
+            <p id="motiplayers" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">0</p>
             <br>
-            Growth in 1 hour: <p id="ohh2" style="font-size:15px;color:rgb(255, 255, 255)" class="odometer"></p>
+            Growth in 1 hour: <p id="ohh2" style="font-size:15px;color:rgb(255, 255, 255)" class="odometer">0</p>
           </div>
         </div>
       </div>
     </div>
     <br>
-    <div id="pdiff" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)"></div>
-    <p>Fan diff</p>
-    Gap change in 1 minute: <p id="gap1m" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)"></p>
+    <div id="pdiff" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">0</div>
+    <p>Follower diff</p>
+    Gap change in 1 minute: <p id="gap1m" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">0</p>
     <br>
-    Gap change in 1 hour: <p id="gap1h" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)"></p>
+    Gap change in 1 hour: <p id="gap1h" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">0</p>
 
   </center>
   <figure class="highcharts-figure">
@@ -160,13 +160,7 @@
   var key = "";
   jQuery.ajaxPrefilter(function(options) {
     if (options.crossDomain && jQuery.support.cors) {
-      options.url = 'https://corseverywheremiks.herokuapp.com/' + options.url;
-      setInterval(function() {
-        var randomNumber = Math.floor(Math.random()*textArray.length);
-
-        key = textArray[randomNumber];
-      }, 1000);
-      options.url = key + options.url;
+      options.url = '' + options.url;
     }
   });
   $(document).ready(function() {
@@ -209,7 +203,25 @@
       chanName = params[1];
       $.ajax({
 
-        url: 'https://api.thesocialcounter.com/twitter/?name=' + chanName,
+        url: 'https://bastet.socialblade.com/twitter/lookup?query=' + chanName,
+        // Handle as Text
+        dataType: "text",
+        success: function(data) {
+          // Parse JSON file
+          var json = $.parseJSON(data);
+          //Store data into a variable
+          // Display Players
+          //$('#gahviplayerslol').html(json.body.userData.fans)
+          gahviplayerslol.innerHTML = json
+          gahviplay = json
+          readygap = readygap + "1"
+
+
+        }
+      });
+      $.ajax({
+
+        url: 'https://corseverywheremiks.herokuapp.com/https://api.thesocialcounter.com/twitter/?name=' + chanName,
         // Handle as Text
         dataType: "text",
         success: function(data) {
@@ -220,8 +232,8 @@
           //$('#gahviplayerslol').html(json.body.userData.fans)
           tiktoker1.innerHTML = json.screen_name;
           $('#img1').html('<img src=\"' + json.profile_image_url + '\">');
-          gahviplayerslol.innerHTML = json.followers_count
-          gahviplay = json.followers_count
+          //gahviplayerslol.innerHTML = json.followers_count
+          //gahviplay = json.followers_count
 
 
         }
@@ -232,7 +244,25 @@
       chanName2 = params[2];
       $.ajax({
 
-        url: 'https://api.thesocialcounter.com/twitter/?name=' + chanName2,
+        url: 'https://bastet.socialblade.com/twitter/lookup?query=' + chanName2,
+        // Handle as Text
+        dataType: "text",
+        success: function(data) {
+          // Parse JSON file
+          var json = $.parseJSON(data);
+          //Store data into a variable
+          // Display Players
+          //$('#gahviplayerslol').html(json.body.userData.fans)
+          motiplayers.innerHTML = json
+          motiplay = json
+          readygap = readygap + "1"
+
+
+        }
+      });
+      $.ajax({
+
+        url: 'https://corseverywheremiks.herokuapp.com/https://api.thesocialcounter.com/twitter/?name=' + chanName2,
         // Handle as Text
         dataType: "text",
         success: function(data) {
@@ -241,15 +271,25 @@
           //Store data into a variable
           // Display Players
           //$('#motiplayers').html(json.body.userData.fans)
-          readygap = readygap + "1"
           tiktoker2.innerHTML = json.screen_name;
           $('#img2').html('<img src=\"' + json.profile_image_url + '\">');
-          motiplayers.innerHTML = json.followers_count
-          motiplay = json.followers_count
+          //motiplayers.innerHTML = json.followers_count
+          //motiplay = json.followers_count
 
 
         }
       });
+    }
+    if (readygap > "-1") {
+      console.log(gap)
+      gap = gahviplay - motiplay;
+      pdiff.innerHTML = gahviplay - motiplay;
+      gap1ho = gap
+      gap1min = gap
+      setInterval(function() {
+        gap = gahviplay - motiplay;
+        pdiff.innerHTML = gahviplay - motiplay;
+      }, 1000);
     }
 
 
@@ -289,7 +329,24 @@
       chanName = params[1];
       $.ajax({
 
-        url: 'https://api.thesocialcounter.com/twitter/?name=' + chanName,
+        url: 'https://bastet.socialblade.com/twitter/lookup?query=' + chanName,
+        // Handle as Text
+        dataType: "text",
+        success: function(data) {
+          // Parse JSON file
+          var json = $.parseJSON(data);
+          //Store data into a variable
+          // Display Players
+          //$('#gahviplayerslol').html(json.body.userData.fans)
+          gahviplayerslol.innerHTML = json
+          gahviplay = json
+
+
+        }
+      });
+      $.ajax({
+
+        url: 'https://corseverywheremiks.herokuapp.com/https://api.thesocialcounter.com/twitter/?name=' + chanName,
         // Handle as Text
         dataType: "text",
         success: function(data) {
@@ -300,8 +357,8 @@
           //$('#gahviplayerslol').html(json.body.userData.fans)
           tiktoker1.innerHTML = json.screen_name;
           $('#img1').html('<img src=\"' + json.profile_image_url + '\">');
-          gahviplayerslol.innerHTML = json.followers_count
-          gahviplay = json.followers_count
+          //gahviplayerslol.innerHTML = json.followers_count
+          //gahviplay = json.followers_count
 
 
         }
@@ -309,7 +366,24 @@
       chanName2 = params[2];
       $.ajax({
 
-        url: 'https://api.thesocialcounter.com/twitter/?name=' + chanName2,
+        url: 'https://bastet.socialblade.com/twitter/lookup?query=' + chanName2,
+        // Handle as Text
+        dataType: "text",
+        success: function(data) {
+          // Parse JSON file
+          var json = $.parseJSON(data);
+          //Store data into a variable
+          // Display Players
+          //$('#gahviplayerslol').html(json.body.userData.fans)
+          motiplayers.innerHTML = json
+          motiplay = json
+
+
+        }
+      });
+      $.ajax({
+
+        url: 'https://corseverywheremiks.herokuapp.com/https://api.thesocialcounter.com/twitter/?name=' + chanName2,
         // Handle as Text
         dataType: "text",
         success: function(data) {
@@ -318,20 +392,14 @@
           //Store data into a variable
           // Display Players
           //$('#motiplayers').html(json.body.userData.fans)
-          readygap = readygap + "1"
           tiktoker2.innerHTML = json.screen_name;
           $('#img2').html('<img src=\"' + json.profile_image_url + '\">');
-          motiplayers.innerHTML = json.followers_count
-          motiplay = json.followers_count
+          //motiplayers.innerHTML = json.followers_count
+          //motiplay = json.followers_count
 
 
         }
       });
-      if (readygap > "010") {
-        console.log(gap)
-        gap = gahviplay - motiplay;
-        pdiff.innerHTML = gahviplay - motiplay;
-      }
 
 
 
@@ -339,7 +407,13 @@
 
 
 
-    }, 4000);
+
+    }, 2000);
+
+
+
+
+
     setInterval(function() {
       stuff.series[0].addPoint([
         (new Date()).getTime(),
@@ -371,9 +445,9 @@
       },
 
       series: [{
-        name: 'Fan Diffrence',
+        name: 'Follower Diffrence',
         marker: {
-          enabled: false
+          enabled: true
         },
         exporting: {
           enabled: false
