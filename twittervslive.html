@@ -4,7 +4,7 @@
 
 <head>
 
-  <title>Mixerno | Twitter counter</title>
+  <title>Mixerno | Twitter Compare</title>
   <link rel="stylesheet" href="odometer-theme-default.css" />
   <link rel="stylesheet" href="odometer-theme-minimal.css" />
   <meta http-equiv="refresh" content="7200" />
@@ -12,30 +12,37 @@
   <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
   <script src="https://code.highcharts.com/highcharts.js"></script>
   <center>
-    Twitter Realtime v.0.1.1
+    Twitter Realtime compare v.0.1.0
     <br>
     <br>
-    <div class="row">
-
-
-    </div>
     <div class="container">
       <div class="row">
-        <div class="col s12 col-md-6">
-          <div class="card m-b-0 m-t-20">
-            <p id="img1">1</p>
-            <h4 id="tiktoker1" class="text-truncate text-center" style="font-size:15px;color:rgb(255, 255, 255)">user</h4>
-            <p id="gahviplayerslol" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">0</p>
+        <div class="">
+          <div class="">
+            <p id="img1"></p>
+            <h4 id="tiktoker1" class="text-truncate text-center" style="font-size:15px;color:rgb(255, 255, 255)"></h4>
+            <p id="gahviplayerslol" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)"></p>
             <br>
-            Growth in 1 hour (followers): <p id="ohh1" style="font-size:15px;color:rgb(255, 255, 255)" class="odometer">0</p>
+            Growth in 1 hour: <p id="ohh1" style="font-size:15px;color:rgb(255, 255, 255)" class="odometer"></p>
+          </div>
+        </div>
+        <div class="">
+          <div class="">
+            <p id="img2"></p>
+            <h4 id="tiktoker2" class="text-truncate text-center" style="font-size:15px;color:rgb(255, 255, 255)"></h4>
+            <p id="motiplayers" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)"></p>
             <br>
-            Tweets: <p id="likes2" class="odometer" style="font-size:15px;color:rgb(255, 255, 255)">1</p>
-            Following: <p id="likes1" class="odometer" style="font-size:15px;color:rgb(255, 255, 255)">1</p>
+            Growth in 1 hour: <p id="ohh2" style="font-size:15px;color:rgb(255, 255, 255)" class="odometer"></p>
           </div>
         </div>
       </div>
     </div>
     <br>
+    <div id="pdiff" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)"></div>
+    <p>Fan diff</p>
+    Gap change in 1 minute: <p id="gap1m" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)"></p>
+    <br>
+    Gap change in 1 hour: <p id="gap1h" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)"></p>
 
   </center>
   <figure class="highcharts-figure">
@@ -47,15 +54,13 @@
 
   <br>
   <center>
-    @<input type="text" id="chnlName"></input>
-    <input type="button" id="searchlolnoob3" value="Search" />
     <br>
-    Other Stats:
     <br>
-    <p id="loc">Location: Location</p>
+    <input type="text" id="chnlName">user1</input>
 
-    <p id="desc">Description: </p>
+    <input type="text" id="chnlName2">user2</input>
 
+    <input type="button" id="searchlolnoob3" value="Compare" />
   </center>
   <style>
     .highcharts-figure,
@@ -175,7 +180,8 @@
 
 
     usernamelol(params[1]);
-    loadVideo2("random lol nothing really :)");
+    usernamelol2(params[2]);
+    loadVideo3("random lol nothing really :)");
 
 
 
@@ -212,11 +218,8 @@
           //Store data into a variable
           // Display Players
           //$('#gahviplayerslol').html(json.body.userData.fans)
-          likes2.innerHTML = json.statuses_count;
           tiktoker1.innerHTML = json.screen_name;
           $('#img1').html('<img src=\"' + json.profile_image_url + '\">');
-          loc.innerHTML = 'Location: ' + json.location;
-          desc.innerHTML = 'Description: ' + json.description;
           //gahviplayerslol.innerHTML = json.followers_count
           //gahviplay = json.followers_count
 
@@ -225,6 +228,46 @@
       });
     }
 
+    function usernamelol2(name2) {
+      chanName2 = params[2];
+      $.ajax({
+
+        url: 'https://bastet.socialblade.com/twitter/lookup?query=' + chanName2,
+        // Handle as Text
+        dataType: "text",
+        success: function(data) {
+          // Parse JSON file
+          var json = $.parseJSON(data);
+          //Store data into a variable
+          // Display Players
+          //$('#gahviplayerslol').html(json.body.userData.fans)
+          motiplayers.innerHTML = json
+          motiplay = json
+
+
+        }
+      });
+      $.ajax({
+
+        url: 'https://api.thesocialcounter.com/twitter/?name=' + chanName2,
+        // Handle as Text
+        dataType: "text",
+        success: function(data) {
+          // Parse JSON file
+          var json = $.parseJSON(data);
+          //Store data into a variable
+          // Display Players
+          //$('#motiplayers').html(json.body.userData.fans)
+          readygap = readygap + "1"
+          tiktoker2.innerHTML = json.screen_name;
+          $('#img2').html('<img src=\"' + json.profile_image_url + '\">');
+          //motiplayers.innerHTML = json.followers_count
+          //motiplay = json.followers_count
+
+
+        }
+      });
+    }
 
 
     function loadVideo(naemhe) {
@@ -240,6 +283,14 @@
     function loadVideo2(namehe) {
 
       viiNam2e = namehe;
+
+
+
+    }
+
+    function loadVideo3(namehe2) {
+
+      viiNam22e = namehe2;
 
 
 
@@ -281,17 +332,57 @@
           //Store data into a variable
           // Display Players
           //$('#gahviplayerslol').html(json.body.userData.fans)
-          likes2.innerHTML = json.statuses_count;
           tiktoker1.innerHTML = json.screen_name;
           $('#img1').html('<img src=\"' + json.profile_image_url + '\">');
-          loc.innerHTML = 'Location: ' + json.location;
-          desc.innerHTML = 'Description: ' + json.description;
           //gahviplayerslol.innerHTML = json.followers_count
           //gahviplay = json.followers_count
 
 
         }
       });
+      chanName2 = params[2];
+      $.ajax({
+
+        url: 'https://bastet.socialblade.com/twitter/lookup?query=' + chanName2,
+        // Handle as Text
+        dataType: "text",
+        success: function(data) {
+          // Parse JSON file
+          var json = $.parseJSON(data);
+          //Store data into a variable
+          // Display Players
+          //$('#gahviplayerslol').html(json.body.userData.fans)
+          motiplayers.innerHTML = json
+          motiplay = json
+
+
+        }
+      });
+      $.ajax({
+
+        url: 'https://api.thesocialcounter.com/twitter/?name=' + chanName2,
+        // Handle as Text
+        dataType: "text",
+        success: function(data) {
+          // Parse JSON file
+          var json = $.parseJSON(data);
+          //Store data into a variable
+          // Display Players
+          //$('#motiplayers').html(json.body.userData.fans)
+          readygap = readygap + "1"
+          tiktoker2.innerHTML = json.screen_name;
+          $('#img2').html('<img src=\"' + json.profile_image_url + '\">');
+          //motiplayers.innerHTML = json.followers_count
+          //motiplay = json.followers_count
+
+
+        }
+      });
+      if (readygap > "010") {
+        console.log(gap)
+        gap = gahviplay - motiplay;
+        pdiff.innerHTML = gahviplay - motiplay;
+      }
 
 
 
@@ -303,7 +394,7 @@
     setInterval(function() {
       stuff.series[0].addPoint([
         (new Date()).getTime(),
-        gahviplay
+        gahviplay - motiplay
       ]);
     }, 4000);
     var stuff = new Highcharts.chart('container', {
@@ -331,7 +422,7 @@
       },
 
       series: [{
-        name: 'Followers',
+        name: 'Fan Diffrence',
         marker: {
           enabled: false
         },
@@ -341,25 +432,72 @@
 
       }]
     })
+    setInterval(function() {
 
+
+      secsinhour = secsinhour + 1000
+      if (secsinhour > 60000) {
+        secsinhour = 0
+        gap1min = gap
+
+        //$('#gap1m').text(gap - gap1min)
+        gap1m.innerHTML = gap - gap1min;
+      }
+      if (gap > "-1") {
+        //$('#gap1m').text(gap - gap1min)
+        gap1m.innerHTML = gap - gap1min;
+      }
+      if (gap < "-1") {
+        //$('#gap1m').text(gap - gap1min)
+        gap1m.innerHTML = gap - gap1min;
+      }
+
+
+
+
+
+
+
+
+
+      console.log(secsinhour + ' /60000')
+
+      console.log(gap - gap1min + ' gap1min')
+      console.log(gap + ' gap')
+      console.log(gap1min + ' gap1min')
+      console.log(gahviplay + ' normal')
+      console.log(motiplay + ' china')
+
+
+
+
+    }, 1000);
     setInterval(function() {
 
 
       secsinhour2 = secsinhour2 + 1000
       if (secsinhour2 > 3600000) {
         secsinhour2 = 0
+        gap1ho = gap
         tik1 = gahviplay
+        tik2 = motiplay
 
         //$('#gap1m').text(gap - gap1min)
+        gap1h.innerHTML = gap - gap1ho;
         ohh1.innerHTML = gahviplay - tik1;
+        ohh2.innerHTML = motiplay - tik2;
       }
-      if (gahviplay > "-1") {
+      if (gap > "-1") {
         //$('#gap1m').text(gap - gap1min)
+        gap1h.innerHTML = gap - gap1ho;
         ohh1.innerHTML = gahviplay - tik1;
+        ohh2.innerHTML = motiplay - tik2;
       }
-      if (gahviplay < "-1") {
+      if (gap < "-1") {
         //$('#gap1m').text(gap - gap1min)
+        gap1h.innerHTML = gap - gap1ho;
         ohh1.innerHTML = gahviplay - tik1;
+        ohh2.innerHTML = motiplay - tik2;
       }
 
 
@@ -371,7 +509,10 @@
 
 
       console.log(secsinhour2 + ' /3600000')
-      console.log(gahviplay)
+
+      console.log(gap - gap1ho + ' gap1ho')
+      console.log(gap + ' gap')
+      console.log(gap1ho + ' gap1ho')
 
 
 
@@ -396,7 +537,7 @@
         function() {
           //do nothing
         }, 1000);
-      location.href = 'http://mixerno.github.io/twitter.html?' + viiName;
+      location.href = 'http://mixerno.github.io/twittervslive.html?' + viiName + '?' + viiNam2e;
 
       console.log("BUTTON4")
     });
