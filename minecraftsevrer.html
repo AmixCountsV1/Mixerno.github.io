@@ -146,6 +146,7 @@
   var key = "";
   jQuery.ajaxPrefilter(function(options) {
     if (options.crossDomain && jQuery.support.cors) {
+      options.url = 'https://corseverywheremiks.herokuapp.com/' + options.url;
       setInterval(function() {
         var randomNumber = Math.floor(Math.random()*textArray.length);
 
@@ -154,7 +155,6 @@
       options.url = key + options.url;
     }
   });
-  setTimeout(function() {
   var playerscount = 0;
   var secsinhour = "60000";
   var secsinhour2 = "3600000";
@@ -375,7 +375,7 @@
 
     console.log("BUTTON4")
   });
-  }, 4000);
+
 </script>
 
 

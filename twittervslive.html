@@ -160,6 +160,7 @@
   var key = "";
   jQuery.ajaxPrefilter(function(options) {
     if (options.crossDomain && jQuery.support.cors) {
+      options.url = 'https://corseverywheremiks.herokuapp.com/' + options.url;
       setInterval(function() {
         var randomNumber = Math.floor(Math.random()*textArray.length);
 
@@ -169,7 +170,6 @@
     }
   });
   $(document).ready(function() {
-    setTimeout(function() {
 
 
 
@@ -504,7 +504,6 @@
 
     }
   });
-  }, 4000);
 </script>
 
 
