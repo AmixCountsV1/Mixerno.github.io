@@ -116,13 +116,27 @@
   setTimeout(function() {
     location.reload();
   }, 7200000);
+  var textArray = [ //All the cors anywhere urls.
+                'https://corseverywheremiks.herokuapp.com/',
+                'https://mixernocors.herokuapp.com/',
+                'https://mixernob.herokuapp.com/',
+                'https://nobnabob.herokuapp.com/',
+                ];
+  var randomNumber = Math.floor(Math.random()*textArray.length);
+  var stufflol = "";
+  stufflol = textArray[randomNumber];
+  var corsurl = stufflol //required works only in mixerno.github.io/ | Sorry.
+  var key = "";
   jQuery.ajaxPrefilter(function(options) {
     if (options.crossDomain && jQuery.support.cors) {
-      options.url = 'https://corseverywheremiks.herokuapp.com/' + options.url;
+      setInterval(function() {
+        var randomNumber = Math.floor(Math.random()*textArray.length);
+
+        key = textArray[randomNumber];
+      }, 1000);
+      options.url = key + options.url;
     }
   });
-
-
   var followers = "0";
   var videostufflol = window.location.href;
   var params = videostufflol.split('?');
