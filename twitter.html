@@ -201,23 +201,6 @@
       chanName = params[1];
       $.ajax({
 
-        url: 'https://bastet.socialblade.com/twitter/lookup?query=' + chanName,
-        // Handle as Text
-        dataType: "text",
-        success: function(data) {
-          // Parse JSON file
-          var json = $.parseJSON(data);
-          //Store data into a variable
-          // Display Players
-          //$('#gahviplayerslol').html(json.body.userData.fans)
-          gahviplayerslol.innerHTML = json
-          gahviplay = json
-
-
-        }
-      });
-      $.ajax({
-
         url: 'https://api.thesocialcounter.com/twitter/?name=' + chanName,
         // Handle as Text
         dataType: "text",
@@ -232,8 +215,8 @@
           $('#img1').html('<img src=\"' + json.profile_image_url + '\">');
           loc.innerHTML = 'Location: ' + json.location;
           desc.innerHTML = 'Description: ' + json.description;
-          //gahviplayerslol.innerHTML = json.followers_count
-          //gahviplay = json.followers_count
+          gahviplayerslol.innerHTML = json.followers_count
+          gahviplay = json.followers_count
 
 
         }
@@ -270,23 +253,6 @@
       chanName = params[1];
       $.ajax({
 
-        url: 'https://bastet.socialblade.com/twitter/lookup?query=' + chanName,
-        // Handle as Text
-        dataType: "text",
-        success: function(data) {
-          // Parse JSON file
-          var json = $.parseJSON(data);
-          //Store data into a variable
-          // Display Players
-          //$('#gahviplayerslol').html(json.body.userData.fans)
-          gahviplayerslol.innerHTML = json
-          gahviplay = json
-
-
-        }
-      });
-      $.ajax({
-
         url: 'https://api.thesocialcounter.com/twitter/?name=' + chanName,
         // Handle as Text
         dataType: "text",
@@ -301,8 +267,8 @@
           $('#img1').html('<img src=\"' + json.profile_image_url + '\">');
           loc.innerHTML = 'Location: ' + json.location;
           desc.innerHTML = 'Description: ' + json.description;
-          //gahviplayerslol.innerHTML = json.followers_count
-          //gahviplay = json.followers_count
+          gahviplayerslol.innerHTML = json.followers_count
+          gahviplay = json.followers_count
 
 
         }

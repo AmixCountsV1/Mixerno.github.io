@@ -207,23 +207,6 @@
       chanName = params[1];
       $.ajax({
 
-        url: 'https://bastet.socialblade.com/twitter/lookup?query=' + chanName,
-        // Handle as Text
-        dataType: "text",
-        success: function(data) {
-          // Parse JSON file
-          var json = $.parseJSON(data);
-          //Store data into a variable
-          // Display Players
-          //$('#gahviplayerslol').html(json.body.userData.fans)
-          gahviplayerslol.innerHTML = json
-          gahviplay = json
-
-
-        }
-      });
-      $.ajax({
-
         url: 'https://api.thesocialcounter.com/twitter/?name=' + chanName,
         // Handle as Text
         dataType: "text",
@@ -235,8 +218,8 @@
           //$('#gahviplayerslol').html(json.body.userData.fans)
           tiktoker1.innerHTML = json.screen_name;
           $('#img1').html('<img src=\"' + json.profile_image_url + '\">');
-          //gahviplayerslol.innerHTML = json.followers_count
-          //gahviplay = json.followers_count
+          gahviplayerslol.innerHTML = json.followers_count
+          gahviplay = json.followers_count
 
 
         }
@@ -245,23 +228,6 @@
 
     function usernamelol2(name2) {
       chanName2 = params[2];
-      $.ajax({
-
-        url: 'https://bastet.socialblade.com/twitter/lookup?query=' + chanName2,
-        // Handle as Text
-        dataType: "text",
-        success: function(data) {
-          // Parse JSON file
-          var json = $.parseJSON(data);
-          //Store data into a variable
-          // Display Players
-          //$('#gahviplayerslol').html(json.body.userData.fans)
-          motiplayers.innerHTML = json
-          motiplay = json
-
-
-        }
-      });
       $.ajax({
 
         url: 'https://api.thesocialcounter.com/twitter/?name=' + chanName2,
@@ -276,8 +242,8 @@
           readygap = readygap + "1"
           tiktoker2.innerHTML = json.screen_name;
           $('#img2').html('<img src=\"' + json.profile_image_url + '\">');
-          //motiplayers.innerHTML = json.followers_count
-          //motiplay = json.followers_count
+          motiplayers.innerHTML = json.followers_count
+          motiplay = json.followers_count
 
 
         }
@@ -321,23 +287,6 @@
       chanName = params[1];
       $.ajax({
 
-        url: 'https://bastet.socialblade.com/twitter/lookup?query=' + chanName,
-        // Handle as Text
-        dataType: "text",
-        success: function(data) {
-          // Parse JSON file
-          var json = $.parseJSON(data);
-          //Store data into a variable
-          // Display Players
-          //$('#gahviplayerslol').html(json.body.userData.fans)
-          gahviplayerslol.innerHTML = json
-          gahviplay = json
-
-
-        }
-      });
-      $.ajax({
-
         url: 'https://api.thesocialcounter.com/twitter/?name=' + chanName,
         // Handle as Text
         dataType: "text",
@@ -349,30 +298,13 @@
           //$('#gahviplayerslol').html(json.body.userData.fans)
           tiktoker1.innerHTML = json.screen_name;
           $('#img1').html('<img src=\"' + json.profile_image_url + '\">');
-          //gahviplayerslol.innerHTML = json.followers_count
-          //gahviplay = json.followers_count
+          gahviplayerslol.innerHTML = json.followers_count
+          gahviplay = json.followers_count
 
 
         }
       });
       chanName2 = params[2];
-      $.ajax({
-
-        url: 'https://bastet.socialblade.com/twitter/lookup?query=' + chanName2,
-        // Handle as Text
-        dataType: "text",
-        success: function(data) {
-          // Parse JSON file
-          var json = $.parseJSON(data);
-          //Store data into a variable
-          // Display Players
-          //$('#gahviplayerslol').html(json.body.userData.fans)
-          motiplayers.innerHTML = json
-          motiplay = json
-
-
-        }
-      });
       $.ajax({
 
         url: 'https://api.thesocialcounter.com/twitter/?name=' + chanName2,
@@ -387,8 +319,8 @@
           readygap = readygap + "1"
           tiktoker2.innerHTML = json.screen_name;
           $('#img2').html('<img src=\"' + json.profile_image_url + '\">');
-          //motiplayers.innerHTML = json.followers_count
-          //motiplay = json.followers_count
+          motiplayers.innerHTML = json.followers_count
+          motiplay = json.followers_count
 
 
         }
