@@ -12,14 +12,13 @@
   <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
   <script src="https://code.highcharts.com/highcharts.js"></script>
   <center>
-    Twitter Realtime compare v.0.1.1
+    Twitter Realtime compare v.0.1.2
     <br>
     <br>
     <div class="container">
       <div class="row">
         <div class="">
           <div class="">
-            <p id="img1">0</p>
             <h4 id="tiktoker1" class="text-truncate text-center" style="font-size:15px;color:rgb(255, 255, 255)">0</h4>
             <p id="gahviplayerslol" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">0</p>
             <br>
@@ -28,7 +27,6 @@
         </div>
         <div class="">
           <div class="">
-            <p id="img2"></p>
             <h4 id="tiktoker2" class="text-truncate text-center" style="font-size:15px;color:rgb(255, 255, 255)">0</h4>
             <p id="motiplayers" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">0</p>
             <br>
@@ -54,6 +52,9 @@
 
   <br>
   <center>
+    Images:
+    <p id="img1">0</p>
+    <p id="img2">0</p>
     <br>
     <br>
     <input type="text" id="chnlName">user1</input>
@@ -219,6 +220,7 @@
 
         }
       });
+      tiktoker1.innerHTML = params[1];
       $.ajax({
 
         url: 'https://corseverywheremiks.herokuapp.com/https://api.thesocialcounter.com/twitter/?name=' + chanName,
@@ -230,7 +232,6 @@
           //Store data into a variable
           // Display Players
           //$('#gahviplayerslol').html(json.body.userData.fans)
-          tiktoker1.innerHTML = json.screen_name;
           $('#img1').html('<img src=\"' + json.profile_image_url + '\">');
           //gahviplayerslol.innerHTML = json.followers_count
           //gahviplay = json.followers_count
@@ -260,6 +261,7 @@
 
         }
       });
+      tiktoker2.innerHTML = params[2];
       $.ajax({
 
         url: 'https://corseverywheremiks.herokuapp.com/https://api.thesocialcounter.com/twitter/?name=' + chanName2,
@@ -271,7 +273,7 @@
           //Store data into a variable
           // Display Players
           //$('#motiplayers').html(json.body.userData.fans)
-          tiktoker2.innerHTML = json.screen_name;
+
           $('#img2').html('<img src=\"' + json.profile_image_url + '\">');
           //motiplayers.innerHTML = json.followers_count
           //motiplay = json.followers_count
@@ -327,6 +329,7 @@
     setInterval(function() {
       console.log(readygap)
       chanName = params[1];
+      tiktoker1.innerHTML = params[1];
       $.ajax({
 
         url: 'https://bastet.socialblade.com/twitter/lookup?query=' + chanName,
@@ -355,7 +358,6 @@
           //Store data into a variable
           // Display Players
           //$('#gahviplayerslol').html(json.body.userData.fans)
-          tiktoker1.innerHTML = json.screen_name;
           $('#img1').html('<img src=\"' + json.profile_image_url + '\">');
           //gahviplayerslol.innerHTML = json.followers_count
           //gahviplay = json.followers_count
@@ -364,6 +366,7 @@
         }
       });
       chanName2 = params[2];
+      tiktoker2.innerHTML = params[2];
       $.ajax({
 
         url: 'https://bastet.socialblade.com/twitter/lookup?query=' + chanName2,
@@ -392,7 +395,7 @@
           //Store data into a variable
           // Display Players
           //$('#motiplayers').html(json.body.userData.fans)
-          tiktoker2.innerHTML = json.screen_name;
+
           $('#img2').html('<img src=\"' + json.profile_image_url + '\">');
           //motiplayers.innerHTML = json.followers_count
           //motiplay = json.followers_count
