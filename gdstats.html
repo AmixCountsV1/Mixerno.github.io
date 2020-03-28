@@ -9,9 +9,6 @@
   <meta http-equiv="refresh" content="7200" />
   <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
   <script src="https://code.highcharts.com/highcharts.js"></script>
-  <script src="https://code.highcharts.com/modules/exporting.js"></script>
-  <script src="https://code.highcharts.com/modules/export-data.js"></script>
-  <script src="https://code.highcharts.com/modules/accessibility.js"></script>
   <center>
     <input type="text" id="chnlName"></input>
     <button id="searchlolnoob3">Search for a user</button>
@@ -41,7 +38,7 @@
 
     </p>
   </figure>
-  <p>0.1.0</p>
+  <p>0.1.1</p>
 
 
 
@@ -114,31 +111,14 @@
   setTimeout(function() {
     location.reload();
   }, 7200000);
-  var textArray = [ //All the cors anywhere urls.
-                'https://corseverywheremiks.herokuapp.com/',
-                'https://mixernocors.herokuapp.com/',
-                'https://mixernob.herokuapp.com/',
-                'https://nobnabob.herokuapp.com/',
-                ];
-  var randomNumber = Math.floor(Math.random()*textArray.length);
-  var stufflol = "";
-  stufflol = textArray[randomNumber];
-  var corsurl = stufflol //required works only in mixerno.github.io/ | Sorry.
-  var key = "";
   jQuery.ajaxPrefilter(function(options) {
     if (options.crossDomain && jQuery.support.cors) {
-      options.url = 'https://corseverywheremiks.herokuapp.com/' + options.url;
-      setInterval(function() {
-        var randomNumber = Math.floor(Math.random()*textArray.length);
-
-        key = textArray[randomNumber];
-      }, 1000);
-      options.url = key + options.url;
+      options.url = 'https://corseverywheremiks.herokuapp.com/https://nobnabob.herokuapp.com/https://mixernob.herokuapp.com/https://mixernocors.herokuapp.com/' + options.url;
     }
   });
   $(document).ready(function() {
 
-    var starscount = "1";
+    starscount = 1;
     var videostufflol = window.location.href;
     var params = videostufflol.split('?');
     var chanName = params[1]
@@ -187,8 +167,6 @@
 
     }
     setInterval(function() {
-
-
       $.ajax({
         url: 'https://gdbrowser.com/api/profile/' + chanName,
         // Handle as Text
@@ -206,10 +184,6 @@
           $('#userCoins').html(json.userCoins);
           $('#demons').html(json.demons);
           $('#image').html(json.cp);
-          stuff.series[0].addPoint([
-            (new Date()).getTime(),
-            json.stars
-          ]);
 
 
 
@@ -234,12 +208,19 @@
 
 
   });
+  setInterval(function() {
+    stuff.series[0].addPoint([
+      (new Date()).getTime(),
+      starscount
+    ]);
+  }, 4000);
   var stuff = new Highcharts.chart('container', {
     chart: {
       backgroundColor: 'transparent',
       renderTo: $('#container'),
       type: 'line'
     },
+
     title: {
       text: ''
     },
@@ -258,10 +239,14 @@
     },
 
     series: [{
-      name: 'chart',
+      name: 'Fans',
       marker: {
         enabled: false
-      }
+      },
+      exporting: {
+        enabled: false
+      },
+
     }]
   })
 </script>
