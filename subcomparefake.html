@@ -127,7 +127,8 @@
     var sub2hourlast = "1";
     var gap = "0";
     var gap1h = "0";
-
+    var subsnormal1 = "";
+    var subsnormal2 = "";
 
 
 
@@ -195,15 +196,26 @@
     var fixsb = params[3].replace(",", ".");
     var fixsb2 = params[4].replace(",", ".");
     var timewait = 2000;
+    var channelid1 = "";
+    var channelid2 = "";
 
 
     loadChannel(params[1]);
     loadChannel2(params[2]);
     loadVideo3("random lol nothing really :)");
+    var textArray = [ //2 keys. Works in mixerno.github.io :)
+        'AIzaSyCmChuTg06u6ojY6YVPcr8382f9oAOQL9A',
+        'AIzaSyBctV0YBJWzKBK7FqF8HtczkGodg8ZCP80',
+        ];
 
+
+    var randomNumber = Math.floor(Math.random()*textArray.length);
+    var keys = "";
+    keys = textArray[randomNumber];
 
 
     function loadChannel(name) {
+
       chan2name.innerHTML = namet2 + ' 1h'
       chan1name.innerHTML = namet1 + ' 1h'
       subs = params[1];
@@ -212,7 +224,29 @@
       sub1hourlast = "0";
       gap1h = "0";
       gap = "0";
-    }
+      var url = 'https://www.googleapis.com/youtube/v3/search?part=snippet&q='+namet1+'&type=channel&maxResults=1&key='+keys;
+
+      if (params[7] = 1) {
+        $.getJSON(url, function(data) {
+          channelid1 = data.items[0].id.channelId
+          setTimeout(function() {
+            if (params[7] = 1) {
+              var url3 = 'https://www.googleapis.com/youtube/v3/channels?part=statistics&id='+channelid1+'&type=channel&maxResults=1&key='+keys;
+              $.getJSON(url3, function(data) {
+                subsnormal1 = data.items[0].statistics.subscriberCount
+                if (subsnormal1 > subs) {
+                  subs = subsnormal1
+                }
+              });
+            }
+          }, 1000);
+
+
+
+        });
+}
+
+  }
 
     function loadChannel2(name2) {
       subs2 = params[2];
@@ -221,6 +255,28 @@
       sub2hourlast = "0";
       gap1h = "0";
       gap = "0";
+      var url2 = 'https://www.googleapis.com/youtube/v3/search?part=snippet&q='+namet2+'&type=channel&maxResults=1&key='+keys;
+
+      if (params[7] = 1) {
+        $.getJSON(url2, function(data) {
+          channelid2 = data.items[0].id.channelId
+          setTimeout(function() {
+            if (params[7] = 1) {
+              var url4 = 'https://www.googleapis.com/youtube/v3/channels?part=statistics&id='+channelid2+'&type=channel&maxResults=1&key='+keys;
+              $.getJSON(url4, function(data) {
+                subsnormal2 = data.items[0].statistics.subscriberCount
+
+                if (subsnormal2 > subs2) {
+                  subs2 = subsnormal2
+                }
+              });
+            }
+          }, 1000);
+
+
+
+        });
+}
     }
 
 
@@ -276,6 +332,12 @@
           subs2 = subs2 + takeandgive2;
           subs2 = subs2 + takeandgive2;
           subs2 = subs2 + takeandgive2;
+          if (subsnormal1 > subs) {
+            subs = subsnormal1
+          }
+          if (subsnormal2 > subs2) {
+            subs2 = subsnormal2
+          }
         }, timewait);
       }
 
@@ -289,6 +351,26 @@
       odometer.innerHTML = subsround;
       odometer3.innerHTML = subs2round;
     }, timewait);
+    setInterval(function() {
+
+      if (params[7] = 1) {
+
+          var url2 = 'https://www.googleapis.com/youtube/v3/channels?part=statistics&id='+channelid2+'&type=channel&maxResults=1&key=AIzaSyCmChuTg06u6ojY6YVPcr8382f9oAOQL9A';
+          $.getJSON(url2, function(data) {
+            subsnormal1 = data.items[0].statistics.subscriberCount
+
+          });
+
+}
+
+      if (params[7] = 1) {
+        var url4 = 'https://www.googleapis.com/youtube/v3/channels?part=statistics&id='+channelid2+'&type=channel&maxResults=1&key=AIzaSyCmChuTg06u6ojY6YVPcr8382f9oAOQL9A';
+        $.getJSON(url4, function(data) {
+          subsnormal2 = data.items[0].statistics.subscriberCount
+
+        });
+}
+    }, 60000);
 
 
 
