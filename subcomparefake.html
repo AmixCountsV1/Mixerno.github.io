@@ -215,6 +215,9 @@
 
 
     function loadChannel(name) {
+      var randomNumber = Math.floor(Math.random()*textArray.length);
+      var key = "";
+      key = textArray[randomNumber];
 
       chan2name.innerHTML = namet2 + ' 1h'
       chan1name.innerHTML = namet1 + ' 1h'
@@ -249,6 +252,9 @@
   }
 
     function loadChannel2(name2) {
+      var randomNumber = Math.floor(Math.random()*textArray.length);
+      var key = "";
+      key = textArray[randomNumber];
       subs2 = params[2];
       odometer3.innerHTML = subs2;
       ytName2.innerHTML = namet2
@@ -352,6 +358,9 @@
       odometer3.innerHTML = subs2round;
     }, timewait);
     setInterval(function() {
+      var randomNumber = Math.floor(Math.random()*textArray.length);
+      var key = "";
+      key = textArray[randomNumber];
 
       if (params[7] = 1) {
 
