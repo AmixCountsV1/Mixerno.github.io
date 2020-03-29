@@ -234,7 +234,7 @@
               var url3 = 'https://www.googleapis.com/youtube/v3/channels?part=statistics&id='+channelid1+'&type=channel&maxResults=1&key='+keys;
               $.getJSON(url3, function(data) {
                 subsnormal1 = data.items[0].statistics.subscriberCount
-                if (subsnormal1 > subs) {
+                if (subsnormal1 > subs, subs > subsnormal1 + 100000) {
                   subs = subsnormal1
                 }
               });
@@ -266,7 +266,7 @@
               $.getJSON(url4, function(data) {
                 subsnormal2 = data.items[0].statistics.subscriberCount
 
-                if (subsnormal2 > subs2) {
+                if (subsnormal2 > subs2, subs2 > subsnormal2 + 100000) {
                   subs2 = subsnormal2
                 }
               });
@@ -332,10 +332,10 @@
           subs2 = subs2 + takeandgive2;
           subs2 = subs2 + takeandgive2;
           subs2 = subs2 + takeandgive2;
-          if (subsnormal1 > subs) {
+          if (subsnormal1 > subs, subs > subsnormal1 + 100000) {
             subs = subsnormal1
           }
-          if (subsnormal2 > subs2) {
+          if (subsnormal2 > subs2, subs2 > subsnormal2 + 100000) {
             subs2 = subsnormal2
           }
         }, timewait);
