@@ -8,7 +8,7 @@
   <script src="odometer.js"></script>
   <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
   <script src="https://code.highcharts.com/highcharts.js"></script>
-  <center>
+
     <input type="text" id="chnlName">Channel1 Subs</input>
     <input type="text" id="chnlName2">Channel2 Subs</input>
     <br>
@@ -20,6 +20,7 @@
     <br>
     <input type="button" id="apply" value="Apply" />
     <br>
+    <center>
     <p id="ytImage">ytImage</p>
     <p id="ytName" style="font-size:20px;color:rgb(0, 0, 0)">ytName</p>
     <p id="odometer" class="main-odo odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</p>
@@ -186,6 +187,8 @@
 
 
     function loadChannel(name) {
+      chan2name.innerHTML = params[6] + ' 1h'
+      chan1name.innerHTML = params[5] + ' 1h'
       subs = params[1];
       odometer.innerHTML = subs;
       ytName.innerHTML = params[5];
