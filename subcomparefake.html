@@ -54,7 +54,7 @@
       </p>
     </figure>
   </center>
-  <p>V.1.0.6</p>
+  <p>V.1.1.0 With youtube api :)</p>
 
 
 
@@ -220,8 +220,8 @@
           'AIzaSyBctV0YBJWzKBK7FqF8HtczkGodg8ZCP80',
           ];
       var randomNumber = Math.floor(Math.random()*textArray.length);
-      var key = "";
-      key = textArray[randomNumber];
+      var keys = "";
+      keys = textArray[randomNumber];
 
       chan2name.innerHTML = namet2 + ' 1h'
       chan1name.innerHTML = namet1 + ' 1h'
@@ -261,8 +261,8 @@
           'AIzaSyBctV0YBJWzKBK7FqF8HtczkGodg8ZCP80',
           ];
       var randomNumber = Math.floor(Math.random()*textArray.length);
-      var key = "";
-      key = textArray[randomNumber];
+      var keys = "";
+      keys = textArray[randomNumber];
       subs2 = params[2];
       odometer3.innerHTML = subs2;
       ytName2.innerHTML = namet2
@@ -371,12 +371,12 @@
           'AIzaSyBctV0YBJWzKBK7FqF8HtczkGodg8ZCP80',
           ];
       var randomNumber = Math.floor(Math.random()*textArray.length);
-      var key = "";
-      key = textArray[randomNumber];
+      var keys = "";
+      keys = textArray[randomNumber];
 
       if (params[7] = 1) {
 
-          var url2 = 'https://www.googleapis.com/youtube/v3/channels?part=statistics&id='+channelid2+'&type=channel&maxResults=1&key=AIzaSyCmChuTg06u6ojY6YVPcr8382f9oAOQL9A';
+          var url2 = 'https://www.googleapis.com/youtube/v3/channels?part=statistics&id='+channelid2+'&type=channel&maxResults=1&key='+keys;
           $.getJSON(url2, function(data) {
             subsnormal1 = data.items[0].statistics.subscriberCount
 
@@ -385,7 +385,7 @@
 }
 
       if (params[7] = 1) {
-        var url4 = 'https://www.googleapis.com/youtube/v3/channels?part=statistics&id='+channelid2+'&type=channel&maxResults=1&key=AIzaSyCmChuTg06u6ojY6YVPcr8382f9oAOQL9A';
+        var url4 = 'https://www.googleapis.com/youtube/v3/channels?part=statistics&id='+channelid2+'&type=channel&maxResults=1&key='+keys;
         $.getJSON(url4, function(data) {
           subsnormal2 = data.items[0].statistics.subscriberCount
 
