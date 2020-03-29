@@ -13,7 +13,6 @@
   <script src="odometer.js"></script>
   <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
   <script src="https://code.highcharts.com/highcharts.js"></script>
-
     <input type="text" id="chnlName">Channel1 Subs</input>
     <input type="text" id="chnlName2">Channel2 Subs</input>
     <br>
@@ -26,7 +25,7 @@
     <input type="button" id="apply" value="Apply" />
     <br>
     <center>
-    <p id="ytImage">ytImage</p>
+
     <p id="ytName" style="font-size:20px;color:rgb(0, 0, 0)">ytName</p>
     <p id="odometer" class="main-odo odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</p>
     <p style="font-size:20px;color:rgb(0, 0, 0)">subscribers</p>
@@ -34,7 +33,7 @@
     <div id="odometer2" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div>
     <p>subscriber diffrence</p>
     <br>
-    <p id="ytImage2">ytImage2</p>
+
     <p id="ytName2" style="font-size:20px;color:rgb(0, 0, 0)">ytName2</p>
     <div id="odometer3" class="main-odo odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div>
     <p style="font-size:20px;color:rgb(0, 0, 0)">subscribers</p>
@@ -167,23 +166,36 @@
       },
 
       series: [{
-        name: 'chart',
+        name: 'Diffrence',
         marker: {
           enabled: false
         }
       }]
     })
-
-    var subsgain = params[3] / 30;
-    var subsgain2 = params[4] / 30;
+    var fixsb = params[3].replace(",", ".");
+    var fixsb2 = params[4].replace(",", ".");
+    var subsgain = fixsb / 60;
+    var subsgain2 = fixsb2 / 60;
     var takeandgive1 = subsgain / 30
     var takeandgive2 = subsgain2 / 30
     var didithappen1 = "0";
     var didithappen2 = "0";
     var subs = "";
+    var audit1 = subsgain / 2;
+    var audit2 = subsgain2 / 2;
     var subs2 = "";
     var subsround = "";
+    var before = "";
+    var before2 = "";
     var subs2round = "";
+    var rand1 = Math.floor((Math.random() * 10) + 1);;
+    var rand2 = Math.floor((Math.random() * 10) + 1);;
+    var namet1 = params[5].replace("%20", " ");
+    var namet2 = params[6].replace("%20", " ");
+    var fixsb = params[3].replace(",", ".");
+    var fixsb2 = params[4].replace(",", ".");
+    var timewait = 2000;
+
 
     loadChannel(params[1]);
     loadChannel2(params[2]);
@@ -192,21 +204,20 @@
 
 
     function loadChannel(name) {
-      chan2name.innerHTML = params[6] + ' 1h'
-      chan1name.innerHTML = params[5] + ' 1h'
+      chan2name.innerHTML = namet2 + ' 1h'
+      chan1name.innerHTML = namet1 + ' 1h'
       subs = params[1];
       odometer.innerHTML = subs;
-      ytName.innerHTML = params[5];
+      ytName.innerHTML = namet1
       sub1hourlast = "0";
       gap1h = "0";
       gap = "0";
-
     }
 
     function loadChannel2(name2) {
       subs2 = params[2];
       odometer3.innerHTML = subs2;
-      ytName2.innerHTML = params[6];
+      ytName2.innerHTML = namet2
       sub2hourlast = "0";
       gap1h = "0";
       gap = "0";
@@ -215,84 +226,69 @@
 
 
     setInterval(function() {
-      if (didithappen1 = "1") {
-        console.log("testinglol")
-        var textArray = [ //stuff
-            '10',
-            '10',
-            '10',
-            '10',
-            '10',
-            ];
-      }
-      if (didithappen2 = "1") {
-        var textArray2 = [ //stuff
-            '10',
-            '10',
-            '10',
-            '10',
-            '10',
-            ];
-      }
-      if (didithappen1 = "0") {
-        var textArray = [ //stuff
-            '10',
-            '10',
-            '10',
-            '10',
-            '20',
-            ];
-      }
-      if (didithappen2 = "0") {
-        var textArray2 = [ //stuff
-            '10',
-            '10',
-            '10',
-            '10',
-            '20',
-            ];
-      }
+
+      rand1 = Math.floor((Math.random() * 10) + 1);
+      rand2 = Math.floor((Math.random() * 10) + 1);
 
 
-      var randomNumber = Math.floor(Math.random()*textArray.length);
-      var stufflol = "";
-      stufflol = textArray[randomNumber];
-      var randomNumber2 = Math.floor(Math.random()*textArray2.length);
-      var stufflol2 = "";
-      stufflol2 = textArray2[randomNumber2];
-      if (stufflol = "20") {
-        didithappen1 = "1";
-        subs = subs - takeandgive1
-        console.log("took1");
-      }
-      if (stufflol2 = "20") {
-        didithappen2 = "1";
-        subs2 = subs2 - takeandgive2
-        console.log("took2");
-      }
-      if (stufflol = "10") {
+
+
+
+
+
+      console.log(rand1)
+      console.log(rand2)
+      console.log(subs)
+      console.log(subs2)
+      console.log(takeandgive1)
+      console.log(takeandgive2)
+      console.log(subsgain)
+      console.log(subsgain2)
+
+
+      if (rand1 < "9.9") {
+        subs = subs - takeandgive1;
         subs = subs + takeandgive1;
-        if (didithappen1 = "1") {
-          didithappen1 = "0";
+        subs = subs + takeandgive1;
+      } if (rand1 > "9.9") {
+        subs = subs - takeandgive1;
+        subs = subs + takeandgive1;
+        subs = subs - takeandgive1;
+        subs = subs - takeandgive1;
+        setTimeout(function() {
+          subs = subs - takeandgive1;
           subs = subs + takeandgive1;
-          console.log("gave1");
-        }
+          subs = subs + takeandgive1;
+          subs = subs + takeandgive1;
+        }, timewait);
       }
-      if (stufflol2 = "10") {
+      if (rand2 < "9.9") {
+        subs2 = subs2 - takeandgive2;
         subs2 = subs2 + takeandgive2;
-        if (didithappen2 = "1") {
-          didithappen2 = "0";
+        subs2 = subs2 + takeandgive2;
+      } if (rand2 > "9.9") {
+        subs2 = subs2 - takeandgive2;
+        subs2 = subs2 + takeandgive2;
+        subs2 = subs2 - takeandgive2;
+        subs2 = subs2 - takeandgive2;
+        setTimeout(function() {
+          subs2 = subs2 - takeandgive2;
           subs2 = subs2 + takeandgive2;
-          console.log("gave2");
-
-        }
+          subs2 = subs2 + takeandgive2;
+          subs2 = subs2 + takeandgive2;
+        }, timewait);
       }
-          subsround = Math.floor(subs)
-          subs2round = Math.floor(subs2)
-          odometer.innerHTML = subsround;
-          odometer3.innerHTML = subs2round;
 
-    }, 2000);
+
+
+
+
+
+      subsround = Math.floor(subs)
+      subs2round = Math.floor(subs2)
+      odometer.innerHTML = subsround;
+      odometer3.innerHTML = subs2round;
+    }, timewait);
 
 
 
@@ -305,9 +301,9 @@
       ]);
 
 
-    }, 2000);
+    }, timewait);
     setInterval(function() {
-      secsinhour = secsinhour + 01
+      secsinhour = secsinhour + 02
 
       if (secsinhour > 3600) {
         secsinhour = 0
@@ -333,7 +329,7 @@
 
 
 
-    }, 1000);
+    }, timewait);
     viiName = "";
     viiNam2e = "";
     viiNam22e = "";
