@@ -172,28 +172,28 @@
         }
       }]
     })
-    var fixsb = params[3].replace(",", ".");
-    var fixsb2 = params[4].replace(",", ".");
+    var fixsb = "0".replace(",", ".");
+    var fixsb2 = "0".replace(",", ".");
     var subsgain = fixsb / 60;
     var subsgain2 = fixsb2 / 60;
     var takeandgive1 = subsgain / 30
     var takeandgive2 = subsgain2 / 30
     var didithappen1 = "0";
     var didithappen2 = "0";
-    var subs = "";
+    var subs = "0";
     var audit1 = subsgain / 2;
     var audit2 = subsgain2 / 2;
-    var subs2 = "";
-    var subsround = "";
+    var subs2 = "0";
+    var subsround = "0";
     var before = "";
     var before2 = "";
-    var subs2round = "";
+    var subs2round = "0";
     var rand1 = Math.floor((Math.random() * 10) + 1);;
     var rand2 = Math.floor((Math.random() * 10) + 1);;
-    var namet1 = params[5].replace("%20", " ");
-    var namet2 = params[6].replace("%20", " ");
-    var fixsb = params[3].replace(",", ".");
-    var fixsb2 = params[4].replace(",", ".");
+    var namet1 = "0".replace("%20", " ");
+    var namet2 = "0".replace("%20", " ");
+    var fixsb = "0".replace(",", ".");
+    var fixsb2 = "0".replace(",", ".");
     var timewait = 2000;
     var channelid1 = "";
     var channelid2 = "";
@@ -224,7 +224,7 @@
 
       chan2name.innerHTML = namet2 + ' 1h'
       chan1name.innerHTML = namet1 + ' 1h'
-      subs = params[1];
+      subs = "";
       odometer.innerHTML = subs;
       ytName.innerHTML = namet1
       sub1hourlast = "0";
@@ -232,11 +232,9 @@
       gap = "0";
       var url = 'https://www.googleapis.com/youtube/v3/search?part=snippet&q='+namet1+'&type=channel&maxResults=1&key='+keys;
 
-      if (params[7] = 1) {
         $.getJSON(url, function(data) {
           channelid1 = data.items[0].id.channelId
           setTimeout(function() {
-            if (params[7] = 1) {
               var url3 = 'https://www.googleapis.com/youtube/v3/channels?part=statistics&id='+channelid1+'&type=channel&maxResults=1&key='+keys;
               $.getJSON(url3, function(data) {
                 subsnormal1 = data.items[0].statistics.subscriberCount
@@ -291,13 +289,13 @@
                   }
                 }
               });
-            }
+
           }, 1000);
 
 
 
         });
-}
+
 
   }
 
@@ -375,6 +373,7 @@
                     }
                   }
                 }
+
               });
             }
           }, 1000);
@@ -520,6 +519,7 @@
                     }
                   }
                 }
+
           });
 
 }
@@ -577,6 +577,7 @@
               }
             }
           }
+
         });
 }
     }, 60000);
