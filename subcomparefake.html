@@ -53,7 +53,7 @@
       </p>
     </figure>
   </center>
-  <p>V.1.1.1 With youtube api :)</p>
+  <p>V.1.1.2 With youtube api :)</p>
 
 
 
@@ -237,9 +237,9 @@
           channelid1 = data.items[0].id.channelId
           setTimeout(function() {
             if (params[7] = 1) {
-              var url3 = 'https://bastet.socialblade.com/youtube/lookup?query='+channelid1
+              var url3 = 'https://www.googleapis.com/youtube/v3/channels?part=statistics&id='+channelid1+'&type=channel&maxResults=1&key='+keys;
               $.getJSON(url3, function(data) {
-                subsnormal1 = data
+                subsnormal1 = data.items[0].statistics.subscriberCount
                 //subs = subsnormal1
                 if (subsnormal1 > 999) {
                   if (subsnormal1 > 9999) {
@@ -322,9 +322,9 @@
           channelid2 = data.items[0].id.channelId
           setTimeout(function() {
             if (params[7] = 1) {
-              var url4 = 'https://bastet.socialblade.com/youtube/lookup?query='+channelid2
+              var url4 = 'https://www.googleapis.com/youtube/v3/channels?part=statistics&id='+channelid2+'&type=channel&maxResults=1&key='+keys;
               $.getJSON(url4, function(data) {
-                subsnormal2 = data
+                subsnormal2 = data.items[0].statistics.subscriberCount
                 //subs2 = subsnormal2
                 if (subsnormal2 > 999) {
                   if (subsnormal2 > 9999) {
@@ -493,9 +493,9 @@
 
       if (params[7] = 1) {
 
-          var url2 = 'https://bastet.socialblade.com/youtube/lookup?query='+channelid1
+          var url2 = 'https://www.googleapis.com/youtube/v3/channels?part=statistics&id='+channelid2+'&type=channel&maxResults=1&key='+keys;
           $.getJSON(url2, function(data) {
-            subsnormal1 = data
+            subsnormal1 = data.items[0].statistics.subscriberCount
             if (subsnormal1 > 999) {
                   if (subsnormal1 > 9999) {
                     if (subsnormal1 > 99999) {
@@ -550,9 +550,9 @@
 }
 
       if (params[7] = 1) {
-        var url4 = 'https://bastet.socialblade.com/youtube/lookup?query='+channelid2
+        var url4 = 'https://www.googleapis.com/youtube/v3/channels?part=statistics&id='+channelid2+'&type=channel&maxResults=1&key='+keys;
         $.getJSON(url4, function(data) {
-          subsnormal2 = data
+          subsnormal2 = data.items[0].statistics.subscriberCount
           if (subsnormal2 > 999) {
             if (subsnormal2 > 9999) {
               if (subsnormal2 > 99999) {
