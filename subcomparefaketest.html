@@ -53,7 +53,7 @@
       </p>
     </figure>
   </center>
-  <p>Testbuild 2.2.1 Estimated automatic.</p>
+  <p>Testbuild 2.2.2 Estimated automatic.</p>
 
 
 
@@ -266,7 +266,6 @@ jQuery.ajaxPrefilter(function(options) {
                       // Display Players
                       subsnormal1 = json.subscriberCount
                       subs = json.subscriberCount
-                      hitted1 = json.timestamp
                       if (subsnormal1 > 999) {
                         if (subsnormal1 > 9999) {
                           if (subsnormal1 > 99999) {
@@ -361,7 +360,6 @@ jQuery.ajaxPrefilter(function(options) {
                       // Display Players
                       subsnormal2 = json.subscriberCount
                       subs2 = json.subscriberCount
-                      hitted2 = json.timestamp
                       if (subsnormal2 > 999) {
                         if (subsnormal2 > 9999) {
                           if (subsnormal2 > 99999) {
@@ -438,7 +436,14 @@ jQuery.ajaxPrefilter(function(options) {
 
 
 
-
+      console.log(rand1)
+      console.log(rand2)
+      console.log(subs)
+      console.log(subs2)
+      console.log(takeandgive1)
+      console.log(takeandgive2)
+      console.log(subsgain)
+      console.log(subsgain2)
 
 
       if (rand1 < "9.9") {
@@ -500,7 +505,6 @@ jQuery.ajaxPrefilter(function(options) {
           if (subsnormal2 > subs2, subs2 > subsnormal2 + 100000) {
             subs2 = subsnormal2
           }
-
         }, timewait);
       }
 
@@ -509,10 +513,6 @@ jQuery.ajaxPrefilter(function(options) {
 
 
 
-      console.log(hitted1)
-      console.log(hitted2)
-      console.log(timehittedtosomewhere1)
-      console.log(timehittedtosomewhere2)
       subsround = Math.floor(subs)
       subs2round = Math.floor(subs2)
       odometer.innerHTML = subsround;
@@ -531,7 +531,6 @@ jQuery.ajaxPrefilter(function(options) {
                       //Store data into a variable
                       // Display Players
                       subsnormal1 = json.subscriberCount
-                      hitted1 = json.timestamp
                       if (subsnormal1 > 999) {
                         if (subsnormal1 > 9999) {
                           if (subsnormal1 > 99999) {
@@ -551,6 +550,7 @@ jQuery.ajaxPrefilter(function(options) {
                                         fixsb = ihjbfrgk1.replace(",", ".");
                                         subsgain = fixsb / 60;
                                         takeandgive1 = subsgain / 30;
+                                        hitted1 = Date.now();
                                       }
                                     }
                                   }
@@ -566,6 +566,7 @@ jQuery.ajaxPrefilter(function(options) {
                                       fixsb = ihjbfrgk1.replace(",", ".");
                                       subsgain = fixsb / 60;
                                       takeandgive1 = subsgain / 30;
+                                      hitted1 = Date.now();
                                     }
                                   }
                                 }
@@ -581,6 +582,7 @@ jQuery.ajaxPrefilter(function(options) {
                                     fixsb = ihjbfrgk1.replace(",", ".");
                                     subsgain = fixsb / 60;
                                     takeandgive1 = subsgain / 30;
+                                    hitted1 = Date.now();
                                   }
                                 }
                               }
@@ -596,6 +598,7 @@ jQuery.ajaxPrefilter(function(options) {
                                   fixsb = ihjbfrgk1.replace(",", ".");
                                   subsgain = fixsb / 60;
                                   takeandgive1 = subsgain / 30;
+                                  hitted1 = Date.now();
                                 }
                               }
                             }
@@ -611,6 +614,7 @@ jQuery.ajaxPrefilter(function(options) {
                                 fixsb = ihjbfrgk1.replace(",", ".");
                                 subsgain = fixsb / 60;
                                 takeandgive1 = subsgain / 30;
+                                hitted1 = Date.now();
                               }
                             }
                           }
@@ -626,6 +630,7 @@ jQuery.ajaxPrefilter(function(options) {
                               fixsb = ihjbfrgk1.replace(",", ".");
                               subsgain = fixsb / 60;
                               takeandgive1 = subsgain / 30;
+                              hitted1 = Date.now();
                             }
                           }
                         }
@@ -641,6 +646,7 @@ jQuery.ajaxPrefilter(function(options) {
                             fixsb = ihjbfrgk1.replace(",", ".");
                             subsgain = fixsb / 60;
                             takeandgive1 = subsgain / 30;
+                            hitted1 = Date.now();
                           }
                         }
                       }
@@ -661,7 +667,6 @@ jQuery.ajaxPrefilter(function(options) {
                       //Store data into a variable
                       // Display Players
                       subsnormal2 = json.subscriberCount
-                      hitted2 = json.timestamp
                       if (subsnormal2 > 999) {
                         if (subsnormal2 > 9999) {
                           if (subsnormal2 > 99999) {
@@ -681,6 +686,7 @@ jQuery.ajaxPrefilter(function(options) {
                                         fixsb2 = ihjbfrgk2.replace(",", ".");
                                         subsgain2 = fixsb2 / 60;
                                         takeandgive2 = subsgain2 / 30;
+                                        hitted2 = Date.now();
 
 
 
@@ -699,6 +705,7 @@ jQuery.ajaxPrefilter(function(options) {
                                       fixsb2 = ihjbfrgk2.replace(",", ".");
                                       subsgain2 = fixsb2 / 60;
                                       takeandgive2 = subsgain2 / 30;
+                                      hitted2 = Date.now();
                                     }
                                   }
                                 }
@@ -714,6 +721,7 @@ jQuery.ajaxPrefilter(function(options) {
                                     fixsb2 = ihjbfrgk2.replace(",", ".");
                                     subsgain2 = fixsb2 / 60;
                                     takeandgive2 = subsgain2 / 30;
+                                    hitted2 = Date.now();
                                   }
                                 }
                               }
@@ -729,6 +737,7 @@ jQuery.ajaxPrefilter(function(options) {
                                   fixsb2 = ihjbfrgk2.replace(",", ".");
                                   subsgain2 = fixsb2 / 60;
                                   takeandgive2 = subsgain2 / 30;
+                                  hitted2 = Date.now();
                                 }
                               }
                             }
@@ -744,6 +753,7 @@ jQuery.ajaxPrefilter(function(options) {
                                 fixsb2 = ihjbfrgk2.replace(",", ".");
                                 subsgain2 = fixsb2 / 60;
                                 takeandgive2 = subsgain2 / 30;
+                                hitted2 = Date.now();
                               }
                             }
                           }
@@ -759,6 +769,7 @@ jQuery.ajaxPrefilter(function(options) {
                               fixsb2 = ihjbfrgk2.replace(",", ".");
                               subsgain2 = fixsb2 / 60;
                               takeandgive2 = subsgain2 / 30;
+                              hitted2 = Date.now();
                             }
                           }
                         }
@@ -774,6 +785,7 @@ jQuery.ajaxPrefilter(function(options) {
                             fixsb2 = ihjbfrgk2.replace(",", ".");
                             subsgain2 = fixsb2 / 60;
                             takeandgive2 = subsgain2 / 30;
+                            hitted2 = Date.now();
                           }
                         }
                       }
