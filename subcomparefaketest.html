@@ -242,67 +242,81 @@ jQuery.ajaxPrefilter(function(options) {
           channelid1 = data.items[0].id.channelId
           setTimeout(function() {
             if (params[7] = 1) {
-              var url3 = 'https://corseverywheremiks.herokuapp.com/https://nobnabob.herokuapp.com/https://mixernob.herokuapp.com/https://mixernocors.herokuapp.com/https://corseverywheremiks.herokuapp.com/https://freewebtools.com/compteur-youtube/?channelId='+channelid1;
-              $.getJSON(url3, function(data) {
-                subsnormal1 = data.subscriberCount
-                //subs = subsnormal1
-                if (subsnormal1 > 999) {
-                  if (subsnormal1 > 9999) {
-                    if (subsnormal1 > 99999) {
-                      if (subsnormal1 > 999999) {
-                        if (subsnormal1 > 9999999) {
-                          if (subsnormal1 > 99999999) {
-                            if (subsnormal1 > 999999999) {
-                              if (subsnormal1 < 10000000000) {
-                                if (subsnormal1 > subs, subs > subsnormal1 + 10000000) {
+              $.ajax({
+                url: 'https://corseverywheremiks.herokuapp.com/https://nobnabob.herokuapp.com/https://mixernob.herokuapp.com/https://mixernocors.herokuapp.com/https://corseverywheremiks.herokuapp.com/https://freewebtools.com/compteur-youtube/?channelId='+channelid1,
+                // Handle as Text
+                dataType: "text",
+                success: function(data) {
+                  // Parse JSON file
+                  var json = $.parseJSON(data);
+                  //Store data into a variable
+                  // Display Players
+                  subsnormal1 = json.subscriberCount
+                  if (subsnormal1 > 999) {
+                    if (subsnormal1 > 9999) {
+                      if (subsnormal1 > 99999) {
+                        if (subsnormal1 > 999999) {
+                          if (subsnormal1 > 9999999) {
+                            if (subsnormal1 > 99999999) {
+                              if (subsnormal1 > 999999999) {
+                                if (subsnormal1 < 10000000000) {
+                                  if (subsnormal1 > subs, subs > subsnormal1 + 10000000) {
+                                    subs = subsnormal1
+                                  }
+                                }
+                              }
+                              if (subsnormal1 < 1000000000) {
+                                if (subsnormal1 > subs, subs > subsnormal1 + 1000000) {
                                   subs = subsnormal1
                                 }
                               }
                             }
-                            if (subsnormal1 < 1000000000) {
-                              if (subsnormal1 > subs, subs > subsnormal1 + 1000000) {
+                            if (subsnormal1 < 100000000) {
+                              if (subsnormal1 > subs, subs > subsnormal1 + 100000) {
                                 subs = subsnormal1
                               }
                             }
                           }
-                          if (subsnormal1 < 100000000) {
-                            if (subsnormal1 > subs, subs > subsnormal1 + 100000) {
+                          if (subsnormal1 < 10000000) {
+                            if (subsnormal1 > subs, subs > subsnormal1 + 10000) {
                               subs = subsnormal1
                             }
                           }
                         }
-                        if (subsnormal1 < 10000000) {
-                          if (subsnormal1 > subs, subs > subsnormal1 + 10000) {
+                        if (subsnormal1 < 1000000) {
+                          if (subsnormal1 > subs, subs > subsnormal1 + 1000) {
                             subs = subsnormal1
                           }
                         }
                       }
-                      if (subsnormal1 < 1000000) {
-                        if (subsnormal1 > subs, subs > subsnormal1 + 1000) {
+                      if (subsnormal1 < 100000) {
+                        if (subsnormal1 > subs, subs > subsnormal1 + 100) {
                           subs = subsnormal1
                         }
                       }
                     }
-                    if (subsnormal1 < 100000) {
-                      if (subsnormal1 > subs, subs > subsnormal1 + 100) {
+                    if (subsnormal1 < 10000) {
+                      if (subsnormal1 > subs, subs > subsnormal1 + 10) {
                         subs = subsnormal1
                       }
                     }
                   }
-                  if (subsnormal1 < 10000) {
-                    if (subsnormal1 > subs, subs > subsnormal1 + 10) {
-                      subs = subsnormal1
-                    }
-                  }
+                });
+              }
+            }
+            }, 1000);
+
+
+
+          });
+  }
                 }
               });
-            }
-          }, 1000);
 
+              $.getJSON(url3, function(data) {
 
+                //subs = subsnormal1
 
-        });
-}
 
   }
 
@@ -327,60 +341,68 @@ jQuery.ajaxPrefilter(function(options) {
           channelid2 = data.items[0].id.channelId
           setTimeout(function() {
             if (params[7] = 1) {
-              var url4 = 'https://corseverywheremiks.herokuapp.com/https://nobnabob.herokuapp.com/https://mixernob.herokuapp.com/https://mixernocors.herokuapp.com/https://corseverywheremiks.herokuapp.com/https://freewebtools.com/compteur-youtube/?channelId='+channelid2;
-              $.getJSON(url4, function(data) {
-                subsnormal2 = data.subscriberCount
-                //subs2 = subsnormal2
-                if (subsnormal2 > 999) {
-                  if (subsnormal2 > 9999) {
-                    if (subsnormal2 > 99999) {
-                      if (subsnormal2 > 999999) {
-                        if (subsnormal2 > 9999999) {
-                          if (subsnormal2 > 99999999) {
-                            if (subsnormal2 > 999999999) {
-                              if (subsnormal2 < 10000000000) {
-                                if (subsnormal2 > subs2, subs2 > subsnormal2 + 10000000) {
+              $.ajax({
+                  url: 'https://corseverywheremiks.herokuapp.com/https://nobnabob.herokuapp.com/https://mixernob.herokuapp.com/https://mixernocors.herokuapp.com/https://corseverywheremiks.herokuapp.com/https://freewebtools.com/compteur-youtube/?channelId='+channelid2,
+                    // Handle as Text
+                    dataType: "text",
+                    success: function(data) {
+                      // Parse JSON file
+                      var json = $.parseJSON(data);
+                      //Store data into a variable
+                      // Display Players
+                      subsnormal2 = json.subscriberCount
+                      if (subsnormal2 > 999) {
+                        if (subsnormal2 > 9999) {
+                          if (subsnormal2 > 99999) {
+                            if (subsnormal2 > 999999) {
+                              if (subsnormal2 > 9999999) {
+                                if (subsnormal2 > 99999999) {
+                                  if (subsnormal2 > 999999999) {
+                                    if (subsnormal2 < 10000000000) {
+                                      if (subsnormal2 > subs2, subs2 > subsnormal2 + 10000000) {
+                                        subs2 = subsnormal2
+                                      }
+                                    }
+                                  }
+                                  if (subsnormal2 < 1000000000) {
+                                    if (subsnormal2 > subs2, subs2 > subsnormal2 + 1000000) {
+                                      subs2 = subsnormal2
+                                    }
+                                  }
+                                }
+                                if (subsnormal2 < 100000000) {
+                                  if (subsnormal2 > subs2, subs2 > subsnormal2 + 100000) {
+                                    subs2 = subsnormal2
+                                  }
+                                }
+                              }
+                              if (subsnormal2 < 10000000) {
+                                if (subsnormal2 > subs2, subs2 > subsnormal2 + 10000) {
                                   subs2 = subsnormal2
                                 }
                               }
                             }
-                            if (subsnormal2 < 1000000000) {
-                              if (subsnormal2 > subs2, subs2 > subsnormal2 + 1000000) {
+                            if (subsnormal2 < 1000000) {
+                              if (subsnormal2 > subs2, subs2 > subsnormal2 + 1000) {
                                 subs2 = subsnormal2
                               }
                             }
                           }
-                          if (subsnormal2 < 100000000) {
-                            if (subsnormal2 > subs2, subs2 > subsnormal2 + 100000) {
+                          if (subsnormal2 < 100000) {
+                            if (subsnormal2 > subs2, subs2 > subsnormal2 + 100) {
                               subs2 = subsnormal2
                             }
                           }
                         }
-                        if (subsnormal2 < 10000000) {
-                          if (subsnormal2 > subs2, subs2 > subsnormal2 + 10000) {
+                        if (subsnormal2 < 10000) {
+                          if (subsnormal2 > subs2, subs2 > subsnormal2 + 10) {
                             subs2 = subsnormal2
                           }
                         }
                       }
-                      if (subsnormal2 < 1000000) {
-                        if (subsnormal2 > subs2, subs2 > subsnormal2 + 1000) {
-                          subs2 = subsnormal2
-                        }
                       }
-                    }
-                    if (subsnormal2 < 100000) {
-                      if (subsnormal2 > subs2, subs2 > subsnormal2 + 100) {
-                        subs2 = subsnormal2
-                      }
-                    }
-                  }
-                  if (subsnormal2 < 10000) {
-                    if (subsnormal2 > subs2, subs2 > subsnormal2 + 10) {
-                      subs2 = subsnormal2
-                    }
-                  }
-                }
-              });
+                  });
+
             }
           }, 1000);
 
@@ -496,119 +518,138 @@ jQuery.ajaxPrefilter(function(options) {
       var keys = "";
       keys = textArray[randomNumber];
 
-      if (params[7] = 1) {
-
-          var url2 = 'https://corseverywheremiks.herokuapp.com/https://nobnabob.herokuapp.com/https://mixernob.herokuapp.com/https://mixernocors.herokuapp.com/https://corseverywheremiks.herokuapp.com/https://freewebtools.com/compteur-youtube/?channelId='+channelid1;
-          $.getJSON(url2, function(data) {
-            subsnormal1 = data.subscriberCount
-            if (subsnormal1 > 999) {
-                  if (subsnormal1 > 9999) {
-                    if (subsnormal1 > 99999) {
-                      if (subsnormal1 > 999999) {
-                        if (subsnormal1 > 9999999) {
-                          if (subsnormal1 > 99999999) {
-                            if (subsnormal1 > 999999999) {
-                              if (subsnormal1 < 10000000000) {
-                                if (subsnormal1 > subs, subs > subsnormal1 + 10000000) {
-                                  subs = subsnormal1
-                                }
-                              }
-                            }
-                            if (subsnormal1 < 1000000000) {
-                              if (subsnormal1 > subs, subs > subsnormal1 + 1000000) {
+      setTimeout(function() {
+        if (params[7] = 1) {
+          $.ajax({
+            url: 'https://corseverywheremiks.herokuapp.com/https://nobnabob.herokuapp.com/https://mixernob.herokuapp.com/https://mixernocors.herokuapp.com/https://corseverywheremiks.herokuapp.com/https://freewebtools.com/compteur-youtube/?channelId='+channelid1,
+            // Handle as Text
+            dataType: "text",
+            success: function(data) {
+              // Parse JSON file
+              var json = $.parseJSON(data);
+              //Store data into a variable
+              // Display Players
+              subsnormal1 = json.subscriberCount
+              if (subsnormal1 > 999) {
+                if (subsnormal1 > 9999) {
+                  if (subsnormal1 > 99999) {
+                    if (subsnormal1 > 999999) {
+                      if (subsnormal1 > 9999999) {
+                        if (subsnormal1 > 99999999) {
+                          if (subsnormal1 > 999999999) {
+                            if (subsnormal1 < 10000000000) {
+                              if (subsnormal1 > subs, subs > subsnormal1 + 10000000) {
                                 subs = subsnormal1
                               }
                             }
                           }
-                          if (subsnormal1 < 100000000) {
-                            if (subsnormal1 > subs, subs > subsnormal1 + 100000) {
+                          if (subsnormal1 < 1000000000) {
+                            if (subsnormal1 > subs, subs > subsnormal1 + 1000000) {
                               subs = subsnormal1
                             }
                           }
                         }
-                        if (subsnormal1 < 10000000) {
-                          if (subsnormal1 > subs, subs > subsnormal1 + 10000) {
+                        if (subsnormal1 < 100000000) {
+                          if (subsnormal1 > subs, subs > subsnormal1 + 100000) {
                             subs = subsnormal1
                           }
                         }
                       }
-                      if (subsnormal1 < 1000000) {
-                        if (subsnormal1 > subs, subs > subsnormal1 + 1000) {
+                      if (subsnormal1 < 10000000) {
+                        if (subsnormal1 > subs, subs > subsnormal1 + 10000) {
                           subs = subsnormal1
                         }
                       }
                     }
-                    if (subsnormal1 < 100000) {
-                      if (subsnormal1 > subs, subs > subsnormal1 + 100) {
+                    if (subsnormal1 < 1000000) {
+                      if (subsnormal1 > subs, subs > subsnormal1 + 1000) {
                         subs = subsnormal1
                       }
                     }
                   }
-                  if (subsnormal1 < 10000) {
-                    if (subsnormal1 > subs, subs > subsnormal1 + 10) {
+                  if (subsnormal1 < 100000) {
+                    if (subsnormal1 > subs, subs > subsnormal1 + 100) {
                       subs = subsnormal1
                     }
                   }
                 }
-          });
+                if (subsnormal1 < 10000) {
+                  if (subsnormal1 > subs, subs > subsnormal1 + 10) {
+                    subs = subsnormal1
+                  }
+                }
+              }
+            });
+          }
+        }
+        }, 1000);
 
-}
-
-      if (params[7] = 1) {
-        var url4 = 'https://corseverywheremiks.herokuapp.com/https://nobnabob.herokuapp.com/https://mixernob.herokuapp.com/https://mixernocors.herokuapp.com/https://corseverywheremiks.herokuapp.com/https://freewebtools.com/compteur-youtube/?channelId='+channelid2;
-        $.getJSON(url4, function(data) {
-          subsnormal2 = data.subscriberCount
-          if (subsnormal2 > 999) {
-            if (subsnormal2 > 9999) {
-              if (subsnormal2 > 99999) {
-                if (subsnormal2 > 999999) {
-                  if (subsnormal2 > 9999999) {
-                    if (subsnormal2 > 99999999) {
-                      if (subsnormal2 > 999999999) {
-                        if (subsnormal2 < 10000000000) {
-                          if (subsnormal2 > subs2, subs2 > subsnormal2 + 10000000) {
+        setTimeout(function() {
+          if (params[7] = 1) {
+            $.ajax({
+                url: 'https://corseverywheremiks.herokuapp.com/https://nobnabob.herokuapp.com/https://mixernob.herokuapp.com/https://mixernocors.herokuapp.com/https://corseverywheremiks.herokuapp.com/https://freewebtools.com/compteur-youtube/?channelId='+channelid2,
+                  // Handle as Text
+                  dataType: "text",
+                  success: function(data) {
+                    // Parse JSON file
+                    var json = $.parseJSON(data);
+                    //Store data into a variable
+                    // Display Players
+                    subsnormal2 = json.subscriberCount
+                    if (subsnormal2 > 999) {
+                      if (subsnormal2 > 9999) {
+                        if (subsnormal2 > 99999) {
+                          if (subsnormal2 > 999999) {
+                            if (subsnormal2 > 9999999) {
+                              if (subsnormal2 > 99999999) {
+                                if (subsnormal2 > 999999999) {
+                                  if (subsnormal2 < 10000000000) {
+                                    if (subsnormal2 > subs2, subs2 > subsnormal2 + 10000000) {
+                                      subs2 = subsnormal2
+                                    }
+                                  }
+                                }
+                                if (subsnormal2 < 1000000000) {
+                                  if (subsnormal2 > subs2, subs2 > subsnormal2 + 1000000) {
+                                    subs2 = subsnormal2
+                                  }
+                                }
+                              }
+                              if (subsnormal2 < 100000000) {
+                                if (subsnormal2 > subs2, subs2 > subsnormal2 + 100000) {
+                                  subs2 = subsnormal2
+                                }
+                              }
+                            }
+                            if (subsnormal2 < 10000000) {
+                              if (subsnormal2 > subs2, subs2 > subsnormal2 + 10000) {
+                                subs2 = subsnormal2
+                              }
+                            }
+                          }
+                          if (subsnormal2 < 1000000) {
+                            if (subsnormal2 > subs2, subs2 > subsnormal2 + 1000) {
+                              subs2 = subsnormal2
+                            }
+                          }
+                        }
+                        if (subsnormal2 < 100000) {
+                          if (subsnormal2 > subs2, subs2 > subsnormal2 + 100) {
                             subs2 = subsnormal2
                           }
                         }
                       }
-                      if (subsnormal2 < 1000000000) {
-                        if (subsnormal2 > subs2, subs2 > subsnormal2 + 1000000) {
+                      if (subsnormal2 < 10000) {
+                        if (subsnormal2 > subs2, subs2 > subsnormal2 + 10) {
                           subs2 = subsnormal2
                         }
                       }
                     }
-                    if (subsnormal2 < 100000000) {
-                      if (subsnormal2 > subs2, subs2 > subsnormal2 + 100000) {
-                        subs2 = subsnormal2
-                      }
                     }
-                  }
-                  if (subsnormal2 < 10000000) {
-                    if (subsnormal2 > subs2, subs2 > subsnormal2 + 10000) {
-                      subs2 = subsnormal2
-                    }
-                  }
-                }
-                if (subsnormal2 < 1000000) {
-                  if (subsnormal2 > subs2, subs2 > subsnormal2 + 1000) {
-                    subs2 = subsnormal2
-                  }
-                }
-              }
-              if (subsnormal2 < 100000) {
-                if (subsnormal2 > subs2, subs2 > subsnormal2 + 100) {
-                  subs2 = subsnormal2
-                }
-              }
-            }
-            if (subsnormal2 < 10000) {
-              if (subsnormal2 > subs2, subs2 > subsnormal2 + 10) {
-                subs2 = subsnormal2
-              }
-            }
+                });
+
           }
-        });
-}
+        }, 1000);
     }, 60000);
 
 
