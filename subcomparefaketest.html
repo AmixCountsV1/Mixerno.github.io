@@ -53,7 +53,7 @@
       </p>
     </figure>
   </center>
-  <p>Testbuild 2.1.2</p>
+  <p>Testbuild 2.2.0 Estimated automatic.</p>
 
 
 
@@ -202,7 +202,19 @@ jQuery.ajaxPrefilter(function(options) {
     var timewait = 2000;
     var channelid1 = "";
     var channelid2 = "";
-
+    var timehittedtosomewhere1 = Date.now()
+    var hitted1 = Date.now()
+    var funnything1 = 0;
+    var sec1 = 0;
+    var min1 = 0;
+    var hour1 = 0;
+    var timehittedtosomewhere2 = Date.now()
+    var hitted2 = Date.now()
+    var funnything2 = 0;
+    var sec2 = 0;
+    var min2 = 0;
+    var hour2 = 0;
+    console.log(timehittedtosomewhere1, hitted1)
 
     loadChannel(params[1]);
     loadChannel2(params[2]);
@@ -235,6 +247,7 @@ jQuery.ajaxPrefilter(function(options) {
       sub1hourlast = "0";
       gap1h = "0";
       gap = "0";
+
       var url = 'https://www.googleapis.com/youtube/v3/search?part=snippet&q='+namet1+'&type=channel&maxResults=1&key='+keys;
 
       if (params[7] = 1) {
@@ -253,55 +266,55 @@ jQuery.ajaxPrefilter(function(options) {
                       // Display Players
                       subsnormal1 = json.subscriberCount
                       subs = json.subscriberCount
-                  if (subsnormal1 > 999) {
-                    if (subsnormal1 > 9999) {
-                      if (subsnormal1 > 99999) {
-                        if (subsnormal1 > 999999) {
-                          if (subsnormal1 > 9999999) {
-                            if (subsnormal1 > 99999999) {
-                              if (subsnormal1 > 999999999) {
-                                if (subsnormal1 < 10000000000) {
-                                  if (subsnormal1 > subs, subs > subsnormal1 + 10000000) {
+                      if (subsnormal1 > 999) {
+                        if (subsnormal1 > 9999) {
+                          if (subsnormal1 > 99999) {
+                            if (subsnormal1 > 999999) {
+                              if (subsnormal1 > 9999999) {
+                                if (subsnormal1 > 99999999) {
+                                  if (subsnormal1 > 999999999) {
+                                    if (subsnormal1 < 10000000000) {
+                                      if (subsnormal1 > subs, subs > subsnormal1 + 10000000) {
+                                        subs = subsnormal1
+                                      }
+                                    }
+                                  }
+                                  if (subsnormal1 < 1000000000) {
+                                    if (subsnormal1 > subs, subs > subsnormal1 + 1000000) {
+                                      subs = subsnormal1
+                                    }
+                                  }
+                                }
+                                if (subsnormal1 < 100000000) {
+                                  if (subsnormal1 > subs, subs > subsnormal1 + 100000) {
                                     subs = subsnormal1
                                   }
                                 }
                               }
-                              if (subsnormal1 < 1000000000) {
-                                if (subsnormal1 > subs, subs > subsnormal1 + 1000000) {
+                              if (subsnormal1 < 10000000) {
+                                if (subsnormal1 > subs, subs > subsnormal1 + 10000) {
                                   subs = subsnormal1
                                 }
                               }
                             }
-                            if (subsnormal1 < 100000000) {
-                              if (subsnormal1 > subs, subs > subsnormal1 + 100000) {
+                            if (subsnormal1 < 1000000) {
+                              if (subsnormal1 > subs, subs > subsnormal1 + 1000) {
                                 subs = subsnormal1
                               }
                             }
                           }
-                          if (subsnormal1 < 10000000) {
-                            if (subsnormal1 > subs, subs > subsnormal1 + 10000) {
+                          if (subsnormal1 < 100000) {
+                            if (subsnormal1 > subs, subs > subsnormal1 + 100) {
                               subs = subsnormal1
                             }
                           }
                         }
-                        if (subsnormal1 < 1000000) {
-                          if (subsnormal1 > subs, subs > subsnormal1 + 1000) {
+                        if (subsnormal1 < 10000) {
+                          if (subsnormal1 > subs, subs > subsnormal1 + 10) {
                             subs = subsnormal1
                           }
                         }
                       }
-                      if (subsnormal1 < 100000) {
-                        if (subsnormal1 > subs, subs > subsnormal1 + 100) {
-                          subs = subsnormal1
-                        }
-                      }
-                    }
-                    if (subsnormal1 < 10000) {
-                      if (subsnormal1 > subs, subs > subsnormal1 + 10) {
-                        subs = subsnormal1
-                      }
-                    }
-                  }
                       }
                   });
 
@@ -518,55 +531,125 @@ jQuery.ajaxPrefilter(function(options) {
                       //Store data into a variable
                       // Display Players
                       subsnormal1 = json.subscriberCount
-                  if (subsnormal1 > 999) {
-                    if (subsnormal1 > 9999) {
-                      if (subsnormal1 > 99999) {
-                        if (subsnormal1 > 999999) {
-                          if (subsnormal1 > 9999999) {
-                            if (subsnormal1 > 99999999) {
-                              if (subsnormal1 > 999999999) {
-                                if (subsnormal1 < 10000000000) {
-                                  if (subsnormal1 > subs, subs > subsnormal1 + 10000000) {
+                      if (subsnormal1 > 999) {
+                        if (subsnormal1 > 9999) {
+                          if (subsnormal1 > 99999) {
+                            if (subsnormal1 > 999999) {
+                              if (subsnormal1 > 9999999) {
+                                if (subsnormal1 > 99999999) {
+                                  if (subsnormal1 > 999999999) {
+                                    if (subsnormal1 < 10000000000) {
+                                      if (subsnormal1 > subs, subs > subsnormal1 + 10000000) {
+                                        subs = subsnormal1
+                                        timehittedtosomewhere1 = Date.now();
+                                        funnything1 = timehittedtosomewhere1 - hitted1;
+                                        sec1 = funnything1 / 1000;
+                                        min1 = sec1 / 60;
+                                        hour1 = min1 / 60;
+                                        var ihjbfrgk1 = 10000000 / hour1;
+                                        fixsb = ihjbfrgk1.replace(",", ".");
+                                        subsgain = fixsb / 60;
+                                        takeandgive1 = subsgain / 30;
+                                        hitted1 = Date.now();
+                                      }
+                                    }
+                                  }
+                                  if (subsnormal1 < 1000000000) {
+                                    if (subsnormal1 > subs, subs > subsnormal1 + 1000000) {
+                                      subs = subsnormal1
+                                      timehittedtosomewhere1 = Date.now();
+                                      funnything1 = timehittedtosomewhere1 - hitted1;
+                                      sec1 = funnything1 / 1000;
+                                      min1 = sec1 / 60;
+                                      hour1 = min1 / 60;
+                                      var ihjbfrgk1 = 1000000 / hour1;
+                                      fixsb = ihjbfrgk1.replace(",", ".");
+                                      subsgain = fixsb / 60;
+                                      takeandgive1 = subsgain / 30;
+                                      hitted1 = Date.now();
+                                    }
+                                  }
+                                }
+                                if (subsnormal1 < 100000000) {
+                                  if (subsnormal1 > subs, subs > subsnormal1 + 100000) {
                                     subs = subsnormal1
+                                    timehittedtosomewhere1 = Date.now();
+                                    funnything1 = timehittedtosomewhere1 - hitted1;
+                                    sec1 = funnything1 / 1000;
+                                    min1 = sec1 / 60;
+                                    hour1 = min1 / 60;
+                                    var ihjbfrgk1 = 100000 / hour1;
+                                    fixsb = ihjbfrgk1.replace(",", ".");
+                                    subsgain = fixsb / 60;
+                                    takeandgive1 = subsgain / 30;
+                                    hitted1 = Date.now();
                                   }
                                 }
                               }
-                              if (subsnormal1 < 1000000000) {
-                                if (subsnormal1 > subs, subs > subsnormal1 + 1000000) {
+                              if (subsnormal1 < 10000000) {
+                                if (subsnormal1 > subs, subs > subsnormal1 + 10000) {
                                   subs = subsnormal1
+                                  timehittedtosomewhere1 = Date.now();
+                                  funnything1 = timehittedtosomewhere1 - hitted1;
+                                  sec1 = funnything1 / 1000;
+                                  min1 = sec1 / 60;
+                                  hour1 = min1 / 60;
+                                  var ihjbfrgk1 = 10000 / hour1;
+                                  fixsb = ihjbfrgk1.replace(",", ".");
+                                  subsgain = fixsb / 60;
+                                  takeandgive1 = subsgain / 30;
+                                  hitted1 = Date.now();
                                 }
                               }
                             }
-                            if (subsnormal1 < 100000000) {
-                              if (subsnormal1 > subs, subs > subsnormal1 + 100000) {
+                            if (subsnormal1 < 1000000) {
+                              if (subsnormal1 > subs, subs > subsnormal1 + 1000) {
                                 subs = subsnormal1
+                                timehittedtosomewhere1 = Date.now();
+                                funnything1 = timehittedtosomewhere1 - hitted1;
+                                sec1 = funnything1 / 1000;
+                                min1 = sec1 / 60;
+                                hour1 = min1 / 60;
+                                var ihjbfrgk1 = 1000 / hour1;
+                                fixsb = ihjbfrgk1.replace(",", ".");
+                                subsgain = fixsb / 60;
+                                takeandgive1 = subsgain / 30;
+                                hitted1 = Date.now();
                               }
                             }
                           }
-                          if (subsnormal1 < 10000000) {
-                            if (subsnormal1 > subs, subs > subsnormal1 + 10000) {
+                          if (subsnormal1 < 100000) {
+                            if (subsnormal1 > subs, subs > subsnormal1 + 100) {
                               subs = subsnormal1
+                              timehittedtosomewhere1 = Date.now();
+                              funnything1 = timehittedtosomewhere1 - hitted1;
+                              sec1 = funnything1 / 1000;
+                              min1 = sec1 / 60;
+                              hour1 = min1 / 60;
+                              var ihjbfrgk1 = 100 / hour1;
+                              fixsb = ihjbfrgk1.replace(",", ".");
+                              subsgain = fixsb / 60;
+                              takeandgive1 = subsgain / 30;
+                              hitted1 = Date.now();
                             }
                           }
                         }
-                        if (subsnormal1 < 1000000) {
-                          if (subsnormal1 > subs, subs > subsnormal1 + 1000) {
+                        if (subsnormal1 < 10000) {
+                          if (subsnormal1 > subs, subs > subsnormal1 + 10) {
                             subs = subsnormal1
+                            timehittedtosomewhere1 = Date.now();
+                            funnything1 = timehittedtosomewhere1 - hitted1;
+                            sec1 = funnything1 / 1000;
+                            min1 = sec1 / 60;
+                            hour1 = min1 / 60;
+                            var ihjbfrgk1 = 10 / hour1;
+                            fixsb = ihjbfrgk1.replace(",", ".");
+                            subsgain = fixsb / 60;
+                            takeandgive1 = subsgain / 30;
+                            hitted1 = Date.now();
                           }
                         }
                       }
-                      if (subsnormal1 < 100000) {
-                        if (subsnormal1 > subs, subs > subsnormal1 + 100) {
-                          subs = subsnormal1
-                        }
-                      }
-                    }
-                    if (subsnormal1 < 10000) {
-                      if (subsnormal1 > subs, subs > subsnormal1 + 10) {
-                        subs = subsnormal1
-                      }
-                    }
-                  }
                       }
                   });
 
@@ -593,43 +676,116 @@ jQuery.ajaxPrefilter(function(options) {
                                   if (subsnormal2 > 999999999) {
                                     if (subsnormal2 < 10000000000) {
                                       if (subsnormal2 > subs2, subs2 > subsnormal2 + 10000000) {
-                                        subs2 = subsnormal2
+                                        subs2 = subsnormal2;
+                                        timehittedtosomewhere2 = Date.now();
+                                        funnything2 = timehittedtosomewhere2 - hitted2;
+                                        sec2 = funnything2 / 1000;
+                                        min2 = sec2 / 60;
+                                        hour2 = min2 / 60;
+                                        var ihjbfrgk2 = 10000000 / hour2;
+                                        fixsb2 = ihjbfrgk2.replace(",", ".");
+                                        subsgain2 = fixsb2 / 60;
+                                        takeandgive2 = subsgain2 / 30;
+                                        hitted2 = Date.now();
+
+
+
                                       }
                                     }
                                   }
                                   if (subsnormal2 < 1000000000) {
                                     if (subsnormal2 > subs2, subs2 > subsnormal2 + 1000000) {
                                       subs2 = subsnormal2
+                                      timehittedtosomewhere2 = Date.now();
+                                      funnything2 = timehittedtosomewhere2 - hitted2;
+                                      sec2 = funnything2 / 1000;
+                                      min2 = sec2 / 60;
+                                      hour2 = min2 / 60;
+                                      var ihjbfrgk2 = 1000000 / hour2;
+                                      fixsb2 = ihjbfrgk2.replace(",", ".");
+                                      subsgain2 = fixsb2 / 60;
+                                      takeandgive2 = subsgain2 / 30;
+                                      hitted2 = Date.now();
                                     }
                                   }
                                 }
                                 if (subsnormal2 < 100000000) {
                                   if (subsnormal2 > subs2, subs2 > subsnormal2 + 100000) {
                                     subs2 = subsnormal2
+                                    timehittedtosomewhere2 = Date.now();
+                                    funnything2 = timehittedtosomewhere2 - hitted2;
+                                    sec2 = funnything2 / 1000;
+                                    min2 = sec2 / 60;
+                                    hour2 = min2 / 60;
+                                    var ihjbfrgk2 = 100000 / hour2;
+                                    fixsb2 = ihjbfrgk2.replace(",", ".");
+                                    subsgain2 = fixsb2 / 60;
+                                    takeandgive2 = subsgain2 / 30;
+                                    hitted2 = Date.now();
                                   }
                                 }
                               }
                               if (subsnormal2 < 10000000) {
                                 if (subsnormal2 > subs2, subs2 > subsnormal2 + 10000) {
                                   subs2 = subsnormal2
+                                  timehittedtosomewhere2 = Date.now();
+                                  funnything2 = timehittedtosomewhere2 - hitted2;
+                                  sec2 = funnything2 / 1000;
+                                  min2 = sec2 / 60;
+                                  hour2 = min2 / 60;
+                                  var ihjbfrgk2 = 10000 / hour2;
+                                  fixsb2 = ihjbfrgk2.replace(",", ".");
+                                  subsgain2 = fixsb2 / 60;
+                                  takeandgive2 = subsgain2 / 30;
+                                  hitted2 = Date.now();
                                 }
                               }
                             }
                             if (subsnormal2 < 1000000) {
                               if (subsnormal2 > subs2, subs2 > subsnormal2 + 1000) {
                                 subs2 = subsnormal2
+                                timehittedtosomewhere2 = Date.now();
+                                funnything2 = timehittedtosomewhere2 - hitted2;
+                                sec2 = funnything2 / 1000;
+                                min2 = sec2 / 60;
+                                hour2 = min2 / 60;
+                                var ihjbfrgk2 = 1000 / hour2;
+                                fixsb2 = ihjbfrgk2.replace(",", ".");
+                                subsgain2 = fixsb2 / 60;
+                                takeandgive2 = subsgain2 / 30;
+                                hitted2 = Date.now();
                               }
                             }
                           }
                           if (subsnormal2 < 100000) {
                             if (subsnormal2 > subs2, subs2 > subsnormal2 + 100) {
                               subs2 = subsnormal2
+                              timehittedtosomewhere2 = Date.now();
+                              funnything2 = timehittedtosomewhere2 - hitted2;
+                              sec2 = funnything2 / 1000;
+                              min2 = sec2 / 60;
+                              hour2 = min2 / 60;
+                              var ihjbfrgk2 = 100 / hour2;
+                              fixsb2 = ihjbfrgk2.replace(",", ".");
+                              subsgain2 = fixsb2 / 60;
+                              takeandgive2 = subsgain2 / 30;
+                              hitted2 = Date.now();
                             }
                           }
                         }
                         if (subsnormal2 < 10000) {
                           if (subsnormal2 > subs2, subs2 > subsnormal2 + 10) {
                             subs2 = subsnormal2
+                            timehittedtosomewhere2 = Date.now();
+                            funnything2 = timehittedtosomewhere2 - hitted2;
+                            sec2 = funnything2 / 1000;
+                            min2 = sec2 / 60;
+                            hour2 = min2 / 60;
+                            var ihjbfrgk2 = 10 / hour2;
+                            fixsb2 = ihjbfrgk2.replace(",", ".");
+                            subsgain2 = fixsb2 / 60;
+                            takeandgive2 = subsgain2 / 30;
+                            hitted2 = Date.now();
                           }
                         }
                       }
