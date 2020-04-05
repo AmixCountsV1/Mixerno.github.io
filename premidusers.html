@@ -21,7 +21,7 @@
     <br>
     <p>Users</p>
     <br>
-    Counter change in 1 minute: <p id="gap1m" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">0</p>
+    Counter change in 5 minutes: <p id="gap1m" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">0</p>
     <br>
     Counter change in 1 hour: <p id="gap1h" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">0</p>
 
@@ -249,13 +249,13 @@
 
 
 
-    }, 5000);
+    }, 300000);
     setInterval(function() {
       stuff.series[0].addPoint([
         (new Date()).getTime(),
         gahviplay
       ]);
-    }, 5000);
+    }, 300000);
     var stuff = new Highcharts.chart('container', {
       chart: {
         backgroundColor: 'transparent',
@@ -300,7 +300,7 @@
 
 
       secsinhour = secsinhour + 1000
-      if (secsinhour > 60000) {
+      if (secsinhour > 300000) {
         secsinhour = 0
         gap1min = gap
 
