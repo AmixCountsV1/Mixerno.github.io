@@ -1,0 +1,322 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+
+  <title>Mixerno | Premid users counter</title>
+  <link rel="shortcut icon" href="https://yt3.ggpht.com/a-/AOh14GhVWagi88Rfs6XXerg3-3PR4RPHYcolFIrYXZ4_=s288-c-k-c0xffffffff-no-rj-mo">
+  <link rel="stylesheet" href="odometer-theme-default.css" />
+  <link rel="stylesheet" href="odometer-theme-minimal.css" />
+  <meta http-equiv="refresh" content="7200" />
+  <script src="odometer.js"></script>
+  <script src="https://mcapi.us/scripts/minecraft.js"></script>
+  <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <center>
+    Premid users counter v.0.1.0
+    <br>
+    <br>
+    <p id="pdiff" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">0</p>
+    <br>
+    <p>Users</p>
+    <br>
+    Counter change in 1 minute: <p id="gap1m" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">0</p>
+    <br>
+    Counter change in 1 hour: <p id="gap1h" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">0</p>
+
+  </center>
+
+  <br>
+  <center>
+
+  </center>
+  <style>
+
+    .odometer {
+      font-size: 100px;
+    }
+
+    .odometerOptions= {
+      duration: 500 // duration in milliseconds
+    }
+
+    body {
+      background-color: rgb(0, 0, 0);
+      color: rgb(255, 255, 255);
+      font-family: Arial
+    }
+
+    div {
+      font-size: 36
+    }
+  </style>
+</head>
+
+
+
+
+
+<script>
+
+</script>
+
+
+
+<script type="text/javascript">
+//Lol based on tiktokvslive.html and ecosiacounter.html. Just changed code to work with this for now...
+  setTimeout(function() {
+    location.reload();
+  }, 7200000);
+  var textArray = [ //All the cors anywhere urls.
+                'https://corseverywheremiks.herokuapp.com/',
+                'https://mixernocors.herokuapp.com/',
+                'https://mixernob.herokuapp.com/',
+                'https://nobnabob.herokuapp.com/',
+                ];
+  var randomNumber = Math.floor(Math.random()*textArray.length);
+  var stufflol = "";
+  stufflol = textArray[randomNumber];
+  var corsurl = stufflol //required works only in mixerno.github.io/ | Sorry.
+  var key = "";
+  jQuery.ajaxPrefilter(function(options) {
+    if (options.crossDomain && jQuery.support.cors) {
+      //options.url = 'https://corseverywheremiks.herokuapp.com/' + options.url;
+      setInterval(function() {
+        var randomNumber = Math.floor(Math.random()*textArray.length);
+
+        key = textArray[randomNumber];
+      }, 1000);
+      //options.url = key + options.url;
+    }
+  });
+  $(document).ready(function() {
+
+
+    var videostufflol = window.location.href;
+    var videostufflol2 = window.location.href;
+    var params = videostufflol.split('?');
+    var motiplay = "0";
+    var gahviplay = "0";
+    var gap = "0";
+    var readygap = "0";
+    var secsinhour = "0";
+    var gap1min = "0";
+    var gap1ho = "0";
+    var secsinhour2 = "0";
+
+
+    usernamelol(params[1]);
+
+
+
+
+    function usernamelol(name) {
+
+
+      chanName = params[1];
+
+      $.ajax({
+
+        url: 'https://api.premid.app/v2/usage',
+        // Handle as Text
+        dataType: "text",
+        success: function(data) {
+          // Parse JSON file
+          var json = $.parseJSON(data);
+          //Store data into a variable
+          // Display Players
+          gahviplay = json.users
+          gap = json.users
+          //$('#gahviplayerslol').html(json.body.userData.fans)
+          readygap = readygap + "11"
+          pdiff.innerHTML = json.users;
+        }
+      });
+    }
+
+
+
+
+    function loadVideo(naemhe) {
+      viiName = naemhe;
+      setTimeout(
+        function() {
+          loadVideo3($('#chnlName').val());
+        }, 5000);
+
+
+    }
+
+    function loadVideo2(namehe) {
+
+      viiNam2e = namehe;
+
+
+
+    }
+
+    function loadVideo3(namehe2) {
+
+      viiNam22e = namehe2;
+
+
+
+    }
+    if (readygap > 010) {
+      gap1min = gap
+    }
+
+
+
+    setInterval(function() {
+      console.log(readygap)
+      chanName = params[1];
+      $.ajax({
+
+        url: 'https://api.premid.app/v2/usage',
+        // Handle as Text
+        dataType: "text",
+        success: function(data) {
+          // Parse JSON file
+          var json = $.parseJSON(data);
+          //Store data into a variable
+          // Display Players
+          gahviplay = json.users
+          gap = json.users
+          //$('#gahviplayerslol').html(json.body.userData.fans)
+          pdiff.innerHTML = json.users;
+        }
+      });
+
+
+
+
+
+
+
+    }, 5000);
+    setInterval(function() {
+
+
+      secsinhour = secsinhour + 1000
+      if (secsinhour > 60000) {
+        secsinhour = 0
+        gap1min = gap
+
+        //$('#gap1m').text(gap - gap1min)
+        gap1m.innerHTML = gap - gap1min;
+      }
+      if (gahviplay > "-1") {
+        //$('#gap1m').text(gap - gap1min)
+        gap1m.innerHTML = gap - gap1min;
+      }
+      if (gahviplay < "-1") {
+        //$('#gap1m').text(gap - gap1min)
+        gap1m.innerHTML = gap - gap1min;
+      }
+
+
+
+
+
+
+
+
+
+      console.log(secsinhour + ' /60000')
+
+      console.log(gap - gap1min + ' gap1min')
+      console.log(gap + ' gap')
+      console.log(gap1min + ' gap1min')
+      console.log(gahviplay + ' normal')
+
+
+
+
+    }, 1000);
+    setInterval(function() {
+
+
+      secsinhour2 = secsinhour2 + 1000
+      if (secsinhour2 > 3600000) {
+        secsinhour2 = 0
+        gap1ho = gap
+
+        //$('#gap1m').text(gap - gap1min)
+        gap1h.innerHTML = gap - gap1ho;
+      }
+      if (gahviplay > "-1") {
+        //$('#gap1m').text(gap - gap1min)
+        gap1h.innerHTML = gap - gap1ho;
+      }
+      if (gahviplay < "-1") {
+        //$('#gap1m').text(gap - gap1min)
+        gap1h.innerHTML = gap - gap1ho;
+      }
+
+
+
+
+
+
+
+
+
+      console.log(secsinhour2 + ' /3600000')
+
+      console.log(gap - gap1ho + ' gap1ho')
+      console.log(gap1ho + ' gap1ho')
+
+
+
+
+
+    }, 1000);
+
+
+
+    $('#searchlolnoob').click(function() {
+
+      console.log("BUTTON")
+    });
+    $('#searchlolnoob2').click(function() {
+
+      console.log("BUTTON2")
+    });
+    $('#searchlolnoob3').click(function() {
+      loadVideo($('#chnlName').val());
+      loadVideo2($('#chnlName2').val());
+      setTimeout(
+        function() {
+          //do nothing
+        }, 1000);
+      location.href = 'http://mixerno.github.io/tiktokvslive.html?' + viiName + '?' + viiNam2e;
+
+      console.log("BUTTON4")
+    });
+
+
+
+
+    function loadVideo(naemhe) {
+      viiName = naemhe;
+      setTimeout(
+        function() {
+          loadVideo3($('#chnlName').val());
+        }, 5000);
+
+
+    }
+  });
+</script>
+
+
+
+
+
+<body>
+
+</body>
+
+</html>
