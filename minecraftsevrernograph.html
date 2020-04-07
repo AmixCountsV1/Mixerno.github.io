@@ -40,12 +40,11 @@
     <p id="image">0</p>
   </center>
   <center>
-    <p id="p1h">0</p>
-    <p id="wat">Player change last 1 min</p>
-    <p id="p1h2">0</p>
-    <p id="wat2">Player change last 1 hour</p>
-    <p id="p1h3">0</p>
-    <p id="wat3">Player change last 1 day</p>
+    Counter change in 1 minute: <p id="gap1m" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">0</p>
+    <br>
+    1 Hour(estimated): <p id="gap1h" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">0</p>
+    <br>
+    1 Day(estimated): <p id="est" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">0</p>
   </center>
 
   <p>0.2.0</p>
@@ -193,90 +192,84 @@
 
     }, 2000);
 
-    setInterval(function() {
-
-      secsinhour = secsinhour + 1000
-      if (secsinhour > 60000) {
-        secsinhour = 0
-        play1min = playerscount
-
-        $('#p1h').text(playerscount - play1min)
-      }
+    var estimad = 0;
+var fldls = 0;
+setInterval(function() {
 
 
-
-      $('#p1h').text(playerscount - play1min)
-
-
-
-
-
-      console.log(secsinhour + ' /60000')
-
-      console.log(playerscount - play1min + ' Players 1min')
-      console.log(playerscount + ' playerscount')
-      console.log(play1min + ' play1min')
-
-
-
-
-    }, 1000);
-    setInterval(function() {
-
-      secsinhour3 = secsinhour3 + 1000
-      if (secsinhour3 > 86400000) {
-        secsinhour3 = 0
-        play1day = playerscount
-
-        $('#p1h3').text(playerscount - play1day)
-      }
-
-
-
-      $('#p1h3').text(playerscount - play1day)
+  secsinhour = secsinhour + 1000
+  if (secsinhour > 60000) {
+    secsinhour = 0
+    play1min = playerscount
+    fldls = playerscount - play1min
+    //$('#gap1m').text(gap - gap1min)
+    gap1m.innerHTML = playerscount - play1min;
+  }
+  if (playerscount > "-1") {
+    //$('#gap1m').text(gap - gap1min)
+    gap1m.innerHTML = playerscount - play1min;
+    fldls = playerscount - play1min
+  }
+  if (playerscount < "-1") {
+    //$('#gap1m').text(gap - gap1min)
+    gap1m.innerHTML = playerscount - play1min;
+    fldls = playerscount - play1min
+  }
 
 
 
 
 
-      console.log(secsinhour3 + ' /86400000')
-
-      console.log(playerscount - play1day + ' Players 1day')
-      console.log(playerscount + ' playerscount')
-      console.log(play1day + ' play1day')
 
 
 
 
-    }, 1000);
-    setInterval(function() {
-
-      secsinhour2 = secsinhour2 + 1000
-      if (secsinhour2 > 3600000) {
-        secsinhour2 = 0
-        play1h = playerscount
-
-        $('#p1h2').text(playerscount - play1h)
-      }
-
-
-
-      $('#p1h2').text(playerscount - play1h)
+  console.log(secsinhour + ' /60000')
 
 
 
 
+}, 1000);
 
-      console.log(secsinhour2 + ' /3600000')
-
-      console.log(playerscount - play1h + ' Players 1h')
-      console.log(playerscount + ' playerscount')
-      console.log(play1h + ' play1h')
+setInterval(function() {
 
 
+  secsinhour2 = secsinhour2 + 1000
+  if (secsinhour2 > 3600000) {
+    secsinhour2 = 0
+
+    //$('#gap1m').text(gap - gap1min)
+    gap1h.innerHTML = fldls * 60;
+    estimad = fldls * 60
+    est.innerHTML = estimad * 24;
+  }
+  if (playerscount > "-1") {
+    //$('#gap1m').text(gap - gap1min)
+    gap1h.innerHTML = fldls * 60;
+    estimad = fldls * 60
+    est.innerHTML = estimad * 24;
+  }
+  if (playerscount < "-1") {
+    //$('#gap1m').text(gap - gap1min)
+    gap1h.innerHTML = fldls * 60;
+    estimad = fldls * 60
+    est.innerHTML = estimad * 24;
+  }
 
 
-    }, 1000);
+
+
+
+
+
+
+
+  console.log(secsinhour2 + ' /3600000')
+
+
+
+
+}, 1000);
 
   }
 
