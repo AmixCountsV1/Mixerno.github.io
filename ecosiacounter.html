@@ -25,8 +25,9 @@
     <p>Rate</p>
     Counter change in 1 minute: <p id="gap1m" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">0</p>
     <br>
-    Counter change in 1 hour: <p id="gap1h" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">0</p>
-
+    1 Hour(estimated): <p id="gap1h" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">0</p>
+    <br>
+    1 Day(estimated): <p id="est" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">0</p>
   </center>
   <figure class="highcharts-figure">
     <div id="container"></div>
@@ -160,6 +161,8 @@
     var gap1min = "0";
     var gap1ho = "0";
     var secsinhour2 = "0";
+    var rat = 20;
+    var ygs = "noo";
 
 
     usernamelol(params[1]);
@@ -228,24 +231,32 @@
 
     setInterval(function() {
       console.log(readygap)
-      chanName = params[1];
-      $.ajax({
+      if (ygs === "noo") {
+        chanName = params[1];
+        $.ajax({
 
-        url: 'https://api.ecosia.org/v1/trees/count',
-        // Handle as Text
-        dataType: "text",
-        success: function(data) {
-          // Parse JSON file
-          var json = $.parseJSON(data);
-          //Store data into a variable
-          // Display Players
-          gahviplay = json.count
-          gap = json.count
-          //$('#gahviplayerslol').html(json.body.userData.fans)
-          gahviplayerslol.innerHTML = json.rate;
-          pdiff.innerHTML = json.count;
-        }
-      });
+          url: 'https://api.ecosia.org/v1/trees/count',
+          // Handle as Text
+          dataType: "text",
+          success: function(data) {
+            // Parse JSON file
+            var json = $.parseJSON(data);
+            //Store data into a variable
+            // Display Players
+            gahviplay = json.count
+            gap = json.count
+            //$('#gahviplayerslol').html(json.body.userData.fans)
+            gahviplayerslol.innerHTML = json.rate;
+            pdiff.innerHTML = json.count;
+          }
+        });
+      }
+      if (ygs === "ya") {
+        console.log("ya noob you did it :D")
+        gahviplay = gahviplay + rat
+        pdiff.innerHTML = gahviplay;
+      }
+
 
 
 
@@ -300,6 +311,8 @@
 
       }]
     })
+    var estimad = 0;
+    var fldls = 0;
     setInterval(function() {
 
 
@@ -307,17 +320,19 @@
       if (secsinhour > 60000) {
         secsinhour = 0
         gap1min = gap
-
+        fldls = gap - gap1min
         //$('#gap1m').text(gap - gap1min)
         gap1m.innerHTML = gap - gap1min;
       }
       if (gahviplay > "-1") {
         //$('#gap1m').text(gap - gap1min)
         gap1m.innerHTML = gap - gap1min;
+        fldls = gap - gap1min
       }
       if (gahviplay < "-1") {
         //$('#gap1m').text(gap - gap1min)
         gap1m.innerHTML = gap - gap1min;
+        fldls = gap - gap1min
       }
 
 
@@ -330,15 +345,11 @@
 
       console.log(secsinhour + ' /60000')
 
-      console.log(gap - gap1min + ' gap1min')
-      console.log(gap + ' gap')
-      console.log(gap1min + ' gap1min')
-      console.log(gahviplay + ' normal')
-
 
 
 
     }, 1000);
+
     setInterval(function() {
 
 
@@ -348,15 +359,21 @@
         gap1ho = gap
 
         //$('#gap1m').text(gap - gap1min)
-        gap1h.innerHTML = gap - gap1ho;
+        gap1h.innerHTML = fldls * 60;
+        estimad = fldls * 60
+        est.innerHTML = estimad * 24;
       }
       if (gahviplay > "-1") {
         //$('#gap1m').text(gap - gap1min)
-        gap1h.innerHTML = gap - gap1ho;
+        gap1h.innerHTML = fldls * 60;
+        estimad = fldls * 60
+        est.innerHTML = estimad * 24;
       }
       if (gahviplay < "-1") {
         //$('#gap1m').text(gap - gap1min)
-        gap1h.innerHTML = gap - gap1ho;
+        gap1h.innerHTML = fldls * 60;
+        estimad = fldls * 60
+        est.innerHTML = estimad * 24;
       }
 
 
@@ -368,10 +385,6 @@
 
 
       console.log(secsinhour2 + ' /3600000')
-
-      console.log(gap - gap1ho + ' gap1ho')
-      console.log(gap1ho + ' gap1ho')
-
 
 
 
