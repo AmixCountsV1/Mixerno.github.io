@@ -53,7 +53,7 @@
       </p>
     </figure>
   </center>
-  <p>Testbuild 2.2.3 More console stuff.</p>
+  <p>Testbuild 2.2.4 More console stuff.</p>
 
 
 
@@ -200,8 +200,8 @@ jQuery.ajaxPrefilter(function(options) {
     var fixsb = params[3].replace(",", ".");
     var fixsb2 = params[4].replace(",", ".");
     var timewait = 2000;
-    var channelid1 = "";
-    var channelid2 = "";
+    var channelid1 = "UCX6OQ3DkcsbYNE6H8uQQuVA";
+    var channelid2 = "UCIPPMRA040LQr5QPyJEbmXA";
     var timehittedtosomewhere1 = Date.now()
     var hitted1 = Date.now()
     var funnything1 = 0;
@@ -243,16 +243,10 @@ jQuery.ajaxPrefilter(function(options) {
       chan1name.innerHTML = namet1 + ' 1h'
       subs = params[1];
       odometer.innerHTML = subs;
-      ytName.innerHTML = namet1
       sub1hourlast = "0";
       gap1h = "0";
       gap = "0";
 
-      var url = 'https://www.googleapis.com/youtube/v3/search?part=snippet&q='+namet1+'&type=channel&maxResults=1&key='+keys;
-
-      if (params[7] = 1) {
-        $.getJSON(url, function(data) {
-          channelid1 = data.items[0].id.channelId
           setTimeout(function() {
             if (params[7] = 1) {
               $.ajax({
@@ -323,7 +317,7 @@ jQuery.ajaxPrefilter(function(options) {
 
 
 
-          });
+
   }
                 }
 
@@ -338,15 +332,9 @@ jQuery.ajaxPrefilter(function(options) {
       keys = textArray[randomNumber];
       subs2 = params[2];
       odometer3.innerHTML = subs2;
-      ytName2.innerHTML = namet2
       sub2hourlast = "0";
       gap1h = "0";
       gap = "0";
-      var url2 = 'https://www.googleapis.com/youtube/v3/search?part=snippet&q='+namet2+'&type=channel&maxResults=1&key='+keys;
-
-      if (params[7] = 1) {
-        $.getJSON(url2, function(data) {
-          channelid2 = data.items[0].id.channelId
           setTimeout(function() {
             if (params[7] = 1) {
               $.ajax({
@@ -414,10 +402,6 @@ jQuery.ajaxPrefilter(function(options) {
 
             }
           }, 1000);
-
-
-
-        });
 }
     }
 
@@ -663,7 +647,7 @@ jQuery.ajaxPrefilter(function(options) {
           setTimeout(function() {
             if (params[7] = 1) {
               $.ajax({
-                  url: 'https://corseverywheremiks.herokuapp.com/https://nobnabob.herokuapp.com/https://mixernob.herokuapp.com/https://mixernocors.herokuapp.com/https://corseverywheremiks.herokuapp.com/https://www.googleapis.com/youtube/v3/search?part=snippet&q='+channelid2+'&type=channel&maxResults=1&key='+keys,
+                  url: 'https://www.googleapis.com/youtube/v3/search?part=snippet&q='+channelid2+'&type=channel&maxResults=1&key='+keys,
                     // Handle as Text
                     dataType: "text",
                     success: function(data) {
