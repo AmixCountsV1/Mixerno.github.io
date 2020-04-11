@@ -239,15 +239,14 @@
     }, 2000);
     var points = 0;
     setTimeout(function() {
-      points = points - 1;
-      points = points + 1;
       setInterval(function() {
         stuff.series[0].addPoint([
           (new Date()).getTime(),
           playerscount
         ]);
-        points = points - 1;
-        points = points + 2;
+        if (stuff.series[0].data.length >= 700) {
+  			stuff.series[0].data[0].remove()
+  		}
       console.log(points)
       }, 2000);
     }, 4000);
@@ -280,7 +279,7 @@
       },
 
       series: [{
-        name: 'chart',
+        name: 'Players',
         marker: {
           enabled: false
         }

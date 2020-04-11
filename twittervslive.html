@@ -8,10 +8,10 @@
   <link rel="shortcut icon" href="https://yt3.ggpht.com/a-/AOh14GhVWagi88Rfs6XXerg3-3PR4RPHYcolFIrYXZ4_=s288-c-k-c0xffffffff-no-rj-mo">
   <link rel="stylesheet" href="odometer-theme-default.css" />
   <link rel="stylesheet" href="odometer-theme-minimal.css" />
-  <meta http-equiv="refresh" content="7200" />
   <script src="odometer.js"></script>
   <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
   <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/modules/boost.js"></script>
   <center>
     Twitter Realtime compare v.0.1.2
     <br>
@@ -147,7 +147,7 @@
 
 <script type="text/javascript">
   setTimeout(function() {
-    location.reload();
+    //location.reload();
   }, 7200000);
   var textArray = [ //All the cors anywhere urls.
                 'https://corseverywheremiks.herokuapp.com/',
@@ -423,7 +423,10 @@
         (new Date()).getTime(),
         gahviplay - motiplay
       ]);
-    }, 4000);
+      if (stuff.series[0].data.length >= 700) {
+			stuff.series[0].data[0].remove()
+		}
+    }, 2000);
     var stuff = new Highcharts.chart('container', {
       chart: {
         backgroundColor: 'transparent',

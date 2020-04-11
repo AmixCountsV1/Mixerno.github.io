@@ -8,7 +8,6 @@
   <link rel="shortcut icon" href="https://yt3.ggpht.com/a-/AOh14GhVWagi88Rfs6XXerg3-3PR4RPHYcolFIrYXZ4_=s288-c-k-c0xffffffff-no-rj-mo">
   <link rel="stylesheet" href="odometer-theme-default.css" />
   <link rel="stylesheet" href="odometer-theme-minimal.css" />
-  <meta http-equiv="refresh" content="7200" />
   <script src="odometer.js"></script>
   <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
   <script src="https://code.highcharts.com/highcharts.js"></script>
@@ -28,7 +27,11 @@
             <h4 id="tiktoker1" class="text-truncate text-center" style="font-size:15px;color:rgb(255, 255, 255)">user</h4>
             <p id="gahviplayerslol" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">0</p>
             <br>
-            Growth in 1 hour (followers): <p id="ohh1" style="font-size:15px;color:rgb(255, 255, 255)" class="odometer">0</p>
+            Counter change in 1 minute: <p id="gap1m" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">0</p>
+    <br>
+    1 Hour(estimated): <p id="gap1h" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">0</p>
+    <br>
+    1 Day(estimated): <p id="est" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">0</p>
             <br>
             Tweets: <p id="likes2" class="odometer" style="font-size:15px;color:rgb(255, 255, 255)">1</p>
             Following: <p id="likes1" class="odometer" style="font-size:15px;color:rgb(255, 255, 255)">1</p>
@@ -144,7 +147,7 @@
 
 <script type="text/javascript">
   setTimeout(function() {
-    location.reload();
+    //location.reload();
   }, 7200000);
   var textArray = [ //All the cors anywhere urls.
                 'https://corseverywheremiks.herokuapp.com/',
@@ -210,6 +213,7 @@
           //$('#gahviplayerslol').html(json.body.userData.fans)
           gahviplayerslol.innerHTML = json
           gahviplay = json
+          gap = json
 
 
         }
@@ -279,6 +283,7 @@
           //$('#gahviplayerslol').html(json.body.userData.fans)
           gahviplayerslol.innerHTML = json
           gahviplay = json
+          gap = json
 
 
         }
@@ -318,7 +323,10 @@
         (new Date()).getTime(),
         gahviplay
       ]);
-    }, 4000);
+      if (stuff.series[0].data.length >= 700) {
+			stuff.series[0].data[0].remove()
+		}
+  }, 2000);
     var stuff = new Highcharts.chart('container', {
       chart: {
         backgroundColor: 'transparent',
@@ -355,24 +363,69 @@
       }]
     })
 
+    var estimad = 0;
+    var fldls = 0;
+    setInterval(function() {
+
+
+      secsinhour = secsinhour + 1000
+      if (secsinhour > 60000) {
+        secsinhour = 0
+        gap1min = gap
+        fldls = gap - gap1min
+        //$('#gap1m').text(gap - gap1min)
+        gap1m.innerHTML = gap - gap1min;
+      }
+      if (gahviplay > "-1") {
+        //$('#gap1m').text(gap - gap1min)
+        gap1m.innerHTML = gap - gap1min;
+        fldls = gap - gap1min
+      }
+      if (gahviplay < "-1") {
+        //$('#gap1m').text(gap - gap1min)
+        gap1m.innerHTML = gap - gap1min;
+        fldls = gap - gap1min
+      }
+
+
+
+
+
+
+
+
+
+      console.log(secsinhour + ' /60000')
+
+
+
+
+    }, 1000);
+
     setInterval(function() {
 
 
       secsinhour2 = secsinhour2 + 1000
       if (secsinhour2 > 3600000) {
         secsinhour2 = 0
-        tik1 = gahviplay
+        gap1ho = gap
 
         //$('#gap1m').text(gap - gap1min)
-        ohh1.innerHTML = gahviplay - tik1;
+        gap1h.innerHTML = fldls * 60;
+        estimad = fldls * 60
+        est.innerHTML = estimad * 24;
       }
       if (gahviplay > "-1") {
         //$('#gap1m').text(gap - gap1min)
-        ohh1.innerHTML = gahviplay - tik1;
+        gap1h.innerHTML = fldls * 60;
+        estimad = fldls * 60
+        est.innerHTML = estimad * 24;
       }
       if (gahviplay < "-1") {
         //$('#gap1m').text(gap - gap1min)
-        ohh1.innerHTML = gahviplay - tik1;
+        gap1h.innerHTML = fldls * 60;
+        estimad = fldls * 60
+        est.innerHTML = estimad * 24;
       }
 
 
@@ -384,8 +437,6 @@
 
 
       console.log(secsinhour2 + ' /3600000')
-      console.log(gahviplay)
-
 
 
 

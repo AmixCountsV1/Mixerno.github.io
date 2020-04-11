@@ -4,48 +4,39 @@
 
 <head>
 
-  <title>Mixerno | Tiktok Compare</title>
+  <title>Mixerno | Ecosia counter</title>
   <link rel="shortcut icon" href="https://yt3.ggpht.com/a-/AOh14GhVWagi88Rfs6XXerg3-3PR4RPHYcolFIrYXZ4_=s288-c-k-c0xffffffff-no-rj-mo">
   <link rel="stylesheet" href="odometer-theme-default.css" />
   <link rel="stylesheet" href="odometer-theme-minimal.css" />
   <script src="odometer.js"></script>
+  <script src="https://mcapi.us/scripts/minecraft.js"></script>
   <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
   <script src="https://code.highcharts.com/highcharts.js"></script>
   <center>
-    Tiktok Realtime compare v.0.1.4
+    Zerotwo bot counter v.0.1.0
     <br>
     <br>
-    <div class="row">
-
-
-    </div>
-    <div class="container">
-      <div class="row">
-        <div class="col s12 col-md-6">
-          <div class="card m-b-0 m-t-20">
-            <h4 id="tiktoker1" class="text-truncate text-center" style="font-size:15px;color:rgb(255, 255, 255)">Charli d'amelio</h4>
-            <p id="gahviplayerslol" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">0</p>
-            <br>
-            Growth in 1 hour: <p id="ohh1" style="font-size:15px;color:rgb(255, 255, 255)" class="odometer">0</p>
-          </div>
-        </div>
-        <div class="col s12 col-md-6">
-          <div class="card m-b-0 m-t-20">
-            <h4 id="tiktoker2" class="text-truncate text-center" style="font-size:15px;color:rgb(255, 255, 255)">Loren Gray</h4>
-            <p id="motiplayers" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">0</p>
-            <br>
-            Growth in 1 hour: <p id="ohh2" style="font-size:15px;color:rgb(255, 255, 255)" class="odometer">0</p>
-          </div>
-        </div>
-      </div>
-    </div>
+    <p id="messages" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">0</p>
+    <br>
+    <p>Messages</p>
     <br>
     <div id="pdiff" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">0</div>
-    <p>Fan diff</p>
-    Gap change in 1 minute: <p id="gap1m" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">0</p>
+    <p>Servers</p>
+    <div id="user" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">0</div>
+    <p>Users</p>
+    <div id="command" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">0</div>
+    <p>Commands</p>
+    <div id="u" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">0</div>
+    <p>Uptime</p>
+    <div id="bs" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">0</div>
+    <p>Big Servers</p>
+    <div id="ap" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">0</div>
+    <p>Active Players</p>
+    Counter change in 1 minute: <p id="gap1m" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">0</p>
     <br>
-    Gap change in 1 hour: <p id="gap1h" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">0</p>
-
+    1 Hour(estimated): <p id="gap1h" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">0</p>
+    <br>
+    1 Day(estimated): <p id="est" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">0</p>
   </center>
   <figure class="highcharts-figure">
     <div id="container"></div>
@@ -56,25 +47,7 @@
 
   <br>
   <center>
-    Images:
-    <p id="img1">1</p>
-    <p id="img2">2</p>
-    Other Stats:
-    <br>
-    <p id="has">tiktoker has</p>
-    <p id="likes2" class="odometer" style="font-size:15px;color:rgb(255, 255, 255)">1</p>
-    hearts
-    <br>
-    <p id="has2">tiktoker has</p>
-    <p id="likes1" class="odometer" style="font-size:15px;color:rgb(255, 255, 255)">2</p>
-    hearts
-    <br>
-    <br>
-    <input type="text" id="chnlName">user1</input>
 
-    <input type="text" id="chnlName2">user2</input>
-
-    <input type="button" id="searchlolnoob3" value="Compare" />
   </center>
   <style>
     .highcharts-figure,
@@ -174,16 +147,17 @@
   var key = "";
   jQuery.ajaxPrefilter(function(options) {
     if (options.crossDomain && jQuery.support.cors) {
-      options.url = 'https://corseverywheremiks.herokuapp.com/' + options.url;
+      //options.url = 'https://corseverywheremiks.herokuapp.com/' + options.url;
       setInterval(function() {
         var randomNumber = Math.floor(Math.random()*textArray.length);
 
         key = textArray[randomNumber];
       }, 1000);
-      options.url = key + options.url;
+      //options.url = key + options.url;
     }
   });
   $(document).ready(function() {
+
 
     var videostufflol = window.location.href;
     var videostufflol2 = window.location.href;
@@ -195,22 +169,12 @@
     var secsinhour = "0";
     var gap1min = "0";
     var gap1ho = "0";
-    var tik1 = "0";
-    var tik2 = "0";
     var secsinhour2 = "0";
-    var chanName = "";
-    var chanName2 = "";
-    var chanName22 = "";
-    chanName = params[1]
-    chanName2 = params[2]
-    viiName = "";
-    viiNam2e = "";
-    viiNam22e = "";
+    var rat = 20;
+    var ygs = "noo";
 
 
     usernamelol(params[1]);
-    usernamelol2(params[2]);
-    loadVideo3("random lol nothing really :)");
 
 
 
@@ -222,7 +186,7 @@
 
       $.ajax({
 
-        url: 'https://www.tiktok.com/node/share/user/@' + chanName,
+        url: 'https://zerotwo.bot/zajax.php?act=bstats',
         // Handle as Text
         dataType: "text",
         success: function(data) {
@@ -230,46 +194,23 @@
           var json = $.parseJSON(data);
           //Store data into a variable
           // Display Players
-          gahviplay = json.body.userData.fans
+          gahviplay = json.serverCount
+          gap = json.serverCount
           //$('#gahviplayerslol').html(json.body.userData.fans)
-          readygap = readygap + "1"
-          gahviplayerslol.innerHTML = json.body.userData.fans;
-          tiktoker1.innerHTML = json.body.userData.nickName;
-          has.innerHTML = json.body.userData.nickName + ' has';
-          $('#img1').html('<img src=\"' + json.body.userData.covers + '\">')
-          likes2.innerHTML = json.body.userData.heart;
-
-
-
+          readygap = readygap + "11"
+          user.innerHTML = json.userCount;
+          pdiff.innerHTML = json.serverCount;
+          user.innerHTML = json.userCount
+          messages.innerHTML = json.messageCount
+          command.innerHTML = json.commandCount
+          u.innerHTML = json.uptime
+          bs.innerHTML = json.big_servers
+          ap.innerHTML = json.activePlayers
         }
       });
     }
 
-    function usernamelol2(name2) {
-      chanName2 = params[2];
-      $.ajax({
 
-        url: 'https://www.tiktok.com/node/share/user/@' + chanName2,
-        // Handle as Text
-        dataType: "text",
-        success: function(data) {
-          // Parse JSON file
-          var json = $.parseJSON(data);
-          //Store data into a variable
-          // Display Players
-          motiplay = json.body.userData.fans
-          //$('#motiplayers').html(json.body.userData.fans)
-          readygap = readygap + "1"
-          motiplayers.innerHTML = json.body.userData.fans;
-          likes1.innerHTML = json.body.userData.heart;
-          tiktoker2.innerHTML = json.body.userData.nickName;
-          has2.innerHTML = json.body.userData.nickName + ' has';
-          $('#img2').html('<img src=\"' + json.body.userData.covers + '\">')
-
-
-        }
-      });
-    }
 
 
     function loadVideo(naemhe) {
@@ -304,65 +245,36 @@
 
 
     setInterval(function() {
-      console.log(readygap)
-      chanName = params[1];
-      $.ajax({
+      if (ygs === "noo") {
+        chanName = params[1];
+        $.ajax({
 
-        url: 'https://www.tiktok.com/node/share/user/@' + chanName,
-        // Handle as Text
-        dataType: "text",
-        success: function(data) {
-          // Parse JSON file
-          var json = $.parseJSON(data);
-          //Store data into a variable
-          // Display Players
-
-          gahviplay = json.body.userData.fans
-          //$('#gahviplayerslol').html(json.body.userData.fans)
-          gahviplayerslol.innerHTML = json.body.userData.fans;
-          likes2.innerHTML = json.body.userData.heart;
-          tiktoker1.innerHTML = json.body.userData.nickName;
-
-
-
-
-
-
-
-
-        }
-      });
-      chanName2 = params[2];
-      $.ajax({
-
-        url: 'https://www.tiktok.com/node/share/user/@' + chanName2,
-        // Handle as Text
-        dataType: "text",
-        success: function(data) {
-          // Parse JSON file
-          var json = $.parseJSON(data);
-          //Store data into a variable
-          // Display Players
-          motiplay = json.body.userData.fans
-          //$('#motiplayers').html(json.body.userData.fans)
-          motiplayers.innerHTML = json.body.userData.fans;
-
-          likes1.innerHTML = json.body.userData.heart;
-          tiktoker2.innerHTML = json.body.userData.nickName;
-
-
-
-        }
-
-      });
-      if (readygap > "010") {
-        console.log(gap)
-        gap = gahviplay - motiplay;
-        pdiff.innerHTML = gahviplay - motiplay;
-
-
-
-
+          url: 'https://zerotwo.bot/zajax.php?act=bstats',
+          // Handle as Text
+          dataType: "text",
+          success: function(data) {
+            // Parse JSON file
+            var json = $.parseJSON(data);
+            //Store data into a variable
+            // Display Players
+            gahviplay = json.serverCount
+            gap = json.serverCount
+            //$('#gahviplayerslol').html(json.body.userData.fans)
+            user.innerHTML = json.userCount;
+            pdiff.innerHTML = json.serverCount;
+            user.innerHTML = json.userCount
+            messages.innerHTML = json.messageCount
+            command.innerHTML = json.commandCount
+            u.innerHTML = json.uptime
+            bs.innerHTML = json.big_servers
+            ap.innerHTML = json.activePlayers
+          }
+        });
+      }
+      if (ygs === "ya") {
+        console.log("ya noob you did it :D")
+        gahviplay = gahviplay + rat
+        pdiff.innerHTML = gahviplay;
       }
 
 
@@ -371,29 +283,29 @@
 
 
 
-    }, 2000);
+
+    }, 4000);
     setInterval(function() {
       stuff.series[0].addPoint([
         (new Date()).getTime(),
-        gahviplay - motiplay
+        gahviplay
       ]);
       if (stuff.series[0].data.length >= 700) {
 			stuff.series[0].data[0].remove()
 		}
-    }, 2000);
+    }, 4000);
     var stuff = new Highcharts.chart('container', {
       chart: {
         backgroundColor: 'transparent',
         renderTo: $('#container'),
         type: 'line'
       },
-
       title: {
         text: ''
       },
       xAxis: {
         type: 'datetime',
-        tickPixelInterval: 1
+        tickPixelInterval: 500
       },
       yAxis: {
         title: {
@@ -406,8 +318,14 @@
       },
 
       series: [{
-        name: 'Fan Diffrence',
+        name: 'idk',
         marker: {
+          enabled: false
+        },
+        legend: {
+          enabled: false
+        },
+        labels: {
           enabled: false
         },
         exporting: {
@@ -416,6 +334,8 @@
 
       }]
     })
+    var estimad = 0;
+    var fldls = 0;
     setInterval(function() {
 
 
@@ -423,17 +343,19 @@
       if (secsinhour > 60000) {
         secsinhour = 0
         gap1min = gap
-
+        fldls = gap - gap1min
         //$('#gap1m').text(gap - gap1min)
         gap1m.innerHTML = gap - gap1min;
       }
-      if (gap > "-1") {
+      if (gahviplay > "-1") {
         //$('#gap1m').text(gap - gap1min)
         gap1m.innerHTML = gap - gap1min;
+        fldls = gap - gap1min
       }
-      if (gap < "-1") {
+      if (gahviplay < "-1") {
         //$('#gap1m').text(gap - gap1min)
         gap1m.innerHTML = gap - gap1min;
+        fldls = gap - gap1min
       }
 
 
@@ -446,16 +368,11 @@
 
       console.log(secsinhour + ' /60000')
 
-      console.log(gap - gap1min + ' gap1min')
-      console.log(gap + ' gap')
-      console.log(gap1min + ' gap1min')
-      console.log(gahviplay + ' normal')
-      console.log(motiplay + ' china')
-
 
 
 
     }, 1000);
+
     setInterval(function() {
 
 
@@ -463,25 +380,23 @@
       if (secsinhour2 > 3600000) {
         secsinhour2 = 0
         gap1ho = gap
-        tik1 = gahviplay
-        tik2 = motiplay
 
         //$('#gap1m').text(gap - gap1min)
-        gap1h.innerHTML = gap - gap1ho;
-        ohh1.innerHTML = gahviplay - tik1;
-        ohh2.innerHTML = motiplay - tik2;
+        gap1h.innerHTML = fldls * 60;
+        estimad = fldls * 60
+        est.innerHTML = estimad * 24;
       }
-      if (gap > "-1") {
+      if (gahviplay > "-1") {
         //$('#gap1m').text(gap - gap1min)
-        gap1h.innerHTML = gap - gap1ho;
-        ohh1.innerHTML = gahviplay - tik1;
-        ohh2.innerHTML = motiplay - tik2;
+        gap1h.innerHTML = fldls * 60;
+        estimad = fldls * 60
+        est.innerHTML = estimad * 24;
       }
-      if (gap < "-1") {
+      if (gahviplay < "-1") {
         //$('#gap1m').text(gap - gap1min)
-        gap1h.innerHTML = gap - gap1ho;
-        ohh1.innerHTML = gahviplay - tik1;
-        ohh2.innerHTML = motiplay - tik2;
+        gap1h.innerHTML = fldls * 60;
+        estimad = fldls * 60
+        est.innerHTML = estimad * 24;
       }
 
 
@@ -493,11 +408,6 @@
 
 
       console.log(secsinhour2 + ' /3600000')
-
-      console.log(gap - gap1ho + ' gap1ho')
-      console.log(gap + ' gap')
-      console.log(gap1ho + ' gap1ho')
-
 
 
 
