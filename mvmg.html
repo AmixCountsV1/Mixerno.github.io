@@ -53,7 +53,7 @@
       </p>
     </figure>
   </center>
-  <p>Testbuild 2.2.5 ?!</p>
+  <p>Testbuild 2.2.6 ?!</p>
 
 
 
@@ -338,7 +338,7 @@ jQuery.ajaxPrefilter(function(options) {
           setTimeout(function() {
             if (params[7] = 1) {
               $.ajax({
-                  url: 'https://www.googleapis.com/youtube/v3/channels?part=statistics&q='+channelid2+'&type=channel&maxResults=1&key='+keys,
+                  url: 'https://www.googleapis.com/youtube/v3/channels?part=statistics&id='+channelid2+'&key='+keys,
                     // Handle as Text
                     dataType: "text",
                     success: function(data) {
