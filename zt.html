@@ -17,22 +17,30 @@
     <br>
     <br>
     <p id="messages" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">0</p>
-    <br>
     <p>Messages</p>
-    <br>
+    ------------------------<br>
     <div id="pdiff" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">0</div>
     <p>Servers</p>
+    ------------------------<br>
     <div id="user" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">0</div>
     <p>Users</p>
+    ------------------------<br>
     <div id="command" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">0</div>
     <p>Commands</p>
+    ------------------------<br>
     <div id="u" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">0</div>
     <p>Uptime</p>
+    ------------------------<br>
     <div id="bs" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">0</div>
     <p>Big Servers</p>
+    ------------------------<br>
     <div id="ap" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">0</div>
     <p>Active Players</p>
-    Counter change in 1 minute: <p id="gap1m" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">0</p>
+    ------------------------<br>
+    <br><br>
+    <div id="df" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">0</div>
+    <p>Diffrence</p>
+    Diffrence change in 1 minute: <p id="gap1m" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">0</p>
     <br>
     1 Hour(estimated): <p id="gap1h" class="odometer" style="font-size:25px;color:rgb(255, 255, 255)">0</p>
     <br>
@@ -132,7 +140,7 @@
 
 <script type="text/javascript">
   setTimeout(function() {
-    //location.reload();
+    location.reload();
   }, 7200000);
   var textArray = [ //All the cors anywhere urls.
                 'https://corseverywheremiks.herokuapp.com/',
@@ -172,6 +180,15 @@
     var secsinhour2 = "0";
     var rat = 20;
     var ygs = "noo";
+    var serverses = 0;
+    var userses = 0;
+    var messageses = 0;
+    var commandses = 0;
+    var uptimeses = 0;
+    var bigserverses = 0;
+    var activeplayerses = 0;
+    var uptimevsmessage = 0;
+
 
 
     usernamelol(params[1]);
@@ -197,8 +214,6 @@
           gahviplay = json.serverCount
           gap = json.serverCount
           //$('#gahviplayerslol').html(json.body.userData.fans)
-          readygap = readygap + "11"
-          user.innerHTML = json.userCount;
           pdiff.innerHTML = json.serverCount;
           user.innerHTML = json.userCount
           messages.innerHTML = json.messageCount
@@ -206,6 +221,17 @@
           u.innerHTML = json.uptime
           bs.innerHTML = json.big_servers
           ap.innerHTML = json.activePlayers
+          serverses = json.serverCount;
+          userses = json.userCount;
+          messageses = json.messageCount
+          commandses = json.commandCount
+          uptimeses = json.uptime
+          bigserverses = json.big_servers
+          activeplayerses = json.activePlayers
+          uptimevsmessage = uptimeses - messageses
+          df.innerHTML = uptimevsmessage
+          gap = uptimevsmessage
+          gahviplay = uptimevsmessage
         }
       });
     }
@@ -258,9 +284,8 @@
             //Store data into a variable
             // Display Players
             gahviplay = json.serverCount
-            gap = json.serverCount
+
             //$('#gahviplayerslol').html(json.body.userData.fans)
-            user.innerHTML = json.userCount;
             pdiff.innerHTML = json.serverCount;
             user.innerHTML = json.userCount
             messages.innerHTML = json.messageCount
@@ -268,14 +293,20 @@
             u.innerHTML = json.uptime
             bs.innerHTML = json.big_servers
             ap.innerHTML = json.activePlayers
+            serverses = json.serverCount;
+            userses = json.userCount;
+            messageses = json.messageCount
+            commandses = json.commandCount
+            uptimeses = json.uptime
+            bigserverses = json.big_servers
+            activeplayerses = json.activePlayers
+            uptimevsmessage = uptimeses - messageses
+            df.innerHTML = uptimevsmessage
+            gap = uptimevsmessage
+            gahviplay = uptimevsmessage
           }
         });
       }
-      if (ygs === "ya") {
-        console.log("ya noob you did it :D")
-        gahviplay = gahviplay + rat
-        pdiff.innerHTML = gahviplay;
-      }
 
 
 
@@ -284,16 +315,16 @@
 
 
 
-    }, 4000);
+    }, 2000);
     setInterval(function() {
       stuff.series[0].addPoint([
         (new Date()).getTime(),
-        gahviplay
+        uptimeses - messageses
       ]);
       if (stuff.series[0].data.length >= 700) {
 			stuff.series[0].data[0].remove()
 		}
-    }, 4000);
+  }, 2000);
     var stuff = new Highcharts.chart('container', {
       chart: {
         backgroundColor: 'transparent',
@@ -318,7 +349,7 @@
       },
 
       series: [{
-        name: 'idk',
+        name: uptimevsmessage,
         marker: {
           enabled: false
         },
