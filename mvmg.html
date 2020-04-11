@@ -1,0 +1,943 @@
+<html>
+
+<head>
+  <title>Mixerno | Fake counter battle</title>
+  <link rel="stylesheet" href="odometer-theme-default.css" />
+  <link rel="stylesheet" href="odometer-theme-minimal.css" />
+  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="description" content="Fake count battles :D">
+  <meta name="keywords" content="count,youtube,channel,fake">
+  <meta name="author" content="Mixerno">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="odometer.js"></script>
+  <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+    <input type="text" id="chnlName">Channel1 Subs</input>
+    <input type="text" id="chnlName2">Channel2 Subs</input>
+    <br>
+    <input type="text" id="subratesecs1">Subrate1/1hour</input>
+    <input type="text" id="subratesecs2">Subrate2/1hour</input>
+    <br>
+    <input type="text" id="name11">Name1</input>
+    <input type="text" id="name22">Name2</input>
+    <br>
+    <input type="button" id="apply" value="Apply (refreshes the site)" />
+    <input type="button" id="apply2" value="Apply without refreshing site" />
+    <br>
+    <center>
+    <p id="ytName" style="font-size:20px;color:rgb(0, 0, 0)">MrBeast</p>
+    <div id="odometer" class="main-odo odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div>
+    <p style="font-size:20px;color:rgb(0, 0, 0)">subscribers</p>
+    <br>
+    <div id="odometer2" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div>
+    <p>subscriber diffrence</p>
+    <br>
+    <p id="ytName2" style="font-size:20px;color:rgb(0, 0, 0)">MrBeast gaming</p>
+    <div id="odometer3" class="main-odo odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div>
+    <p style="font-size:20px;color:rgb(0, 0, 0)">subscribers</p>
+    <br>
+    <div id="chan1lasthours" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div>
+    <p id="chan1name">MrBeast 1h</p>
+    <br>
+    <div id="chan2lasthours" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div>
+    <p id="chan2name">MrBeast gaming 1h</p>
+    <br>
+    <div id="gaprecreased" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div>
+    <p id="gapripped">Gap change in 1hr</p>
+
+    <figure class="highcharts-figure">
+      <div id="container"></div>
+      <p class="highcharts-description">
+
+      </p>
+    </figure>
+  </center>
+  <p>Testbuild 2.2.3 More console stuff.</p>
+
+
+
+  <style>
+    .highcharts-figure,
+    .highcharts-data-table table {
+      min-width: 100px;
+      max-width: 700px;
+      margin: 1em auto;
+    }
+
+    .highcharts-data-table table {
+      font-family: Verdana, sans-serif;
+      border-collapse: collapse;
+      border: 1px solid #EBEBEB;
+      margin: 10px auto;
+      text-align: center;
+      width: 50%;
+      max-width: 250px;
+    }
+
+    .highcharts-data-table caption {
+      padding: 1em 0;
+      font-size: 1.2em;
+      color: #555;
+    }
+
+    .highcharts-data-table th {
+      font-weight: 600;
+      padding: 0.5em;
+    }
+
+    .highcharts-data-table td,
+    .highcharts-data-table th,
+    .highcharts-data-table caption {
+      padding: 0.5em;
+    }
+
+    .highcharts-data-table thead tr,
+    .highcharts-data-table tr:nth-child(even) {
+      background: #f8f8f8;
+    }
+
+    .highcharts-data-table tr:hover {
+      background: #f1f7ff;
+    }
+
+    .odometer {
+      font-size: 100px;
+    }
+
+    body {
+      background-color: rgb(255, 255, 255);
+      color: #444;
+      font-family: Arial
+    }
+
+    div {
+      font-size: 26
+    }
+  </style>
+</head>
+
+<script type="text/javascript">
+jQuery.ajaxPrefilter(function(options) {
+  if (options.crossDomain && jQuery.support.cors) {
+    options.url = '' + options.url;
+  }
+})
+  $(document).ready(function() {
+    var secsinhour = "0";
+    var subscount2 = "1";
+    var subscount1 = "1";
+    var sub1hourlast = "1";
+    var sub2hourlast = "1";
+    var gap = "0";
+    var gap1h = "0";
+    var subsnormal1 = "";
+    var subsnormal2 = "";
+
+
+
+
+    var videostufflol = window.location.href;
+    var videostufflol2 = window.location.href;
+    var params = videostufflol.split('?');
+
+
+    var chanName = "";
+    var chanName2 = "";
+    var chanName22 = "";
+    chanName = params[1]
+    chanName2 = params[2]
+
+    var stuff = new Highcharts.chart('container', {
+      chart: {
+        renderTo: $('#container'),
+        type: 'line'
+      },
+      title: {
+        text: ''
+      },
+      xAxis: {
+        type: 'datetime',
+        tickPixelInterval: 1
+      },
+      yAxis: {
+        title: {
+          text: ''
+        }
+      },
+
+      credits: {
+        enabled: false
+      },
+
+      series: [{
+        name: 'Diffrence',
+        marker: {
+          enabled: false
+        }
+      }]
+    })
+    var fixsb = params[3].replace(",", ".");
+    var fixsb2 = params[4].replace(",", ".");
+    var subsgain = fixsb / 60;
+    var subsgain2 = fixsb2 / 60;
+    var takeandgive1 = subsgain / 30
+    var takeandgive2 = subsgain2 / 30
+    var didithappen1 = "0";
+    var didithappen2 = "0";
+    var subs = "";
+    var audit1 = subsgain / 2;
+    var audit2 = subsgain2 / 2;
+    var subs2 = "";
+    var subsround = "";
+    var before = "";
+    var before2 = "";
+    var subs2round = "";
+    var rand1 = Math.floor((Math.random() * 10) + 1);;
+    var rand2 = Math.floor((Math.random() * 10) + 1);;
+    var namet1 = "MrBeast"
+    var namet2 = "UCIPPMRA040LQr5QPyJEbmXA"
+    var fixsb = params[3].replace(",", ".");
+    var fixsb2 = params[4].replace(",", ".");
+    var timewait = 2000;
+    var channelid1 = "";
+    var channelid2 = "";
+    var timehittedtosomewhere1 = Date.now()
+    var hitted1 = Date.now()
+    var funnything1 = 0;
+    var sec1 = 0;
+    var min1 = 0;
+    var hour1 = 0;
+    var timehittedtosomewhere2 = Date.now()
+    var hitted2 = Date.now()
+    var funnything2 = 0;
+    var sec2 = 0;
+    var min2 = 0;
+    var hour2 = 0;
+    console.log(timehittedtosomewhere1, hitted1)
+
+    loadChannel(params[1]);
+    loadChannel2(params[2]);
+    loadVideo3("random lol nothing really :)");
+    var textArray = [ //2 keys. Works in mixerno.github.io :)
+        'AIzaSyCmChuTg06u6ojY6YVPcr8382f9oAOQL9A',
+        'AIzaSyBctV0YBJWzKBK7FqF8HtczkGodg8ZCP80',
+        ];
+
+
+    var randomNumber = Math.floor(Math.random()*textArray.length);
+    var keys = "";
+    keys = textArray[randomNumber];
+
+
+    function loadChannel(name) {
+      var textArray = [ //2 keys. Works in mixerno.github.io :)
+          'AIzaSyCmChuTg06u6ojY6YVPcr8382f9oAOQL9A',
+          'AIzaSyBctV0YBJWzKBK7FqF8HtczkGodg8ZCP80',
+          ];
+      var randomNumber = Math.floor(Math.random()*textArray.length);
+      var keys = "";
+      keys = textArray[randomNumber];
+
+      chan2name.innerHTML = namet2 + ' 1h'
+      chan1name.innerHTML = namet1 + ' 1h'
+      subs = params[1];
+      odometer.innerHTML = subs;
+      ytName.innerHTML = namet1
+      sub1hourlast = "0";
+      gap1h = "0";
+      gap = "0";
+
+      var url = 'https://www.googleapis.com/youtube/v3/search?part=snippet&q='+namet1+'&type=channel&maxResults=1&key='+keys;
+
+      if (params[7] = 1) {
+        $.getJSON(url, function(data) {
+          channelid1 = data.items[0].id.channelId
+          setTimeout(function() {
+            if (params[7] = 1) {
+              $.ajax({
+                  url: 'https://corseverywheremiks.herokuapp.com/https://nobnabob.herokuapp.com/https://mixernob.herokuapp.com/https://mixernocors.herokuapp.com/https://corseverywheremiks.herokuapp.com/https://freewebtools.com/compteur-youtube/?channelId='+channelid1,
+                    // Handle as Text
+                    dataType: "text",
+                    success: function(data) {
+                      // Parse JSON file
+                      var json = $.parseJSON(data);
+                      //Store data into a variable
+                      // Display Players
+                      subsnormal1 = json.subscriberCount
+                      subs = json.subscriberCount
+                      if (subsnormal1 > 999) {
+                        if (subsnormal1 > 9999) {
+                          if (subsnormal1 > 99999) {
+                            if (subsnormal1 > 999999) {
+                              if (subsnormal1 > 9999999) {
+                                if (subsnormal1 > 99999999) {
+                                  if (subsnormal1 > 999999999) {
+                                    if (subsnormal1 < 10000000000) {
+                                      if (subsnormal1 > subs, subs > subsnormal1 + 10000000) {
+                                        subs = subsnormal1
+                                      }
+                                    }
+                                  }
+                                  if (subsnormal1 < 1000000000) {
+                                    if (subsnormal1 > subs, subs > subsnormal1 + 1000000) {
+                                      subs = subsnormal1
+                                    }
+                                  }
+                                }
+                                if (subsnormal1 < 100000000) {
+                                  if (subsnormal1 > subs, subs > subsnormal1 + 100000) {
+                                    subs = subsnormal1
+                                  }
+                                }
+                              }
+                              if (subsnormal1 < 10000000) {
+                                if (subsnormal1 > subs, subs > subsnormal1 + 10000) {
+                                  subs = subsnormal1
+                                }
+                              }
+                            }
+                            if (subsnormal1 < 1000000) {
+                              if (subsnormal1 > subs, subs > subsnormal1 + 1000) {
+                                subs = subsnormal1
+                              }
+                            }
+                          }
+                          if (subsnormal1 < 100000) {
+                            if (subsnormal1 > subs, subs > subsnormal1 + 100) {
+                              subs = subsnormal1
+                            }
+                          }
+                        }
+                        if (subsnormal1 < 10000) {
+                          if (subsnormal1 > subs, subs > subsnormal1 + 10) {
+                            subs = subsnormal1
+                          }
+                        }
+                      }
+                      }
+                  });
+
+            }
+          }, 1000);
+
+
+
+          });
+  }
+                }
+
+
+    function loadChannel2(name2) {
+      var textArray = [ //2 keys. Works in mixerno.github.io :)
+          'AIzaSyCmChuTg06u6ojY6YVPcr8382f9oAOQL9A',
+          'AIzaSyBctV0YBJWzKBK7FqF8HtczkGodg8ZCP80',
+          ];
+      var randomNumber = Math.floor(Math.random()*textArray.length);
+      var keys = "";
+      keys = textArray[randomNumber];
+      subs2 = params[2];
+      odometer3.innerHTML = subs2;
+      ytName2.innerHTML = namet2
+      sub2hourlast = "0";
+      gap1h = "0";
+      gap = "0";
+      var url2 = 'https://www.googleapis.com/youtube/v3/search?part=snippet&q='+namet2+'&type=channel&maxResults=1&key='+keys;
+
+      if (params[7] = 1) {
+        $.getJSON(url2, function(data) {
+          channelid2 = data.items[0].id.channelId
+          setTimeout(function() {
+            if (params[7] = 1) {
+              $.ajax({
+                  url: 'https://corseverywheremiks.herokuapp.com/https://nobnabob.herokuapp.com/https://mixernob.herokuapp.com/https://mixernocors.herokuapp.com/https://corseverywheremiks.herokuapp.com/https://www.googleapis.com/youtube/v3/search?part=snippet&q='+channelid2+'&type=channel&maxResults=1&key='+keys,
+                    // Handle as Text
+                    dataType: "text",
+                    success: function(data) {
+                      // Parse JSON file
+                      var data = $.parseJSON(data);
+                      //Store data into a variable
+                      // Display Players
+                      subsnormal2 = data.items[0].statistics.subscriberCount
+                      subs2 = data.items[0].statistics.subscriberCount
+                      if (subsnormal2 > 999) {
+                        if (subsnormal2 > 9999) {
+                          if (subsnormal2 > 99999) {
+                            if (subsnormal2 > 999999) {
+                              if (subsnormal2 > 9999999) {
+                                if (subsnormal2 > 99999999) {
+                                  if (subsnormal2 > 999999999) {
+                                    if (subsnormal2 < 10000000000) {
+                                      if (subsnormal2 > subs2, subs2 > subsnormal2 + 10000000) {
+                                        subs2 = subsnormal2
+                                      }
+                                    }
+                                  }
+                                  if (subsnormal2 < 1000000000) {
+                                    if (subsnormal2 > subs2, subs2 > subsnormal2 + 1000000) {
+                                      subs2 = subsnormal2
+                                    }
+                                  }
+                                }
+                                if (subsnormal2 < 100000000) {
+                                  if (subsnormal2 > subs2, subs2 > subsnormal2 + 100000) {
+                                    subs2 = subsnormal2
+                                  }
+                                }
+                              }
+                              if (subsnormal2 < 10000000) {
+                                if (subsnormal2 > subs2, subs2 > subsnormal2 + 10000) {
+                                  subs2 = subsnormal2
+                                }
+                              }
+                            }
+                            if (subsnormal2 < 1000000) {
+                              if (subsnormal2 > subs2, subs2 > subsnormal2 + 1000) {
+                                subs2 = subsnormal2
+                              }
+                            }
+                          }
+                          if (subsnormal2 < 100000) {
+                            if (subsnormal2 > subs2, subs2 > subsnormal2 + 100) {
+                              subs2 = subsnormal2
+                            }
+                          }
+                        }
+                        if (subsnormal2 < 10000) {
+                          if (subsnormal2 > subs2, subs2 > subsnormal2 + 10) {
+                            subs2 = subsnormal2
+                          }
+                        }
+                      }
+                      }
+                  });
+
+            }
+          }, 1000);
+
+
+
+        });
+}
+    }
+
+
+
+    setInterval(function() {
+
+      rand1 = Math.floor((Math.random() * 10) + 1);
+      rand2 = Math.floor((Math.random() * 10) + 1);
+      rand3 = Math.floor((Math.random() * 10) + 1);
+      rand4 = Math.floor((Math.random() * 10) + 1);
+
+
+
+
+
+
+
+      console.log(rand1)
+      console.log(rand2)
+      console.log(subs)
+      console.log(subs2)
+      console.log(takeandgive1)
+      console.log(takeandgive2)
+      console.log(subsgain)
+      console.log(subsgain2)
+      console.log("now for the estimation timestamps. wait a bit")
+      console.log(hitted1)
+      console.log(hitted2)
+      console.log(timehittedtosomewhere1)
+      console.log(timehittedtosomewhere2)
+
+
+      if (rand1 < "9.9") {
+        subs = subs - takeandgive1;
+        subs = subs + takeandgive1;
+        subs = subs + takeandgive1;
+      } if (rand1 > "9.9") {
+        subs = subs - takeandgive1;
+        subs = subs + takeandgive1;
+        subs = subs - takeandgive1;
+        subs = subs - takeandgive1;
+        setTimeout(function() {
+          subs = subs - takeandgive1;
+          subs = subs + takeandgive1;
+          subs = subs + takeandgive1;
+          subs = subs + takeandgive1;
+        }, timewait);
+      } if (rand3 > "9.9") {
+        subs = subs - takeandgive1;
+        subs = subs + takeandgive1;
+        subs = subs + takeandgive1;
+        subs = subs + takeandgive1;
+        setTimeout(function() {
+          subs = subs - takeandgive1;
+          subs = subs + takeandgive1;
+          subs = subs - takeandgive1;
+          subs = subs - takeandgive1;
+        }, timewait);
+      }
+      if (rand4 > "9.9") {
+        subs2 = subs2 - takeandgive2;
+        subs2 = subs2 + takeandgive2;
+        subs2 = subs2 + takeandgive2;
+        subs2 = subs2 + takeandgive2;
+        setTimeout(function() {
+          subs2 = subs2 - takeandgive2;
+          subs2 = subs2 + takeandgive2;
+          subs2 = subs2 - takeandgive2;
+          subs2 = subs2 - takeandgive2;
+        }, timewait);
+      }
+      if (rand2 < "9.9") {
+        subs2 = subs2 - takeandgive2;
+        subs2 = subs2 + takeandgive2;
+        subs2 = subs2 + takeandgive2;
+      } if (rand2 > "9.9") {
+        subs2 = subs2 - takeandgive2;
+        subs2 = subs2 + takeandgive2;
+        subs2 = subs2 - takeandgive2;
+        subs2 = subs2 - takeandgive2;
+        setTimeout(function() {
+          subs2 = subs2 - takeandgive2;
+          subs2 = subs2 + takeandgive2;
+          subs2 = subs2 + takeandgive2;
+          subs2 = subs2 + takeandgive2;
+          if (subsnormal1 > subs, subs > subsnormal1 + 100000) {
+            subs = subsnormal1
+          }
+          if (subsnormal2 > subs2, subs2 > subsnormal2 + 100000) {
+            subs2 = subsnormal2
+          }
+        }, timewait);
+      }
+
+
+
+
+
+
+      subsround = Math.floor(subs)
+      subs2round = Math.floor(subs2)
+      odometer.innerHTML = subsround;
+      odometer3.innerHTML = subs2round;
+    }, timewait);
+    setInterval(function() {
+      setTimeout(function() {
+            if (params[7] = 1) {
+              $.ajax({
+                  url: 'https://corseverywheremiks.herokuapp.com/https://nobnabob.herokuapp.com/https://mixernob.herokuapp.com/https://mixernocors.herokuapp.com/https://corseverywheremiks.herokuapp.com/https://freewebtools.com/compteur-youtube/?channelId='+channelid1,
+                    // Handle as Text
+                    dataType: "text",
+                    success: function(data) {
+                      // Parse JSON file
+                      var json = $.parseJSON(data);
+                      //Store data into a variable
+                      // Display Players
+                      subsnormal1 = json.subscriberCount
+                      if (subsnormal1 > 999) {
+                        if (subsnormal1 > 9999) {
+                          if (subsnormal1 > 99999) {
+                            if (subsnormal1 > 999999) {
+                              if (subsnormal1 > 9999999) {
+                                if (subsnormal1 > 99999999) {
+                                  if (subsnormal1 > 999999999) {
+                                    if (subsnormal1 < 10000000000) {
+                                      if (subsnormal1 > subs, subs > subsnormal1 + 10000000) {
+                                        subs = subsnormal1
+                                        timehittedtosomewhere1 = Date.now();
+                                        funnything1 = timehittedtosomewhere1 - hitted1;
+                                        sec1 = funnything1 / 1000;
+                                        min1 = sec1 / 60;
+                                        hour1 = min1 / 60;
+                                        var ihjbfrgk1 = 10000000 / hour1;
+                                        fixsb = ihjbfrgk1.replace(",", ".");
+                                        subsgain = fixsb / 60;
+                                        takeandgive1 = subsgain / 30;
+                                        hitted1 = Date.now();
+                                      }
+                                    }
+                                  }
+                                  if (subsnormal1 < 1000000000) {
+                                    if (subsnormal1 > subs, subs > subsnormal1 + 1000000) {
+                                      subs = subsnormal1
+                                      timehittedtosomewhere1 = Date.now();
+                                      funnything1 = timehittedtosomewhere1 - hitted1;
+                                      sec1 = funnything1 / 1000;
+                                      min1 = sec1 / 60;
+                                      hour1 = min1 / 60;
+                                      var ihjbfrgk1 = 1000000 / hour1;
+                                      fixsb = ihjbfrgk1.replace(",", ".");
+                                      subsgain = fixsb / 60;
+                                      takeandgive1 = subsgain / 30;
+                                      hitted1 = Date.now();
+                                    }
+                                  }
+                                }
+                                if (subsnormal1 < 100000000) {
+                                  if (subsnormal1 > subs, subs > subsnormal1 + 100000) {
+                                    subs = subsnormal1
+                                    timehittedtosomewhere1 = Date.now();
+                                    funnything1 = timehittedtosomewhere1 - hitted1;
+                                    sec1 = funnything1 / 1000;
+                                    min1 = sec1 / 60;
+                                    hour1 = min1 / 60;
+                                    var ihjbfrgk1 = 100000 / hour1;
+                                    fixsb = ihjbfrgk1.replace(",", ".");
+                                    subsgain = fixsb / 60;
+                                    takeandgive1 = subsgain / 30;
+                                    hitted1 = Date.now();
+                                  }
+                                }
+                              }
+                              if (subsnormal1 < 10000000) {
+                                if (subsnormal1 > subs, subs > subsnormal1 + 10000) {
+                                  subs = subsnormal1
+                                  timehittedtosomewhere1 = Date.now();
+                                  funnything1 = timehittedtosomewhere1 - hitted1;
+                                  sec1 = funnything1 / 1000;
+                                  min1 = sec1 / 60;
+                                  hour1 = min1 / 60;
+                                  var ihjbfrgk1 = 10000 / hour1;
+                                  fixsb = ihjbfrgk1.replace(",", ".");
+                                  subsgain = fixsb / 60;
+                                  takeandgive1 = subsgain / 30;
+                                  hitted1 = Date.now();
+                                }
+                              }
+                            }
+                            if (subsnormal1 < 1000000) {
+                              if (subsnormal1 > subs, subs > subsnormal1 + 1000) {
+                                subs = subsnormal1
+                                timehittedtosomewhere1 = Date.now();
+                                funnything1 = timehittedtosomewhere1 - hitted1;
+                                sec1 = funnything1 / 1000;
+                                min1 = sec1 / 60;
+                                hour1 = min1 / 60;
+                                var ihjbfrgk1 = 1000 / hour1;
+                                fixsb = ihjbfrgk1.replace(",", ".");
+                                subsgain = fixsb / 60;
+                                takeandgive1 = subsgain / 30;
+                                hitted1 = Date.now();
+                              }
+                            }
+                          }
+                          if (subsnormal1 < 100000) {
+                            if (subsnormal1 > subs, subs > subsnormal1 + 100) {
+                              subs = subsnormal1
+                              timehittedtosomewhere1 = Date.now();
+                              funnything1 = timehittedtosomewhere1 - hitted1;
+                              sec1 = funnything1 / 1000;
+                              min1 = sec1 / 60;
+                              hour1 = min1 / 60;
+                              var ihjbfrgk1 = 100 / hour1;
+                              fixsb = ihjbfrgk1.replace(",", ".");
+                              subsgain = fixsb / 60;
+                              takeandgive1 = subsgain / 30;
+                              hitted1 = Date.now();
+                            }
+                          }
+                        }
+                        if (subsnormal1 < 10000) {
+                          if (subsnormal1 > subs, subs > subsnormal1 + 10) {
+                            subs = subsnormal1
+                            timehittedtosomewhere1 = Date.now();
+                            funnything1 = timehittedtosomewhere1 - hitted1;
+                            sec1 = funnything1 / 1000;
+                            min1 = sec1 / 60;
+                            hour1 = min1 / 60;
+                            var ihjbfrgk1 = 10 / hour1;
+                            fixsb = ihjbfrgk1.replace(",", ".");
+                            subsgain = fixsb / 60;
+                            takeandgive1 = subsgain / 30;
+                            hitted1 = Date.now();
+                          }
+                        }
+                      }
+                      }
+                  });
+
+            }
+          }, 1000);
+          setTimeout(function() {
+            if (params[7] = 1) {
+              $.ajax({
+                  url: 'https://corseverywheremiks.herokuapp.com/https://nobnabob.herokuapp.com/https://mixernob.herokuapp.com/https://mixernocors.herokuapp.com/https://corseverywheremiks.herokuapp.com/https://www.googleapis.com/youtube/v3/search?part=snippet&q='+channelid2+'&type=channel&maxResults=1&key='+keys,
+                    // Handle as Text
+                    dataType: "text",
+                    success: function(data) {
+                      // Parse JSON file
+                      var data = $.parseJSON(data);
+                      //Store data into a variable
+                      // Display Players
+                      subsnormal2 = data.items[0].statistics.subscriberCount
+                      if (subsnormal2 > 999) {
+                        if (subsnormal2 > 9999) {
+                          if (subsnormal2 > 99999) {
+                            if (subsnormal2 > 999999) {
+                              if (subsnormal2 > 9999999) {
+                                if (subsnormal2 > 99999999) {
+                                  if (subsnormal2 > 999999999) {
+                                    if (subsnormal2 < 10000000000) {
+                                      if (subsnormal2 > subs2, subs2 > subsnormal2 + 10000000) {
+                                        subs2 = subsnormal2;
+                                        timehittedtosomewhere2 = Date.now();
+                                        funnything2 = timehittedtosomewhere2 - hitted2;
+                                        sec2 = funnything2 / 1000;
+                                        min2 = sec2 / 60;
+                                        hour2 = min2 / 60;
+                                        var ihjbfrgk2 = 10000000 / hour2;
+                                        fixsb2 = ihjbfrgk2.replace(",", ".");
+                                        subsgain2 = fixsb2 / 60;
+                                        takeandgive2 = subsgain2 / 30;
+                                        hitted2 = Date.now();
+
+
+
+                                      }
+                                    }
+                                  }
+                                  if (subsnormal2 < 1000000000) {
+                                    if (subsnormal2 > subs2, subs2 > subsnormal2 + 1000000) {
+                                      subs2 = subsnormal2
+                                      timehittedtosomewhere2 = Date.now();
+                                      funnything2 = timehittedtosomewhere2 - hitted2;
+                                      sec2 = funnything2 / 1000;
+                                      min2 = sec2 / 60;
+                                      hour2 = min2 / 60;
+                                      var ihjbfrgk2 = 1000000 / hour2;
+                                      fixsb2 = ihjbfrgk2.replace(",", ".");
+                                      subsgain2 = fixsb2 / 60;
+                                      takeandgive2 = subsgain2 / 30;
+                                      hitted2 = Date.now();
+                                    }
+                                  }
+                                }
+                                if (subsnormal2 < 100000000) {
+                                  if (subsnormal2 > subs2, subs2 > subsnormal2 + 100000) {
+                                    subs2 = subsnormal2
+                                    timehittedtosomewhere2 = Date.now();
+                                    funnything2 = timehittedtosomewhere2 - hitted2;
+                                    sec2 = funnything2 / 1000;
+                                    min2 = sec2 / 60;
+                                    hour2 = min2 / 60;
+                                    var ihjbfrgk2 = 100000 / hour2;
+                                    fixsb2 = ihjbfrgk2.replace(",", ".");
+                                    subsgain2 = fixsb2 / 60;
+                                    takeandgive2 = subsgain2 / 30;
+                                    hitted2 = Date.now();
+                                  }
+                                }
+                              }
+                              if (subsnormal2 < 10000000) {
+                                if (subsnormal2 > subs2, subs2 > subsnormal2 + 10000) {
+                                  subs2 = subsnormal2
+                                  timehittedtosomewhere2 = Date.now();
+                                  funnything2 = timehittedtosomewhere2 - hitted2;
+                                  sec2 = funnything2 / 1000;
+                                  min2 = sec2 / 60;
+                                  hour2 = min2 / 60;
+                                  var ihjbfrgk2 = 10000 / hour2;
+                                  fixsb2 = ihjbfrgk2.replace(",", ".");
+                                  subsgain2 = fixsb2 / 60;
+                                  takeandgive2 = subsgain2 / 30;
+                                  hitted2 = Date.now();
+                                }
+                              }
+                            }
+                            if (subsnormal2 < 1000000) {
+                              if (subsnormal2 > subs2, subs2 > subsnormal2 + 1000) {
+                                subs2 = subsnormal2
+                                timehittedtosomewhere2 = Date.now();
+                                funnything2 = timehittedtosomewhere2 - hitted2;
+                                sec2 = funnything2 / 1000;
+                                min2 = sec2 / 60;
+                                hour2 = min2 / 60;
+                                var ihjbfrgk2 = 1000 / hour2;
+                                fixsb2 = ihjbfrgk2.replace(",", ".");
+                                subsgain2 = fixsb2 / 60;
+                                takeandgive2 = subsgain2 / 30;
+                                hitted2 = Date.now();
+                              }
+                            }
+                          }
+                          if (subsnormal2 < 100000) {
+                            if (subsnormal2 > subs2, subs2 > subsnormal2 + 100) {
+                              subs2 = subsnormal2
+                              timehittedtosomewhere2 = Date.now();
+                              funnything2 = timehittedtosomewhere2 - hitted2;
+                              sec2 = funnything2 / 1000;
+                              min2 = sec2 / 60;
+                              hour2 = min2 / 60;
+                              var ihjbfrgk2 = 100 / hour2;
+                              fixsb2 = ihjbfrgk2.replace(",", ".");
+                              subsgain2 = fixsb2 / 60;
+                              takeandgive2 = subsgain2 / 30;
+                              hitted2 = Date.now();
+                            }
+                          }
+                        }
+                        if (subsnormal2 < 10000) {
+                          if (subsnormal2 > subs2, subs2 > subsnormal2 + 10) {
+                            subs2 = subsnormal2
+                            timehittedtosomewhere2 = Date.now();
+                            funnything2 = timehittedtosomewhere2 - hitted2;
+                            sec2 = funnything2 / 1000;
+                            min2 = sec2 / 60;
+                            hour2 = min2 / 60;
+                            var ihjbfrgk2 = 10 / hour2;
+                            fixsb2 = ihjbfrgk2.replace(",", ".");
+                            subsgain2 = fixsb2 / 60;
+                            takeandgive2 = subsgain2 / 30;
+                            hitted2 = Date.now();
+                          }
+                        }
+                      }
+                      }
+                  });
+
+            }
+          }, 1000);
+
+
+    }, 60000);
+
+
+
+    setInterval(function() {
+      odometer2.innerHTML = Math.floor(subs - subs2);
+      gap = subs - subs2
+      stuff.series[0].addPoint([
+        (new Date()).getTime(),
+        Math.floor(gap)
+      ]);
+
+
+    }, timewait * 2);
+    setInterval(function() {
+      secsinhour = secsinhour + 02
+
+      if (secsinhour > 3600) {
+        secsinhour = 0
+        sub1hourlast = subs
+        sub2hourlast = subs2
+        gap1h = gap
+        chan1lasthours.innerHTML = Math.floor(subs - sub1hourlast);
+        chan2lasthours.innerHTML = Math.floor(subs2 - sub2hourlast);
+        gaprecreased.innerHTML = Math.floor(gap - gap1h);
+      }
+
+
+      chan1lasthours.innerHTML = Math.floor(subs - sub1hourlast);
+      chan2lasthours.innerHTML = Math.floor(subs2 - sub2hourlast);
+      gaprecreased.innerHTML = Math.floor(gap - gap1h);
+
+
+
+
+
+
+
+
+
+
+    }, timewait);
+    viiName = "";
+    viiNam2e = "";
+    viiNam22e = "";
+    function loadVideo(naemhe) {
+      viiName = naemhe;
+      setTimeout(
+        function() {
+          loadVideo3($('#chnlName').val());
+        }, 5000);
+
+
+    }
+
+    function loadVideo2(namehe) {
+
+      viiNam2e = namehe;
+
+
+
+    }
+
+    function loadVideo3(namehe2) {
+
+      viiNam22e = namehe2;
+
+
+
+    }
+    function loadVideo4(namehe3) {
+
+      viiNam2e3 = namehe3;
+
+
+
+    }
+
+    function loadVideo5(namehe22) {
+
+      viiNam22e2 = namehe22;
+
+
+
+    }
+    function loadVideo6(namehe21) {
+
+      viiNam22e1 = namehe21;
+
+
+
+    }
+
+
+
+    $('#apply').click(function() {
+      loadVideo($('#chnlName').val());
+      loadVideo2($('#chnlName2').val());
+      loadVideo3($('#subratesecs1').val());
+      loadVideo4($('#subratesecs2').val());
+      loadVideo5($('#name11').val());
+      loadVideo6($('#name22').val());
+      setTimeout(
+        function() {
+          }, 1000);
+      location.href = 'http://mixerno.github.io/subcomparefake.html?' + viiName + '?' + viiNam2e + '?' + viiNam22e + '?' + viiNam2e3 + '?' + viiNam22e2 + '?' + viiNam22e1;
+
+      console.log("BUTTON1")
+    });
+    $('#apply2').click(function() {
+      loadVideo($('#chnlName').val());
+      loadVideo2($('#chnlName2').val());
+      loadVideo3($('#subratesecs1').val());
+      loadVideo4($('#subratesecs2').val());
+      loadVideo5($('#name11').val());
+      loadVideo6($('#name22').val());
+      setTimeout(function() {
+
+          }, 1000);
+
+      console.log("BUTTON2")
+    });
+
+
+
+
+
+
+  });
+</script>
+
+
+
+
+
+<body>
+
+</body>
+
+</html>
