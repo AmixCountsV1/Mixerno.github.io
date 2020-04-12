@@ -8,17 +8,20 @@ setTimeout(function() {
     }
   });
   var gahviplay = "0";
+  var us2 = "0";
   $(document).ready(function() {
 
 
     var videostufflol = window.location.href;
     var params = videostufflol.split('?');
     var chanName = params[1]
+    var chanName2 = params[2]
     viiName = "";
 
 
 
     usernamelol(params[1]);
+    usernamelol2(params[2]);
 
 
 
@@ -36,18 +39,34 @@ setTimeout(function() {
           //Store data into a variable
           // Display Players
           gahviplay = json.stars
-          $('#viewcountodo').html(json.stars);
-          $('#name').html(json.username);
-          $('#diamonds').html(json.diamonds);
-          $('#coins').html(json.coins);
-          $('#userCoins').html(json.userCoins);
-          $('#demons').html(json.demons);
-          $('#image').html(json.cp);
+          $('#usr1').html(json.stars);
+          $('#name1').html(json.username);
 
         }
       });
 
     }
+    function usernamelol2(name) {
+
+      chanName2 = params[2];
+      $.ajax({
+        url: 'https://gdbrowser.com/api/profile/' + chanName2,
+        // Handle as Text
+        dataType: "text",
+        success: function(data) {
+          // Parse JSON file
+          var json = $.parseJSON(data);
+          //Store data into a variable
+          // Display Players
+          us2 = json.stars
+          $('#usr2').html(json.stars);
+          $('#name2').html(json.username);
+
+        }
+      });
+
+    }
+    difodo.innerHTML = gahviplay - us2
 
     function loadVideo(naemhe) {
       viiName = naemhe;
@@ -69,21 +88,29 @@ setTimeout(function() {
           var json = $.parseJSON(data);
           //Store data into a variable
           // Display Players
-          gahviplay = json.stars;
-          $('#viewcountodo').html(json.stars);
-          $('#name').html(json.username);
-          $('#diamonds').html(json.diamonds);
-          $('#coins').html(json.coins);
-          $('#userCoins').html(json.userCoins);
-          $('#demons').html(json.demons);
-          $('#image').html(json.cp);
-
-
-
-
+          gahviplay = json.stars
+          $('#usr1').html(json.stars);
+          $('#name1').html(json.username);
 
         }
       });
+      chanName2 = params[2];
+      $.ajax({
+        url: 'https://gdbrowser.com/api/profile/' + chanName2,
+        // Handle as Text
+        dataType: "text",
+        success: function(data) {
+          // Parse JSON file
+          var json = $.parseJSON(data);
+          //Store data into a variable
+          // Display Players
+          us2 = json.stars
+          $('#usr2').html(json.stars);
+          $('#name2').html(json.username);
+
+        }
+      });
+      difodo.innerHTML = gahviplay - us2
 
 
     }, 2000);

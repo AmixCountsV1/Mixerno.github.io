@@ -1,6 +1,6 @@
 //yes i have very good naming for these files.
 setTimeout(function() {
-    //location.reload();
+    location.reload();
   }, 7200000);
   jQuery.ajaxPrefilter(function(options) {
     if (options.crossDomain && jQuery.support.cors) {
@@ -27,7 +27,7 @@ setTimeout(function() {
 
       chanName = params[1];
       $.ajax({
-        url: 'https://gdbrowser.com/api/profile/' + chanName,
+        url: 'https://gdbrowser.com/api/level/' + chanName,
         // Handle as Text
         dataType: "text",
         success: function(data) {
@@ -35,14 +35,17 @@ setTimeout(function() {
           var json = $.parseJSON(data);
           //Store data into a variable
           // Display Players
-          gahviplay = json.stars
-          $('#viewcountodo').html(json.stars);
-          $('#name').html(json.username);
-          $('#diamonds').html(json.diamonds);
-          $('#coins').html(json.coins);
-          $('#userCoins').html(json.userCoins);
-          $('#demons').html(json.demons);
-          $('#image').html(json.cp);
+          gahviplay = json.downloads;
+          naame.innerHTML = json.name
+          authore.innerHTML = json.author
+          authoreid.innerHTML = json.accountID
+          id.innerHTML = json.id
+          down.innerHTML = json.downloads
+          likes.innerHTML = json.likes
+          stars.innerHTML = json.stars
+          orbs.innerHTML = json.orbs
+          diamonds.innerHTML = json.diamonds
+          gameVersion.innerHTML = json.gameVersion
 
         }
       });
@@ -61,7 +64,7 @@ setTimeout(function() {
     setInterval(function() {
       chanName = params[1];
       $.ajax({
-        url: 'https://gdbrowser.com/api/profile/' + chanName,
+        url: 'https://gdbrowser.com/api/level/' + chanName,
         // Handle as Text
         dataType: "text",
         success: function(data) {
@@ -69,14 +72,17 @@ setTimeout(function() {
           var json = $.parseJSON(data);
           //Store data into a variable
           // Display Players
-          gahviplay = json.stars;
-          $('#viewcountodo').html(json.stars);
-          $('#name').html(json.username);
-          $('#diamonds').html(json.diamonds);
-          $('#coins').html(json.coins);
-          $('#userCoins').html(json.userCoins);
-          $('#demons').html(json.demons);
-          $('#image').html(json.cp);
+          gahviplay = json.downloads;
+          naame.innerHTML = json.name
+          authore.innerHTML = json.author
+          authoreid.innerHTML = json.accountID
+          id.innerHTML = json.id
+          down.innerHTML = json.downloads
+          likes.innerHTML = json.likes
+          stars.innerHTML = json.stars
+          orbs.innerHTML = json.orbs
+          diamonds.innerHTML = json.diamonds
+          gameVersion.innerHTML = json.gameVersion
 
 
 
@@ -94,7 +100,7 @@ setTimeout(function() {
         function() {
           //do nothing
         }, 1000);
-      location.href = 'http://mixerno.github.io/gdstats.html?' + viiName;
+      location.href = 'http://mixerno.github.io/gdstatslvl.html?' + viiName;
 
       console.log("BUTTON4")
     });

@@ -1,3 +1,4 @@
+//yes i have very good naming for these files.
 setTimeout(function() {
     //location.reload();
   }, 7200000);
