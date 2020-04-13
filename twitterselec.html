@@ -25,7 +25,18 @@
   </style>
 </head>
 <script type="text/javascript">
-
+$('#a').click(function() {
+    location.href = 'http://mixerno.github.io/';
+    console.log("Back button ye boi")
+  });
+  $('#b').click(function() {
+    location.href = 'https://mixerno.github.io/twitter.html?mixernoboi';
+    console.log("Back button ye boi")
+  });
+  $('#c').click(function() {
+    location.href = 'https://mixerno.github.io/twittervslive.html?barackobama?justinbieber';
+    console.log("Back button ye boi")
+  });
 
 
 
@@ -34,12 +45,12 @@
 <body>
 
   <center>
-    <a href="https://mixerno.github.io/">Back?</a>
+    <input type="button" id="a" value="Back?" />
     <br>
     <br>
-    <a href="https://mixerno.github.io/twitter.html?mixernoboi">Twitter User stats</a>
+    <input type="button" id="b" value="Twitter User stats" />
     <br>
-    <a href="https://mixerno.github.io/twittervslive.html?barackobama?justinbieber">Twitter User follower compare</a>
+    <input type="button" id="c" value="Twitter User follower compare" />
     <br>
   </center>
 </body>

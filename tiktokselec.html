@@ -14,8 +14,8 @@
     }
 
     body {
-      background-color: rgb(0, 0, 0);
-      color: rgb(255, 255, 255);
+      background-color: rgb(255, 255, 255);
+      color: rgb(0, 0, 0);
       font-family: Arial
     }
 
@@ -25,7 +25,18 @@
   </style>
 </head>
 <script type="text/javascript">
-
+$('#a').click(function() {
+    location.href = 'http://mixerno.github.io/';
+    console.log("Back button ye boi")
+  });
+  $('#b').click(function() {
+    location.href = 'https://mixerno.github.io/tiktok.html?tiktok';
+    console.log("Back button ye boi")
+  });
+  $('#c').click(function() {
+    location.href = 'https://mixerno.github.io/tiktokvslive.html?lorengray?charlidamelio';
+    console.log("Back button ye boi")
+  });
 
 
 
@@ -35,10 +46,13 @@
 
   <center>
     <a href="https://mixerno.github.io/">Back?</a>
+    <input type="button" id="a" value="Back?" />
     <br>
-    <a href="https://mixerno.github.io/tiktok.html?tiktok">Tiktok User stats (with graph)</a>
+    <a href="https://mixerno.github.io/tiktok.html?tiktok">Tiktok User stats</a>
+    <input type="button" id="b" value="Tiktok User stats" />
     <br>
     <a href="https://mixerno.github.io/tiktokvslive.html?lorengray?charlidamelio">Tiktok User compare</a>
+    <input type="button" id="c" value="Tiktok User compare" />
     <br>
 
   </center>

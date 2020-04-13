@@ -25,7 +25,14 @@
   </style>
 </head>
 <script type="text/javascript">
-
+$('#a').click(function() {
+    location.href = 'http://mixerno.github.io/';
+    console.log("Back button ye boi")
+  });
+  $('#b').click(function() {
+    location.href = 'https://mixerno.github.io/instagram.html?instagram';
+    console.log("Back button ye boi")
+  });
 
 
 
@@ -34,9 +41,9 @@
 <body>
 
   <center>
-    <a href="https://mixerno.github.io/">Back?</a>
+    <input type="button" id="a" value="Back?" />
     <br>
-    <a href="https://mixerno.github.io/instagram.html?instagram">User stats</a>
+    <input type="button" id="b" value="User stats" />
     <br>
 
   </center>
