@@ -25,7 +25,24 @@
   </style>
 </head>
 <script type="text/javascript">
-
+$(document).ready(function() {
+$('#a').click(function() {
+    location.href = 'http://mixerno.github.io/';
+    console.log("Back button ye boi")
+  });
+  $('#b').click(function() {
+    location.href = 'https://mixerno.github.io/robloxuser.html?1';
+    console.log("Back button ye boi")
+  });
+  $('#c').click(function() {
+    location.href = 'https://mixerno.github.io/robloxgames.html?383310974';
+    console.log("Back button ye boi")
+  });
+  $('#d').click(function() {
+    location.href = 'https://mixerno.github.io/robloxusercompare.html?156?1';
+    console.log("Back button ye boi")
+  });
+});
 
 
 
@@ -34,12 +51,13 @@
 <body>
 
   <center>
-    <a href="https://mixerno.github.io/">Back?</a>
+    <input type="button" id="a" value="Back?" />
     <br>
-    <a href="https://mixerno.github.io/robloxuser.html?1">User stats</a>
+    <input type="button" id="b" value="User stats" />
     <br>
-    <a href="https://mixerno.github.io/robloxgames.html?none">Game stats (coming soon. Not works right now)</a>
+    <input type="button" id="c" value="Game stats" />
     <br>
+    <input type="button" id="d" value="User stats compare" />
 
   </center>
 </body>

@@ -14,41 +14,50 @@
   <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
   <script src="https://code.highcharts.com/highcharts.js"></script>
   <center>
+    Roblox user stats counter v.0.1.0
+    <div>Checked every 5 seconds</div>
+    <div id="updatemyboi2" style="font-size:16px;color:rgb(0, 0, 0)"><div id="updatemyboi" style="font-size:15px;color:rgb(0, 0, 0)" class="odometer"></div> seconds till check</div>
+    <br>
+    <br>
     <input type="text" id="chnlName"></input>
     <button id="searchlolnoob3">Search for a user</button>
     <br>
-    <p id="name">0</p>
-    <div id="followers" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div>
-    <p>followers</p>
+    <h4 id="name2" style="font-size: 25px;">0</h4>
+    <div id="followers2" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div>
+    <h4>followers</h4>
     <br>
-    <div id="following" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div>
-    <p>following</p>
-    <br>
-    <p id="friends" style="font-size:25px;color:rgb(0, 0, 0)"></p>
-    <p>friends</p>
-    <br>
-    <p id="id" style="font-size:25px;color:rgb(0, 0, 0)"></p>
-    <p>ID</p>
-    <br>
-
-
+    <div class="hell">
+    <div>
+    <div id="following2" class="odometer" style="font-size:25px;color:rgb(0, 0, 0)">0</div>
+    <h4>following</h4>
+    </div>
+    <div>
+    <div id="friends2" style="font-size:25px;color:rgb(0, 0, 0)"></div>
+    <h4>friends</h4>
+    </div>
+  </div>
   </center>
-
-  <p>0.3.0</p>
   <figure class="highcharts-figure">
     <div id="container"></div>
-    <p class="highcharts-description">
-
-    </p>
+    <p class="highcharts-description"></p>
   </figure>
 
 
   <style>
+.hell {
+        display: flex;
+        flex-direction: row;
+        justify-content:space-evenly;
+        flex: 0;
+        margin-bottom: 1%;
+        margin-left: 25%;
+        margin-right: 25%;
+    }
     .highcharts-figure,
     .highcharts-data-table table {
       min-width: 100px;
-      max-width: 700px;
-      margin: 1em auto;
+      max-width: 900px;
+      
     }
 
     .highcharts-data-table table {
@@ -92,6 +101,7 @@
     }
 
     body {
+      text-align: center;
       background-color: rgb(255, 255, 255);
       color: #444;
       font-family: Arial
@@ -112,221 +122,8 @@
 </script>
 
 
-
+<script src="https://mixerno.github.io/c/robloxuser.js"></script>
 <script type="text/javascript">
-  setTimeout(function() {
-    location.reload();
-  }, 7200000);
-  var textArray = [ //All the cors anywhere urls.
-                'https://corseverywheremiks.herokuapp.com/',
-                'https://mixernocors.herokuapp.com/',
-                'https://mixernob.herokuapp.com/',
-                'https://nobnabob.herokuapp.com/',
-                ];
-  var randomNumber = Math.floor(Math.random()*textArray.length);
-  var stufflol = "";
-  stufflol = textArray[randomNumber];
-  var corsurl = stufflol //required works only in mixerno.github.io/ | Sorry.
-  var key = "";
-  jQuery.ajaxPrefilter(function(options) {
-    if (options.crossDomain && jQuery.support.cors) {
-      options.url = 'https://corseverywheremiks.herokuapp.com/' + options.url;
-      setInterval(function() {
-        var randomNumber = Math.floor(Math.random()*textArray.length);
-
-        key = textArray[randomNumber];
-      }, 1000);
-      options.url = key + options.url;
-    }
-  });
-
-  var followers = "0";
-  var videostufflol = window.location.href;
-  var params = videostufflol.split('?');
-  var chanName = params[1]
-  viiName = "";
-
-
-  usernamelol(params[1]);
-
-
-
-
-  function usernamelol(name) {
-
-    chanName = name;
-    $.ajax({
-      url: 'https://api.roblox.com/users/' + chanName,
-      // Handle as Text
-      dataType: "text",
-      success: function(data) {
-        // Parse JSON file
-        var json = $.parseJSON(data);
-        //Store data into a variable
-        // Display Players
-        name.innerHTML = json.Username
-        id.innerHTML = json.Id
-
-      }
-    });
-    $.ajax({
-      url: 'https://friends.roblox.com/v1/users/' + chanName + '/followers/count',
-      // Handle as Text
-      dataType: "text",
-      success: function(data) {
-        // Parse JSON file
-        var json = $.parseJSON(data);
-        //Store data into a variable
-        // Display Players
-        followers.innerHTML = json.count
-      }
-    });
-    $.ajax({
-      url: 'https://friends.roblox.com/v1/users/' + chanName + '/friends/count',
-      // Handle as Text
-      dataType: "text",
-      success: function(data) {
-        // Parse JSON file
-        var json = $.parseJSON(data);
-        //Store data into a variable
-        // Display Players
-        friends.innerHTML = json.count
-
-      }
-    });
-    $.ajax({
-      url: 'https://friends.roblox.com/v1/users/' + chanName + '/followings/count',
-      // Handle as Text
-      dataType: "text",
-      success: function(data) {
-        // Parse JSON file
-        var json = $.parseJSON(data);
-        //Store data into a variable
-        // Display Players
-        following.innerHTML = json.count
-
-      }
-    });
-
-  }
-
-  function loadVideo(naemhe) {
-    viiName = naemhe;
-    setTimeout(
-      function() {
-        loadVideo3($('#chnlName').val());
-      }, 5000);
-
-
-  }
-
-
-
-  setInterval(function() {
-
-    $.ajax({
-      url: 'https://api.roblox.com/users/' + chanName,
-      // Handle as Text
-      dataType: "text",
-      success: function(data) {
-        // Parse JSON file
-        var json = $.parseJSON(data);
-        //Store data into a variable
-        // Display Players
-        name.innerHTML = json.Username
-        id.innerHTML = json.Id
-
-      }
-    });
-    $.ajax({
-      url: 'https://friends.roblox.com/v1/users/' + chanName + '/followers/count',
-      // Handle as Text
-      dataType: "text",
-      success: function(data) {
-        // Parse JSON file
-        var json = $.parseJSON(data);
-        //Store data into a variable
-        // Display Players
-        followers.innerHTML = json.count
-      }
-    });
-    $.ajax({
-      url: 'https://friends.roblox.com/v1/users/' + chanName + '/friends/count',
-      // Handle as Text
-      dataType: "text",
-      success: function(data) {
-        // Parse JSON file
-        var json = $.parseJSON(data);
-        //Store data into a variable
-        // Display Players
-        friends.innerHTML = json.count
-
-      }
-    });
-    $.ajax({
-      url: 'https://friends.roblox.com/v1/users/' + chanName + '/followings/count',
-      // Handle as Text
-      dataType: "text",
-      success: function(data) {
-        // Parse JSON file
-        var json = $.parseJSON(data);
-        //Store data into a variable
-        // Display Players
-        following.innerHTML = json.count
-
-      }
-    });
-
-
-
-
-  }, 2000);
-
-
-
-  $('#searchlolnoob3').click(function() {
-    loadVideo($('#chnlName').val());
-    setTimeout(
-      function() {
-        //do nothing
-      }, 1000);
-    location.href = 'http://mixerno.github.io/robloxuser.html?' + viiName;
-
-    console.log("BUTTON4")
-  });
-
-
-
-
-  var stuff = new Highcharts.chart('container', {
-    chart: {
-      renderTo: $('#container'),
-      type: 'line'
-    },
-    title: {
-      text: ''
-    },
-    xAxis: {
-      type: 'datetime',
-      tickPixelInterval: 1
-    },
-    yAxis: {
-      title: {
-        text: ''
-      }
-    },
-
-    credits: {
-      enabled: false
-    },
-
-    series: [{
-      name: 'chart',
-      marker: {
-        enabled: false
-      }
-    }]
-  });
 </script>
 
 
