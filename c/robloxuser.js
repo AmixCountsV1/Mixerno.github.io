@@ -123,6 +123,18 @@ setTimeout(function() {
 
       }
     });
+    $.ajax({
+        url: `https://thumbnails.roblox.com/v1/users/avatar-headshot?userIds=${chanName}&size=150x150&format=Png&isCircular=false`,
+        // Handle as Text
+        dataType: "text",
+        success: function(data) {
+          // Parse JSON file
+          var json = $.parseJSON(data);
+          //Store data into a variable
+          // Display Players
+          $("#img3").attr('src', json.data[0].imageUrl);
+        }
+      });
     
     
     
@@ -202,6 +214,18 @@ setTimeout(function() {
 
       }
     });
+    $.ajax({
+        url: `https://thumbnails.roblox.com/v1/users/avatar-headshot?userIds=${chanName}&size=150x150&format=Png&isCircular=false`,
+        // Handle as Text
+        dataType: "text",
+        success: function(data) {
+          // Parse JSON file
+          var json = $.parseJSON(data);
+          //Store data into a variable
+          // Display Players
+          $("#img3").attr('src', json.data[0].imageUrl);
+        }
+      });
 
 
 
