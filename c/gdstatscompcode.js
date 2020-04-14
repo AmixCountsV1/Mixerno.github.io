@@ -66,6 +66,8 @@ setTimeout(function() {
       });
 
     }
+    $("#igm1").attr('src', `https://gdbrowser.com/icon/${chanName}`);
+      $("#igm2").attr('src', `https://gdbrowser.com/icon/${chanName2}`);
     difodo.innerHTML = gahviplay - us2
 
     function loadVideo(naemhe) {
@@ -81,6 +83,21 @@ setTimeout(function() {
       chanName = params[1];
       $.ajax({
         url: 'https://gdbrowser.com/api/profile/' + chanName,
+        // Handle as Text
+        dataType: "text",
+        success: function(data) {
+          // Parse JSON file
+          var json = $.parseJSON(data);
+          //Store data into a variable
+          // Display Players
+          gahviplay = json.stars
+          $('#usr1').html(json.stars);
+          $('#name1').html(json.username);
+
+        }
+      });
+      $.ajax({
+        url: 'https://gdbrowser.com/icon/' + chanName,
         // Handle as Text
         dataType: "text",
         success: function(data) {
@@ -110,6 +127,8 @@ setTimeout(function() {
 
         }
       });
+      $("#igm1").attr('src', `https://gdbrowser.com/icon/${chanName}`);
+      $("#igm2").attr('src', `https://gdbrowser.com/icon/${chanName2}`);
       difodo.innerHTML = gahviplay - us2
 
 
