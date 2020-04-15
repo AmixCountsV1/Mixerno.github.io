@@ -16,7 +16,7 @@ jQuery.ajaxPrefilter(function(options) {
   var videostufflol = window.location.href;
   var params = videostufflol.split('?');
   var chanName = params[1]
-  var univverseid = 383310974;
+  var univverseid = params[1];
   var placeIdo = params[1];
   viiName = "";
   var stuff = new Highcharts.chart('container', {
