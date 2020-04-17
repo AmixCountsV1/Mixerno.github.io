@@ -67,7 +67,7 @@ $(document).ready(function() {
     console.log("yes")
       $.ajax({
 
-        url: 'https://corona.lmao.ninja/all',
+        url: 'https://corona.lmao.ninja/v2/all',
         // Handle as Text
         dataType: "text",
         success: function(data) {
@@ -98,7 +98,7 @@ $(document).ready(function() {
     console.log("yes")
       $.ajax({
 
-        url: 'https://corona.lmao.ninja/all',
+        url: 'https://corona.lmao.ninja/v2/all',
         // Handle as Text
         dataType: "text",
         success: function(data) {
