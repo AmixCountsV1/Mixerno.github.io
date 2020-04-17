@@ -30,7 +30,12 @@
   </style>
 </head>
 <script type="text/javascript">
-$(document).ready(function() {
+$(document).ready(function() { // Special
+  $('#covid19').click(function() {
+    location.href = 'https://mixerno.github.io/coronatime.html?country=all';
+    console.log("Going")
+  });
+  //---------------------------------------------------------------\\ Normal
 $('#a').click(function() {
     location.href = 'https://mixerno.github.io/gdselec';
     console.log("Back button ye boi")
@@ -59,7 +64,7 @@ $('#a').click(function() {
     location.href = 'https://mixerno.github.io/robloxselec.html';
     console.log("Back button ye boi")
   });
-  //---------------------------------------------------------------\\
+  //---------------------------------------------------------------\\ Random
   $('#1').click(function() {
     location.href = 'https://mixerno.github.io/d.html';
     console.log("Back button ye boi")
@@ -83,6 +88,10 @@ $('#a').click(function() {
     <br>
     <br>
     ---------------------------------------------------------
+    <br>
+    Coronavirus counter with country search. Remember to be safe!
+    <br>
+    <input type="button" id="covid19" value="Covid-19 counter" />
     <br>
     Counters:
     <br>

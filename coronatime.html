@@ -12,11 +12,12 @@
   <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
   <script src="https://code.highcharts.com/highcharts.js"></script>
   <center>
-    Coronavirus counter v.0.1.0
+    Coronavirus counter v.0.2.0
     <div>Checked every 20 seconds</div>
     <div id="updatemyboi2" style="font-size:16px;color:rgb(0, 0, 0)"><div id="updatemyboi" style="font-size:15px;color:rgb(0, 0, 0)" class="odometer"></div> seconds till check</div>
     <br>
-    <br>
+    <div id="imghere"></div>
+    <div id="cf" style="font-size:25px;color:rgb(0, 0, 0)">World</div>
     <div>
       <h2 style="font-size:25px;color:rgb(17, 0, 255)">Total cases</h2>
       <div id="tc" class="odometer" style="font-size:50px;color:rgb(17, 0, 255)">0</div>
@@ -39,10 +40,6 @@
         <div id="c" class="odometer" style="font-size:25px;color:rgb(255, 0, 0)">0</div>
       </div>
       <div>
-        <h2 style="font-size:25px;color:rgb(68, 68, 68)">Affected Countries</h2>
-        <div id="afc" class="odometer" style="font-size:25px;color:rgb(68, 68, 68)">0</div>
-      </div>
-      <div>
         <h2 style="font-size:25px;color:rgb(54, 16, 16)">Tests</h2>
         <div id="ts" class="odometer" style="font-size:25px;color:rgb(54, 16, 16)">0</div>
       </div>
@@ -59,6 +56,8 @@
   
       </p>
     </figure>
+    <input type="text" id="country"></input>
+    <button id="search">Check for stats</button>
   </center>
   <style>
     .hell {
@@ -134,7 +133,7 @@
     }
   </style>
 </head>
-<script src="https://mixerno.github.io/c/coronatime.js"></script>
+<script src="file:///H:/realtimecounter/Mixerno/c/coronatime.js"></script>
 <body>
 
 </body>
