@@ -17,7 +17,7 @@ jQuery.ajaxPrefilter(function(options) {
     chart: {
       backgroundColor: 'transparent',
       renderTo: container,
-      type: 'line'
+      type: 'spline'
     },
     title: {
       text: 'Players playing combined graph'
@@ -35,6 +35,14 @@ jQuery.ajaxPrefilter(function(options) {
     credits: {
       enabled: false
     },
+    plotOptions: {
+      series: {
+          // general options for all series
+      },
+      spline: {
+          // shared options for all spline series
+      }
+  },
 
     series: [{
       name: 'Players playing combined',
@@ -63,7 +71,7 @@ jQuery.ajaxPrefilter(function(options) {
 
     chanName = name;
     $.ajax({
-      url: `https://games.roblox.com/v1/games/list?model.maxRows=23&model.isKeywordSuggestionEnabled=false`,
+      url: `https://games.roblox.com/v1/games/list?model.maxRows=60&model.isKeywordSuggestionEnabled=false`,
       // Handle as Text
       dataType: "text",
       success: function(data) {
@@ -137,12 +145,99 @@ jQuery.ajaxPrefilter(function(options) {
           //top 19:
           name23.innerHTML = json.games[22].name 
           playing23.innerHTML = json.games[22].playerCount
+          //top 16:
+          name24.innerHTML = json.games[23].name 
+          playing24.innerHTML = json.games[23].playerCount
+          //top 17:
+          name25.innerHTML = json.games[24].name 
+          playing25.innerHTML = json.games[24].playerCount
+          //top 18:
+          name26.innerHTML = json.games[25].name 
+          playing26.innerHTML = json.games[25].playerCount
+          //top 19:
+          name27.innerHTML = json.games[26].name 
+          playing27.innerHTML = json.games[26].playerCount
+          //top 20:
+          name28.innerHTML = json.games[27].name 
+          playing28.innerHTML = json.games[27].playerCount
+          //top 18:
+          name29.innerHTML = json.games[28].name 
+          playing29.innerHTML = json.games[28].playerCount
+          //top 19:
+          name30.innerHTML = json.games[29].name 
+          playing30.innerHTML = json.games[29].playerCount
+          //top 19:
+          name31.innerHTML = json.games[30].name 
+          playing31.innerHTML = json.games[30].playerCount
+          //top 20:
+          name32.innerHTML = json.games[31].name 
+          playing32.innerHTML = json.games[31].playerCount
+          //top 18:
+          name33.innerHTML = json.games[32].name 
+          playing33.innerHTML = json.games[32].playerCount
+          //top 19:
+          name34.innerHTML = json.games[33].name 
+          playing34.innerHTML = json.games[33].playerCount
+          //top 16:
+          name35.innerHTML = json.games[34].name 
+          playing35.innerHTML = json.games[34].playerCount
+          //top 17:
+          name36.innerHTML = json.games[35].name 
+          playing36.innerHTML = json.games[35].playerCount
+          //top 18:
+          name37.innerHTML = json.games[36].name 
+          playing37.innerHTML = json.games[36].playerCount
+          //top 19:
+          name38.innerHTML = json.games[37].name 
+          playing38.innerHTML = json.games[37].playerCount
+          //top 20:
+          name39.innerHTML = json.games[38].name 
+          playing39.innerHTML = json.games[38].playerCount
+          //top 18:
+          name40.innerHTML = json.games[39].name 
+          playing40.innerHTML = json.games[39].playerCount
+          //top 19:
+          name41.innerHTML = json.games[40].name 
+          playing41.innerHTML = json.games[40].playerCount
+          //top idk
+          name42.innerHTML = json.games[41].name 
+          playing42.innerHTML = json.games[41].playerCount
+          //top 18:
+          name43.innerHTML = json.games[42].name 
+          playing43.innerHTML = json.games[42].playerCount
+          //top 19:
+          name44.innerHTML = json.games[43].name 
+          playing44.innerHTML = json.games[43].playerCount
+          //top 16:
+          name45.innerHTML = json.games[44].name 
+          playing45.innerHTML = json.games[44].playerCount
+          //top 17:
+          name46.innerHTML = json.games[45].name 
+          playing46.innerHTML = json.games[45].playerCount
+          //top 18:
+          name47.innerHTML = json.games[46].name 
+          playing47.innerHTML = json.games[46].playerCount
+          //top 19:
+          name48.innerHTML = json.games[47].name 
+          playing48.innerHTML = json.games[47].playerCount
+          //top 20:
+          name49.innerHTML = json.games[48].name 
+          playing49.innerHTML = json.games[48].playerCount
+          //top 18:
+          name50.innerHTML = json.games[49].name 
+          playing50.innerHTML = json.games[49].playerCount
+          //top 19:
+          name51.innerHTML = json.games[50].name 
+          playing51.innerHTML = json.games[50].playerCount
+          //top 19:
+          name52.innerHTML = json.games[51].name 
+          playing52.innerHTML = json.games[51].playerCount
           //other stuff lol
           secwait = 10
-          combd.innerHTML = json.games[0].playerCount + json.games[1].playerCount + json.games[2].playerCount + json.games[3].playerCount + json.games[4].playerCount + json.games[5].playerCount + json.games[6].playerCount + json.games[7].playerCount + json.games[9].playerCount + json.games[10].playerCount + json.games[11].playerCount + json.games[12].playerCount + json.games[13].playerCount + json.games[14].playerCount + json.games[15].playerCount + json.games[16].playerCount + json.games[17].playerCount + json.games[18].playerCount + json.games[19].playerCount + json.games[20].playerCount + json.games[21].playerCount + json.games[22].playerCount
+          combd.innerHTML = json.games[0].playerCount + json.games[1].playerCount + json.games[2].playerCount + json.games[3].playerCount + json.games[4].playerCount + json.games[5].playerCount + json.games[6].playerCount + json.games[7].playerCount + json.games[9].playerCount + json.games[10].playerCount + json.games[11].playerCount + json.games[12].playerCount + json.games[13].playerCount + json.games[14].playerCount + json.games[15].playerCount + json.games[16].playerCount + json.games[17].playerCount + json.games[18].playerCount + json.games[19].playerCount + json.games[20].playerCount + json.games[21].playerCount + json.games[22].playerCount + json.games[23].playerCount + json.games[24].playerCount + json.games[26].playerCount + json.games[27].playerCount + json.games[28].playerCount + json.games[29].playerCount + json.games[30].playerCount + json.games[31].playerCount + json.games[32].playerCount + json.games[34].playerCount + json.games[35].playerCount + json.games[36].playerCount + json.games[37].playerCount + json.games[38].playerCount + json.games[39].playerCount + json.games[40].playerCount + json.games[41].playerCount + json.games[42].playerCount + json.games[43].playerCount + json.games[44].playerCount + json.games[45].playerCount + json.games[46].playerCount + json.games[47].playerCount + json.games[48].playerCount + json.games[49].playerCount + json.games[50].playerCount + json.games[51].playerCount
           stuff.series[0].addPoint([
             (new Date()).getTime(),
-            json.games[0].playerCount + json.games[1].playerCount + json.games[2].playerCount + json.games[3].playerCount + json.games[4].playerCount + json.games[5].playerCount + json.games[6].playerCount + json.games[7].playerCount + json.games[9].playerCount + json.games[10].playerCount + json.games[11].playerCount + json.games[12].playerCount + json.games[13].playerCount + json.games[14].playerCount + json.games[15].playerCount + json.games[16].playerCount + json.games[17].playerCount + json.games[18].playerCount + json.games[19].playerCount + json.games[20].playerCount + json.games[21].playerCount + json.games[22].playerCount 
+            json.games[0].playerCount + json.games[1].playerCount + json.games[2].playerCount + json.games[3].playerCount + json.games[4].playerCount + json.games[5].playerCount + json.games[6].playerCount + json.games[7].playerCount + json.games[9].playerCount + json.games[10].playerCount + json.games[11].playerCount + json.games[12].playerCount + json.games[13].playerCount + json.games[14].playerCount + json.games[15].playerCount + json.games[16].playerCount + json.games[17].playerCount + json.games[18].playerCount + json.games[19].playerCount + json.games[20].playerCount + json.games[21].playerCount + json.games[22].playerCount + json.games[23].playerCount + json.games[24].playerCount + json.games[26].playerCount + json.games[27].playerCount + json.games[28].playerCount + json.games[29].playerCount + json.games[30].playerCount + json.games[31].playerCount + json.games[32].playerCount + json.games[34].playerCount + json.games[35].playerCount + json.games[36].playerCount + json.games[37].playerCount + json.games[38].playerCount + json.games[39].playerCount + json.games[40].playerCount + json.games[41].playerCount + json.games[42].playerCount + json.games[43].playerCount + json.games[44].playerCount + json.games[45].playerCount + json.games[46].playerCount + json.games[47].playerCount + json.games[48].playerCount + json.games[49].playerCount + json.games[50].playerCount + json.games[51].playerCount 
           ]);
           if (stuff.series[0].data.length >= 350) {
           stuff.series[0].data[0].remove()
@@ -168,8 +263,9 @@ jQuery.ajaxPrefilter(function(options) {
 
 
   setInterval(function() {
+    console.log("beta");
     $.ajax({
-      url: `https://games.roblox.com/v1/games/list?model.maxRows=23&model.isKeywordSuggestionEnabled=false`,
+      url: `https://games.roblox.com/v1/games/list?model.maxRows=60&model.isKeywordSuggestionEnabled=false`,
       // Handle as Text
       dataType: "text",
       success: function(data) {
@@ -243,20 +339,105 @@ jQuery.ajaxPrefilter(function(options) {
           //top 19:
           name23.innerHTML = json.games[22].name 
           playing23.innerHTML = json.games[22].playerCount
+          //top 16:
+          name24.innerHTML = json.games[23].name 
+          playing24.innerHTML = json.games[23].playerCount
+          //top 17:
+          name25.innerHTML = json.games[24].name 
+          playing25.innerHTML = json.games[24].playerCount
+          //top 18:
+          name26.innerHTML = json.games[25].name 
+          playing26.innerHTML = json.games[25].playerCount
+          //top 19:
+          name27.innerHTML = json.games[26].name 
+          playing27.innerHTML = json.games[26].playerCount
+          //top 20:
+          name28.innerHTML = json.games[27].name 
+          playing28.innerHTML = json.games[27].playerCount
+          //top 18:
+          name29.innerHTML = json.games[28].name 
+          playing29.innerHTML = json.games[28].playerCount
+          //top 19:
+          name30.innerHTML = json.games[29].name 
+          playing30.innerHTML = json.games[29].playerCount
+          //top 19:
+          name31.innerHTML = json.games[30].name 
+          playing31.innerHTML = json.games[30].playerCount
+          //top 20:
+          name32.innerHTML = json.games[31].name 
+          playing32.innerHTML = json.games[31].playerCount
+          //top 18:
+          name33.innerHTML = json.games[32].name 
+          playing33.innerHTML = json.games[32].playerCount
+          //top 19:
+          name34.innerHTML = json.games[33].name 
+          playing34.innerHTML = json.games[33].playerCount
+          //top 16:
+          name35.innerHTML = json.games[34].name 
+          playing35.innerHTML = json.games[34].playerCount
+          //top 17:
+          name36.innerHTML = json.games[35].name 
+          playing36.innerHTML = json.games[35].playerCount
+          //top 18:
+          name37.innerHTML = json.games[36].name 
+          playing37.innerHTML = json.games[36].playerCount
+          //top 19:
+          name38.innerHTML = json.games[37].name 
+          playing38.innerHTML = json.games[37].playerCount
+          //top 20:
+          name39.innerHTML = json.games[38].name 
+          playing39.innerHTML = json.games[38].playerCount
+          //top 18:
+          name40.innerHTML = json.games[39].name 
+          playing40.innerHTML = json.games[39].playerCount
+          //top 19:
+          name41.innerHTML = json.games[40].name 
+          playing41.innerHTML = json.games[40].playerCount
+          //top idk
+          name42.innerHTML = json.games[41].name 
+          playing42.innerHTML = json.games[41].playerCount
+          //top 18:
+          name43.innerHTML = json.games[42].name 
+          playing43.innerHTML = json.games[42].playerCount
+          //top 19:
+          name44.innerHTML = json.games[43].name 
+          playing44.innerHTML = json.games[43].playerCount
+          //top 16:
+          name45.innerHTML = json.games[44].name 
+          playing45.innerHTML = json.games[44].playerCount
+          //top 17:
+          name46.innerHTML = json.games[45].name 
+          playing46.innerHTML = json.games[45].playerCount
+          //top 18:
+          name47.innerHTML = json.games[46].name 
+          playing47.innerHTML = json.games[46].playerCount
+          //top 19:
+          name48.innerHTML = json.games[47].name 
+          playing48.innerHTML = json.games[47].playerCount
+          //top 20:
+          name49.innerHTML = json.games[48].name 
+          playing49.innerHTML = json.games[48].playerCount
+          //top 18:
+          name50.innerHTML = json.games[49].name 
+          playing50.innerHTML = json.games[49].playerCount
+          //top 19:
+          name51.innerHTML = json.games[50].name 
+          playing51.innerHTML = json.games[50].playerCount
+          //top 19:
+          name52.innerHTML = json.games[51].name 
+          playing52.innerHTML = json.games[51].playerCount
           //other stuff lol
           secwait = 10
-          combd.innerHTML = json.games[0].playerCount + json.games[1].playerCount + json.games[2].playerCount + json.games[3].playerCount + json.games[4].playerCount + json.games[5].playerCount + json.games[6].playerCount + json.games[7].playerCount + json.games[9].playerCount + json.games[10].playerCount + json.games[11].playerCount + json.games[12].playerCount + json.games[13].playerCount + json.games[14].playerCount + json.games[15].playerCount + json.games[16].playerCount + json.games[17].playerCount + json.games[18].playerCount + json.games[19].playerCount + json.games[20].playerCount + json.games[21].playerCount + json.games[22].playerCount
+          combd.innerHTML = json.games[0].playerCount + json.games[1].playerCount + json.games[2].playerCount + json.games[3].playerCount + json.games[4].playerCount + json.games[5].playerCount + json.games[6].playerCount + json.games[7].playerCount + json.games[9].playerCount + json.games[10].playerCount + json.games[11].playerCount + json.games[12].playerCount + json.games[13].playerCount + json.games[14].playerCount + json.games[15].playerCount + json.games[16].playerCount + json.games[17].playerCount + json.games[18].playerCount + json.games[19].playerCount + json.games[20].playerCount + json.games[21].playerCount + json.games[22].playerCount + json.games[23].playerCount + json.games[24].playerCount + json.games[26].playerCount + json.games[27].playerCount + json.games[28].playerCount + json.games[29].playerCount + json.games[30].playerCount + json.games[31].playerCount + json.games[32].playerCount + json.games[34].playerCount + json.games[35].playerCount + json.games[36].playerCount + json.games[37].playerCount + json.games[38].playerCount + json.games[39].playerCount + json.games[40].playerCount + json.games[41].playerCount + json.games[42].playerCount + json.games[43].playerCount + json.games[44].playerCount + json.games[45].playerCount + json.games[46].playerCount + json.games[47].playerCount + json.games[48].playerCount + json.games[49].playerCount + json.games[50].playerCount + json.games[51].playerCount
           stuff.series[0].addPoint([
             (new Date()).getTime(),
-            json.games[0].playerCount + json.games[1].playerCount + json.games[2].playerCount + json.games[3].playerCount + json.games[4].playerCount + json.games[5].playerCount + json.games[6].playerCount + json.games[7].playerCount + json.games[9].playerCount + json.games[10].playerCount + json.games[11].playerCount + json.games[12].playerCount + json.games[13].playerCount + json.games[14].playerCount + json.games[15].playerCount + json.games[16].playerCount + json.games[17].playerCount + json.games[18].playerCount + json.games[19].playerCount + json.games[20].playerCount + json.games[21].playerCount + json.games[22].playerCount 
+            json.games[0].playerCount + json.games[1].playerCount + json.games[2].playerCount + json.games[3].playerCount + json.games[4].playerCount + json.games[5].playerCount + json.games[6].playerCount + json.games[7].playerCount + json.games[9].playerCount + json.games[10].playerCount + json.games[11].playerCount + json.games[12].playerCount + json.games[13].playerCount + json.games[14].playerCount + json.games[15].playerCount + json.games[16].playerCount + json.games[17].playerCount + json.games[18].playerCount + json.games[19].playerCount + json.games[20].playerCount + json.games[21].playerCount + json.games[22].playerCount + json.games[23].playerCount + json.games[24].playerCount + json.games[26].playerCount + json.games[27].playerCount + json.games[28].playerCount + json.games[29].playerCount + json.games[30].playerCount + json.games[31].playerCount + json.games[32].playerCount + json.games[34].playerCount + json.games[35].playerCount + json.games[36].playerCount + json.games[37].playerCount + json.games[38].playerCount + json.games[39].playerCount + json.games[40].playerCount + json.games[41].playerCount + json.games[42].playerCount + json.games[43].playerCount + json.games[44].playerCount + json.games[45].playerCount + json.games[46].playerCount + json.games[47].playerCount + json.games[48].playerCount + json.games[49].playerCount + json.games[50].playerCount + json.games[51].playerCount 
           ]);
           if (stuff.series[0].data.length >= 350) {
           stuff.series[0].data[0].remove()
         }
       }
     });
-    
-
 
   }, 10000);
 
