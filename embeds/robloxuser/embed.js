@@ -1,12 +1,6 @@
 setTimeout(function() {
     //location.reload();
   }, 7200000);
-  var textArray = [ //All the cors anywhere urls.
-                'https://corseverywheremiks.herokuapp.com/',
-                'https://mixernocors.herokuapp.com/',
-                'https://mixernob.herokuapp.com/',
-                'https://nobnabob.herokuapp.com/',
-                ];
   var randomNumber = Math.floor(Math.random()*textArray.length);
   var stufflol = "";
   stufflol = textArray[randomNumber];
