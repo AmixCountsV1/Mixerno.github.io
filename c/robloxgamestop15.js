@@ -2,7 +2,7 @@
 //https://corseverywheremiks.herokuapp.com/https://nobnabob.herokuapp.com/https://mixernob.herokuapp.com/https://mixernocors.herokuapp.com/https://corseverywheremiks.herokuapp.com/
 jQuery.ajaxPrefilter(function(options) {
     if (options.crossDomain && jQuery.support.cors) {
-    //options.url = 'https://corseverywheremiks.herokuapp.com/' + options.url;
+    options.url = 'https://corseverywheremiks.herokuapp.com/' + options.url;
     }
   });
 
