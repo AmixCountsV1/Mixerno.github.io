@@ -34,7 +34,7 @@ setTimeout(function() {
 
         $.ajax({
   
-          url: `https://mixer.com/api/v1/channels?where=suspended:eq:0&limit=32&page=0&order=partnered:desc,featureLevel:desc,online:desc,viewersCurrent:desc,viewersTotal:desc&noCount=1&scope=names&q=` + params[1],
+          url: `https://mixer.com/api/v1/channels/${params[1]}/details`,
           // Handle as Text
           dataType: "text",
           success: function(data) {
@@ -43,9 +43,10 @@ setTimeout(function() {
             //Store data into a variable
             // Display Players
             //$('#gahviplayerslol').html(json.body.userData.fans)
-            fans1.innerHTML = json[0].numFollowers
-            name1.innerHTML = json[0].token
-            chanelid = json[0].userId
+            fans1.innerHTML = json.numFollowers
+            name1.innerHTML = json.token
+            chanelid = json.userId
+            
             $("#img1").attr('src', `https://mixer.com/api/v1/users/${chanelid}/avatar?w=64&h=64`);
             //gahviplayerslol.innerHTML = json.followers_count
             //gahviplay = json.followers_count
@@ -62,7 +63,7 @@ setTimeout(function() {
     setInterval(function() {
       $.ajax({
   
-        url: `https://mixer.com/api/v1/channels?where=suspended:eq:0&limit=32&page=0&order=partnered:desc,featureLevel:desc,online:desc,viewersCurrent:desc,viewersTotal:desc&noCount=1&scope=names&q=` + params[1],
+        url: `https://mixer.com/api/v1/channels/${params[1]}/details`,
         // Handle as Text
         dataType: "text",
         success: function(data) {
@@ -71,9 +72,10 @@ setTimeout(function() {
           //Store data into a variable
           // Display Players
           //$('#gahviplayerslol').html(json.body.userData.fans)
-          fans1.innerHTML = json[0].numFollowers
-          name1.innerHTML = json[0].token
-          chanelid = json[0].userId
+          fans1.innerHTML = json.numFollowers
+          name1.innerHTML = json.token
+          chanelid = json.userId
+          
           $("#img1").attr('src', `https://mixer.com/api/v1/users/${chanelid}/avatar?w=64&h=64`);
           //gahviplayerslol.innerHTML = json.followers_count
           //gahviplay = json.followers_count
@@ -87,7 +89,7 @@ setTimeout(function() {
 
 
 
-    }, 4000);
+    }, 10000);
 
 
 
