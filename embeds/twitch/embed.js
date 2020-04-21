@@ -80,7 +80,7 @@ setTimeout(function() {
     setInterval(function() {
       $.ajax({
   
-        url: `https://api.thesocialcounter.com/twitch/?name=` + twitchid,
+        url: `https://api.thesocialcounter.com/twitchdata?name=` + params[1],
         // Handle as Text
         dataType: "text",
         success: function(data) {
@@ -89,11 +89,30 @@ setTimeout(function() {
           //Store data into a variable
           // Display Players
           //$('#gahviplayerslol').html(json.body.userData.fans)
-          fans1.innerHTML = json.total
-          fans2 = json.total
+          twitchid = json.data[0].id
+          name1.innerHTML = json.data[0].display_name
+          $("#img1").attr('src', `${json.data[0].profile_image_url}`);
           //gahviplayerslol.innerHTML = json.followers_count
           //gahviplay = json.followers_count
+          $.ajax({
 
+            url: `https://api.thesocialcounter.com/twitch/?name=` + twitchid,
+            // Handle as Text
+            dataType: "text",
+            success: function(data) {
+              // Parse JSON file
+              var json = $.parseJSON(data);
+              //Store data into a variable
+              // Display Players
+              //$('#gahviplayerslol').html(json.body.userData.fans)
+              fans1.innerHTML = json.total
+              fans2 = json.total
+              //gahviplayerslol.innerHTML = json.followers_count
+              //gahviplay = json.followers_count
+    
+    
+            }
+          });
 
         }
       });
