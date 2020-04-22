@@ -124,55 +124,7 @@ setTimeout(function() {
 
 
 
-    setInterval(function() {
-      $.ajax({
-
-        url: 'https://www.tiktok.com/node/share/user/@' + params[1],
-        // Handle as Text
-        dataType: "text",
-        success: function(data) {
-          // Parse JSON file
-          var json = $.parseJSON(data);
-          //Store data into a variable
-          // Display Players
-          stats1 = json.body.userData.fans
-          fans1.innerHTML = json.body.userData.fans;
-          name1.innerHTML = json.body.userData.nickName;
-          $("#img1").attr('src', `${json.body.userData.covers}`);
-          $.ajax({
-
-            url: 'https://www.tiktok.com/node/share/user/@' + params[2],
-            // Handle as Text
-            dataType: "text",
-            success: function(data) {
-              // Parse JSON file
-              var json = $.parseJSON(data);
-              //Store data into a variable
-              // Display Players
-              stats2 = json.body.userData.fans
-              fans2.innerHTML = json.body.userData.fans;
-              name2.innerHTML = json.body.userData.nickName;
-              $("#img2").attr('src', `${json.body.userData.covers}`);
-              comp.innerHTML = stats1 - stats2;
-              stuff.series[0].addPoint([
-                (new Date()).getTime(),
-                stats1 - stats2
-              ]);
-              if (stuff.series[0].data.length >= 700) {
-              stuff.series[0].data[0].remove()
-            }
-            }
-          });
-        }
-      });
-          
-
-
-
-
-
-    }, 3000);
-
+    setInterval(usernamelol, 4000)
 
 
 
