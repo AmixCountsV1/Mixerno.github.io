@@ -8,7 +8,7 @@ setTimeout(function() {
   var key = "https://nobnabob.herokuapp.com/";
   jQuery.ajaxPrefilter(function(options) {
     if (options.crossDomain && jQuery.support.cors) {
-      options.url = key + options.url;
+      //options.url = key + options.url;
       setInterval(function() {
         var randomNumber = Math.floor(Math.random()*textArray.length);
 
@@ -67,7 +67,9 @@ setTimeout(function() {
     var params = parms.split('?');
     var fans2 = "not using here sorry bois.";
     var chanelid = "no";
-
+var before = 0;
+var after = 0;
+var custom = 0;
     usernamelol(params[1]);
 
 
@@ -85,14 +87,31 @@ setTimeout(function() {
             var json = $.parseJSON(data);
             //Store data into a variable
             // Display Players
-            fans1.innerHTML = json.body.userData.fans;
+            after = json.body.userData.fans;
+            if(after - before < 2000) {
+              fans1.innerHTML = json.body.userData.fans
+              custom = json.body.userData.fans
+            }
+            if(after - before > 2000) {
+              fans1.innerHTML = custom
+
+            }
             name1.innerHTML = json.body.userData.nickName;
             d.innerHTML = json.body.userData.digg
             f.innerHTML = json.body.userData.following
             h.innerHTML = json.body.userData.heart
             v.innerHTML = json.body.userData.video
             $("#img1").attr('src', `${json.body.userData.covers}`);
-            
+            if(0 < custom) {
+            stuff.series[0].addPoint([
+              (new Date()).getTime(),
+              custom
+            ]);
+          }
+            if (stuff.series[0].data.length >= 700) {
+            stuff.series[0].data[0].remove()
+          }
+          before = json.body.userData.fans;
           }
         });
     }
@@ -102,40 +121,7 @@ setTimeout(function() {
 
 
 
-    setInterval(function() {
-      $.ajax({
-
-        url: 'https://www.tiktok.com/node/share/user/@' + params[1],
-        // Handle as Text
-        dataType: "text",
-        success: function(data) {
-          // Parse JSON file
-          var json = $.parseJSON(data);
-          //Store data into a variable
-          // Display Players
-          fans1.innerHTML = json.body.userData.fans;
-          name1.innerHTML = json.body.userData.nickName;
-          d.innerHTML = json.body.userData.digg
-          f.innerHTML = json.body.userData.following
-          h.innerHTML = json.body.userData.heart
-          v.innerHTML = json.body.userData.video
-          $("#img1").attr('src', `${json.body.userData.covers}`);
-          stuff.series[0].addPoint([
-            (new Date()).getTime(),
-            json.body.userData.fans
-          ]);
-          if (stuff.series[0].data.length >= 700) {
-          stuff.series[0].data[0].remove()
-        }
-        }
-      });
-          
-
-
-
-
-
-    }, 3000);
+    setInterval(usernamelol, 4000)
 
 
 
