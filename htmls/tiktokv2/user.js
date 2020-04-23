@@ -67,9 +67,6 @@ setTimeout(function() {
     var params = parms.split('?');
     var fans2 = "not using here sorry bois.";
     var chanelid = "no";
-var before = 0;
-var after = 0;
-var custom = 0;
     usernamelol(params[1]);
 
 
@@ -87,14 +84,9 @@ var custom = 0;
             var json = $.parseJSON(data);
             //Store data into a variable
             // Display Players
-            after = json.body.userData.fans;
-            if(after - before < 2000) {
-              fans1.innerHTML = json.body.userData.fans
-              custom = json.body.userData.fans
-            }
-            if(after - before > 2000) {
-              fans1.innerHTML = custom
-
+            fans1.innerHTML = json.body.userData.fans
+            if(json.content = "") {
+              name1 = "rip."
             }
             name1.innerHTML = json.body.userData.nickName;
             d.innerHTML = json.body.userData.digg
@@ -105,13 +97,12 @@ var custom = 0;
             if(0 < custom) {
             stuff.series[0].addPoint([
               (new Date()).getTime(),
-              custom
+              json.body.userData.fans
             ]);
           }
             if (stuff.series[0].data.length >= 700) {
             stuff.series[0].data[0].remove()
           }
-          before = json.body.userData.fans;
           }
         });
     }
