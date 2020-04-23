@@ -94,12 +94,11 @@ setTimeout(function() {
             h.innerHTML = json.body.userData.heart
             v.innerHTML = json.body.userData.video
             $("#img1").attr('src', `${json.body.userData.covers}`);
-            if(0 < custom) {
             stuff.series[0].addPoint([
               (new Date()).getTime(),
               json.body.userData.fans
             ]);
-          }
+
             if (stuff.series[0].data.length >= 700) {
             stuff.series[0].data[0].remove()
           }
