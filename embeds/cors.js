@@ -1,10 +1,10 @@
-var textArray = [ //All the cors anywhere urls.
-    'https://mixerno-cors-anywhere.glitch.me/',
+var textArray = [ //Backup.
+    'https://nugisextremelynice.herokuapp.com/',
     ];
-    var textArrayHeroku = [ //All the cors anywhere urls.
+    var textArrayHeroku = [ //Main.
         'https://corseverywheremiks.herokuapp.com/',
         ];
-var oldcors = [
+var oldcors = [ //Old that are down forever :)
 'https://mixernocors.herokuapp.com/',
     'https://mixernob.herokuapp.com/',
     'https://nobnabob.herokuapp.com/',
