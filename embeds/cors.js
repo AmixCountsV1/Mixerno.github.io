@@ -1,6 +1,9 @@
 var textArray = [ //All the cors anywhere urls.
-    'https://corseverywheremiks.herokuapp.com/',
+    'https://mixerno-cors-anywhere.glitch.me/',
     ];
+    var textArrayHeroku = [ //All the cors anywhere urls.
+        'https://corseverywheremiks.herokuapp.com/',
+        ];
 var oldcors = [
 'https://mixernocors.herokuapp.com/',
     'https://mixernob.herokuapp.com/',
