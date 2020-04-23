@@ -1,6 +1,8 @@
 var textArray = [ //All the cors anywhere urls.
     'https://corseverywheremiks.herokuapp.com/',
-    'https://mixernocors.herokuapp.com/',
+    ];
+var oldcors = [
+'https://mixernocors.herokuapp.com/',
     'https://mixernob.herokuapp.com/',
     'https://nobnabob.herokuapp.com/',
     'https://corsihatethatbutok.herokuapp.com/',
@@ -23,4 +25,4 @@ var textArray = [ //All the cors anywhere urls.
     'https://corsihatethatbutok18.herokuapp.com/',
     'https://corsihatethatbutok19.herokuapp.com/',
     'https://corsihatethatbutok20.herokuapp.com/',
-    ];
+];
