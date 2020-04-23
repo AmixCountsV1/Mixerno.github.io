@@ -17,6 +17,26 @@ setTimeout(function() {
     }
   });
   $(document).ready(function() {
+    $('#whitee').click(function() {
+      $('body').css('color', 'black');
+      $('body').css('background-color', 'white');
+      console.log("White theme activated")
+    });
+    $('#blackk').click(function() {
+      $('body').css('color', 'white');
+      $('body').css('background-color', 'black');
+      console.log("Black theme activated")
+    });
+    $('#transparent1').click(function() {
+      $('body').css('color', 'white');
+      $('body').css('background-color', 'transparent');
+      console.log("transparent1 activated")
+    });
+    $('#transparent2').click(function() {
+      $('body').css('color', 'black');
+      $('body').css('background-color', 'transparent');
+      console.log("transparent2 activated")
+    });
     var stuff = new Highcharts.chart('container', {
       chart: {
         backgroundColor: 'transparent',
@@ -26,7 +46,7 @@ setTimeout(function() {
       title: {
         text: `Follower graph`,
         style: {
-          color: '#FFFFFF',
+          color: '#1E90FF',
           fontWeight: 'bold'
         }
 
