@@ -8,7 +8,7 @@ setTimeout(function() {
   var key = "https://nobnabob.herokuapp.com/";
   jQuery.ajaxPrefilter(function(options) {
     if (options.crossDomain && jQuery.support.cors) {
-      //options.url = key + options.url;
+      options.url = key + options.url;
       setInterval(function() {
         var randomNumber = Math.floor(Math.random()*textArray.length);
 

@@ -8,7 +8,7 @@ var corsurl = stufflol //required works only in mixerno.github.io/ | Sorry.
 var key = "";
 jQuery.ajaxPrefilter(function(options) {
   if (options.crossDomain && jQuery.support.cors) {
-    //options.url = 'https://corseverywheremiks.herokuapp.com/' + options.url;
+    options.url = key + options.url;
     /*setInterval(function() {
       var randomNumber = Math.floor(Math.random()*textArray.length);
 
