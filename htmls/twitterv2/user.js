@@ -21,12 +21,12 @@ setTimeout(function() {
       chart: {
         backgroundColor: 'transparent',
         renderTo: container,
-        type: 'line'
+        type: 'spline'
       },
       title: {
         text: `Follower graph`,
         style: {
-          color: '#FFFFFF',
+          color: '#1E90FF',
           fontWeight: 'bold'
         }
 
