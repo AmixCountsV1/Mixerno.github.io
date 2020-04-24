@@ -5,7 +5,7 @@ setTimeout(function() {
   var stufflol = "";
   stufflol = textArray[randomNumber];
   var corsurl = stufflol //required works only in mixerno.github.io/ | Sorry.
-  var key = "https://corseverywheremiks.herokuapp.com/";
+  var key = "https://nugisextremelynice.herokuapp.com/";
   jQuery.ajaxPrefilter(function(options) {
     if (options.crossDomain && jQuery.support.cors) {
       options.url = key + options.url;
@@ -14,7 +14,6 @@ setTimeout(function() {
 
         key = textArray[randomNumber];
       }, 1000);
-      options.url = key + options.url;
     }
   });
   $(document).ready(function() {
@@ -36,7 +35,7 @@ setTimeout(function() {
 
       $.ajax({
 
-        url: 'https://www.tiktok.com/node/share/user/@' + params[1],
+        url: 'https://mixernobest.herokuapp.com/@' + params[1],
         // Handle as Text
         dataType: "text",
         success: function(data) {
@@ -60,7 +59,7 @@ setTimeout(function() {
     setInterval(function() {
       $.ajax({
 
-        url: 'https://www.tiktok.com/node/share/user/@' + params[1],
+        url: 'https://mixernobest.herokuapp.com/@' + params[1],
         // Handle as Text
         dataType: "text",
         success: function(data) {
