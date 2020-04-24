@@ -8,7 +8,7 @@ var corsurl = stufflol //required works only in mixerno.github.io/ | Sorry.
 var key = "https://nobnabob.herokuapp.com/";
 jQuery.ajaxPrefilter(function(options) {
   if (options.crossDomain && jQuery.support.cors) {
-    options.url = key + options.url;
+    //options.url = key + options.url;
     setInterval(function() {
       var randomNumber = Math.floor(Math.random()*textArray.length);
 
@@ -41,7 +41,7 @@ $(document).ready(function() {
     chart: {
       backgroundColor: 'transparent',
       renderTo: container,
-      type: 'line'
+      type: 'spline'
     },
     title: {
       text: `Follower diffrence graph`,
@@ -98,7 +98,7 @@ $(document).ready(function() {
 
       $.ajax({
 
-        url: 'https://www.tiktok.com/node/share/user/@' + params[1],
+        url: 'https://mixernobest.herokuapp.com/@' + params[1],
         // Handle as Text
         dataType: "text",
         success: function(data) {
@@ -112,7 +112,7 @@ $(document).ready(function() {
           $("#img1").attr('src', `${json.body.userData.covers}`);
           $.ajax({
 
-            url: 'https://www.tiktok.com/node/share/user/@' + params[2],
+            url: 'https://mixernobest.herokuapp.com/@' + params[2],
             // Handle as Text
             dataType: "text",
             success: function(data) {
@@ -144,7 +144,7 @@ $(document).ready(function() {
 
 
 
-  setInterval(usernamelol, 4000)
+  setInterval(usernamelol, 5000)
 
 
 

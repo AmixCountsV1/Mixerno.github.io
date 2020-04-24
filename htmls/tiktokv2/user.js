@@ -8,7 +8,7 @@ setTimeout(function() {
   var key = "https://nobnabob.herokuapp.com/";
   jQuery.ajaxPrefilter(function(options) {
     if (options.crossDomain && jQuery.support.cors) {
-      options.url = key + options.url;
+      //options.url = key + options.url;
       setInterval(function() {
         var randomNumber = Math.floor(Math.random()*textArray.length);
 
@@ -37,11 +37,12 @@ setTimeout(function() {
       $('body').css('background-color', 'transparent');
       console.log("transparent2 activated")
     });
+    
     var stuff = new Highcharts.chart('container', {
       chart: {
         backgroundColor: 'transparent',
         renderTo: container,
-        type: 'line'
+        type: 'spline'
       },
       title: {
         text: `Follower graph`,
@@ -87,6 +88,26 @@ setTimeout(function() {
     var params = parms.split('?');
     var fans2 = "not using here sorry bois.";
     var chanelid = "no";
+    if(params[2] = 1) {
+      $('body').css('color', 'white');
+      $('body').css('background-color', 'black');
+      console.log("Black theme activated")
+    }
+    if(params[2] = 2) {
+      $('body').css('color', 'black');
+      $('body').css('background-color', 'white');
+      console.log("White theme activated")
+    }
+    if(params[2] = 3) {
+      $('body').css('color', 'white');
+      $('body').css('background-color', 'transparent');
+      console.log("transparent1 activated")
+    }
+    if(params[2] = 4) {
+      $('body').css('color', 'black');
+      $('body').css('background-color', 'transparent');
+      console.log("transparent2 activated")
+    }
     usernamelol(params[1]);
 
 
@@ -96,7 +117,7 @@ setTimeout(function() {
 
         $.ajax({
 
-          url: 'https://www.tiktok.com/node/share/user/@' + params[1],
+          url: 'https://mixernobest.herokuapp.com/@' + params[1],
           // Handle as Text
           dataType: "text",
           success: function(data) {

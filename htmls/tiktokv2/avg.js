@@ -8,7 +8,7 @@ var corsurl = stufflol //required works only in mixerno.github.io/ | Sorry.
 var key = "";
 jQuery.ajaxPrefilter(function(options) {
   if (options.crossDomain && jQuery.support.cors) {
-    options.url = 'https://corseverywheremiks.herokuapp.com/' + options.url;
+    //options.url = 'https://corseverywheremiks.herokuapp.com/' + options.url;
     /*setInterval(function() {
       var randomNumber = Math.floor(Math.random()*textArray.length);
 
@@ -67,7 +67,7 @@ var dayst2 = 0;
 
       $.ajax({
 
-        url: 'https://www.tiktok.com/node/share/user/@' + params[1],
+        url: 'https://mixernobest.herokuapp.com/@' + params[1],
         // Handle as Text
         dataType: "text",
         success: function(data) {
@@ -83,7 +83,7 @@ var dayst2 = 0;
           fols1.innerHTML = stats1
           $.ajax({
 
-            url: 'https://www.tiktok.com/node/share/user/@' + params[2],
+            url: 'https://mixernobest.herokuapp.com/@' + params[2],
             // Handle as Text
             dataType: "text",
             success: function(data) {
@@ -112,7 +112,7 @@ var dayst2 = 0;
   setInterval(function() {
       $.ajax({
 
-        url: 'https://www.tiktok.com/node/share/user/@' + params[1],
+        url: 'https://mixernobest.herokuapp.com/@' + params[1],
         // Handle as Text
         dataType: "text",
         success: function(data) {
@@ -125,7 +125,7 @@ var dayst2 = 0;
           fols1.innerHTML = stats1
           $.ajax({
 
-            url: 'https://www.tiktok.com/node/share/user/@' + params[2],
+            url: 'https://mixernobest.herokuapp.com/@' + params[2],
             // Handle as Text
             dataType: "text",
             success: function(data) {
