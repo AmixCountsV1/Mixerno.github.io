@@ -16,26 +16,32 @@ setTimeout(function() {
       }, 1000);
     }
   });
+  var parms = window.location.href;
+    var params = parms.split('?');
   $(document).ready(function() {
     $('#whitee').click(function() {
       $('body').css('color', 'black');
       $('body').css('background-color', 'white');
-      console.log("White theme activated")
+      console.log("White theme activated");
+      location.href = `${params[0]}?${params[1]}?1`;
     });
     $('#blackk').click(function() {
       $('body').css('color', 'white');
       $('body').css('background-color', 'black');
-      console.log("Black theme activated")
+      console.log("Black theme activated");
+      location.href = `${params[0]}?${params[1]}?2`;
     });
     $('#transparent1').click(function() {
       $('body').css('color', 'white');
       $('body').css('background-color', 'transparent');
-      console.log("transparent1 activated")
+      console.log("transparent1 activated");
+      location.href = `${params[0]}?${params[1]}?3`;
     });
     $('#transparent2').click(function() {
       $('body').css('color', 'black');
       $('body').css('background-color', 'transparent');
-      console.log("transparent2 activated")
+      console.log("transparent2 activated");
+      location.href = `${params[0]}?${params[1]}?4`;
     });
     
     var stuff = new Highcharts.chart('container', {
@@ -84,30 +90,9 @@ setTimeout(function() {
       }]
     })
 
-    var parms = window.location.href;
-    var params = parms.split('?');
+    
     var fans2 = "not using here sorry bois.";
     var chanelid = "no";
-    if(params[2] = 1) {
-      $('body').css('color', 'white');
-      $('body').css('background-color', 'black');
-      console.log("Black theme activated")
-    }
-    if(params[2] = 2) {
-      $('body').css('color', 'black');
-      $('body').css('background-color', 'white');
-      console.log("White theme activated")
-    }
-    if(params[2] = 3) {
-      $('body').css('color', 'white');
-      $('body').css('background-color', 'transparent');
-      console.log("transparent1 activated")
-    }
-    if(params[2] = 4) {
-      $('body').css('color', 'black');
-      $('body').css('background-color', 'transparent');
-      console.log("transparent2 activated")
-    }
     usernamelol(params[1]);
 
 
@@ -146,3 +131,29 @@ $.getJSON(url1, function(data) {
 
 
   });
+  if(params[2] == 1) {
+    $('body').css('color', 'black');
+    $('body').css('background-color', 'white');
+    console.log("White theme activated")
+  }
+  if(params[2] == 2) {
+  
+    $('body').css('color', 'white');
+    $('body').css('background-color', 'black');
+    console.log("Black theme activated")
+  
+  }
+  if(params[2] == 3) {
+  
+    $('body').css('color', 'white');
+    $('body').css('background-color', 'transparent');
+    console.log("transparent1 activated")
+  
+  }
+  if(params[2] == 4) {
+  
+    $('body').css('color', 'black');
+    $('body').css('background-color', 'transparent');
+    console.log("transparent2 activated")
+  
+  }

@@ -16,27 +16,36 @@ jQuery.ajaxPrefilter(function(options) {
     }, 1000);
   }
 });
+var parms = window.location.href;
+  var params = parms.split('?');
 $(document).ready(function() {
+  
+  
   $('#whitee').click(function() {
     $('body').css('color', 'black');
     $('body').css('background-color', 'white');
-    console.log("White theme activated")
+    console.log("White theme activated");
+    location.href = `${params[0]}?${params[1]}?${params[2]}?1`;
   });
   $('#blackk').click(function() {
     $('body').css('color', 'white');
     $('body').css('background-color', 'black');
-    console.log("Black theme activated")
+    console.log("Black theme activated");
+    location.href = `${params[0]}?${params[1]}?${params[2]}?2`;
   });
   $('#transparent1').click(function() {
     $('body').css('color', 'white');
     $('body').css('background-color', 'transparent');
-    console.log("transparent1 activated")
+    console.log("transparent1 activated");
+    location.href = `${params[0]}?${params[1]}?${params[2]}?3`;
   });
   $('#transparent2').click(function() {
     $('body').css('color', 'black');
     $('body').css('background-color', 'transparent');
-    console.log("transparent2 activated")
+    console.log("transparent2 activated");
+    location.href = `${params[0]}?${params[1]}?${params[2]}?4`;
   });
+  
   var stuff = new Highcharts.chart('container', {
     chart: {
       backgroundColor: 'transparent',
@@ -83,8 +92,7 @@ $(document).ready(function() {
     }]
   })
 
-  var parms = window.location.href;
-  var params = parms.split('?');
+  
   var stats1 = 0;
   var stats2 = 0;
   var s1s2 = 0;
@@ -125,9 +133,36 @@ $.getJSON(url1, function(data) {
 
 
   setInterval(usernamelol, 4000)
+  
 
 
 
 
 
 });
+if(params[3] == 1) {
+  $('body').css('color', 'black');
+  $('body').css('background-color', 'white');
+  console.log("White theme activated")
+}
+if(params[3] == 2) {
+
+  $('body').css('color', 'white');
+  $('body').css('background-color', 'black');
+  console.log("Black theme activated")
+
+}
+if(params[3] == 3) {
+
+  $('body').css('color', 'white');
+  $('body').css('background-color', 'transparent');
+  console.log("transparent1 activated")
+
+}
+if(params[3] == 4) {
+
+  $('body').css('color', 'black');
+  $('body').css('background-color', 'transparent');
+  console.log("transparent2 activated")
+
+}
