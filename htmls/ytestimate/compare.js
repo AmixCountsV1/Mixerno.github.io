@@ -100,6 +100,7 @@ $(document).ready(function() {
   usernamelol(params[1]);
 
 
+
   var count1 = 0;
   var count2 = 0;
   function usernamelol() {
@@ -117,6 +118,8 @@ $.getJSON(url1, function(data) {
                 count2 = Math.floor(data.count)
                 $("#img2").attr('src', `${data.avatarurl}`);
                });
+               setTimeout(function() {
+                comp.innerHTML = count1 - count2
             stuff.series[0].addPoint([
               (new Date()).getTime(),
               count1 - count2
@@ -125,6 +128,8 @@ $.getJSON(url1, function(data) {
             if (stuff.series[0].data.length >= 700) {
             stuff.series[0].data[0].remove()
           }
+               }, 400);
+               
   }
 
 
