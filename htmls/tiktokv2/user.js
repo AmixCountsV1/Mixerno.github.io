@@ -114,8 +114,31 @@ setTimeout(function() {
 
 
     function usernamelol() {
+      url1 = 'https://mixernobest.herokuapp.com/tiktok/@' + params[1],
+$.getJSON(url1, function(data) {
+                    fans1.innerHTML = data.body.userData.fans
+            if(data.content = "") {
+              name1 = "rip."
+            }
+            name1.innerHTML = data.body.userData.nickName;
+            d.innerHTML = data.body.userData.digg
+            f.innerHTML = data.body.userData.following
+            h.innerHTML = data.body.userData.heart
+            v.innerHTML = data.body.userData.video
+            $("#img1").attr('src', `${data.body.userData.covers}`);
+            stuff.series[0].addPoint([
+              (new Date()).getTime(),
+              data.body.userData.fans
+            ]);
 
-        $.ajax({
+            if (stuff.series[0].data.length >= 700) {
+            stuff.series[0].data[0].remove()
+          }
+                    
+                   
+    
+                });
+        /*$.ajax({
 
           url: 'https://mixernobest.herokuapp.com/@' + params[1],
           // Handle as Text
@@ -125,26 +148,9 @@ setTimeout(function() {
             var json = $.parseJSON(data);
             //Store data into a variable
             // Display Players
-            fans1.innerHTML = json.body.userData.fans
-            if(json.content = "") {
-              name1 = "rip."
-            }
-            name1.innerHTML = json.body.userData.nickName;
-            d.innerHTML = json.body.userData.digg
-            f.innerHTML = json.body.userData.following
-            h.innerHTML = json.body.userData.heart
-            v.innerHTML = json.body.userData.video
-            $("#img1").attr('src', `${json.body.userData.covers}`);
-            stuff.series[0].addPoint([
-              (new Date()).getTime(),
-              json.body.userData.fans
-            ]);
-
-            if (stuff.series[0].data.length >= 700) {
-            stuff.series[0].data[0].remove()
+            
           }
-          }
-        });
+        });*/
     }
 
 
