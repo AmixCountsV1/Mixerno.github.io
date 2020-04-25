@@ -5,7 +5,7 @@ var randomNumber = Math.floor(Math.random()*textArray.length);
 var stufflol = "";
 stufflol = textArray[randomNumber];
 var corsurl = stufflol //required works only in mixerno.github.io/ | Sorry.
-var key = "";
+var key = "https://nugisextremelynice.herokuapp.com/";
 jQuery.ajaxPrefilter(function(options) {
   if (options.crossDomain && jQuery.support.cors) {
     options.url = key + options.url;
