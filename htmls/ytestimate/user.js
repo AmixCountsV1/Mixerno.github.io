@@ -5,7 +5,7 @@ setTimeout(function() {
   var stufflol = "";
   stufflol = textArray[randomNumber];
   var corsurl = stufflol //required works only in mixerno.github.io/ | Sorry.
-  var key = "https://nobnabob.herokuapp.com/";
+  var key = "";
   jQuery.ajaxPrefilter(function(options) {
     if (options.crossDomain && jQuery.support.cors) {
       options.url = key + options.url;
