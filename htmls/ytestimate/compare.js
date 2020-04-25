@@ -5,7 +5,7 @@ var randomNumber = Math.floor(Math.random()*textArray.length);
 var stufflol = "";
 stufflol = textArray[randomNumber];
 var corsurl = stufflol //required works only in mixerno.github.io/ | Sorry.
-var key = "https://nobnabob.herokuapp.com/";
+var key = "";
 jQuery.ajaxPrefilter(function(options) {
   if (options.crossDomain && jQuery.support.cors) {
     options.url = key + options.url;
@@ -92,52 +92,6 @@ $(document).ready(function() {
   usernamelol(params[1]);
 
 
-
-
-  function usernamelol() {
-
-      $.ajax({
-
-        url: 'https://mixernobest.herokuapp.com//@' + params[1],
-        // Handle as Text
-        dataType: "text",
-        success: function(data) {
-          // Parse JSON file
-          var json = $.parseJSON(data);
-          //Store data into a variable
-          // Display Players
-          stats1 = json.body.userData.fans
-          fans1.innerHTML = json.body.userData.fans;
-          name1.innerHTML = json.body.userData.nickName;
-          $("#img1").attr('src', `${json.body.userData.covers}`);
-          $.ajax({
-
-            url: 'https://mixernobest.herokuapp.com/@' + params[2],
-            // Handle as Text
-            dataType: "text",
-            success: function(data) {
-              // Parse JSON file
-              var json = $.parseJSON(data);
-              //Store data into a variable
-              // Display Players
-              stats2 = json.body.userData.fans
-              fans2.innerHTML = json.body.userData.fans;
-              name2.innerHTML = json.body.userData.nickName;
-              $("#img2").attr('src', `${json.body.userData.covers}`);
-              comp.innerHTML = stats1 - stats2;
-              stuff.series[0].addPoint([
-                (new Date()).getTime(),
-                stats1 - stats2
-              ]);
-              if (stuff.series[0].data.length >= 700) {
-              stuff.series[0].data[0].remove()
-            }
-            }
-          });
-        }
-      });
-      
-  }
   var count1 = 0;
   var count2 = 0;
   function usernamelol() {
@@ -147,11 +101,13 @@ $.getJSON(url1, function(data) {
                   fans1.innerHTML = Math.floor(data.count)
                   name1.innerHTML = data.name;
                   count1 = Math.floor(data.count)
+                  $("#img1").attr('src', `${data.avatarurl}`);
               });
               $.getJSON(url2, function(data) {
                 fans2.innerHTML = Math.floor(data.count)
                 name2.innerHTML = data.name;
                 count2 = Math.floor(data.count)
+                $("#img2").attr('src', `${data.avatarurl}`);
                });
             stuff.series[0].addPoint([
               (new Date()).getTime(),
