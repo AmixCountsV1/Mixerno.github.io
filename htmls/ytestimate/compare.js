@@ -99,6 +99,7 @@ $(document).ready(function() {
 
   usernamelol(params[1]);
   loaduser2(params[2]);
+  compareusers();
 
 
 
