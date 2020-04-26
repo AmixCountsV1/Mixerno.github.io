@@ -270,7 +270,7 @@ stuff.series[0].addPoint([
 if (stuff.series[0].data.length >= 700) {
   stuff.series[0].data[0].remove()
 }
-     }, 400);
+     }, 1000);
 }
 
   setInterval(usernamelol, 4000)
