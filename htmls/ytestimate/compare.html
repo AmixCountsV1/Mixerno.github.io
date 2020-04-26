@@ -13,7 +13,8 @@
   <script src="../../embeds/cors.js"></script>
   
   <div class="footer">
-    <a class="link" href="../../index.html" class="left">Home</a>
+    <img src="https://yt3.ggpht.com/a-/AOh14GhVWagi88Rfs6XXerg3-3PR4RPHYcolFIrYXZ4_=s288-c-k-c0xffffffff-no-rj-mo" height="23" width="23">
+  <a class="link" href="user.html?ninja?1?mixer" class="left">Home</a>
     <div>
       <input class="custom" type="button" id="whitee" value="White theme" />
       <input class="custom" type="button" id="blackk" value="Black theme" />
@@ -34,8 +35,18 @@
     <div id="fans1" class="odometer" style="font-size:25px;">0</div>
     <br>
     <br>
-    <input placeholder="Channel name" type="text" value="" id="chnlName" class="right"></input>
+    <div>
+      <select id="userplatform1" name="platformuser1" style="width: 90px;">
+        <option id="usermixer1" value="mixer">Mixer</option>
+        <option id="useryoutube1" value="youtube">Youtube</option>
+        <option id="usertwitter1" value="twitter">Twitter</option>
+        <option id="userdailymotion1" value="dailymotion">Dailymotion</option>
+        <option id="userstoryfire1" value="storyfire">Storyfire</option>
+        <option id="usertiktok1" value="tiktok">TikTok</option>
+      </select>
+    <input placeholder="user" type="text" value="" id="chnlName" class="right"></input>
       <button id="searchuser">Search for a user</button>
+    </div>
   </div>
   <br>
   <div>
@@ -44,8 +55,18 @@
     <div id="fans2" class="odometer" style="font-size:25px;">0</div>
     <br>
     <br>
-    <input placeholder="Channel name" type="text" value="" id="chnlName2" class="right"></input>
+    <div>
+      <select id="userplatform2" name="platformuser2" style="width: 90px;">
+        <option id="usermixer2" value="mixer">Mixer</option>
+        <option id="useryoutube2" value="youtube">Youtube</option>
+        <option id="usertwitter2" value="twitter">Twitter</option>
+        <option id="userdailymotion2" value="dailymotion">Dailymotion</option>
+        <option id="userstoryfire2" value="storyfire">Storyfire</option>
+        <option id="usertiktok2" value="tiktok">TikTok</option>
+      </select>
+    <input placeholder="user" type="text" value="" id="chnlName2" class="right"></input>
       <button id="searchuser2">Search for a user</button>
+    </div>
   </div>
   </div>
     <br>
@@ -54,7 +75,7 @@
       <div style="font-size: 20px;">diffrence</div>
     <br>
     <br>
-    <div>Note: The subscriber counters are <strong>Estimated</strong></div>
+    <!--<div>Note: The subscriber counters are <strong>Estimated</strong></div>-->
     <br>
     <figure class="highcharts-figure">
       <div id="container"></div>
@@ -220,8 +241,29 @@ body {
     }
 });
               $('#searchuser').click(function() {
-
-                  location.href = `${params[0]}?${$('#chnlName').val()}?${params[2]}?${params[3]}`;
+                var selected = $('#userplatform1').val()
+                
+      if(selected == "mixer") {
+        location.href = `${params[0]}?${$('#chnlName').val()}?${params[2]}?${params[3]}?mixer?${params[5]}`;
+      }
+      if(selected == "youtube") {
+        location.href = `${params[0]}?${$('#chnlName').val()}?${params[2]}?${params[3]}?youtube?${params[5]}`;
+      }
+      if(selected == "twitter") {
+        location.href = `${params[0]}?${$('#chnlName').val()}?${params[2]}?${params[3]}?twitter?${params[5]}`;
+      }
+      if(selected == "dailymotion") {
+        location.href = `${params[0]}?${$('#chnlName').val()}?${params[2]}?${params[3]}?dailymotion?${params[5]}`;
+      }
+      if(selected == "storyfire") {
+        location.href = `${params[0]}?${$('#chnlName').val()}?${params[2]}?${params[3]}?storyfire?${params[5]}`;
+      }
+      if(selected == "tiktok") {
+        location.href = `${params[0]}?${$('#chnlName').val()}?${params[2]}?${params[3]}?tiktok?${params[5]}`;
+      } else {
+        console.log("error idk how");
+      }
+                  //location.href = `${params[0]}?${$('#chnlName').val()}?${params[2]}?${params[3]}`;
 
                 
       });
@@ -231,8 +273,32 @@ body {
     }
 });
                 $('#searchuser2').click(function() {
-                  
-                  location.href = `${params[0]}?${params[1]}?${$('#chnlName2').val()}?${params[3]}`;
+                  var selected = $('#userplatform2').val()
+                
+      if(selected == "mixer") {
+        location.href = `${params[0]}?${params[1]}?${$('#chnlName2').val()}?${params[3]}?${params[4]}?mixer`;
+      }
+      if(selected == "youtube") {
+        location.href = `${params[0]}?${params[1]}?${$('#chnlName2').val()}?${params[3]}?${params[4]}?youtube?`;
+      }
+      if(selected == "twitter") {
+        location.href = `${params[0]}?${params[1]}?${$('#chnlName2').val()}?${params[3]}?${params[4]}?twitter?`;
+      }
+      if(selected == "dailymotion") {
+        location.href = `${params[0]}?${params[1]}?${$('#chnlName2').val()}?${params[3]}?${params[4]}?dailymotion?`;
+      }
+      if(selected == "storyfire") {
+        location.href = `${params[0]}?${params[1]}?${$('#chnlName2').val()}?${params[3]}?${params[4]}?storyfire?`;
+      }
+      if(selected == "tiktok") {
+        location.href = `${params[0]}?${params[1]}?${$('#chnlName2').val()}?${params[3]}?${params[4]}?tiktok`;
+      } else {
+        console.log("error idk how");
+      }
+                  //location.href = `${params[0]}?${$('#chnlName').val()}?${params[2]}?${params[3]}`;
+
+           
+                  //location.href = `${params[0]}?${params[1]}?${$('#chnlName2').val()}?${params[3]}`;
                 
       });
       $('#chnlName').val("")
