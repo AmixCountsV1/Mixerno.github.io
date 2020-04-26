@@ -202,6 +202,11 @@
 $(document).ready(function() {
             var parms = window.location.href;
   var params = parms.split('?');
+  $('#chnlName').on('keyup', function(e) {
+    if (e.keyCode === 13) {
+        $('#searchuser').click();
+    }
+});
             $('#searchuser').click(function() {
                 location.href = `${params[0]}?${$('#chnlName').val()}`;
     });
