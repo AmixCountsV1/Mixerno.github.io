@@ -205,112 +205,76 @@ $("#img1").attr('src', `${data.body.userData.covers[0]}`);
       count2 = data.numFollowers;
       $("#img2").attr('src', `${data.user.avatarUrl}`);
      });
-     setTimeout(function() {
-      comp.innerHTML = count1 - count2
-  stuff.series[0].addPoint([
-    (new Date()).getTime(),
-    count1 - count2
-  ]);
+     
 
-  if (stuff.series[0].data.length >= 700) {
-  stuff.series[0].data[0].remove()
-}
-     }, 400);}
+  }
      if(params[5] == "youtube") {$.getJSON(url22, function(data) {
       fans2.innerHTML = Math.floor(data.count)
       name2.innerHTML = data.name;
       count2 = data.count;
       $("#img2").attr('src', `${data.avatarurl}`);
      });
-     setTimeout(function() {
-      comp.innerHTML = count1 - count2
-  stuff.series[0].addPoint([
-    (new Date()).getTime(),
-    count1 - count2
-  ]);
+     
 
-  if (stuff.series[0].data.length >= 700) {
-  stuff.series[0].data[0].remove()
-}
-     }, 400);}
+  }
      if(params[5] == "twitter") {$.getJSON(url32, function(data) {
       fans2.innerHTML = Math.floor(data.followers_count)
       name2.innerHTML = data.name;
       count2 = data.followers_count;
       $("#img2").attr('src', `${data.profile_image_url_https}`);
      });
-     setTimeout(function() {
-      comp.innerHTML = count1 - count2
-  stuff.series[0].addPoint([
-    (new Date()).getTime(),
-    count1 - count2
-  ]);
+     
 
-  if (stuff.series[0].data.length >= 700) {
-  stuff.series[0].data[0].remove()
-}
-     }, 400);}
+  }
      if(params[5] == "dailymotion") {$.getJSON(url42, function(data) {
       fans2.innerHTML = Math.floor(data.list[0].followers_total)
       name2.innerHTML = data.list[0].screenname;
       count2 = data.list[0].followers_total;
       $("#img2").attr('src', `${data.list[0].avatar_720_url}`);
      });
-     setTimeout(function() {
-      comp.innerHTML = count1 - count2
-  stuff.series[0].addPoint([
-    (new Date()).getTime(),
-    count1 - count2
-  ]);
+     
 
-  if (stuff.series[0].data.length >= 700) {
-  stuff.series[0].data[0].remove()
-}
-     }, 400);}
+  }
      if(params[5] == "storyfire") {$.getJSON(url52, function(data) {
       fans2.innerHTML = Math.floor(data.followersCount)
       name2.innerHTML = data.username;
       count2 = data.followersCount;
       $("#img2").attr('src', `${data.userimage}`);
      });
-     setTimeout(function() {
-      comp.innerHTML = count1 - count2
-  stuff.series[0].addPoint([
-    (new Date()).getTime(),
-    count1 - count2
-  ]);
+     
 
-  if (stuff.series[0].data.length >= 700) {
-  stuff.series[0].data[0].remove()
-}
-     }, 400);}
+  }
      if(params[5] == "tiktok") {$.getJSON(url62, function(data) {
       fans2.innerHTML = Math.floor(data.body.userData.fans)
       name2.innerHTML = data.body.userData.nickName;
       count2 = data.body.userData.fans;
       $("#img2").attr('src', `${data.body.userData.covers[0]}`);
      });
-     setTimeout(function() {
-      comp.innerHTML = count1 - count2
-  stuff.series[0].addPoint([
-    (new Date()).getTime(),
-    count1 - count2
-  ]);
+     
 
-  if (stuff.series[0].data.length >= 700) {
-  stuff.series[0].data[0].remove()
-}
-     }, 400);}
+  }
     
   }
 
 
 
 
-
+function compareusers() {
+  setTimeout(function() {
+    comp.innerHTML = Math.floor(count1 - count2)
+stuff.series[0].addPoint([
+  (new Date()).getTime(),
+  Math.floor(count1 - count2)
+]);
+if (stuff.series[0].data.length >= 700) {
+  stuff.series[0].data[0].remove()
+}
+     }, 400);
+}
 
   setInterval(usernamelol, 4000)
   setInterval(loaduser2, 4000)
+  setInterval(compareusers, 4000)
   
 
 
