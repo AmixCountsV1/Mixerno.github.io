@@ -130,12 +130,13 @@ $(document).ready(function() {
   
   function usernamelol() {
     url1 = `${key}https://mixer.com/api/v1/channels/${params[1]}/details`,
-      url2 = `${key}https://mixernobest.herokuapp.com/ytestimate/@` + params[1],
+      url2 = `${key}https://freewebtools.com/compteur-youtube/?channelId=` + params[1],
       url3 = `${key}https://api.thesocialcounter.com/twitter/?name=` + params[1],
       url3x = `https://bastet.socialblade.com/twitter/lookup?query=` + params[1],
       url4 = `${key}https://api.dailymotion.com/users?usernames=${params[1]}&fields=screenname%2Cverified%2Curl%2Cdescription%2Cavatar_720_url%2Ccover_url%2Ccountry%2Cfollowers_total%2Cfollowing_total%2Cplaylists_total%2Cvideos_total%2Cviews_total%2Cid`,
       url5 = `${key}https://storyfire.com/app/users/getProfile/` + params[1],
-      url6 = `${key}https://mixernobest.herokuapp.com/tiktok/@` + params[1]
+      url6 = `${key}https://mixernobest.herokuapp.com/tiktok/@` + params[1],
+      url7 = `${key}https://mixernobest.herokuapp.com/ytestimate2/@` + params[1]
     
 
     if(params[4] == "mixer") {
@@ -220,18 +221,31 @@ $("#img1").attr('src', `${data.body.userData.covers[0]}`);
     });
     
     }
+    if(params[4] == "ytestimation2") {
+      $.getJSON(url7, function(data) {
+        fans1.innerHTML = Math.floor(data.count)
+  name1.innerHTML = data.name;
+  $("#img1").attr('src', `${data.avatarurl}`);
+  count1 = Math.floor(data.count);
+  
+        
+       
+  
+    });
+    }
 
 
 
   }
   function loaduser2() {
     url12 = `${key}https://mixer.com/api/v1/channels/${params[2]}/details`,
-      url22 = `${key}https://mixernobest.herokuapp.com/ytestimate/@` + params[2],
+      url22 = `${key}https://freewebtools.com/compteur-youtube/?channelId=` + params[2],
       url32 = `${key}https://api.thesocialcounter.com/twitter/?name=` + params[2],
       url3x2 = `https://bastet.socialblade.com/twitter/lookup?query=` + params[2],
       url42 = `${key}https://api.dailymotion.com/users?usernames=${params[2]}&fields=screenname%2Cverified%2Curl%2Cdescription%2Cavatar_720_url%2Ccover_url%2Ccountry%2Cfollowers_total%2Cfollowing_total%2Cplaylists_total%2Cvideos_total%2Cviews_total%2Cid`,
       url52 = `${key}https://storyfire.com/app/users/getProfile/` + params[2],
-      url62 = `${key}https://mixernobest.herokuapp.com/tiktok/@` + params[2]
+      url62 = `${key}https://mixernobest.herokuapp.com/tiktok/@` + params[2],
+      url72 = `${key}https://mixernobest.herokuapp.com/ytestimate2/@` + params[2]
     if(params[5] == "mixer") {$.getJSON(url12, function(data) {
       fans2.innerHTML = Math.floor(data.numFollowers)
       name2.innerHTML = data.name;
@@ -293,6 +307,18 @@ $("#img1").attr('src', `${data.body.userData.covers[0]}`);
      });
      
 
+  }
+  if(params[5] == "ytestimation2") {
+    $.getJSON(url72, function(data) {
+      fans2.innerHTML = Math.floor(data.count)
+name2.innerHTML = data.name;
+$("#img2").attr('src', `${data.avatarurl}`);
+count2 = Math.floor(data.count);
+
+      
+     
+
+  });
   }
     
   }
