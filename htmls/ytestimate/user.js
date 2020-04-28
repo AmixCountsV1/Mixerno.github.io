@@ -108,12 +108,16 @@ setTimeout(function() {
       url4 = `${key}https://api.dailymotion.com/users?usernames=${params[1]}&fields=screenname%2Cverified%2Curl%2Cdescription%2Cavatar_720_url%2Ccover_url%2Ccountry%2Cfollowers_total%2Cfollowing_total%2Cplaylists_total%2Cvideos_total%2Cviews_total%2Cid`,
       url5 = `${key}https://storyfire.com/app/users/getProfile/` + params[1],
       url6 = `${key}https://mixernobest.herokuapp.com/tiktok/@` + params[1],
-      url7 = `${key}https://mixernobest.herokuapp.com/ytestimate2/@` + params[1]
+      url7 = `${key}https://mixernobest.herokuapp.com/ytestimate2/@` + params[1],
+      url8 = `${key}https://blastup.com/instagram/info?username=` + params[1]
+      //url8 = `https://blastup.com/instagram/info?username=` + params[1]
+      //url8 = `${key}https://blastup.com/instagram/info?username=` + params[1]
+
 
       if(params[3] == "mixer") {
         $.getJSON(url1, function(data) {
           fans1.innerHTML = Math.floor(data.numFollowers)
-  name1.innerHTML = data.name;
+  name1.innerHTML = data.token;
   $("#img1").attr('src', `${data.user.avatarUrl}`);
   stuff.series[0].addPoint([
     (new Date()).getTime(),
@@ -234,6 +238,28 @@ setTimeout(function() {
   stuff.series[0].addPoint([
     (new Date()).getTime(),
     Math.floor(data.count)
+  ]);
+
+  if (stuff.series[0].data.length >= 700) {
+  stuff.series[0].data[0].remove()
+}
+          
+         
+
+      });
+      }
+      var temporary1 = 0;
+      var temporary2 = 0;
+      if(params[3] == "instagram") {
+        $.getJSON(url8, function(data) {
+          temporary1 = (data.data.followers).replace(/,/g, "")
+          fans1.innerHTML = temporary1
+          console.log(temporary1);
+  name1.innerHTML = data.data.username;
+  $("#img1").attr('src', `${data.data.profile_picture}`);
+  stuff.series[0].addPoint([
+    (new Date()).getTime(),
+    temporary1
   ]);
 
   if (stuff.series[0].data.length >= 700) {

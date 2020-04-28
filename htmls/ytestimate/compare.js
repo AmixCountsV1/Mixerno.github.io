@@ -136,7 +136,8 @@ $(document).ready(function() {
       url4 = `${key}https://api.dailymotion.com/users?usernames=${params[1]}&fields=screenname%2Cverified%2Curl%2Cdescription%2Cavatar_720_url%2Ccover_url%2Ccountry%2Cfollowers_total%2Cfollowing_total%2Cplaylists_total%2Cvideos_total%2Cviews_total%2Cid`,
       url5 = `${key}https://storyfire.com/app/users/getProfile/` + params[1],
       url6 = `${key}https://mixernobest.herokuapp.com/tiktok/@` + params[1],
-      url7 = `${key}https://mixernobest.herokuapp.com/ytestimate2/@` + params[1]
+      url7 = `${key}https://mixernobest.herokuapp.com/ytestimate2/@` + params[1],
+      url8 = `${key}https://blastup.com/instagram/info?username=` + params[1]
     
 
     if(params[4] == "mixer") {
@@ -232,6 +233,22 @@ $("#img1").attr('src', `${data.body.userData.covers[0]}`);
        
   
     });
+    var temporary1 = 0;
+      var temporary2 = 0;
+      if(params[4] == "instagram") {
+        $.getJSON(url8, function(data) {
+          temporary1 = (data.data.followers).replace(/,/g, "")
+          fans1.innerHTML = temporary1
+          count1 = temporary1
+          console.log(temporary1);
+  name1.innerHTML = data.data.username;
+  $("#img1").attr('src', `${data.data.profile_picture}`);
+
+          
+         
+
+      });
+      }
     }
 
 
@@ -245,7 +262,8 @@ $("#img1").attr('src', `${data.body.userData.covers[0]}`);
       url42 = `${key}https://api.dailymotion.com/users?usernames=${params[2]}&fields=screenname%2Cverified%2Curl%2Cdescription%2Cavatar_720_url%2Ccover_url%2Ccountry%2Cfollowers_total%2Cfollowing_total%2Cplaylists_total%2Cvideos_total%2Cviews_total%2Cid`,
       url52 = `${key}https://storyfire.com/app/users/getProfile/` + params[2],
       url62 = `${key}https://mixernobest.herokuapp.com/tiktok/@` + params[2],
-      url72 = `${key}https://mixernobest.herokuapp.com/ytestimate2/@` + params[2]
+      url72 = `${key}https://mixernobest.herokuapp.com/ytestimate2/@` + params[2],
+      url82 = `${key}https://blastup.com/instagram/info?username=` + params[2]
     if(params[5] == "mixer") {$.getJSON(url12, function(data) {
       fans2.innerHTML = Math.floor(data.numFollowers)
       name2.innerHTML = data.name;
@@ -320,6 +338,22 @@ count2 = Math.floor(data.count);
 
   });
   }
+  var temporary12 = 0;
+      var temporary22 = 0;
+      if(params[5] == "instagram") {
+        $.getJSON(url82, function(data) {
+          temporary12 = (data.data.followers).replace(/,/g, "")
+          fans2.innerHTML = temporary12
+          count2 = temporary12
+          console.log(temporary12);
+  name2.innerHTML = data.data.username;
+  $("#img2").attr('src', `${data.data.profile_picture}`);
+
+          
+         
+
+      });
+      }
     
   }
 
