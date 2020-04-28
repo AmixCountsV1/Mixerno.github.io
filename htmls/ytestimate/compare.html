@@ -4,7 +4,7 @@
 
 <head>
 
-  <title>Mixerno | Dailymotion counter</title>
+  <title>Mixerno</title>
   <link rel="shortcut icon" href="https://yt3.ggpht.com/a-/AOh14GhVWagi88Rfs6XXerg3-3PR4RPHYcolFIrYXZ4_=s288-c-k-c0xffffffff-no-rj-mo">
   <link rel="stylesheet" href="../../o2.css" />
   <script src="../../odometer.js"></script>
@@ -15,18 +15,29 @@
   <div class="footer">
     <img src="https://yt3.ggpht.com/a-/AOh14GhVWagi88Rfs6XXerg3-3PR4RPHYcolFIrYXZ4_=s288-c-k-c0xffffffff-no-rj-mo" height="23" width="23">
   <a class="link" href="user.html?ninja?1?mixer" class="left">Home</a>
-    <div>
-      <input class="custom" type="button" id="whitee" value="White theme" />
-      <input class="custom" type="button" id="blackk" value="Black theme" />
-      <input class="custom" type="button" id="transparent1" value="Transparent background (white text)"/>
-      <input class="custom" type="button" id="transparent2" value="Transparent background (black text)"/>
+<button id="buton2" class="comaprebutton">Themes</button>
+
     </div>
-  </div>
-  <span class="l">
+  
+    <span class="l">
     <center>
     <br>
     <br>
-
+    <center>
+      <div id="popupstuffye2" class="modal">
+        <div class="modal-content">
+          <span id="clos2" class="close">&times;</span>
+          <p style="color: black; font-size: 20px;">Themes:</p>
+          <br>
+          <div>
+            <input class="custom" type="button" id="whitee" value="White theme" />
+            <input class="custom" type="button" id="blackk" value="Black theme" />
+            <input class="custom" type="button" id="transparent1" value="Transparent background (white text)"/>
+            <input class="custom" type="button" id="transparent2" value="Transparent background (black text)"/>
+          </div>
+        </div></div>
+      </center>
+    
     <div class="hell">
       
       <div>
@@ -44,7 +55,7 @@
         <option id="userstoryfire1" value="storyfire">Storyfire</option>
         <option id="usertiktok1" value="tiktok">TikTok</option>
       </select>
-    <input placeholder="user" type="text" value="" id="chnlName" class="right"></input>
+    <input placeholder="user" type="text" value="" style="width: 100px;" id="chnlName" class="right"></input>
       <button id="searchuser">Search for a user</button>
     </div>
   </div>
@@ -64,7 +75,7 @@
         <option id="userstoryfire2" value="storyfire">Storyfire</option>
         <option id="usertiktok2" value="tiktok">TikTok</option>
       </select>
-    <input placeholder="user" type="text" value="" id="chnlName2" class="right"></input>
+    <input placeholder="user" type="text" value="" style="width: 100px;" id="chnlName2" class="right"></input>
       <button id="searchuser2">Search for a user</button>
     </div>
   </div>
@@ -90,6 +101,15 @@
 
 
   <style>
+       input[type=text], select {
+  width: 10%;
+  padding: 2.5px 5px;
+  margin: 0px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 1px;
+  box-sizing: border-box;
+}
     .custom {
   background-color: rgba(0, 0, 0, 0.712);
   border: none;
@@ -106,6 +126,18 @@
   background-color: rgb(255, 255, 255);
   border: none;
   color: rgb(0, 0, 0);
+  padding: 2.5px 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 0px 0px;
+  cursor: pointer;
+}
+.comaprebutton {
+  background-color: rgb(0, 0, 0);
+  border: none;
+  color: rgb(255, 255, 255);
   padding: 2.5px 5px;
   text-align: center;
   text-decoration: none;
@@ -177,22 +209,15 @@
       background: #ffffff;
     }
 
-    
-    @font-face {
-      font-family: robotolight;
-        src: url(../../Roboto-Thin.ttf);
-}
-body {
+
+    body {
       background-color: rgb(0, 0, 0);
       color: rgb(255, 255, 255);
-      font-family: robotolight;
+      font-family: Arial;
     }
 
     div {
       font-size: 36
-    }
-    .odometer {
-      font-family: robotolight;
     }
     .footer {
           position: fixed;
@@ -223,6 +248,46 @@ body {
     .link:active{
       color:white;
     }
+    /* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+    
   </style>
 </head>
 
@@ -301,9 +366,35 @@ body {
                   //location.href = `${params[0]}?${params[1]}?${$('#chnlName2').val()}?${params[3]}`;
                 
       });
+      
       $('#chnlName').val("")
       $('#chnlName2').val("")
                 });
+                
+  </script>
+  <script>
+    // Get the modal
+  var modal2 = document.getElementById("popupstuffye2");
+  
+  // Get the button that opens the modal
+  
+  
+  // When the user clicks the button, open the modal 
+  buton2.onclick = function() {
+    modal2.style.display = "block";
+  }
+  
+  // When the user clicks on <span> (x), close the modal
+  clos2.onclick = function() {
+    modal2.style.display = "none";
+  }
+  
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+    if (event.target == modal2) {
+      modal2.style.display = "none";
+    }
+  }
   </script>
 
 <script src="../../embeds/cors.js"></script>

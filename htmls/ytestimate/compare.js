@@ -5,10 +5,11 @@ var randomNumber = Math.floor(Math.random()*textArray.length);
 var stufflol = "";
 stufflol = textArray[randomNumber];
 var corsurl = stufflol //required works only in mixerno.github.io/ | Sorry.
-var key = "https://nugisextremelynice.herokuapp.com/";
+var key = "";
+  key = textArray[randomNumber]
 jQuery.ajaxPrefilter(function(options) {
   if (options.crossDomain && jQuery.support.cors) {
-    options.url = key + options.url;
+    options.url = '' + options.url;
     setInterval(function() {
       var randomNumber = Math.floor(Math.random()*textArray.length);
 
@@ -22,17 +23,38 @@ $(document).ready(function() {
   
   
   $('#whitee').click(function() {
+    $('.odometer odometer-auto-theme.odometer-animating-up').css('color', 'black');
+    $('.odometer odometer-auto-theme.odometer-animating-down.odometer-animating').css('color', 'black');
     $('body').css('color', 'black');
     $('body').css('background-color', 'white');
     console.log("White theme activated");
     location.href = `${params[0]}?${params[1]}?${params[2]}?1?${params[4]}?${params[5]}`;
   });
   $('#blackk').click(function() {
+    $('.odometer odometer-auto-theme.odometer-animating-up').css('color', 'white');
+    $('.odometer odometer-auto-theme.odometer-animating-down.odometer-animating').css('color', 'white');
     $('body').css('color', 'white');
     $('body').css('background-color', 'black');
     console.log("Black theme activated");
     location.href = `${params[0]}?${params[1]}?${params[2]}?2?${params[4]}?${params[5]}`;
   });
+  /*$('#blackkodometercolors').click(function() {
+    $('.odometer.odometer-auto-theme.odometer-animating-up').css('color', 'green');
+    $('.odometer.odometer-auto-theme.odometer-animating-down.odometer-animating').css('color', 'red');
+    $('body').css('color', 'white');
+    $('body').css('background-color', 'black');
+    console.log("Black theme activated");
+    location.href = `${params[0]}?${params[1]}?${params[2]}?6?${params[4]}?${params[5]}`;
+  });
+  $('#whiteeodometercolors').click(function() {
+    $('.odometer.odometer-auto-theme.odometer-animating-up').css('color', 'green');
+    $('.odometer.odometer-auto-theme.odometer-animating-down.odometer-animating').css('color', 'red');
+    $('body').css('color', 'black');
+    $('body').css('background-color', 'white');
+    console.log("White theme activated");
+    location.href = `${params[0]}?${params[1]}?${params[2]}?5?${params[4]}?${params[5]}`;
+  });*/
+  
   $('#transparent1').click(function() {
     $('body').css('color', 'white');
     $('body').css('background-color', 'transparent');
@@ -107,12 +129,13 @@ $(document).ready(function() {
   var count2 = 0;
   
   function usernamelol() {
-    url1 = 'https://mixernobest.herokuapp.com/mixer/@' + params[1],
-    url2 = 'https://mixernobest.herokuapp.com/ytestimate/@' + params[1],
-    url3 = 'https://mixernobest.herokuapp.com/twitter/@' + params[1],
-    url4 = 'https://mixernobest.herokuapp.com/dailymotion/@' + params[1],
-    url5 = 'https://mixernobest.herokuapp.com/storyfire/@' + params[1],
-    url6 = 'https://mixernobest.herokuapp.com/tiktok/@' + params[1]
+    url1 = `${key}https://mixer.com/api/v1/channels/${params[1]}/details`,
+      url2 = `${key}https://mixernobest.herokuapp.com/ytestimate/@` + params[1],
+      url3 = `${key}https://api.thesocialcounter.com/twitter/?name=` + params[1],
+      url3x = `https://bastet.socialblade.com/twitter/lookup?query=` + params[1],
+      url4 = `${key}https://api.dailymotion.com/users?usernames=${params[1]}&fields=screenname%2Cverified%2Curl%2Cdescription%2Cavatar_720_url%2Ccover_url%2Ccountry%2Cfollowers_total%2Cfollowing_total%2Cplaylists_total%2Cvideos_total%2Cviews_total%2Cid`,
+      url5 = `${key}https://storyfire.com/app/users/getProfile/` + params[1],
+      url6 = `${key}https://mixernobest.herokuapp.com/tiktok/@` + params[1]
     
 
     if(params[4] == "mixer") {
@@ -139,8 +162,8 @@ $("#img1").attr('src', `${data.avatarurl}`);
     }
     if(params[4] == "twitter") {
       $.getJSON(url3, function(data) {
-        fans1.innerHTML = Math.floor(data.followers_count)
-        count1 = data.followers_count;
+        //fans1.innerHTML = Math.floor(data.followers_count)
+        
 name1.innerHTML = data.name;
 $("#img1").attr('src', `${data.profile_image_url_https}`);
 
@@ -148,6 +171,14 @@ $("#img1").attr('src', `${data.profile_image_url_https}`);
        
 
     });
+    $.getJSON(url3x, function(data) {
+          
+      fans1.innerHTML = Math.floor(data)
+      count1 = data;
+              
+             
+    
+          });
     
     }
     if(params[4] == "dailymotion") {
@@ -194,12 +225,13 @@ $("#img1").attr('src', `${data.body.userData.covers[0]}`);
 
   }
   function loaduser2() {
-    url12 = 'https://mixernobest.herokuapp.com/mixer/@' + params[2],
-    url22 = 'https://mixernobest.herokuapp.com/ytestimate/@' + params[2],
-    url32 = 'https://mixernobest.herokuapp.com/twitter/@' + params[2],
-    url42 = 'https://mixernobest.herokuapp.com/dailymotion/@' + params[2],
-    url52 = 'https://mixernobest.herokuapp.com/storyfire/@' + params[2],
-    url62 = 'https://mixernobest.herokuapp.com/tiktok/@' + params[2]
+    url12 = `${key}https://mixer.com/api/v1/channels/${params[2]}/details`,
+      url22 = `${key}https://mixernobest.herokuapp.com/ytestimate/@` + params[2],
+      url32 = `${key}https://api.thesocialcounter.com/twitter/?name=` + params[2],
+      url3x2 = `https://bastet.socialblade.com/twitter/lookup?query=` + params[2],
+      url42 = `${key}https://api.dailymotion.com/users?usernames=${params[2]}&fields=screenname%2Cverified%2Curl%2Cdescription%2Cavatar_720_url%2Ccover_url%2Ccountry%2Cfollowers_total%2Cfollowing_total%2Cplaylists_total%2Cvideos_total%2Cviews_total%2Cid`,
+      url52 = `${key}https://storyfire.com/app/users/getProfile/` + params[2],
+      url62 = `${key}https://mixernobest.herokuapp.com/tiktok/@` + params[2]
     if(params[5] == "mixer") {$.getJSON(url12, function(data) {
       fans2.innerHTML = Math.floor(data.numFollowers)
       name2.innerHTML = data.name;
@@ -219,11 +251,19 @@ $("#img1").attr('src', `${data.body.userData.covers[0]}`);
 
   }
      if(params[5] == "twitter") {$.getJSON(url32, function(data) {
-      fans2.innerHTML = Math.floor(data.followers_count)
+      //fans2.innerHTML = Math.floor(data.followers_count)
       name2.innerHTML = data.name;
-      count2 = data.followers_count;
+      //count2 = data.followers_count;
       $("#img2").attr('src', `${data.profile_image_url_https}`);
      });
+     $.getJSON(url3x2, function(data) {
+          
+      fans2.innerHTML = Math.floor(data)
+      count2 = data;
+              
+             
+    
+          });
      
 
   }
@@ -307,5 +347,32 @@ if(params[3] == 4) {
   $('body').css('color', 'black');
   $('body').css('background-color', 'transparent');
   console.log("transparent2 activated")
+
+}
+if(params[3] == 5) {
+
+  $('#whiteeodometercolors').click(function() {
+   
+    $('body').css('color', 'black');
+    $('body').css('background-color', 'white');
+    //$('odometer.odometer-auto-theme.odometer-animating-up').css('color', 'green');
+    //$('odometer.odometer-auto-theme.odometer-animating-down.odometer-animating').css('color', 'red');
+    console.log("White theme activated");
+    location.href = `${params[0]}?${params[1]}?${params[2]}?5?${params[4]}?${params[5]}`;
+  });
+
+}
+if(params[3] == 6) {
+
+  $('#blackkodometercolors').click(function() {
+    
+    $('body').css('color', 'white');
+    $('body').css('background-color', 'black');
+    //$('odometer.odometer-auto-theme.odometer-animating-up').css('color', 'green');
+    //$('odometer.odometer-auto-theme.odometer-animating-down.odometer-animating').css('color', 'red');
+    console.log("Black theme activated");
+    location.href = `${params[0]}?${params[1]}?${params[2]}?6?${params[4]}?${params[5]}`;
+  });
+  
 
 }

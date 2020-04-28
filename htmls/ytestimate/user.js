@@ -5,10 +5,12 @@ setTimeout(function() {
   var stufflol = "";
   stufflol = textArray[randomNumber];
   var corsurl = stufflol //required works only in mixerno.github.io/ | Sorry.
-  var key = "https://nugisextremelynice.herokuapp.com/";
+ 
+  var key = "";
+  key = textArray[randomNumber]
   jQuery.ajaxPrefilter(function(options) {
     if (options.crossDomain && jQuery.support.cors) {
-      options.url = key + options.url;
+      options.url = '' + options.url;
       setInterval(function() {
         var randomNumber = Math.floor(Math.random()*textArray.length);
 
@@ -99,12 +101,13 @@ setTimeout(function() {
 
 
     function usernamelol() {
-      url1 = 'https://mixernobest.herokuapp.com/mixer/@' + params[1],
-      url2 = 'https://mixernobest.herokuapp.com/ytestimate/@' + params[1],
-      url3 = 'https://mixernobest.herokuapp.com/twitter/@' + params[1],
-      url4 = 'https://mixernobest.herokuapp.com/dailymotion/@' + params[1],
-      url5 = 'https://mixernobest.herokuapp.com/storyfire/@' + params[1],
-      url6 = 'https://mixernobest.herokuapp.com/tiktok/@' + params[1]
+      url1 = `${key}https://mixer.com/api/v1/channels/${params[1]}/details`,
+      url2 = `${key}https://mixernobest.herokuapp.com/ytestimate/@` + params[1],
+      url3 = `${key}https://api.thesocialcounter.com/twitter/?name=` + params[1],
+      url3x = `https://bastet.socialblade.com/twitter/lookup?query=` + params[1],
+      url4 = `${key}https://api.dailymotion.com/users?usernames=${params[1]}&fields=screenname%2Cverified%2Curl%2Cdescription%2Cavatar_720_url%2Ccover_url%2Ccountry%2Cfollowers_total%2Cfollowing_total%2Cplaylists_total%2Cvideos_total%2Cviews_total%2Cid`,
+      url5 = `${key}https://storyfire.com/app/users/getProfile/` + params[1],
+      url6 = `${key}https://mixernobest.herokuapp.com/tiktok/@` + params[1]
 
       if(params[3] == "mixer") {
         $.getJSON(url1, function(data) {
@@ -144,21 +147,29 @@ setTimeout(function() {
       }
       if(params[3] == "twitter") {
         $.getJSON(url3, function(data) {
-          fans1.innerHTML = Math.floor(data.followers_count)
+          
   name1.innerHTML = data.name;
   $("#img1").attr('src', `${data.profile_image_url_https}`);
-  stuff.series[0].addPoint([
-    (new Date()).getTime(),
-    Math.floor(data.followers_count)
-  ]);
-
-  if (stuff.series[0].data.length >= 700) {
-  stuff.series[0].data[0].remove()
-}
+  
           
          
 
       });
+      $.getJSON(url3x, function(data) {
+          
+        fans1.innerHTML = Math.floor(data)
+        stuff.series[0].addPoint([
+          (new Date()).getTime(),
+          Math.floor(data)
+        ]);
+      
+        if (stuff.series[0].data.length >= 700) {
+        stuff.series[0].data[0].remove()
+      }
+                
+               
+      
+            });
       }
       if(params[3] == "dailymotion") {
         $.getJSON(url4, function(data) {

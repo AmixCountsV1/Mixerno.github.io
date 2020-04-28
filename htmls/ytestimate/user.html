@@ -4,7 +4,7 @@
 
 <head>
 
-  <title>Mixerno | Dailymotion counter</title>
+  <title>Mixerno</title>
   <link rel="shortcut icon" href="https://yt3.ggpht.com/a-/AOh14GhVWagi88Rfs6XXerg3-3PR4RPHYcolFIrYXZ4_=s288-c-k-c0xffffffff-no-rj-mo">
   <link rel="stylesheet" href="../../o2.css" />
   <script src="../../odometer.js"></script>
@@ -31,14 +31,13 @@
 
     
       </div>
+      <div><button id="buton2" class="comaprebutton">Themes</button>
+
+    
+      </div>
     
 
-  <div>
-    <input class="custom" type="button" id="whitee" value="White theme" />
-    <input class="custom" type="button" id="blackk" value="Black theme" />
-    <input class="custom" type="button" id="transparent1" value="Transparent background (white text)"/>
-    <input class="custom" type="button" id="transparent2" value="Transparent background (black text)"/>
-  </div>
+  
 </div>
 
   <span class="l">
@@ -60,6 +59,18 @@
           <input placeholder="" type="text" style="width: 150px;" value="" id="compareinput" class="custominput"></input>
     <button class="comaprebutton" id="comparebutton">Search for a user</button>
         </div></div>
+        <div id="popupstuffye2" class="modal">
+          <div class="modal-content">
+            <span id="clos2" class="close">&times;</span>
+            <p style="color: black; font-size: 20px;">Themes:</p>
+            <br>
+            <div class="hell">
+              <input class="custom" type="button" id="whitee" value="White theme" />
+              <input class="custom" type="button" id="blackk" value="Black theme" />
+              <input class="custom" type="button" id="transparent1" value="Transparent background (white text)"/>
+              <input class="custom" type="button" id="transparent2" value="Transparent background (black text)"/>
+            </div>
+          </div></div>
       <br>
     <img src="https://yt3.ggpht.com/a-/AOh14GhVWagi88Rfs6XXerg3-3PR4RPHYcolFIrYXZ4_=s288-c-k-c0xffffffff-no-rj-mo" id="img1" height="100" width="100">
     <div id="name1" class="normal" style="font-size:30px;font-weight: bold;">Loading</div>
@@ -369,6 +380,28 @@ $('#compareinput').on('keyup', function(e) {
   window.onclick = function(event) {
     if (event.target == modal) {
       modal.style.display = "none";
+    }
+  }
+  // Get the modal
+  var modal2 = document.getElementById("popupstuffye2");
+  
+  // Get the button that opens the modal
+  
+  
+  // When the user clicks the button, open the modal 
+  buton2.onclick = function() {
+    modal2.style.display = "block";
+  }
+  
+  // When the user clicks on <span> (x), close the modal
+  clos2.onclick = function() {
+    modal2.style.display = "none";
+  }
+  
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+    if (event.target == modal2) {
+      modal2.style.display = "none";
     }
   }
   </script>
