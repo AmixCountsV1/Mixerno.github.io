@@ -6,14 +6,14 @@ var stufflol = "";
 stufflol = textArray[randomNumber];
 var corsurl = stufflol //required works only in mixerno.github.io/ | Sorry.
 var key = "";
-  key = textArray[randomNumber]
+  //key = textArray[randomNumber]
 jQuery.ajaxPrefilter(function(options) {
   if (options.crossDomain && jQuery.support.cors) {
     options.url = '' + options.url;
     setInterval(function() {
-      var randomNumber = Math.floor(Math.random()*textArray.length);
+      /*var randomNumber = Math.floor(Math.random()*textArray.length);
 
-      key = textArray[randomNumber];
+      key = textArray[randomNumber];*/
     }, 1000);
   }
 });
@@ -138,12 +138,22 @@ $(document).ready(function() {
       url6 = `${key}https://immense-castle-34936.herokuapp.com/@` + params[1],
       url7 = `${key}https://mixernobest.herokuapp.com/ytestimate2/@` + params[1],
       url8 = `${key}https://blastup.com/instagram/info?username=` + params[1]
+      url9 = `${key}https://mcapi.xdefcon.com/server/${params[1]}/full/json` //MC
+      url10 = `${key}https://gdbrowser.com/api/profile/` + params[1] //GD user
+      url10x = `${key}https://gdbrowser.com/api/level/` + params[1] //gd level
+      url11 = `${key}https://api.roblox.com/users/` + params[1]  //roblox user name
+      url11x = `${key}https://friends.roblox.com/v1/users/${params[1]}/followers/count`  //roblox user followers
+      url11xx = `${key}https://thumbnails.roblox.com/v1/users/avatar-headshot?userIds=${params[1]}&size=150x150&format=Png&isCircular=false` //roblox user thumbnail
+      url12 = `${key}https://games.roblox.com/v1/games?universeIds=` + params[1] //roblox game stats
+      url12x = `${key}https://thumbnails.roblox.com/v1/games/multiget/thumbnails?universeIds=${params[1]}&defaults=true&size=768x432&format=Png&isCircular=false` //roblox game thumbnail
+      url13 = `${key}https://groups.roblox.com/v1/groups/` + params[1] //roblox group
+      url13x = `${key}https://thumbnails.roblox.com/v1/groups/icons?groupIds=${params[1]}&size=150x150&format=Png&isCircular=false` //roblox group thumbnail
     
 
     if(params[4] == "mixer") {
       $.getJSON(url1, function(data) {
         fans1.innerHTML = Math.floor(data.numFollowers)
-name1.innerHTML = data.name;
+name1.innerHTML = data.token;
 count1 = data.numFollowers;
 $("#img1").attr('src', `${data.user.avatarUrl}`);
     });
@@ -249,6 +259,148 @@ $("#img1").attr('src', `${data.body.userData.covers[0]}`);
 
       });
       }
+      if(params[4] == "minecraft") {
+        $.getJSON(url9, function(data) {
+          
+          fans1.innerHTML = data.players
+          count1 = data.players
+  name1.innerHTML = params[1];
+  $("#img1").attr('src', `${data.icon}`);
+  
+          
+         
+
+      });
+      }
+      var plsnumber = 0;
+      if(params[4] == "gdus") {
+        $.getJSON(url10, function(data) {
+          plsnumber = data.stars.replace(/""/g, "")
+          fans1.innerHTML = data.stars.replace(/""/g, "")
+          console.log(plsnumber)
+          count1 = plsnumber
+  name1.innerHTML = data.username;
+  $("#img1").attr('src', `https://gdbrowser.com/icon/${params[4]}`);
+ 
+          
+         
+
+      });
+      }
+      if(params[4] == "gdld") {
+        $.getJSON(url10x, function(data) {
+          fans1.innerHTML = data.downloads
+          count1 = data.downloads
+  name1.innerHTML = data.name;
+  $("#img1").attr('src', ``);
+  
+          
+         
+
+      });
+      }
+      if(params[4] == "ruf") {
+        $.getJSON(url11, function(data) {
+          name1.innerHTML = data.Username;
+          //fans1.innerHTML = data.downloads
+  
+  //$("#img1").attr('src', ``);
+  $.getJSON(url11x, function(data) {
+    //name1.innerHTML = data.Username;
+    fans1.innerHTML = data.count
+    count1 = data.count
+    
+  $.getJSON(url11xx, function(data) {
+    //name1.innerHTML = data.Username;
+    /*fans1.innerHTML = data.count
+    stuff.series[0].addPoint([
+      (new Date()).getTime(),
+      data.count
+    ]);
+  
+    if (stuff.series[0].data.length >= 700) {
+    stuff.series[0].data[0].remove()
+  }*/
+$("#img1").attr('src', `${data.data[0].imageUrl}`);
+
+    
+   
+
+});
+//$("#img1").attr('src', ``);
+
+    
+   
+
+});
+          
+         
+
+      });
+      
+      }
+      if(params[4] == "rgpn") {
+        $.getJSON(url12, function(data) {
+          name1.innerHTML = data.data[0].name;
+          //fans1.innerHTML = data.downloads
+          fans1.innerHTML = data.data[0].playing
+          count1 = data.data[0].playing
+    
+  $.getJSON(url12x, function(data) {
+    //name1.innerHTML = data.Username;
+    /*fans1.innerHTML = data.count
+    stuff.series[0].addPoint([
+      (new Date()).getTime(),
+      data.count
+    ]);
+  
+    if (stuff.series[0].data.length >= 700) {
+    stuff.series[0].data[0].remove()
+  }*/
+$("#img1").attr('src', `${data.data[0].thumbnails[0].imageUrl}`);
+
+    
+   
+
+});
+          
+         
+
+      });
+      
+      }
+      if(params[4] == "rgm") {
+        $.getJSON(url13, function(data) {
+          name1.innerHTML = data.name;
+          //fans1.innerHTML = data.downloads
+          fans1.innerHTML = data.memberCount
+          count1 = data.memberCount
+    
+  
+  
+          
+         
+
+      });
+      $.getJSON(url13x, function(data) {
+        //name1.innerHTML = data.Username;
+        /*fans1.innerHTML = data.count
+        stuff.series[0].addPoint([
+          (new Date()).getTime(),
+          data.count
+        ]);
+      
+        if (stuff.series[0].data.length >= 700) {
+        stuff.series[0].data[0].remove()
+      }*/
+    $("#img1").attr('src', `${data.data[0].imageUrl}`);
+    
+        
+       
+    
+    });
+      
+      }
     }
 
 
@@ -264,9 +416,19 @@ $("#img1").attr('src', `${data.body.userData.covers[0]}`);
       url62 = `${key}https://immense-castle-34936.herokuapp.com/@` + params[2],
       url72 = `${key}https://mixernobest.herokuapp.com/ytestimate2/@` + params[2],
       url82 = `${key}https://blastup.com/instagram/info?username=` + params[2]
+      url92 = `${key}https://mcapi.xdefcon.com/server/${params[2]}/full/json` //MC
+      url102 = `${key}https://gdbrowser.com/api/profile/` + params[2] //GD user
+      url10x2 = `${key}https://gdbrowser.com/api/level/` + params[2] //gd level
+      url112 = `${key}https://api.roblox.com/users/` + params[2]  //roblox user name
+      url11x2 = `${key}https://friends.roblox.com/v1/users/${params[2]}/followers/count`  //roblox user followers
+      url11xx2 = `${key}https://thumbnails.roblox.com/v1/users/avatar-headshot?userIds=${params[2]}&size=150x150&format=Png&isCircular=false` //roblox user thumbnail
+      url122 = `${key}https://games.roblox.com/v1/games?universeIds=` + params[2] //roblox game stats
+      url12x2 = `${key}https://thumbnails.roblox.com/v1/games/multiget/thumbnails?universeIds=${params[2]}&defaults=true&size=768x432&format=Png&isCircular=false` //roblox game thumbnail
+      url132 = `${key}https://groups.roblox.com/v1/groups/` + params[2] //roblox group
+      url13x2 = `${key}https://thumbnails.roblox.com/v1/groups/icons?groupIds=${params[2]}&size=150x150&format=Png&isCircular=false` //roblox group thumbnail
     if(params[5] == "mixer") {$.getJSON(url12, function(data) {
       fans2.innerHTML = Math.floor(data.numFollowers)
-      name2.innerHTML = data.name;
+      name2.innerHTML = data.token;
       count2 = data.numFollowers;
       $("#img2").attr('src', `${data.user.avatarUrl}`);
      });
@@ -354,6 +516,148 @@ count2 = Math.floor(data.count);
 
       });
       }
+      if(params[5] == "minecraft") {
+        $.getJSON(url92, function(data) {
+          count2 = data.players
+          fans2.innerHTML = data.players
+  name2.innerHTML = params[2];
+  $("#img2").attr('src', `${data.icon}`);
+ 
+          
+         
+
+      });
+      }
+      var plsnumber2 = 0;
+      if(params[5] == "gdus") {
+        $.getJSON(url102, function(data) {
+          plsnumber2 = data.stars.replace(/""/g, "")
+
+          fans2.innerHTML = data.stars.replace(/""/g, "")
+          count2 = plsnumber2
+          console.log(plsnumber)
+          name2.innerHTML = data.username;
+  $("#img2").attr('src', `https://gdbrowser.com/icon/${params[5]}`);
+  
+          
+         
+
+      });
+      }
+      if(params[5] == "gdld") {
+        $.getJSON(url10x2, function(data) {
+          fans2.innerHTML = data.downloads
+          name2.innerHTML = data.name;
+          count2 = data.downloads
+  $("#img2").attr('src', ``);
+  
+          
+         
+
+      });
+      }
+      if(params[5] == "ruf") {
+        $.getJSON(url112, function(data) {
+          name2.innerHTML = data.Username;
+          //fans1.innerHTML = data.downloads
+  
+  //$("#img1").attr('src', ``);
+  $.getJSON(url11x2, function(data) {
+    //name1.innerHTML = data.Username;
+    fans2.innerHTML = data.count
+    count2 = data.count
+    
+  $.getJSON(url11xx2, function(data) {
+    //name1.innerHTML = data.Username;
+    /*fans1.innerHTML = data.count
+    stuff.series[0].addPoint([
+      (new Date()).getTime(),
+      data.count
+    ]);
+  
+    if (stuff.series[0].data.length >= 700) {
+    stuff.series[0].data[0].remove()
+  }*/
+$("#img2").attr('src', `${data.data[0].imageUrl}`);
+
+    
+   
+
+});
+//$("#img1").attr('src', ``);
+
+    
+   
+
+});
+          
+         
+
+      });
+      
+      }
+      if(params[5] == "rgpn") {
+        $.getJSON(url122, function(data) {
+          name2.innerHTML = data.data[0].name;
+          //fans1.innerHTML = data.downloads
+          fans2.innerHTML = data.data[0].playing
+          count2 = data.data[0].playing
+    
+  $.getJSON(url12x2, function(data) {
+    //name1.innerHTML = data.Username;
+    /*fans1.innerHTML = data.count
+    stuff.series[0].addPoint([
+      (new Date()).getTime(),
+      data.count
+    ]);
+  
+    if (stuff.series[0].data.length >= 700) {
+    stuff.series[0].data[0].remove()
+  }*/
+$("#img2").attr('src', `${data.data[0].thumbnails[0].imageUrl}`);
+
+    
+   
+
+});
+          
+         
+
+      });
+      
+      }
+      if(params[5] == "rgm") {
+        $.getJSON(url132, function(data) {
+          name2.innerHTML = data.name;
+          //fans1.innerHTML = data.downloads
+          fans2.innerHTML = data.memberCount
+          count2 = data.memberCount
+  
+  
+          
+         
+
+      });
+      $.getJSON(url13x2, function(data) {
+        //name1.innerHTML = data.Username;
+        /*fans1.innerHTML = data.count
+        stuff.series[0].addPoint([
+          (new Date()).getTime(),
+          data.count
+        ]);
+      
+        if (stuff.series[0].data.length >= 700) {
+        stuff.series[0].data[0].remove()
+      }*/
+    $("#img2").attr('src', `${data.data[0].imageUrl}`);
+    
+        
+       
+    
+    });
+      
+      }
+      
     
   }
 

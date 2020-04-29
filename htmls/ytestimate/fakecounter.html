@@ -15,29 +15,6 @@
   <div class="footer">
     <img src="https://yt3.ggpht.com/a-/AOh14GhVWagi88Rfs6XXerg3-3PR4RPHYcolFIrYXZ4_=s288-c-k-c0xffffffff-no-rj-mo" height="23" width="23">
   <a class="link" href="user.html" class="left">Home</a>
-  <div>
-<select id="userplatform" name="platformuser" style="width: 90px;">
-      <option id="usermixer" value="mixer">Mixer</option>
-      <option id="useryoutube" value="youtube">Youtube</option>
-      <option id="usertwitter" value="twitter">Twitter</option>
-      <option id="userdailymotion" value="dailymotion">Dailymotion</option>
-      <option id="userstoryfire" value="storyfire">Storyfire</option>
-      <option id="usertiktok" value="tiktok">TikTok</option>
-      <option id="userinstagram" value="instagram">Instagram</option>
-      <option id="userminecraft" value="minecraft">Minecraft</option>
-      <option id="usergdus" value="gdus">Geometry Dash User stars</option>
-      <option id="usergdld" value="gdld">Geometry Dash Level Downloads</option>
-      <option id="userruf" value="ruf">Roblox user followers</option>
-      <option id="userrgpn" value="rgpn">Roblox game playing now</option>
-      <option id="userrgm" value="rgm">Roblox group members</option>
-    </select>
-  <input placeholder="user" type="text" style="width: 150px;" value="" id="chnlName" class="right"></input>
-    <button class="buton" id="searchuser">Search for a user</button>
-  </div>
-  <div><button id="buton" class="comaprebutton">Compare</button>
-
-    
-      </div>
       <div><button id="buton2" class="comaprebutton">Themes</button>
 
     
@@ -55,7 +32,7 @@
           <span id="clos" class="close">&times;</span>
           <p style="color: black; font-size: 20px;">Who do you want to compare with?</p>
           <br>
-          <p>Platform/Game: <select id="platform" name="platform">
+          <p>Platform: <select id="platform" name="platform">
             <option id="mixer" value="mixer">Mixer</option>
             <option id="youtube" value="youtube">Youtube</option>
             <option id="twitter" value="twitter">Twitter</option>
@@ -63,12 +40,6 @@
             <option id="storyfire" value="storyfire">Storyfire</option>
             <option id="tiktok" value="tiktok">TikTok</option>
             <option id="instagram" value="instagram">Instagram</option>
-            <option id="minecraft" value="minecraft">Minecraft</option>
-            <option id="gdus" value="gdus">Geometry Dash User stars</option>
-            <option id="gdld" value="gdld">Geometry Dash Level Downloads</option>
-            <option id="ruf" value="ruf">Roblox user followers</option>
-            <option id="rgpn" value="rgpn">Roblox game playing now</option>
-            <option id="rgm" value="rgm">Roblox group members</option>
           </select></p>
           <input placeholder="" type="text" style="width: 150px;" value="" id="compareinput" class="custominput"></input>
     <button class="comaprebutton" id="comparebutton">Search for a user</button>
@@ -99,7 +70,11 @@
   
       </p>
     </figure>
+    <div>Goal:</div>
+    <div class="odometer" id="goaal">0</div>
     <br>
+    <div id="goalgraph"></div>
+
 <br>
 <br>
 
@@ -312,132 +287,23 @@ $(document).ready(function() {
         $('#searchuser').click();
     }
 });
-$('#compareinput').on('keyup', function(e) {
+$('#setusernameinput').on('keyup', function(e) {
     if (e.keyCode === 13) {
-        $('#comparebutton').click();
+        $('#setusernamebutton').click();
     }
 });
-            $('#searchuser').click(function() {
-                var selected = $('#userplatform').val()
-                
-      if(selected == "mixer") {
-        location.href = `${params[0]}?${$('#chnlName').val()}?${params[2]}?mixer`;
-      }
-      if(selected == "youtube") {
-        location.href = `${params[0]}?${$('#chnlName').val()}?${params[2]}?youtube`;
-      }
-      if(selected == "twitter") {
-        location.href = `${params[0]}?${$('#chnlName').val()}?${params[2]}?twitter`;
-      }
-      if(selected == "dailymotion") {
-        location.href = `${params[0]}?${$('#chnlName').val()}?${params[2]}?dailymotion`;
-      }
-      if(selected == "storyfire") {
-        location.href = `${params[0]}?${$('#chnlName').val()}?${params[2]}?storyfire`;
-      }
-      if(selected == "tiktok") {
-        location.href = `${params[0]}?${$('#chnlName').val()}?${params[2]}?tiktok`;
-      } 
-      if(selected == "instagram") {
-        location.href = `${params[0]}?${$('#chnlName').val()}?${params[2]}?instagram`;
-      }
-      if(selected == "minecraft") {
-        location.href = `${params[0]}?${$('#chnlName').val()}?${params[2]}?minecraft`;
-      }
-      if(selected == "gdus") {
-        location.href = `${params[0]}?${$('#chnlName').val()}?${params[2]}?gdus`;
-      }
-      if(selected == "gdld") {
-        location.href = `${params[0]}?${$('#chnlName').val()}?${params[2]}?gdld`;
-      }
-      if(selected == "ruf") {
-        location.href = `${params[0]}?${$('#chnlName').val()}?${params[2]}?ruf`;
-      }
-      if(selected == "rgpn") {
-        location.href = `${params[0]}?${$('#chnlName').val()}?${params[2]}?rgpn`;
-      } 
-      if(selected == "rgm") {
-        location.href = `${params[0]}?${$('#chnlName').val()}?${params[2]}?rgm`;
-      } else {
-        console.log("error idk how");
-      }
-    });
-    $('#comparebutton').click(function() {
-      var selectedcomp = $('#platform').val()
-      
-      if(selectedcomp == "mixer") {
-        location.href = `https://mixerno.github.io/htmls/ytestimate/compare.html?${params[1]}?${$('#compareinput').val()}?${params[2]}?${params[3]}?mixer`;
-      }
-      if(selectedcomp == "youtube") {
-        location.href = `https://mixerno.github.io/htmls/ytestimate/compare.html?${params[1]}?${$('#compareinput').val()}?${params[2]}?${params[3]}?youtube`;
-      }
-      if(selectedcomp == "twitter") {
-        location.href = `https://mixerno.github.io/htmls/ytestimate/compare.html?${params[1]}?${$('#compareinput').val()}?${params[2]}?${params[3]}?twitter`;
-      }
-      if(selectedcomp == "dailymotion") {
-        location.href = `https://mixerno.github.io/htmls/ytestimate/compare.html?${params[1]}?${$('#compareinput').val()}?${params[2]}?${params[3]}?dailymotion`;
-      }
-      if(selectedcomp == "storyfire") {
-        location.href = `https://mixerno.github.io/htmls/ytestimate/compare.html?${params[1]}?${$('#compareinput').val()}?${params[2]}?${params[3]}?storyfire`;
-      }
-      if(selectedcomp == "tiktok") {
-        location.href = `https://mixerno.github.io/htmls/ytestimate/compare.html?${params[1]}?${$('#compareinput').val()}?${params[2]}?${params[3]}?tiktok`;
-      }
-      if(selectedcomp == "instagram") {
-        location.href = `https://mixerno.github.io/htmls/ytestimate/compare.html?${params[1]}?${$('#compareinput').val()}?${params[2]}?${params[3]}?instagram`;
-      }
-      if(selectedcomp == "minecraft") {
-        location.href = `https://mixerno.github.io/htmls/ytestimate/compare.html?${params[1]}?${$('#compareinput').val()}?${params[2]}?${params[3]}?minecraft`;
-      }
-      if(selectedcomp == "gdus") {
-        location.href = `https://mixerno.github.io/htmls/ytestimate/compare.html?${params[1]}?${$('#compareinput').val()}?${params[2]}?${params[3]}?gdus`;
-      }
-      if(selectedcomp == "gdld") {
-        location.href = `https://mixerno.github.io/htmls/ytestimate/compare.html?${params[1]}?${$('#compareinput').val()}?${params[2]}?${params[3]}?gdld`;
-      }
-      if(selectedcomp == "ruf") {
-        location.href = `https://mixerno.github.io/htmls/ytestimate/compare.html?${params[1]}?${$('#compareinput').val()}?${params[2]}?${params[3]}?ruf`;
-      }
-      if(selectedcomp == "rgpn") {
-        location.href = `https://mixerno.github.io/htmls/ytestimate/compare.html?${params[1]}?${$('#compareinput').val()}?${params[2]}?${params[3]}?rgpn`;
-      }
-      if(selectedcomp == "rgm") {
-        location.href = `https://mixerno.github.io/htmls/ytestimate/compare.html?${params[1]}?${$('#compareinput').val()}?${params[2]}?${params[3]}?rgm`;
-      }
+            $('#setusernamebutton').click(function() {
                 
     });
+
 
     
 
               });
-              checkstufflol("non");
-    function checkstufflol() {
-      
-    }
+
 </script>
 <script>
-  // Get the modal
-  var modal = document.getElementById("popupstuffye");
-  
-  // Get the button that opens the modal
-  
-  
-  // When the user clicks the button, open the modal 
-  buton.onclick = function() {
-    modal.style.display = "block";
-  }
-  
-  // When the user clicks on <span> (x), close the modal
-  clos.onclick = function() {
-    modal.style.display = "none";
-  }
-  
-  // When the user clicks anywhere outside of the modal, close it
-  window.onclick = function(event) {
-    if (event.target == modal) {
-      modal.style.display = "none";
-    }
-  }
+
   // Get the modal
   var modal2 = document.getElementById("popupstuffye2");
   
@@ -462,7 +328,7 @@ $('#compareinput').on('keyup', function(e) {
   }
   </script>
 <script src="../../embeds/cors.js"></script>
-<script src="user.js"></script>
+<script src="fakecounter.js"></script>
 
 
 

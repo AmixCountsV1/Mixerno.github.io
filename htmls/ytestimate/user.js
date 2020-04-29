@@ -7,14 +7,14 @@ setTimeout(function() {
   var corsurl = stufflol //required works only in mixerno.github.io/ | Sorry.
  
   var key = "";
-  key = textArray[randomNumber]
+  //key = textArray[randomNumber]
   jQuery.ajaxPrefilter(function(options) {
     if (options.crossDomain && jQuery.support.cors) {
       options.url = '' + options.url;
       setInterval(function() {
-        var randomNumber = Math.floor(Math.random()*textArray.length);
+        /*var randomNumber = Math.floor(Math.random()*textArray.length);
 
-        key = textArray[randomNumber];
+        key = textArray[randomNumber];*/
       }, 1000);
     }
   });
@@ -101,17 +101,26 @@ setTimeout(function() {
 
 
     function usernamelol() {
-      url1 = `${key}https://mixer.com/api/v1/channels/${params[1]}/details`,
-      url2 = `${key}https://freewebtools.com/compteur-youtube/?channelId=` + params[1],
-      url3 = `${key}https://api.thesocialcounter.com/twitter/?name=` + params[1],
-      url3x = `https://bastet.socialblade.com/twitter/lookup?query=` + params[1],
+      url1 = `${key}https://mixer.com/api/v1/channels/${params[1]}/details`, // mixer
+      url2 = `${key}https://freewebtools.com/compteur-youtube/?channelId=` + params[1], // yt subs
+      url3 = `${key}https://api.thesocialcounter.com/twitter/?name=` + params[1], //twitter picture and other
+      url3x = `https://bastet.socialblade.com/twitter/lookup?query=` + params[1], //twitterfolcount //dailymotion vvvv
       url4 = `${key}https://api.dailymotion.com/users?usernames=${params[1]}&fields=screenname%2Cverified%2Curl%2Cdescription%2Cavatar_720_url%2Ccover_url%2Ccountry%2Cfollowers_total%2Cfollowing_total%2Cplaylists_total%2Cvideos_total%2Cviews_total%2Cid`,
-      url5 = `${key}https://storyfire.com/app/users/getProfile/` + params[1],
-      url6 = `${key}https://immense-castle-34936.herokuapp.com/@` + params[1],
-      url7 = `${key}https://mixernobest.herokuapp.com/ytestimate2/@` + params[1],
-      url8 = `${key}https://blastup.com/instagram/info?username=` + params[1]
-      //url8 = `https://blastup.com/instagram/info?username=` + params[1]
-      //url8 = `${key}https://blastup.com/instagram/info?username=` + params[1]
+      url5 = `${key}https://storyfire.com/app/users/getProfile/` + params[1], //storydife
+      url6 = `${key}https://immense-castle-34936.herokuapp.com/@` + params[1], //tiktok
+      url7 = `${key}https://mixernobest.herokuapp.com/ytestimate2/@` + params[1], //yt est
+      url8 = `${key}https://blastup.com/instagram/info?username=` + params[1] //ig
+      url9 = `${key}https://mcapi.xdefcon.com/server/${params[1]}/full/json` //MC
+      url10 = `${key}https://gdbrowser.com/api/profile/` + params[1] //GD user
+      url10x = `${key}https://gdbrowser.com/api/level/` + params[1] //gd level
+      url11 = `${key}https://api.roblox.com/users/` + params[1]  //roblox user name
+      url11x = `${key}https://friends.roblox.com/v1/users/${params[1]}/followers/count`  //roblox user followers
+      url11xx = `${key}https://thumbnails.roblox.com/v1/users/avatar-headshot?userIds=${params[1]}&size=150x150&format=Png&isCircular=false` //roblox user thumbnail
+      url12 = `${key}https://games.roblox.com/v1/games?universeIds=` + params[1] //roblox game stats
+      url12x = `${key}https://thumbnails.roblox.com/v1/games/multiget/thumbnails?universeIds=${params[1]}&defaults=true&size=768x432&format=Png&isCircular=false` //roblox game thumbnail
+      url13 = `${key}https://groups.roblox.com/v1/groups/` + params[1] //roblox group
+      url13x = `${key}https://thumbnails.roblox.com/v1/groups/icons?groupIds=${params[1]}&size=150x150&format=Png&isCircular=false` //roblox group thumbnail
+
 
 
       if(params[3] == "mixer") {
@@ -269,6 +278,184 @@ setTimeout(function() {
          
 
       });
+      }
+      if(params[3] == "minecraft") {
+        $.getJSON(url9, function(data) {
+          
+          fans1.innerHTML = data.players
+  name1.innerHTML = params[1];
+  $("#img1").attr('src', `${data.icon}`);
+  stuff.series[0].addPoint([
+    (new Date()).getTime(),
+    data.players
+  ]);
+
+  if (stuff.series[0].data.length >= 700) {
+  stuff.series[0].data[0].remove()
+}
+          
+         
+
+      });
+      }
+      var plsnumber = 0;
+      if(params[3] == "gdus") {
+        $.getJSON(url10, function(data) {
+          plsnumber = data.stars.replace(/""/g, "")
+          fans1.innerHTML = data.stars.replace(/""/g, "")
+          console.log(plsnumber)
+  name1.innerHTML = data.username;
+  $("#img1").attr('src', `https://gdbrowser.com/icon/${params[1]}`);
+  stuff.series[0].addPoint([
+    (new Date()).getTime(),
+    plsnumber
+  ]);
+
+  if (stuff.series[0].data.length >= 700) {
+  stuff.series[0].data[0].remove()
+}
+          
+         
+
+      });
+      }
+      if(params[3] == "gdld") {
+        $.getJSON(url10x, function(data) {
+          fans1.innerHTML = data.downloads
+  name1.innerHTML = data.name;
+  $("#img1").attr('src', ``);
+  stuff.series[0].addPoint([
+    (new Date()).getTime(),
+    data.downloads
+  ]);
+
+  if (stuff.series[0].data.length >= 700) {
+  stuff.series[0].data[0].remove()
+}
+          
+         
+
+      });
+      }
+      if(params[3] == "ruf") {
+        $.getJSON(url11, function(data) {
+          name1.innerHTML = data.Username;
+          //fans1.innerHTML = data.downloads
+  
+  //$("#img1").attr('src', ``);
+  $.getJSON(url11x, function(data) {
+    //name1.innerHTML = data.Username;
+    fans1.innerHTML = data.count
+    stuff.series[0].addPoint([
+      (new Date()).getTime(),
+      data.count
+    ]);
+  
+    if (stuff.series[0].data.length >= 700) {
+    stuff.series[0].data[0].remove()
+  }
+  $.getJSON(url11xx, function(data) {
+    //name1.innerHTML = data.Username;
+    /*fans1.innerHTML = data.count
+    stuff.series[0].addPoint([
+      (new Date()).getTime(),
+      data.count
+    ]);
+  
+    if (stuff.series[0].data.length >= 700) {
+    stuff.series[0].data[0].remove()
+  }*/
+$("#img1").attr('src', `${data.data[0].imageUrl}`);
+
+    
+   
+
+});
+//$("#img1").attr('src', ``);
+
+    
+   
+
+});
+          
+         
+
+      });
+      
+      }
+      if(params[3] == "rgpn") {
+        $.getJSON(url12, function(data) {
+          name1.innerHTML = data.data[0].name;
+          //fans1.innerHTML = data.downloads
+          fans1.innerHTML = data.data[0].playing
+    stuff.series[0].addPoint([
+      (new Date()).getTime(),
+      data.data[0].playing
+    ]);
+  
+    if (stuff.series[0].data.length >= 700) {
+    stuff.series[0].data[0].remove()
+  }
+  $.getJSON(url12x, function(data) {
+    //name1.innerHTML = data.Username;
+    /*fans1.innerHTML = data.count
+    stuff.series[0].addPoint([
+      (new Date()).getTime(),
+      data.count
+    ]);
+  
+    if (stuff.series[0].data.length >= 700) {
+    stuff.series[0].data[0].remove()
+  }*/
+$("#img1").attr('src', `${data.data[0].thumbnails[0].imageUrl}`);
+
+    
+   
+
+});
+          
+         
+
+      });
+      
+      }
+      if(params[3] == "rgm") {
+        $.getJSON(url13, function(data) {
+          name1.innerHTML = data.name;
+          //fans1.innerHTML = data.downloads
+          fans1.innerHTML = data.memberCount
+    stuff.series[0].addPoint([
+      (new Date()).getTime(),
+      data.memberCount
+    ]);
+  
+    if (stuff.series[0].data.length >= 700) {
+    stuff.series[0].data[0].remove()
+  }
+  
+  
+          
+         
+
+      });
+      $.getJSON(url13x, function(data) {
+        //name1.innerHTML = data.Username;
+        /*fans1.innerHTML = data.count
+        stuff.series[0].addPoint([
+          (new Date()).getTime(),
+          data.count
+        ]);
+      
+        if (stuff.series[0].data.length >= 700) {
+        stuff.series[0].data[0].remove()
+      }*/
+    $("#img1").attr('src', `${data.data[0].imageUrl}`);
+    
+        
+       
+    
+    });
+      
       }
 
 
