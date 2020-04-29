@@ -135,7 +135,7 @@ $(document).ready(function() {
       url3x = `https://bastet.socialblade.com/twitter/lookup?query=` + params[1],
       url4 = `${key}https://api.dailymotion.com/users?usernames=${params[1]}&fields=screenname%2Cverified%2Curl%2Cdescription%2Cavatar_720_url%2Ccover_url%2Ccountry%2Cfollowers_total%2Cfollowing_total%2Cplaylists_total%2Cvideos_total%2Cviews_total%2Cid`,
       url5 = `${key}https://storyfire.com/app/users/getProfile/` + params[1],
-      url6 = `${key}https://mixernobest.herokuapp.com/tiktok/@` + params[1],
+      url6 = `${key}https://immense-castle-34936.herokuapp.com/@` + params[1],
       url7 = `${key}https://mixernobest.herokuapp.com/ytestimate2/@` + params[1],
       url8 = `${key}https://blastup.com/instagram/info?username=` + params[1]
     
@@ -261,7 +261,7 @@ $("#img1").attr('src', `${data.body.userData.covers[0]}`);
       url3x2 = `https://bastet.socialblade.com/twitter/lookup?query=` + params[2],
       url42 = `${key}https://api.dailymotion.com/users?usernames=${params[2]}&fields=screenname%2Cverified%2Curl%2Cdescription%2Cavatar_720_url%2Ccover_url%2Ccountry%2Cfollowers_total%2Cfollowing_total%2Cplaylists_total%2Cvideos_total%2Cviews_total%2Cid`,
       url52 = `${key}https://storyfire.com/app/users/getProfile/` + params[2],
-      url62 = `${key}https://mixernobest.herokuapp.com/tiktok/@` + params[2],
+      url62 = `${key}https://immense-castle-34936.herokuapp.com/@` + params[2],
       url72 = `${key}https://mixernobest.herokuapp.com/ytestimate2/@` + params[2],
       url82 = `${key}https://blastup.com/instagram/info?username=` + params[2]
     if(params[5] == "mixer") {$.getJSON(url12, function(data) {
