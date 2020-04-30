@@ -255,6 +255,10 @@ setTimeout(function() {
           
          
 
+      }).fail(function() {
+        setTimeout(function() {
+          usernamelol();
+        }, 500);
       });
       }
       var temporary1 = 0;

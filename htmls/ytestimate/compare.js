@@ -242,7 +242,12 @@ $("#img1").attr('src', `${data.body.userData.covers[0]}`);
         
        
   
+    }).fail(function() {
+      setTimeout(function() {
+        usernamelol();
+      }, 500);
     });
+  }
     var temporary1 = 0;
       var temporary2 = 0;
       if(params[4] == "instagram") {
@@ -401,7 +406,7 @@ $("#img1").attr('src', `${data.data[0].thumbnails[0].imageUrl}`);
     });
       
       }
-    }
+    
 
 
 
@@ -498,6 +503,10 @@ count2 = Math.floor(data.count);
       
      
 
+  }).fail(function() {
+    setTimeout(function() {
+      loaduser2();
+    }, 500);
   });
   }
   var temporary12 = 0;
