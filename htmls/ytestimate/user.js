@@ -98,7 +98,7 @@ setTimeout(function() {
     usernamelol(params[1]);
 
 
-
+var waittime = 4000;
 
     function usernamelol() {
       
@@ -106,126 +106,12 @@ setTimeout(function() {
       url7 = `${key}https://mixernobest.herokuapp.com/ytestimate2/@` + params[1] //yt est
      
 
-
-
-      if(params[3] == "mixer") {
-        $.getJSON(url1, function(data) {
-          fans1.innerHTML = Math.floor(data.numFollowers)
-  name1.innerHTML = data.token;
-  $("#img1").attr('src', `${data.user.avatarUrl}`);
-  stuff.series[0].addPoint([
-    (new Date()).getTime(),
-    Math.floor(data.numFollowers)
-  ]);
-
-  if (stuff.series[0].data.length >= 700) {
-  stuff.series[0].data[0].remove()
-}
-          
-         
-
-      });
-      }
-      /*if(params[3] == "twitch") {
-        $.getJSON(url2, function(data) {
-          fans1.innerHTML = Math.floor(data.followers)
-  name1.innerHTML = data.username;
-  $("#img1").attr('src', `${data.profile_picture}`);
-  stuff.series[0].addPoint([
-    (new Date()).getTime(),
-    Math.floor(data.followers)
-  ]);
-
-  if (stuff.series[0].data.length >= 700) {
-  stuff.series[0].data[0].remove()
-}
-          
-         
-
-      });
-      }
-      if(params[3] == "youtube") {
-        $.getJSON(url2x, function(data) {
-          fans1.innerHTML = Math.floor(data.subscribers)
-  name1.innerHTML = data.name;
-  $("#img1").attr('src', `${data.profile_image}`);
-  stuff.series[0].addPoint([
-    (new Date()).getTime(),
-    Math.floor(data.subscribers)
-  ]);
-
-  if (stuff.series[0].data.length >= 700) {
-  stuff.series[0].data[0].remove()
-}
-          
-         
-
-      });
-      }
-      if(params[3] == "twitter") {
-        $.getJSON(url3, function(data) {
-          
-  name1.innerHTML = data.username;
-  $("#img1").attr('src', `${data.profile_picture}`);
-  
-          
-         
-
-      });
-      $.getJSON(url3x, function(data) {
-          
-        fans1.innerHTML = Math.floor(data)
-        stuff.series[0].addPoint([
-          (new Date()).getTime(),
-          Math.floor(data)
-        ]);
+     
       
-        if (stuff.series[0].data.length >= 700) {
-        stuff.series[0].data[0].remove()
-      }
-                
-               
       
-            });
-      }*/
-      if(params[3] == "dailymotion") {
-        $.getJSON(url4, function(data) {
-          fans1.innerHTML = Math.floor(data.list[0].followers_total)
-  name1.innerHTML = data.list[0].screenname;
-  $("#img1").attr('src', `${data.list[0].avatar_720_url}`);
-  stuff.series[0].addPoint([
-    (new Date()).getTime(),
-    Math.floor(data.list[0].followers_total)
-  ]);
-
-  if (stuff.series[0].data.length >= 700) {
-  stuff.series[0].data[0].remove()
-}
-          
-         
-
-      });
-      }
-      if(params[3] == "storyfire") {
-        $.getJSON(url5, function(data) {
-          fans1.innerHTML = Math.floor(data.followersCount)
-  name1.innerHTML = data.username;
-  $("#img1").attr('src', `${data.userimage}`);
-  stuff.series[0].addPoint([
-    (new Date()).getTime(),
-    Math.floor(data.followersCount)
-  ]);
-
-  if (stuff.series[0].data.length >= 700) {
-  stuff.series[0].data[0].remove()
-}
-          
-         
-
-      });
-      }
       if(params[3] == "tiktok") {
         $.getJSON(url6, function(data) {
+          waittime = 4000
           fans1.innerHTML = Math.floor(data.body.userData.fans)
   name1.innerHTML = data.body.userData.nickName;
   $("#img1").attr('src', `${data.body.userData.covers[0]}`);
@@ -244,6 +130,7 @@ setTimeout(function() {
       }
       if(params[3] == "ytestimation2") {
         $.getJSON(url7, function(data) {
+          waittime = 1000
           fans1.innerHTML = Math.floor(data.count)
   name1.innerHTML = data.name;
   $("#img1").attr('src', `${data.avatarurl}`);
@@ -264,207 +151,7 @@ setTimeout(function() {
         }, 500);
       });
       }
-      /*
-      var temporary1 = 0;
-      var temporary2 = 0;
-      if(params[3] == "instagram") {
-        $.getJSON(url8, function(data) {
-          temporary1 = (data.subscribers)
-          fans1.innerHTML = temporary1
-          console.log(temporary1);
-  name1.innerHTML = data.name;
-  $("#img1").attr('src', `${data.image}`);
-  stuff.series[0].addPoint([
-    (new Date()).getTime(),
-    temporary1
-  ]);
-
-  if (stuff.series[0].data.length >= 700) {
-  stuff.series[0].data[0].remove()
-}
-          
-         
-
-      });
-      }*/
-      if(params[3] == "minecraft") {
-        $.getJSON(url9, function(data) {
-          
-          fans1.innerHTML = data.players
-  name1.innerHTML = params[1];
-  $("#img1").attr('src', `${data.icon}`);
-  stuff.series[0].addPoint([
-    (new Date()).getTime(),
-    data.players
-  ]);
-
-  if (stuff.series[0].data.length >= 700) {
-  stuff.series[0].data[0].remove()
-}
-          
-         
-
-      });
-      }
-      var plsnumber = 0;
-      if(params[3] == "gdus") {
-        $.getJSON(url10, function(data) {
-          plsnumber = data.stars.replace(/""/g, "")
-          fans1.innerHTML = data.stars.replace(/""/g, "")
-          console.log(plsnumber)
-  name1.innerHTML = data.username;
-  $("#img1").attr('src', `https://gdbrowser.com/icon/${params[1]}`);
-  stuff.series[0].addPoint([
-    (new Date()).getTime(),
-    plsnumber
-  ]);
-
-  if (stuff.series[0].data.length >= 700) {
-  stuff.series[0].data[0].remove()
-}
-          
-         
-
-      });
-      }
-      if(params[3] == "gdld") {
-        $.getJSON(url10x, function(data) {
-          fans1.innerHTML = data.downloads
-  name1.innerHTML = data.name;
-  $("#img1").attr('src', ``);
-  stuff.series[0].addPoint([
-    (new Date()).getTime(),
-    data.downloads
-  ]);
-
-  if (stuff.series[0].data.length >= 700) {
-  stuff.series[0].data[0].remove()
-}
-          
-         
-
-      });
-      }
-      if(params[3] == "ruf") {
-        $.getJSON(url11, function(data) {
-          name1.innerHTML = data.Username;
-          //fans1.innerHTML = data.downloads
-  
-  //$("#img1").attr('src', ``);
-  $.getJSON(url11x, function(data) {
-    //name1.innerHTML = data.Username;
-    fans1.innerHTML = data.count
-    stuff.series[0].addPoint([
-      (new Date()).getTime(),
-      data.count
-    ]);
-  
-    if (stuff.series[0].data.length >= 700) {
-    stuff.series[0].data[0].remove()
-  }
-  $.getJSON(url11xx, function(data) {
-    //name1.innerHTML = data.Username;
-    /*fans1.innerHTML = data.count
-    stuff.series[0].addPoint([
-      (new Date()).getTime(),
-      data.count
-    ]);
-  
-    if (stuff.series[0].data.length >= 700) {
-    stuff.series[0].data[0].remove()
-  }*/
-$("#img1").attr('src', `${data.data[0].imageUrl}`);
-
-    
-   
-
-});
-//$("#img1").attr('src', ``);
-
-    
-   
-
-});
-          
-         
-
-      });
       
-      }
-      if(params[3] == "rgpn") {
-        $.getJSON(url12, function(data) {
-          name1.innerHTML = data.data[0].name;
-          //fans1.innerHTML = data.downloads
-          fans1.innerHTML = data.data[0].playing
-    stuff.series[0].addPoint([
-      (new Date()).getTime(),
-      data.data[0].playing
-    ]);
-  
-    if (stuff.series[0].data.length >= 700) {
-    stuff.series[0].data[0].remove()
-  }
-  $.getJSON(url12x, function(data) {
-    //name1.innerHTML = data.Username;
-    /*fans1.innerHTML = data.count
-    stuff.series[0].addPoint([
-      (new Date()).getTime(),
-      data.count
-    ]);
-  
-    if (stuff.series[0].data.length >= 700) {
-    stuff.series[0].data[0].remove()
-  }*/
-$("#img1").attr('src', `${data.data[0].thumbnails[0].imageUrl}`);
-
-    
-   
-
-});
-          
-         
-
-      });
-      
-      }
-      if(params[3] == "rgm") {
-        $.getJSON(url13, function(data) {
-          name1.innerHTML = data.name;
-          //fans1.innerHTML = data.downloads
-          fans1.innerHTML = data.memberCount
-    stuff.series[0].addPoint([
-      (new Date()).getTime(),
-      data.memberCount
-    ]);
-  
-    if (stuff.series[0].data.length >= 700) {
-    stuff.series[0].data[0].remove()
-  }
-  
-  
-          
-         
-
-      });
-      $.getJSON(url13x, function(data) {
-        //name1.innerHTML = data.Username;
-        /*fans1.innerHTML = data.count
-        stuff.series[0].addPoint([
-          (new Date()).getTime(),
-          data.count
-        ]);
-      
-        if (stuff.series[0].data.length >= 700) {
-        stuff.series[0].data[0].remove()
-      }*/
-    $("#img1").attr('src', `${data.data[0].imageUrl}`);
-    
-        
-       
-    
-    });
-      
-      }
 
 
 
@@ -475,7 +162,7 @@ $("#img1").attr('src', `${data.data[0].thumbnails[0].imageUrl}`);
 
 
 
-    setInterval(usernamelol, 4000)
+    setInterval(usernamelol, waittime)
 
 
 
