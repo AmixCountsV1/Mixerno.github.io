@@ -102,15 +102,10 @@ setTimeout(function() {
 
     function usernamelol() {
       url1 = `${key}https://mixer.com/api/v1/channels/${params[1]}/details`, // mixer
-      url2 = `${key}https://likigram.com/api/twitch/` + params[1], // Twitch followers
-      url2x = `${key}https://likigram.com/api/youtube/` + params[1], // Youtube subs
-      url3 = `${key}https://likigram.com/api/twitter/` + params[1], //twitter picture and other
-      url3x = `https://bastet.socialblade.com/twitter/lookup?query=` + params[1], //twitterfolcount //dailymotion vvvv
       url4 = `${key}https://api.dailymotion.com/users?usernames=${params[1]}&fields=screenname%2Cverified%2Curl%2Cdescription%2Cavatar_720_url%2Ccover_url%2Ccountry%2Cfollowers_total%2Cfollowing_total%2Cplaylists_total%2Cvideos_total%2Cviews_total%2Cid`,
       url5 = `${key}https://storyfire.com/app/users/getProfile/` + params[1], //storydife
       url6 = `${key}https://immense-castle-34936.herokuapp.com/@` + params[1], //tiktok
       url7 = `${key}https://mixernobest.herokuapp.com/ytestimate2/@` + params[1], //yt est
-      url8 = `${key}https://likigram.com/api/instagram/` + params[1] //ig
       url9 = `${key}https://mcapi.xdefcon.com/server/${params[1]}/full/json` //MC
       url10 = `${key}https://gdbrowser.com/api/profile/` + params[1] //GD user
       url10x = `${key}https://gdbrowser.com/api/level/` + params[1] //gd level
@@ -142,7 +137,7 @@ setTimeout(function() {
 
       });
       }
-      if(params[3] == "twitch") {
+      /*if(params[3] == "twitch") {
         $.getJSON(url2, function(data) {
           fans1.innerHTML = Math.floor(data.followers)
   name1.innerHTML = data.username;
@@ -203,7 +198,7 @@ setTimeout(function() {
                
       
             });
-      }
+      }*/
       if(params[3] == "dailymotion") {
         $.getJSON(url4, function(data) {
           fans1.innerHTML = Math.floor(data.list[0].followers_total)
@@ -280,6 +275,7 @@ setTimeout(function() {
         }, 500);
       });
       }
+      /*
       var temporary1 = 0;
       var temporary2 = 0;
       if(params[3] == "instagram") {
@@ -301,7 +297,7 @@ setTimeout(function() {
          
 
       });
-      }
+      }*/
       if(params[3] == "minecraft") {
         $.getJSON(url9, function(data) {
           

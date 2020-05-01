@@ -413,14 +413,10 @@ $("#img1").attr('src', `${data.data[0].thumbnails[0].imageUrl}`);
   }
   function loaduser2() {
     url12 = `${key}https://mixer.com/api/v1/channels/${params[2]}/details`,
-      url22 = `${key}https://freewebtools.com/compteur-youtube/?channelId=` + params[2],
-      url32 = `${key}https://api.thesocialcounter.com/twitter/?name=` + params[2],
-      url3x2 = `https://bastet.socialblade.com/twitter/lookup?query=` + params[2],
       url42 = `${key}https://api.dailymotion.com/users?usernames=${params[2]}&fields=screenname%2Cverified%2Curl%2Cdescription%2Cavatar_720_url%2Ccover_url%2Ccountry%2Cfollowers_total%2Cfollowing_total%2Cplaylists_total%2Cvideos_total%2Cviews_total%2Cid`,
       url52 = `${key}https://storyfire.com/app/users/getProfile/` + params[2],
       url62 = `${key}https://immense-castle-34936.herokuapp.com/@` + params[2],
       url72 = `${key}https://mixernobest.herokuapp.com/ytestimate2/@` + params[2],
-      url82 = `${key}https://blastup.com/instagram/info?username=` + params[2]
       url92 = `${key}https://mcapi.xdefcon.com/server/${params[2]}/full/json` //MC
       url102 = `${key}https://gdbrowser.com/api/profile/` + params[2] //GD user
       url10x2 = `${key}https://gdbrowser.com/api/level/` + params[2] //gd level
@@ -439,7 +435,7 @@ $("#img1").attr('src', `${data.data[0].thumbnails[0].imageUrl}`);
      });
      
 
-  }
+  }/*
      if(params[5] == "youtube") {$.getJSON(url22, function(data) {
       fans2.innerHTML = Math.floor(data.count)
       name2.innerHTML = data.name;
@@ -465,7 +461,7 @@ $("#img1").attr('src', `${data.data[0].thumbnails[0].imageUrl}`);
           });
      
 
-  }
+  }*/
      if(params[5] == "dailymotion") {$.getJSON(url42, function(data) {
       fans2.innerHTML = Math.floor(data.list[0].followers_total)
       name2.innerHTML = data.list[0].screenname;
@@ -508,7 +504,7 @@ count2 = Math.floor(data.count);
       loaduser2();
     }, 500);
   });
-  }
+  }/*
   var temporary12 = 0;
       var temporary22 = 0;
       if(params[5] == "instagram") {
@@ -524,7 +520,7 @@ count2 = Math.floor(data.count);
          
 
       });
-      }
+      }*/
       if(params[5] == "minecraft") {
         $.getJSON(url92, function(data) {
           count2 = data.players
