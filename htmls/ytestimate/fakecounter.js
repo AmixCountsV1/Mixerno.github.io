@@ -19,31 +19,31 @@ setTimeout(function() {
     }
   });
   var parms = window.location.href;
-    var params = parms.split('?');
+    var params = parms.split('sts=');
   $(document).ready(function() {
     $('#whitee').click(function() {
       $('body').css('color', 'black');
       $('body').css('background-color', 'white');
       console.log("White theme activated");
-      location.href = `${params[0]}?${params[1]}?1?${params[3]}`;
+      location.href = `${params[0]}?${params[1]}?${params[2]}?1?${params[4]}`;
     });
     $('#blackk').click(function() {
       $('body').css('color', 'white');
       $('body').css('background-color', 'black');
       console.log("Black theme activated");
-      location.href = `${params[0]}?${params[1]}?2?${params[3]}`;
+      location.href = `${params[0]}?${params[1]}?${params[2]}?2?${params[4]}`;
     });
     $('#transparent1').click(function() {
       $('body').css('color', 'white');
       $('body').css('background-color', 'transparent');
       console.log("transparent1 activated");
-      location.href = `${params[0]}?${params[1]}?3?${params[3]}`;
+      location.href = `${params[0]}?${params[1]}?${params[2]}?3?${params[4]}`;
     });
     $('#transparent2').click(function() {
       $('body').css('color', 'black');
       $('body').css('background-color', 'transparent');
       console.log("transparent2 activated");
-      location.href = `${params[0]}?${params[1]}?4?${params[3]}`;
+      location.href = `${params[0]}?${params[1]}?${params[2]}?4?${params[4]}`;
     });
     
     var stuff = new Highcharts.chart('container', {
@@ -91,13 +91,17 @@ setTimeout(function() {
   
       }]
     })
-
+    $('#ss').click(setstuff());
     
     var fans2 = 0;
+    var imageur = params[5];
+    $("#daimg").attr('src', `${imageur}`);
     fans2 = params[2] / 1;
+    name2 = params[1]
     name1.innerHTML = params[1]
     var howmuchmins = 0;
-    howmuchmins = params[4] / 60;
+    var howmuchhours = params[4]
+    howmuchmins = howmuchhours / 60;
     var howmuch = 0;
     howmuch = howmuchmins / 60
     console.log(howmuch)
@@ -108,12 +112,17 @@ setTimeout(function() {
 
 
 
-
+function setstuff() {
+  name2 = $('#namn').val()
+  fans2 = $('#subs').val()
+}
     function usernamelol() {
+      
       randomNumberforsubs = Math.floor(Math.random() * 10);
       console.log(howmuch)
       console.log(randomNumberforsubs)
       console.log(fans2)
+      name1.innerHTML = name2
       
       if(randomNumberforsubs > 8.2) {
         if(randomNumberforsubs < 9.2) {
@@ -152,7 +161,7 @@ setTimeout(function() {
         Math.floor(fans2)
       ]);
     
-      if (stuff.series[0].data.length >= 700) {
+      if (stuff.series[0].data.length >= 1400) {
       stuff.series[0].data[0].remove()
     }
     
@@ -417,11 +426,14 @@ setTimeout(function() {
     }
 
 
+    puturlalsocheckiguesslolgoodnamesiguessdoyoulikethemihopeyoudobecauseidoveryrepetetivestuffyeahokbai()
 
 
-
-
+function puturlalsocheckiguesslolgoodnamesiguessdoyoulikethemihopeyoudobecauseidoveryrepetetivestuffyeahokbai() {
+  urll.innerHTML = `${params[0]}sts=${name2}sts=${Math.floor(fans2)}sts=${params[3]}sts=${howmuchhours}sts=${imageur}sts=${audittake}sts=${audittimesecs}`
+}
     setInterval(usernamelol, 2000)
+    setInterval(puturlalsocheckiguesslolgoodnamesiguessdoyoulikethemihopeyoudobecauseidoveryrepetetivestuffyeahokbai, 1000)
 
 
 

@@ -23,6 +23,7 @@
   <div>
 <select id="userplatform" name="platformuser" style="width: 90px;">
       <option id="usermixer" value="mixer">Mixer</option>
+      <option id="usertwitch" value="twitch">Twitch</option>
       <option id="useryoutube" value="youtube">Youtube</option>
       <option id="usertwitter" value="twitter">Twitter</option>
       <option id="userdailymotion" value="dailymotion">Dailymotion</option>
@@ -62,7 +63,7 @@
           <br>
           <p>Platform/Game: <select id="platform" name="platform">
             <option id="mixer" value="mixer">Mixer</option>
-            <option id="youtube" value="youtube">Youtube</option>
+            <!--<option id="youtube" value="youtube">Youtube</option>-->
             <option id="twitter" value="twitter">Twitter</option>
             <option id="dailymotion" value="dailymotion">Dailymotion</option>
             <option id="storyfire" value="storyfire">Storyfire</option>
@@ -331,6 +332,9 @@ $('#compareinput').on('keyup', function(e) {
       if(selected == "youtube") {
         location.href = `${params[0]}?${$('#chnlName').val()}?${params[2]}?youtube`;
       }
+      if(selected == "twitch") {
+        location.href = `${params[0]}?${$('#chnlName').val()}?${params[2]}?twitch`;
+      }
       if(selected == "twitter") {
         location.href = `${params[0]}?${$('#chnlName').val()}?${params[2]}?twitter`;
       }
@@ -375,6 +379,9 @@ $('#compareinput').on('keyup', function(e) {
       }
       if(selectedcomp == "youtube") {
         location.href = `https://mixerno.github.io/htmls/ytestimate/compare.html?${params[1]}?${$('#compareinput').val()}?${params[2]}?${params[3]}?youtube`;
+      }
+      if(selected == "twitch") {
+        location.href = `https://mixerno.github.io/htmls/ytestimate/compare.html?${params[1]}?${$('#compareinput').val()}?${params[2]}?${params[3]}?twitch`;
       }
       if(selectedcomp == "twitter") {
         location.href = `https://mixerno.github.io/htmls/ytestimate/compare.html?${params[1]}?${$('#compareinput').val()}?${params[2]}?${params[3]}?twitter`;

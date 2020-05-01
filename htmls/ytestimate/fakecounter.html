@@ -30,25 +30,10 @@
 </div>
 
   <span class="l">
+
     <center>
       <br>
-      <div id="popupstuffye" class="modal">
-        <div class="modal-content">
-          <span id="clos" class="close">&times;</span>
-          <p style="color: black; font-size: 20px;">Who do you want to compare with?</p>
-          <br>
-          <p>Platform: <select id="platform" name="platform">
-            <option id="mixer" value="mixer">Mixer</option>
-            <option id="youtube" value="youtube">Youtube</option>
-            <option id="twitter" value="twitter">Twitter</option>
-            <option id="dailymotion" value="dailymotion">Dailymotion</option>
-            <option id="storyfire" value="storyfire">Storyfire</option>
-            <option id="tiktok" value="tiktok">TikTok</option>
-            <option id="instagram" value="instagram">Instagram</option>
-          </select></p>
-          <input placeholder="" type="text" style="width: 150px;" value="" id="compareinput" class="custominput"></input>
-    <button class="comaprebutton" id="comparebutton">Search for a user</button>
-        </div></div>
+      
         <div id="popupstuffye2" class="modal">
           <div class="modal-content">
             <span id="clos2" class="close">&times;</span>
@@ -62,7 +47,7 @@
             </div>
           </div></div>
       <br>
-    <img src="https://yt3.ggpht.com/a-/AOh14GhVWagi88Rfs6XXerg3-3PR4RPHYcolFIrYXZ4_=s288-c-k-c0xffffffff-no-rj-mo" id="img1" height="100" width="100">
+    <img src="https://yt3.ggpht.com/a-/AOh14GhVWagi88Rfs6XXerg3-3PR4RPHYcolFIrYXZ4_=s288-c-k-c0xffffffff-no-rj-mo" id="daimg" height="100" width="100">
     <div id="name1" class="normal" style="font-size:30px;font-weight: bold;">Loading</div>
     <div id="fans1" class="odometer" style="font-size:50px;">0</div>
     <br>
@@ -75,14 +60,27 @@
   
       </p>
     </figure>
-    <div>Goal:</div>
-    <div class="odometer" id="goaal">0</div>
+    <div style="font-size: 25px;">Goal:</div>
+    <div class="odometer" style="font-size: 25px;" id="goaal">0</div>
     <br>
-    <div id="goalgraph"></div>
 
 <br>
 <br>
 
+  </center>
+  <center>
+  <input placeholder="Name" type="text" style="width: 150px;" value="" id="namn" class="custominput"></input>
+  <input placeholder="Subs" type="text" style="width: 150px;" value="" id="subs" class="custominput"></input>
+  <input placeholder="Subs per hour" type="text" style="width: 150px;" value="" id="sph" class="custominput"></input>
+  <input placeholder="Image url" type="text" style="width: 150px;" value="" id="imgurl" class="custominput"></input>
+    <button class="comaprebutton" id="ss">Set stats</button>
+    <br>
+    <input placeholder="How much audits take" type="text" style="width: 150px;" value="" id="hmat" class="custominput"></input>
+  <input placeholder="When audits happen (type in secs pls)" type="text" style="width: 250px;" value="" id="wah" class="custominput"></input>
+  <button class="comaprebutton" id="sa">Set Audits</button>
+    <br>
+    <br>
+    <div>Url so you can save it when you leave: <p id="urll">URL</p></div>
   </center>
   </span>
     
@@ -90,6 +88,7 @@
 
 
   <style>
+    
     input[type=text], select {
   width: 10%;
   padding: 2.5px 5px;

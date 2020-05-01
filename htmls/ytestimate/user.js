@@ -102,14 +102,15 @@ setTimeout(function() {
 
     function usernamelol() {
       url1 = `${key}https://mixer.com/api/v1/channels/${params[1]}/details`, // mixer
-      url2 = `${key}https://freewebtools.com/compteur-youtube/?channelId=` + params[1], // yt subs
-      url3 = `${key}https://api.thesocialcounter.com/twitter/?name=` + params[1], //twitter picture and other
+      url2 = `${key}https://likigram.com/api/twitch/` + params[1], // Twitch followers
+      url2x = `${key}https://likigram.com/api/youtube/` + params[1], // Youtube subs
+      url3 = `${key}https://likigram.com/api/twitter/` + params[1], //twitter picture and other
       url3x = `https://bastet.socialblade.com/twitter/lookup?query=` + params[1], //twitterfolcount //dailymotion vvvv
       url4 = `${key}https://api.dailymotion.com/users?usernames=${params[1]}&fields=screenname%2Cverified%2Curl%2Cdescription%2Cavatar_720_url%2Ccover_url%2Ccountry%2Cfollowers_total%2Cfollowing_total%2Cplaylists_total%2Cvideos_total%2Cviews_total%2Cid`,
       url5 = `${key}https://storyfire.com/app/users/getProfile/` + params[1], //storydife
       url6 = `${key}https://immense-castle-34936.herokuapp.com/@` + params[1], //tiktok
       url7 = `${key}https://mixernobest.herokuapp.com/ytestimate2/@` + params[1], //yt est
-      url8 = `${key}https://blastup.com/instagram/info?username=` + params[1] //ig
+      url8 = `${key}https://likigram.com/api/instagram/` + params[1] //ig
       url9 = `${key}https://mcapi.xdefcon.com/server/${params[1]}/full/json` //MC
       url10 = `${key}https://gdbrowser.com/api/profile/` + params[1] //GD user
       url10x = `${key}https://gdbrowser.com/api/level/` + params[1] //gd level
@@ -141,14 +142,32 @@ setTimeout(function() {
 
       });
       }
-      if(params[3] == "youtube") {
+      if(params[3] == "twitch") {
         $.getJSON(url2, function(data) {
-          fans1.innerHTML = Math.floor(data.count)
-  name1.innerHTML = data.name;
-  $("#img1").attr('src', `${data.avatarurl}`);
+          fans1.innerHTML = Math.floor(data.followers)
+  name1.innerHTML = data.username;
+  $("#img1").attr('src', `${data.profile_picture}`);
   stuff.series[0].addPoint([
     (new Date()).getTime(),
-    Math.floor(data.count)
+    Math.floor(data.followers)
+  ]);
+
+  if (stuff.series[0].data.length >= 700) {
+  stuff.series[0].data[0].remove()
+}
+          
+         
+
+      });
+      }
+      if(params[3] == "youtube") {
+        $.getJSON(url2x, function(data) {
+          fans1.innerHTML = Math.floor(data.subscribers)
+  name1.innerHTML = data.name;
+  $("#img1").attr('src', `${data.profile_image}`);
+  stuff.series[0].addPoint([
+    (new Date()).getTime(),
+    Math.floor(data.subscribers)
   ]);
 
   if (stuff.series[0].data.length >= 700) {
@@ -162,8 +181,8 @@ setTimeout(function() {
       if(params[3] == "twitter") {
         $.getJSON(url3, function(data) {
           
-  name1.innerHTML = data.name;
-  $("#img1").attr('src', `${data.profile_image_url_https}`);
+  name1.innerHTML = data.username;
+  $("#img1").attr('src', `${data.profile_picture}`);
   
           
          
@@ -265,11 +284,11 @@ setTimeout(function() {
       var temporary2 = 0;
       if(params[3] == "instagram") {
         $.getJSON(url8, function(data) {
-          temporary1 = (data.data.followers).replace(/,/g, "")
+          temporary1 = (data.subscribers)
           fans1.innerHTML = temporary1
           console.log(temporary1);
-  name1.innerHTML = data.data.username;
-  $("#img1").attr('src', `${data.data.profile_picture}`);
+  name1.innerHTML = data.name;
+  $("#img1").attr('src', `${data.image}`);
   stuff.series[0].addPoint([
     (new Date()).getTime(),
     temporary1
