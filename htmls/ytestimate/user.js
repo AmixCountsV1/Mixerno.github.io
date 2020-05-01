@@ -101,21 +101,10 @@ setTimeout(function() {
 
 
     function usernamelol() {
-      url1 = `${key}https://mixer.com/api/v1/channels/${params[1]}/details`, // mixer
-      url4 = `${key}https://api.dailymotion.com/users?usernames=${params[1]}&fields=screenname%2Cverified%2Curl%2Cdescription%2Cavatar_720_url%2Ccover_url%2Ccountry%2Cfollowers_total%2Cfollowing_total%2Cplaylists_total%2Cvideos_total%2Cviews_total%2Cid`,
-      url5 = `${key}https://storyfire.com/app/users/getProfile/` + params[1], //storydife
+      
       url6 = `${key}https://immense-castle-34936.herokuapp.com/@` + params[1], //tiktok
-      url7 = `${key}https://mixernobest.herokuapp.com/ytestimate2/@` + params[1], //yt est
-      url9 = `${key}https://mcapi.xdefcon.com/server/${params[1]}/full/json` //MC
-      url10 = `${key}https://gdbrowser.com/api/profile/` + params[1] //GD user
-      url10x = `${key}https://gdbrowser.com/api/level/` + params[1] //gd level
-      url11 = `${key}https://api.roblox.com/users/` + params[1]  //roblox user name
-      url11x = `${key}https://friends.roblox.com/v1/users/${params[1]}/followers/count`  //roblox user followers
-      url11xx = `${key}https://thumbnails.roblox.com/v1/users/avatar-headshot?userIds=${params[1]}&size=150x150&format=Png&isCircular=false` //roblox user thumbnail
-      url12 = `${key}https://games.roblox.com/v1/games?universeIds=` + params[1] //roblox game stats
-      url12x = `${key}https://thumbnails.roblox.com/v1/games/multiget/thumbnails?universeIds=${params[1]}&defaults=true&size=768x432&format=Png&isCircular=false` //roblox game thumbnail
-      url13 = `${key}https://groups.roblox.com/v1/groups/` + params[1] //roblox group
-      url13x = `${key}https://thumbnails.roblox.com/v1/groups/icons?groupIds=${params[1]}&size=150x150&format=Png&isCircular=false` //roblox group thumbnail
+      url7 = `${key}https://mixernobest.herokuapp.com/ytestimate2/@` + params[1] //yt est
+     
 
 
 
