@@ -99,6 +99,14 @@ setTimeout(function() {
 
 
 var waittime = 4000;
+if(params[3] == "tiktok") {
+  waittime = 4000
+  
+}
+if(params[3] == "ytestimation2") {
+  waittime = 1000;
+  
+}
 
     function usernamelol() {
       
