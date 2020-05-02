@@ -219,7 +219,7 @@ $(document).ready(function() {
         dataType: "text",
         success: function(data) {
           var json = $.parseJSON(data);
-          channelid = json.items[0].id.channelId
+          channelid = json.items[0].snippet.channelId
           ytname.innerHTML = json.items[0].snippet.channelTitle
           $("#image").attr('src', `${json.items[0].snippet.thumbnails.high.url}`);
           channelstatistics();
