@@ -1,0 +1,334 @@
+<html>
+    <head>
+        <title>Mixerno.space - Twitter follower count</title>
+        <link rel="shortcut icon" href="https://yt3.ggpht.com/a-/AOh14GhVWagi88Rfs6XXerg3-3PR4RPHYcolFIrYXZ4_=s288-c-k-c0xffffffff-no-rj-mo">
+        <link rel="stylesheet" href="../../o2.css" />
+        <script src="../../odometer.js"></script>
+        <script type="text/javascript" src="../../jquery-3.1.1.min.js"></script>
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+
+
+
+        <div class="topbar"><div>Mixerno.space</div><center><a href="../../index.html">Home</a></center></div>
+        <br>
+        <center>
+            <div class="rowstuff">
+            <div>
+        <div class="maincount">
+            <img id="image" style="border-radius: 50%;" src="https://via.placeholder.com/130/585858/FFFFFF/?text=Mixerno.space" height="130" width="130">
+            <div style="font-size: 50px;" id="ttname">Mixerno.space</div>
+            <div class="odometer" style="font-size: 60px;" id="ttfollowers">0</div>
+            <div><strong>Followers</strong></div>
+        </div>
+        <br>
+        <div class="sidecounts">
+            <div>
+                <div style="font-size: 25px;" class="odometer" id="ttheart">0</div>
+                <div style="font-size: 25px;">Hearts</div>
+            </div>
+            <div>
+                <div style="font-size: 25px;" class="odometer" id="ttdigg">0</div>
+                <div style="font-size: 25px;">Digg</div>
+            </div>
+            <div>
+                <div style="font-size: 25px;" class="odometer" id="ttfollowing">0</div>
+                <div style="font-size: 25px;">Following</div>
+            </div>
+            <div>
+                <div style="font-size: 25px;" class="odometer" id="ttvideo">0</div>
+                <div style="font-size: 25px;">Videos</div>
+            </div>
+        </div>
+        <input placeholder="Tiktok user" type="text" style="width: 400px; font-size: 20px;" value="" id="tiktokusersearch" class="custominput"></input>
+        <button class="buton" style="font-size: 20px;" id="serch">Search</button>
+    </div>
+        <div>
+        <div class="maincount">
+            <img id="image2" style="border-radius: 50%;" src="https://via.placeholder.com/130/585858/FFFFFF/?text=Mixerno.space" height="130" width="130">
+            <div style="font-size: 50px;" id="ttname2">Mixerno.space</div>
+            <div class="odometer" style="font-size: 60px;" id="ttfollowers2">0</div>
+            <div><strong>Followers</strong></div>
+        </div>
+        <br>
+        <div class="sidecounts">
+            <div>
+                <div style="font-size: 25px;" class="odometer" id="ttheart2">0</div>
+                <div style="font-size: 25px;">Hearts</div>
+            </div>
+            <div>
+                <div style="font-size: 25px;" class="odometer" id="ttdigg2">0</div>
+                <div style="font-size: 25px;">Digg</div>
+            </div>
+            <div>
+                <div style="font-size: 25px;" class="odometer" id="ttfollowing2">0</div>
+                <div style="font-size: 25px;">Following</div>
+            </div>
+            <div>
+                <div style="font-size: 25px;" class="odometer" id="ttvideo2">0</div>
+                <div style="font-size: 25px;">Videos</div>
+            </div>
+        </div>
+        <input placeholder="Tiktok user" type="text" style="width: 400px; font-size: 20px;" value="" id="tiktokusersearch2" class="custominput"></input>
+        <button class="buton" style="font-size: 20px;" id="serch2">Search</button>
+    </div>
+    </div> 
+        <br>
+        <div class="graphstuff">
+            <div class="odometer" id="diffrenceodo" style="font-size: 50px;">0</div>
+            <div><strong>Follower diffrence</strong></div>
+            <div id="graph"></div>
+        </div>
+        
+        
+    </center>
+    </head>
+    <style>
+        .buton {
+  background-color: rgb(61, 61, 61);
+  border: none;
+  color: rgb(255, 255, 255);
+  padding: 2.5px 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 0px 0px;
+  cursor: pointer;
+}
+        input[type=text], select {
+  width: 10%;
+  padding: 2.5px 5px;
+  margin: 0px 0;
+  display: inline-block;
+  color: white;
+  background-color: rgb(61, 61, 61);
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 1px;
+  box-sizing: border-box;
+}
+        body {
+      background-color: rgb(0, 0, 0);
+      color: rgb(255, 255, 255);
+      font-family: Arial
+    }
+    a:link{
+      color:white;
+    }
+    a:visited{
+      color:white;
+    }
+    a:hover{
+      color:rgb(255, 255, 255);
+    }
+    a:focus{
+      color:rgb(255, 255, 255);
+    }
+    a:active{
+      color:white;
+    }
+    .topbar {
+  border-radius: 12.5px;
+  padding: 10px; 
+  background: rgb(61, 61, 61);
+  width: auto;
+  height: 30px; 
+  display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        flex: 1;
+        margin-bottom: 2% 
+}
+.maincount {
+  border-radius: 12.5px;
+  padding: 10px; 
+  background: rgb(61, 61, 61);
+  width: 500px;
+  height: 300px; 
+}
+.graphstuff {
+  border-radius: 12.5px;
+  padding: 10px; 
+  background: rgb(61, 61, 61);
+  width: 1000px;
+  height: 470px; 
+}
+.sidecounts {
+  border-radius: 12.5px;
+  padding: 10px; 
+  background: rgb(36, 36, 36);
+  width: 500px;
+  height: 50px; 
+  display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        flex: 1;
+        margin-bottom: 2% 
+}
+.rowstuff {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        flex: 1;
+    }
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+
+::-webkit-scrollbar-thumb {
+  background: rgb(255, 255, 255);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(255, 255, 255);
+}
+    </style>
+    <script type="text/javascript">
+jQuery.ajaxPrefilter(function(options) {
+if (options.crossDomain && jQuery.support.cors) {
+options.url = '' + options.url;
+
+}
+});
+var key = "https://nugisextremelynice.herokuapp.com/";
+//var key = "";
+$(document).ready(function() {
+    
+  var videostufflol = window.location.href;
+  var params = videostufflol.split('?user=');
+  var stuff = new Highcharts.chart('graph', {
+    chart: {
+      backgroundColor: 'transparent',
+      renderTo: graph,
+      type: 'spline'
+    },
+    title: {
+      text: ``
+    },
+    xAxis: {
+      type: 'datetime',
+      tickPixelInterval: 500
+    },
+    yAxis: {
+      title: {
+          text: ''
+      },
+        gridLineColor: "#FFFFFF",
+        labels: {
+            style: {
+                color: "#FFFFFF"
+            }
+        },
+        lineColor: "#FFFFFF",
+        minorGridLineColor: "#FFFFFF",
+        tickColor: "#FFFFFF"
+  },
+
+    credits: {
+      enabled: true,
+      text: "Mixerno.space"
+    },
+
+    series: [{
+      name: 'Follower diffrence',
+      marker: {
+        enabled: false
+      },
+      color: '#FFFFFF',
+    lineColor: '#FFFFFF'
+
+    }]
+  })
+  var count1 = 0;
+  var count2 = 0
+  var usernameaccount = params[1];
+  if(params[1] == undefined) {
+    usernameaccount = "lorengray"
+  }
+  var usernameaccount2 = params[2];
+  if(params[2] == undefined) {
+    usernameaccount2 = "zachking"
+  }
+  userstatistics();
+  function userstatistics() {
+    $.ajax({
+        url: `${key}https://immense-castle-34936.herokuapp.com/@${usernameaccount}`,
+        // Handle as Text
+        dataType: "text",
+        success: function(data) {
+          var json = $.parseJSON(data);
+          count1 = json.body.userData.fans
+          ttheart.innerHTML = json.body.userData.heart
+          ttdigg.innerHTML = json.body.userData.digg
+          ttfollowing.innerHTML = json.body.userData.following
+          ttvideo.innerHTML = json.body.userData.video
+          ttname.innerHTML = json.body.userData.nickName
+          ttfollowers.innerHTML = json.body.userData.fans
+          $("#image").attr('src', `${json.body.userData.coversMedium[0]}`);
+        userstatistics2();
+        
+          
+        }
+      }).fail(function() {
+        setTimeout(function() {
+            userstatistics2();
+        }, 500);
+    });
+  };
+  function userstatistics2() {
+      $.ajax({
+        url: `${key}https://immense-castle-34936.herokuapp.com/@${usernameaccount2}`,
+        // Handle as Text
+        dataType: "text",
+        success: function(data) {
+          var json = $.parseJSON(data);
+          count2 = json.body.userData.fans
+          ttheart2.innerHTML = json.body.userData.heart
+          ttdigg2.innerHTML = json.body.userData.digg
+          ttfollowing2.innerHTML = json.body.userData.following
+          ttvideo2.innerHTML = json.body.userData.video
+          ttname2.innerHTML = json.body.userData.nickName
+          ttfollowers2.innerHTML = json.body.userData.fans
+          $("#image2").attr('src', `${json.body.userData.coversMedium[0]}`);
+          diffrenceodo.innerHTML = count1 - count2
+          stuff.series[0].addPoint([
+            (new Date()).getTime(),
+            count1 - count2
+          ]);
+          if (stuff.series[0].data.length >= 700) {
+          stuff.series[0].data[0].remove()
+        }
+          
+          
+        }
+      }).fail(function() {
+        setTimeout(function() {
+            userstatistics2();
+        }, 500);
+    });
+  };
+  setInterval(userstatistics, 4000);
+  $('#tiktokusersearch').on('keyup', function(e) {
+    if (e.keyCode === 13) {
+        $('#serch').click();
+    }
+});
+$('#tiktokusersearch2').on('keyup', function(e) {
+    if (e.keyCode === 13) {
+        $('#serch2').click();
+    }
+});
+  $('#serch').click(function() {
+    location.href = `${params[0]}?user=${$('#tiktokusersearch').val()}?user=${params[2]}`;
+  });
+  $('#serch2').click(function() {
+    location.href = `${params[0]}?user=${params[1]}?user=${$('#tiktokusersearch2').val()}`;
+  });
+});
+    </script>
+</html>

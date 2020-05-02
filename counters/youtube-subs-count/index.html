@@ -1,0 +1,233 @@
+<html>
+    <head>
+        <title>Mixerno.space - Youtube subscriber count</title>
+        <link rel="shortcut icon" href="https://yt3.ggpht.com/a-/AOh14GhVWagi88Rfs6XXerg3-3PR4RPHYcolFIrYXZ4_=s288-c-k-c0xffffffff-no-rj-mo">
+        <link rel="stylesheet" href="../../o2.css" />
+        <script src="../../odometer.js"></script>
+        <script type="text/javascript" src="../../jquery-3.1.1.min.js"></script>
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <script src="../YoutubeAPIkeys.js"></script>
+
+
+
+        <div class="topbar"><div>Mixerno.space</div><center><a href="../../index.html">Home</a></center></div>
+        <br>
+        <center>
+        <div class="maincount">
+            <img id="image" style="border-radius: 50%;" src="https://via.placeholder.com/130/585858/FFFFFF/?text=Mixerno.space" height="130" width="130">
+            <div style="font-size: 60px;" id="ytname">Mixerno.space</div>
+            <div class="odometer" style="font-size: 60px;" id="ytsubs">0</div>
+            <div><strong>Subscribers</strong></div>
+            <div id="graph"></div>
+        </div>
+        <br>
+        <div class="sidecounts">
+            <div>
+                <div style="font-size: 25px;" class="odometer" id="yttotalviews">0</div>
+                <div style="font-size: 25px;">Total Views</div>
+            </div>
+            <div>
+                <div style="font-size: 25px;" class="odometer" id="ytvideos">0</div>
+                <div style="font-size: 25px;">Videos</div>
+            </div>
+        </div>
+    </center>
+    </head>
+    <style>
+        body {
+      background-color: rgb(0, 0, 0);
+      color: rgb(255, 255, 255);
+      font-family: Arial
+    }
+    a:link{
+      color:white;
+    }
+    a:visited{
+      color:white;
+    }
+    a:hover{
+      color:rgb(255, 255, 255);
+    }
+    a:focus{
+      color:rgb(255, 255, 255);
+    }
+    a:active{
+      color:white;
+    }
+    .topbar {
+  border-radius: 12.5px;
+  padding: 10px; 
+  background: rgb(61, 61, 61);
+  width: auto;
+  height: 30px; 
+  display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        flex: 1;
+        margin-bottom: 2% 
+}
+.maincount {
+  border-radius: 12.5px;
+  padding: 10px; 
+  background: rgb(61, 61, 61);
+  width: 1000px;
+  height: 670px; 
+}
+.sidecounts {
+  border-radius: 12.5px;
+  padding: 10px; 
+  background: rgb(36, 36, 36);
+  width: 1000px;
+  height: 50px; 
+  display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        flex: 1;
+        margin-bottom: 2% 
+}
+.hell {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        flex: 1;
+        margin-bottom: 2%
+    }
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+
+::-webkit-scrollbar-thumb {
+  background: rgb(255, 255, 255);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(255, 255, 255);
+}
+    </style>
+    <script type="text/javascript">
+jQuery.ajaxPrefilter(function(options) {
+if (options.crossDomain && jQuery.support.cors) {
+//options.url = 'https://nugisextremelynice.herokuapp.com/' + options.url;
+
+}
+});
+$(document).ready(function() {
+    
+  var videostufflol = window.location.href;
+  var params = videostufflol.split('c1=');
+  var stuff = new Highcharts.chart('graph', {
+    chart: {
+      backgroundColor: 'transparent',
+      renderTo: graph,
+      type: 'spline'
+    },
+    title: {
+      text: ``
+    },
+    xAxis: {
+      type: 'datetime',
+      tickPixelInterval: 500
+    },
+    yAxis: {
+      title: {
+          text: ''
+      },
+        gridLineColor: "#FFFFFF",
+        labels: {
+            style: {
+                color: "#FFFFFF"
+            }
+        },
+        lineColor: "#FFFFFF",
+        minorGridLineColor: "#FFFFFF",
+        tickColor: "#FFFFFF"
+  },
+
+    credits: {
+      enabled: false
+    },
+
+    series: [{
+      name: 'Subscribers',
+      marker: {
+        enabled: false
+      },
+      color: '#FFFFFF',
+    lineColor: '#FFFFFF'
+
+    }]
+  })
+  var usernameaccount = params[1];
+  if(params[1] == undefined) {
+    usernameaccount = "pewdiepie"
+  }
+  searchchannel()
+  
+  function searchchannel() {
+    var randomsearchkey = Math.floor(Math.random()*keyforsearch.length);
+  var searchkey = keyforsearch[randomsearchkey];
+  searchkey = keyforsearch[randomsearchkey];
+    
+    $.ajax({
+        url: `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${usernameaccount}&key=${searchkey}`,
+        // Handle as Text
+        dataType: "text",
+        success: function(data) {
+          var json = $.parseJSON(data);
+          channelid = json.items[0].id.channelId
+          ytname.innerHTML = json.items[0].snippet.channelTitle
+          $("#image").attr('src', `${json.items[0].snippet.thumbnails.high.url}`);
+          channelstatistics();
+        }
+      }).fail(function() {
+        setTimeout(function() {
+          searchchannel();
+        }, 250);
+    });
+  }
+  //
+  function channelstatistics() {
+    var randomapikey = Math.floor(Math.random()*keyforstats.length);
+  var apikey = keyforstats[randomapikey];
+  apikey = keyforstats[randomapikey];
+      $.ajax({
+        url: `https://www.googleapis.com/youtube/v3/channels?part=statistics,snippet&id=${channelid}&key=${apikey}`,
+        // Handle as Text
+        dataType: "text",
+        success: function(data) {
+          var json = $.parseJSON(data);
+          ytsubs.innerHTML = json.items[0].statistics.subscriberCount
+          yttotalviews.innerHTML = json.items[0].statistics.viewCount
+          ytvideos.innerHTML = json.items[0].statistics.videoCount
+
+
+          stuff.series[0].addPoint([
+            (new Date()).getTime(),
+            json.items[0].statistics.subscriberCount
+          ]);
+          if (stuff.series[0].data.length >= 700) {
+          stuff.series[0].data[0].remove()
+        }
+        }
+      }).fail(function() {
+        setTimeout(function() {
+            channelstatistics();
+        }, 250);
+    });
+  };
+  
+  //location.href = params[0] + $('#country').val();;
+  $('#search').click(function() {
+    search()
+    
+
+  });
+});
+    </script>
+</html>
