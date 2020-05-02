@@ -214,7 +214,7 @@ $(document).ready(function() {
   searchkey = keyforsearch[randomsearchkey];
     
     $.ajax({
-        url: `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${usernameaccount}&key=${searchkey}`,
+        url: `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&type=channel&q=${usernameaccount}&key=${searchkey}`,
         // Handle as Text
         dataType: "text",
         success: function(data) {
@@ -260,6 +260,7 @@ $(document).ready(function() {
         }, 250);
     });
   };
+  setInterval(channelstatistics, 10000);
   
   //location.href = params[0] + $('#country').val();;
   $('#usersearch').on('keyup', function(e) {
