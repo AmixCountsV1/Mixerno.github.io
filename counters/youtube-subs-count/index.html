@@ -229,7 +229,7 @@ $(document).ready(function() {
           ytsubs.innerHTML = json.items[0].statistics.subscriberCount
           yttotalviews.innerHTML = json.items[0].statistics.viewCount
           ytvideos.innerHTML = json.items[0].statistics.videoCount
-          ytname.innerHTML = json.items[0].snippet.channelTitle
+          ytname.innerHTML = json.items[0].snippet.title
           $("#image").attr('src', `${json.items[0].snippet.thumbnails.high.url}`);
 
           stuff.series[0].addPoint([
@@ -266,7 +266,7 @@ function searchchannel() {
         success: function(data) {
           var json = $.parseJSON(data);
           channelid = json.items[0].snippet.channelId
-          location.href = `${params[0]}?user=${channelid}`;
+          location.href = `${params[0]}user=${channelid}`;
         }
       }).fail(function() {
         setTimeout(function() {
