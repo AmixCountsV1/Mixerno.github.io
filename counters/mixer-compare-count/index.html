@@ -30,14 +30,6 @@
               <div style="font-size: 25px;" class="odometer" id="experiencecount">0</div>
               <div style="font-size: 25px;">Experience</div>
           </div>
-          <div>
-            <div style="font-size: 25px;" class="odometer" id="levelcount">0</div>
-            <div style="font-size: 25px;">Level</div>
-        </div>
-        <div>
-            <div style="font-size: 25px;" class="odometer" id="viewerstotl">0</div>
-            <div style="font-size: 25px;">Viewers total</div>
-        </div>
         <div>
           <div style="font-size: 25px;" class="odometer" id="viewersnow">0</div>
           <div style="font-size: 25px;">Viewers currently</div>
@@ -63,14 +55,6 @@
               <div style="font-size: 25px;" class="odometer" id="experiencecount2">0</div>
               <div style="font-size: 25px;">Experience</div>
           </div>
-          <div>
-            <div style="font-size: 25px;" class="odometer" id="levelcount2">0</div>
-            <div style="font-size: 25px;">Level</div>
-        </div>
-        <div>
-            <div style="font-size: 25px;" class="odometer" id="viewerstotl2">0</div>
-            <div style="font-size: 25px;">Viewers total</div>
-        </div>
         <div>
           <div style="font-size: 25px;" class="odometer" id="viewersnow2">0</div>
           <div style="font-size: 25px;">Viewers currently</div>
@@ -277,8 +261,7 @@ $(document).ready(function() {
           var json = $.parseJSON(data);
           count1 = json.numFollowers
           viewersnow.innerHTML = json.viewersCurrent
-          viewerstotl.innerHTML = json.viewersTotal
-          levelcount.innerHTML = json.user.level
+
           sparkscount.innerHTML = json.user.sparks
           experiencecount.innerHTML = json.user.experience
           accountname.innerHTML = json.user.username
@@ -299,8 +282,6 @@ $(document).ready(function() {
           var json = $.parseJSON(data);
           count2 = json.numFollowers
           viewersnow2.innerHTML = json.viewersCurrent
-          viewerstotl2.innerHTML = json.viewersTotal
-          levelcount2.innerHTML = json.user.level
           sparkscount2.innerHTML = json.user.sparks
           experiencecount2.innerHTML = json.user.experience
           accountname2.innerHTML = json.user.username
