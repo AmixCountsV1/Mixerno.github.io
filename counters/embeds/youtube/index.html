@@ -1,48 +1,32 @@
 <html>
     <head>
-        <title>Mixerno.space - Youtube subscriber count</title>
+        <title>Mixerno.space - Youtube Embed</title>
         <link rel="shortcut icon" href="https://yt3.ggpht.com/a-/AOh14GhVWagi88Rfs6XXerg3-3PR4RPHYcolFIrYXZ4_=s288-c-k-c0xffffffff-no-rj-mo">
-        <link rel="stylesheet" href="../../o2.css" />
-        <script src="../../odometer.js"></script>
-        <script type="text/javascript" src="../../jquery-3.1.1.min.js"></script>
+        <link rel="stylesheet" href="../../../o2.css" />
+        <script src="../../../odometer.js"></script>
+        <script type="text/javascript" src="../../../jquery-3.1.1.min.js"></script>
         <script src="https://code.highcharts.com/highcharts.js"></script>
-        <script src="../YoutubeAPIkeys.js"></script>
+        <script src="../../YoutubeAPIkeys.js"></script>
 
 
 
-        <div class="topbar"><div>Mixerno.space</div><center><a href="../../index.html">Home</a></center> <a id="embdlink" href="#">Embed</a></div>
-        <br>
-        <center>
-        <div class="maincount">
-            <img id="image" style="border-radius: 50%;" src="https://via.placeholder.com/130/585858/FFFFFF/?text=Mixerno.space" height="130" width="130">
-            <div style="font-size: 60px;" id="ytname"class="nameee">Mixerno.space</div>
-            <div class="odometer" style="font-size: 60px;" id="ytsubs">0</div>
-            <div><strong>Subscribers</strong></div>
-            
-        </div>
-        <br>
-        <input placeholder="Youtube username" type="text" style="width: 500px; font-size: 20px;" value="" id="usersearch" class="custominput"></input>
-  <button class="buton" style="font-size: 20px;" id="serch">Search</button>
-        <br>
-        <br>
-        <div class="sidecounts">
-            <div>
-                <div style="font-size: 25px;" class="odometer" id="yttotalviews">0</div>
-                <div style="font-size: 25px;">Total Views</div>
-            </div>
-            <div>
-                <div style="font-size: 25px;" class="odometer" id="ytvideos">0</div>
-                <div style="font-size: 25px;">Videos</div>
-            </div>
-        </div>
-        <br>
-        <div class="graphstuff">
-            <div>Subscriber graph</div>
-            <div id="graph"></div>
-        </div>
-    </center>
+            <span class="l">
+                <img src="https://yt3.ggpht.com/a-/AOh14GhVWagi88Rfs6XXerg3-3PR4RPHYcolFIrYXZ4_=s288-c-k-c0xffffffff-no-rj-mo" id="image" height="50" width="50" style="border-radius: 50%;position: absolute; top: 0px; left: 0px;">
+                <div id="accountname" class="names" style="position: absolute;top: 5px;font-size:15px;font-weight: bold;">Mixerno.space</div>
+                <div id="followerscount" class="odometer" style="position: absolute;left: 59px;top: 20px;font-size:25px;">0</div>
+              </span>
     </head>
     <style>
+.names {
+    position: absolute;
+    left: 60px;
+    top: 0px;
+    font-size: 15px;
+    width: 145px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
       .nameee {
         white-space: nowrap;
     overflow: hidden;
@@ -66,14 +50,14 @@
   margin: 0px 0;
   display: inline-block;
   color: white;
-  background-color: rgb(61, 61, 61);
+  background-color: transparent;
   border: 1px solid rgb(255, 255, 255);
   border-radius: 1px;
   box-sizing: border-box;
 }
         body {
-      background-color: rgb(0, 0, 0);
-      color: rgb(255, 255, 255);
+      background-color: transparent;
+      color: rgb(0, 0, 0);
       font-family: Arial
     }
     a:link{
@@ -157,65 +141,24 @@
     <script type="text/javascript">
 jQuery.ajaxPrefilter(function(options) {
 if (options.crossDomain && jQuery.support.cors) {
-//options.url = 'https://nugisextremelynice.herokuapp.com/' + options.url;
+options.url = '' + options.url;
 
 }
 });
+//var key = "https://nugisextremelynice.herokuapp.com/";
+var key = "";
 $(document).ready(function() {
     
   var videostufflol = window.location.href;
-  var params = videostufflol.split('user=');
-  var stuff = new Highcharts.chart('graph', {
-    chart: {
-      backgroundColor: 'transparent',
-      renderTo: graph,
-      type: 'spline'
-    },
-    title: {
-      text: ``
-    },
-    xAxis: {
-      type: 'datetime',
-      tickPixelInterval: 500
-    },
-    yAxis: {
-      title: {
-          text: ''
-      },
-        gridLineColor: "#FFFFFF",
-        labels: {
-            style: {
-                color: "#FFFFFF"
-            }
-        },
-        lineColor: "#FFFFFF",
-        minorGridLineColor: "#FFFFFF",
-        tickColor: "#FFFFFF"
-  },
-
-    credits: {
-      enabled: false
-    },
-
-    series: [{
-      name: 'Subscribers',
-      marker: {
-        enabled: false
-      },
-      color: '#FFFFFF',
-    lineColor: '#FFFFFF'
-
-    }]
-  })
+  var params = videostufflol.split('?user=');
   var usernameaccount = params[1];
+  var channelid = params[1];
   if(params[1] == undefined) {
     usernameaccount = "UCPSX-g40Ti1c5C7sbGNtGzA"
+    channelid = "UCPSX-g40Ti1c5C7sbGNtGzA"
   }
-  var channelid = params[1];
+
   channelstatistics()
-  
-  
-  //
   function channelstatistics() {
     var randomapikey = Math.floor(Math.random()*keyforstats.length);
   var apikey = keyforstats[randomapikey];
@@ -243,37 +186,15 @@ $(document).ready(function() {
       })
   };
   setInterval(channelstatistics, 10000);
-  setInterval(function() {
-    var embedlink = document.getElementById("embdlink");
-    embedlink.setAttribute('href', `https://mixerno.space/counters/embeds/youtube/?user=${usernameaccount}`);
-  }, 1000);
-  
-  //location.href = params[0] + $('#country').val();;
+  setInterval(userstatistics, 4000);
   $('#usersearch').on('keyup', function(e) {
     if (e.keyCode === 13) {
         $('#serch').click();
     }
 });
-function searchchannel() {
-    var randomsearchkey = Math.floor(Math.random()*keyforsearch.length);
-  var searchkey = keyforsearch[randomsearchkey];
-  searchkey = keyforsearch[randomsearchkey];
-    
-    $.ajax({
-        url: `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&type=channel&q=${usernameaccount}&key=${searchkey}`,
-        // Handle as Text
-        dataType: "text",
-        success: function(data) {
-          var json = $.parseJSON(data);
-          channelid = json.items[0].snippet.channelId
-          location.href = `${params[0]}user=${channelid}`;
-        }
-      })
-  }
   //location.href = params[0] + $('#country').val();;
   $('#serch').click(function() {
-    searchchannel()
-    
+    location.href = `${params[0]}?user=${$('#usersearch').val()}`;
   });
 });
     </script>

@@ -9,7 +9,7 @@
 
 
 
-        <div class="topbar"><div>Mixerno.space</div><center><a href="../../index.html">Home</a></center></div>
+        <div class="topbar"><div>Mixerno.space</div><center><a href="../../index.html">Home</a></center> <a id="embdlink" href="#">Embed</a></div>
         <br>
         <center>
         <div class="maincount">
@@ -264,6 +264,10 @@ $(document).ready(function() {
   $('#serch').click(function() {
     location.href = `${params[0]}?user=${$('#twitterusersearch').val()}`;
   });
+  setInterval(function() {
+    var embedlink = document.getElementById("embdlink");
+    embedlink.setAttribute('href', `https://mixerno.space/counters/embeds/twitter/?user=${usernameaccount}`);
+  }, 1000);
 });
     </script>
 </html>
