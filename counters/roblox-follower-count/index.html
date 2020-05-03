@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Mixerno.space - Twitter follower count</title>
+        <title>Mixerno.space - Roblox follower count</title>
         <link rel="shortcut icon" href="https://yt3.ggpht.com/a-/AOh14GhVWagi88Rfs6XXerg3-3PR4RPHYcolFIrYXZ4_=s288-c-k-c0xffffffff-no-rj-mo">
         <link rel="stylesheet" href="../../o2.css" />
         <script src="../../odometer.js"></script>
@@ -14,32 +14,28 @@
         <center>
         <div class="maincount">
             <img id="image" style="border-radius: 50%;" src="https://via.placeholder.com/130/585858/FFFFFF/?text=Mixerno.space" height="130" width="130">
-            <div style="font-size: 60px;" id="twitname"class="nameee">Mixerno.space</div>
-            <div class="odometer" style="font-size: 60px;" id="twitfollowers">0</div>
+            <div style="font-size: 60px;" class="nameee" id="accountname">Mixerno.space</div>
+            <div class="odometer" style="font-size: 60px;" id="followers">0</div>
             <div><strong>Followers</strong></div>
         </div>
         <br>
-        <input placeholder="Twitter user" type="text" style="width: 500px; font-size: 20px;" value="" id="twitterusersearch" class="custominput"></input>
+        <input placeholder="Roblox username" type="text" style="width: 500px; font-size: 20px;" value="" id="usersearch" class="custominput"></input>
   <button class="buton" style="font-size: 20px;" id="serch">Search</button>
         <br>
         <br>
         <div class="sidecounts">
             <div>
-                <div style="font-size: 25px;" class="odometer" id="twittweets">0</div>
-                <div style="font-size: 25px;">Tweets</div>
+                <div style="font-size: 25px;" class="odometer" id="friendscount">0</div>
+                <div style="font-size: 25px;">Friends</div>
             </div>
             <div>
-                <div style="font-size: 25px;" class="odometer" id="twitlikes">0</div>
-                <div style="font-size: 25px;">Likes</div>
-            </div>
-            <div>
-                <div style="font-size: 25px;" class="odometer" id="twitfol">0</div>
+                <div style="font-size: 25px;" class="odometer" id="followingcount">0</div>
                 <div style="font-size: 25px;">Following</div>
             </div>
         </div>
         <br>
         <div class="graphstuff">
-            <div><strong>Follower graph</strong></div>
+            <div><strong>Followers graph</strong></div>
             <div id="graph"></div>
         </div>
         
@@ -216,53 +212,129 @@ $(document).ready(function() {
   })
   var usernameaccount = params[1];
   if(params[1] == undefined) {
-    usernameaccount = "BarackObama"
+    usernameaccount = "1"
   }
-  userstatistics();
-  function userstatistics() {
+  var useridd = usernameaccount;
+  mainapi()
+  
+  function mainapi() {
       $.ajax({
-        url: `${key}https://likigram.com/api/twitter/${usernameaccount}`,
+        url: `${key}https://api.roblox.com/users/${useridd}`,
         // Handle as Text
         dataType: "text",
         success: function(data) {
           var json = $.parseJSON(data);
+          accountname.innerHTML = json.Username
+          sideapi1();
           
-          twitfol.innerHTML = json.following
-          twittweets.innerHTML = json.tweets
-          twitlikes.innerHTML = json.likes
-          twitname.innerHTML = params[1]
-          
-          
-        }
-      })
-    $.ajax({
-        url: `https://bastet.socialblade.com/twitter/lookup?query=${usernameaccount}`,
-        // Handle as Text
-        dataType: "text",
-        success: function(data) {
-          var json = $.parseJSON(data);
-          twitfollowers.innerHTML = json
-          $("#image").attr('src', `https://avatars.io/twitter/${usernameaccount}`);
-          stuff.series[0].addPoint([
-            (new Date()).getTime(),
-            json
-          ]);
-          if (stuff.series[0].data.length >= 700) {
-          stuff.series[0].data[0].remove()
-        }
           
         }
       })
   };
-  setInterval(userstatistics, 4000);
-  $('#twitterusersearch').on('keyup', function(e) {
+  function sideapi1() {
+      $.ajax({
+        url: `${key}https://friends.roblox.com/v1/users/${useridd}/followers/count`,
+        // Handle as Text
+        dataType: "text",
+        success: function(data) {
+          var json = $.parseJSON(data);
+          
+          followers.innerHTML = json.count
+          stuff.series[0].addPoint([
+            (new Date()).getTime(),
+            json.count
+          ]);
+          if (stuff.series[0].data.length >= 700) {
+          stuff.series[0].data[0].remove()
+        }
+        sideapi2();
+          
+          
+        }
+      })
+  };
+  function sideapi2() {
+      /*$.ajax({
+        url: `${key}${useridd}`,
+        // Handle as Text
+        dataType: "text",
+        success: function(data) {
+          var json = $.parseJSON(data);
+          playliststotalcount.innerHTML = json.list[0].playlists_total
+          videoscount.innerHTML = json.list[0].videos_total
+          followingcount.innerHTML = json.list[0].following_total
+          viewscount.innerHTML = json.list[0].views_total
+          accountname.innerHTML = json.list[0].screenname
+          followers.innerHTML = json.list[0].followers_total
+          $("#image").attr('src', `${json.list[0].avatar_720_url}`);
+          sideapi3();
+          
+        }
+      })*/
+      sideapi3();
+  };
+  function sideapi3() {
+      $.ajax({
+        url: `${key}https://friends.roblox.com/v1/users/${useridd}/followings/count`,
+        // Handle as Text
+        dataType: "text",
+        success: function(data) {
+          var json = $.parseJSON(data);
+          followingcount.innerHTML = json.count
+          sideapi4();
+          
+        }
+      })
+  };
+  function sideapi4() {
+      $.ajax({
+        url: `${key}https://friends.roblox.com/v1/users/${useridd}/friends/count`,
+        // Handle as Text
+        dataType: "text",
+        success: function(data) {
+          var json = $.parseJSON(data);
+          friendscount.innerHTML = json.count
+          pictureapi();
+          
+        }
+      })
+  };
+  function pictureapi() {
+      $.ajax({
+        url: `${key}https://thumbnails.roblox.com/v1/users/avatar-headshot?userIds=${useridd}&size=150x150&format=Png&isCircular=false`,
+        // Handle as Text
+        dataType: "text",
+        success: function(data) {
+          var json = $.parseJSON(data);
+          $("#image").attr('src', `${json.data[0].imageUrl}`);   
+        }
+      })
+  };
+  var useriddd
+  setInterval(mainapi, 4000);
+  function usersearchrefresh() {
+    $.ajax({
+        url: `${key}https://www.roblox.com/search/users/results?keyword=${$('#usersearch').val()}&maxRows=12&startIndex=0`,
+        // Handle as Text
+        dataType: "text",
+        success: function(data) {
+          var json = $.parseJSON(data);
+          useriddd = json.UserSearchResults[0].UserId
+          location.href = `${params[0]}?user=${useriddd}`;
+
+          
+          
+        }
+      })
+  }
+  $('#usersearch').on('keyup', function(e) {
     if (e.keyCode === 13) {
         $('#serch').click();
     }
 });
   //location.href = params[0] + $('#country').val();;
   $('#serch').click(function() {
-    location.href = `${params[0]}?user=${$('#twitterusersearch').val()}`;
+    usersearchrefresh()
   });
 });
     </script>

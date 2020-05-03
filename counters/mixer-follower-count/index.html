@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Mixerno.space - Twitter follower count</title>
+        <title>Mixerno.space - Mixer follower count</title>
         <link rel="shortcut icon" href="https://yt3.ggpht.com/a-/AOh14GhVWagi88Rfs6XXerg3-3PR4RPHYcolFIrYXZ4_=s288-c-k-c0xffffffff-no-rj-mo">
         <link rel="stylesheet" href="../../o2.css" />
         <script src="../../odometer.js"></script>
@@ -14,32 +14,40 @@
         <center>
         <div class="maincount">
             <img id="image" style="border-radius: 50%;" src="https://via.placeholder.com/130/585858/FFFFFF/?text=Mixerno.space" height="130" width="130">
-            <div style="font-size: 60px;" id="twitname"class="nameee">Mixerno.space</div>
-            <div class="odometer" style="font-size: 60px;" id="twitfollowers">0</div>
+            <div style="font-size: 60px;" id="accountname"class="nameee">Mixerno.space</div>
+            <div class="odometer" style="font-size: 60px;" id="followers">0</div>
             <div><strong>Followers</strong></div>
         </div>
         <br>
-        <input placeholder="Twitter user" type="text" style="width: 500px; font-size: 20px;" value="" id="twitterusersearch" class="custominput"></input>
+        <input placeholder="Mixer user" type="text" style="width: 500px; font-size: 20px;" value="" id="usersearch" class="custominput"></input>
   <button class="buton" style="font-size: 20px;" id="serch">Search</button>
         <br>
         <br>
         <div class="sidecounts">
             <div>
-                <div style="font-size: 25px;" class="odometer" id="twittweets">0</div>
-                <div style="font-size: 25px;">Tweets</div>
+                <div style="font-size: 25px;" class="odometer" id="sparkscount">0</div>
+                <div style="font-size: 25px;">Sparks</div>
             </div>
             <div>
-                <div style="font-size: 25px;" class="odometer" id="twitlikes">0</div>
-                <div style="font-size: 25px;">Likes</div>
+                <div style="font-size: 25px;" class="odometer" id="experiencecount">0</div>
+                <div style="font-size: 25px;">Experience</div>
             </div>
             <div>
-                <div style="font-size: 25px;" class="odometer" id="twitfol">0</div>
-                <div style="font-size: 25px;">Following</div>
-            </div>
+              <div style="font-size: 25px;" class="odometer" id="levelcount">0</div>
+              <div style="font-size: 25px;">Level</div>
+          </div>
+          <div>
+              <div style="font-size: 25px;" class="odometer" id="viewerstotl">0</div>
+              <div style="font-size: 25px;">Viewers total</div>
+          </div>
+          <div>
+            <div style="font-size: 25px;" class="odometer" id="viewersnow">0</div>
+            <div style="font-size: 25px;">Viewers currently</div>
+        </div>
         </div>
         <br>
         <div class="graphstuff">
-            <div><strong>Follower graph</strong></div>
+            <div><strong>Followers graph</strong></div>
             <div id="graph"></div>
         </div>
         
@@ -216,53 +224,46 @@ $(document).ready(function() {
   })
   var usernameaccount = params[1];
   if(params[1] == undefined) {
-    usernameaccount = "BarackObama"
+    usernameaccount = "Ninja"
   }
+  
   userstatistics();
   function userstatistics() {
       $.ajax({
-        url: `${key}https://likigram.com/api/twitter/${usernameaccount}`,
+        url: `${key}https://mixer.com/api/v1/channels/${usernameaccount}/details`,
         // Handle as Text
         dataType: "text",
         success: function(data) {
           var json = $.parseJSON(data);
-          
-          twitfol.innerHTML = json.following
-          twittweets.innerHTML = json.tweets
-          twitlikes.innerHTML = json.likes
-          twitname.innerHTML = params[1]
-          
-          
-        }
-      })
-    $.ajax({
-        url: `https://bastet.socialblade.com/twitter/lookup?query=${usernameaccount}`,
-        // Handle as Text
-        dataType: "text",
-        success: function(data) {
-          var json = $.parseJSON(data);
-          twitfollowers.innerHTML = json
-          $("#image").attr('src', `https://avatars.io/twitter/${usernameaccount}`);
+          viewersnow.innerHTML = json.viewersCurrent
+          viewerstotl.innerHTML = json.viewersTotal
+          levelcount.innerHTML = json.user.level
+          sparkscount.innerHTML = json.user.sparks
+          experiencecount.innerHTML = json.user.experience
+          accountname.innerHTML = json.user.username
+          followers.innerHTML = json.numFollowers
+          $("#image").attr('src', `${json.user.avatarUrl}`);
           stuff.series[0].addPoint([
             (new Date()).getTime(),
-            json
+            json.numFollowers
           ]);
           if (stuff.series[0].data.length >= 700) {
           stuff.series[0].data[0].remove()
         }
           
+          
         }
       })
   };
   setInterval(userstatistics, 4000);
-  $('#twitterusersearch').on('keyup', function(e) {
+  $('#usersearch').on('keyup', function(e) {
     if (e.keyCode === 13) {
         $('#serch').click();
     }
 });
   //location.href = params[0] + $('#country').val();;
   $('#serch').click(function() {
-    location.href = `${params[0]}?user=${$('#twitterusersearch').val()}`;
+    location.href = `${params[0]}?user=${$('#usersearch').val()}`;
   });
 });
     </script>

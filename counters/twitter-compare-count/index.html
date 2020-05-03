@@ -16,7 +16,7 @@
             <div>
         <div class="maincount">
             <img id="image" style="border-radius: 50%;" src="https://via.placeholder.com/130/585858/FFFFFF/?text=Mixerno.space" height="130" width="130">
-            <div style="font-size: 50px;" id="twitname">Mixerno.space</div>
+            <div style="font-size: 50px;" id="twitname"class="nameee">Mixerno.space</div>
             <div class="odometer" style="font-size: 60px;" id="twitfollowers">0</div>
             <div><strong>Followers</strong></div>
         </div>
@@ -41,7 +41,7 @@
         <div>
         <div class="maincount">
             <img id="image2" style="border-radius: 50%;" src="https://via.placeholder.com/130/585858/FFFFFF/?text=Mixerno.space" height="130" width="130">
-            <div style="font-size: 50px;" id="twitname2">Mixerno.space</div>
+            <div style="font-size: 50px;" id="twitname2"class="nameee">Mixerno.space</div>
             <div class="odometer" style="font-size: 60px;" id="twitfollowers2">0</div>
             <div><strong>Followers</strong></div>
         </div>
@@ -75,6 +75,11 @@
     </center>
     </head>
     <style>
+      .nameee {
+        white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
         .buton {
   background-color: rgb(61, 61, 61);
   border: none;
@@ -262,11 +267,7 @@ $(document).ready(function() {
         
           
         }
-      }).fail(function() {
-        setTimeout(function() {
-            userstatistics2();
-        }, 500);
-    });
+      })
       $.ajax({
         url: `${key}https://likigram.com/api/twitter/${usernameaccount}`,
         // Handle as Text
@@ -281,11 +282,7 @@ $(document).ready(function() {
           
           
         }
-      }).fail(function() {
-        setTimeout(function() {
-            userstatistics();
-        }, 500);
-    });
+      })
   };
   function userstatistics2() {
     $.ajax({
@@ -308,11 +305,7 @@ $(document).ready(function() {
         }
           
         }
-      }).fail(function() {
-        setTimeout(function() {
-            userstatistics2();
-        }, 500);
-    });
+      })
       $.ajax({
         url: `${key}https://likigram.com/api/twitter/${usernameaccount2}`,
         // Handle as Text
@@ -327,11 +320,7 @@ $(document).ready(function() {
           
           
         }
-      }).fail(function() {
-        setTimeout(function() {
-            userstatistics2();
-        }, 500);
-    });
+      })
   };
   setInterval(userstatistics, 4000);
   $('#twitterusersearch').on('keyup', function(e) {

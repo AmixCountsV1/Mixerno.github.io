@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Mixerno.space - Tiktok follower count</title>
+        <title>Mixerno.space - TikTok follower count</title>
         <link rel="shortcut icon" href="https://yt3.ggpht.com/a-/AOh14GhVWagi88Rfs6XXerg3-3PR4RPHYcolFIrYXZ4_=s288-c-k-c0xffffffff-no-rj-mo">
         <link rel="stylesheet" href="../../o2.css" />
         <script src="../../odometer.js"></script>
@@ -14,7 +14,7 @@
         <center>
         <div class="maincount">
             <img id="image" style="border-radius: 50%;" src="https://via.placeholder.com/130/585858/FFFFFF/?text=Mixerno.space" height="130" width="130">
-            <div style="font-size: 60px;" id="ttname">Mixerno.space</div>
+            <div style="font-size: 60px;" id="ttname"class="nameee">Mixerno.space</div>
             <div class="odometer" style="font-size: 60px;" id="ttfollowers">0</div>
             <div><strong>Followers</strong></div>
         </div>
@@ -51,6 +51,11 @@
     </center>
     </head>
     <style>
+      .nameee {
+        white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
         .buton {
   background-color: rgb(61, 61, 61);
   border: none;
@@ -243,11 +248,7 @@ $(document).ready(function() {
           
           
         }
-      }).fail(function() {
-        setTimeout(function() {
-            userstatistics();
-        }, 500);
-    });
+      })
   };
   setInterval(userstatistics, 4000);
   $('#tiktokusersearch').on('keyup', function(e) {

@@ -14,7 +14,7 @@
         <center>
         <div class="maincount">
             <img id="image" style="border-radius: 50%;" src="https://via.placeholder.com/130/585858/FFFFFF/?text=Mixerno.space" height="130" width="130">
-            <div style="font-size: 60px;" id="accountname">Mixerno.space</div>
+            <div style="font-size: 60px;" id="accountname"class="nameee">Mixerno.space</div>
             <div class="odometer" style="font-size: 60px;" id="followers">0</div>
             <div><strong>Followers</strong></div>
         </div>
@@ -39,6 +39,11 @@
     </center>
     </head>
     <style>
+      .nameee {
+        white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
         .buton {
   background-color: rgb(61, 61, 61);
   border: none;
@@ -229,11 +234,7 @@ $(document).ready(function() {
           
           
         }
-      }).fail(function() {
-        setTimeout(function() {
-            userstatistics();
-        }, 500);
-    });
+      })
   };
   setInterval(userstatistics, 4000);
   $('#usersearch').on('keyup', function(e) {

@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Mixerno.space - Storyfire compare count</title>
+        <title>Mixerno.space - Dailymotion compare count</title>
         <link rel="shortcut icon" href="https://yt3.ggpht.com/a-/AOh14GhVWagi88Rfs6XXerg3-3PR4RPHYcolFIrYXZ4_=s288-c-k-c0xffffffff-no-rj-mo">
         <link rel="stylesheet" href="../../o2.css" />
         <script src="../../odometer.js"></script>
@@ -14,52 +14,68 @@
         <center>
             <div class="rowstuff">
             <div>
-        <div class="maincount">
-            <img id="image" style="border-radius: 50%;" src="https://via.placeholder.com/130/585858/FFFFFF/?text=Mixerno.space" height="130" width="130">
-            <div style="font-size: 50px;" id="accountname"class="nameee">Mixerno.space</div>
-            <div class="odometer" style="font-size: 60px;" id="followers">0</div>
-            <div><strong>Subscribers</strong></div>
-        </div>
+                <div class="maincount">
+                    <img id="image" style="border-radius: 50%;" src="https://via.placeholder.com/130/585858/FFFFFF/?text=Mixerno.space" height="130" width="130">
+                    <div style="font-size: 60px;" class="nameee" id="accountname">Mixerno.space</div>
+                    <div class="odometer" style="font-size: 60px;" id="followers">0</div>
+                    <div><strong>Followers</strong></div>
+                </div>
         <br>
         <div class="sidecounts">
-            <div>
-                <div style="font-size: 25px;" class="odometer" id="pointscount">0</div>
-                <div style="font-size: 25px;">Points</div>
-            </div>
-            <div>
-                <div style="font-size: 25px;" class="odometer" id="following">0</div>
-                <div style="font-size: 25px;">Following</div>
-            </div>
+          <div>
+              <div style="font-size: 25px;" class="odometer" id="playliststotalcount">0</div>
+              <div style="font-size: 25px;">Playlists</div>
+          </div>
+          <div>
+              <div style="font-size: 25px;" class="odometer" id="videoscount">0</div>
+              <div style="font-size: 25px;">Videos</div>
+          </div>
+          <div>
+            <div style="font-size: 25px;" class="odometer" id="followingcount">0</div>
+            <div style="font-size: 25px;">Following</div>
         </div>
-        <input placeholder="StoryFire user" type="text" style="width: 400px; font-size: 20px;" value="" id="usersearch" class="custominput"></input>
+        <div>
+            <div style="font-size: 25px;" class="odometer" id="viewscount">0</div>
+            <div style="font-size: 25px;">Views</div>
+        </div>
+      </div>
+        <input placeholder="Dailymotion user" type="text" style="width: 400px; font-size: 20px;" value="" id="usersearch" class="custominput"></input>
         <button class="buton" style="font-size: 20px;" id="serch">Search</button>
     </div>
         <div>
-        <div class="maincount">
-            <img id="image2" style="border-radius: 50%;" src="https://via.placeholder.com/130/585858/FFFFFF/?text=Mixerno.space" height="130" width="130">
-            <div style="font-size: 50px;" id="accountname2"class="nameee">Mixerno.space</div>
-            <div class="odometer" style="font-size: 60px;" id="followers2">0</div>
-            <div><strong>Subscribers</strong></div>
-        </div>
+            <div class="maincount">
+                <img id="image2" style="border-radius: 50%;" src="https://via.placeholder.com/130/585858/FFFFFF/?text=Mixerno.space" height="130" width="130">
+                <div style="font-size: 60px;" id="accountname2" class="nameee">Mixerno.space</div>
+                <div class="odometer" style="font-size: 60px;" id="followers2">0</div>
+                <div><strong>Followers</strong></div>
+            </div>
         <br>
         <div class="sidecounts">
-            <div>
-                <div style="font-size: 25px;" class="odometer" id="pointscount2">0</div>
-                <div style="font-size: 25px;">Points</div>
-            </div>
-            <div>
-                <div style="font-size: 25px;" class="odometer" id="following2">0</div>
-                <div style="font-size: 25px;">Following</div>
-            </div>
+          <div>
+              <div style="font-size: 25px;" class="odometer" id="playliststotalcount2">0</div>
+              <div style="font-size: 25px;">Playlists</div>
+          </div>
+          <div>
+              <div style="font-size: 25px;" class="odometer" id="videoscount2">0</div>
+              <div style="font-size: 25px;">Videos</div>
+          </div>
+          <div>
+            <div style="font-size: 25px;" class="odometer" id="followingcount2">0</div>
+            <div style="font-size: 25px;">Following</div>
         </div>
-        <input placeholder="StoryFire user" type="text" style="width: 400px; font-size: 20px;" value="" id="usersearch2" class="custominput"></input>
+        <div>
+            <div style="font-size: 25px;" class="odometer" id="viewscount2">0</div>
+            <div style="font-size: 25px;">Views</div>
+        </div>
+      </div>
+        <input placeholder="Dailymotion user" type="text" style="width: 400px; font-size: 20px;" value="" id="usersearch2" class="custominput"></input>
         <button class="buton" style="font-size: 20px;" id="serch2">Search</button>
     </div>
     </div> 
         <br>
         <div class="graphstuff">
             <div class="odometer" id="diffrenceodo" style="font-size: 50px;">0</div>
-            <div><strong>Subscriber diffrence</strong></div>
+            <div><strong>Follower diffrence</strong></div>
             <div id="graph"></div>
         </div>
         
@@ -145,7 +161,7 @@
   border-radius: 12.5px;
   padding: 10px; 
   background: rgb(36, 36, 36);
-  width: 500px;
+  width: 700px;
   height: 50px; 
   display: flex;
         flex-direction: row;
@@ -185,7 +201,7 @@ options.url = '' + options.url;
 }
 });
 var key = "https://nugisextremelynice.herokuapp.com/";
-
+//var key = "";
 $(document).ready(function() {
     
   var videostufflol = window.location.href;
@@ -224,7 +240,7 @@ $(document).ready(function() {
     },
 
     series: [{
-      name: 'Subscriber diffrence',
+      name: 'Follower diffrence',
       marker: {
         enabled: false
       },
@@ -235,28 +251,30 @@ $(document).ready(function() {
   })
   var usernameaccount = params[1];
   if(params[1] == undefined) {
-    usernameaccount = "UQ986nFxmAWIgnkZQ0ftVhq4nOk2"
+    usernameaccount = "tseries"
   }
   var usernameaccount2 = params[2];
   if(params[2] == undefined) {
-    usernameaccount2 = "EdEsuO5rMkWemGTPWi94d90sS302"
+    usernameaccount2 = "redbull"
   }
   var count1 = 0;
   var count2 = 0
   userstatistics();
   function userstatistics() {
     $.ajax({
-        url: `${key}https://storyfire.com/app/users/getProfile/${usernameaccount}`,
+        url: `${key}https://api.dailymotion.com/users?usernames=${usernameaccount}&fields=screenname%2Cverified%2Curl%2Cdescription%2Cavatar_720_url%2Ccover_url%2Ccountry%2Cfollowers_total%2Cfollowing_total%2Cplaylists_total%2Cvideos_total%2Cviews_total%2Cid`,
         // Handle as Text
         dataType: "text",
         success: function(data) {
           var json = $.parseJSON(data);
-          count1 = json.followersCount
-          following.innerHTML = json.followingCount
-          pointscount.innerHTML = json.points
-          accountname.innerHTML = json.username
-          followers.innerHTML = json.followersCount
-          $("#image").attr('src', `${json.userimage}`);
+          count1 = json.list[0].followers_total
+          playliststotalcount.innerHTML = json.list[0].playlists_total
+          videoscount.innerHTML = json.list[0].videos_total
+          followingcount.innerHTML = json.list[0].following_total
+          viewscount.innerHTML = json.list[0].views_total
+          accountname.innerHTML = json.list[0].screenname
+          followers.innerHTML = json.list[0].followers_total
+          $("#image").attr('src', `${json.list[0].avatar_720_url}`);
         userstatistics2();
         
           
@@ -265,17 +283,19 @@ $(document).ready(function() {
   };
   function userstatistics2() {
       $.ajax({
-        url: `${key}https://storyfire.com/app/users/getProfile/${usernameaccount2}`,
+        url: `${key}https://api.dailymotion.com/users?usernames=${usernameaccount2}&fields=screenname%2Cverified%2Curl%2Cdescription%2Cavatar_720_url%2Ccover_url%2Ccountry%2Cfollowers_total%2Cfollowing_total%2Cplaylists_total%2Cvideos_total%2Cviews_total%2Cid`,
         // Handle as Text
         dataType: "text",
         success: function(data) {
           var json = $.parseJSON(data);
-          count2 = json.followersCount
-          following2.innerHTML = json.followingCount
-          pointscount2.innerHTML = json.points
-          accountname2.innerHTML = json.username
-          followers2.innerHTML = json.followersCount
-          $("#image2").attr('src', `${json.userimage}`);
+          count2 = json.list[0].followers_total
+          playliststotalcount2.innerHTML = json.list[0].playlists_total
+          videoscount2.innerHTML = json.list[0].videos_total
+          followingcount2.innerHTML = json.list[0].following_total
+          viewscount2.innerHTML = json.list[0].views_total
+          accountname2.innerHTML = json.list[0].screenname
+          followers2.innerHTML = json.list[0].followers_total
+          $("#image2").attr('src', `${json.list[0].avatar_720_url}`);
           diffrenceodo.innerHTML = count1 - count2
           stuff.series[0].addPoint([
             (new Date()).getTime(),
