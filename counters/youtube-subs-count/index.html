@@ -209,32 +209,12 @@ $(document).ready(function() {
   })
   var usernameaccount = params[1];
   if(params[1] == undefined) {
-    usernameaccount = "pewdiepie"
+    usernameaccount = "UCPSX-g40Ti1c5C7sbGNtGzA"
   }
-  searchchannel()
+  var channelid = params[1];
+  channelstatistics()
   
-  function searchchannel() {
-    var randomsearchkey = Math.floor(Math.random()*keyforsearch.length);
-  var searchkey = keyforsearch[randomsearchkey];
-  searchkey = keyforsearch[randomsearchkey];
-    
-    $.ajax({
-        url: `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&type=channel&q=${usernameaccount}&key=${searchkey}`,
-        // Handle as Text
-        dataType: "text",
-        success: function(data) {
-          var json = $.parseJSON(data);
-          channelid = json.items[0].snippet.channelId
-          ytname.innerHTML = json.items[0].snippet.channelTitle
-          $("#image").attr('src', `${json.items[0].snippet.thumbnails.high.url}`);
-          channelstatistics();
-        }
-      }).fail(function() {
-        setTimeout(function() {
-          searchchannel();
-        }, 250);
-    });
-  }
+  
   //
   function channelstatistics() {
     var randomapikey = Math.floor(Math.random()*keyforstats.length);
@@ -249,7 +229,8 @@ $(document).ready(function() {
           ytsubs.innerHTML = json.items[0].statistics.subscriberCount
           yttotalviews.innerHTML = json.items[0].statistics.viewCount
           ytvideos.innerHTML = json.items[0].statistics.videoCount
-
+          ytname.innerHTML = json.items[0].snippet.channelTitle
+          $("#image").attr('src', `${json.items[0].snippet.thumbnails.high.url}`);
 
           stuff.series[0].addPoint([
             (new Date()).getTime(),
@@ -273,9 +254,30 @@ $(document).ready(function() {
         $('#serch').click();
     }
 });
+function searchchannel() {
+    var randomsearchkey = Math.floor(Math.random()*keyforsearch.length);
+  var searchkey = keyforsearch[randomsearchkey];
+  searchkey = keyforsearch[randomsearchkey];
+    
+    $.ajax({
+        url: `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&type=channel&q=${usernameaccount}&key=${searchkey}`,
+        // Handle as Text
+        dataType: "text",
+        success: function(data) {
+          var json = $.parseJSON(data);
+          channelid = json.items[0].snippet.channelId
+          location.href = `${params[0]}?user=${channelid}`;
+        }
+      }).fail(function() {
+        setTimeout(function() {
+          searchchannel();
+        }, 250);
+    });
+  }
   //location.href = params[0] + $('#country').val();;
   $('#serch').click(function() {
-    location.href = `${params[0]}?user=${$('#usersearch').val()}`;
+    searchchannel()
+    
   });
 });
     </script>
