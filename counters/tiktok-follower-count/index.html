@@ -137,7 +137,30 @@ $(document).ready(function() {
           
           
         }
+      }).fail(function() {
+       backupapi()
       })
+  };
+  function backupapi() {
+    $.ajax({
+        url: `${key}https://backuptiktokapi.glitch.me/${usernameaccount}`,
+        // Handle as Text
+        dataType: "text",
+        success: function(data) {
+          var json = $.parseJSON(data);
+          ttheart.innerHTML = json.body.userData.heart
+          ttdigg.innerHTML = json.body.userData.digg
+          ttfollowing.innerHTML = json.body.userData.following
+          ttvideo.innerHTML = json.body.userData.video
+          ttname.innerHTML = json.body.userData.nickName
+          ttfollowers.innerHTML = json.body.userData.fans
+          $("#image").attr('src', `${json.body.userData.coversMedium[0]}`);
+        
+          
+        }
+      }).fail(function() {
+       console.log("shiit tiktok blocked us :(")
+      });
   };
   setInterval(userstatistics, 4000);
   $('#tiktokusersearch').on('keyup', function(e) {

@@ -169,7 +169,28 @@ $(document).ready(function() {
           
           
         }
+      }).fail(function() {
+       backupapi()
       })
+  };
+  function backupapi() {
+    $.ajax({
+        url: `${key}https://backuptiktokapi.glitch.me/${usernameaccount}`,
+        // Handle as Text
+        dataType: "text",
+        success: function(data) {
+          var json = $.parseJSON(data);
+
+          accountname.innerHTML = json.body.userData.nickName
+          followerscount.innerHTML = json.body.userData.fans
+          $("#image").attr('src', `${json.body.userData.coversMedium[0]}`);
+
+        
+          
+        }
+      }).fail(function() {
+       console.log("shiit tiktok blocked us :(")
+      });
   };
   setInterval(userstatistics, 4000);
   $('#usersearch').on('keyup', function(e) {

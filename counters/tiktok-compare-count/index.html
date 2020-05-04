@@ -169,7 +169,32 @@ $(document).ready(function() {
         
           
         }
+      }).fail(function() {
+       backupapi()
       })
+  };
+  function backupapi() {
+    $.ajax({
+        url: `${key}https://backuptiktokapi.glitch.me/${usernameaccount}`,
+        // Handle as Text
+        dataType: "text",
+        success: function(data) {
+          var json = $.parseJSON(data);
+          count1 = json.body.userData.fans
+          ttheart.innerHTML = json.body.userData.heart
+          ttdigg.innerHTML = json.body.userData.digg
+          ttfollowing.innerHTML = json.body.userData.following
+          ttvideo.innerHTML = json.body.userData.video
+          ttname.innerHTML = json.body.userData.nickName
+          ttfollowers.innerHTML = json.body.userData.fans
+          $("#image").attr('src', `${json.body.userData.coversMedium[0]}`);
+        userstatistics2();
+        
+          
+        }
+      }).fail(function() {
+       console.log("shiit tiktok blocked us :(")
+      });
   };
   function userstatistics2() {
       $.ajax({
@@ -197,7 +222,39 @@ $(document).ready(function() {
           
           
         }
+      }).fail(function() {
+       backupapi2()
       })
+  };
+  function backupapi2() {
+      $.ajax({
+        url: `${key}https://backuptiktokapi.glitch.me/${usernameaccount2}`,
+        // Handle as Text
+        dataType: "text",
+        success: function(data) {
+          var json = $.parseJSON(data);
+          count2 = json.body.userData.fans
+          ttheart2.innerHTML = json.body.userData.heart
+          ttdigg2.innerHTML = json.body.userData.digg
+          ttfollowing2.innerHTML = json.body.userData.following
+          ttvideo2.innerHTML = json.body.userData.video
+          ttname2.innerHTML = json.body.userData.nickName
+          ttfollowers2.innerHTML = json.body.userData.fans
+          $("#image2").attr('src', `${json.body.userData.coversMedium[0]}`);
+          diffrenceodo.innerHTML = count1 - count2
+          stuff.series[0].addPoint([
+            (new Date()).getTime(),
+            count1 - count2
+          ]);
+          if (stuff.series[0].data.length >= 700) {
+          stuff.series[0].data[0].remove()
+        }
+          
+          
+        }
+      }).fail(function() {
+       console.log("shiit tiktok blocked us :(")
+      });
   };
   setInterval(userstatistics, 4000);
   $('#tiktokusersearch').on('keyup', function(e) {
