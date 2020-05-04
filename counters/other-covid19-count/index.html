@@ -1,0 +1,180 @@
+<html>
+    <head>
+        <title>Mixerno.space - Covid-19 count</title>
+        <link rel="shortcut icon" href="https://yt3.ggpht.com/a-/AOh14GhVWagi88Rfs6XXerg3-3PR4RPHYcolFIrYXZ4_=s288-c-k-c0xffffffff-no-rj-mo">
+        <link rel="stylesheet" href="../../o2.css" />
+        <script src="../../odometer.js"></script>
+        <script type="text/javascript" src="../../jquery-3.1.1.min.js"></script>
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <link rel="stylesheet" href="../covid19.css">
+
+
+        <div style="color: white;" class="topbar"><div>Mixerno.space</div><center><a href="../../index.html">Home</a></center> <!--<a id="embdlink" href="#">Embed</a>--></div>
+        <br>
+        <center>
+        <div class="maincount">
+            <div style="font-size: 60px;" class="nameee" id="accountname">Covid-19 Statistics</div>
+            <div class="odometer" style="font-size: 60px;" id="tc">0</div>
+                <div><strong>Total Cases</strong></div>
+            <div class="sidecounts">
+              <div>
+                <div class="odometer" style="font-size: 60px;" id="ac">0</div>
+                <div><strong>Active Cases</strong></div>
+              </div>
+              <div>
+                <div class="odometer" style="font-size: 60px;" id="d">0</div>
+                <div><strong>Deaths</strong></div>
+              </div>
+              <div>
+                <div class="odometer" style="font-size: 60px;" id="r">0</div>
+                <div><strong>Recovered</strong></div>
+              </div>
+              <div>
+                <div class="odometer" style="font-size: 60px;" id="c">0</div>
+                <div><strong>Critical</strong></div>
+              </div>
+              <div>
+                <div class="odometer" style="font-size: 60px;" id="ts">0</div>
+                <div><strong>Tests</strong></div>
+              </div>
+              <div>
+                <div class="odometer" style="font-size: 60px;" id="afc">0</div>
+                <div><strong>Affected Countries</strong></div>
+              </div>
+          </div>
+          <div class="sidecounts">
+            <div>
+              <div class="odometer" style="font-size: 60px;" id="nct">0</div>
+              <div><strong>New Cases Today</strong></div>
+            </div>
+            <div>
+              <div class="odometer" style="font-size: 60px;" id="ndt">0</div>
+              <div><strong>New Deaths Today</strong></div>
+            </div>
+        </div>
+        </div>
+        <br>
+        <div class="graphstuff">
+          <div><strong>Total Cases Graph</strong></div>
+          <div id="graph"></div>
+      </div>
+
+        
+        
+        
+    </center>
+    </head>
+    
+    <script type="text/javascript">
+jQuery.ajaxPrefilter(function(options) {
+if (options.crossDomain && jQuery.support.cors) {
+options.url = '' + options.url;
+
+}
+});
+var key = "https://nugisextremelynice.herokuapp.com/";
+//var key = "";
+$(document).ready(function() {
+    
+  var videostufflol = window.location.href;
+  var params = videostufflol.split('?user=');
+  var stuff = new Highcharts.chart('graph', {
+    chart: {
+      backgroundColor: 'transparent',
+      renderTo: graph,
+      type: 'spline'
+    },
+    title: {
+      text: ``
+    },
+    xAxis: {
+      type: 'datetime',
+      tickPixelInterval: 500
+    },
+    yAxis: {
+      title: {
+          text: ''
+      },
+        gridLineColor: "#000000",
+        labels: {
+            style: {
+                color: "#000000"
+            }
+        },
+        lineColor: "#000000",
+        minorGridLineColor: "#000000",
+        tickColor: "#000000"
+  },
+
+    credits: {
+      enabled: true,
+      text: "Mixerno.space"
+    },
+
+    series: [{
+      name: 'Trees planted',
+      marker: {
+        enabled: false
+      },
+      color: '#000000',
+    lineColor: '#000000'
+
+    }]
+  })
+  var usernameaccount = params[1];
+  if(params[1] == undefined) {
+    usernameaccount = "1"
+  }
+  var useridd = usernameaccount;
+  mainapi()
+  
+  function mainapi() {
+      $.ajax({
+          url: 'https://corona.lmao.ninja/v2/all',
+          // Handle as Text
+          dataType: "text",
+          success: function(data) {
+            // Parse JSON file
+            var json = $.parseJSON(data);
+            //Store data into a variable
+            // Display Players
+            //$('#gahviplayerslol').html(json.body.userData.fans)
+            tc.innerHTML = json.cases;
+            ac.innerHTML = json.active;
+            d.innerHTML = json.deaths;
+            r.innerHTML = json.recovered;
+            c.innerHTML = json.critical;
+            ts.innerHTML = json.tests;
+            afc.innerHTML = json.affectedCountries;
+            nct.innerHTML = json.todayCases;
+            ndt.innerHTML = json.todayDeaths;
+            accountname.innerHTML = `Covid19 statistics`
+            stuff.series[0].addPoint([
+              (new Date()).getTime(),
+              json.cases
+            ]);
+            if (stuff.series[0].data.length >= 700) {
+            stuff.series[0].data[0].remove()
+          }
+          }
+        });
+  };
+  var useriddd
+  setInterval(mainapi, 4000);
+
+  $('#usersearch').on('keyup', function(e) {
+    if (e.keyCode === 13) {
+        $('#serch').click();
+    }
+});
+  //location.href = params[0] + $('#country').val();;
+  $('#serch').click(function() {
+    usersearchrefresh()
+  });
+  /*setInterval(function() {
+    var embedlink = document.getElementById("embdlink");
+    embedlink.setAttribute('href', `https://mixerno.space/counters/embeds/other/ecosia/`);
+  }, 1000);*/
+});
+    </script>
+</html>
