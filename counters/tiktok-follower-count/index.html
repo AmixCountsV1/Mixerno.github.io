@@ -155,8 +155,13 @@ $(document).ready(function() {
           ttname.innerHTML = json.body.userData.nickName
           ttfollowers.innerHTML = json.body.userData.fans
           $("#image").attr('src', `${json.body.userData.coversMedium[0]}`);
-        
-          
+          stuff.series[0].addPoint([
+            (new Date()).getTime(),
+            json.body.userData.fans
+          ]);
+          if (stuff.series[0].data.length >= 700) {
+          stuff.series[0].data[0].remove()
+        }
         }
       }).fail(function() {
        console.log("shiit tiktok blocked us :(")
