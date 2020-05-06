@@ -6,14 +6,13 @@
         <script src="../../../odometer.js"></script>
         <script type="text/javascript" src="../../../jquery-3.1.1.min.js"></script>
         <script src="https://code.highcharts.com/highcharts.js"></script>
-        <script src="../../YoutubeAPIkeys.js"></script>
 
 
 
             <span class="l">
                 <img src="https://yt3.ggpht.com/a-/AOh14GhVWagi88Rfs6XXerg3-3PR4RPHYcolFIrYXZ4_=s288-c-k-c0xffffffff-no-rj-mo" id="image" height="50" width="50" style="border-radius: 50%;position: absolute; top: 0px; left: 0px;">
-                <div id="accountname" class="names" style="position: absolute;top: 5px;font-size:15px;font-weight: bold;">Mixerno.space</div>
-                <div id="followerscount" class="odometer" style="position: absolute;left: 59px;top: 20px;font-size:25px;">0</div>
+                <div id="ytname" class="names" style="position: absolute;top: 5px;font-size:15px;font-weight: bold;">Mixerno.space</div>
+                <div id="ytsubs" class="odometer" style="position: absolute;left: 59px;top: 20px;font-size:25px;">0</div>
               </span>
     </head>
     <style>
@@ -154,34 +153,21 @@ $(document).ready(function() {
   var usernameaccount = params[1];
   var channelid = params[1];
   if(params[1] == undefined) {
-    usernameaccount = "UCPSX-g40Ti1c5C7sbGNtGzA"
     channelid = "UCPSX-g40Ti1c5C7sbGNtGzA"
   }
 
   channelstatistics()
   function channelstatistics() {
-    var randomapikey = Math.floor(Math.random()*keyforstats.length);
-  var apikey = keyforstats[randomapikey];
-  apikey = keyforstats[randomapikey];
-      $.ajax({
-        url: `https://www.googleapis.com/youtube/v3/channels?part=statistics,snippet&id=${channelid}&key=${apikey}`,
+    $.ajax({
+        url: `https://mixernobest.herokuapp.com/youtube/channelUC/${channelid}`,
         // Handle as Text
         dataType: "text",
         success: function(data) {
           var json = $.parseJSON(data);
-          ytsubs.innerHTML = json.items[0].statistics.subscriberCount
-          yttotalviews.innerHTML = json.items[0].statistics.viewCount
-          ytvideos.innerHTML = json.items[0].statistics.videoCount
-          ytname.innerHTML = json.items[0].snippet.title
-          $("#image").attr('src', `${json.items[0].snippet.thumbnails.high.url}`);
+          ytsubs.innerHTML = json.subscribers
+          ytname.innerHTML = json.name
+          $("#image").attr('src', `${json.avatarurl}`);
 
-          stuff.series[0].addPoint([
-            (new Date()).getTime(),
-            json.items[0].statistics.subscriberCount
-          ]);
-          if (stuff.series[0].data.length >= 700) {
-          stuff.series[0].data[0].remove()
-        }
         }
       })
   };

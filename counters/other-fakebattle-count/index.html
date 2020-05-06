@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Mixerno.space - Fake count</title>
+        <title>Mixerno.space - Fake battle count</title>
         <link rel="shortcut icon" href="https://yt3.ggpht.com/a-/AOh14GhVWagi88Rfs6XXerg3-3PR4RPHYcolFIrYXZ4_=s288-c-k-c0xffffffff-no-rj-mo">
         <link rel="stylesheet" href="../fakecountodo.css" />
         <link rel="stylesheet" href="../fakecounter.css">
@@ -13,28 +13,47 @@
         <div style="color: white;" class="topbar"><div>Mixerno.space</div><center><a href="../../index.html">Home</a></center></div>
         <br>
         <center>
-        <div class="maincount">
-            <img id="image" style="border-radius: 50%;" src="" height="130" width="130">
-            <div style="font-size: 60px;" id="namee"class="nameee">Undefined</div>
-            <div class="odometer" style="font-size: 60px;" id="subscriberscount">0</div>
-            <div><strong>Subscribers</strong></div>
-        </div>
-        <br>
-        <div class="sidecounts">
-          <div>
-            <div class="odometer" style="font-size: 25px;" id="viewstotal23">0</div>
-            <div style="font-size: 25px;">Total Views</div>
+          <div class="rowstuff">
+            <div>
+              <div class="maincount">
+                <img id="image2" style="border-radius: 50%;" src="" height="130" width="130">
+                <div style="font-size: 60px;" id="namee2"class="nameee">Undefined</div>
+                <div class="odometer" style="font-size: 60px;" id="subscriberscount2">0</div>
+                <div><strong>Subscribers</strong></div>
+            </div>
+            <br>
+            </div>
+            <br>
+            <div>
+              <div class="maincount">
+                <img id="image" style="border-radius: 50%;" src="" height="130" width="130">
+                <div style="font-size: 60px;" id="namee"class="nameee">Undefined</div>
+                <div class="odometer" style="font-size: 60px;" id="subcount">0</div>
+                <div><strong>Subscribers</strong></div>
+            </div>
+            <br>
+            </div>
           </div>
-        </div>
+          <br>
+          <div>
+            <div class="odometer" id="difodo" style="font-size: 60px;">0</div>
+            <div>Diffrence</div>
+          </div>
+        
         <br>
         <div class="graphstuff">
             <div>Subscriber graph</div>
             <div id="graph"></div>
         </div>
         <br>
+        <div>
+          <button class="buton" style="font-size: 20px;" onclick="cleargraph()">Clear Graph</button>
+
+        </div>
         <br>
         <br>
       </center>
+      <div>Channel 1:</div>
       <div>
         <input placeholder="Image URL" type="text" style="width: 500px; font-size: 20px;" value="" id="imageurl" class="custominput"></input>
         <button class="buton" style="font-size: 20px;" onclick="setimageurl()">Set image</button>
@@ -57,24 +76,31 @@
           <button class="buton" style="font-size: 20px;" onclick="setsec()">Set subs per second</button>
         </div>
         <br>
-        <div>
-          <input placeholder="Views" type="text" style="width: 500px; font-size: 20px;" value="" id="viewstotal" class="custominput"></input>
-          <button class="buton" style="font-size: 20px;" onclick="setviewcount()">Set view count</button>
-        </div>
-        <div>
-          <input placeholder="Total Views Rate" type="text" style="width: 500px; font-size: 20px;" value="" id="viewratee" class="custominput"></input>
-          <button class="buton" style="font-size: 20px;" onclick="setviewrate()">Set view rate</button>
-        </div>
-        <div>
-          <button class="buton" style="font-size: 20px;" onclick="setviewhour()">Set views per hour</button>
-          <button class="buton" style="font-size: 20px;" onclick="setviewmin()">Set views per minute</button>
-          <button class="buton" style="font-size: 20px;" onclick="setviewsec()">Set views per second</button>
-        </div>
         <br>
+        <div>Channel 2:</div>
         <div>
-          <button class="buton" style="font-size: 20px;" onclick="cleargraph()">Clear Graph</button>
-
+          <input placeholder="Image URL" type="text" style="width: 500px; font-size: 20px;" value="" id="imageurl2" class="custominput"></input>
+          <button class="buton" style="font-size: 20px;" onclick="setimageurl2()">Set image</button>
         </div>
+        <div>
+          <input placeholder="Name" type="text" style="width: 500px; font-size: 20px;" value="" id="name2" class="custominput"></input>
+          <button class="buton" style="font-size: 20px;" onclick="setname2()">Set name</button>
+        </div>
+          <div>
+            <input placeholder="Subscribers" type="text" style="width: 500px; font-size: 20px;" value="" id="subscribers2" class="custominput"></input>
+            <button class="buton" style="font-size: 20px;" onclick="setfakecount2()">Set subscriber count</button>
+          </div>
+          <div>
+            <input placeholder="Subscriber rate" type="text" style="width: 500px; font-size: 20px;" value="" id="subrate2" class="custominput"></input>
+            <button class="buton" style="font-size: 20px;" onclick="setsubrate2()">Set subscriber rate</button>
+          </div>
+          <div>
+            <button class="buton" style="font-size: 20px;" onclick="sethour2()">Set subs per hour</button>
+            <button class="buton" style="font-size: 20px;" onclick="setmin2()">Set subs per minute</button>
+            <button class="buton" style="font-size: 20px;" onclick="setsec2()">Set subs per second</button>
+          </div>
+          <br>
+          
         <div>
           <center><p>Url to save later: <br>
             <p id="urltosave">Generating</p>
@@ -139,6 +165,8 @@
 /*});*/
 var fixedsubsrate;
     var fixedcount;
+    var fixedsubsrate2;
+    var fixedcount2;
     var urlstuffyes;
   
 var img = params[1]; 
@@ -147,9 +175,13 @@ var username = params[2];
 var fakecount = params[3];
 var subscriberrate = params[4];
 var secondminutehour = params[5];
-var viewgount = params[6];
-var viewkrate = params[7];
-var thirtysecminutehour = params[8];
+var img2 = params[6]; 
+var randomnumberguys2 = Math.floor(Math.random() * 10);
+var username2 = params[7]; 
+var fakecount2 = params[8];
+var subscriberrate2 = params[9];
+var secondminutehour2 = params[10];
+
 function setimageurl() {
   img = $('#imageurl').val();
   console.log(img)
@@ -178,6 +210,35 @@ function setmin() {
 function setsec() {
   secondminutehour = "sec"
   console.log(secondminutehour)
+}
+function setimageurl2() {
+  img2 = $('#imageurl2').val();
+  console.log(img2)
+
+}
+function setname2() {
+  username2 = $('#name2').val();
+  console.log(username2)
+}
+function setfakecount2() {
+  fakecount2 = $('#subscribers2').val();
+  console.log(fakecount2)
+}
+function setsubrate2() {
+  subscriberrate2 = $('#subrate2').val();
+  console.log(subscriberrate2)
+}
+function sethour2() {
+  secondminutehour2 = "hour"
+  console.log(secondminutehour2)
+}
+function setmin2() {
+  secondminutehour2 = "min"
+  console.log(secondminutehour2)
+}
+function setsec2() {
+  secondminutehour2 = "sec"
+  console.log(secondminutehour2)
 }
 function setviewcount() {
   viewgount = $('#viewstotal').val();
@@ -226,23 +287,16 @@ if(randomnumberguys > "7.9") {
   }, 1000);
 }
 if(randomnumberguys < "8.1") {
-  fixedcount = fixedcount + fixedsubsrate / 60
+  fixedcount = fixedcount + fixedsubsrate / 3600
   
 }
     
 fakecount = fixedcount
-    subscriberscount.innerHTML = Math.round(fixedcount)
+subcount.innerHTML = Math.round(fixedcount)
     console.log(fixedcount)
-    stuff.series[0].addPoint([
-            (new Date()).getTime(),
-            Math.round(fixedcount)
-          ]);
-          if (stuff.series[0].data.length >= 700) {
-          stuff.series[0].data[0].remove()
-        }
-        dov
-    
-        doviewstuff()
+ 
+        dothestuff2()
+
         //urltosave.innerHTML = `${params[0]}?stats=${img}?stats=${username}?stats=${Math.round(fixedcount)}?stats=${fixedsubsrate}?stats=${secondminutehour}`
 
   }
@@ -261,16 +315,11 @@ if(randomnumberguys < "8.1") {
 }
 
     fakecount = fixedcount
-    subscriberscount.innerHTML = Math.round(fixedcount)
+    subcount.innerHTML = Math.round(fixedcount)
     console.log(fixedcount)
-    stuff.series[0].addPoint([
-            (new Date()).getTime(),
-            Math.round(fixedcount)
-          ]);
-          if (stuff.series[0].data.length >= 700) {
-          stuff.series[0].data[0].remove()
-        }
-        doviewstuff()
+  
+        dothestuff2()
+
         
         //urltosave.innerHTML = `${params[0]}?stats=${img}?stats=${username}?stats=${Math.round(fixedcount)}?stats=${fixedsubsrate}?stats=${secondminutehour}`
   }
@@ -288,16 +337,11 @@ if(randomnumberguys < "8.1") {
   fixedcount = fixedcount + fixedsubsrate / 1
 }
     fakecount = fixedcount
-    subscriberscount.innerHTML = Math.round(fixedcount)
+    subcount.innerHTML = Math.round(fixedcount)
     console.log(fixedcount)
-    stuff.series[0].addPoint([
-            (new Date()).getTime(),
-            Math.round(fixedcount)
-          ]);
-          if (stuff.series[0].data.length >= 700) {
-          stuff.series[0].data[0].remove()
-        }
-        doviewstuff()
+    dothestuff2()
+
+
         
         //urltosave.innerHTML = `${params[0]}?stats=${img}?stats=${username}?stats=${Math.round(fixedcount)}?stats=${fixedsubsrate}?stats=${secondminutehour}`
   }
@@ -306,6 +350,110 @@ if(randomnumberguys < "8.1") {
 
 
 }
+function dothestuff2() {
+  randomnumberguys2 = Math.floor(Math.random() * 10);
+  namee2.innerHTML = username2
+  
+  $("#image2").attr('src', `${img2}`); 
+  if(secondminutehour2 == "hour") {
+fixedsubsrate2 = parseFloat(subscriberrate2);
+fixedcount2 = parseFloat(fakecount2);
+if(randomnumberguys2 > "7.9") {
+  fixedcount2 = fixedcount2 - fixedsubsrate2 / 3600
+  setTimeout(function() {
+    fixedcount2 = fixedcount2 + fixedsubsrate2 / 3600
+    fixedcount2 = fixedcount2 + fixedsubsrate2 / 3600
+  }, 1000);
+}
+if(randomnumberguys2 < "8.1") {
+  fixedcount2 = fixedcount2 + fixedsubsrate2 / 3600
+  
+}
+    
+fakecount2 = fixedcount2
+    subscriberscount2.innerHTML = Math.round(fixedcount2)
+    console.log(fixedcount2)
+    stuff.series[0].addPoint([
+            (new Date()).getTime(),
+            Math.round(fixedcount2) - Math.round(fixedcount)
+          ]);
+          if (stuff.series[0].data.length >= 700) {
+          stuff.series[0].data[0].remove()
+        } difodo.innerHTML = Math.round(fixedcount2) - Math.round(fixedcount)
+
+
+        //urltosave.innerHTML = `${params[0]}?stats=${img}?stats=${username}?stats=${Math.round(fixedcount)}?stats=${fixedsubsrate}?stats=${secondminutehour}`
+
+  }
+  if(secondminutehour2 == "min") {
+    fixedsubsrate2 = parseFloat(subscriberrate2);
+    fixedcount2 = parseFloat(fakecount2);
+    if(randomnumberguys2 > "7.9") {
+  fixedcount2 = fixedcount2 - fixedsubsrate2 / 60
+  setTimeout(function() {
+    fixedcount2 = fixedcount2 + fixedsubsrate2 / 60
+    fixedcount2 = fixedcount2 + fixedsubsrate2 / 60
+  }, 1000);
+}
+if(randomnumberguys2 < "8.1") {
+  fixedcount2 = fixedcount2 + fixedsubsrate2 / 60
+}
+
+    fakecount2 = fixedcount2
+    subscriberscount2.innerHTML = Math.round(fixedcount2)
+    console.log(fixedcount2)
+    stuff.series[0].addPoint([
+            (new Date()).getTime(),
+            Math.round(fixedcount2) - Math.round(fixedcount)
+          ]);
+          if (stuff.series[0].data.length >= 700) {
+          stuff.series[0].data[0].remove()
+        } difodo.innerHTML = Math.round(fixedcount2) - Math.round(fixedcount)
+
+
+        
+        //urltosave.innerHTML = `${params[0]}?stats=${img}?stats=${username}?stats=${Math.round(fixedcount)}?stats=${fixedsubsrate}?stats=${secondminutehour}`
+  }
+  if(secondminutehour2 == "sec") {
+     fixedsubsrate2 = parseFloat(subscriberrate2);
+     fixedcount2 = parseFloat(fakecount2);
+     if(randomnumberguys2 > "7.9") {
+  fixedcount2 = fixedcount2 - fixedsubsrate2 / 1
+  setTimeout(function() {
+    fixedcount2 = fixedcount2 + fixedsubsrate2 / 1
+    fixedcount2 = fixedcount2 + fixedsubsrate2 / 1
+  }, 1000);
+}
+if(randomnumberguys2 < "8.1") {
+  fixedcount2 = fixedcount2 + fixedsubsrate2 / 1
+}
+    fakecount2 = fixedcount2
+    subscriberscount2.innerHTML = Math.round(fixedcount2)
+    console.log(fixedcount2)
+    stuff.series[0].addPoint([
+            (new Date()).getTime(),
+            Math.round(fixedcount2) - Math.round(fixedcount)
+          ]);
+          if (stuff.series[0].data.length >= 700) {
+          stuff.series[0].data[0].remove()
+        }
+        difodo.innerHTML = Math.round(fixedcount2) - Math.round(fixedcount)
+
+        
+        //urltosave.innerHTML = `${params[0]}?stats=${img}?stats=${username}?stats=${Math.round(fixedcount)}?stats=${fixedsubsrate}?stats=${secondminutehour}`
+  }
+  
+
+
+
+}
+
+
+
+
+
+
+
 function doviewstuff() {
   if(thirtysecminutehour == "sec") {
      fixedviewrate = parseFloat(viewkrate);
@@ -339,14 +487,14 @@ function doviewstuff() {
   }
 }
 function copytheurlpls() {
-  var text = document.getElementById("urltosave").innerText;
+  /*var text = document.getElementById("urltosave").innerText;
     var elem = document.createElement("textarea");
     document.body.appendChild(elem);
     elem.value = text;
     elem.select();
     document.execCommand("copy");
-    document.body.removeChild(elem);
-    alert("Copied :)")
+    document.body.removeChild(elem);*/
+    alert("Coming soon.")
 }
 setInterval(dothestuff, 1000);
     </script>

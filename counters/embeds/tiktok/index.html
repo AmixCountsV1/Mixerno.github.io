@@ -163,9 +163,9 @@ $(document).ready(function() {
         dataType: "text",
         success: function(data) {
           var json = $.parseJSON(data);
-          accountname.innerHTML = json.body.userData.nickName
-          followerscount.innerHTML = json.body.userData.fans
-          $("#image").attr('src', `${json.body.userData.coversMedium[0]}`);
+          accountname.innerHTML = json.name
+          followerscount.innerHTML = json.followers
+          $("#image").attr('src', `${json.avatarurl}`);
           
           
         }
@@ -181,9 +181,9 @@ $(document).ready(function() {
         success: function(data) {
           var json = $.parseJSON(data);
 
-          accountname.innerHTML = json.body.userData.nickName
-          followerscount.innerHTML = json.body.userData.fans
-          $("#image").attr('src', `${json.body.userData.coversMedium[0]}`);
+          accountname.innerHTML = json.name
+          followerscount.innerHTML = json.followers
+          $("#image").attr('src', `${json.avatarurl}`);
 
         
           
