@@ -7,7 +7,6 @@
         <script src="../../odometer.js"></script>
         <script type="text/javascript" src="../../jquery-3.1.1.min.js"></script>
         <script src="https://code.highcharts.com/highcharts.js"></script>
-        <script src="../YoutubeAPIkeys.js"></script>
 
 
 
@@ -47,7 +46,7 @@
     <script type="text/javascript">
 jQuery.ajaxPrefilter(function(options) {
 if (options.crossDomain && jQuery.support.cors) {
-//options.url = 'https://nugisextremelynice.herokuapp.com/' + options.url;
+options.url = 'https://nugisextremelynice.herokuapp.com/' + options.url;
 
 }
 });
@@ -98,34 +97,31 @@ $(document).ready(function() {
 
     }]
   })
-  var usernameaccount = params[1];
-  if(params[1] == undefined) {
-    usernameaccount = "UCPSX-g40Ti1c5C7sbGNtGzA"
-  }
   var channelid = params[1];
+  if(params[1] == undefined) {
+    channelid = "UCPSX-g40Ti1c5C7sbGNtGzA"
+  }
   channelstatistics()
   
   
   //
   function channelstatistics() {
-    var randomapikey = Math.floor(Math.random()*keyforstats.length);
-  var apikey = keyforstats[randomapikey];
-  apikey = keyforstats[randomapikey];
+
       $.ajax({
-        url: `https://www.googleapis.com/youtube/v3/channels?part=statistics,snippet&id=${channelid}&key=${apikey}`,
+        url: `https://mixernobest.herokuapp.com/youtube/channelUC/${channelid}`,
         // Handle as Text
         dataType: "text",
         success: function(data) {
           var json = $.parseJSON(data);
-          ytsubs.innerHTML = json.items[0].statistics.subscriberCount
-          yttotalviews.innerHTML = json.items[0].statistics.viewCount
-          ytvideos.innerHTML = json.items[0].statistics.videoCount
-          ytname.innerHTML = json.items[0].snippet.title
-          $("#image").attr('src', `${json.items[0].snippet.thumbnails.high.url}`);
+          ytsubs.innerHTML = json.subscribers
+          yttotalviews.innerHTML = json.totalviews
+          ytvideos.innerHTML = json.videos
+          ytname.innerHTML = json.name
+          $("#image").attr('src', `${json.avatarurl}`);
 
           stuff.series[0].addPoint([
             (new Date()).getTime(),
-            json.items[0].statistics.subscriberCount
+            json.subscribers
           ]);
           if (stuff.series[0].data.length >= 700) {
           stuff.series[0].data[0].remove()
@@ -136,7 +132,7 @@ $(document).ready(function() {
   setInterval(channelstatistics, 10000);
   setInterval(function() {
     var embedlink = document.getElementById("embdlink");
-    embedlink.setAttribute('href', `https://mixerno.space/counters/embeds/youtube/?user=${usernameaccount}`);
+    embedlink.setAttribute('href', `https://mixerno.space/counters/embeds/youtube/?user=${channelid}`);
   }, 1000);
   
   //location.href = params[0] + $('#country').val();;
@@ -146,17 +142,15 @@ $(document).ready(function() {
     }
 });
 function searchchannel() {
-    var randomsearchkey = Math.floor(Math.random()*keyforsearch.length);
-  var searchkey = keyforsearch[randomsearchkey];
-  searchkey = keyforsearch[randomsearchkey];
+
     
     $.ajax({
-        url: `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&type=channel&q=${usernameaccount}&key=${searchkey}`,
+        url: `https://mixernobest.herokuapp.com/youtube/searchchannel/${usernameaccount}`,
         // Handle as Text
         dataType: "text",
         success: function(data) {
           var json = $.parseJSON(data);
-          channelid = json.items[0].snippet.channelId
+          channelid = json.channelid
           location.href = `${params[0]}user=${channelid}`;
         }
       })
