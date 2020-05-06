@@ -145,7 +145,7 @@ function searchchannel() {
 
     
     $.ajax({
-        url: `https://mixernobest.herokuapp.com/youtube/searchchannel/${usernameaccount}`,
+        url: `https://mixernobest.herokuapp.com/youtube/searchchannel/${$('#usersearch').val()}`,
         // Handle as Text
         dataType: "text",
         success: function(data) {
