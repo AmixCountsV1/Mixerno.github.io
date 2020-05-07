@@ -3,7 +3,7 @@
         <title>Mixerno.space - Youtube subscriber count</title>
         <link rel="shortcut icon" href="https://yt3.ggpht.com/a-/AOh14GhVWagi88Rfs6XXerg3-3PR4RPHYcolFIrYXZ4_=s288-c-k-c0xffffffff-no-rj-mo">
         <link rel="stylesheet" href="../../o2.css" />
-        <link rel="stylesheet" href="../toolazytoeditallofthemlol.css">
+        <link rel="stylesheet" href="../singlecounts.css">
         <script src="../../odometer.js"></script>
         <script type="text/javascript" src="../../jquery-3.1.1.min.js"></script>
         <script src="https://code.highcharts.com/highcharts.js"></script>
@@ -36,10 +36,10 @@
             </div>
         </div>
         <br>
-        <div class="graphstuff">
-            <div>Subscriber graph</div>
+        <!--<div class="graphstuff">
+            <div>Subscriber graph coming soon back</div>
             <div id="graph"></div>
-        </div>
+        </div>-->
     </center>
     </head>
 
@@ -54,7 +54,7 @@ $(document).ready(function() {
     
   var videostufflol = window.location.href;
   var params = videostufflol.split('user=');
-  var stuff = new Highcharts.chart('graph', {
+  /*var stuff = new Highcharts.chart('graph', {
     chart: {
       backgroundColor: 'transparent',
       renderTo: graph,
@@ -96,7 +96,7 @@ $(document).ready(function() {
     lineColor: '#000000'
 
     }]
-  })
+  })*/
   var channelid = params[1];
   if(params[1] == undefined) {
     channelid = "UCPSX-g40Ti1c5C7sbGNtGzA"
@@ -118,14 +118,14 @@ $(document).ready(function() {
           ytvideos.innerHTML = json.videos
           ytname.innerHTML = json.name
           $("#image").attr('src', `${json.avatarurl}`);
-          plsworkgraph = json.subscribers.replace(/""/, "");
-          stuff.series[0].addPoint([
+          //plsworkgraph = json.subscribers.replace(/""/, "");
+          /*stuff.series[0].addPoint([
             (new Date()).getTime(),
             plsworkgraph
           ]);
           if (stuff.series[0].data.length >= 700) {
           stuff.series[0].data[0].remove()
-        }
+        }*/
         }
       })
   };
