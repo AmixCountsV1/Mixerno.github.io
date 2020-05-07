@@ -141,7 +141,7 @@ $(document).ready(function() {
         dataType: "text",
         success: function(data) {
           var json = $.parseJSON(data);
-          count1 = parseFloat(json.followers);
+          count1 = json.followers;
           engrate.innerHTML = json.following
           postscount.innerHTML = json.posts
           accountname.innerHTML = json.name
@@ -162,7 +162,7 @@ $(document).ready(function() {
         dataType: "text",
         success: function(data) {
           var json = $.parseJSON(data);
-          count1 = parseFloat(json.data.followers);
+          count1 = json.data.followers;
           engrate.innerHTML = json.data.following
           postscount.innerHTML = json.data.total_posts
           accountname.innerHTML = json.data.username
@@ -184,7 +184,7 @@ $(document).ready(function() {
         dataType: "text",
         success: function(data) {
           var json = $.parseJSON(data);
-          count1 = parseFloat(json.subscribers);
+          count1 = json.subscribers;
           //engrate.innerHTML = json.following
           postscount.innerHTML = json.posts
           accountname.innerHTML = json.name

@@ -149,7 +149,7 @@ $(document).ready(function() {
           $("#image").attr('src', `${json.data.profile_picture}`);
           stuff.series[0].addPoint([
             (new Date()).getTime(),
-            fixedfollowers
+            json.data.followers
           ]);
           if (stuff.series[0].data.length >= 700) {
           stuff.series[0].data[0].remove()
@@ -177,7 +177,7 @@ $(document).ready(function() {
           $("#image").attr('src', `${json.image}`);
           stuff.series[0].addPoint([
             (new Date()).getTime(),
-            fixedfollowers
+            json.subscribers
           ]);
           if (stuff.series[0].data.length >= 700) {
           stuff.series[0].data[0].remove()
