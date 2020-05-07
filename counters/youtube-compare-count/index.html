@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Mixerno.space - Twitter compare count</title>
+        <title>Mixerno.space - Youtube compare count</title>
         <link rel="shortcut icon" href="https://yt3.ggpht.com/a-/AOh14GhVWagi88Rfs6XXerg3-3PR4RPHYcolFIrYXZ4_=s288-c-k-c0xffffffff-no-rj-mo">
         <link rel="stylesheet" href="../../o2.css" />
         <script src="../../odometer.js"></script>
@@ -171,6 +171,7 @@ $.ajax({
     ytvideos2.innerHTML = json.videos
     ytname2.innerHTML = json.name
     $("#image2").attr('src', `${json.avatarurl}`);
+    diffrenceodo.innerHTML = count1 - count2
     stuff.series[0].addPoint([
             (new Date()).getTime(),
             count1 - count2
