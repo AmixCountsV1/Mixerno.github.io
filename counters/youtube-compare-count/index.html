@@ -140,7 +140,7 @@ $(document).ready(function() {
   function channelstatistics() {
 
       $.ajax({
-        url: `https://mixernobest.herokuapp.com/youtube/channelUC/${channelid}`,
+        url: `${key}https://mixernobest.herokuapp.com/youtube/channelUC/${channelid}`,
         // Handle as Text
         dataType: "text",
         success: function(data) {
@@ -160,7 +160,7 @@ $(document).ready(function() {
   function channelstatistics2() {
 
 $.ajax({
-  url: `https://mixernobest.herokuapp.com/youtube/channelUC/${channelid2}`,
+  url: `${key}https://mixernobest.herokuapp.com/youtube/channelUC/${channelid2}`,
   // Handle as Text
   dataType: "text",
   success: function(data) {
@@ -189,7 +189,7 @@ $.ajax({
 
     
 $.ajax({
-    url: `https://mixernobest.herokuapp.com/youtube/searchchannel/${$('#usrsearch').val()}`,
+    url: `${key}https://mixernobest.herokuapp.com/youtube/searchchannel/${$('#usrsearch').val()}`,
     // Handle as Text
     dataType: "text",
     success: function(data) {
@@ -203,7 +203,7 @@ function searchchannel2() {
 
     
 $.ajax({
-    url: `https://mixernobest.herokuapp.com/youtube/searchchannel/${$('#usrsearch2').val()}`,
+    url: `${key}https://mixernobest.herokuapp.com/youtube/searchchannel/${$('#usrsearch2').val()}`,
     // Handle as Text
     dataType: "text",
     success: function(data) {

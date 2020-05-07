@@ -108,7 +108,7 @@ $(document).ready(function() {
   function channelstatistics() {
 
       $.ajax({
-        url: `https://mixernobest.herokuapp.com/youtube/channelUC/${channelid}`,
+        url: `${key}https://mixernobest.herokuapp.com/youtube/channelUC/${channelid}`,
         // Handle as Text
         dataType: "text",
         success: function(data) {
@@ -145,7 +145,7 @@ function searchchannel() {
 
     
     $.ajax({
-        url: `https://mixernobest.herokuapp.com/youtube/searchchannel/${$('#usersearch').val()}`,
+        url: `${key}https://mixernobest.herokuapp.com/youtube/searchchannel/${$('#usersearch').val()}`,
         // Handle as Text
         dataType: "text",
         success: function(data) {
