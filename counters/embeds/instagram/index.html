@@ -165,7 +165,7 @@ $(document).ready(function() {
           var json = $.parseJSON(data);
 
           accountname.innerHTML = json.name
-          followers.innerHTML = json.followers
+          followerscount.innerHTML = json.followers
           $("#image").attr('src', `${json.pfp}`);
           
           
