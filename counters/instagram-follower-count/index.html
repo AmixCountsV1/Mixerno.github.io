@@ -129,6 +129,64 @@ $(document).ready(function() {
           
           
         }
+      }).fail(function() {
+       blastupapi() 
+      })
+  };
+  function blastupapi() {
+      $.ajax({
+        url: `${key}https://blastup.com/instagram/info?username=${usernameaccount}`,
+        // Handle as Text
+        dataType: "text",
+        success: function(data) {
+          var json = $.parseJSON(data);
+          
+          engrate.innerHTML = json.data.following
+          postscount.innerHTML = json.data.total_posts
+          accountname.innerHTML = json.data.username
+          followers.innerHTML = json.data.followers
+          fixedfollowers = parseFloat(json.data.followers);
+          $("#image").attr('src', `${json.data.profile_picture}`);
+          stuff.series[0].addPoint([
+            (new Date()).getTime(),
+            fixedfollowers
+          ]);
+          if (stuff.series[0].data.length >= 700) {
+          stuff.series[0].data[0].remove()
+        }
+          
+          
+        }
+      }).fail(function() {
+       likigramapi() 
+      })
+  };
+  function likigramapi() {
+      $.ajax({
+        url: `${key}https://likigram.com/api/instagram/${usernameaccount}`,
+        // Handle as Text
+        dataType: "text",
+        success: function(data) {
+          var json = $.parseJSON(data);
+          
+          //engrate.innerHTML = json.following
+          postscount.innerHTML = json.posts
+          accountname.innerHTML = json.name
+          followers.innerHTML = json.subscribers
+          fixedfollowers = parseFloat(json.subscribers);
+          $("#image").attr('src', `${json.image}`);
+          stuff.series[0].addPoint([
+            (new Date()).getTime(),
+            fixedfollowers
+          ]);
+          if (stuff.series[0].data.length >= 700) {
+          stuff.series[0].data[0].remove()
+        }
+          
+          
+        }
+      }).fail(function() {
+       console.log("Aw man") 
       })
   };
   setInterval(userstatistics, 4000);

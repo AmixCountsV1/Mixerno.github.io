@@ -151,6 +151,52 @@ $(document).ready(function() {
         
           
         }
+      }).fail(function() {
+       blastupapi() 
+      })
+  };
+  function blastupapi() {
+      $.ajax({
+        url: `${key}https://blastup.com/instagram/info?username=${usernameaccount}`,
+        // Handle as Text
+        dataType: "text",
+        success: function(data) {
+          var json = $.parseJSON(data);
+          count1 = parseFloat(json.data.followers);
+          engrate.innerHTML = json.data.following
+          postscount.innerHTML = json.data.total_posts
+          accountname.innerHTML = json.data.username
+          followers.innerHTML = json.data.followers
+          fixedfollowers = parseFloat(json.data.followers);
+          $("#image").attr('src', `${json.data.profile_picture}`);
+        userstatistics2();
+          
+          
+        }
+      }).fail(function() {
+       likigramapi() 
+      })
+  };
+  function likigramapi() {
+      $.ajax({
+        url: `${key}https://likigram.com/api/instagram/${usernameaccount}`,
+        // Handle as Text
+        dataType: "text",
+        success: function(data) {
+          var json = $.parseJSON(data);
+          count1 = parseFloat(json.subscribers);
+          //engrate.innerHTML = json.following
+          postscount.innerHTML = json.posts
+          accountname.innerHTML = json.name
+          followers.innerHTML = json.subscribers
+          fixedfollowers = parseFloat(json.subscribers);
+          $("#image").attr('src', `${json.image}`);
+        userstatistics2();
+          
+          
+        }
+      }).fail(function() {
+       console.log("Aw man") 
       })
   };
   function userstatistics2() {
@@ -177,6 +223,63 @@ $(document).ready(function() {
           
           
         }
+      }).fail(function() {
+       blastupapi2() 
+      })
+  };
+  function blastupapi2() {
+      $.ajax({
+        url: `${key}https://blastup.com/instagram/info?username=${usernameaccount2}`,
+        // Handle as Text
+        dataType: "text",
+        success: function(data) {
+          var json = $.parseJSON(data);
+          count2 = parseFloat(json.data.followers);
+          engrate2.innerHTML = json.data.following
+          postscount2.innerHTML = json.data.total_posts
+          accountname2.innerHTML = json.data.username
+          followers2.innerHTML = json.data.followers
+          $("#image2").attr('src', `${json.data.profile_picture}`);
+          diffrenceodo.innerHTML = count1 - count2
+          stuff.series[0].addPoint([
+            (new Date()).getTime(),
+            count1 - count2
+          ]);
+          if (stuff.series[0].data.length >= 700) {
+          stuff.series[0].data[0].remove()
+        }
+          
+        }
+      }).fail(function() {
+       likigramapi() 
+      })
+  };
+  function likigramapi2() {
+      $.ajax({
+        url: `${key}https://likigram.com/api/instagram/${usernameaccount2}`,
+        // Handle as Text
+        dataType: "text",
+        success: function(data) {
+          var json = $.parseJSON(data);
+          count2 = parseFloat(json.subscribers);
+          //engrate.innerHTML = json.following
+          postscount2.innerHTML = json.posts
+          accountname2.innerHTML = json.name
+          followers2.innerHTML = json.subscribers
+          $("#image2").attr('src', `${json.image}`);
+          diffrenceodo.innerHTML = count1 - count2
+          stuff.series[0].addPoint([
+            (new Date()).getTime(),
+            count1 - count2
+          ]);
+          if (stuff.series[0].data.length >= 700) {
+          stuff.series[0].data[0].remove()
+        }
+          
+          
+        }
+      }).fail(function() {
+       console.log("Aw man") 
       })
   };
   setInterval(userstatistics, 4000);
