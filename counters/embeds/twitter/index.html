@@ -164,8 +164,20 @@ $(document).ready(function() {
         success: function(data) {
           var json = $.parseJSON(data);
           followerscount.innerHTML = json
-          $("#image").attr('src', `https://avatars.io/twitter/${usernameaccount}`);
-          accountname.innerHTML = usernameaccount
+          
+        }
+      })
+      $.ajax({
+        url: `${key}https://mixernobest.herokuapp.com/twitter/user/${usernameaccount}`,
+        // Handle as Text
+        dataType: "text",
+        success: function(data) {
+          var json = $.parseJSON(data);
+          
+
+          accountname.innerHTML = json.name
+          $("#image").attr('src', `${json.pfp}`);
+          
           
         }
       })

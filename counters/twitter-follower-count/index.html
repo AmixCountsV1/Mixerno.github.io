@@ -110,7 +110,7 @@ $(document).ready(function() {
   userstatistics();
   function userstatistics() {
       $.ajax({
-        url: `${key}https://likigram.com/api/twitter/${usernameaccount}`,
+        url: `${key}https://mixernobest.herokuapp.com/twitter/user/${usernameaccount}`,
         // Handle as Text
         dataType: "text",
         success: function(data) {
@@ -119,7 +119,8 @@ $(document).ready(function() {
           twitfol.innerHTML = json.following
           twittweets.innerHTML = json.tweets
           twitlikes.innerHTML = json.likes
-          twitname.innerHTML = params[1]
+          twitname.innerHTML = json.name
+          $("#image").attr('src', `${json.pfp}`);
           
           
         }
@@ -131,7 +132,6 @@ $(document).ready(function() {
         success: function(data) {
           var json = $.parseJSON(data);
           twitfollowers.innerHTML = json
-          $("#image").attr('src', `https://avatars.io/twitter/${usernameaccount}`);
           stuff.series[0].addPoint([
             (new Date()).getTime(),
             json

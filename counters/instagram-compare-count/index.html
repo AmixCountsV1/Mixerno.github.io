@@ -28,10 +28,10 @@
             </div>
             <div>
                 <div style="font-size: 25px;" class="odometer" id="engrate">0</div>
-                <div style="font-size: 25px;">Engagement Rate</div>
+                <div style="font-size: 25px;">Following</div>
             </div>
         </div>
-        <input placeholder="StoryFire user" type="text" style="width: 400px; font-size: 20px;" value="" id="usersearch" class="custominput"></input>
+        <input placeholder="Instagram user" type="text" style="width: 400px; font-size: 20px;" value="" id="usersearch" class="custominput"></input>
         <button class="buton" style="font-size: 20px;" id="serch">Search</button>
     </div>
         <div>
@@ -49,10 +49,10 @@
             </div>
             <div>
                 <div style="font-size: 25px;" class="odometer" id="engrate2">0</div>
-                <div style="font-size: 25px;">Engagement Rate</div>
+                <div style="font-size: 25px;">Following</div>
             </div>
         </div>
-        <input placeholder="StoryFire user" type="text" style="width: 400px; font-size: 20px;" value="" id="usersearch2" class="custominput"></input>
+        <input placeholder="Instagram user" type="text" style="width: 400px; font-size: 20px;" value="" id="usersearch2" class="custominput"></input>
         <button class="buton" style="font-size: 20px;" id="serch2">Search</button>
     </div>
     </div> 
@@ -136,16 +136,16 @@ $(document).ready(function() {
   userstatistics();
   function userstatistics() {
     $.ajax({
-        url: `${key}https://likigram.com/api/instagram/${usernameaccount}`,
+        url: `${key}https://mixernobest.herokuapp.com/instagram/user/${usernameaccount}`,
         // Handle as Text
         dataType: "text",
         success: function(data) {
           var json = $.parseJSON(data);
-          count1 = json.subscribers
-          engrate.innerHTML = json.engagementRate
+          count1 = parseFloat(json.followers);
+          engrate.innerHTML = json.following
           postscount.innerHTML = json.posts
           accountname.innerHTML = json.name
-          followers.innerHTML = json.subscribers
+          followers.innerHTML = json.followers
           $("#image").attr('src', `${json.image}`);
         userstatistics2();
         
@@ -155,16 +155,16 @@ $(document).ready(function() {
   };
   function userstatistics2() {
       $.ajax({
-        url: `${key}https://likigram.com/api/instagram/${usernameaccount2}`,
+        url: `${key}https://mixernobest.herokuapp.com/instagram/user/${usernameaccount2}`,
         // Handle as Text
         dataType: "text",
         success: function(data) {
           var json = $.parseJSON(data);
-          count2 = json.subscribers
-          engrate2.innerHTML = json.engagementRate
+          count2 = parseFloat(json.followers);
+          engrate2.innerHTML = json.following
           postscount2.innerHTML = json.posts
           accountname2.innerHTML = json.name
-          followers2.innerHTML = json.subscribers
+          followers2.innerHTML = json.followers
           $("#image2").attr('src', `${json.image}`);
           diffrenceodo.innerHTML = count1 - count2
           stuff.series[0].addPoint([

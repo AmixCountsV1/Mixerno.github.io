@@ -30,7 +30,7 @@
             </div>
             <div>
                 <div style="font-size: 25px;" class="odometer" id="engrate">0</div>
-                <div style="font-size: 25px;">Engagement Rate</div>
+                <div style="font-size: 25px;">Following</div>
             </div>
         </div>
         <br>
@@ -103,24 +103,25 @@ $(document).ready(function() {
   if(params[1] == undefined) {
     usernameaccount = "instagram"
   }
-  
+  var fixedfollowers;
   userstatistics();
   function userstatistics() {
       $.ajax({
-        url: `${key}https://likigram.com/api/instagram/${usernameaccount}`,
+        url: `${key}https://mixernobest.herokuapp.com/instagram/user/${usernameaccount}`,
         // Handle as Text
         dataType: "text",
         success: function(data) {
           var json = $.parseJSON(data);
           
-          engrate.innerHTML = json.engagementRate
+          engrate.innerHTML = json.following
           postscount.innerHTML = json.posts
           accountname.innerHTML = json.name
-          followers.innerHTML = json.subscribers
-          $("#image").attr('src', `${json.image}`);
+          followers.innerHTML = json.followers
+          fixedfollowers = parseFloat(json.followers);
+          $("#image").attr('src', `${json.pfp}`);
           stuff.series[0].addPoint([
             (new Date()).getTime(),
-            json.subscribers
+            fixedfollowers
           ]);
           if (stuff.series[0].data.length >= 700) {
           stuff.series[0].data[0].remove()

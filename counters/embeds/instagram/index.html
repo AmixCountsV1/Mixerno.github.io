@@ -157,15 +157,17 @@ $(document).ready(function() {
   
   userstatistics();
   function userstatistics() {
-      $.ajax({
-        url: `${key}https://likigram.com/api/instagram/${usernameaccount}`,
+    $.ajax({
+        url: `${key}https://mixernobest.herokuapp.com/instagram/user/${usernameaccount}`,
         // Handle as Text
         dataType: "text",
         success: function(data) {
           var json = $.parseJSON(data);
+
           accountname.innerHTML = json.name
-          followerscount.innerHTML = json.subscribers
-          $("#image").attr('src', `${json.image}`);
+          followers.innerHTML = json.followers
+          $("#image").attr('src', `${json.pfp}`);
+          
           
           
         }

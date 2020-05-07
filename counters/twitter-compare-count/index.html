@@ -152,14 +152,14 @@ $(document).ready(function() {
           twitfollowers.innerHTML = json
           count1 = json
           twitname.innerHTML = usernameaccount
-          $("#image").attr('src', `https://avatars.io/twitter/${usernameaccount}`);
+          //$("#image").attr('src', `https://avatars.io/twitter/${usernameaccount}`);
         userstatistics2();
         
           
         }
       })
       $.ajax({
-        url: `${key}https://likigram.com/api/twitter/${usernameaccount}`,
+        url: `${key}https://mixernobest.herokuapp.com/twitter/user/${usernameaccount}`,
         // Handle as Text
         dataType: "text",
         success: function(data) {
@@ -168,7 +168,8 @@ $(document).ready(function() {
           twitfol.innerHTML = json.following
           twittweets.innerHTML = json.tweets
           twitlikes.innerHTML = json.likes
-          
+          twitname.innerHTML = json.name
+          $("#image").attr('src', `${json.pfp}`);
           
           
         }
@@ -185,7 +186,7 @@ $(document).ready(function() {
           count2 = json
           twitname2.innerHTML = usernameaccount2
           diffrenceodo.innerHTML = count1 - count2
-          $("#image2").attr('src', `https://avatars.io/twitter/${usernameaccount2}`);
+          //$("#image2").attr('src', `https://avatars.io/twitter/${usernameaccount2}`);
           stuff.series[0].addPoint([
             (new Date()).getTime(),
             count1 - count2
@@ -197,7 +198,7 @@ $(document).ready(function() {
         }
       })
       $.ajax({
-        url: `${key}https://likigram.com/api/twitter/${usernameaccount2}`,
+        url: `${key}https://mixernobest.herokuapp.com/twitter/user/${usernameaccount}`,
         // Handle as Text
         dataType: "text",
         success: function(data) {
@@ -206,7 +207,8 @@ $(document).ready(function() {
           twitfol2.innerHTML = json.following
           twittweets2.innerHTML = json.tweets
           twitlikes2.innerHTML = json.likes
-          
+          twitname2.innerHTML = json.name
+          $("#image2").attr('src', `${json.pfp}`);
           
           
         }
