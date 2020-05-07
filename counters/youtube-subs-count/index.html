@@ -118,10 +118,10 @@ $(document).ready(function() {
           ytvideos.innerHTML = json.videos
           ytname.innerHTML = json.name
           $("#image").attr('src', `${json.avatarurl}`);
-
+          plsworkgraph = json.subscribers.replace(/""/, "");
           stuff.series[0].addPoint([
             (new Date()).getTime(),
-            json.subscribers
+            plsworkgraph
           ]);
           if (stuff.series[0].data.length >= 700) {
           stuff.series[0].data[0].remove()
@@ -129,7 +129,7 @@ $(document).ready(function() {
         }
       })
   };
-  setInterval(channelstatistics, 10000);
+  setInterval(channelstatistics, 60000);
   setInterval(function() {
     var embedlink = document.getElementById("embdlink");
     embedlink.setAttribute('href', `https://mixerno.space/counters/embeds/youtube/?user=${channelid}`);
