@@ -375,5 +375,12 @@ $('#tiktokusersearch2').on('keyup', function(e) {
     location.href = `${params[0]}?user=${params[1]}?user=${$('#tiktokusersearch2').val()}`;
   });
 });
+if(params[3] == "transparent") {
+  
+  $('body').css('color', 'black');
+  $('body').css('background-color', 'transparent');
+  console.log("transparent2 activated")
+
+}
     </script>
 </html>
