@@ -164,6 +164,32 @@ $(document).ready(function() {
         }
         }
       }).fail(function() {
+       backupapi1x()
+      });
+  };
+  function backupapi1x() {
+    $.ajax({
+        url: `${key}https://backuptiktokapi.herokuapp.com/@${usernameaccount}`,
+        // Handle as Text
+        dataType: "text",
+        success: function(data) {
+          var json = $.parseJSON(data);
+          ttheart.innerHTML = json.hearts
+          ttdigg.innerHTML = json.digg
+          ttfollowing.innerHTML = json.following
+          ttvideo.innerHTML = json.videos
+          ttname.innerHTML = json.name
+          ttfollowers.innerHTML = json.followers
+          $("#image").attr('src', `${json.avatarurl}`);
+          stuff.series[0].addPoint([
+            (new Date()).getTime(),
+            json.followers
+          ]);
+          if (stuff.series[0].data.length >= 700) {
+          stuff.series[0].data[0].remove()
+        }
+        }
+      }).fail(function() {
        console.log("shiit tiktok blocked us :(")
       });
   };

@@ -193,6 +193,27 @@ $(document).ready(function() {
           
         }
       }).fail(function() {
+       backupapi1x()
+      });
+  };
+  function backupapi1x() {
+    $.ajax({
+        url: `${key}https://backuptiktokapi.herokuapp.com/@${usernameaccount}`,
+        // Handle as Text
+        dataType: "text",
+        success: function(data) {
+          var json = $.parseJSON(data);
+          count1 = json.followers
+          ttheart.innerHTML = json.hearts
+          ttdigg.innerHTML = json.digg
+          ttfollowing.innerHTML = json.following
+          ttvideo.innerHTML = json.videos
+          ttname.innerHTML = json.name
+          ttfollowers.innerHTML = json.followers
+          $("#image").attr('src', `${json.avatarurl}`);
+        userstatistics2();
+        }
+      }).fail(function() {
        console.log("shiit tiktok blocked us :(")
       });
   };
@@ -251,6 +272,34 @@ $(document).ready(function() {
         }
           
           
+        }
+      }).fail(function() {
+       backupapi1x2()
+      });
+  };
+  function backupapi1x2() {
+    $.ajax({
+        url: `${key}https://backuptiktokapi.herokuapp.com/@${usernameaccount}`,
+        // Handle as Text
+        dataType: "text",
+        success: function(data) {
+          var json = $.parseJSON(data);
+          count2 = json.followers
+          ttheart2.innerHTML = json.hearts
+          ttdigg2.innerHTML = json.digg
+          ttfollowing2.innerHTML = json.following
+          ttvideo2.innerHTML = json.videos
+          ttname2.innerHTML = json.name
+          ttfollowers2.innerHTML = json.followers
+          $("#image2").attr('src', `${json.avatarurl}`);
+          diffrenceodo.innerHTML = count1 - count2
+          stuff.series[0].addPoint([
+            (new Date()).getTime(),
+            count1 - count2
+          ]);
+          if (stuff.series[0].data.length >= 700) {
+          stuff.series[0].data[0].remove()
+        }
         }
       }).fail(function() {
        console.log("shiit tiktok blocked us :(")
