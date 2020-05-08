@@ -232,7 +232,7 @@ $(document).ready(function() {
           ttname.innerHTML = json.name
           ttfollowers.innerHTML = json.followers
           $("#image").attr('src', `${json.avatarurl}`);
-          
+          userstatistics2();
           
         }
       }).fail(function() {
