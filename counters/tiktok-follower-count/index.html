@@ -208,7 +208,13 @@ $(document).ready(function() {
           ttname.innerHTML = json.name
           ttfollowers.innerHTML = json.followers
           $("#image").attr('src', `${json.avatarurl}`);
-          
+          stuff.series[0].addPoint([
+            (new Date()).getTime(),
+            json.followers
+          ]);
+          if (stuff.series[0].data.length >= 700) {
+          stuff.series[0].data[0].remove()
+        }
           
         }
       }).fail(function() {
