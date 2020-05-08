@@ -190,6 +190,28 @@ $(document).ready(function() {
         }
         }
       }).fail(function() {
+        backupapi2x()
+      });
+  };
+  function backupapi2x() {
+      $.ajax({
+        url: `${key}https://honorable-hazel-atmosphere.glitch.me/${usernameaccount}`,
+        // Handle as Text
+        dataType: "text",
+        success: function(data) {
+          var json = $.parseJSON(data);
+          count1 = json.followers
+          ttheart.innerHTML = json.hearts
+          ttdigg.innerHTML = json.digg
+          ttfollowing.innerHTML = json.following
+          ttvideo.innerHTML = json.videos
+          ttname.innerHTML = json.name
+          ttfollowers.innerHTML = json.followers
+          $("#image").attr('src', `${json.avatarurl}`);
+          
+          
+        }
+      }).fail(function() {
        console.log("shiit tiktok blocked us :(")
       });
   };
