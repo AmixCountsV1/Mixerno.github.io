@@ -92,10 +92,10 @@ options.url = '' + options.url;
 });
 var key = "https://nugisextremelynice.herokuapp.com/";
 //var key = "";
-$(document).ready(function() {
-    
-  var videostufflol = window.location.href;
+var videostufflol = window.location.href;
   var params = videostufflol.split('?user=');
+$(document).ready(function() {
+
   var stuff = new Highcharts.chart('graph', {
     chart: {
       backgroundColor: 'transparent',
@@ -375,7 +375,7 @@ $('#tiktokusersearch2').on('keyup', function(e) {
     location.href = `${params[0]}?user=${params[1]}?user=${$('#tiktokusersearch2').val()}`;
   });
 });
-if(params[3] == "transparent") {
+if(params[3] == 1) {
   
   $('body').css('color', 'black');
   $('body').css('background-color', 'transparent');

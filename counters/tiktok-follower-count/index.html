@@ -60,10 +60,11 @@ options.url = '' + options.url;
 });
 var key = "https://nugisextremelynice.herokuapp.com/";
 //var key = "";
+var videostufflol = window.location.href;
+  var params = videostufflol.split('?user=');
 $(document).ready(function() {
     
-  var videostufflol = window.location.href;
-  var params = videostufflol.split('?user=');
+  
   var stuff = new Highcharts.chart('graph', {
     chart: {
       backgroundColor: 'transparent',
@@ -236,7 +237,7 @@ $(document).ready(function() {
     embedlink.setAttribute('href', `https://mixerno.space/counters/embeds/tiktok/?user=${usernameaccount}`);
   }, 1000);
 });
-if(params[2] == "transparent") {
+if(params[2] == 1) {
   
   $('body').css('color', 'black');
   $('body').css('background-color', 'transparent');
