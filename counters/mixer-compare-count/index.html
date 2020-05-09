@@ -23,8 +23,8 @@
         <br>
         <div class="sidecounts">
           <div>
-              <div style="font-size: 25px;" class="odometer" id="sparkscount">0</div>
-              <div style="font-size: 25px;">Sparks</div>
+              <div style="font-size: 25px;" class="odometer" id="viewerstotl">0</div>
+              <div style="font-size: 25px;">Total Views</div>
           </div>
           <div>
               <div style="font-size: 25px;" class="odometer" id="experiencecount">0</div>
@@ -48,8 +48,8 @@
         <br>
         <div class="sidecounts">
           <div>
-              <div style="font-size: 25px;" class="odometer" id="sparkscount2">0</div>
-              <div style="font-size: 25px;">Sparks</div>
+              <div style="font-size: 25px;" class="odometer" id="viewerstotl2">0</div>
+              <div style="font-size: 25px;">Total Views</div>
           </div>
           <div>
               <div style="font-size: 25px;" class="odometer" id="experiencecount2">0</div>
@@ -144,21 +144,19 @@ $(document).ready(function() {
   userstatistics();
   function userstatistics() {
     $.ajax({
-        url: `${key}https://mixer.com/api/v1/channels/${usernameaccount}/details`,
+        url: `${key}https://mixernobest.herokuapp.com/mixer/user/${usernameaccount}`,
         // Handle as Text
         dataType: "text",
         success: function(data) {
           var json = $.parseJSON(data);
-          count1 = json.numFollowers
-          viewersnow.innerHTML = json.viewersCurrent
-
-          sparkscount.innerHTML = json.user.sparks
-          experiencecount.innerHTML = json.user.experience
-          accountname.innerHTML = json.user.username
-          followers.innerHTML = json.numFollowers
-          $("#image").attr('src', `${json.user.avatarUrl}`);
-        userstatistics2();
-        
+          count1 = json.followers
+          viewersnow.innerHTML = json.watchingnow
+          viewerstotl.innerHTML = json.totalviews
+          experiencecount.innerHTML = json.exprerience
+          accountname.innerHTML = json.name
+          followers.innerHTML = json.followers
+          $("#image").attr('src', `${json.pfp}`);
+          
           
         }
       })
@@ -170,13 +168,13 @@ $(document).ready(function() {
         dataType: "text",
         success: function(data) {
           var json = $.parseJSON(data);
-          count2 = json.numFollowers
-          viewersnow2.innerHTML = json.viewersCurrent
-          sparkscount2.innerHTML = json.user.sparks
-          experiencecount2.innerHTML = json.user.experience
-          accountname2.innerHTML = json.user.username
-          followers2.innerHTML = json.numFollowers
-          $("#image2").attr('src', `${json.user.avatarUrl}`);
+          count2 = json.followers
+          viewersnow2.innerHTML = json.watchingnow
+          viewerstotl2.innerHTML = json.totalviews
+          experiencecount2.innerHTML = json.exprerience
+          accountname2.innerHTML = json.name
+          followers2.innerHTML = json.followers
+          $("#image2").attr('src', `${json.pfp}`);
           diffrenceodo.innerHTML = count1 - count2
           stuff.series[0].addPoint([
             (new Date()).getTime(),

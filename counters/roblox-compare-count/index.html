@@ -144,84 +144,14 @@ $(document).ready(function() {
         dataType: "text",
         success: function(data) {
           var json = $.parseJSON(data);
-          accountname.innerHTML = json.Username
-          sideapi1();
+          accountname.innerHTML = json.name
+          followers.innerHTML = json.followers
+          followingcount.innerHTML = json.following
+          friendscount.innerHTML = json.friends
+          $("#image").attr('src', `${json.pfp}`); 
+          mainapi2();
           
           
-        }
-      })
-  };
-  function sideapi1() {
-      $.ajax({
-        url: `${key}https://friends.roblox.com/v1/users/${useridd}/followers/count`,
-        // Handle as Text
-        dataType: "text",
-        success: function(data) {
-          var json = $.parseJSON(data);
-          
-          followers.innerHTML = json.count
-          count1 = json.count
-        sideapi2();
-        mainapi2()
-          
-          
-        }
-      })
-  };
-  function sideapi2() {
-      /*$.ajax({
-        url: `${key}${useridd}`,
-        // Handle as Text
-        dataType: "text",
-        success: function(data) {
-          var json = $.parseJSON(data);
-          playliststotalcount.innerHTML = json.list[0].playlists_total
-          videoscount.innerHTML = json.list[0].videos_total
-          followingcount.innerHTML = json.list[0].following_total
-          viewscount.innerHTML = json.list[0].views_total
-          accountname.innerHTML = json.list[0].screenname
-          followers.innerHTML = json.list[0].followers_total
-          $("#image").attr('src', `${json.list[0].avatar_720_url}`);
-          sideapi3();
-          
-        }
-      })*/
-      sideapi3();
-  };
-  function sideapi3() {
-      $.ajax({
-        url: `${key}https://friends.roblox.com/v1/users/${useridd}/followings/count`,
-        // Handle as Text
-        dataType: "text",
-        success: function(data) {
-          var json = $.parseJSON(data);
-          followingcount.innerHTML = json.count
-          sideapi4();
-          
-        }
-      })
-  };
-  function sideapi4() {
-      $.ajax({
-        url: `${key}https://friends.roblox.com/v1/users/${useridd}/friends/count`,
-        // Handle as Text
-        dataType: "text",
-        success: function(data) {
-          var json = $.parseJSON(data);
-          friendscount.innerHTML = json.count
-          pictureapi();
-          
-        }
-      })
-  };
-  function pictureapi() {
-      $.ajax({
-        url: `${key}https://thumbnails.roblox.com/v1/users/avatar-headshot?userIds=${useridd}&size=150x150&format=Png&isCircular=false`,
-        // Handle as Text
-        dataType: "text",
-        success: function(data) {
-          var json = $.parseJSON(data);
-          $("#image").attr('src', `${json.data[0].imageUrl}`);   
         }
       })
   };
@@ -232,105 +162,28 @@ $(document).ready(function() {
         dataType: "text",
         success: function(data) {
           var json = $.parseJSON(data);
-          accountname2.innerHTML = json.Username
-          sideapi1x();
+          accountname2.innerHTML = json.name
+          followers2.innerHTML = json.followers
+          followingcount2.innerHTML = json.following
+          friendscount2.innerHTML = json.friends
+          $("#image2").attr('src', `${json.pfp}`); 
           
           
         }
       })
   };
-  function sideapi1x() {
-      $.ajax({
-        url: `${key}https://friends.roblox.com/v1/users/${useridd2}/followers/count`,
-        // Handle as Text
-        dataType: "text",
-        success: function(data) {
-          var json = $.parseJSON(data);
-          
-          followers2.innerHTML = json.count
-          count2 = json.count
-          diffrenceodo.innerHTML = count1 - count2
-          stuff.series[0].addPoint([
-            (new Date()).getTime(),
-            count1 - count2
-          ]);
-          if (stuff.series[0].data.length >= 700) {
-          stuff.series[0].data[0].remove()
-        }
-        sideapi2x();
-          
-          
-        }
-      })
-  };
-  function sideapi2x() {
-      /*$.ajax({
-        url: `${key}${useridd}`,
-        // Handle as Text
-        dataType: "text",
-        success: function(data) {
-          var json = $.parseJSON(data);
-          playliststotalcount.innerHTML = json.list[0].playlists_total
-          videoscount.innerHTML = json.list[0].videos_total
-          followingcount.innerHTML = json.list[0].following_total
-          viewscount.innerHTML = json.list[0].views_total
-          accountname.innerHTML = json.list[0].screenname
-          followers.innerHTML = json.list[0].followers_total
-          $("#image").attr('src', `${json.list[0].avatar_720_url}`);
-          sideapi3();
-          
-        }
-      })*/
-      sideapi3x();
-  };
-  function sideapi3x() {
-      $.ajax({
-        url: `${key}https://friends.roblox.com/v1/users/${useridd2}/followings/count`,
-        // Handle as Text
-        dataType: "text",
-        success: function(data) {
-          var json = $.parseJSON(data);
-          followingcount2.innerHTML = json.count
-          sideapi4x();
-          
-        }
-      })
-  };
-  function sideapi4x() {
-      $.ajax({
-        url: `${key}https://friends.roblox.com/v1/users/${useridd2}/friends/count`,
-        // Handle as Text
-        dataType: "text",
-        success: function(data) {
-          var json = $.parseJSON(data);
-          friendscount2.innerHTML = json.count
-          pictureapi2();
-          
-        }
-      })
-  };
-  function pictureapi2() {
-      $.ajax({
-        url: `${key}https://thumbnails.roblox.com/v1/users/avatar-headshot?userIds=${useridd2}&size=150x150&format=Png&isCircular=false`,
-        // Handle as Text
-        dataType: "text",
-        success: function(data) {
-          var json = $.parseJSON(data);
-          $("#image2").attr('src', `${json.data[0].imageUrl}`);   
-        }
-      })
-  };
+
   setInterval(mainapi, 4000);
   var useriddd;
   var useriddd2;
   function usersearchrefresh() {
     $.ajax({
-        url: `${key}https://www.roblox.com/search/users/results?keyword=${$('#usersearch').val()}&maxRows=12&startIndex=0`,
+        url: `${key}https://mixernobest.herokuapp.com/roblox/searchuser/${$('#usersearch').val()}`,
         // Handle as Text
         dataType: "text",
         success: function(data) {
           var json = $.parseJSON(data);
-          useriddd = json.UserSearchResults[0].UserId
+          useriddd = json.id
           location.href = `${params[0]}?user=${useriddd}?user=${params[2]}`;
 
           
@@ -340,12 +193,12 @@ $(document).ready(function() {
   }
   function usersearchrefresh2() {
     $.ajax({
-        url: `${key}https://www.roblox.com/search/users/results?keyword=${$('#usersearch2').val()}&maxRows=12&startIndex=0`,
+        url: `${key}https://mixernobest.herokuapp.com/roblox/searchuser/${$('#usersearch2').val()}`,
         // Handle as Text
         dataType: "text",
         success: function(data) {
           var json = $.parseJSON(data);
-          useriddd2 = json.UserSearchResults[0].UserId
+          useriddd2 = json.id
           location.href = `${params[0]}?user=${params[1]}?user=${useriddd2}`;
 
           

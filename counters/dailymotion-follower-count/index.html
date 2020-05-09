@@ -25,10 +25,6 @@
         <br>
         <div class="sidecounts">
             <div>
-                <div style="font-size: 25px;" class="odometer" id="playliststotalcount">0</div>
-                <div style="font-size: 25px;">Playlists</div>
-            </div>
-            <div>
                 <div style="font-size: 25px;" class="odometer" id="videoscount">0</div>
                 <div style="font-size: 25px;">Videos</div>
             </div>
@@ -115,21 +111,20 @@ $(document).ready(function() {
   userstatistics();
   function userstatistics() {
       $.ajax({
-        url: `${key}https://api.dailymotion.com/users?usernames=${usernameaccount}&fields=screenname%2Cverified%2Curl%2Cdescription%2Cavatar_720_url%2Ccover_url%2Ccountry%2Cfollowers_total%2Cfollowing_total%2Cplaylists_total%2Cvideos_total%2Cviews_total%2Cid`,
+        url: `${key}https://mixernobest.herokuapp.com/dailymotion/user/${usernameaccount}`,
         // Handle as Text
         dataType: "text",
         success: function(data) {
           var json = $.parseJSON(data);
-          playliststotalcount.innerHTML = json.list[0].playlists_total
-          videoscount.innerHTML = json.list[0].videos_total
-          followingcount.innerHTML = json.list[0].following_total
-          viewscount.innerHTML = json.list[0].views_total
-          accountname.innerHTML = json.list[0].screenname
-          followers.innerHTML = json.list[0].followers_total
-          $("#image").attr('src', `${json.list[0].avatar_720_url}`);
+          videoscount.innerHTML = json.videos
+          followingcount.innerHTML = json.following
+          viewscount.innerHTML = json.views
+          accountname.innerHTML = json.name
+          followers.innerHTML = json.followers
+          $("#image").attr('src', `${json.pfp}`);
           stuff.series[0].addPoint([
             (new Date()).getTime(),
-            json.list[0].followers_total
+            json.followers
           ]);
           if (stuff.series[0].data.length >= 700) {
           stuff.series[0].data[0].remove()

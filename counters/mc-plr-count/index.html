@@ -23,24 +23,6 @@
         <button class="buton" style="font-size: 20px;" id="serch">Search</button>
         <br>
         <br>
-        <div class="sidecounts">
-          <div>
-            <div style="font-size: 25px;" class="odometer" id="serverping">0</div>
-            <div style="font-size: 25px;">Ping</div>
-          </div>
-          <div>
-            <div style="font-size: 25px;" class="odometer" id="maxplrs">0</div>
-            <div style="font-size: 25px;">Max players</div>
-          </div>
-          <div>
-            <div style="font-size: 25px;" id="protcl">0</div>
-            <div style="font-size: 25px;">Protocol</div>
-          </div>
-          <div>
-            <div style="font-size: 25px;" id="servrstatus">0</div>
-            <div style="font-size: 25px;">Server status</div>
-          </div>
-        </div>
         <br>
         <div class="graphstuff">
           <div><strong>Players graph</strong></div>
@@ -118,17 +100,13 @@ $(document).ready(function() {
   
   function mainapi() {
       $.ajax({
-        url: `${key}https://mcapi.xdefcon.com/server/${usernameaccount}/full/json`,
+        url: `${key}https://mixernobest.herokuapp.com/minecraft/server/${usernameaccount}`,
         // Handle as Text
         dataType: "text",
         success: function(data) {
           var json = $.parseJSON(data);
           accountname.innerHTML = usernameaccount
         followerscount.innerHTML = json.players
-        serverping.innerHTML = json.ping
-        maxplrs.innerHTML = json.maxplayers
-        protcl.innerHTML = json.protocol
-        servrstatus.innerHTML = json.serverStatus
         $("#image").attr('src', `${json.icon}`);
         stuff.series[0].addPoint([
             (new Date()).getTime(),

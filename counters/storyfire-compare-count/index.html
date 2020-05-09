@@ -136,7 +136,7 @@ $(document).ready(function() {
   userstatistics();
   function userstatistics() {
     $.ajax({
-        url: `${key}https://storyfire.com/app/users/getProfile/${usernameaccount}`,
+        url: `${key}https://mixernobest.herokuapp.com/storyfire/user/${usernameaccount}`,
         // Handle as Text
         dataType: "text",
         success: function(data) {
@@ -155,7 +155,7 @@ $(document).ready(function() {
   };
   function userstatistics2() {
       $.ajax({
-        url: `${key}https://storyfire.com/app/users/getProfile/${usernameaccount2}`,
+        url: `${key}https://mixernobest.herokuapp.com/storyfire/user/${usernameaccount2}`,
         // Handle as Text
         dataType: "text",
         success: function(data) {

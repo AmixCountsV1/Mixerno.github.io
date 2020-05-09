@@ -152,40 +152,37 @@ $(document).ready(function() {
   userstatistics();
   function userstatistics() {
     $.ajax({
-        url: `${key}https://api.dailymotion.com/users?usernames=${usernameaccount}&fields=screenname%2Cverified%2Curl%2Cdescription%2Cavatar_720_url%2Ccover_url%2Ccountry%2Cfollowers_total%2Cfollowing_total%2Cplaylists_total%2Cvideos_total%2Cviews_total%2Cid`,
+        url: `${key}https://mixernobest.herokuapp.com/dailymotion/user/${usernameaccount}`,
         // Handle as Text
         dataType: "text",
         success: function(data) {
           var json = $.parseJSON(data);
-          count1 = json.list[0].followers_total
-          playliststotalcount.innerHTML = json.list[0].playlists_total
-          videoscount.innerHTML = json.list[0].videos_total
-          followingcount.innerHTML = json.list[0].following_total
-          viewscount.innerHTML = json.list[0].views_total
-          accountname.innerHTML = json.list[0].screenname
-          followers.innerHTML = json.list[0].followers_total
-          $("#image").attr('src', `${json.list[0].avatar_720_url}`);
-        userstatistics2();
-        
+          count1 = json.followers
+          videoscount.innerHTML = json.videos
+          followingcount.innerHTML = json.following
+          viewscount.innerHTML = json.views
+          accountname.innerHTML = json.name
+          followers.innerHTML = json.followers
+          $("#image").attr('src', `${json.pfp}`);
+          
           
         }
       })
   };
   function userstatistics2() {
       $.ajax({
-        url: `${key}https://api.dailymotion.com/users?usernames=${usernameaccount2}&fields=screenname%2Cverified%2Curl%2Cdescription%2Cavatar_720_url%2Ccover_url%2Ccountry%2Cfollowers_total%2Cfollowing_total%2Cplaylists_total%2Cvideos_total%2Cviews_total%2Cid`,
+        url: `${key}https://mixernobest.herokuapp.com/dailymotion/user/${usernameaccount2}`,
         // Handle as Text
         dataType: "text",
         success: function(data) {
           var json = $.parseJSON(data);
-          count2 = json.list[0].followers_total
-          playliststotalcount2.innerHTML = json.list[0].playlists_total
-          videoscount2.innerHTML = json.list[0].videos_total
-          followingcount2.innerHTML = json.list[0].following_total
-          viewscount2.innerHTML = json.list[0].views_total
-          accountname2.innerHTML = json.list[0].screenname
-          followers2.innerHTML = json.list[0].followers_total
-          $("#image2").attr('src', `${json.list[0].avatar_720_url}`);
+          count2 = json.followers
+          videoscount2.innerHTML = json.videos
+          followingcount2.innerHTML = json.following
+          viewscount2.innerHTML = json.views
+          accountname2.innerHTML = json.name
+          followers2.innerHTML = json.followers
+          $("#image2").attr('src', `${json.pfp}`);
           diffrenceodo.innerHTML = count1 - count2
           stuff.series[0].addPoint([
             (new Date()).getTime(),

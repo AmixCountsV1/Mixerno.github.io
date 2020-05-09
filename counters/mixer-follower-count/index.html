@@ -25,25 +25,17 @@
         <br>
         <div class="sidecounts">
             <div>
-                <div style="font-size: 25px;" class="odometer" id="sparkscount">0</div>
-                <div style="font-size: 25px;">Sparks</div>
-            </div>
-            <div>
                 <div style="font-size: 25px;" class="odometer" id="experiencecount">0</div>
                 <div style="font-size: 25px;">Experience</div>
             </div>
-            <div>
-              <div style="font-size: 25px;" class="odometer" id="levelcount">0</div>
-              <div style="font-size: 25px;">Level</div>
-          </div>
-          <div>
-              <div style="font-size: 25px;" class="odometer" id="viewerstotl">0</div>
-              <div style="font-size: 25px;">Viewers total</div>
-          </div>
           <div>
             <div style="font-size: 25px;" class="odometer" id="viewersnow">0</div>
             <div style="font-size: 25px;">Viewers currently</div>
         </div>
+        <div>
+          <div style="font-size: 25px;" class="odometer" id="viewerstotl">0</div>
+          <div style="font-size: 25px;">Total Views</div>
+      </div>
         </div>
         <br>
         <div class="graphstuff">
@@ -119,22 +111,20 @@ $(document).ready(function() {
   userstatistics();
   function userstatistics() {
       $.ajax({
-        url: `${key}https://mixer.com/api/v1/channels/${usernameaccount}/details`,
+        url: `${key}https://mixernobest.herokuapp.com/mixer/user/${usernameaccount}`,
         // Handle as Text
         dataType: "text",
         success: function(data) {
           var json = $.parseJSON(data);
-          viewersnow.innerHTML = json.viewersCurrent
-          viewerstotl.innerHTML = json.viewersTotal
-          levelcount.innerHTML = json.user.level
-          sparkscount.innerHTML = json.user.sparks
-          experiencecount.innerHTML = json.user.experience
-          accountname.innerHTML = json.user.username
-          followers.innerHTML = json.numFollowers
-          $("#image").attr('src', `${json.user.avatarUrl}`);
+          viewersnow.innerHTML = json.watchingnow
+          viewerstotl.innerHTML = json.totalviews
+          experiencecount.innerHTML = json.exprerience
+          accountname.innerHTML = json.name
+          followers.innerHTML = json.followers
+          $("#image").attr('src', `${json.pfp}`);
           stuff.series[0].addPoint([
             (new Date()).getTime(),
-            json.numFollowers
+            json.followers
           ]);
           if (stuff.series[0].data.length >= 700) {
           stuff.series[0].data[0].remove()

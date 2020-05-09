@@ -21,24 +21,6 @@
                     <div><strong>Players</strong></div>
                 </div>
         <br>
-        <div class="sidecounts">
-            <div>
-              <div style="font-size: 25px;" class="odometer" id="serverping">0</div>
-              <div style="font-size: 25px;">Ping</div>
-            </div>
-            <div>
-              <div style="font-size: 25px;" class="odometer" id="maxplrs">0</div>
-              <div style="font-size: 25px;">Max players</div>
-            </div>
-            <div>
-              <div style="font-size: 25px;" id="protcl">0</div>
-              <div style="font-size: 25px;">Protocol</div>
-            </div>
-            <div>
-              <div style="font-size: 25px;" id="servrstatus">0</div>
-              <div style="font-size: 25px;">Server status</div>
-            </div>
-          </div>
         <input placeholder="Server IP" type="text" style="width: 400px; font-size: 20px;" value="" id="usersearch" class="custominput"></input>
         <button class="buton" style="font-size: 20px;" id="serch">Search</button>
     </div>
@@ -50,24 +32,6 @@
                 <div><strong>Players</strong></div>
             </div>
         <br>
-        <div class="sidecounts">
-            <div>
-              <div style="font-size: 25px;" class="odometer" id="serverping2">0</div>
-              <div style="font-size: 25px;">Ping</div>
-            </div>
-            <div>
-              <div style="font-size: 25px;" class="odometer" id="maxplrs2">0</div>
-              <div style="font-size: 25px;">Max players</div>
-            </div>
-            <div>
-              <div style="font-size: 25px;" id="protcl2">0</div>
-              <div style="font-size: 25px;">Protocol</div>
-            </div>
-            <div>
-              <div style="font-size: 25px;" id="servrstatus2">0</div>
-              <div style="font-size: 25px;">Server status</div>
-            </div>
-          </div>
         <input placeholder="Server IP" type="text" style="width: 400px; font-size: 20px;" value="" id="usersearch2" class="custominput"></input>
         <button class="buton" style="font-size: 20px;" id="serch2">Search</button>
     </div>
@@ -154,7 +118,7 @@ $(document).ready(function() {
   mainapi()
   function mainapi() {
       $.ajax({
-        url: `${key}https://mcapi.xdefcon.com/server/${usernameaccount}/full/json`,
+        url: `${key}https://mixernobest.herokuapp.com/minecraft/server/${usernameaccount}`,
         // Handle as Text
         dataType: "text",
         success: function(data) {
@@ -162,31 +126,22 @@ $(document).ready(function() {
           count1 = json.players
           accountname.innerHTML = usernameaccount
         followerscount.innerHTML = json.players
-        serverping.innerHTML = json.ping
-        maxplrs.innerHTML = json.maxplayers
-        protcl.innerHTML = json.protocol
-        servrstatus.innerHTML = json.serverStatus
         $("#image").attr('src', `${json.icon}`);
-        mainapi2()
           
         }
       })
   };
   function mainapi2() {
       $.ajax({
-        url: `${key}https://mcapi.xdefcon.com/server/${usernameaccount2}/full/json`,
+        url: `${key}https://mixernobest.herokuapp.com/minecraft/server/${usernameaccount2}`,
         // Handle as Text
         dataType: "text",
         success: function(data) {
           var json = $.parseJSON(data);
           count2 = json.players
-          accountname2.innerHTML = usernameaccount2
+          accountname2.innerHTML = usernameaccount
         followerscount2.innerHTML = json.players
-        serverping2.innerHTML = json.ping
-        maxplrs2.innerHTML = json.maxplayers
-        protcl2.innerHTML = json.protocol
-        servrstatus2.innerHTML = json.serverStatus
-        $("#image2").attr('src', `${json.icon}`);
+        $("#image").attr('src', `${json.icon}`);
         diffrenceodo.innerHTML = count1 - count2
         stuff.series[0].addPoint([
             (new Date()).getTime(),
