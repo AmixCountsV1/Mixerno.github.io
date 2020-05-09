@@ -113,14 +113,14 @@ $(document).ready(function() {
         success: function(data) {
           var json = $.parseJSON(data);
           
-          following.innerHTML = json.followingCount
+          following.innerHTML = json.following
           pointscount.innerHTML = json.points
-          accountname.innerHTML = json.username
-          followers.innerHTML = json.followersCount
-          $("#image").attr('src', `${json.userimage}`);
+          accountname.innerHTML = json.name
+          followers.innerHTML = json.followers
+          $("#image").attr('src', `${json.pfp}`);
           stuff.series[0].addPoint([
             (new Date()).getTime(),
-            json.followersCount
+            json.followers
           ]);
           if (stuff.series[0].data.length >= 700) {
           stuff.series[0].data[0].remove()

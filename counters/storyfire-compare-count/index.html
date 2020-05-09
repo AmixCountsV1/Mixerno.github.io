@@ -141,12 +141,12 @@ $(document).ready(function() {
         dataType: "text",
         success: function(data) {
           var json = $.parseJSON(data);
-          count1 = json.followersCount
-          following.innerHTML = json.followingCount
+          count1 = json.followers
+          following.innerHTML = json.following
           pointscount.innerHTML = json.points
-          accountname.innerHTML = json.username
-          followers.innerHTML = json.followersCount
-          $("#image").attr('src', `${json.userimage}`);
+          accountname.innerHTML = json.name
+          followers.innerHTML = json.followers
+          $("#image").attr('src', `${json.pfp}`);
         userstatistics2();
         
           
@@ -160,12 +160,12 @@ $(document).ready(function() {
         dataType: "text",
         success: function(data) {
           var json = $.parseJSON(data);
-          count2 = json.followersCount
-          following2.innerHTML = json.followingCount
+          count2 = json.followers
+          following2.innerHTML = json.following
           pointscount2.innerHTML = json.points
-          accountname2.innerHTML = json.username
-          followers2.innerHTML = json.followersCount
-          $("#image2").attr('src', `${json.userimage}`);
+          accountname2.innerHTML = json.name
+          followers2.innerHTML = json.followers
+          $("#image2").attr('src', `${json.pfp}`);
           diffrenceodo.innerHTML = count1 - count2
           stuff.series[0].addPoint([
             (new Date()).getTime(),
