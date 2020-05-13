@@ -246,6 +246,25 @@
           var json = $.parseJSON(data);
           //ytsubs.innerHTML = json.followers
           ytname.innerHTML = json.name
+          //$("#image").attr('src', `${json.pfp}`);
+          //plsworkgraph = json.subscribers.replace(/""/, "");
+          //stuff.series[0].addPoint([
+            //(new Date()).getTime(),
+            //json.followers
+          //]);
+          //if (stuff.series[0].data.length >= 700) {
+            //stuff.series[0].data[0].remove()
+          //}
+        }
+      })
+      $.ajax({
+        url: `${key}https://mixernobest.herokuapp.com/twitter2/user/${channelid}`,
+        // Handle as Text
+        dataType: "text",
+        success: function (data) {
+          var json = $.parseJSON(data);
+          //ytsubs.innerHTML = json.followers
+          //ytname.innerHTML = json.name
           $("#image").attr('src', `${json.pfp}`);
           //plsworkgraph = json.subscribers.replace(/""/, "");
           //stuff.series[0].addPoint([
