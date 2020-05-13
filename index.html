@@ -251,7 +251,7 @@
           //plsworkgraph = json.subscribers.replace(/""/, "");
           stuff.series[0].addPoint([
             (new Date()).getTime(),
-            json.subscribers
+            parseFloat(json.subscribers)
           ]);
           if (stuff.series[0].data.length >= 700) {
             stuff.series[0].data[0].remove()
