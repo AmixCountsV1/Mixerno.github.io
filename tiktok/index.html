@@ -5,12 +5,12 @@
   <title>Mixerno.space</title>
   <link rel="shortcut icon"
     href="https://yt3.ggpht.com/a-/AOh14GhVWagi88Rfs6XXerg3-3PR4RPHYcolFIrYXZ4_=s288-c-k-c0xffffffff-no-rj-mo">
-  <link rel="stylesheet" href="o2.css" />
+  <link rel="stylesheet" href="../o2.css" />
   <!--<link rel="stylesheet" href="counters/estimation.css">-->
-  <script src="odometer.js"></script>
-  <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+  <script src="../odometer.js"></script>
+  <script type="text/javascript" src="../jquery-3.1.1.min.js"></script>
   <script src="https://code.highcharts.com/highcharts.js"></script>
-  <link rel="stylesheet" href="css/loadawesome.css" />
+  <link rel="stylesheet" href="../css/loadawesome.css" />
   <style>
     body {
       margin: 0;
@@ -35,9 +35,9 @@
     }
 
     .buton {
-      background-color: rgb(221, 221, 221);
+      background-color: rgb(0, 0, 0);
       border: none;
-      color: rgb(0, 0, 0);
+      color: rgb(255, 255, 255);
       padding: 2.5px 5px;
       text-align: center;
       text-decoration: none;
@@ -53,9 +53,9 @@
       padding: 2.5px 5px;
       margin: 0px 0;
       display: inline-block;
-      color: rgb(0, 0, 0);
-      background-color: rgb(221, 221, 221);
-      border: 1px solid rgb(0, 0, 0);
+      color: rgb(255, 255, 255);
+      background-color: rgb(0, 0, 0);
+      border: 1px solid rgb(255, 255, 255);
       border-radius: 1px;
       box-sizing: border-box;
     }
@@ -125,17 +125,17 @@
     }
   </style>
   <script>
-    $(window).on("load",function(){
-   $(".loader-wrapper").fadeOut("slow");
-});
+    $(window).on("load", function () {
+      $(".loader-wrapper").fadeOut("slow");
+    });
   </script>
   <ul>
-    <li><a class="active" href="index.html">Youtube Subscriber count</a></li>
-    <li><a href="twitter/?u1=barackobama">Twitter Follower count</a></li>
-    <li><a href="twitch/?u1=ninja">Twitch Follower count</a></li>
-    <li><a href="tiktok/?u1=charlidamelio">TikTok Follower count</a></li>
-    <li><a href="instagram/?u1=instagram">Instagram Follower count</a></li>
-    <li><a href="mixer/?u1=ninja">Mixer Follower count</a></li>
+    <li><a href="../index.html">Youtube Subscriber count</a></li>
+    <li><a href="../twitter/?user=barackobama">Twitter Follower count</a></li>
+    <li><a href="../twitch/?user=ninja">Twitch Follower count</a></li>
+    <li><a class="active" href="../tiktok/?user=charlidamelio">TikTok Follower count</a></li>
+    <li><a href="../instagram/?user=instagram">Instagram Follower count</a></li>
+    <li><a href="../mixer/?user=ninja">Mixer Follower count</a></li>
   </ul>
   <div class="loader-wrapper">
     <div class="la-ball-fussion">
@@ -152,14 +152,19 @@
         src="https://via.placeholder.com/130/585858/FFFFFF/?text=Mixerno.space" height="130" width="130">
       <div style="font-size: 60px;" id="ytname" class="nameee">Mixerno.space</div>
       <div class="odometer" style="font-size: 60px;" id="ytsubs">0</div>
-      <div><strong>Subscribers</strong></div>
+      <div><strong>Followers</strong></div>
       <br>
       <div class="">
         <div id="graph"></div>
       </div>
     </div>
-    <!--<input placeholder="Youtube username" type="text" style="width: 500px; font-size: 20px;" value="" id="usersearch" class="custominput"></input>
-  <button class="buton" style="font-size: 20px;" id="serch">Search</button>-->
+    <br>
+    <div class="maincount">
+      <input placeholder="TikTok username" type="text" style="width: 500px; font-size: 20px;" value="" id="usersearch"
+        class="custominput"></input>
+      <button class="buton" style="font-size: 20px;" id="serch">Search</button>
+    </div>
+
     <br>
     <br>
 
@@ -215,7 +220,7 @@
       },
 
       series: [{
-        name: 'Subscribers',
+        name: 'Followers',
         marker: {
           enabled: false
         },
@@ -226,32 +231,47 @@
     })
     var channelid = params[1];
     if (params[1] == undefined) {
-      channelid = "mrbeastgaming"
+      channelid = "charlidamelio"
     }
     channelstatistics()
-
+    var tiktokbypass = [
+      'https://immense-castle-34936.herokuapp.com/@',
+      'https://backuptiktokapi.glitch.me/',
+      'https://backuptiktokapi.herokuapp.com/@',
+      'https://honorable-hazel-atmosphere.glitch.me/',
+    ]
 
     //
+    var randomtiktokbypass = Math.floor(Math.random()*tiktokbypass.length);
+    var tiktokurl = tiktokbypass[randomtiktokbypass];
     function channelstatistics() {
-
+      tiktokbypass = [
+      'https://immense-castle-34936.herokuapp.com/@',
+      'https://backuptiktokapi.glitch.me/',
+      'https://backuptiktokapi.herokuapp.com/@',
+      'https://honorable-hazel-atmosphere.glitch.me/',
+    ]
+      randomtiktokbypass = Math.floor(Math.random()*tiktokbypass.length);
+      tiktokurl = tiktokbypass[randomtiktokbypass];
       $.ajax({
-        url: `${key}https://mixernobest.herokuapp.com/youtubeestimation/${channelid}`,
+        url: `${key}${tiktokurl}${channelid}`,
         // Handle as Text
         dataType: "text",
         success: function (data) {
           var json = $.parseJSON(data);
-          ytsubs.innerHTML = json.count
+          ytsubs.innerHTML = json.followers
           ytname.innerHTML = json.name
           $("#image").attr('src', `${json.avatarurl}`);
           //plsworkgraph = json.subscribers.replace(/""/, "");
           stuff.series[0].addPoint([
             (new Date()).getTime(),
-            json.count
+            json.followers
           ]);
           if (stuff.series[0].data.length >= 700) {
             stuff.series[0].data[0].remove()
           }
-        }
+        },
+        fail: setTimeout(function() {console.log("oof")}, 1000)
       })
     };
     setInterval(channelstatistics, 4000);
@@ -262,9 +282,9 @@
         $('#serch').click();
       }
     });
-    //location.href = params[0] + $('#country').val();;
+    //
     $('#serch').click(function () {
-      searchchannel()
+      location.href = `${params[0]}?user=${$('#usersearch').val()}`;
 
     });
   });
