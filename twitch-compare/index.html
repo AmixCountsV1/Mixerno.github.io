@@ -103,6 +103,7 @@
     }
 
     .maincount {
+      text-align: center;
       border-radius: 25px;
       padding: 20px;
       background: rgb(37, 37, 37);
@@ -110,10 +111,12 @@
       height: auto;
       margin-left: 13.5%;
       margin-right: 1%;
+    }
+    .row {
       display: flex;
       flex-direction: row;
       justify-content: space-around;
-      flex: 1;
+      flex: 4;
     }
     .maincount2 {
       border-radius: 25px;
@@ -202,6 +205,7 @@
   <br>
   <center>
     <div class="maincount">
+      <div class="row">
       <div>
       <img id="image" style="border-radius: 50%;"
         src="https://via.placeholder.com/130/585858/FFFFFF/?text=Mixerno.space" height="130" width="130">
@@ -209,7 +213,7 @@
       <div class="odometer" style="font-size: 60px;" id="ytsubs">0</div>
       <div><strong>Followers</strong></div>
     </div>
-      <br>
+    <br>
       <div>
         <img id="image2" style="border-radius: 50%;"
           src="https://via.placeholder.com/130/585858/FFFFFF/?text=Mixerno.space" height="130" width="130">
@@ -217,6 +221,7 @@
         <div class="odometer" style="font-size: 60px;" id="ytsubs2">0</div>
         <div><strong>Followers</strong></div>
       </div>
+    </div>
         <br>
     </div>
     <br>
@@ -228,6 +233,7 @@
     </div></div>
     <br>
     <div class="maincount">
+      <div class="row">
       <div>
         <input placeholder="Twitch username" type="text" style="width: 500px; font-size: 20px;" value="" id="usersearch" class="custominput"></input>
   <button class="buton" style="font-size: 20px;" id="serch">Search</button>
@@ -236,6 +242,7 @@
 <div>
   <input placeholder="Twitch username" type="text" style="width: 500px; font-size: 20px;" value="" id="usersearch2" class="custominput"></input>
 <button class="buton" style="font-size: 20px;" id="serch2">Search</button>
+</div>
 </div>
     </div>
     
@@ -330,6 +337,7 @@
           ytname.innerHTML = json.name
           ytsubs.innerHTML = json.followers
           $("#image").attr('src', `${json.pfp}`);
+          channelstatistics2()
           //$("#image").attr('src', `${json.pfp}`);
           //plsworkgraph = json.subscribers.replace(/""/, "");
           //stuff.series[0].addPoint([
