@@ -5,17 +5,17 @@
   <title>Mixerno.space</title>
   <link rel="shortcut icon"
     href="https://yt3.ggpht.com/a-/AOh14GhVWagi88Rfs6XXerg3-3PR4RPHYcolFIrYXZ4_=s288-c-k-c0xffffffff-no-rj-mo">
-    <meta charset="UTF-8">
-    <meta name="description" content="Another counter site. but its green-gray">
-    <meta name="keywords" content="green, gray, mixerno.space">
-    <meta name="author" content="Mixerno">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="o2.css" />
+  <link rel="stylesheet" href="../o2.css" />
+  <meta charset="UTF-8">
+  <meta name="description" content="Another counter site. but its green-gray">
+  <meta name="keywords" content="green, gray, mixerno.space">
+  <meta name="author" content="Mixerno">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!--<link rel="stylesheet" href="counters/estimation.css">-->
-  <script src="odometer.js"></script>
-  <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+  <script src="../odometer.js"></script>
+  <script type="text/javascript" src="../jquery-3.1.1.min.js"></script>
   <script src="https://code.highcharts.com/highcharts.js"></script>
-  <link rel="stylesheet" href="css/loadawesome.css" />
+  <link rel="stylesheet" href="../css/loadawesome.css" />
   <style>
     body {
       margin: 0;
@@ -110,6 +110,19 @@
       height: auto;
       margin-left: 13.5%;
       margin-right: 1%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      flex: 1;
+    }
+    .maincount2 {
+      border-radius: 25px;
+      padding: 20px;
+      background: rgb(37, 37, 37);
+      width: auto;
+      height: auto;
+      margin-left: 13.5%;
+      margin-right: 1%;
     }
 
     li a {
@@ -130,50 +143,50 @@
     }
   </style>
   <script>
-    $(window).on("load", function () {
-      $(".loader-wrapper").fadeOut("slow");
-    });
+    $(window).on("load",function(){
+   $(".loader-wrapper").fadeOut("slow");
+});
   </script>
   <ul>
     <li>
       <li>Youtube Counters <br>
-      <a  href="#">Subscriber count</a>
-      <a  href="youtube-compare/">Subscriber compare</a>
+      <a  href="../?user=UC-lHJZR3Gqxm24_Vd_AJ5Yw">Subscriber count</a>
+      <a  href="../youtube-compare/">Subscriber compare</a>
     </li>
     </li>
     <br>
     <li>
       <li>Twitter Counters <br>
-      <a  href="twitter/?user=barackobama">Follower count</a>
-      <a  href="twitter-compare/?user=barackobama?user=realdonaldtrump">Follower compare</a>
+      <a  href="../twitter/?user=barackobama">Follower count</a>
+      <a  href="../twitter-compare/?user=barackobama?user=realdonaldtrump">Follower compare</a>
     </li>
     </li>
     <br>
     <li>
       <li>Twitch Counters <br>
-      <a  href="twitch/?user=tfue">Follower count</a>
-      <a  href="twitch-compare/?user=ninja?user=tfue">Follower compare</a>
+      <a  href="../twitch/?user=tfue">Follower count</a>
+      <a  href="../twitch-compare/?user=ninja?user=tfue">Follower compare</a>
     </li>
     </li>
     <br>
     <li>
       <li>TikTok Counters <br>
-      <a  href="tiktok/?user=charlidamelio">Follower count</a>
-      <a  href="tiktok-compare/?user=charlidamelio?user=addisonre">Follower compare</a>
+      <a  href="../tiktok/?user=charlidamelio">Follower count</a>
+      <a  href="../tiktok-compare/?user=charlidamelio?user=addisonre">Follower compare</a>
     </li>
     </li>
     <br>
     <li>
       <li>Instagram Counters <br>
-      <a  href="instagram/?user=instagram">Follower count</a>
-      <a  href="instagram-compare/?user=instagram?user=cristiano">Follower compare</a>
+      <a  href="../instagram/?user=instagram">Follower count</a>
+      <a  href="../instagram-compare/?user=instagram?user=cristiano">Follower compare</a>
     </li>
     </li>
     <br>
     <li>
       <li>Mixer Counters <br>
-      <a  href="mixer/?user=ninja">Follower count</a>
-      <a  href="mixer-compare/?user=ninja?user=shroud">Follower compare</a>
+      <a  href="../mixer/?user=ninja">Follower count</a>
+      <a  href="../mixer-compare/?user=ninja?user=shroud">Follower compare</a>
     </li>
     </li>
     <br>
@@ -189,23 +202,43 @@
   <br>
   <center>
     <div class="maincount">
+      <div>
       <img id="image" style="border-radius: 50%;"
         src="https://via.placeholder.com/130/585858/FFFFFF/?text=Mixerno.space" height="130" width="130">
       <div style="font-size: 60px;" id="ytname" class="nameee">Mixerno.space</div>
       <div class="odometer" style="font-size: 60px;" id="ytsubs">0</div>
-      <div><strong>Subscribers</strong></div>
+      <div><strong>Followers</strong></div>
+    </div>
       <br>
-      <div class="">
-        <div id="graph"></div>
+      <div>
+        <img id="image2" style="border-radius: 50%;"
+          src="https://via.placeholder.com/130/585858/FFFFFF/?text=Mixerno.space" height="130" width="130">
+        <div style="font-size: 60px;" id="ytname2" class="nameee">Mixerno.space</div>
+        <div class="odometer" style="font-size: 60px;" id="ytsubs2">0</div>
+        <div><strong>Followers</strong></div>
       </div>
+        <br>
     </div>
     <br>
+    <div class="maincount2">
+      <div class="">
+        <div id="difrence" class="odometer" style="font-size: 30px;"></div>
+        <div>Follower diffrence</div>
+      <div id="graph"></div>
+    </div></div>
+    <br>
     <div class="maincount">
-      <input placeholder="Youtube username" type="text" style="width: 500px; font-size: 20px;" value="" id="usersearch"
-        class="custominput"></input>
-      <button class="buton" style="font-size: 20px;" id="serch">Search</button>
+      <div>
+        <input placeholder="TikTok username" type="text" style="width: 500px; font-size: 20px;" value="" id="usersearch" class="custominput"></input>
+  <button class="buton" style="font-size: 20px;" id="serch">Search</button>
+</div>
+<br>
+<div>
+  <input placeholder="TikTok username" type="text" style="width: 500px; font-size: 20px;" value="" id="usersearch2" class="custominput"></input>
+<button class="buton" style="font-size: 20px;" id="serch2">Search</button>
+</div>
     </div>
-
+    
     <br>
     <br>
 
@@ -261,7 +294,7 @@
       },
 
       series: [{
-        name: 'Subscribers',
+        name: 'Follower diffrence',
         marker: {
           enabled: false
         },
@@ -270,36 +303,94 @@
 
       }]
     })
+    var count1;
+    var count2;
+    var tiktokbypass = [
+      'https://immense-castle-34936.herokuapp.com/@',
+      'https://backuptiktokapi.glitch.me/',
+      'https://backuptiktokapi.herokuapp.com/@',
+      'https://honorable-hazel-atmosphere.glitch.me/'
+    ]
+    var randomtiktokbypass = Math.floor(Math.random()*tiktokbypass.length);
+    var tiktokurl = tiktokbypass[randomtiktokbypass];
     var channelid = params[1];
     if (params[1] == undefined) {
-      channelid = "UC-lHJZR3Gqxm24_Vd_AJ5Yw"
+      channelid = "charlidamelio"
+    }
+    var channelid2 = params[2];
+    if (params[2] == undefined) {
+      channelid2 = "addisonre"
     }
     channelstatistics()
 
 
     //
     function channelstatistics() {
-
+      tiktokbypass = [
+      'https://immense-castle-34936.herokuapp.com/@',
+      'https://backuptiktokapi.glitch.me/',
+      'https://backuptiktokapi.herokuapp.com/@',
+      'https://honorable-hazel-atmosphere.glitch.me/'
+    ]
+      randomtiktokbypass = Math.floor(Math.random()*tiktokbypass.length);
+      tiktokurl = tiktokbypass[randomtiktokbypass];
       $.ajax({
-        url: `${key}https://mixernobest.herokuapp.com/youtube/channelUC/${channelid}`,
+        url: `${key}${tiktokurl}${channelid}`,
         // Handle as Text
         dataType: "text",
         success: function (data) {
           var json = $.parseJSON(data);
-          ytsubs.innerHTML = json.subscribers
+          //ytsubs.innerHTML = json.followers
+          count1 = json.followers
           ytname.innerHTML = json.name
+          ytsubs.innerHTML = json.followers
           $("#image").attr('src', `${json.avatarurl}`);
+          //$("#image").attr('src', `${json.pfp}`);
           //plsworkgraph = json.subscribers.replace(/""/, "");
+          //stuff.series[0].addPoint([
+            //(new Date()).getTime(),
+            //json.followers
+          //]);
+          //if (stuff.series[0].data.length >= 700) {
+            //stuff.series[0].data[0].remove()
+          //}
+        }
+      })
+
+    };
+    function channelstatistics2() {
+
+      $.ajax({
+        url: `${key}${tiktokurl}${channelid2}`,
+        // Handle as Text
+        dataType: "text",
+        success: function (data) {
+          var json = $.parseJSON(data);
+          //ytsubs.innerHTML = json.followers
+          ytname2.innerHTML = json.name
+          ytsubs2.innerHTML = json.followers
+          $("#image2").attr('src', `${json.avatarurl}`);
+          count2 = json.followers
+          difrence.innerHTML = count1 - count2
           stuff.series[0].addPoint([
             (new Date()).getTime(),
-            parseFloat(json.subscribers)
+            count1 - count2
           ]);
           if (stuff.series[0].data.length >= 700) {
             stuff.series[0].data[0].remove()
           }
+          //$("#image").attr('src', `${json.pfp}`);
+          //plsworkgraph = json.subscribers.replace(/""/, "");
+          //stuff.series[0].addPoint([
+            //(new Date()).getTime(),
+            //json.followers
+          //]);
+          //if (stuff.series[0].data.length >= 700) {
+            //stuff.series[0].data[0].remove()
+          //}
         }
       })
-    };
+};
     setInterval(channelstatistics, 4000);
 
     //location.href = params[0] + $('#country').val();;
@@ -308,23 +399,19 @@
         $('#serch').click();
       }
     });
-    function searchchannel() {
-
-
-      $.ajax({
-        url: `${key}https://mixernobest.herokuapp.com/youtube/searchchannel/${$('#usersearch').val()}`,
-        // Handle as Text
-        dataType: "text",
-        success: function (data) {
-          var json = $.parseJSON(data);
-          channelid = json.channelid
-          location.href = `${params[0]}?user=${channelid}`;
-        }
-      })
-    }
-    //location.href = params[0] + $('#country').val();;
+    //
     $('#serch').click(function () {
-      searchchannel()
+        location.href = `${params[0]}?user=${$('#usersearch').val()}?user=${channelid2}`;
+
+    });
+    $('#usersearch2').on('keyup', function (e) {
+      if (e.keyCode === 13) {
+        $('#serch2').click();
+      }
+    });
+    //
+    $('#serch2').click(function () {
+        location.href = `${params[0]}?user=${channelid}?user=${$('#usersearch2').val()}`;
 
     });
   });
