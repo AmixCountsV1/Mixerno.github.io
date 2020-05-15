@@ -16,7 +16,8 @@
   <script type="text/javascript" src="../jquery-3.1.1.min.js"></script>
   <script src="https://code.highcharts.com/highcharts.js"></script>
   <link rel="stylesheet" href="../css/loadawesome.css" />
-  <style>
+  <link rel="stylesheet" href="../css/single.css" />
+  <!--<style>
     body {
       margin: 0;
     }
@@ -128,7 +129,7 @@
       background-color: #555;
       color: white;
     }
-  </style>
+  </style>-->
   <script>
     $(window).on("load", function () {
       $(".loader-wrapper").fadeOut("slow");
@@ -197,6 +198,20 @@
       <br>
       <div class="">
         <div id="graph"></div>
+      </div>
+    </div>
+    <br>
+    <div class="marg">
+      <div class="row">
+        <div class="backg">
+          <div class="odometer" style="font-size: 30px;" id="totalviews">0</div>
+          <div>Hearts</div>
+        </div>
+        <br>
+        <div class="backg">
+          <div class="odometer" style="font-size: 30px;" id="videos">0</div>
+          <div>Videos</div>
+        </div>
       </div>
     </div>
     <br>
@@ -302,6 +317,8 @@
           var json = $.parseJSON(data);
           ytsubs.innerHTML = json.followers
           ytname.innerHTML = json.name
+          videos.innerHTML = json.videos
+          totalviews.innerHTML = json.hearts
           $("#image").attr('src', `${json.avatarurl}`);
           //plsworkgraph = json.subscribers.replace(/""/, "");
           stuff.series[0].addPoint([

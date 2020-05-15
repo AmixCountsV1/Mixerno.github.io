@@ -16,7 +16,8 @@
   <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
   <script src="https://code.highcharts.com/highcharts.js"></script>
   <link rel="stylesheet" href="css/loadawesome.css" />
-  <style>
+  <link rel="stylesheet" href="css/single.css" />
+  <!--<style>
     body {
       margin: 0;
     }
@@ -103,13 +104,37 @@
     }
 
     .maincount {
-      border-radius: 25px;
+      border-style: solid;
+      border-radius: 0px;
+      border-color: rgb(255, 255, 255);
       padding: 20px;
       background: rgb(37, 37, 37);
       width: auto;
       height: auto;
       margin-left: 13.5%;
       margin-right: 1%;
+    }
+    .marg {
+      margin-left: 13.5%;
+      margin-right: 1%;
+    }
+    .backg {
+      background: rgb(37, 37, 37);
+      border-style: solid;
+      border-radius: 0px;
+      border-color: rgb(255, 255, 255);
+      padding: 20px;
+      height: 60px;
+      width: 100%;
+
+    }
+    .row {
+      display: flex;
+      flex-direction: row;
+      margin-left: 0;
+      margin-right: 0;
+      justify-content: space-around;
+      flex: 4;
     }
 
     li a {
@@ -128,7 +153,7 @@
       background-color: #555;
       color: white;
     }
-  </style>
+  </style>-->
   <script>
     $(window).on("load", function () {
       $(".loader-wrapper").fadeOut("slow");
@@ -197,6 +222,20 @@
       <br>
       <div class="">
         <div id="graph"></div>
+      </div>
+    </div>
+    <br>
+    <div class="marg">
+      <div class="row">
+      <div class="backg">
+        <div class="odometer"style="font-size: 30px;" id="totalviews">0</div>
+        <div>Total Views</div>
+      </div>
+        <br>
+        <div class="backg">
+        <div class="odometer"style="font-size: 30px;" id="videos">0</div>
+        <div>Videos</div>
+      </div>
       </div>
     </div>
     <br>
@@ -288,7 +327,10 @@
           var json = $.parseJSON(data);
           ytsubs.innerHTML = json.subscribers
           ytname.innerHTML = json.name
+          totalviews.innerHTML = json.totalviews
+          videos.innerHTML = json.videos
           $("#image").attr('src', `${json.avatarurl}`);
+
           //plsworkgraph = json.subscribers.replace(/""/, "");
           stuff.series[0].addPoint([
             (new Date()).getTime(),

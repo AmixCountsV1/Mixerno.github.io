@@ -16,7 +16,8 @@
   <script type="text/javascript" src="../jquery-3.1.1.min.js"></script>
   <script src="https://code.highcharts.com/highcharts.js"></script>
   <link rel="stylesheet" href="../css/loadawesome.css" />
-  <style>
+  <link rel="stylesheet" href="../css/single.css" />
+  <!--<style>
     body {
       margin: 0;
     }
@@ -128,52 +129,52 @@
       background-color: #555;
       color: white;
     }
-  </style>
+  </style>-->
   <script>
-    $(window).on("load",function(){
-   $(".loader-wrapper").fadeOut("slow");
-});
+    $(window).on("load", function () {
+      $(".loader-wrapper").fadeOut("slow");
+    });
   </script>
   <ul>
     <li>
-      <li>Youtube Counters <br>
-      <a  href="../?user=UC-lHJZR3Gqxm24_Vd_AJ5Yw">Subscriber count</a>
-      <a  href="../youtube-compare/">Subscriber compare</a>
+    <li>Youtube Counters <br>
+      <a href="../?user=UC-lHJZR3Gqxm24_Vd_AJ5Yw">Subscriber count</a>
+      <a href="../youtube-compare/">Subscriber compare</a>
     </li>
     </li>
     <br>
     <li>
-      <li>Twitter Counters <br>
-      <a  href="../twitter/?user=barackobama">Follower count</a>
-      <a  href="../twitter-compare/?user=barackobama?user=realdonaldtrump">Follower compare</a>
+    <li>Twitter Counters <br>
+      <a href="../twitter/?user=barackobama">Follower count</a>
+      <a href="../twitter-compare/?user=barackobama?user=realdonaldtrump">Follower compare</a>
     </li>
     </li>
     <br>
     <li>
-      <li>Twitch Counters <br>
-      <a  href="../twitch/?user=tfue">Follower count</a>
-      <a  href="../twitch-compare/?user=ninja?user=tfue">Follower compare</a>
+    <li>Twitch Counters <br>
+      <a href="../twitch/?user=tfue">Follower count</a>
+      <a href="../twitch-compare/?user=ninja?user=tfue">Follower compare</a>
     </li>
     </li>
     <br>
     <li>
-      <li>TikTok Counters <br>
-      <a  href="../tiktok/?user=charlidamelio">Follower count</a>
-      <a  href="../tiktok-compare/?user=charlidamelio?user=addisonre">Follower compare</a>
+    <li>TikTok Counters <br>
+      <a href="../tiktok/?user=charlidamelio">Follower count</a>
+      <a href="../tiktok-compare/?user=charlidamelio?user=addisonre">Follower compare</a>
     </li>
     </li>
     <br>
     <li>
-      <li>Instagram Counters <br>
-      <a  href="../instagram/?user=instagram">Follower count</a>
-      <a  href="../instagram-compare/?user=instagram?user=cristiano">Follower compare</a>
+    <li>Instagram Counters <br>
+      <a href="../instagram/?user=instagram">Follower count</a>
+      <a href="../instagram-compare/?user=instagram?user=cristiano">Follower compare</a>
     </li>
     </li>
     <br>
     <li>
-      <li>Mixer Counters <br>
-      <a  href="../mixer/?user=ninja">Follower count</a>
-      <a  href="../mixer-compare/?user=ninja?user=shroud">Follower compare</a>
+    <li>Mixer Counters <br>
+      <a href="../mixer/?user=ninja">Follower count</a>
+      <a href="../mixer-compare/?user=ninja?user=shroud">Follower compare</a>
     </li>
     </li>
     <br>
@@ -200,11 +201,26 @@
       </div>
     </div>
     <br>
-    <div class="maincount">
-        <input placeholder="Twitter username" type="text" style="width: 500px; font-size: 20px;" value="" id="usersearch" class="custominput"></input>
-  <button class="buton" style="font-size: 20px;" id="serch">Search</button>
+    <div class="marg">
+      <div class="row">
+        <div class="backg">
+          <div class="odometer" style="font-size: 30px;" id="totalviews">0</div>
+          <div>Tweets</div>
+        </div>
+        <br>
+        <div class="backg">
+          <div class="odometer" style="font-size: 30px;" id="videos">0</div>
+          <div>Following</div>
+        </div>
+      </div>
     </div>
-    
+    <br>
+    <div class="maincount">
+      <input placeholder="Twitter username" type="text" style="width: 500px; font-size: 20px;" value="" id="usersearch"
+        class="custominput"></input>
+      <button class="buton" style="font-size: 20px;" id="serch">Search</button>
+    </div>
+
     <br>
     <br>
 
@@ -287,14 +303,16 @@
           var json = $.parseJSON(data);
           //ytsubs.innerHTML = json.followers
           ytname.innerHTML = json.name
+          totalviews.innerHTML = json.tweets
+          videos.innerHTML = json.following
           //$("#image").attr('src', `${json.pfp}`);
           //plsworkgraph = json.subscribers.replace(/""/, "");
           //stuff.series[0].addPoint([
-            //(new Date()).getTime(),
-            //json.followers
+          //(new Date()).getTime(),
+          //json.followers
           //]);
           //if (stuff.series[0].data.length >= 700) {
-            //stuff.series[0].data[0].remove()
+          //stuff.series[0].data[0].remove()
           //}
         }
       })
@@ -309,11 +327,11 @@
           $("#image").attr('src', `${json.pfp}`);
           //plsworkgraph = json.subscribers.replace(/""/, "");
           //stuff.series[0].addPoint([
-            //(new Date()).getTime(),
-            //json.followers
+          //(new Date()).getTime(),
+          //json.followers
           //]);
           //if (stuff.series[0].data.length >= 700) {
-            //stuff.series[0].data[0].remove()
+          //stuff.series[0].data[0].remove()
           //}
         }
       })
@@ -347,7 +365,7 @@
     });
     //
     $('#serch').click(function () {
-        location.href = `${params[0]}?user=${$('#usersearch').val()}`;
+      location.href = `${params[0]}?user=${$('#usersearch').val()}`;
 
     });
   });
