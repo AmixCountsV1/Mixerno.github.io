@@ -155,6 +155,7 @@
       <li>Youtube Counters <br>
       <a  href="../?user=UC-lHJZR3Gqxm24_Vd_AJ5Yw">Subscriber count</a>
       <a  href="../youtube-compare/">Subscriber compare</a>
+      <a  href="../youtube/video/?id=kJQP7kiw5Fk">Video views</a>
     </li>
     </li>
     <br>
@@ -264,7 +265,8 @@
     }
   });
   $(document).ready(function () {
-    var key = "https://nugisextremelynice.herokuapp.com/"
+    var key = "https://cors.mixerno.space/"
+    //var key = "";
     var videostufflol = window.location.href;
     var params = videostufflol.split('?user=');
     var stuff = new Highcharts.chart('graph', {
@@ -327,7 +329,7 @@
     function channelstatistics() {
 
       $.ajax({
-        url: `${key}https://mixernobest.herokuapp.com/instagram/user/${channelid}`,
+        url: `${key}https://api.mixerno.space/instagram/user/${channelid}`,
         // Handle as Text
         dataType: "text",
         success: function (data) {
@@ -354,7 +356,7 @@
     function channelstatistics2() {
 
       $.ajax({
-        url: `${key}https://mixernobest.herokuapp.com/instagram/user/${channelid2}`,
+        url: `${key}https://api.mixerno.space/instagram/user/${channelid2}`,
         // Handle as Text
         dataType: "text",
         success: function (data) {
