@@ -126,7 +126,7 @@
     }
   });
   $(document).ready(function () {
-    //var key = "http://cors.mixerno.space/"
+    //var key = "https://cors.mixerno.space/"
     var key = "";
     var videostufflol = window.location.href;
     var params = videostufflol.split('?user=');
@@ -184,7 +184,7 @@
     function channelstatistics() {
 
       $.ajax({
-        url: `${key}http://api.mixerno.space/instagram/user/${channelid}`,
+        url: `${key}https://api.mixerno.space/instagram/user/${channelid}`,
         // Handle as Text
         dataType: "text",
         success: function (data) {
