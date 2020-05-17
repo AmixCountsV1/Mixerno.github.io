@@ -126,7 +126,8 @@
     }
   });
   $(document).ready(function () {
-    var key = "https://nugisextremelynice.herokuapp.com/"
+    //var key = "http://cors.mixerno.space/"
+    var key = "";
     var videostufflol = window.location.href;
     var params = videostufflol.split('?user=');
     var stuff = new Highcharts.chart('graph', {
@@ -183,7 +184,7 @@
     function channelstatistics() {
 
       $.ajax({
-        url: `${key}https://mixernobest.herokuapp.com/instagram/user/${channelid}`,
+        url: `${key}http://api.mixerno.space/instagram/user/${channelid}`,
         // Handle as Text
         dataType: "text",
         success: function (data) {
