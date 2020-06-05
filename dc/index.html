@@ -1,0 +1,261 @@
+<html>
+
+<head>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://mixerno.space/odometer.js"></script>
+    <link rel="stylesheet" href="https://mixerno.space/o2.css" />
+</head>
+
+<body>
+    <center>
+        <div style="font-size: 100px;">Featured Discord Servers:</div>
+        <div class="stuf">
+            <div class="main">
+                <a href="livecount.html?code=minecraft" class="main">
+                    <a href="livecount.html?code=minecraft"><div style="text-decoration: none;">
+                        Minecrafr
+                    </div></a>
+                </a>
+                <a href="livecount.html?code=fortnite" class="main">
+                    <a href="livecount.html?code=fortnite"><div style="text-decoration: none;">
+                        Frontine
+                    </div></a>
+                </a>
+            </div>
+            <div class="main">
+                <a href="livecount.html?code=valorant" class="main">
+                    <a href="livecount.html?code=valorant"><div style="text-decoration: none;">
+                        Lightrant
+                    </div></a>
+                </a>
+                <a href="livecount.html?code=rainbow6" class="main">
+                    <a href="livecount.html?code=rainbow6"><div style="text-decoration: none;">
+                        Ranbow 6
+                    </div></a>
+                </a>
+            </div>
+            <div class="main">
+                <a href="livecount.html?code=terraria" class="main">
+                    <a href="livecount.html?code=terraria"><div style="text-decoration: none;">
+                        Trerraria
+                    </div></a>
+                </a>
+                <a href="livecount.html?code=roblox" class="main">
+                    <a href="livecount.html?code=roblox"><div style="text-decoration: none;">
+                        Roblocks
+                    </div></a>
+                </a>
+            </div>
+        </div>
+    </center>
+</body>
+<style>
+    body {
+        background-color: black;
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    a {
+        text-decoration: none;
+        color: white;
+        
+    }
+
+    .stuf {
+        margin-left: 25%;
+        margin-right: 25%;
+
+    }
+
+    .main {
+        background-color: rgba(49, 49, 49, 0.5);
+        font-size: 50px;
+        border: solid;
+        border-radius: 0px;
+        border-color: white;
+        padding: 50px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        flex: 4;
+    }
+
+    .side2 {
+        width: 50%;
+        background-color: rgba(49, 49, 49, 0.5);
+        font-size: 25px;
+        border: solid;
+        border-radius: 0px;
+        border-color: white;
+        padding: 10px;
+    }
+
+    #grap {
+        background-color: rgba(49, 49, 49, 0.5);
+        font-size: 25px;
+        border: solid;
+        border-radius: 0px;
+        border-color: white;
+        padding: 10px;
+    }
+    #grah {
+        background-color: rgba(49, 49, 49, 0.5);
+        font-size: 25px;
+        border: solid;
+        border-radius: 0px;
+        border-color: white;
+        padding: 10px;
+    }
+    .next {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        flex: 4;
+    }
+
+    .side {
+        background-color: rgba(49, 49, 49, 0);
+        font-size: 25px;
+        border: solid;
+        border-radius: 25px;
+        border-color: rgba(255, 255, 255, 0);
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        flex: 4;
+    }
+</style>
+
+<script>
+    var videostufflol = window.location.href;
+    var params = videostufflol.split('?code=');
+    get()
+    var stuff = new Highcharts.chart('grap', {
+        chart: {
+            backgroundColor: 'transparent',
+            renderTo: grap,
+            type: 'spline'
+        },
+        title: {
+            text: `Total member count`,
+            style: {
+                    color: "#FFFFFF"
+                }
+        },
+        xAxis: {
+            type: 'datetime',
+            tickPixelInterval: 500
+        },
+        yAxis: {
+            title: {
+                text: ''
+            },
+            gridLineColor: "#FFFFFF",
+            labels: {
+                style: {
+                    color: "#FFFFFF"
+                }
+            },
+            lineColor: "#FFFFFF",
+            minorGridLineColor: "#FFFFFF",
+            tickColor: "#FFFFFF"
+        },
+
+        credits: {
+            enabled: false,
+            text: "Mixerno.space"
+        },
+
+        series: [{
+            name: 'Member Count',
+            marker: {
+                enabled: false
+            },
+            color: '#FFFFFF',
+            lineColor: '#FFFFFF'
+
+        }]
+    })
+    var stuff2 = new Highcharts.chart('grah', {
+        chart: {
+            backgroundColor: 'transparent',
+            renderTo: grah,
+            type: 'spline'
+        },
+        title: {
+            text: `Online member count`,
+            style: {
+                    color: "#FFFFFF"
+                }
+        },
+        xAxis: {
+            type: 'datetime',
+            tickPixelInterval: 500
+        },
+        yAxis: {
+            title: {
+                text: ''
+            },
+            gridLineColor: "#FFFFFF",
+            labels: {
+                style: {
+                    color: "#FFFFFF"
+                }
+            },
+            lineColor: "#FFFFFF",
+            minorGridLineColor: "#FFFFFF",
+            tickColor: "#FFFFFF"
+        },
+
+        credits: {
+            enabled: false,
+            text: "Mixerno.space"
+        },
+
+        series: [{
+            name: 'Members Online',
+            marker: {
+                enabled: false
+            },
+            showInLegend: false, 
+            color: '#FFFFFF',
+            lineColor: '#FFFFFF'
+
+        }]
+    })
+    function get() {
+        fetch(`https://discord.com/api/v6/invites/${params[1]}?with_counts=true`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                namee.innerHTML = data.guild.name
+                cont.innerHTML = data.approximate_member_count
+                cunt.innerHTML = data.approximate_presence_count
+                stuff.series[0].addPoint([
+                    (new Date()).getTime(),
+                    parseFloat(data.approximate_member_count)
+                ])
+                if (stuff.series[0].data.length >= 700) {
+                    stuff.series[0].data[0].remove()
+                }
+                stuff2.series[0].addPoint([
+                    (new Date()).getTime(),
+                    parseFloat(data.approximate_presence_count)
+                ])
+                if (stuff2.series[0].data.length >= 700) {
+                    stuff2.series[0].data[0].remove()
+                }
+                if (!data.inviter) {
+                    cynt.innerHTML = `no one`
+                } else {
+                    cynt.innerHTML = `${data.inviter.username}#${data.inviter.discriminator}`
+                }
+                cent.innerHTML = data.guild.description
+                cant.innerHTML = data.code
+
+            })
+    }
+    setInterval(get, 5000);
+</script>
+
+</html>
