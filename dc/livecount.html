@@ -1,9 +1,12 @@
 <html>
 
 <head>
+    <script type="text/javascript" src="https://mixerno.space/jquery-3.1.1.min.js"></script>
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://mixerno.space/odometer.js"></script>
     <link rel="stylesheet" href="https://mixerno.space/o2.css" />
+    
+
 </head>
 
 <body>
@@ -112,6 +115,11 @@
 </style>
 
 <script>
+    jQuery.ajaxPrefilter(function(options) {
+    if (options.crossDomain && jQuery.support.cors) {
+        options.url = '' + options.url;
+    }
+});
     var videostufflol = window.location.href;
     var params = videostufflol.split('?code=');
     get()
@@ -208,8 +216,10 @@
 
         }]
     })
+    
     function get() {
-        fetch(`https://discord.com/api/v6/invites/${params[1]}?with_counts=true`)
+        var corsapi = "https://cors.mixerno.space/";
+        fetch(`${corsapi}https://discord.com/api/v6/invites/${params[1]}?with_counts=true`)
             .then(response => response.json())
             .then(data => {
                 console.log(data)
