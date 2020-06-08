@@ -2,11 +2,12 @@
 <html>
 
 <head>
+  
   <title>Mixerno.space</title>
   <link rel="shortcut icon"
     href="https://yt3.ggpht.com/a-/AOh14GhVWagi88Rfs6XXerg3-3PR4RPHYcolFIrYXZ4_=s288-c-k-c0xffffffff-no-rj-mo">
     <meta charset="UTF-8">
-    <meta name="description" content="Another counter site. but its green-gray">
+    <meta name="description" content="Another counter site.">
     <meta name="keywords" content="green, gray, mixerno.space">
     <meta name="author" content="Mixerno">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,9 +15,13 @@
   <!--<link rel="stylesheet" href="counters/estimation.css">-->
   <script src="odometer.js"></script>
   <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+  <script type="text/javascript" src="global/storage.js"></script>
   <script src="https://code.highcharts.com/highcharts.js"></script>
   <link rel="stylesheet" href="css/loadawesome.css" />
+  <link rel="stylesheet" href="bootstrap.css">
+  <script src="bootstrap.js"></script>
   <link rel="stylesheet" href="css/single.css" />
+  <link rel="stylesheet" href="styles/.css" />
   <!--<style>
     body {
       margin: 0;
@@ -249,8 +254,10 @@
     <div class="maincount">
       <input placeholder="Youtube username" type="text" style="width: 500px; font-size: 20px;" value="" id="usersearch"
         class="custominput"></input>
-      <button class="buton" style="font-size: 20px;" id="serch">Search</button>
+      <button class="buton" style="font-size: 20px;" id="serch">Search</button><br><br>
+      <button style="font-size: 20px;" class="buton" data-toggle="modal" data-target="#hf">Customize</button>
     </div>
+    
 
     <br>
     <br>
@@ -259,8 +266,49 @@
     <br>
 
   </center>
+  <div class="modal fade" id="hf" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div style="color: white; background-color: black;" class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Customize</h4>
+        </div>
+        <div style="color: white; background-color: black;" class="modal-body">
+          <p>Style: <select id="styel" style="width: auto;">
+            <option value="s" selected>Select</option>
+            <option value="gw">Green-White (original)</option>
+            <option value="bw">Black-White</option>
+            <option value="rw">Red-White</option>
+            <option value="wb">White-Black</option>
+          </select></p><br>
+          <p>Odometer speed: <select id="odospeed" style="width: auto;">
+            <option value="ss" selected>Select</option>
+            <option value="s00">0 seconds (:)</option>
+            <option value="s0">0.5 seconds (fast)</option>
+            <option value="s1">1 seconds</option>
+            <option value="s2">2 seconds (original)</option>
+            <option value="s3">3 seconds</option>
+            <option value="s4">4 seconds</option>
+          </select></p>
+        </div>
+        <div style="color: white; background-color: black;" class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal" id="save" onclick="checkstorage()">Save</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
 </head>
-
+<script>
+  getStyles()
+  function checkstorage() {
+    saveStyles()
+    console.log("Ok1")
+  }
+</script>
 
 <script type="text/javascript">
   jQuery.ajaxPrefilter(function (options) {
@@ -307,6 +355,7 @@
       },
 
       series: [{
+        showInLegend: false,
         name: 'Subscribers',
         marker: {
           enabled: false
