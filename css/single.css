@@ -22,9 +22,7 @@ body {
   }
 
   .buton {
-    background-color: rgb(0, 0, 0);
     border: none;
-    color: rgb(255, 255, 255);
     padding: 2.5px 5px;
     text-align: center;
     text-decoration: none;
@@ -40,45 +38,22 @@ body {
     padding: 2.5px 5px;
     margin: 0px 0;
     display: inline-block;
-    color: rgb(255, 255, 255);
-    background-color: rgb(0, 0, 0);
-    border: 1px solid rgb(255, 255, 255);
+    border: 1px solid;
     border-radius: 1px;
     box-sizing: border-box;
   }
 
   body {
-    background-color: rgb(0, 99, 0);
-    color: rgb(255, 255, 255);
     font-family: Arial
   }
 
-  a:link {
-    color: white;
-  }
 
-  a:visited {
-    color: white;
-  }
-
-  a:hover {
-    color: rgb(255, 255, 255);
-  }
-
-  a:focus {
-    color: rgb(255, 255, 255);
-  }
-
-  a:active {
-    color: white;
-  }
 
   ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     width: 12.5%;
-    background-color: #000000;
     position: fixed;
     height: 100%;
     overflow: auto;
@@ -87,9 +62,7 @@ body {
   .maincount {
     border-style: solid;
     border-radius: 0px;
-    border-color: rgb(255, 255, 255);
     padding: 20px;
-    background: rgb(37, 37, 37);
     width: auto;
     height: auto;
     margin-left: 13.5%;
@@ -100,12 +73,10 @@ body {
     margin-right: 1%;
   }
   .backg {
-    background: rgb(37, 37, 37);
     border-style: solid;
     border-radius: 0px;
-    border-color: rgb(255, 255, 255);
     padding: 20px;
-    height: 60px;
+    height: auto;
     width: 100%;
 
   }
@@ -120,17 +91,7 @@ body {
 
   li a {
     display: block;
-    color: #000;
     padding: 8px 16px;
     text-decoration: none;
   }
 
-  li a.active {
-    background-color: #4CAF50;
-    color: white;
-  }
-
-  li a:hover:not(.active) {
-    background-color: #555;
-    color: white;
-  }
