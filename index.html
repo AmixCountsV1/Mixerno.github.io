@@ -15,7 +15,7 @@
   <!--<link rel="stylesheet" href="counters/estimation.css">-->
   <script src="odometer.js"></script>
   <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
-  <script src="global/storage.js"></script>
+  <!--<script src="global/storage.js"></script>-->
   <script src="https://code.highcharts.com/highcharts.js"></script>
   <link rel="stylesheet" href="css/loadawesome.css" />
   <link rel="stylesheet" href="bootstrap.css">
@@ -275,14 +275,14 @@
           <h4 class="modal-title">Customize</h4>
         </div>
         <div style="color: white; background-color: black;" class="modal-body">
-          <p>Style: <select id="styel" style="width: auto;">
+          <p>Style: <select id="styel" style="width: auto; color: white;background-color: black;">
             <option value="s" selected>Select</option>
             <option value="gw">Green-White (original)</option>
             <option value="bw">Black-White</option>
             <option value="rw">Red-White</option>
             <option value="wb">White-Black</option>
           </select></p><br>
-          <p>Odometer speed: <select id="odospeed" style="width: auto;">
+          <p>Odometer speed: <select id="odospeed" style="width: auto; color: white;background-color: black;">
             <option value="ss" selected>Select</option>
             <option value="s00">0 seconds (:)</option>
             <option value="s0">0.5 seconds (fast)</option>
@@ -302,14 +302,82 @@
   </div>
 </head>
 <script>
-  getStyles()
+  
+</script>
+
+<script type="text/javascript">
+//theme start
+getStyles()
   function checkstorage() {
     saveStyles()
     console.log("Ok1")
   }
-</script>
+function saveStyles() {
+    if(document.getElementById("styel").value == "s") {
+        //non
+        console.log("Ok2")
+    } else {
+        localStorage.setItem('style', document.getElementById("styel").value);
+        console.log("Ok3")
+    }
+    if(document.getElementById("odospeed").value == "ss") {
+        //non
+        console.log("Ok4")
+    } else {
+        localStorage.setItem('odospeed', document.getElementById("odospeed").value);
+        console.log("Ok5")
+    }
+    
+  
+    getStyles();
+}
 
-<script type="text/javascript">
+function getStyles() {
+    console.log("Ok6")
+    var stylecurrent = localStorage.getItem('style'); 
+    var ododspeed = localStorage.getItem('odospeed'); 
+    if(stylecurrent == "gw") {
+      console.log("Ok61")
+        $('head').append('<link rel="stylesheet" href="styles/gw.css">');
+    } else if (stylecurrent == "bw") {
+      console.log("Ok62")
+        $('head').append('<link rel="stylesheet" type="text/css" href="styles/bw.css">');
+    } else if (stylecurrent == "rw") {
+      console.log("Ok62")
+        $('head').append('<link rel="stylesheet" type="text/css" href="styles/rw.css">');
+    } else if (stylecurrent == "wb") {
+      console.log("Ok62")
+        $('head').append('<link rel="stylesheet" type="text/css" href="styles/wb.css">');
+    }
+    else {
+      console.log("Ok63")
+        $('head').append('<link rel="stylesheet" type="text/css" href="styles/gw.css">');
+    }
+    if(ododspeed == "s00") {
+      console.log("Ok64")
+        $('head').append('<link rel="stylesheet" type="text/css" href="odometerspeeds/s00.css">');
+    } else if (ododspeed == "s0") {
+      console.log("Ok65")
+        $('head').append('<link rel="stylesheet" type="text/css" href="odometerspeeds/s0.css">');
+    } else if (ododspeed == "s1") {
+      console.log("Ok66")
+        $('head').append('<link rel="stylesheet" type="text/css" href="odometerspeeds/s1.css">');
+    } else if (ododspeed == "s2") {
+      console.log("Ok67")
+        $('head').append('<link rel="stylesheet" type="text/css" href="odometerspeeds/s2.css">');
+    } else if (ododspeed == "s3") {
+      console.log("Ok68")
+        $('head').append('<link rel="stylesheet" type="text/css" href="odometerspeeds/s3.css">');
+    } else if (ododspeed == "s4") {
+      console.log("Ok69")
+        $('head').append('<link rel="stylesheet" type="text/css" href="odometerspeeds/s4.css">');
+    }
+    else {
+      console.log("Ok699")
+        $('head').append('<link rel="stylesheet" type="text/css" href="odometerspeeds/s2.css">');
+    }
+}
+//theme end
   jQuery.ajaxPrefilter(function (options) {
     if (options.crossDomain && jQuery.support.cors) {
       options.url = '' + options.url;
@@ -320,6 +388,7 @@
     var key = "https://cors.mixerno.space/"
     var videostufflol = window.location.href;
     var params = videostufflol.split('?user=');
+    var params3 = videostufflol.split('?');
     var stuff = new Highcharts.chart('graph', {
       chart: {
         backgroundColor: 'transparent',
@@ -331,7 +400,12 @@
       },
       xAxis: {
         type: 'datetime',
-        tickPixelInterval: 500
+        tickPixelInterval: 500,
+        labels: {
+          style: {
+            color: "blue"
+          }
+        }
       },
       yAxis: {
         title: {
@@ -369,9 +443,27 @@
       channelid = "UC-lHJZR3Gqxm24_Vd_AJ5Yw"
     }
     channelstatistics()
+  if(params3[1] == "enabletest()") {
+    enabletest()
+  }
+function enabletest() {
+  var counte = 0;
+testlocal()
 
-
-    //
+    function testlocal() {
+      counte++
+      ytsubs.innerHTML = counte
+      console.log(counte)
+      stuff.series[0].addPoint([
+            (new Date()).getTime(),
+            parseFloat(counte)
+          ]);
+          if (stuff.series[0].data.length >= 700) {
+            stuff.series[0].data[0].remove()
+          }
+    }
+    setInterval(testlocal, 1000)
+  }
     function channelstatistics() {
 
       $.ajax({
