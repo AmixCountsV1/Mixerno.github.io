@@ -15,13 +15,12 @@
   <!--<link rel="stylesheet" href="counters/estimation.css">-->
   <script src="odometer.js"></script>
   <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
-  <script type="text/javascript" src="global/storage.js"></script>
+  <script src="global/storage.js"></script>
   <script src="https://code.highcharts.com/highcharts.js"></script>
   <link rel="stylesheet" href="css/loadawesome.css" />
   <link rel="stylesheet" href="bootstrap.css">
   <script src="bootstrap.js"></script>
   <link rel="stylesheet" href="css/single.css" />
-  <link rel="stylesheet" href="styles/.css" />
   <!--<style>
     body {
       margin: 0;
@@ -325,7 +324,7 @@
       chart: {
         backgroundColor: 'transparent',
         renderTo: graph,
-        type: 'spline'
+        type: 'line'
       },
       title: {
         text: ``
@@ -338,15 +337,15 @@
         title: {
           text: ''
         },
-        gridLineColor: "#FFFFFF",
+        gridLineColor: "blue",
         labels: {
           style: {
-            color: "#FFFFFF"
+            color: "blue"
           }
         },
-        lineColor: "#FFFFFF",
-        minorGridLineColor: "#FFFFFF",
-        tickColor: "#FFFFFF"
+        lineColor: "blue",
+        minorGridLineColor: "blue",
+        tickColor: "blue"
       },
 
       credits: {
@@ -360,8 +359,8 @@
         marker: {
           enabled: false
         },
-        color: '#FFFFFF',
-        lineColor: '#FFFFFF'
+        color: 'blue',
+        lineColor: 'blue'
 
       }]
     })
