@@ -8,8 +8,8 @@
     href="https://yt3.ggpht.com/a-/AOh14GhVWagi88Rfs6XXerg3-3PR4RPHYcolFIrYXZ4_=s288-c-k-c0xffffffff-no-rj-mo">
   <link rel="stylesheet" href="../o2.css" />
   <meta charset="UTF-8">
-  <meta name="description" content="Another counter site. but its green-gray">
-  <meta name="keywords" content="green, gray, mixerno.space">
+  <meta name="description" content="Why does the design needs to look cool? Doesn't just simple look better?">
+  <meta name="keywords" content="customizable, live counter, mixerno.space">
   <meta name="author" content="Mixerno">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!--<link rel="stylesheet" href="counters/estimation.css">-->
@@ -20,119 +20,7 @@
   <link rel="stylesheet" href="../bootstrap.css">
   <script src="../bootstrap.js"></script>
   <link rel="stylesheet" href="../css/single.css" />
-  <!--<style>
-    body {
-      margin: 0;
-    }
-
-    ::-webkit-scrollbar {
-      width: 5px;
-    }
-
-
-    ::-webkit-scrollbar-track {
-      background: #ffffff;
-    }
-
-
-    ::-webkit-scrollbar-thumb {
-      background: rgb(0, 0, 0);
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background: rgb(0, 0, 0);
-    }
-
-    .buton {
-      background-color: rgb(0, 0, 0);
-      border: none;
-      color: rgb(255, 255, 255);
-      padding: 2.5px 5px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 14px;
-      margin: 0px 0px;
-      cursor: pointer;
-    }
-
-    input[type=text],
-    select {
-      width: 10%;
-      padding: 2.5px 5px;
-      margin: 0px 0;
-      display: inline-block;
-      color: rgb(255, 255, 255);
-      background-color: rgb(0, 0, 0);
-      border: 1px solid rgb(255, 255, 255);
-      border-radius: 1px;
-      box-sizing: border-box;
-    }
-
-    body {
-      background-color: rgb(0, 99, 0);
-      color: rgb(255, 255, 255);
-      font-family: Arial
-    }
-
-    a:link {
-      color: white;
-    }
-
-    a:visited {
-      color: white;
-    }
-
-    a:hover {
-      color: rgb(255, 255, 255);
-    }
-
-    a:focus {
-      color: rgb(255, 255, 255);
-    }
-
-    a:active {
-      color: white;
-    }
-
-    ul {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      width: 12.5%;
-      background-color: #000000;
-      position: fixed;
-      height: 100%;
-      overflow: auto;
-    }
-
-    .maincount {
-      border-radius: 25px;
-      padding: 20px;
-      background: rgb(37, 37, 37);
-      width: auto;
-      height: auto;
-      margin-left: 13.5%;
-      margin-right: 1%;
-    }
-
-    li a {
-      display: block;
-      color: #000;
-      padding: 8px 16px;
-      text-decoration: none;
-    }
-
-    li a.active {
-      background-color: #4CAF50;
-      color: white;
-    }
-
-    li a:hover:not(.active) {
-      background-color: #555;
-      color: white;
-    }
-  </style>-->
+ 
   <script>
     $(window).on("load",function(){
    $(".loader-wrapper").fadeOut("slow");
@@ -149,7 +37,6 @@
       <li>Youtube Counters <br>
       <a  href="../?user=UC-lHJZR3Gqxm24_Vd_AJ5Yw">Subscriber count</a>
       <a  href="../youtube-compare/">Subscriber compare</a>
-      <a  href="../youtube/video/?id=kJQP7kiw5Fk">Video views</a>
     </li>
     </li>
     <br>
@@ -216,19 +103,21 @@
       <div class="row">
         <div class="backg">
           <div class="odometer" style="font-size: 30px;" id="totalviews">0</div>
-          <div>Total Views</div>
+          <div>Friends</div>
         </div>
-        <!--<br>
+        <br>
         <div class="backg">
           <div class="odometer" style="font-size: 30px;" id="videos">0</div>
           <div>Following</div>
-        </div>-->
+        </div>
       </div>
     </div>
     <br>
     <div class="maincount">
-        <input placeholder="Twitch username" type="text" style="width: 500px; font-size: 20px;" value="" id="usersearch" class="custominput"></input>
-  <button class="buton" style="font-size: 20px;" id="serch">Search</button><br><br>
+      <input placeholder="Roblox username" type="text" style="width: 500px; font-size: 20px;" value="" id="usersearch" class="custominput"></input>
+      <button class="buton" style="font-size: 20px;" id="serch">Search</button><br><br>
+      <input placeholder="Roblox userID" type="text" style="width: 500px; font-size: 20px;" value="" id="usersearch1x" class="custominput"></input>
+  <button class="buton" style="font-size: 20px;" id="serch1x">Search</button><br><br>
   <button style="font-size: 20px;" class="buton" data-toggle="modal" data-target="#hf">Customize</button>
     </div>
     
@@ -358,6 +247,7 @@ function getStyles() {
   });
   $(document).ready(function () {
     var key = "https://cors.mixerno.space/"
+    //var key = "";
     var videostufflol = window.location.href;
     var params = videostufflol.split('?user=');
     var stuff = new Highcharts.chart('graph', {
@@ -411,7 +301,7 @@ function getStyles() {
     })
     var channelid = params[1];
     if (params[1] == undefined) {
-      channelid = "tfue"
+      channelid = "1"
     }
     channelstatistics()
 
@@ -420,23 +310,103 @@ function getStyles() {
     function channelstatistics() {
 
       $.ajax({
-        url: `${key}https://api.mixerno.space/twitch/user/${channelid}`,
+        url: `${key}https://api.roblox.com/users/${channelid}`,
         // Handle as Text
         dataType: "text",
         success: function (data) {
           var json = $.parseJSON(data);
-          ytsubs.innerHTML = json.followers
-          ytname.innerHTML = json.name
-          totalviews.innerHTML = json.views
-          $("#image").attr('src', `${json.pfp}`);
+          //ytsubs.innerHTML = json.followers
+          ytname.innerHTML = json.Username
+          //totalviews.innerHTML = json.posts
+          //$("#image").attr('src', `${json.pfp}`);
           //plsworkgraph = json.subscribers.replace(/""/, "");
-          stuff.series[0].addPoint([
+          /*stuff.series[0].addPoint([
             (new Date()).getTime(),
             json.followers
           ]);
           if (stuff.series[0].data.length >= 700) {
             stuff.series[0].data[0].remove()
+          }*/
+        }
+      })
+      $.ajax({
+        url: `${key}https://thumbnails.roblox.com/v1/users/avatar-headshot?size=150x150&format=Png&isCircular=false&userIds=${channelid}`,
+        // Handle as Text
+        dataType: "text",
+        success: function (data) {
+          var json = $.parseJSON(data);
+          //ytsubs.innerHTML = json.followers
+          //ytname.innerHTML = json.Username
+          //totalviews.innerHTML = json.posts
+          $("#image").attr('src', `${json.data[0].imageUrl}`);
+          //plsworkgraph = json.subscribers.replace(/""/, "");
+          /*stuff.series[0].addPoint([
+            (new Date()).getTime(),
+            json.followers
+          ]);
+          if (stuff.series[0].data.length >= 700) {
+            stuff.series[0].data[0].remove()
+          }*/
+        }
+      })
+      $.ajax({
+        url: `${key}https://friends.roblox.com/v1/users/${channelid}/followers/count`,
+        // Handle as Text
+        dataType: "text",
+        success: function (data) {
+          var json = $.parseJSON(data);
+          ytsubs.innerHTML = json.count
+          //ytname.innerHTML = json.Username
+          //totalviews.innerHTML = json.posts
+          //$("#image").attr('src', `${json.pfp}`);
+          //plsworkgraph = json.subscribers.replace(/""/, "");
+          stuff.series[0].addPoint([
+            (new Date()).getTime(),
+            json.count
+          ]);
+          if (stuff.series[0].data.length >= 700) {
+            stuff.series[0].data[0].remove()
           }
+        }
+      })
+      $.ajax({
+        url: `${key}https://friends.roblox.com/v1/users/${channelid}/followings/count`,
+        // Handle as Text
+        dataType: "text",
+        success: function (data) {
+          var json = $.parseJSON(data);
+          //ytsubs.innerHTML = json.count
+          //ytname.innerHTML = json.Username
+          totalviews.innerHTML = json.count
+          //$("#image").attr('src', `${json.pfp}`);
+          //plsworkgraph = json.subscribers.replace(/""/, "");
+          /*stuff.series[0].addPoint([
+            (new Date()).getTime(),
+            json.count
+          ]);
+          if (stuff.series[0].data.length >= 700) {
+            stuff.series[0].data[0].remove()
+          }*/
+        }
+      })
+      $.ajax({
+        url: `${key}https://friends.roblox.com/v1/users/${channelid}/friends/count`,
+        // Handle as Text
+        dataType: "text",
+        success: function (data) {
+          var json = $.parseJSON(data);
+          //ytsubs.innerHTML = json.count
+          //ytname.innerHTML = json.Username
+          videos.innerHTML = json.count
+          //$("#image").attr('src', `${json.pfp}`);
+          //plsworkgraph = json.subscribers.replace(/""/, "");
+          /*stuff.series[0].addPoint([
+            (new Date()).getTime(),
+            json.count
+          ]);
+          if (stuff.series[0].data.length >= 700) {
+            stuff.series[0].data[0].remove()
+          }*/
         }
       })
     };
@@ -450,7 +420,26 @@ function getStyles() {
     });
     //
     $('#serch').click(function () {
-        location.href = `${params[0]}?user=${$('#usersearch').val()}`;
+      $.ajax({
+        url: `${key}https://www.roblox.com/search/users/results?keyword=${$('#usersearch').val()}&maxRows=12&startIndex=0`,
+        // Handle as Text
+        dataType: "text",
+        success: function (data) {
+          var json = $.parseJSON(data);
+          location.href = `${params[0]}?user=${json.UserSearchResults[0].UserId}`;
+        }
+      })
+        
+
+    });
+    $('#usersearch1x').on('keyup', function (e) {
+      if (e.keyCode === 13) {
+        $('#serch1x').click();
+      }
+    });
+    //
+    $('#serch1x').click(function () {
+        location.href = `${params[0]}?user=${$('#usersearch1x').val()}`;
 
     });
   });

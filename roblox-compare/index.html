@@ -8,7 +8,7 @@
     href="https://yt3.ggpht.com/a-/AOh14GhVWagi88Rfs6XXerg3-3PR4RPHYcolFIrYXZ4_=s288-c-k-c0xffffffff-no-rj-mo">
   <link rel="stylesheet" href="../o2.css" />
   <meta charset="UTF-8">
-  <meta name="description" content="Another counter site. but its green-gray">
+  <meta name="description" content="Still. Does it need to look so 'Beautiful' to be good?">
   <meta name="keywords" content="green, gray, mixerno.space">
   <meta name="author" content="Mixerno">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -245,13 +245,17 @@
     <div class="maincount">
       <div class="row">
       <div>
-        <input placeholder="Mixer username" type="text" style="width: 500px; font-size: 20px;" value="" id="usersearch" class="custominput"></input>
-  <button class="buton" style="font-size: 20px;" id="serch">Search</button>
+        <input placeholder="Roblox username" type="text" style="width: 500px; font-size: 20px;" value="" id="usersearch" class="custominput"></input>
+  <button class="buton" style="font-size: 20px;" id="serch">Search</button><br>
+  <input placeholder="Roblox userID" type="text" style="width: 500px; font-size: 20px;" value="" id="usersearch1x" class="custominput"></input>
+  <button class="buton" style="font-size: 20px;" id="serch1x">Search</button>
 </div>
 <br>
 <div>
-  <input placeholder="Mixer username" type="text" style="width: 500px; font-size: 20px;" value="" id="usersearch2" class="custominput"></input>
-<button class="buton" style="font-size: 20px;" id="serch2">Search</button>
+  <input placeholder="Roblox username" type="text" style="width: 500px; font-size: 20px;" value="" id="usersearch2" class="custominput"></input>
+<button class="buton" style="font-size: 20px;" id="serch2">Search</button><br>
+<input placeholder="Roblox userID" type="text" style="width: 500px; font-size: 20px;" value="" id="usersearch2x" class="custominput"></input>
+<button class="buton" style="font-size: 20px;" id="serch2x">Search</button>
 </div>
 </div>
     </div>
@@ -275,6 +279,7 @@
   });
   $(document).ready(function () {
     var key = "https://cors.mixerno.space/"
+    //var key = "";
     var videostufflol = window.location.href;
     var params = videostufflol.split('?user=');
     var stuff = new Highcharts.chart('graph', {
@@ -324,11 +329,11 @@
     var count2;
     var channelid = params[1];
     if (params[1] == undefined) {
-      channelid = "ninja"
+      channelid = "1"
     }
     var channelid2 = params[2];
     if (params[2] == undefined) {
-      channelid2 = "shroud"
+      channelid2 = "2"
     }
     channelstatistics()
 
@@ -337,26 +342,58 @@
     function channelstatistics() {
 
       $.ajax({
-        url: `${key}https://api.mixerno.space/mixer/user/${channelid}`,
+        url: `${key}https://api.roblox.com/users/${channelid}`,
         // Handle as Text
         dataType: "text",
         success: function (data) {
           var json = $.parseJSON(data);
           //ytsubs.innerHTML = json.followers
-          count1 = json.followers
-          ytname.innerHTML = json.name
-          ytsubs.innerHTML = json.followers
-          $("#image").attr('src', `${json.pfp}`);
+          ytname.innerHTML = json.Username
+          //totalviews.innerHTML = json.posts
           //$("#image").attr('src', `${json.pfp}`);
           //plsworkgraph = json.subscribers.replace(/""/, "");
-          //stuff.series[0].addPoint([
-            //(new Date()).getTime(),
-            //json.followers
-          //]);
-          //if (stuff.series[0].data.length >= 700) {
-            //stuff.series[0].data[0].remove()
-            channelstatistics2()
-          //}
+          /*stuff.series[0].addPoint([
+            (new Date()).getTime(),
+            json.followers
+          ]);
+          if (stuff.series[0].data.length >= 700) {
+            stuff.series[0].data[0].remove()
+          }*/
+        }
+      })
+      $.ajax({
+        url: `${key}https://thumbnails.roblox.com/v1/users/avatar-headshot?size=150x150&format=Png&isCircular=false&userIds=${channelid}`,
+        // Handle as Text
+        dataType: "text",
+        success: function (data) {
+          var json = $.parseJSON(data);
+          //ytsubs.innerHTML = json.followers
+          //ytname.innerHTML = json.Username
+          //totalviews.innerHTML = json.posts
+          $("#image").attr('src', `${json.data[0].imageUrl}`);
+          //plsworkgraph = json.subscribers.replace(/""/, "");
+          /*stuff.series[0].addPoint([
+            (new Date()).getTime(),
+            json.followers
+          ]);
+          if (stuff.series[0].data.length >= 700) {
+            stuff.series[0].data[0].remove()
+          }*/
+        }
+      })
+      $.ajax({
+        url: `${key}https://friends.roblox.com/v1/users/${channelid}/followers/count`,
+        // Handle as Text
+        dataType: "text",
+        success: function (data) {
+          var json = $.parseJSON(data);
+          ytsubs.innerHTML = json.count
+          //ytname.innerHTML = json.Username
+          //totalviews.innerHTML = json.posts
+          //$("#image").attr('src', `${json.pfp}`);
+          //plsworkgraph = json.subscribers.replace(/""/, "");
+          count1 = json.count
+          channelstatistics2()
         }
       })
 
@@ -364,16 +401,57 @@
     function channelstatistics2() {
 
       $.ajax({
-        url: `${key}https://api.mixerno.space/mixer/user/${channelid2}`,
+        url: `${key}https://api.roblox.com/users/${channelid2}`,
         // Handle as Text
         dataType: "text",
         success: function (data) {
           var json = $.parseJSON(data);
           //ytsubs.innerHTML = json.followers
-          ytname2.innerHTML = json.name
-          ytsubs2.innerHTML = json.followers
-          $("#image2").attr('src', `${json.pfp}`);
-          count2 = json.followers
+          ytname2.innerHTML = json.Username
+          //totalviews.innerHTML = json.posts
+          //$("#image").attr('src', `${json.pfp}`);
+          //plsworkgraph = json.subscribers.replace(/""/, "");
+          /*stuff.series[0].addPoint([
+            (new Date()).getTime(),
+            json.followers
+          ]);
+          if (stuff.series[0].data.length >= 700) {
+            stuff.series[0].data[0].remove()
+          }*/
+        }
+      })
+      $.ajax({
+        url: `${key}https://thumbnails.roblox.com/v1/users/avatar-headshot?size=150x150&format=Png&isCircular=false&userIds=${channelid2}`,
+        // Handle as Text
+        dataType: "text",
+        success: function (data) {
+          var json = $.parseJSON(data);
+          //ytsubs.innerHTML = json.followers
+          //ytname.innerHTML = json.Username
+          //totalviews.innerHTML = json.posts
+          $("#image2").attr('src', `${json.data[0].imageUrl}`);
+          //plsworkgraph = json.subscribers.replace(/""/, "");
+          /*stuff.series[0].addPoint([
+            (new Date()).getTime(),
+            json.followers
+          ]);
+          if (stuff.series[0].data.length >= 700) {
+            stuff.series[0].data[0].remove()
+          }*/
+        }
+      })
+      $.ajax({
+        url: `${key}https://friends.roblox.com/v1/users/${channelid2}/followers/count`,
+        // Handle as Text
+        dataType: "text",
+        success: function (data) {
+          var json = $.parseJSON(data);
+          ytsubs2.innerHTML = json.count
+          //ytname.innerHTML = json.Username
+          //totalviews.innerHTML = json.posts
+          //$("#image").attr('src', `${json.pfp}`);
+          //plsworkgraph = json.subscribers.replace(/""/, "");
+          count2 = json.count
           difrence.innerHTML = count1 - count2
           stuff.series[0].addPoint([
             (new Date()).getTime(),
@@ -382,15 +460,6 @@
           if (stuff.series[0].data.length >= 700) {
             stuff.series[0].data[0].remove()
           }
-          //$("#image").attr('src', `${json.pfp}`);
-          //plsworkgraph = json.subscribers.replace(/""/, "");
-          //stuff.series[0].addPoint([
-            //(new Date()).getTime(),
-            //json.followers
-          //]);
-          //if (stuff.series[0].data.length >= 700) {
-            //stuff.series[0].data[0].remove()
-          //}
         }
       })
 };
@@ -404,7 +473,16 @@
     });
     //
     $('#serch').click(function () {
-        location.href = `${params[0]}?user=${$('#usersearch').val()}?user=${channelid2}`;
+      $.ajax({
+        url: `${key}https://www.roblox.com/search/users/results?keyword=${$('#usersearch').val()}&maxRows=12&startIndex=0`,
+        // Handle as Text
+        dataType: "text",
+        success: function (data) {
+          var json = $.parseJSON(data);
+          location.href = `${params[0]}?user=${json.UserSearchResults[0].UserId}?user=${channelid2}`;
+        }
+      })
+        
 
     });
     $('#usersearch2').on('keyup', function (e) {
@@ -414,8 +492,33 @@
     });
     //
     $('#serch2').click(function () {
-        location.href = `${params[0]}?user=${channelid}?user=${$('#usersearch2').val()}`;
-
+      $.ajax({
+        url: `${key}https://www.roblox.com/search/users/results?keyword=${$('#usersearch2').val()}&maxRows=12&startIndex=0`,
+        // Handle as Text
+        dataType: "text",
+        success: function (data) {
+          var json = $.parseJSON(data);
+          location.href = `${params[0]}?user=${channelid}?user=${json.UserSearchResults[0].UserId}`;
+        }
+      })
+    });
+    $('#usersearch1x').on('keyup', function (e) {
+      if (e.keyCode === 13) {
+        $('#serch1x').click();
+      }
+    });
+    //
+    $('#serch1x').click(function () {
+      location.href = `${params[0]}?user=${$('#usersearch1x').val()}?user=${channelid2}`;
+    });
+    $('#usersearch2x').on('keyup', function (e) {
+      if (e.keyCode === 13) {
+        $('#serch2x').click();
+      }
+    });
+    //
+    $('#serch2x').click(function () {
+      location.href = `${params[0]}?user=${channelid2}?user=${$('#usersearch2x').val()}`;
     });
   });
 </script>

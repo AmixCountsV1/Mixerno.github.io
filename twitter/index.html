@@ -175,9 +175,10 @@
     </li>
     <br>
     <li>
-    <li>Instagram Counters <br>
-      <a href="../instagram/?user=instagram">Follower count</a>
-      <a href="../instagram-compare/?user=instagram?user=cristiano">Follower compare</a>
+      <li>Roblox Counters <br>
+        <a  href="../roblox/?user=1">Follower count</a>
+        <a  href="../roblox-compare/?user=1?user=2">Follower compare</a>
+        <a  href="../roblox/games/">Games visit count</a>
     </li>
     </li>
     <br>
@@ -200,6 +201,7 @@
   <br>
   <center>
     <div class="maincount">
+      
       <img id="image" style="border-radius: 50%;"
         src="https://via.placeholder.com/130/585858/FFFFFF/?text=Mixerno.space" height="130" width="130">
       <div style="font-size: 60px;" id="ytname" class="nameee">Mixerno.space</div>
@@ -429,6 +431,7 @@ function getStyles() {
           ytname.innerHTML = json.name
           totalviews.innerHTML = json.tweets
           videos.innerHTML = json.following
+          $("#image").attr('src', `${json.pfp}`);
           //$("#image").attr('src', `${json.pfp}`);
           //plsworkgraph = json.subscribers.replace(/""/, "");
           //stuff.series[0].addPoint([
@@ -440,7 +443,7 @@ function getStyles() {
           //}
         }
       })
-      $.ajax({
+      /*$.ajax({
         url: `${key}https://api.mixerno.space/twitter2/user/${channelid}`,
         // Handle as Text
         dataType: "text",
@@ -448,7 +451,7 @@ function getStyles() {
           var json = $.parseJSON(data);
           //ytsubs.innerHTML = json.followers
           //ytname.innerHTML = json.name
-          $("#image").attr('src', `${json.pfp}`);
+          
           //plsworkgraph = json.subscribers.replace(/""/, "");
           //stuff.series[0].addPoint([
           //(new Date()).getTime(),
@@ -458,7 +461,7 @@ function getStyles() {
           //stuff.series[0].data[0].remove()
           //}
         }
-      })
+      })*/
       $.ajax({
         url: `https://bastet.socialblade.com/twitter/lookup?query=${channelid}`,
         // Handle as Text
