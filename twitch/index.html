@@ -254,7 +254,12 @@
             <option value="gw">Green-White (original)</option>
             <option value="bw">Black-White</option>
             <option value="rw">Red-White</option>
+            <option value="grw">Gray-White</option>
+            <option value="bluw">Blue-White</option>
             <option value="wb">White-Black</option>
+            <option value="darktheme">Dark Theme</option>
+            <option value="justblack">Darker Theme</option>
+            <option value="transparent">Transparent (Probably obs friendly)</option>
           </select></p><br>
           <p>Odometer speed: <select id="odospeed" style="width: auto; color: white;background-color: black;">
             <option value="ss" selected>Select</option>
@@ -317,9 +322,24 @@ function getStyles() {
     } else if (stylecurrent == "rw") {
       console.log("Ok62")
         $('head').append('<link rel="stylesheet" type="text/css" href="../styles/rw.css">');
+    } else if (stylecurrent == "grw") {
+      console.log("Ok62")
+        $('head').append('<link rel="stylesheet" type="text/css" href="../styles/grw.css">');
+    } else if (stylecurrent == "bluw") {
+      console.log("Ok62")
+        $('head').append('<link rel="stylesheet" type="text/css" href="../styles/bluw.css">');
     } else if (stylecurrent == "wb") {
       console.log("Ok62")
         $('head').append('<link rel="stylesheet" type="text/css" href="../styles/wb.css">');
+    } else if (stylecurrent == "darktheme") {
+      console.log("Ok62")
+        $('head').append('<link rel="stylesheet" type="text/css" href="../styles/darktheme.css">');
+    } else if (stylecurrent == "transparent") {
+      console.log("Ok62")
+        $('head').append('<link rel="stylesheet" type="text/css" href="../styles/transparent.css">');
+    } else if (stylecurrent == "justblack") {
+      console.log("Ok62")
+        $('head').append('<link rel="stylesheet" type="text/css" href="../styles/pureblack.css">');
     }
     else {
       console.log("Ok63")

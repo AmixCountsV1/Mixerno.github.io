@@ -1,87 +1,90 @@
 /*PLS GUYS I NEEDED TO UPLOAD THIS 2 times. why github*/
-
+:root {
+  --firstcolor: black;
+  --secondcolor: white;  
+}
 
 
 
   ::-webkit-scrollbar-track {
-    background: #ffffff;
+    background: var(--secondcolor);
   }
 
 
   ::-webkit-scrollbar-thumb {
-    background: rgb(0, 0, 0);
+    background: var(--firstcolor);
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: rgb(0, 0, 0);
+    background: var(--firstcolor);
   }
 
   .buton {
-    background-color: rgb(0, 0, 0);
-    color: rgb(255, 255, 255);
+    background-color: var(--firstcolor);
+    color: var(--secondcolor);
   }
 
   input[type=text],
   select {
-    color: rgb(255, 255, 255);
-    background-color: rgb(0, 0, 0);
-    border: 1px solid rgb(255, 255, 255);
+    color: var(--secondcolor);
+    background-color: var(--firstcolor);
+    border: 1px solid var(--secondcolor);
   }
 
   body {
-    background-color: rgb(0, 0, 0);
-    color: rgb(255, 255, 255);
+    background-color: var(--firstcolor);
+    color: var(--secondcolor);
   }
 
   a:link {
-    color: rgb(0, 0, 0);
+    color: var(--firstcolor);
   }
 
   a:visited {
-    color: rgb(0, 0, 0);
+    color: var(--firstcolor);
   }
 
   a:hover {
-    color: rgb(0, 0, 0);
+    color: var(--firstcolor);
   }
 
   a:focus {
-    color: rgb(0, 0, 0);
+    color: var(--firstcolor);
   }
 
   a:active {
-    color: rgb(0, 0, 0);
+    color: var(--firstcolor);
   }
 
   ul {
-    background-color: #ffffff;
+    background-color: var(--secondcolor);
   }
 
   .maincount {
-    border-color: rgb(255, 255, 255);
-    background: rgb(0, 0, 0);
+    border-color: var(--secondcolor);
+    background: var(--firstcolor);
 
   }
   .backg {
-    background: rgb(0, 0, 0);
-    border-color: rgb(255, 255, 255);
+    background: var(--firstcolor);
+    border-color: var(--secondcolor);
 
 
   }
 
   li {
-    color: rgb(0, 0, 0);
+    color: var(--firstcolor);
   }
   li a {
-    color: rgb(0, 0, 0);
+    color: var(--firstcolor);
   }
 
   li a.active {
-    background-color: rgb(255, 255, 255);
-    color: rgb(0, 0, 0);
+    background-color: var(--secondcolor);
+    color: var(--firstcolor);
   }
 
   li a:hover:not(.active) {
-    background-color: rgb(255, 255, 255);
-    color: rgb(0, 0, 0);
+    background-color: var(--secondcolor);
+    color: var(--firstcolor);
   }

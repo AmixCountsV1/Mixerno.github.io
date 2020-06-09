@@ -281,7 +281,12 @@
             <option value="gw">Green-White (original)</option>
             <option value="bw">Black-White</option>
             <option value="rw">Red-White</option>
+            <option value="grw">Gray-White</option>
+            <option value="bluw">Blue-White</option>
             <option value="wb">White-Black</option>
+            <option value="darktheme">Dark Theme</option>
+            <option value="justblack">Darker Theme</option>
+            <option value="transparent">Transparent (Probably obs friendly)</option>
           </select></p><br>
           <p>Odometer speed: <select id="odospeed" style="width: auto; color: white;background-color: black;">
             <option value="ss" selected>Select</option>
@@ -339,43 +344,58 @@ function getStyles() {
     var ododspeed = localStorage.getItem('odospeed'); 
     if(stylecurrent == "gw") {
       console.log("Ok61")
-        $('head').append('<link rel="stylesheet" href="styles/gw.css">');
+        $('head').append('<link rel="stylesheet" href="../styles/gw.css">');
     } else if (stylecurrent == "bw") {
       console.log("Ok62")
-        $('head').append('<link rel="stylesheet" type="text/css" href="styles/bw.css">');
+        $('head').append('<link rel="stylesheet" type="text/css" href="../styles/bw.css">');
     } else if (stylecurrent == "rw") {
       console.log("Ok62")
-        $('head').append('<link rel="stylesheet" type="text/css" href="styles/rw.css">');
+        $('head').append('<link rel="stylesheet" type="text/css" href="../styles/rw.css">');
+    } else if (stylecurrent == "grw") {
+      console.log("Ok62")
+        $('head').append('<link rel="stylesheet" type="text/css" href="../styles/grw.css">');
+    } else if (stylecurrent == "bluw") {
+      console.log("Ok62")
+        $('head').append('<link rel="stylesheet" type="text/css" href="../styles/bluw.css">');
     } else if (stylecurrent == "wb") {
       console.log("Ok62")
-        $('head').append('<link rel="stylesheet" type="text/css" href="styles/wb.css">');
+        $('head').append('<link rel="stylesheet" type="text/css" href="../styles/wb.css">');
+    } else if (stylecurrent == "darktheme") {
+      console.log("Ok62")
+        $('head').append('<link rel="stylesheet" type="text/css" href="../styles/darktheme.css">');
+    } else if (stylecurrent == "transparent") {
+      console.log("Ok62")
+        $('head').append('<link rel="stylesheet" type="text/css" href="../styles/transparent.css">');
+    } else if (stylecurrent == "justblack") {
+      console.log("Ok62")
+        $('head').append('<link rel="stylesheet" type="text/css" href="../styles/pureblack.css">');
     }
     else {
       console.log("Ok63")
-        $('head').append('<link rel="stylesheet" type="text/css" href="styles/gw.css">');
+        $('head').append('<link rel="stylesheet" type="text/css" href="../styles/gw.css">');
     }
     if(ododspeed == "s00") {
       console.log("Ok64")
-        $('head').append('<link rel="stylesheet" type="text/css" href="odometerspeeds/s00.css">');
+        $('head').append('<link rel="stylesheet" type="text/css" href="../odometerspeeds/s00.css">');
     } else if (ododspeed == "s0") {
       console.log("Ok65")
-        $('head').append('<link rel="stylesheet" type="text/css" href="odometerspeeds/s0.css">');
+        $('head').append('<link rel="stylesheet" type="text/css" href="../odometerspeeds/s0.css">');
     } else if (ododspeed == "s1") {
       console.log("Ok66")
-        $('head').append('<link rel="stylesheet" type="text/css" href="odometerspeeds/s1.css">');
+        $('head').append('<link rel="stylesheet" type="text/css" href="../odometerspeeds/s1.css">');
     } else if (ododspeed == "s2") {
       console.log("Ok67")
-        $('head').append('<link rel="stylesheet" type="text/css" href="odometerspeeds/s2.css">');
+        $('head').append('<link rel="stylesheet" type="text/css" href="../odometerspeeds/s2.css">');
     } else if (ododspeed == "s3") {
       console.log("Ok68")
-        $('head').append('<link rel="stylesheet" type="text/css" href="odometerspeeds/s3.css">');
+        $('head').append('<link rel="stylesheet" type="text/css" href="../odometerspeeds/s3.css">');
     } else if (ododspeed == "s4") {
       console.log("Ok69")
-        $('head').append('<link rel="stylesheet" type="text/css" href="odometerspeeds/s4.css">');
+        $('head').append('<link rel="stylesheet" type="text/css" href="../odometerspeeds/s4.css">');
     }
     else {
       console.log("Ok699")
-        $('head').append('<link rel="stylesheet" type="text/css" href="odometerspeeds/s2.css">');
+        $('head').append('<link rel="stylesheet" type="text/css" href="../odometerspeeds/s2.css">');
     }
 }
 //theme end

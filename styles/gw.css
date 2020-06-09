@@ -1,87 +1,95 @@
 /*PLS GUYS I NEEDED TO UPLOAD THIS 2 times. why github*/
+:root {
+  --firstcolor: rgb(0, 99, 0);
+  --secondcolor: rgb(255, 255, 255);
+  --thirdcolor: rgb(0, 0, 0);
+  --fourthcolor: #4CAF50;
+  --fifthcolor: #555;
+  --sixthcolor: rgb(37, 37, 37);
+}
 
 
 
 
   ::-webkit-scrollbar-track {
-    background: #ffffff;
+    background: var(--secondcolor);
   }
 
 
   ::-webkit-scrollbar-thumb {
-    background: rgb(0, 0, 0);
+    background: var(--thirdcolor);
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: rgb(0, 0, 0);
+    background: var(--thirdcolor);
   }
 
   .buton {
-    background-color: rgb(0, 0, 0);
-    color: rgb(255, 255, 255);
+    background-color: var(--thirdcolor);
+    color: var(--secondcolor);
   }
 
   input[type=text],
   select {
-    color: rgb(255, 255, 255);
-    background-color: rgb(0, 0, 0);
-    border: 1px solid rgb(255, 255, 255);
+    color: var(--secondcolor);
+    background-color: var(--thirdcolor);
+    border: 1px solid var(--secondcolor);
   }
 
   body {
-    background-color: rgb(0, 99, 0);
-    color: rgb(255, 255, 255);
+    background-color: var(--firstcolor);
+    color: var(--secondcolor);
   }
 
   a:link {
-    color: white;
+    color: var(--secondcolor);;
   }
 
   a:visited {
-    color: white;
+    color: var(--secondcolor);;
   }
 
   a:hover {
-    color: rgb(255, 255, 255);
+    color: var(--secondcolor);
   }
 
   a:focus {
-    color: rgb(255, 255, 255);
+    color: var(--secondcolor);
   }
 
   a:active {
-    color: white;
+    color: var(--secondcolor);;
   }
 
   ul {
-    background-color: #000000;
+    background-color: var(--thirdcolor);;
   }
 
   .maincount {
-    border-color: rgb(255, 255, 255);
-    background: rgb(37, 37, 37);
+    border-color: var(--secondcolor);
+    background: var(--sixthcolor);
 
   }
   .backg {
-    background: rgb(37, 37, 37);
-    border-color: rgb(255, 255, 255);
+    background: var(--sixthcolor);
+    border-color: var(--secondcolor);
 
 
   }
 
   li {
-    color: rgb(255, 255, 255);
+    color: var(--secondcolor);
   }
   li a {
-    color: #000;
+    color: var(--thirdcolor);
   }
 
   li a.active {
-    background-color: #4CAF50;
-    color: white;
+    background-color: var(--fourthcolor);
+    color: var(--secondcolor);
   }
 
   li a:hover:not(.active) {
-    background-color: #555;
-    color: white;
+    background-color: var(--fifthcolor);
+    color: var(--secondcolor);
   }

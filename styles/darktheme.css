@@ -87,12 +87,12 @@
   }
   PLS GUYS I NEEDED TO UPLOAD THIS 2 times. why github*/
 :root {
-  --firstcolor: rgb(99, 0, 0);
-  --secondcolor: rgb(255, 255, 255);
+  --firstcolor: rgb(0, 0, 0);
+  --secondcolor: rgb(172, 172, 172);
   --thirdcolor: rgb(0, 0, 0);
-  --fourthcolor: rgb(175, 76, 76);
+  --fourthcolor: rgb(20, 20, 20);
   --fifthcolor: #555;
-  --sixthcolor: rgb(37, 37, 37);
+  --sixthcolor: rgb(15, 15, 15);
 }
 
 
@@ -145,7 +145,7 @@
   }
 
   a:active {
-    color: var(--secondcolor);;
+    color: var(--secondcolor);
   }
 
   ul {
