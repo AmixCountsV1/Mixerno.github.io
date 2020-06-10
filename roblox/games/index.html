@@ -251,6 +251,11 @@
     <br>
     <div class="marg">
       <div class="row">
+        <div class="backg">
+          <div class="odometer"style="font-size: 30px;" id="favourite">0</div>
+          <div>Favourites</div>
+        </div>
+          <br>
       <div class="backg">
         <div class="odometer"style="font-size: 30px;" id="like">0</div>
         <div>Likes</div>
@@ -397,6 +402,21 @@ var universsiid = 0
           //vidname.innerHTML = json.data[0].name
           like.innerHTML = json.data[0].upVotes
           dislike.innerHTML = json.data[0].downVotes
+          //comment.innerHTML = json.data[0].visits
+         // $("#image").attr('src', `${json.data[0]}`);
+
+          //plsworkgraph = json.subscribers.replace(/""/, "");
+        }
+      })
+      $.ajax({
+        url: `${key}https://games.roblox.com/v1/games/${universsiid}/favorites/count`,
+        // Handle as Text
+        dataType: "text",
+        success: function (data) {
+          var json = $.parseJSON(data);
+          //view.innerHTML = json.data[0].playing
+          //vidname.innerHTML = json.data[0].name
+          favourite.innerHTML = json.favoritesCount
           //comment.innerHTML = json.data[0].visits
          // $("#image").attr('src', `${json.data[0]}`);
 
