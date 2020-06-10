@@ -203,7 +203,7 @@
       <li>Roblox Counters <br>
         <a  href="../../roblox/?user=1">Follower count</a>
         <a  href="../../roblox-compare/?user=1?user=2">Follower compare</a>
-        <a  href="../../roblox/games/">Games visit count</a>
+        <a  href="../../roblox/games/?id=286090429">Games visit count</a>
     </li>
     </li>
     <br>
@@ -269,7 +269,7 @@
     </div>
     <br>
     <div class="maincount">
-      <input placeholder="Roblox game UNIVERSEID" type="text" style="width: 500px; font-size: 20px;" value="" id="usersearch"
+      <input placeholder="Roblox game PlaceID (Found in the url)" type="text" style="width: 500px; font-size: 20px;" value="" id="usersearch"
         class="custominput"></input>
       <button class="buton" style="font-size: 20px;" id="serch">Search</button>
     </div>
@@ -342,16 +342,30 @@
     })
     var channelid = params[1];
     if (params[1] == undefined) {
-      channelid = "383310974"
+      channelid = "286090429"
     }
-    channelstatistics()
 
+    getuniversid()
+    
 
+var universsiid = 0
     //
+    function getuniversid() {
+      $.ajax({
+        url: `${key}https://robloxvisitstrackerv2.herokuapp.com/roblox/api/game/${channelid}`,
+        // Handle as Text
+        dataType: "text",
+        success: function (data) {
+          var json = $.parseJSON(data);
+          universsiid = json.universeId
+          channelstatistics()
+        }
+      })
+    }
     function channelstatistics() {
 
       $.ajax({
-        url: `${key}https://games.roblox.com/v1/games?universeIds=${channelid}`,
+        url: `${key}https://games.roblox.com/v1/games?universeIds=${universsiid}`,
         // Handle as Text
         dataType: "text",
         success: function (data) {
@@ -374,7 +388,7 @@
         }
       })
       $.ajax({
-        url: `${key}https://games.roblox.com/v1/games/votes?universeIds=${channelid}`,
+        url: `${key}https://games.roblox.com/v1/games/votes?universeIds=${universsiid}`,
         // Handle as Text
         dataType: "text",
         success: function (data) {
@@ -390,7 +404,7 @@
         }
       })
       $.ajax({
-        url: `${key}https://thumbnails.roblox.com/v1/games/multiget/thumbnails?universeIds=${channelid}&size=768x432&format=Png&isCircular=false`,
+        url: `${key}https://thumbnails.roblox.com/v1/games/multiget/thumbnails?universeIds=${universsiid}&size=768x432&format=Png&isCircular=false`,
         // Handle as Text
         dataType: "text",
         success: function (data) {
