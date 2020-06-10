@@ -6,20 +6,21 @@
   <title>Mixerno.space</title>
   <link rel="shortcut icon"
     href="https://yt3.ggpht.com/a-/AOh14GhVWagi88Rfs6XXerg3-3PR4RPHYcolFIrYXZ4_=s288-c-k-c0xffffffff-no-rj-mo">
-  <link rel="stylesheet" href="../o2.css" />
+  <link rel="stylesheet" href="../../o2.css" />
   <meta charset="UTF-8">
-  <meta name="description" content="Another counter site. but its green-gray">
-  <meta name="keywords" content="green, gray, mixerno.space">
+  <meta name="description" content="Why does the design needs to look cool? Doesn't just simple look better?">
+  <meta name="keywords" content="customizable, live counter, mixerno.space">
   <meta name="author" content="Mixerno">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!--<link rel="stylesheet" href="counters/estimation.css">-->
-  <script src="../odometer.js"></script>
-  <script type="text/javascript" src="../jquery-3.1.1.min.js"></script>
+  <script src="../../odometer.js"></script>
+  <script type="text/javascript" src="../../jquery-3.1.1.min.js"></script>
   <script src="https://code.highcharts.com/highcharts.js"></script>
-  <link rel="stylesheet" href="../css/loadawesome.css" />
-  <link rel="stylesheet" href="../bootstrap.css">
-  <script src="../bootstrap.js"></script>
-  <link rel="stylesheet" href="../css/single.css" />
+  <link rel="stylesheet" href="../../css/loadawesome.css" />
+  <link rel="stylesheet" href="../../bootstrap.css">
+  <script src="../../bootstrap.js"></script>
+  <link rel="stylesheet" href="../../css/single.css" />
+ 
   <script>
     $(window).on("load",function(){
    $(".loader-wrapper").fadeOut("slow");
@@ -30,7 +31,7 @@
       <li>
       <a  href="https://discord.gg/KAB6222">Discord Server</a>
       <a href="https://twitter.com/@MixernoSpace">Our twitter</a>
-      <a href="../">Other counters</a>
+      <a href="../../">Other counters</a>
     </li>
     </li>
     <br>
@@ -57,23 +58,11 @@
       </div>
     </div>
     <br>
-    <div class="marg">
-      <div class="row">
-        <div class="backg">
-          <div class="odometer" style="font-size: 30px;" id="totalviews">0</div>
-          <div>Total views</div>
-        </div>
-        <br>
-        <div class="backg">
-          <div class="odometer" style="font-size: 30px;" id="videos">0</div>
-          <div>Viewers currently</div>
-        </div>
-      </div>
-    </div>
-    <br>
     <div class="maincount">
-        <input placeholder="Mixer username" type="text" style="width: 500px; font-size: 20px;" value="" id="usersearch" class="custominput"></input>
-  <button class="buton" style="font-size: 20px;" id="serch">Search</button><br><br>
+      <input placeholder="Roblox group name" type="text" style="width: 500px; font-size: 20px;" value="" id="usersearch" class="custominput"></input>
+      <button class="buton" style="font-size: 20px;" id="serch">Search</button><br><br>
+      <input placeholder="Roblox group id" type="text" style="width: 500px; font-size: 20px;" value="" id="usersearch1x" class="custominput"></input>
+  <button class="buton" style="font-size: 20px;" id="serch1x">Search</button><br><br>
   <button style="font-size: 20px;" class="buton" data-toggle="modal" data-target="#hf">Customize</button>
     </div>
     
@@ -160,58 +149,58 @@ function getStyles() {
     var ododspeed = localStorage.getItem('odospeed'); 
     if(stylecurrent == "gw") {
       console.log("Ok61")
-        $('head').append('<link rel="stylesheet" href="../styles/gw.css">');
+        $('head').append('<link rel="stylesheet" href="../../styles/gw.css">');
     } else if (stylecurrent == "bw") {
       console.log("Ok62")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../styles/bw.css">');
+        $('head').append('<link rel="stylesheet" type="text/css" href="../../styles/bw.css">');
     } else if (stylecurrent == "rw") {
       console.log("Ok62")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../styles/rw.css">');
+        $('head').append('<link rel="stylesheet" type="text/css" href="../../styles/rw.css">');
     } else if (stylecurrent == "grw") {
       console.log("Ok62")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../styles/grw.css">');
+        $('head').append('<link rel="stylesheet" type="text/css" href="../../styles/grw.css">');
     } else if (stylecurrent == "bluw") {
       console.log("Ok62")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../styles/bluw.css">');
+        $('head').append('<link rel="stylesheet" type="text/css" href="../../styles/bluw.css">');
     } else if (stylecurrent == "wb") {
       console.log("Ok62")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../styles/wb.css">');
+        $('head').append('<link rel="stylesheet" type="text/css" href="../../styles/wb.css">');
     } else if (stylecurrent == "darktheme") {
       console.log("Ok62")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../styles/darktheme.css">');
+        $('head').append('<link rel="stylesheet" type="text/css" href="../../styles/darktheme.css">');
     } else if (stylecurrent == "transparent") {
       console.log("Ok62")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../styles/transparent.css">');
+        $('head').append('<link rel="stylesheet" type="text/css" href="../../styles/transparent.css">');
     } else if (stylecurrent == "justblack") {
       console.log("Ok62")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../styles/pureblack.css">');
+        $('head').append('<link rel="stylesheet" type="text/css" href="../../styles/pureblack.css">');
     }
     else {
       console.log("Ok63")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../styles/gw.css">');
+        $('head').append('<link rel="stylesheet" type="text/css" href="../../styles/gw.css">');
     }
     if(ododspeed == "s00") {
       console.log("Ok64")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../odometerspeeds/s00.css">');
+        $('head').append('<link rel="stylesheet" type="text/css" href="../../odometerspeeds/s00.css">');
     } else if (ododspeed == "s0") {
       console.log("Ok65")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../odometerspeeds/s0.css">');
+        $('head').append('<link rel="stylesheet" type="text/css" href="../../odometerspeeds/s0.css">');
     } else if (ododspeed == "s1") {
       console.log("Ok66")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../odometerspeeds/s1.css">');
+        $('head').append('<link rel="stylesheet" type="text/css" href="../../odometerspeeds/s1.css">');
     } else if (ododspeed == "s2") {
       console.log("Ok67")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../odometerspeeds/s2.css">');
+        $('head').append('<link rel="stylesheet" type="text/css" href="../../odometerspeeds/s2.css">');
     } else if (ododspeed == "s3") {
       console.log("Ok68")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../odometerspeeds/s3.css">');
+        $('head').append('<link rel="stylesheet" type="text/css" href="../../odometerspeeds/s3.css">');
     } else if (ododspeed == "s4") {
       console.log("Ok69")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../odometerspeeds/s4.css">');
+        $('head').append('<link rel="stylesheet" type="text/css" href="../../odometerspeeds/s4.css">');
     }
     else {
       console.log("Ok699")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../odometerspeeds/s2.css">');
+        $('head').append('<link rel="stylesheet" type="text/css" href="../../odometerspeeds/s2.css">');
     }
 }
 //theme end
@@ -222,9 +211,10 @@ function getStyles() {
     }
   });
   $(document).ready(function () {
-    var key = "https://cors.mixerno.space/"
+    //var key = "https://cors.mixerno.space/"
+    var key = "";
     var videostufflol = window.location.href;
-    var params = videostufflol.split('?user=');
+    var params = videostufflol.split('?id=');
     var stuff = new Highcharts.chart('graph', {
       chart: {
         backgroundColor: 'transparent',
@@ -265,7 +255,7 @@ function getStyles() {
 
       series: [{
         showInLegend: false,
-        name: 'Followers',
+        name: 'Members',
         marker: {
           enabled: false
         },
@@ -276,7 +266,7 @@ function getStyles() {
     })
     var channelid = params[1];
     if (params[1] == undefined) {
-      channelid = "ninja"
+      channelid = "2"
     }
     channelstatistics()
 
@@ -285,28 +275,55 @@ function getStyles() {
     function channelstatistics() {
 
       $.ajax({
-        url: `${key}https://api.mixerno.space/mixer/user/${channelid}`,
+        url: `${key}https://groups.roblox.com/v1/groups/${channelid}`,
         // Handle as Text
         dataType: "text",
         success: function (data) {
           var json = $.parseJSON(data);
-          ytsubs.innerHTML = json.followers
+          //ytsubs.innerHTML = json.followers
           ytname.innerHTML = json.name
-          totalviews.innerHTML = json.totalviews
-          videos.innerHTML = json.watchingnow
-          $("#image").attr('src', `${json.pfp}`);
-          //plsworkgraph = json.subscribers.replace(/""/, "");
+          ytsubs.innerHTML = json.memberCount
           stuff.series[0].addPoint([
+            (new Date()).getTime(),
+            json.memberCount
+          ]);
+          if (stuff.series[0].data.length >= 700) {
+            stuff.series[0].data[0].remove()
+          }
+          //totalviews.innerHTML = json.posts
+          //$("#image").attr('src', `${json.pfp}`);
+          //plsworkgraph = json.subscribers.replace(/""/, "");
+          /*stuff.series[0].addPoint([
             (new Date()).getTime(),
             json.followers
           ]);
           if (stuff.series[0].data.length >= 700) {
             stuff.series[0].data[0].remove()
-          }
+          }*/
+        }
+      })
+      $.ajax({
+        url: `${key}https://thumbnails.roblox.com/v1/groups/icons?groupIds=${channelid}&size=420x420&format=Png&isCircular=false`,
+        // Handle as Text
+        dataType: "text",
+        success: function (data) {
+          var json = $.parseJSON(data);
+          //ytsubs.innerHTML = json.followers
+          //ytname.innerHTML = json.Username
+          //totalviews.innerHTML = json.posts
+          $("#image").attr('src', `${json.data[0].imageUrl}`);
+          //plsworkgraph = json.subscribers.replace(/""/, "");
+          /*stuff.series[0].addPoint([
+            (new Date()).getTime(),
+            json.followers
+          ]);
+          if (stuff.series[0].data.length >= 700) {
+            stuff.series[0].data[0].remove()
+          }*/
         }
       })
     };
-    setInterval(channelstatistics, 4000);
+    setInterval(channelstatistics, 8000);
 
     //location.href = params[0] + $('#country').val();;
     $('#usersearch').on('keyup', function (e) {
@@ -316,7 +333,26 @@ function getStyles() {
     });
     //
     $('#serch').click(function () {
-        location.href = `${params[0]}?user=${$('#usersearch').val()}`;
+      $.ajax({
+        url: `${key}https://groups.roblox.com/v1/groups/search?keyword=${$('#usersearch').val()}&limit=10`,
+        // Handle as Text
+        dataType: "text",
+        success: function (data) {
+          var json = $.parseJSON(data);
+          location.href = `${params[0]}?id=${json.data[0].id}`;
+        }
+      })
+        
+
+    });
+    $('#usersearch1x').on('keyup', function (e) {
+      if (e.keyCode === 13) {
+        $('#serch1x').click();
+      }
+    });
+    //
+    $('#serch1x').click(function () {
+        location.href = `${params[0]}?id=${$('#usersearch1x').val()}`;
 
     });
   });

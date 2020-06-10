@@ -1,550 +1,136 @@
-<!--Yo man. Dont kill me with my bad coding lmao.-->
 <html>
-
-<head>
-  
-  <title>Mixerno.space</title>
-  <link rel="shortcut icon"
-    href="https://yt3.ggpht.com/a-/AOh14GhVWagi88Rfs6XXerg3-3PR4RPHYcolFIrYXZ4_=s288-c-k-c0xffffffff-no-rj-mo">
-    <meta charset="UTF-8">
-    <meta name="description" content="Another counter site.">
-    <meta name="keywords" content="green, gray, mixerno.space">
-    <meta name="author" content="Mixerno">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="o2.css" />
-  <!--<link rel="stylesheet" href="counters/estimation.css">-->
-  <script src="odometer.js"></script>
-  <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
-  <!--<script src="global/storage.js"></script>-->
-  <script src="https://code.highcharts.com/highcharts.js"></script>
-  <link rel="stylesheet" href="css/loadawesome.css" />
-  <link rel="stylesheet" href="bootstrap.css">
-  <script src="bootstrap.js"></script>
-  <link rel="stylesheet" href="css/single.css" />
-  <!--<style>
-    body {
-      margin: 0;
-    }
-
-    ::-webkit-scrollbar {
-      width: 5px;
-    }
-
-
-    ::-webkit-scrollbar-track {
-      background: #ffffff;
-    }
-
-
-    ::-webkit-scrollbar-thumb {
-      background: rgb(0, 0, 0);
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background: rgb(0, 0, 0);
-    }
-
-    .buton {
-      background-color: rgb(0, 0, 0);
-      border: none;
-      color: rgb(255, 255, 255);
-      padding: 2.5px 5px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 14px;
-      margin: 0px 0px;
-      cursor: pointer;
-    }
-
-    input[type=text],
-    select {
-      width: 10%;
-      padding: 2.5px 5px;
-      margin: 0px 0;
-      display: inline-block;
-      color: rgb(255, 255, 255);
-      background-color: rgb(0, 0, 0);
-      border: 1px solid rgb(255, 255, 255);
-      border-radius: 1px;
-      box-sizing: border-box;
-    }
-
-    body {
-      background-color: rgb(0, 99, 0);
-      color: rgb(255, 255, 255);
-      font-family: Arial
-    }
-
-    a:link {
-      color: white;
-    }
-
-    a:visited {
-      color: white;
-    }
-
-    a:hover {
-      color: rgb(255, 255, 255);
-    }
-
-    a:focus {
-      color: rgb(255, 255, 255);
-    }
-
-    a:active {
-      color: white;
-    }
-
-    ul {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      width: 12.5%;
-      background-color: #000000;
-      position: fixed;
-      height: 100%;
-      overflow: auto;
-    }
-
-    .maincount {
-      border-style: solid;
-      border-radius: 0px;
-      border-color: rgb(255, 255, 255);
-      padding: 20px;
-      background: rgb(37, 37, 37);
-      width: auto;
-      height: auto;
-      margin-left: 13.5%;
-      margin-right: 1%;
-    }
-    .marg {
-      margin-left: 13.5%;
-      margin-right: 1%;
-    }
-    .backg {
-      background: rgb(37, 37, 37);
-      border-style: solid;
-      border-radius: 0px;
-      border-color: rgb(255, 255, 255);
-      padding: 20px;
-      height: 60px;
-      width: 100%;
-
-    }
-    .row {
-      display: flex;
-      flex-direction: row;
-      margin-left: 0;
-      margin-right: 0;
-      justify-content: space-around;
-      flex: 4;
-    }
-
-    li a {
-      display: block;
-      color: #000;
-      padding: 8px 16px;
-      text-decoration: none;
-    }
-
-    li a.active {
-      background-color: #4CAF50;
-      color: white;
-    }
-
-    li a:hover:not(.active) {
-      background-color: #555;
-      color: white;
-    }
-  </style>-->
-  <script>
-    $(window).on("load", function () {
-      $(".loader-wrapper").fadeOut("slow");
-    });
-  </script>
-  <ul>
-    <li>
-      <li>Discord Server <br>
-      <a  href="https://discord.gg/KAB6222">https://discord.gg/KAB6222</a>
-    </li>
-    </li>
-    <br>
-    <li>
-      <li>Youtube Counters <br>
-      <a  href="#">Subscriber count</a>
-      <a  href="youtube-compare/">Subscriber compare</a>
-      <a  href="youtube/video/?id=kJQP7kiw5Fk">Video views</a>
-    </li>
-    </li>
-    <br>
-    <li>
-      <li>Twitter Counters <br>
-      <a  href="twitter/?user=barackobama">Follower count</a>
-      <a  href="twitter-compare/?user=barackobama?user=realdonaldtrump">Follower compare</a>
-    </li>
-    </li>
-    <br>
-    <li>
-      <li>Twitch Counters <br>
-      <a  href="twitch/?user=tfue">Follower count</a>
-      <a  href="twitch-compare/?user=ninja?user=tfue">Follower compare</a>
-    </li>
-    </li>
-    <br>
-    <li>
-      <li>TikTok Counters <br>
-      <a  href="tiktok/?user=charlidamelio">Follower count</a>
-      <a  href="tiktok-compare/?user=charlidamelio?user=addisonre">Follower compare</a>
-    </li>
-    </li>
-    <br>
-    <li>
-      <li>Roblox Counters <br>
-      <a  href="roblox/?user=1">Follower count</a>
-      <a  href="roblox-compare/?user=1?user=2">Follower compare</a>
-      <a  href="roblox/games/">Games visit count</a>
-    </li>
-    </li>
-    <br>
-    <li>
-      <li>Mixer Counters <br>
-      <a  href="mixer/?user=ninja">Follower count</a>
-      <a  href="mixer-compare/?user=ninja?user=shroud">Follower compare</a>
-    </li>
-    </li>
-    <br>
-    <li>
-      <li>StoryFire Counters <br>
-      <a  href="storyfire/?user=UQ986nFxmAWIgnkZQ0ftVhq4nOk2">Follower count</a>
-      <a  href="storyfire-compare/?user=UQ986nFxmAWIgnkZQ0ftVhq4nOk2?user=EdEsuO5rMkWemGTPWi94d90sS302">Follower compare</a>
-    </li>
-    </li>
-    <br>
-  </ul>
-  <div class="loader-wrapper">
-    <div class="la-ball-fussion">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  </div>
-  <br>
-  <center>
-    <div class="maincount">
-      <img id="image" style="border-radius: 50%;"
-        src="https://via.placeholder.com/130/585858/FFFFFF/?text=Mixerno.space" height="130" width="130">
-      <div style="font-size: 60px;" id="ytname" class="nameee">Mixerno.space</div>
-      <div class="odometer" style="font-size: 60px;" id="ytsubs">0</div>
-      <div><strong>Subscribers</strong></div>
-      <br>
-      <div class="">
-        <div id="graph"></div>
+    <head>
+<title>Welcome to mixerno.space</title>
+    </head>
+    <script>
+function tabop(evt, social) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(social).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+    </script>
+    <body>
+            <div class="boxed">
+                <center>
+       <img src="https://yt3.ggpht.com/a/AATXAJxvJKb4F5Efexj4qy3YrO2VUxMFQmaF3EJ_=s100-c-k-c0xffffffff-no-rj-mo" height="80" width="80">
+       <p style="font-size: 50px;">Mixerno.space</p>
+       <h1>The another counter site. yay.</h1>
+       <p>yo.</p>
+       <p>Other awesome counter sites: <a href="https://livecounts.io">livecounts.io</a>, <a href="https://t1ch.com">t1ch.com</a>, <a href="https://nextcounts.live">nextcounts.live</a>, <a href="https://counts.live">counts.live</a></p>
+    </center>
+       <br>
+       <center>
+       <div class="tab">
+        <button style="background-color: rgb(255, 0, 0);" class="tablinks" onclick="tabop(event, 'Youtube')" id="defaultOpen">Youtube</button>
+        <button style="background-color: rgb(0, 247, 255);" class="tablinks" onclick="tabop(event, 'Twitter')">Twitter</button>
+        <button style="background-color: rgb(183, 0, 255);" class="tablinks" onclick="tabop(event, 'Twitch')">Twitch</button>
+        <button style="background-color: rgb(0, 0, 0); color: white;" class="tablinks" onclick="tabop(event, 'TikTok')">TikTok</button>
+        <button style="background-color: rgb(180, 0, 0);" class="tablinks" onclick="tabop(event, 'Roblox')">Roblox</button>
+        <button style="background-color: rgb(4, 0, 255);" class="tablinks" onclick="tabop(event, 'Mixer')">Mixer</button>
+        <button style="background-color: rgb(148, 79, 0);" class="tablinks" onclick="tabop(event, 'StoryFire')">StoryFire</button>
       </div>
-    </div>
-    <br>
-    <div class="marg">
-      <div class="row">
-      <div class="backg">
-        <div class="odometer"style="font-size: 30px;" id="totalviews">0</div>
-        <div>Total Views</div>
-      </div>
-        <br>
-        <div class="backg">
-        <div class="odometer"style="font-size: 30px;" id="videos">0</div>
-        <div>Videos</div>
-      </div>
-      </div>
-    </div>
-    <br>
-    <div class="maincount">
-      <input placeholder="Youtube username" type="text" style="width: 500px; font-size: 20px;" value="" id="usersearch"
-        class="custominput"></input>
-      <button class="buton" style="font-size: 20px;" id="serch">Search</button><br><br>
-      <button style="font-size: 20px;" class="buton" data-toggle="modal" data-target="#hf">Customize</button>
-    </div>
-    
-
-    <br>
-    <br>
-
-    <br>
-    <br>
-
-  </center>
-  <div class="modal fade" id="hf" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div style="color: white; background-color: black;" class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Customize</h4>
-        </div>
-        <div style="color: white; background-color: black;" class="modal-body">
-          <p>Style: <select id="styel" style="width: auto; color: white;background-color: black;">
-            <option value="s" selected>Select</option>
-            <option value="gw">Green-White (original)</option>
-            <option value="bw">Black-White</option>
-            <option value="rw">Red-White</option>
-            <option value="grw">Gray-White</option>
-            <option value="bluw">Blue-White</option>
-            <option value="wb">White-Black</option>
-            <option value="darktheme">Dark Theme</option>
-            <option value="justblack">Darker Theme</option>
-            <option value="transparent">Transparent (Probably obs friendly)</option>
-          </select></p><br>
-          <p>Odometer speed: <select id="odospeed" style="width: auto; color: white;background-color: black;">
-            <option value="ss" selected>Select</option>
-            <option value="s00">0 seconds (:)</option>
-            <option value="s0">0.5 seconds (fast)</option>
-            <option value="s1">1 seconds</option>
-            <option value="s2">2 seconds (original)</option>
-            <option value="s3">3 seconds</option>
-            <option value="s4">4 seconds</option>
-          </select></p>
-        </div>
-        <div style="color: white; background-color: black;" class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-default" data-dismiss="modal" id="save" onclick="checkstorage()">Save</button>
-        </div>
+    </center>
+      <div id="Youtube" class="tabcontent">
+          <h3 style="font-size: 30px;">Youtube</h3>
+        <a style=" text-decoration: none; font-size: 25px;" href="https://mixerno.space/youtube">Subscriber Counter</a><br>
+        <a style=" text-decoration: none; font-size: 25px;" href="https://mixerno.space/youtube/video">Video statistics</a><br>
       </div>
       
+      <div id="Twitter" class="tabcontent">
+        <h3 style="font-size: 30px;">Twitter</h3>
+        <a style=" text-decoration: none; font-size: 25px;" href="https://mixerno.space/twitter">Follower Counter</a><br>
+        <a style=" text-decoration: none; font-size: 25px;" href="https://mixerno.space/twitter-compare">Follower compare</a><br>
+      </div>
+      
+      <div id="Twitch" class="tabcontent">
+        <h3 style="font-size: 30px;">Twitch</h3>
+        <a style=" text-decoration: none; font-size: 25px;" href="https://mixerno.space/twitch">Follower Counter</a><br>
+        <a style=" text-decoration: none; font-size: 25px;" href="https://mixerno.space/twitch-compare">Follower compare</a><br>
+      </div>
+      <div id="TikTok" class="tabcontent">
+        <h3 style="font-size: 30px;">TikTok</h3>
+        <a style=" text-decoration: none; font-size: 25px;" href="https://mixerno.space/tiktok">Follower Counter</a><br>
+        <a style=" text-decoration: none; font-size: 25px;" href="https://mixerno.space/tiktok-compare">Follower compare</a><br>
+      </div>
+      
+      <div id="Roblox" class="tabcontent">
+        <h3 style="font-size: 30px;">Roblox</h3>
+        <p>:).</p>
+        <a style=" text-decoration: none; font-size: 25px;" href="https://mixerno.space/roblox">Follower Counter</a><br>
+        <a style=" text-decoration: none; font-size: 25px;" href="https://mixerno.space/roblox-compare">Follower compare</a><br>
+        <a style=" text-decoration: none; font-size: 25px;" href="https://mixerno.space/roblox/games">Game visits Counter</a><br>
+        <a style=" text-decoration: none; font-size: 25px;" href="https://mixerno.space/roblox/groups">Group Member Counter</a><br>
+      </div>
+      <div id="Mixer" class="tabcontent">
+        <h3 style="font-size: 30px;">Mixer</h3>
+        <a style=" text-decoration: none; font-size: 25px;" href="https://mixerno.space/mixer">Follower Counter</a><br>
+        <a style=" text-decoration: none; font-size: 25px;" href="https://mixerno.space/mixer-compare">Follower compare</a><br>
+      </div>
+      
+      <div id="StoryFire" class="tabcontent">
+        <h3 style="font-size: 30px;">StoryFire</h3>
+        <a style=" text-decoration: none; font-size: 25px;" href="https://mixerno.space/storyfire">Subscriber Counter</a><br>
+        <a style=" text-decoration: none; font-size: 25px;" href="https://mixerno.space/storyfire-compare">Subscriber compare</a><br>
+      </div>
     </div>
-  </div>
-</head>
-<script>
-  
-</script>
-
-<script type="text/javascript">
-//theme start
-getStyles()
-  function checkstorage() {
-    saveStyles()
-    console.log("Ok1")
-  }
-function saveStyles() {
-    if(document.getElementById("styel").value == "s") {
-        //non
-        console.log("Ok2")
-    } else {
-        localStorage.setItem('style', document.getElementById("styel").value);
-        console.log("Ok3")
-    }
-    if(document.getElementById("odospeed").value == "ss") {
-        //non
-        console.log("Ok4")
-    } else {
-        localStorage.setItem('odospeed', document.getElementById("odospeed").value);
-        console.log("Ok5")
-    }
     
-  
-    getStyles();
+    </body>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            background-color: rgb(0, 0, 0);
+            color: rgb(255, 255, 255);
+        }
+        .boxed {
+            width: 100%;
+            background: rgb(0, 0, 0);
+            color: white;
+        }
+        a {
+            color: white;
+        }
+        .selection {
+            width: 100%;
+            background: rgb(160, 160, 160);
+        }
+        a:hover {
+  background-color: rgb(0, 91, 0);
 }
-
-function getStyles() {
-    console.log("Ok6")
-    var stylecurrent = localStorage.getItem('style'); 
-    var ododspeed = localStorage.getItem('odospeed'); 
-    if(stylecurrent == "gw") {
-      console.log("Ok61")
-        $('head').append('<link rel="stylesheet" href="../styles/gw.css">');
-    } else if (stylecurrent == "bw") {
-      console.log("Ok62")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../styles/bw.css">');
-    } else if (stylecurrent == "rw") {
-      console.log("Ok62")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../styles/rw.css">');
-    } else if (stylecurrent == "grw") {
-      console.log("Ok62")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../styles/grw.css">');
-    } else if (stylecurrent == "bluw") {
-      console.log("Ok62")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../styles/bluw.css">');
-    } else if (stylecurrent == "wb") {
-      console.log("Ok62")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../styles/wb.css">');
-    } else if (stylecurrent == "darktheme") {
-      console.log("Ok62")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../styles/darktheme.css">');
-    } else if (stylecurrent == "transparent") {
-      console.log("Ok62")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../styles/transparent.css">');
-    } else if (stylecurrent == "justblack") {
-      console.log("Ok62")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../styles/pureblack.css">');
-    }
-    else {
-      console.log("Ok63")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../styles/gw.css">');
-    }
-    if(ododspeed == "s00") {
-      console.log("Ok64")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../odometerspeeds/s00.css">');
-    } else if (ododspeed == "s0") {
-      console.log("Ok65")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../odometerspeeds/s0.css">');
-    } else if (ododspeed == "s1") {
-      console.log("Ok66")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../odometerspeeds/s1.css">');
-    } else if (ododspeed == "s2") {
-      console.log("Ok67")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../odometerspeeds/s2.css">');
-    } else if (ododspeed == "s3") {
-      console.log("Ok68")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../odometerspeeds/s3.css">');
-    } else if (ododspeed == "s4") {
-      console.log("Ok69")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../odometerspeeds/s4.css">');
-    }
-    else {
-      console.log("Ok699")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../odometerspeeds/s2.css">');
-    }
+.tab {
+  overflow: hidden;
+  border: 1px solid rgba(204, 204, 204, 0);
+  background-color: #f1f1f100;
 }
-//theme end
-  jQuery.ajaxPrefilter(function (options) {
-    if (options.crossDomain && jQuery.support.cors) {
-      options.url = '' + options.url;
-
-    }
-  });
-  $(document).ready(function () {
-    var key = "https://cors.mixerno.space/"
-    var videostufflol = window.location.href;
-    var params = videostufflol.split('?user=');
-    var params3 = videostufflol.split('?');
-    var stuff = new Highcharts.chart('graph', {
-      chart: {
-        backgroundColor: 'transparent',
-        renderTo: graph,
-        type: 'line'
-      },
-      title: {
-        text: ``
-      },
-      xAxis: {
-        type: 'datetime',
-        tickPixelInterval: 500,
-        labels: {
-          style: {
-            color: "#53adcb"
-          }
-        }
-      },
-      yAxis: {
-        title: {
-          text: ''
-        },
-        gridLineColor: "#53adcb",
-        labels: {
-          style: {
-            color: "#53adcb"
-          }
-        },
-        lineColor: "#53adcb",
-        minorGridLineColor: "#53adcb",
-        tickColor: "#53adcb"
-      },
-
-      credits: {
-        enabled: false,
-        text: "Mixerno.space"
-      },
-
-      series: [{
-        showInLegend: false,
-        name: 'Subscribers',
-        marker: {
-          enabled: false
-        },
-        color: '#53adcb',
-        lineColor: '#53adcb'
-
-      }]
-    })
-    var channelid = params[1];
-    if (params[1] == undefined) {
-      channelid = "UC-lHJZR3Gqxm24_Vd_AJ5Yw"
-    }
-    channelstatistics()
-  if(params3[1] == "enabletest()") {
-    enabletest()
-  }
-function enabletest() {
-  var counte = 0;
-testlocal()
-
-    function testlocal() {
-      counte++
-      ytsubs.innerHTML = counte
-      console.log(counte)
-      stuff.series[0].addPoint([
-            (new Date()).getTime(),
-            parseFloat(counte)
-          ]);
-          if (stuff.series[0].data.length >= 700) {
-            stuff.series[0].data[0].remove()
-          }
-    }
-    setInterval(testlocal, 1000)
-  }
-    function channelstatistics() {
-
-      $.ajax({
-        url: `${key}https://api.mixerno.space/youtube/channelUC/${channelid}`,
-        // Handle as Text
-        dataType: "text",
-        success: function (data) {
-          var json = $.parseJSON(data);
-          ytsubs.innerHTML = json.subscribers
-          ytname.innerHTML = json.name
-          totalviews.innerHTML = json.totalviews
-          videos.innerHTML = json.videos
-          $("#image").attr('src', `${json.avatarurl}`);
-
-          //plsworkgraph = json.subscribers.replace(/""/, "");
-          stuff.series[0].addPoint([
-            (new Date()).getTime(),
-            parseFloat(json.subscribers)
-          ]);
-          if (stuff.series[0].data.length >= 700) {
-            stuff.series[0].data[0].remove()
-          }
-        }
-      })
-    };
-    setInterval(channelstatistics, 4000);
-
-    //location.href = params[0] + $('#country').val();;
-    $('#usersearch').on('keyup', function (e) {
-      if (e.keyCode === 13) {
-        $('#serch').click();
-      }
-    });
-    function searchchannel() {
-
-
-      $.ajax({
-        url: `${key}https://api.mixerno.space/youtube/searchchannel/${$('#usersearch').val()}`,
-        // Handle as Text
-        dataType: "text",
-        success: function (data) {
-          var json = $.parseJSON(data);
-          channelid = json.channelid
-          location.href = `${params[0]}?user=${channelid}`;
-        }
-      })
-    }
-    //location.href = params[0] + $('#country').val();;
-    $('#serch').click(function () {
-      searchchannel()
-
-    });
-  });
-</script>
-
+.tab button {
+  background-color: inherit;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+.tab button:hover {
+  background-color: #ddd;
+}
+.tab button.active {
+  background-color: #ccc;
+}
+.tabcontent {
+    text-align: center;
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  background-color: rgb(0, 71, 0);
+}
+    </style>
 </html>
