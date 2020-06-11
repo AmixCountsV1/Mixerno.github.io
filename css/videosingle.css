@@ -111,7 +111,7 @@ body {
     border-radius: 0px;
     border-color: rgb(255, 255, 255);
     padding: 20px;
-    height: 60px;
+    height: auto;
     width: 100%;
 
   }
