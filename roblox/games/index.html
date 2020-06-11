@@ -20,6 +20,8 @@
   <script type="text/javascript" src="../../jquery-3.1.1.min.js"></script>
   <script src="https://code.highcharts.com/highcharts.js"></script>
   <link rel="stylesheet" href="../../css/loadawesome.css" />
+  <link rel="stylesheet" href="../../bootstrap.css">
+  <script src="../../bootstrap.js"></script>
   <link rel="stylesheet" href="../../css/videosingle.css" />
   <!--<style>
     body {
@@ -227,7 +229,8 @@
     <div class="maincount">
       <input placeholder="Roblox game PlaceID (Found in the url)" type="text" style="width: 500px; font-size: 20px;" value="" id="usersearch"
         class="custominput"></input>
-      <button class="buton" style="font-size: 20px;" id="serch">Search</button>
+      <button class="buton" style="font-size: 20px;" id="serch">Search</button><br><br>
+      <button style="font-size: 20px;" class="buton" data-toggle="modal" data-target="#h2omoppitvinstv">Options</button>
     </div>
 
     <br>
@@ -237,10 +240,54 @@
     <br>
 
   </center>
+  <div class="modal fade" id="h2omoppitvinstv" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div style="color: white; background-color: black;" class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Options</h4>
+        </div>
+        <div style="color: white; background-color: black;" class="modal-body">
+          <p>Estimations (beta): <select id="estman" style="width: auto; color: white;background-color: black;">
+            <option value="s" selected>Select</option>
+            <option value="0">Disabled (default)</option>
+            <option value="1">Enabled</option>
+            
+          </select></p>
+        </div>
+        <div style="color: white; background-color: black;" class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal" id="save" onclick="checkstorage()">Save</button>
+        </div>
+      </div>
+      
+    </div>
 </head>
 
 
 <script type="text/javascript">
+//options start
+  function checkstorage() {
+    saveStyles()
+    console.log("Ok1")
+  }
+function saveStyles() {
+    if(document.getElementById("estman").value == "s") {
+        //non
+        console.log("Ok2")
+    } else {
+        localStorage.setItem('robloxgameest', document.getElementById("estman").value);
+        console.log("Ok3")
+    }
+    
+  
+    getStyles();
+}
+
+
+//options end
   jQuery.ajaxPrefilter(function (options) {
     if (options.crossDomain && jQuery.support.cors) {
       options.url = '' + options.url;
@@ -287,7 +334,7 @@
 
       series: [{
         showInLegend: false,
-        name: 'Visits',
+        name: 'Visits Estimated',
         marker: {
           enabled: false
         },
@@ -302,7 +349,13 @@
     }
 
     getuniversid()
-    
+    var visits = 0;
+    var visitsbefore = 0;
+    var som1;
+    var som1x = 0;
+    var estimatedvisit = 1;
+    var newerdate = new Date()
+    var olderdate = new Date()
 
 var universsiid = 0
     //
@@ -330,17 +383,45 @@ var universsiid = 0
           vidname.innerHTML = json.data[0].name
          // like.innerHTML = json.data[0]
          // dislike.innerHTML = json.data[0]
-         view.innerHTML = json.data[0].visits
+         
+         visits = json.data[0].visits
+
+         if(visits > visitsbefore) {
+           newerdate = new Date()
+
+           som1 = newerdate.getTime() - olderdate.getTime()
+           som1x = som1 / 1000
+           newerdate = new Date()
+           estimatedvisit = visits + som1x
+           visitsbefore = visits;
+         }
+         estimatedvisit = estimatedvisit + som1x
+         //view.innerHTML = json.data[0].visits
+         
+         console.log(estimatedvisit)
          // $("#image").attr('src', `${json.data[0]}`);
 
           //plsworkgraph = json.subscribers.replace(/""/, "");
-          stuff.series[0].addPoint([
+          if(localStorage.getItem('robloxgameest') == "1") {
+            view.innerHTML = Math.floor(estimatedvisit)
+            stuff.series[0].addPoint([
             (new Date()).getTime(),
-            parseFloat(json.data[0].visits)
+            parseFloat(Math.floor(estimatedvisit))
           ]);
           if (stuff.series[0].data.length >= 700) {
             stuff.series[0].data[0].remove()
           }
+          } else {
+            view.innerHTML = visits
+            stuff.series[0].addPoint([
+            (new Date()).getTime(),
+            parseFloat(visits)
+          ]);
+          if (stuff.series[0].data.length >= 700) {
+            stuff.series[0].data[0].remove()
+          }
+          }
+          
         }
       })
       $.ajax({
