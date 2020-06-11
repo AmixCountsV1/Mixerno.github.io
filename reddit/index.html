@@ -1,0 +1,371 @@
+<!--Yo man. Dont kill me with my bad coding lmao.-->
+<html>
+
+<head>
+  <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KX5SBG9"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <title>Mixerno.space</title>
+  <link rel="shortcut icon"
+    href="https://yt3.ggpht.com/a-/AOh14GhVWagi88Rfs6XXerg3-3PR4RPHYcolFIrYXZ4_=s288-c-k-c0xffffffff-no-rj-mo">
+    <meta charset="UTF-8">
+    <meta name="description" content="Another counter site. but its green-gray">
+    <meta name="keywords" content="green, gray, mixerno.space">
+    <meta name="author" content="Mixerno">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../o2.css" />
+  <!--<link rel="stylesheet" href="counters/estimation.css">-->
+  <script src="../odometer.js"></script>
+  <script type="text/javascript" src="../jquery-3.1.1.min.js"></script>
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <link rel="stylesheet" href="../css/loadawesome.css" />
+  <link rel="stylesheet" href="../bootstrap.css">
+  <script src="../bootstrap.js"></script>
+  <link rel="stylesheet" href="../css/reddit.css" />
+  <!--<style>
+    body {
+      margin: 0;
+    }
+
+    ::-webkit-scrollbar {
+      width: 5px;
+    }
+
+
+    ::-webkit-scrollbar-track {
+      background: #ffffff;
+    }
+
+
+    ::-webkit-scrollbar-thumb {
+      background: rgb(0, 0, 0);
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgb(0, 0, 0);
+    }
+
+    .buton {
+      background-color: rgb(0, 0, 0);
+      border: none;
+      color: rgb(255, 255, 255);
+      padding: 2.5px 5px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 14px;
+      margin: 0px 0px;
+      cursor: pointer;
+    }
+
+    input[type=text],
+    select {
+      width: 10%;
+      padding: 2.5px 5px;
+      margin: 0px 0;
+      display: inline-block;
+      color: rgb(255, 255, 255);
+      background-color: rgb(0, 0, 0);
+      border: 1px solid rgb(255, 255, 255);
+      border-radius: 1px;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: rgb(0, 99, 0);
+      color: rgb(255, 255, 255);
+      font-family: Arial
+    }
+
+    a:link {
+      color: white;
+    }
+
+    a:visited {
+      color: white;
+    }
+
+    a:hover {
+      color: rgb(255, 255, 255);
+    }
+
+    a:focus {
+      color: rgb(255, 255, 255);
+    }
+
+    a:active {
+      color: white;
+    }
+
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      width: 12.5%;
+      background-color: #000000;
+      position: fixed;
+      height: 100%;
+      overflow: auto;
+    }
+
+    .maincount {
+      border-style: solid;
+      border-radius: 0px;
+      border-color: rgb(255, 255, 255);
+      padding: 20px;
+      background: rgb(37, 37, 37);
+      width: auto;
+      height: auto;
+      margin-left: 13.5%;
+      margin-right: 1%;
+    }
+    .marg {
+      margin-left: 13.5%;
+      margin-right: 1%;
+    }
+    .backg {
+      background: rgb(37, 37, 37);
+      border-style: solid;
+      border-radius: 0px;
+      border-color: rgb(255, 255, 255);
+      padding: 20px;
+      height: 60px;
+      width: 100%;
+
+    }
+    .row {
+      display: flex;
+      flex-direction: row;
+      margin-left: 0;
+      margin-right: 0;
+      justify-content: space-around;
+      flex: 4;
+    }
+
+    li a {
+      display: block;
+      color: #000;
+      padding: 8px 16px;
+      text-decoration: none;
+    }
+
+    li a.active {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    li a:hover:not(.active) {
+      background-color: #555;
+      color: white;
+    }
+  </style>-->
+  <script>
+    $(window).on("load", function () {
+      $(".loader-wrapper").fadeOut("slow");
+    });
+  </script>
+  <ul>
+    <li>
+      <li>
+      <a  href="https://discord.gg/KAB6222">Discord Server</a>
+      <a href="https://twitter.com/@MixernoSpace">Our twitter</a>
+      <a href="../">Other counters</a>
+    </li>
+    </li>
+    <br>
+  </ul>
+  <div class="loader-wrapper">
+    <div class="la-ball-fussion">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  <br>
+  <center>
+    <div class="maincount">
+        <br>
+        <div class="row2">
+        <div>
+      <div style="font-size: 60px;" id="vidname" class="nameee textlmao ">Loading</div>
+      <div class="odometer" style="font-size: 60px;" id="view">0</div>
+      <div><strong>Upvotes</strong></div>
+    </div>
+    </div>
+      <br>
+      <div class="">
+        <div id="graph"></div>
+      </div>
+    </div>
+    <br>
+    <div class="marg">
+      <div class="row">
+        <div class="backg">
+          <div class="odometer"style="font-size: 30px;" id="comms">0</div>
+          <div>Comments</div>
+        </div>
+          <br>
+      <div class="backg">
+        <div style="font-size: 30px;" id="nane">0</div>
+        <div>Subreddit name</div>
+      </div>
+        <br>
+        <div class="backg">
+        <div class="odometer"style="font-size: 30px;" id="subs">0</div>
+        <div>Subreddit subscribers</div>
+      </div>
+      </div>
+    </div>
+    <br>
+    <div class="maincount">
+      <input placeholder="Reddit post's url please?" type="text" style="width: 500px; font-size: 20px;" value="" id="usersearch"
+        class="custominput"></input>
+      <button class="buton" style="font-size: 20px;" id="serch">Search</button><br><br>
+      <button style="font-size: 20px;" class="buton" data-toggle="modal" data-target="#h2omoppitvinstv">Options</button>
+    </div>
+
+    <br>
+    <br>
+
+    <br>
+    <br>
+
+  </center>
+</head>
+
+
+<script type="text/javascript">
+
+  jQuery.ajaxPrefilter(function (options) {
+    if (options.crossDomain && jQuery.support.cors) {
+      options.url = '' + options.url;
+
+    }
+  });
+  $(document).ready(function () {
+    //var key = ""
+    var key = "https://cors.mixerno.space/"
+    var videostufflol = window.location.href;
+    var params = videostufflol.split('?part=');
+    var stuff = new Highcharts.chart('graph', {
+      chart: {
+        backgroundColor: 'transparent',
+        renderTo: graph,
+        type: 'spline'
+      },
+      title: {
+        text: ``
+      },
+      xAxis: {
+        type: 'datetime',
+        tickPixelInterval: 500
+      },
+      yAxis: {
+        title: {
+          text: ''
+        },
+        gridLineColor: "#53adcb",
+        labels: {
+          style: {
+            color: "#53adcb"
+          }
+        },
+        lineColor: "#53adcb",
+        minorGridLineColor: "#53adcb",
+        tickColor: "#53adcb"
+      },
+
+      credits: {
+        enabled: false,
+        text: "Mixerno.space"
+      },
+
+      series: [{
+        showInLegend: false,
+        name: 'Upvotes',
+        marker: {
+          enabled: false
+        },
+        color: '#53adcb',
+        lineColor: '#53adcb'
+
+      }]
+    })
+    var channelid = params[1];
+    var channelid1x = params[2];
+    var channelid1xx = params[3];
+    if (params[1] == undefined) {
+      channelid = "r/roblox"
+    }
+    else {
+      channelid = channelid.replace(/%/g, "/");
+    }
+    if (params[2] == undefined) {
+      channelid1x = "h1521s"
+    }
+    if (params[3] == undefined) {
+      channelid1xx = "arsenal_is_about_to_hit_1_billion_visits_and"
+    }
+
+    channelstatistics()
+    function channelstatistics() {
+    
+      $.ajax({
+        url: `${key}https://www.reddit.com/${channelid}/comments/${channelid1x}/${channelid1xx}/.json?limit=1`,
+        // Handle as Text
+        dataType: "text",
+        success: function (data) {
+          var json = $.parseJSON(data);
+          console.log(json[0])
+          comms.innerHTML = json[0].data.children[0].data.num_comments
+          view.innerHTML = json[0].data.children[0].data.ups
+          vidname.innerHTML = json[0].data.children[0].data.title
+          subs.innerHTML = json[0].data.children[0].data.subreddit_subscribers
+          nane.innerHTML = json[0].data.children[0].data.subreddit
+         // like.innerHTML = json.data[0]
+         // dislike.innerHTML = json.data[0]
+         /*subs nane comms view*/
+
+         //view.innerHTML = json.data[0].visits
+         // $("#image").attr('src', `${json.data[0]}`);
+         
+
+          //plsworkgraph = json.subscribers.replace(/""/, "");
+          stuff.series[0].addPoint([
+            (new Date()).getTime(),
+            parseFloat(json[0].data.children[0].data.ups)
+          ]);
+          if (stuff.series[0].data.length >= 700) {
+            stuff.series[0].data[0].remove()
+          }
+          
+          
+        }
+      })
+    };
+    setInterval(channelstatistics, 4000);
+
+    //location.href = params[0] + $('#country').val();;
+    $('#usersearch').on('keyup', function (e) {
+      if (e.keyCode === 13) {
+        $('#serch').click();
+      }
+    });
+    function searchchannel() {
+      var splot = $('#usersearch').val().split('/')
+        location.href = `${params[0]}?part=${splot[3]}%${splot[4]}?part=${splot[6]}?part=${splot[7]}`;
+
+      
+    }
+    //location.href = params[0] + $('#country').val();;
+    $('#serch').click(function () {
+      searchchannel()
+
+    });
+  });
+</script>
+
+
+</html>
