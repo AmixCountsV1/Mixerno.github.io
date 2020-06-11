@@ -388,11 +388,10 @@ var universsiid = 0
 
          if(visits > visitsbefore) {
            newerdate = new Date()
-
            som1 = newerdate.getTime() - olderdate.getTime()
            som1x = som1 / 1000
            newerdate = new Date()
-           estimatedvisit = visits + som1x
+           estimatedvisit = visits
            visitsbefore = visits;
          }
          estimatedvisit = estimatedvisit + som1x
@@ -473,6 +472,9 @@ var universsiid = 0
       })
     };
     setInterval(channelstatistics, 4000);
+    setInterval(function() {
+
+    }, 360000);
 
     //location.href = params[0] + $('#country').val();;
     $('#usersearch').on('keyup', function (e) {
