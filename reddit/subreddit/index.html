@@ -14,15 +14,15 @@
     <meta name="keywords" content="green, gray, mixerno.space">
     <meta name="author" content="Mixerno">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../o2.css" />
+  <link rel="stylesheet" href="../../o2.css" />
   <!--<link rel="stylesheet" href="counters/estimation.css">-->
-  <script src="../odometer.js"></script>
-  <script type="text/javascript" src="../jquery-3.1.1.min.js"></script>
+  <script src="../../odometer.js"></script>
+  <script type="text/javascript" src="../../jquery-3.1.1.min.js"></script>
   <script src="https://code.highcharts.com/highcharts.js"></script>
-  <link rel="stylesheet" href="../css/loadawesome.css" />
-  <link rel="stylesheet" href="../bootstrap.css">
-  <script src="../bootstrap.js"></script>
-  <link rel="stylesheet" href="../css/reddit.css" />
+  <link rel="stylesheet" href="../../css/loadawesome.css" />
+  <link rel="stylesheet" href="../../bootstrap.css">
+  <script src="../../bootstrap.js"></script>
+  <link rel="stylesheet" href="../../css/reddit.css" />
   <!--<style>
     body {
       margin: 0;
@@ -170,7 +170,7 @@
       <li>
       <a  href="https://discord.gg/KAB6222">Discord Server</a>
       <a href="https://twitter.com/@MixernoSpace">Our twitter</a>
-      <a href="../">Other counters</a>
+      <a href="../../">Other counters</a>
     </li>
     </li>
     <br>
@@ -189,9 +189,9 @@
         <br>
         <div class="">
         <div>
-      <div style="font-size: 60px;" id="vidname" class="nameee textlmao ">Loading</div>
-      <div class="odometer" style="font-size: 60px;" id="view">0</div>
-      <div><strong>Upvotes</strong></div>
+      <div style="font-size: 60px;" id="nane" class="nameee textlmao ">Subreddit name</div>
+      <div class="odometer" style="font-size: 60px;" id="subs">0</div>
+      <div><strong>Subreddit subscribers</strong></div>
     </div>
     </div>
       <br>
@@ -200,27 +200,8 @@
       </div>
     </div>
     <br>
-    <div class="marg">
-      <div class="row">
-        <div class="backg">
-          <div class="odometer"style="font-size: 30px;" id="comms">0</div>
-          <div>Comments</div>
-        </div>
-          <br>
-      <div class="backg">
-        <div style="font-size: 30px;" id="nane">0</div>
-        <div>Subreddit name</div>
-      </div>
-        <br>
-        <div class="backg">
-        <div class="odometer"style="font-size: 30px;" id="subs">0</div>
-        <div>Subreddit subscribers</div>
-      </div>
-      </div>
-    </div>
-    <br>
     <div class="maincount">
-      <input placeholder="Reddit post's url please?" type="text" style="width: 500px; font-size: 20px;" value="" id="usersearch"
+      <input placeholder="Reddit subreddit's url please?" type="text" style="width: 500px; font-size: 20px;" value="" id="usersearch"
         class="custominput"></input>
       <button class="buton" style="font-size: 20px;" id="serch">Search</button><br><br>
       <button style="font-size: 20px;" class="buton" data-toggle="modal" data-target="#h2omoppitvinstv">Options</button>
@@ -284,7 +265,7 @@
 
       series: [{
         showInLegend: false,
-        name: 'Upvotes',
+        name: 'Subscribers',
         marker: {
           enabled: false
         },
@@ -302,28 +283,19 @@
     else {
       channelid = channelid.replace(/%/g, "/");
     }
-    if (params[2] == undefined) {
-      channelid1x = "h1521s"
-    }
-    if (params[3] == undefined) {
-      channelid1xx = "arsenal_is_about_to_hit_1_billion_visits_and"
-    }
 
     channelstatistics()
     function channelstatistics() {
     
       $.ajax({
-        url: `${key}https://www.reddit.com/${channelid}/comments/${channelid1x}/${channelid1xx}/.json?limit=1`,
+        url: `${key}https://www.reddit.com/${channelid}/.json?limit=1`,
         // Handle as Text
         dataType: "text",
         success: function (data) {
           var json = $.parseJSON(data);
-          console.log(json[0])
-          comms.innerHTML = json[0].data.children[0].data.num_comments
-          view.innerHTML = json[0].data.children[0].data.ups
-          vidname.innerHTML = json[0].data.children[0].data.title
-          subs.innerHTML = json[0].data.children[0].data.subreddit_subscribers
-          nane.innerHTML = json[0].data.children[0].data.subreddit
+          console.log(json.data)
+          subs.innerHTML = json.data.children[0].data.subreddit_subscribers
+          nane.innerHTML = json.data.children[0].data.subreddit
          // like.innerHTML = json.data[0]
          // dislike.innerHTML = json.data[0]
          /*subs nane comms view*/
@@ -335,7 +307,7 @@
           //plsworkgraph = json.subscribers.replace(/""/, "");
           stuff.series[0].addPoint([
             (new Date()).getTime(),
-            parseFloat(json[0].data.children[0].data.ups)
+            parseFloat(json.data.children[0].data.subreddit_subscribers)
           ]);
           if (stuff.series[0].data.length >= 700) {
             stuff.series[0].data[0].remove()
@@ -355,7 +327,7 @@
     });
     function searchchannel() {
       var splot = $('#usersearch').val().split('/')
-        location.href = `${params[0]}?part=${splot[3]}%${splot[4]}?part=${splot[6]}?part=${splot[7]}`;
+        location.href = `${params[0]}?part=${splot[3]}%${splot[4]}`;
 
       
     }
