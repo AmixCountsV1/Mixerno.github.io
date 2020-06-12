@@ -334,7 +334,7 @@ function saveStyles() {
 
       series: [{
         showInLegend: false,
-        name: 'Visits Estimated',
+        name: 'Visits',
         marker: {
           enabled: false
         },
@@ -356,6 +356,7 @@ function saveStyles() {
     var estimatedvisit = 1;
     var newerdate = new Date()
     var olderdate = new Date()
+    var time = 0;
 
 var universsiid = 0
     //
@@ -367,7 +368,69 @@ var universsiid = 0
         success: function (data) {
           var json = $.parseJSON(data);
           universsiid = json.universeId
-          channelstatistics()
+          $.ajax({
+        url: `${key}https://games.roblox.com/v1/games?universeIds=${universsiid}`,
+        // Handle as Text
+        dataType: "text",
+        success: function (data) {
+          var json = $.parseJSON(data);
+          comment.innerHTML = json.data[0].playing
+          vidname.innerHTML = json.data[0].name
+         // like.innerHTML = json.data[0]
+         // dislike.innerHTML = json.data[0]
+        
+         visits = json.data[0].visits
+         view.innerHTML = visits
+          
+        }
+      })
+      $.ajax({
+        url: `${key}https://games.roblox.com/v1/games/votes?universeIds=${universsiid}`,
+        // Handle as Text
+        dataType: "text",
+        success: function (data) {
+          var json = $.parseJSON(data);
+          //view.innerHTML = json.data[0].playing
+          //vidname.innerHTML = json.data[0].name
+          like.innerHTML = json.data[0].upVotes
+          dislike.innerHTML = json.data[0].downVotes
+          //comment.innerHTML = json.data[0].visits
+         // $("#image").attr('src', `${json.data[0]}`);
+
+          //plsworkgraph = json.subscribers.replace(/""/, "");
+        }
+      })
+      $.ajax({
+        url: `${key}https://games.roblox.com/v1/games/${universsiid}/favorites/count`,
+        // Handle as Text
+        dataType: "text",
+        success: function (data) {
+          var json = $.parseJSON(data);
+          //view.innerHTML = json.data[0].playing
+          //vidname.innerHTML = json.data[0].name
+          favourite.innerHTML = json.favoritesCount
+          //comment.innerHTML = json.data[0].visits
+         // $("#image").attr('src', `${json.data[0]}`);
+
+          //plsworkgraph = json.subscribers.replace(/""/, "");
+        }
+      })
+      $.ajax({
+        url: `${key}https://thumbnails.roblox.com/v1/games/multiget/thumbnails?universeIds=${universsiid}&size=768x432&format=Png&isCircular=false`,
+        // Handle as Text
+        dataType: "text",
+        success: function (data) {
+          var json = $.parseJSON(data);
+          //view.innerHTML = json.data[0].playing
+          //vidname.innerHTML = json.data[0].name
+          //like.innerHTML = json.data[0].upVotes
+          //dislike.innerHTML = json.data[0].downVotes
+          //comment.innerHTML = json.data[0].visits
+          $("#image").attr('src', `${json.data[0].thumbnails[0].imageUrl}`);
+
+          //plsworkgraph = json.subscribers.replace(/""/, "");
+        }
+      })
         }
       })
     }
@@ -385,25 +448,31 @@ var universsiid = 0
          // dislike.innerHTML = json.data[0]
          
          visits = json.data[0].visits
-
-         if(visits > visitsbefore) {
+          
+          if(time > 0) {
+            if(visits > visitsbefore) {
            newerdate = new Date()
-           som1 = newerdate.getTime() - olderdate.getTime()
-           som1x = som1 / 1000 * 2
+           som1 = visits - visitsbefore
+
+           som1x = som1 / 60 * 2
            olderdate = new Date()
            estimatedvisit = visits
            visitsbefore = visits;
          }
+          }
+        
          estimatedvisit = estimatedvisit + som1x
          //view.innerHTML = json.data[0].visits
-         
+         visitsbefore = visits;
+         time++
          console.log(estimatedvisit + ' | Currently')
          console.log(som1x + ' | Gain')
          // $("#image").attr('src', `${json.data[0]}`);
 
           //plsworkgraph = json.subscribers.replace(/""/, "");
           if(localStorage.getItem('robloxgameest') == "1") {
-            view.innerHTML = Math.floor(estimatedvisit)
+            if(estimatedvisit > 2) {
+              view.innerHTML = Math.floor(estimatedvisit)
             stuff.series[0].addPoint([
             (new Date()).getTime(),
             parseFloat(Math.floor(estimatedvisit))
@@ -411,6 +480,8 @@ var universsiid = 0
           if (stuff.series[0].data.length >= 700) {
             stuff.series[0].data[0].remove()
           }
+            }
+            
           } else {
             view.innerHTML = visits
             stuff.series[0].addPoint([
@@ -473,9 +544,7 @@ var universsiid = 0
       })
     };
     setInterval(channelstatistics, 4000);
-    setInterval(function() {
 
-    }, 360000);
 
     //location.href = params[0] + $('#country').val();;
     $('#usersearch').on('keyup', function (e) {
