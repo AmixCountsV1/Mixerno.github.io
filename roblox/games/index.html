@@ -390,14 +390,15 @@ var universsiid = 0
            newerdate = new Date()
            som1 = newerdate.getTime() - olderdate.getTime()
            som1x = som1 / 1000 * 0.5
-           newerdate = new Date()
+           olderdate = new Date()
            estimatedvisit = visits
            visitsbefore = visits;
          }
          estimatedvisit = estimatedvisit + som1x
          //view.innerHTML = json.data[0].visits
          
-         console.log(estimatedvisit)
+         console.log(estimatedvisit + ' | Currently')
+         console.log(som1x + ' | Gain')
          // $("#image").attr('src', `${json.data[0]}`);
 
           //plsworkgraph = json.subscribers.replace(/""/, "");
