@@ -223,6 +223,11 @@
         <div class="odometer"style="font-size: 30px;" id="comment">0</div>
         <div>Playing</div>
       </div>
+      <br>
+        <div class="backg">
+        <div class="odometer"style="font-size: 30px;" id="gool">0</div>
+        <div>Goal</div>
+      </div>
       </div>
     </div>
     <br>
@@ -434,6 +439,7 @@ var universsiid = 0
         }
       })
     }
+    function goil(count) {if (count < 10) return 10;var do1 = Math.floor(Math.log10(count));var do2 = Math.ceil(count / 10**do1);var do3 = do2 * 10**do1;return do3 - count;}
     function channelstatistics() {
 
       $.ajax({
@@ -473,6 +479,7 @@ var universsiid = 0
           if(localStorage.getItem('robloxgameest') == "1") {
             if(estimatedvisit > 2) {
               view.innerHTML = Math.floor(estimatedvisit)
+              gool.innerHTML = goil(Math.floor(estimatedvisit))
             stuff.series[0].addPoint([
             (new Date()).getTime(),
             parseFloat(Math.floor(estimatedvisit))
@@ -484,6 +491,7 @@ var universsiid = 0
             
           } else {
             view.innerHTML = visits
+            gool.innerHTML = goil(visits)
             stuff.series[0].addPoint([
             (new Date()).getTime(),
             parseFloat(visits)
