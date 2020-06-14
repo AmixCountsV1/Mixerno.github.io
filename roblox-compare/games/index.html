@@ -5,7 +5,7 @@
   
   <title>Mixerno.space</title>
   <link rel="shortcut icon"
-    href="https://yt3.ggpht.com/a-/AOh14GhVWagi88Rfs6XXerg3-3PR4RPHYcolFIrYXZ4_=s288-c-k-c0xffffffff-no-rj-mo">
+    href="https://mixerno.space/icons/2.png">
   <link rel="stylesheet" href="../../o2.css" />
   <meta charset="UTF-8">
   <meta name="description" content="Still. Does it need to look so 'Beautiful' to be good?">
@@ -180,7 +180,7 @@
       <img id="image" style="border-radius: 0%;"
         src="https://via.placeholder.com/130/585858/FFFFFF/?text=Mixerno.space" height="90" width="160">
       <div style="font-size: 60px;" id="vidname" class="nameee">Mixerno.space</div>
-      <div class="odometer" style="font-size: 60px;" id="ytsubs">0</div>
+      <div class="odometer" style="font-size: 60px;" id="view">0</div>
       <div><strong>Visits</strong></div>
     </div>
     <br>
@@ -188,7 +188,7 @@
         <img id="image2" style="border-radius: 0%;"
           src="https://via.placeholder.com/130/585858/FFFFFF/?text=Mixerno.space" height="90" width="160">
         <div style="font-size: 60px;" id="vidname2" class="nameee">Mixerno.space</div>
-        <div class="odometer" style="font-size: 60px;" id="ytsubs2">0</div>
+        <div class="odometer" style="font-size: 60px;" id="view2">0</div>
         <div><strong>Visits</strong></div>
       </div>
     </div>
@@ -255,6 +255,12 @@
             <option value="s2">2 seconds (original)</option>
             <option value="s3">3 seconds</option>
             <option value="s4">4 seconds</option>
+          </select></p><br>
+          <p>Estimations (beta): <select id="estman" style="width: auto; color: white;background-color: black;">
+            <option value="sss" selected>Select</option>
+            <option value="0">Disabled (default)</option>
+            <option value="1">Enabled</option>
+
           </select></p>
         </div>
         <div style="color: white; background-color: black;" class="modal-footer">
@@ -269,6 +275,26 @@
 
 
 <script type="text/javascript">
+ //options start
+ function checkstorage() {
+    saveStyles()
+    console.log("Ok1")
+  }
+  function saveStyles() {
+    if (document.getElementById("estman").value == "s") {
+      //non
+      console.log("Ok2")
+    } else {
+      localStorage.setItem('robloxgameest', document.getElementById("estman").value);
+      console.log("Ok3")
+    }
+
+
+    getStyles();
+  }
+
+
+  //options end
 //theme start
 getStyles()
   function checkstorage() {
@@ -289,6 +315,13 @@ function saveStyles() {
     } else {
         localStorage.setItem('odospeed', document.getElementById("odospeed").value);
         console.log("Ok5")
+    }
+    if (document.getElementById("estman").value == "sss") {
+      //non
+      console.log("Ok2")
+    } else {
+      localStorage.setItem('robloxgameest', document.getElementById("estman").value);
+      console.log("Ok3")
     }
     
   
@@ -363,8 +396,8 @@ function getStyles() {
     }
   });
   $(document).ready(function () {
-    var key = "https://cors.mixerno.space/"
-    //var key = "";
+    //var key = "https://cors.mixerno.space/"
+    var key = "";
     var videostufflol = window.location.href;
     var params = videostufflol.split('?user=');
     var stuff = new Highcharts.chart('graph', {
@@ -428,7 +461,22 @@ function getStyles() {
     }
 
     getuniversid()
-    
+    var visits = 0;
+    var visitsbefore = 0;
+    var som1;
+    var som1x = 0;
+    var estimatedvisit = 1;
+    var newerdate = new Date()
+    var olderdate = new Date()
+    var time = 0;
+    var visits2 = 0;
+    var visitsbefore2 = 0;
+    var som12;
+    var som1x2 = 0;
+    var estimatedvisit2 = 1;
+    var newerdate2 = new Date()
+    var olderdate2 = new Date()
+    var time2 = 0;
 
     var universsiid = 0
     var universsiid2 = 0
@@ -467,11 +515,38 @@ function getStyles() {
               vidname.innerHTML = json.data[0].name
              // like.innerHTML = json.data[0]
              // dislike.innerHTML = json.data[0]
-             ytsubs.innerHTML = json.data[0].visits
              // $("#image").attr('src', `${json.data[0]}`);
-    
+             visits = json.data[0].visits
+             if (time > 0) {
+            if (visits > visitsbefore) {
+              newerdate = new Date()
+              som1 = visits - visitsbefore
+
+              som1x = som1 / 60 * 4
+              olderdate = new Date()
+              estimatedvisit = visits
+              visitsbefore = visits;
+            }
+          }
+
+          estimatedvisit = estimatedvisit + som1x
+          //view.innerHTML = json.data[0].visits
+          visitsbefore = visits;
+          time++
+          console.log(estimatedvisit + ' | Currently')
+          console.log(som1x + ' | Gain')
+          if (localStorage.getItem('robloxgameest') == "1") {
+            if (estimatedvisit > 2) {
+              view.innerHTML = Math.floor(estimatedvisit)
+              count1 = Math.floor(estimatedvisit)
+            }
+
+          } else {
+            view.innerHTML = visits
+            count1 = visits
+          }
               //plsworkgraph = json.subscribers.replace(/""/, "");
-              count1 = json.data[0].visits
+
               channelstatistics2()
             }
           })
@@ -501,13 +576,37 @@ function getStyles() {
       success: function (data) {
         var json = $.parseJSON(data);
         vidname2.innerHTML = json.data[0].name
+        visits2 = json.data[0].visits
        // like.innerHTML = json.data[0]
        // dislike.innerHTML = json.data[0]
-       ytsubs2.innerHTML = json.data[0].visits
-       // $("#image").attr('src', `${json.data[0]}`);
+       if (time2 > 0) {
+            if (visits2 > visitsbefore2) {
+              newerdate2 = new Date()
+              som12 = visits2 - visitsbefore2
 
-        //plsworkgraph = json.subscribers.replace(/""/, "");
-        count2 = json.data[0].visits
+              som1x2 = som12 / 60 * 4
+              olderdate2 = new Date()
+              estimatedvisit2 = visits2
+              visitsbefore2 = visits2;
+            }
+          }
+
+          estimatedvisit2 = estimatedvisit2 + som1x2
+          //view.innerHTML = json.data[0].visits
+          visitsbefore2 = visits2;
+          time2++
+          console.log(estimatedvisit2 + ' | Currently2')
+          console.log(som1x2 + ' | Gain2')
+          if (localStorage.getItem('robloxgameest') == "1") {
+            if (estimatedvisit2 > 2) {
+              view2.innerHTML = Math.floor(estimatedvisit2)
+              count2 = Math.floor(estimatedvisit2)
+            }
+
+          } else {
+            view.innerHTML = visits2
+            count2 = visits2
+          }
         dif.innerHTML = count1 - count2
           stuff.series[0].addPoint([
             (new Date()).getTime(),
