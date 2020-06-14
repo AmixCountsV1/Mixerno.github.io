@@ -186,7 +186,7 @@
     <div class="maincount">
       <img id="image" style="border-radius: 50%;"
         src="https://via.placeholder.com/130/585858/FFFFFF/?text=Mixerno.space" height="130" width="130">
-      <div style="font-size: 60px;" id="ytname" class="nameee">Mixerno.space</div>
+      <div style="font-size: 60px;" id="ytname" class="textlmao">Loading.</div>
       <div class="odometer" style="font-size: 60px;" id="ytsubs">0</div>
       <div><strong>Subscribers</strong></div>
       <br>
@@ -197,23 +197,24 @@
     <br>
     <div class="marg">
       <div class="row">
-      <div class="backg">
-        <div class="odometer"style="font-size: 30px;" id="totalviews">0</div>
+      <div class="backg textlmao">
+        <div class="odometer" id="totalviews">0</div>
         <div>Total Views</div>
       </div>
         <br>
-        <div class="backg">
-        <div class="odometer"style="font-size: 30px;" id="videos">0</div>
+        <div class="backg textlmao">
+        <div class="odometer" id="videos">0</div>
         <div>Videos</div>
       </div>
       </div>
     </div>
     <br>
     <div class="maincount">
-      <input placeholder="Youtube username" type="text" style="width: 500px; font-size: 20px;" value="" id="usersearch"
-        class="custominput"></input>
-      <button class="buton" style="font-size: 20px;" id="serch">Search</button><br><br>
-      <button style="font-size: 20px;" class="buton" data-toggle="modal" data-target="#hf">Customize</button>
+      <input placeholder="" type="text" value="" id="usersearch"
+        class="custominput textlmao2"></input><br><br>
+      <button class="buton textlmao3" id="serch">Search using Channel name</button>
+      <button class="buton textlmao3" id="serchx">Search using Channel ID</button><br><br>
+      <button class="buton textlmao3" data-toggle="modal" data-target="#hf">Customize</button>
     </div>
     
 
@@ -488,6 +489,20 @@ testlocal()
     //location.href = params[0] + $('#country').val();;
     $('#serch').click(function () {
       searchchannel()
+
+    });
+    //lool
+    $('#usersearchx').on('keyup', function (e) {
+      if (e.keyCode === 13) {
+        $('#serchx').click();
+      }
+    });
+    function searchchannelx() {
+      location.href = `${params[0]}?user=${$('#usersearchx').val()}`;
+    }
+    //location.href = params[0] + $('#country').val();;
+    $('#serch').click(function () {
+      searchchannelx()
 
     });
   });

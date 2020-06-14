@@ -179,7 +179,7 @@
       <div>
       <img id="image" style="border-radius: 50%;"
         src="https://via.placeholder.com/130/585858/FFFFFF/?text=Mixerno.space" height="130" width="130">
-      <div style="font-size: 60px;" id="ytname" class="nameee">Mixerno.space</div>
+      <div  id="ytname" class=" textlmao">Mixerno.space</div>
       <div class="odometer" style="font-size: 60px;" id="ytsubs">0</div>
       <div><strong>Followers</strong></div>
     </div>
@@ -187,7 +187,7 @@
       <div>
         <img id="image2" style="border-radius: 50%;"
           src="https://via.placeholder.com/130/585858/FFFFFF/?text=Mixerno.space" height="130" width="130">
-        <div style="font-size: 60px;" id="ytname2" class="nameee">Mixerno.space</div>
+        <div  id="ytname2" class=" textlmao">Mixerno.space</div>
         <div class="odometer" style="font-size: 60px;" id="ytsubs2">0</div>
         <div><strong>Followers</strong></div>
       </div>
@@ -205,16 +205,16 @@
     <div class="maincount">
       <div class="row">
       <div>
-        <input placeholder="StoryFire user key (found in url)" type="text" style="width: 500px; font-size: 20px;" value="" id="usersearch" class="custominput"></input>
-  <button class="buton" style="font-size: 20px;" id="serch">Search</button>
+        <input placeholder="storyfire.com/user/" type="text"  value="" id="usersearch" class="custominput  textlmao2"></input>
+  <button class="buton textlmao3"  id="serch">Search</button>
 </div>
 <br>
 <div>
-  <input placeholder="StoryFire user key (found in url)" type="text" style="width: 500px; font-size: 20px;" value="" id="usersearch2" class="custominput"></input>
-<button class="buton" style="font-size: 20px;" id="serch2">Search</button>
+  <input placeholder="storyfire.com/user/" type="text"  value="" id="usersearch2" class="custominput textlmao2"></input>
+<button class="buton textlmao3"  id="serch2">Search</button>
 </div>
 </div>
-<button style="font-size: 20px;" class="buton" data-toggle="modal" data-target="#hf">Customize</button>
+<button  class="buton textlmao3" data-toggle="modal" data-target="#hf">Customize</button>
     </div>
     
     <br>
@@ -378,18 +378,18 @@ function getStyles() {
       },
       xAxis: {
         type: 'datetime',
-        tickPixelInterval: 500
+        tickPixelInterval: 500,
+        labels: {
+          style: {
+            color: "#FFFFFF"
+          }
+        }
       },
       yAxis: {
         title: {
           text: ''
         },
-        gridLineColor: "#53adcb",
-        labels: {
-          style: {
-            color: "#53adcb"
-          }
-        },
+        
         lineColor: "#53adcb",
         minorGridLineColor: "#53adcb",
         tickColor: "#53adcb"
@@ -402,7 +402,7 @@ function getStyles() {
 
       series: [{
         showInLegend: false,
-        name: 'Follower diffrence',
+        name: 'Subscriber Diffrence',
         marker: {
           enabled: false
         },
