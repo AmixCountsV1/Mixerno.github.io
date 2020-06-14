@@ -97,10 +97,14 @@ body {
     margin-right: 1%;
   }
   .textlmao {
-    width: 100%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis
+    font-size: 32px;
+    font-size: 2vw;
+  }
+  .textlmao2 {
+    width: 4vw;
+  }
+  .textlmao3 {
+    width: 10vw;
   }
   .marg {
     margin-left: 13.5%;
@@ -116,6 +120,7 @@ body {
     width: 100%;
 
   }
+  
   .row {
     display: flex;
     flex-direction: row;

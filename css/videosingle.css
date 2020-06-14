@@ -96,8 +96,14 @@ body {
     margin-right: 1%;
   }
   .textlmao {
-    font-size: 16px;
+    font-size: 32px;
     font-size: 2vw;
+  }
+  .textlmao2 {
+    width: 4vw;
+  }
+  .textlmao3 {
+    width: 10vw;
   }
   .marg {
     margin-left: 13.5%;

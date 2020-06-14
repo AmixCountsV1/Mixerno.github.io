@@ -36,7 +36,6 @@ body {
 
     input[type=text],
     select {
-      width: 10%;
       padding: 2.5px 5px;
       margin: 0px 0;
       display: inline-block;
@@ -92,6 +91,19 @@ body {
       height: auto;
       margin-left: 13.5%;
       margin-right: 1%;
+    }
+    .textlmao {
+      font-size: 32px;
+      font-size: 2vw;
+    }
+    .textlmao2 {
+      width: 8vw;
+    }
+    .textlmao22 {
+      width: 8vw;
+    }
+    .textlmao3 {
+      width: 6vw;
     }
 
     li a {
