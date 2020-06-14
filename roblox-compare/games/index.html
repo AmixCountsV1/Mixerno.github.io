@@ -179,7 +179,7 @@
       <div>
       <img id="image" style="border-radius: 0%;"
         src="https://via.placeholder.com/130/585858/FFFFFF/?text=Mixerno.space" height="90" width="160">
-      <div style="font-size: 60px;" id="vidname" class="nameee">Mixerno.space</div>
+      <div  id="vidname" class="textlmao">Mixerno.space</div>
       <div class="odometer" style="font-size: 60px;" id="view">0</div>
       <div><strong>Visits</strong></div>
     </div>
@@ -187,7 +187,7 @@
       <div>
         <img id="image2" style="border-radius: 0%;"
           src="https://via.placeholder.com/130/585858/FFFFFF/?text=Mixerno.space" height="90" width="160">
-        <div style="font-size: 60px;" id="vidname2" class="nameee">Mixerno.space</div>
+        <div  id="vidname2" class="textlmao">Mixerno.space</div>
         <div class="odometer" style="font-size: 60px;" id="view2">0</div>
         <div><strong>Visits</strong></div>
       </div>
@@ -205,17 +205,17 @@
     <div class="maincount">
       <div class="row">
       <div>
-  <input placeholder="Roblox PlaceID" type="text" style="width: 500px; font-size: 20px;" value="" id="usersearch1x" class="custominput"></input>
-  <button class="buton" style="font-size: 20px;" id="serch1x">Search</button>
+  <input placeholder="Roblox PlaceID" type="text"  value="" id="usersearch1x" class="custominput textlmao2"></input>
+  <button class="buton textlmao3"  id="serch1x">Search</button>
 </div>
 <br>
 <div>
 
-<input placeholder="Roblox PlaceID" type="text" style="width: 500px; font-size: 20px;" value="" id="usersearch2x" class="custominput"></input>
-<button class="buton" style="font-size: 20px;" id="serch2x">Search</button>
+<input placeholder="Roblox PlaceID" type="text"  value="" id="usersearch2x" class="custominput textlmao2"></input>
+<button class="buton textlmao3"  id="serch2x">Search</button>
 </div>
 </div>
-<button style="font-size: 20px;" class="buton" data-toggle="modal" data-target="#hf">Customize</button>
+<button  class="buton textlmao3" data-toggle="modal" data-target="#hf">Customize</button>
     </div>
     
     <br>
@@ -396,8 +396,8 @@ function getStyles() {
     }
   });
   $(document).ready(function () {
-    //var key = "https://cors.mixerno.space/"
-    var key = "";
+    var key = "https://cors.mixerno.space/"
+    //var key = "";
     var videostufflol = window.location.href;
     var params = videostufflol.split('?user=');
     var stuff = new Highcharts.chart('graph', {
@@ -604,7 +604,7 @@ function getStyles() {
             }
 
           } else {
-            view.innerHTML = visits2
+            view2.innerHTML = visits2
             count2 = visits2
           }
         dif.innerHTML = count1 - count2
