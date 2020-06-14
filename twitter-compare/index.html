@@ -379,18 +379,18 @@ function getStyles() {
       },
       xAxis: {
         type: 'datetime',
-        tickPixelInterval: 500
+        tickPixelInterval: 500,
+        labels: {
+          style: {
+            color: "#FFFFFF"
+          }
+        }
       },
       yAxis: {
         title: {
           text: ''
         },
-        gridLineColor: "#53adcb",
-        labels: {
-          style: {
-            color: "#53adcb"
-          }
-        },
+        
         lineColor: "#53adcb",
         minorGridLineColor: "#53adcb",
         tickColor: "#53adcb"
@@ -403,7 +403,7 @@ function getStyles() {
 
       series: [{
         showInLegend: false,
-        name: 'Follower diffrence',
+        name: 'Follower Diffrence',
         marker: {
           enabled: false
         },
@@ -436,25 +436,6 @@ function getStyles() {
           var json = $.parseJSON(data);
           //ytsubs.innerHTML = json.followers
           ytname.innerHTML = json.name
-          //$("#image").attr('src', `${json.pfp}`);
-          //plsworkgraph = json.subscribers.replace(/""/, "");
-          //stuff.series[0].addPoint([
-            //(new Date()).getTime(),
-            //json.followers
-          //]);
-          //if (stuff.series[0].data.length >= 700) {
-            //stuff.series[0].data[0].remove()
-          //}
-        }
-      })
-      $.ajax({
-        url: `${key}https://api.mixerno.space/twitter2/user/${channelid}`,
-        // Handle as Text
-        dataType: "text",
-        success: function (data) {
-          var json = $.parseJSON(data);
-          //ytsubs.innerHTML = json.followers
-          //ytname.innerHTML = json.name
           $("#image").attr('src', `${json.pfp}`);
           //plsworkgraph = json.subscribers.replace(/""/, "");
           //stuff.series[0].addPoint([
@@ -492,26 +473,8 @@ $.ajax({
     var json = $.parseJSON(data);
     //ytsubs.innerHTML = json.followers
     ytname2.innerHTML = json.name
-    //$("#image").attr('src', `${json.pfp}`);
-    //plsworkgraph = json.subscribers.replace(/""/, "");
-    //stuff.series[0].addPoint([
-      //(new Date()).getTime(),
-      //json.followers
-    //]);
-    //if (stuff.series[0].data.length >= 700) {
-      //stuff.series[0].data[0].remove()
-    //}
-  }
-})
-$.ajax({
-  url: `${key}https://api.mixerno.space/twitter2/user/${channelid2}`,
-  // Handle as Text
-  dataType: "text",
-  success: function (data) {
-    var json = $.parseJSON(data);
-    //ytsubs.innerHTML = json.followers
-    //ytname.innerHTML = json.name
     $("#image2").attr('src', `${json.pfp}`);
+    //$("#image").attr('src', `${json.pfp}`);
     //plsworkgraph = json.subscribers.replace(/""/, "");
     //stuff.series[0].addPoint([
       //(new Date()).getTime(),
