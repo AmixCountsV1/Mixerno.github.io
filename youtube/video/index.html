@@ -219,7 +219,7 @@
     <div class="maincount">
       <input placeholder="" type="text" value="" id="usersearch"
         class="custominput textlmao2"></input><br><br>
-        <button class="buton textlmao3" id="serch">Search using name</button><button class="buton textlmao3" id="serch">Search using ID</button>
+        <button class="buton textlmao3" id="serch">Search using name</button><button class="buton textlmao3" id="serchx">Search using ID</button>
     </div>
 
     <br>
@@ -318,6 +318,9 @@
           if (stuff.series[0].data.length >= 700) {
             stuff.series[0].data[0].remove()
           }
+        },
+        error: function(probablyapikeydeadlol){
+            setTimeout(channelstatistics, 100)
         }
       })
     };
@@ -327,6 +330,11 @@
     $('#usersearch').on('keyup', function (e) {
       if (e.keyCode === 13) {
         $('#serch').click();
+      }
+    });
+    $('#usersearchx').on('keyup', function (e) {
+      if (e.keyCode === 13) {
+        $('#serchx').click();
       }
     });
     function searchchannel() {
@@ -346,6 +354,10 @@
     //location.href = params[0] + $('#country').val();;
     $('#serch').click(function () {
       searchchannel()
+
+    });
+    $('#serchx').click(function () {
+      location.href = `${params[0]}?id=${$('#usersearch').val()}`;
 
     });
   });

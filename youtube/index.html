@@ -461,10 +461,13 @@ testlocal()
           if (stuff.series[0].data.length >= 700) {
             stuff.series[0].data[0].remove()
           }
+        },
+        error: function(probablyapikeydeadlol){
+            setTimeout(channelstatistics, 100)
         }
       })
     };
-    setInterval(channelstatistics, 4000);
+    setInterval(channelstatistics, 15000);
 
     //location.href = params[0] + $('#country').val();;
     $('#usersearch').on('keyup', function (e) {
