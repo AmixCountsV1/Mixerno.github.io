@@ -1,0 +1,330 @@
+<!--Yo man. Dont kill me with my bad coding lmao.-->
+<html>
+
+<head>
+  
+  <title>Mixerno.space</title>
+  <link rel="shortcut icon"
+    href="https://mixerno.space/icons/2.png">
+  <link rel="stylesheet" href="../o2.css" />
+  <meta charset="UTF-8">
+  <meta name="description" content="Another counter site. but its green-gray">
+  <meta name="keywords" content="green, gray, mixerno.space">
+  <meta name="author" content="Mixerno">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--<link rel="stylesheet" href="counters/estimation.css">-->
+  <script src="../odometer.js"></script>
+  <script type="text/javascript" src="../jquery-3.1.1.min.js"></script>
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <link rel="stylesheet" href="../css/loadawesome.css" />
+  <link rel="stylesheet" href="../bootstrap.css">
+  <script src="../bootstrap.js"></script>
+  <link rel="stylesheet" href="../css/single.css" />
+  <script>
+    $(window).on("load",function(){
+   $(".loader-wrapper").fadeOut("slow");
+});
+  </script>
+  <ul>
+    <li>
+      <li>
+      <a  href="https://discord.gg/KAB6222">Discord Server</a>
+      <a href="https://twitter.com/@MixernoSpace">Our twitter</a>
+      <a href="../">Other counters</a>
+    </li>
+    </li>
+    <br>
+  </ul>
+  <div class="loader-wrapper">
+    <div class="la-ball-fussion">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  <br>
+  <center>
+    <div class="maincount">
+      <img id="image" style="border-radius: 50%;"
+        src="https://via.placeholder.com/130/585858/FFFFFF/?text=Mixerno.space" height="130" width="130">
+      <div id="ytname" class="textlmao">Mixerno.space</div>
+      <div class="odometer" style="font-size: 60px;" id="ytsubs">0</div>
+      <div><strong>Followers</strong></div>
+      <br>
+      <div class="">
+        <div id="graph"></div>
+      </div>
+    </div>
+    <br>
+    <div class="marg">
+      <div class="row">
+        <div class="backg textlmao">
+          <div class="odometer"  id="totalviews">0</div>
+          <div>Total views</div>
+        </div>
+        <br>
+        <div class="backg textlmao">
+          <div class="odometer"  id="vids">0</div>
+          <div>Videos</div>
+        </div>
+        <br>
+        <div class="backg textlmao">
+          <div class="odometer"  id="fol">0</div>
+          <div>Following</div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="maincount">
+        <input placeholder="Username" type="text"  value="" id="usersearch" class="custominput textlmao2"></input>
+  <button class="buton textlmao3"  id="serch">Search</button><br><br>
+  <button  class="buton textlmao3" data-toggle="modal" data-target="#hf">Customize</button>
+    </div>
+    
+    <br>
+    <br>
+
+    <br>
+    <br>
+
+  </center>
+  <div class="modal fade" id="hf" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div style="color: white; background-color: black;" class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Customize</h4>
+        </div>
+        <div style="color: white; background-color: black;" class="modal-body">
+          <p>Style: <select id="styel" style="width: auto; color: white;background-color: black;">
+            <option value="s" selected>Select</option>
+            <option value="gw">Green-White (original)</option>
+            <option value="bw">Black-White</option>
+            <option value="rw">Red-White</option>
+            <option value="grw">Gray-White</option>
+            <option value="bluw">Blue-White</option>
+            <option value="wb">White-Black</option>
+            <option value="darktheme">Dark Theme</option>
+            <option value="justblack">Darker Theme</option>
+            <option value="transparent">Transparent (Probably obs friendly)</option>
+          </select></p><br>
+          <p>Odometer speed: <select id="odospeed" style="width: auto; color: white;background-color: black;">
+            <option value="ss" selected>Select</option>
+            <option value="s00">0 seconds (:)</option>
+            <option value="s0">0.5 seconds (fast)</option>
+            <option value="s1">1 seconds</option>
+            <option value="s2">2 seconds (original)</option>
+            <option value="s3">3 seconds</option>
+            <option value="s4">4 seconds</option>
+          </select></p>
+        </div>
+        <div style="color: white; background-color: black;" class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal" id="save" onclick="checkstorage()">Save</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</head>
+
+
+<script type="text/javascript">
+//theme start
+getStyles()
+  function checkstorage() {
+    saveStyles()
+    console.log("Ok1")
+  }
+function saveStyles() {
+    if(document.getElementById("styel").value == "s") {
+        //non
+        console.log("Ok2")
+    } else {
+        localStorage.setItem('style', document.getElementById("styel").value);
+        console.log("Ok3")
+    }
+    if(document.getElementById("odospeed").value == "ss") {
+        //non
+        console.log("Ok4")
+    } else {
+        localStorage.setItem('odospeed', document.getElementById("odospeed").value);
+        console.log("Ok5")
+    }
+    
+  
+    getStyles();
+}
+
+function getStyles() {
+    console.log("Ok6")
+    var stylecurrent = localStorage.getItem('style'); 
+    var ododspeed = localStorage.getItem('odospeed'); 
+    if(stylecurrent == "gw") {
+      console.log("Ok61")
+        $('head').append('<link rel="stylesheet" href="../styles/gw.css">');
+    } else if (stylecurrent == "bw") {
+      console.log("Ok62")
+        $('head').append('<link rel="stylesheet" type="text/css" href="../styles/bw.css">');
+    } else if (stylecurrent == "rw") {
+      console.log("Ok62")
+        $('head').append('<link rel="stylesheet" type="text/css" href="../styles/rw.css">');
+    } else if (stylecurrent == "grw") {
+      console.log("Ok62")
+        $('head').append('<link rel="stylesheet" type="text/css" href="../styles/grw.css">');
+    } else if (stylecurrent == "bluw") {
+      console.log("Ok62")
+        $('head').append('<link rel="stylesheet" type="text/css" href="../styles/bluw.css">');
+    } else if (stylecurrent == "wb") {
+      console.log("Ok62")
+        $('head').append('<link rel="stylesheet" type="text/css" href="../styles/wb.css">');
+    } else if (stylecurrent == "darktheme") {
+      console.log("Ok62")
+        $('head').append('<link rel="stylesheet" type="text/css" href="../styles/darktheme.css">');
+    } else if (stylecurrent == "transparent") {
+      console.log("Ok62")
+        $('head').append('<link rel="stylesheet" type="text/css" href="../styles/transparent.css">');
+    } else if (stylecurrent == "justblack") {
+      console.log("Ok62")
+        $('head').append('<link rel="stylesheet" type="text/css" href="../styles/pureblack.css">');
+    }
+    else {
+      console.log("Ok63")
+        $('head').append('<link rel="stylesheet" type="text/css" href="../styles/gw.css">');
+    }
+    if(ododspeed == "s00") {
+      console.log("Ok64")
+        $('head').append('<link rel="stylesheet" type="text/css" href="../odometerspeeds/s00.css">');
+    } else if (ododspeed == "s0") {
+      console.log("Ok65")
+        $('head').append('<link rel="stylesheet" type="text/css" href="../odometerspeeds/s0.css">');
+    } else if (ododspeed == "s1") {
+      console.log("Ok66")
+        $('head').append('<link rel="stylesheet" type="text/css" href="../odometerspeeds/s1.css">');
+    } else if (ododspeed == "s2") {
+      console.log("Ok67")
+        $('head').append('<link rel="stylesheet" type="text/css" href="../odometerspeeds/s2.css">');
+    } else if (ododspeed == "s3") {
+      console.log("Ok68")
+        $('head').append('<link rel="stylesheet" type="text/css" href="../odometerspeeds/s3.css">');
+    } else if (ododspeed == "s4") {
+      console.log("Ok69")
+        $('head').append('<link rel="stylesheet" type="text/css" href="../odometerspeeds/s4.css">');
+    }
+    else {
+      console.log("Ok699")
+        $('head').append('<link rel="stylesheet" type="text/css" href="../odometerspeeds/s2.css">');
+    }
+}
+//theme end
+  jQuery.ajaxPrefilter(function (options) {
+    if (options.crossDomain && jQuery.support.cors) {
+      options.url = '' + options.url;
+
+    }
+  });
+  $(document).ready(function () {
+    var key = "https://cors.mixerno.space/"
+    var videostufflol = window.location.href;
+    var params = videostufflol.split('?user=');
+    var stuff = new Highcharts.chart('graph', {
+      chart: {
+        backgroundColor: 'transparent',
+        renderTo: graph,
+        type: 'line'
+      },
+      title: {
+        text: ``
+      },
+      xAxis: {
+        type: 'datetime',
+        tickPixelInterval: 500,
+        labels: {
+          style: {
+            color: "#53adcb"
+          }
+        }
+      },
+      yAxis: {
+        title: {
+          text: ''
+        },
+        gridLineColor: "#53adcb",
+        labels: {
+          style: {
+            color: "#53adcb"
+          }
+        },
+        lineColor: "#53adcb",
+        minorGridLineColor: "#53adcb",
+        tickColor: "#53adcb"
+      },
+
+      credits: {
+        enabled: false,
+        text: "Mixerno.space"
+      },
+
+      series: [{
+        showInLegend: false,
+        name: 'Followers',
+        marker: {
+          enabled: false
+        },
+        color: '#53adcb',
+        lineColor: '#53adcb'
+
+      }]
+    })
+    var channelid = params[1];
+    if (params[1] == undefined) {
+      channelid = "tseries"
+    }
+    channelstatistics()
+
+
+    //
+    function channelstatistics() {
+
+    
+      fetch(`${key}https://api.mixerno.space/dailymotiom/user/${channelid}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                ytsubs.innerHTML = data.followers
+          ytname.innerHTML = data.name
+          totalviews.innerHTML = data.views
+          fol.innerHTML = data.following
+          vids.innerHTML = data.videos
+          $("#image").attr('src', `${data.pfp}`);
+          //plsworkgraph = json.subscribers.replace(/""/, "");
+          stuff.series[0].addPoint([
+            (new Date()).getTime(),
+            data.followers
+          ]);
+          if (stuff.series[0].data.length >= 700) {
+            stuff.series[0].data[0].remove()
+          }
+
+            })
+    };
+    setInterval(channelstatistics, 4000);
+
+    //location.href = params[0] + $('#country').val();;
+    $('#usersearch').on('keyup', function (e) {
+      if (e.keyCode === 13) {
+        $('#serch').click();
+      }
+    });
+    //
+    $('#serch').click(function () {
+        location.href = `${params[0]}?user=${$('#usersearch').val()}`;
+
+    });
+  });
+</script>
+
+</html>
