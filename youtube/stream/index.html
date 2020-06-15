@@ -301,7 +301,10 @@
             .then(response => response.json())
             .then(data => {
                 console.log(data)
-                view.innerHTML = data.viewers
+                if(data.viewers == undefined) {
+//Failed getting data moment
+                } else {
+                  view.innerHTML = data.viewers
           vidname.innerHTML = data.name
           like.innerHTML = data.likes
           dislike.innerHTML = data.dislikes
@@ -316,6 +319,8 @@
           if (stuff.series[0].data.length >= 700) {
             stuff.series[0].data[0].remove()
           }
+                }
+                
 
             })
     };
@@ -338,9 +343,12 @@
             .then(response => response.json())
             .then(data => {
                 console.log(data)
-                channelid = data.videoid
-          location.href = `${params[0]}?id=${channelid}`;
-
+                if(data.videoid == undefined) {
+//Failed getting data moment
+                } else {
+                  channelid = data.videoid
+          location.href = `${params[0]}?user=${channelid}`;
+                }
             })
     }
     //location.href = params[0] + $('#country').val();;

@@ -414,6 +414,7 @@ function getStyles() {
       }]
     })
     var channelid = params[1];
+    var channelidd = params[1];
     if (params[1] == undefined) {
       channelid = "UC-lHJZR3Gqxm24_Vd_AJ5Yw"
     }
@@ -445,7 +446,10 @@ testlocal()
             .then(response => response.json())
             .then(data => {
                 console.log(data)
-                ytsubs.innerHTML = data.subscribers
+                if(data.subscribers == undefined) {
+//Failed getting data moment
+                } else {
+                  ytsubs.innerHTML = data.subscribers
           ytname.innerHTML = data.name
           totalviews.innerHTML = data.totalviews
           videos.innerHTML = data.videos
@@ -459,6 +463,8 @@ testlocal()
           if (stuff.series[0].data.length >= 700) {
             stuff.series[0].data[0].remove()
           }
+                }
+                
 
             })
     };
@@ -476,8 +482,14 @@ testlocal()
             .then(response => response.json())
             .then(data => {
                 console.log(data)
-                channelid = data.channelid
+                if(data.channelid == undefined) {
+//Failed getting data moment
+                } else {
+                  channelidd = data.channelid
           location.href = `${params[0]}?user=${channelid}`;
+                }
+                channelidd = data.channelid
+          location.href = `${params[0]}?user=${channelidd}`;
 
             })
     }
