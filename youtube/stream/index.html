@@ -289,7 +289,7 @@
     })
     var channelid = params[1];
     if (params[1] == undefined) {
-      channelid = "kJQP7kiw5Fk"
+      channelid = "1e1NCIEKamA"
     }
     channelstatistics()
 
@@ -339,7 +339,7 @@
             .then(data => {
                 console.log(data)
                 channelid = data.videoid
-          location.href = `${params[0]}?user=${channelid}`;
+          location.href = `${params[0]}?id=${channelid}`;
 
             })
     }
