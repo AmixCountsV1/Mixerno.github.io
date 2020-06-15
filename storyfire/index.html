@@ -281,27 +281,25 @@ function getStyles() {
     //
     function channelstatistics() {
 
-      $.ajax({
-        url: `${key}https://storyfire.com/app/users/getProfile/${channelid}`,
-        // Handle as Text
-        dataType: "text",
-        success: function (data) {
-          var json = $.parseJSON(data);
-          ytsubs.innerHTML = json.followersCount
-          ytname.innerHTML = json.username
-          totalviews.innerHTML = json.points
-          videos.innerHTML = json.followingCount
-          $("#image").attr('src', `${json.userimage}`);
+
+      fetch(`${key}https://storyfire.com/app/users/getProfile/${channelid}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                ytsubs.innerHTML = data.followersCount
+          ytname.innerHTML = data.username
+          totalviews.innerHTML = data.points
+          videos.innerHTML = data.followingCount
+          $("#image").attr('src', `${data.userimage}`);
           //plsworkgraph = json.subscribers.replace(/""/, "");
           stuff.series[0].addPoint([
             (new Date()).getTime(),
-            json.followersCount
+            data.followersCount
           ]);
           if (stuff.series[0].data.length >= 700) {
             stuff.series[0].data[0].remove()
           }
-        }
-      })
+            })
     };
     setInterval(channelstatistics, 4000);
 

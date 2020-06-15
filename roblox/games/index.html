@@ -228,93 +228,57 @@
     var universsiid = 0
     //
     function getuniversid() {
-      $.ajax({
-        url: `${key}https://robloxvisitstrackerv2.herokuapp.com/roblox/api/game/${channelid}`,
-        // Handle as Text
-        dataType: "text",
-        success: function (data) {
-          var json = $.parseJSON(data);
-          universsiid = json.universeId
-          $.ajax({
-            url: `${key}https://games.roblox.com/v1/games?universeIds=${universsiid}`,
-            // Handle as Text
-            dataType: "text",
-            success: function (data) {
-              var json = $.parseJSON(data);
-              comment.innerHTML = json.data[0].playing
-              vidname.innerHTML = json.data[0].name
+      fetch(`${key}https://robloxvisitstrackerv2.herokuapp.com/roblox/api/game/${channelid}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                universsiid = data.universeId
+                fetch(`${key}https://games.roblox.com/v1/games?universeIds=${universsiid}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                comment.innerHTML = data.data[0].playing
+              vidname.innerHTML = data.data[0].name
               // like.innerHTML = json.data[0]
               // dislike.innerHTML = json.data[0]
 
-              visits = json.data[0].visits
+              visits = data.data[0].visits
               view.innerHTML = visits
-
-            }
-          })
-          $.ajax({
-            url: `${key}https://games.roblox.com/v1/games/votes?universeIds=${universsiid}`,
-            // Handle as Text
-            dataType: "text",
-            success: function (data) {
-              var json = $.parseJSON(data);
-              //view.innerHTML = json.data[0].playing
-              //vidname.innerHTML = json.data[0].name
-              like.innerHTML = json.data[0].upVotes
-              dislike.innerHTML = json.data[0].downVotes
-              //comment.innerHTML = json.data[0].visits
-              // $("#image").attr('src', `${json.data[0]}`);
-
-              //plsworkgraph = json.subscribers.replace(/""/, "");
-            }
-          })
-          $.ajax({
-            url: `${key}https://games.roblox.com/v1/games/${universsiid}/favorites/count`,
-            // Handle as Text
-            dataType: "text",
-            success: function (data) {
-              var json = $.parseJSON(data);
-              //view.innerHTML = json.data[0].playing
-              //vidname.innerHTML = json.data[0].name
-              favourite.innerHTML = json.favoritesCount
-              //comment.innerHTML = json.data[0].visits
-              // $("#image").attr('src', `${json.data[0]}`);
-
-              //plsworkgraph = json.subscribers.replace(/""/, "");
-            }
-          })
-          $.ajax({
-            url: `${key}https://thumbnails.roblox.com/v1/games/multiget/thumbnails?universeIds=${universsiid}&size=768x432&format=Png&isCircular=false`,
-            // Handle as Text
-            dataType: "text",
-            success: function (data) {
-              var json = $.parseJSON(data);
-              //view.innerHTML = json.data[0].playing
-              //vidname.innerHTML = json.data[0].name
-              //like.innerHTML = json.data[0].upVotes
-              //dislike.innerHTML = json.data[0].downVotes
-              //comment.innerHTML = json.data[0].visits
-              $("#image").attr('src', `${json.data[0].thumbnails[0].imageUrl}`);
-
-              //plsworkgraph = json.subscribers.replace(/""/, "");
-            }
-          })
-        }
-      })
+            })
+            fetch(`${key}https://games.roblox.com/v1/games/votes?universeIds=${universsiid}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                like.innerHTML = data.data[0].upVotes
+              dislike.innerHTML = data.data[0].downVotes
+            })
+            fetch(`${key}https://games.roblox.com/v1/games/${universsiid}/favorites/count`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                favourite.innerHTML = data.favoritesCount
+            })
+            fetch(`${key}https://thumbnails.roblox.com/v1/games/multiget/thumbnails?universeIds=${universsiid}&size=768x432&format=Png&isCircular=false`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                $("#image").attr('src', `${data.data[0].thumbnails[0].imageUrl}`);
+            })
+            })
     }
     function channelstatistics() {
 
-      $.ajax({
-        url: `${key}https://games.roblox.com/v1/games?universeIds=${universsiid}`,
-        // Handle as Text
-        dataType: "text",
-        success: function (data) {
-          var json = $.parseJSON(data);
-          comment.innerHTML = json.data[0].playing
-          vidname.innerHTML = json.data[0].name
+
+      fetch(`${key}https://games.roblox.com/v1/games?universeIds=${universsiid}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                comment.innerHTML = data.data[0].playing
+          vidname.innerHTML = data.data[0].name
           // like.innerHTML = json.data[0]
           // dislike.innerHTML = json.data[0]
 
-          visits = json.data[0].visits
+          visits = data.data[0].visits
 
           if (time > 0) {
             if (visits > visitsbefore) {
@@ -370,55 +334,27 @@
             }
           }
 
-        }
-      })
-      $.ajax({
-        url: `${key}https://games.roblox.com/v1/games/votes?universeIds=${universsiid}`,
-        // Handle as Text
-        dataType: "text",
-        success: function (data) {
-          var json = $.parseJSON(data);
-          //view.innerHTML = json.data[0].playing
-          //vidname.innerHTML = json.data[0].name
-          like.innerHTML = json.data[0].upVotes
-          dislike.innerHTML = json.data[0].downVotes
-          //comment.innerHTML = json.data[0].visits
-          // $("#image").attr('src', `${json.data[0]}`);
+            })
+            fetch(`${key}https://games.roblox.com/v1/games/votes?universeIds=${universsiid}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                like.innerHTML = data.data[0].upVotes
+          dislike.innerHTML = data.data[0].downVotes
+            })
+            fetch(`${key}https://games.roblox.com/v1/games/${universsiid}/favorites/count`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                favourite.innerHTML = data.favoritesCount
+            })
+            fetch(`${key}https://thumbnails.roblox.com/v1/games/multiget/thumbnails?universeIds=${universsiid}&size=768x432&format=Png&isCircular=false`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                $("#image").attr('src', `${data.data[0].thumbnails[0].imageUrl}`);
+            })
 
-          //plsworkgraph = json.subscribers.replace(/""/, "");
-        }
-      })
-      $.ajax({
-        url: `${key}https://games.roblox.com/v1/games/${universsiid}/favorites/count`,
-        // Handle as Text
-        dataType: "text",
-        success: function (data) {
-          var json = $.parseJSON(data);
-          //view.innerHTML = json.data[0].playing
-          //vidname.innerHTML = json.data[0].name
-          favourite.innerHTML = json.favoritesCount
-          //comment.innerHTML = json.data[0].visits
-          // $("#image").attr('src', `${json.data[0]}`);
-
-          //plsworkgraph = json.subscribers.replace(/""/, "");
-        }
-      })
-      $.ajax({
-        url: `${key}https://thumbnails.roblox.com/v1/games/multiget/thumbnails?universeIds=${universsiid}&size=768x432&format=Png&isCircular=false`,
-        // Handle as Text
-        dataType: "text",
-        success: function (data) {
-          var json = $.parseJSON(data);
-          //view.innerHTML = json.data[0].playing
-          //vidname.innerHTML = json.data[0].name
-          //like.innerHTML = json.data[0].upVotes
-          //dislike.innerHTML = json.data[0].downVotes
-          //comment.innerHTML = json.data[0].visits
-          $("#image").attr('src', `${json.data[0].thumbnails[0].imageUrl}`);
-
-          //plsworkgraph = json.subscribers.replace(/""/, "");
-        }
-      })
     };
     setInterval(channelstatistics, 4000);
 

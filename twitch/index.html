@@ -392,26 +392,24 @@ function getStyles() {
     //
     function channelstatistics() {
 
-      $.ajax({
-        url: `${key}https://api.mixerno.space/twitch/user/${channelid}`,
-        // Handle as Text
-        dataType: "text",
-        success: function (data) {
-          var json = $.parseJSON(data);
-          ytsubs.innerHTML = json.followers
-          ytname.innerHTML = json.name
-          totalviews.innerHTML = json.views
-          $("#image").attr('src', `${json.pfp}`);
+      fetch(`${key}https://api.mixerno.space/twitch/user/${channelid}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                ytsubs.innerHTML = data.followers
+          ytname.innerHTML = data.name
+          totalviews.innerHTML = data.views
+          $("#image").attr('src', `${data.pfp}`);
           //plsworkgraph = json.subscribers.replace(/""/, "");
           stuff.series[0].addPoint([
             (new Date()).getTime(),
-            json.followers
+            data.followers
           ]);
           if (stuff.series[0].data.length >= 700) {
             stuff.series[0].data[0].remove()
           }
-        }
-      })
+
+            })
     };
     setInterval(channelstatistics, 4000);
 

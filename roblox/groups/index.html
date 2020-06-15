@@ -274,54 +274,28 @@ function getStyles() {
     //
     function channelstatistics() {
 
-      $.ajax({
-        url: `${key}https://groups.roblox.com/v1/groups/${channelid}`,
-        // Handle as Text
-        dataType: "text",
-        success: function (data) {
-          var json = $.parseJSON(data);
-          //ytsubs.innerHTML = json.followers
-          ytname.innerHTML = json.name
-          ytsubs.innerHTML = json.memberCount
+
+      fetch(`${key}https://groups.roblox.com/v1/groups/${channelid}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                ytname.innerHTML = data.name
+          ytsubs.innerHTML = data.memberCount
           stuff.series[0].addPoint([
             (new Date()).getTime(),
-            json.memberCount
+            data.memberCount
           ]);
           if (stuff.series[0].data.length >= 700) {
             stuff.series[0].data[0].remove()
           }
-          //totalviews.innerHTML = json.posts
-          //$("#image").attr('src', `${json.pfp}`);
-          //plsworkgraph = json.subscribers.replace(/""/, "");
-          /*stuff.series[0].addPoint([
-            (new Date()).getTime(),
-            json.followers
-          ]);
-          if (stuff.series[0].data.length >= 700) {
-            stuff.series[0].data[0].remove()
-          }*/
-        }
-      })
-      $.ajax({
-        url: `${key}https://thumbnails.roblox.com/v1/groups/icons?groupIds=${channelid}&size=420x420&format=Png&isCircular=false`,
-        // Handle as Text
-        dataType: "text",
-        success: function (data) {
-          var json = $.parseJSON(data);
-          //ytsubs.innerHTML = json.followers
-          //ytname.innerHTML = json.Username
-          //totalviews.innerHTML = json.posts
-          $("#image").attr('src', `${json.data[0].imageUrl}`);
-          //plsworkgraph = json.subscribers.replace(/""/, "");
-          /*stuff.series[0].addPoint([
-            (new Date()).getTime(),
-            json.followers
-          ]);
-          if (stuff.series[0].data.length >= 700) {
-            stuff.series[0].data[0].remove()
-          }*/
-        }
-      })
+            })
+            fetch(`${key}https://thumbnails.roblox.com/v1/groups/icons?groupIds=${channelid}&size=420x420&format=Png&isCircular=false`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                $("#image").attr('src', `${data.data[0].imageUrl}`);
+            })
+
     };
     setInterval(channelstatistics, 8000);
 
@@ -333,15 +307,13 @@ function getStyles() {
     });
     //
     $('#serch').click(function () {
-      $.ajax({
-        url: `${key}https://groups.roblox.com/v1/groups/search?keyword=${$('#usersearch').val()}&limit=10`,
-        // Handle as Text
-        dataType: "text",
-        success: function (data) {
-          var json = $.parseJSON(data);
-          location.href = `${params[0]}?id=${json.data[0].id}`;
-        }
-      })
+
+      fetch(`${key}https://groups.roblox.com/v1/groups/search?keyword=${$('#usersearch').val()}&limit=10`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                location.href = `${params[0]}?id=${data.data[0].id}`;
+            })
         
 
     });

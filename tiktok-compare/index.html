@@ -440,44 +440,29 @@ function getStyles() {
     ]
       randomtiktokbypass = Math.floor(Math.random()*tiktokbypass.length);
       tiktokurl = tiktokbypass[randomtiktokbypass];
-      $.ajax({
-        url: `${key}${tiktokurl}${channelid}`,
-        // Handle as Text
-        dataType: "text",
-        success: function (data) {
-          var json = $.parseJSON(data);
-          //ytsubs.innerHTML = json.followers
-          count1 = json.followers
-          ytname.innerHTML = json.name
-          ytsubs.innerHTML = json.followers
-          $("#image").attr('src', `${json.avatarurl}`);
+
+      fetch(`${key}${tiktokurl}${channelid}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                count1 = data.followers
+          ytname.innerHTML = data.name
+          ytsubs.innerHTML = data.followers
+          $("#image").attr('src', `${data.avatarurl}`);
           channelstatistics2()
-          //$("#image").attr('src', `${json.pfp}`);
-          //plsworkgraph = json.subscribers.replace(/""/, "");
-          //stuff.series[0].addPoint([
-            //(new Date()).getTime(),
-            //json.followers
-          //]);
-          //if (stuff.series[0].data.length >= 700) {
-            //stuff.series[0].data[0].remove()
-          //}
-        }
-      })
+            })
 
     };
     function channelstatistics2() {
 
-      $.ajax({
-        url: `${key}${tiktokurl}${channelid2}`,
-        // Handle as Text
-        dataType: "text",
-        success: function (data) {
-          var json = $.parseJSON(data);
-          //ytsubs.innerHTML = json.followers
-          ytname2.innerHTML = json.name
-          ytsubs2.innerHTML = json.followers
-          $("#image2").attr('src', `${json.avatarurl}`);
-          count2 = json.followers
+      fetch(`${key}${tiktokurl}${channelid2}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                ytname2.innerHTML = data.name
+          ytsubs2.innerHTML = data.followers
+          $("#image2").attr('src', `${data.avatarurl}`);
+          count2 = data.followers
           difrence.innerHTML = count1 - count2
           stuff.series[0].addPoint([
             (new Date()).getTime(),
@@ -486,17 +471,7 @@ function getStyles() {
           if (stuff.series[0].data.length >= 700) {
             stuff.series[0].data[0].remove()
           }
-          //$("#image").attr('src', `${json.pfp}`);
-          //plsworkgraph = json.subscribers.replace(/""/, "");
-          //stuff.series[0].addPoint([
-            //(new Date()).getTime(),
-            //json.followers
-          //]);
-          //if (stuff.series[0].data.length >= 700) {
-            //stuff.series[0].data[0].remove()
-          //}
-        }
-      })
+            })
 };
     setInterval(channelstatistics, 4000);
 

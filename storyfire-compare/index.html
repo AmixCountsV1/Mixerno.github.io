@@ -427,44 +427,28 @@ function getStyles() {
     //
     function channelstatistics() {
 
-      $.ajax({
-        url: `${key}https://storyfire.com/app/users/getProfile/${channelid}`,
-        // Handle as Text
-        dataType: "text",
-        success: function (data) {
-          var json = $.parseJSON(data);
-          //ytsubs.innerHTML = json.followers
-          count1 = json.followersCount
-          ytsubs.innerHTML = json.followersCount
-          ytname.innerHTML = json.username
-          $("#image").attr('src', `${json.userimage}`);
-          //$("#image").attr('src', `${json.pfp}`);
-          //plsworkgraph = json.subscribers.replace(/""/, "");
-          //stuff.series[0].addPoint([
-            //(new Date()).getTime(),
-            //json.followers
-          //]);
-          //if (stuff.series[0].data.length >= 700) {
-            //stuff.series[0].data[0].remove()
-          //}
-          channelstatistics2()
-        }
-      })
+
+      fetch(`${key}https://storyfire.com/app/users/getProfile/${channelid}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                count1 = data.followersCount
+          ytsubs.innerHTML = data.followersCount
+          ytname.innerHTML = data.username
+          $("#image").attr('src', `${data.userimage}`);
+            })
 
     };
     function channelstatistics2() {
 
-      $.ajax({
-        url: `${key}https://storyfire.com/app/users/getProfile/${channelid2}`,
-        // Handle as Text
-        dataType: "text",
-        success: function (data) {
-          var json = $.parseJSON(data);
-          //ytsubs.innerHTML = json.followers
-          count2 = json.followersCount
-          ytsubs2.innerHTML = json.followersCount
-          ytname2.innerHTML = json.username
-          $("#image2").attr('src', `${json.userimage}`);
+      fetch(`${key}https://storyfire.com/app/users/getProfile/${channelid2}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                count2 = data.followersCount
+          ytsubs2.innerHTML = data.followersCount
+          ytname2.innerHTML = data.username
+          $("#image2").attr('src', `${data.userimage}`);
           difrence.innerHTML = count1 - count2
           stuff.series[0].addPoint([
             (new Date()).getTime(),
@@ -473,17 +457,7 @@ function getStyles() {
           if (stuff.series[0].data.length >= 700) {
             stuff.series[0].data[0].remove()
           }
-          //$("#image").attr('src', `${json.pfp}`);
-          //plsworkgraph = json.subscribers.replace(/""/, "");
-          //stuff.series[0].addPoint([
-            //(new Date()).getTime(),
-            //json.followers
-          //]);
-          //if (stuff.series[0].data.length >= 700) {
-            //stuff.series[0].data[0].remove()
-          //}
-        }
-      })
+            })
 };
     setInterval(channelstatistics, 4000);
 

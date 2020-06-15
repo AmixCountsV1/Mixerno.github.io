@@ -422,7 +422,7 @@ function getStyles() {
     }
     var channelid2 = params[2];
     if (params[2] == undefined) {
-      channelid2 = "2"
+      channelid2 = "156"
     }
     channelstatistics()
 
@@ -430,117 +430,58 @@ function getStyles() {
     //
     function channelstatistics() {
 
-      $.ajax({
-        url: `${key}https://api.roblox.com/users/${channelid}`,
-        // Handle as Text
-        dataType: "text",
-        success: function (data) {
-          var json = $.parseJSON(data);
-          //ytsubs.innerHTML = json.followers
-          ytname.innerHTML = json.Username
-          //totalviews.innerHTML = json.posts
-          //$("#image").attr('src', `${json.pfp}`);
-          //plsworkgraph = json.subscribers.replace(/""/, "");
-          /*stuff.series[0].addPoint([
-            (new Date()).getTime(),
-            json.followers
-          ]);
-          if (stuff.series[0].data.length >= 700) {
-            stuff.series[0].data[0].remove()
-          }*/
-        }
-      })
-      $.ajax({
-        url: `${key}https://thumbnails.roblox.com/v1/users/avatar-headshot?size=150x150&format=Png&isCircular=false&userIds=${channelid}`,
-        // Handle as Text
-        dataType: "text",
-        success: function (data) {
-          var json = $.parseJSON(data);
-          //ytsubs.innerHTML = json.followers
-          //ytname.innerHTML = json.Username
-          //totalviews.innerHTML = json.posts
-          $("#image").attr('src', `${json.data[0].imageUrl}`);
-          //plsworkgraph = json.subscribers.replace(/""/, "");
-          /*stuff.series[0].addPoint([
-            (new Date()).getTime(),
-            json.followers
-          ]);
-          if (stuff.series[0].data.length >= 700) {
-            stuff.series[0].data[0].remove()
-          }*/
-        }
-      })
-      $.ajax({
-        url: `${key}https://friends.roblox.com/v1/users/${channelid}/followers/count`,
-        // Handle as Text
-        dataType: "text",
-        success: function (data) {
-          var json = $.parseJSON(data);
-          ytsubs.innerHTML = json.count
-          //ytname.innerHTML = json.Username
-          //totalviews.innerHTML = json.posts
-          //$("#image").attr('src', `${json.pfp}`);
-          //plsworkgraph = json.subscribers.replace(/""/, "");
-          count1 = json.count
+
+      fetch(`${key}https://api.roblox.com/users/${channelid}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                ytname.innerHTML = data.Username
+            })
+
+      fetch(`${key}https://thumbnails.roblox.com/v1/users/avatar-headshot?size=150x150&format=Png&isCircular=false&userIds=${channelid}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                $("#image").attr('src', `${data.data[0].imageUrl}`);
+            })
+
+      fetch(`${key}https://friends.roblox.com/v1/users/${channelid}/followers/count`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                ytsubs.innerHTML = data.count
+                count1 = data.count
           channelstatistics2()
-        }
-      })
+            })
 
     };
     function channelstatistics2() {
 
-      $.ajax({
-        url: `${key}https://api.roblox.com/users/${channelid2}`,
-        // Handle as Text
-        dataType: "text",
-        success: function (data) {
-          var json = $.parseJSON(data);
-          //ytsubs.innerHTML = json.followers
-          ytname2.innerHTML = json.Username
-          //totalviews.innerHTML = json.posts
-          //$("#image").attr('src', `${json.pfp}`);
-          //plsworkgraph = json.subscribers.replace(/""/, "");
-          /*stuff.series[0].addPoint([
-            (new Date()).getTime(),
-            json.followers
-          ]);
-          if (stuff.series[0].data.length >= 700) {
-            stuff.series[0].data[0].remove()
-          }*/
-        }
-      })
-      $.ajax({
-        url: `${key}https://thumbnails.roblox.com/v1/users/avatar-headshot?size=150x150&format=Png&isCircular=false&userIds=${channelid2}`,
-        // Handle as Text
-        dataType: "text",
-        success: function (data) {
-          var json = $.parseJSON(data);
-          //ytsubs.innerHTML = json.followers
-          //ytname.innerHTML = json.Username
-          //totalviews.innerHTML = json.posts
-          $("#image2").attr('src', `${json.data[0].imageUrl}`);
-          //plsworkgraph = json.subscribers.replace(/""/, "");
-          /*stuff.series[0].addPoint([
-            (new Date()).getTime(),
-            json.followers
-          ]);
-          if (stuff.series[0].data.length >= 700) {
-            stuff.series[0].data[0].remove()
-          }*/
-        }
-      })
-      $.ajax({
-        url: `${key}https://friends.roblox.com/v1/users/${channelid2}/followers/count`,
-        // Handle as Text
-        dataType: "text",
-        success: function (data) {
-          var json = $.parseJSON(data);
-          ytsubs2.innerHTML = json.count
+
+      fetch(`${key}https://api.roblox.com/users/${channelid2}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                ytname2.innerHTML = data.Username
+            })
+
+      fetch(`${key}https://thumbnails.roblox.com/v1/users/avatar-headshot?size=150x150&format=Png&isCircular=false&userIds=${channelid2}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                $("#image2").attr('src', `${data.data[0].imageUrl}`);
+            })
+
+      fetch(`${key}https://friends.roblox.com/v1/users/${channelid2}/followers/count`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                ytsubs2.innerHTML = data.count
           //ytname.innerHTML = json.Username
           //totalviews.innerHTML = json.posts
           //$("#image").attr('src', `${json.pfp}`);
           //plsworkgraph = json.subscribers.replace(/""/, "");
-          count2 = json.count
+          count2 = data.count
           difrence.innerHTML = count1 - count2
           stuff.series[0].addPoint([
             (new Date()).getTime(),
@@ -549,8 +490,7 @@ function getStyles() {
           if (stuff.series[0].data.length >= 700) {
             stuff.series[0].data[0].remove()
           }
-        }
-      })
+            })
 };
     setInterval(channelstatistics, 4000);
 

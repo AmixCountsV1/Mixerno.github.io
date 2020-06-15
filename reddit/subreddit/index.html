@@ -283,36 +283,22 @@
 
     channelstatistics()
     function channelstatistics() {
-    
-      $.ajax({
-        url: `${key}https://www.reddit.com/${channelid}/.json?limit=1`,
-        // Handle as Text
-        dataType: "text",
-        success: function (data) {
-          var json = $.parseJSON(data);
-          console.log(json.data)
-          subs.innerHTML = json.data.children[0].data.subreddit_subscribers
-          nane.innerHTML = json.data.children[0].data.subreddit
-         // like.innerHTML = json.data[0]
-         // dislike.innerHTML = json.data[0]
-         /*subs nane comms view*/
 
-         //view.innerHTML = json.data[0].visits
-         // $("#image").attr('src', `${json.data[0]}`);
+      fetch(`${key}https://www.reddit.com/${channelid}/.json?limit=1`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                subs.innerHTML = data.data.children[0].data.subreddit_subscribers
+          nane.innerHTML = data.data.children[0].data.subreddit
          
-
-          //plsworkgraph = json.subscribers.replace(/""/, "");
           stuff.series[0].addPoint([
             (new Date()).getTime(),
-            parseFloat(json.data.children[0].data.subreddit_subscribers)
+            parseFloat(data.data.children[0].data.subreddit_subscribers)
           ]);
           if (stuff.series[0].data.length >= 700) {
             stuff.series[0].data[0].remove()
           }
-          
-          
-        }
-      })
+            })
     };
     setInterval(channelstatistics, 4000);
 

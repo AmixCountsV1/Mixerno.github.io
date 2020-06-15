@@ -407,28 +407,25 @@ function getStyles() {
     ]
       randomtiktokbypass = Math.floor(Math.random()*tiktokbypass.length);
       tiktokurl = tiktokbypass[randomtiktokbypass];
-      $.ajax({
-        url: `${key}${tiktokurl}${channelid}`,
-        // Handle as Text
-        dataType: "text",
-        success: function (data) {
-          var json = $.parseJSON(data);
-          ytsubs.innerHTML = json.followers
-          ytname.innerHTML = json.name
-          videos.innerHTML = json.videos
-          totalviews.innerHTML = json.hearts
-          $("#image").attr('src', `${json.avatarurl}`);
+
+      fetch(`${key}${tiktokurl}${channelid}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                ytsubs.innerHTML = data.followers
+          ytname.innerHTML = data.name
+          videos.innerHTML = data.videos
+          totalviews.innerHTML = data.hearts
+          $("#image").attr('src', `${data.avatarurl}`);
           //plsworkgraph = json.subscribers.replace(/""/, "");
           stuff.series[0].addPoint([
             (new Date()).getTime(),
-            json.followers
+            data.followers
           ]);
           if (stuff.series[0].data.length >= 700) {
             stuff.series[0].data[0].remove()
           }
-        },
-        fail: setTimeout(function() {console.log("oof")}, 1000)
-      })
+            })
     };
     setInterval(channelstatistics, 4000);
 

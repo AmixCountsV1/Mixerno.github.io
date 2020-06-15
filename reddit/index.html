@@ -309,38 +309,25 @@
     channelstatistics()
     function channelstatistics() {
     
-      $.ajax({
-        url: `${key}https://www.reddit.com/${channelid}/comments/${channelid1x}/${channelid1xx}/.json?limit=1`,
-        // Handle as Text
-        dataType: "text",
-        success: function (data) {
-          var json = $.parseJSON(data);
-          console.log(json[0])
-          comms.innerHTML = json[0].data.children[0].data.num_comments
-          view.innerHTML = json[0].data.children[0].data.ups
-          vidname.innerHTML = json[0].data.children[0].data.title
-          subs.innerHTML = json[0].data.children[0].data.subreddit_subscribers
-          nane.innerHTML = json[0].data.children[0].data.subreddit
-         // like.innerHTML = json.data[0]
-         // dislike.innerHTML = json.data[0]
-         /*subs nane comms view*/
 
-         //view.innerHTML = json.data[0].visits
-         // $("#image").attr('src', `${json.data[0]}`);
-         
+      fetch(`${key}https://www.reddit.com/${channelid}/comments/${channelid1x}/${channelid1xx}/.json?limit=1`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+          comms.innerHTML = data[0].data.children[0].data.num_comments
+          view.innerHTML = data[0].data.children[0].data.ups
+          vidname.innerHTML = data[0].data.children[0].data.title
+          subs.innerHTML = data[0].data.children[0].data.subreddit_subscribers
+          nane.innerHTML = data[0].data.children[0].data.subreddit
 
-          //plsworkgraph = json.subscribers.replace(/""/, "");
           stuff.series[0].addPoint([
             (new Date()).getTime(),
-            parseFloat(json[0].data.children[0].data.ups)
+            parseFloat(data[0].data.children[0].data.ups)
           ]);
           if (stuff.series[0].data.length >= 700) {
             stuff.series[0].data[0].remove()
           }
-          
-          
-        }
-      })
+            })
     };
     setInterval(channelstatistics, 4000);
 

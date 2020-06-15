@@ -428,74 +428,42 @@ function getStyles() {
     //
     function channelstatistics() {
 
-      $.ajax({
-        url: `${key}https://api.mixerno.space/twitter/user/${channelid}`,
-        // Handle as Text
-        dataType: "text",
-        success: function (data) {
-          var json = $.parseJSON(data);
-          //ytsubs.innerHTML = json.followers
-          ytname.innerHTML = json.name
-          $("#image").attr('src', `${json.pfp}`);
-          //plsworkgraph = json.subscribers.replace(/""/, "");
-          //stuff.series[0].addPoint([
-            //(new Date()).getTime(),
-            //json.followers
-          //]);
-          //if (stuff.series[0].data.length >= 700) {
-            //stuff.series[0].data[0].remove()
-          //}
-        }
-      })
-      $.ajax({
-        url: `https://bastet.socialblade.com/twitter/lookup?query=${channelid}`,
-        // Handle as Text
-        dataType: "text",
-        success: function (data) {
-          var json = $.parseJSON(data);
-          count1 = json
-          ytsubs.innerHTML = json
-          //ytname.innerHTML = json.name
-          //$("#image").attr('src', `${json.pfp}`);
-          //plsworkgraph = json.subscribers.replace(/""/, "");
+
+      fetch(`${key}https://api.mixerno.space/twitter/user/${channelid}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                ytname.innerHTML = data.name
+          $("#image").attr('src', `${data.pfp}`);
+
+            })
+      fetch(`https://bastet.socialblade.com/twitter/lookup?query=${channelid}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                count1 = data
+          ytsubs.innerHTML = data
           channelstatistics2()
 
-        }
-      })
+            })
     };
     function channelstatistics2() {
 
-$.ajax({
-  url: `${key}https://api.mixerno.space/twitter/user/${channelid2}`,
-  // Handle as Text
-  dataType: "text",
-  success: function (data) {
-    var json = $.parseJSON(data);
-    //ytsubs.innerHTML = json.followers
-    ytname2.innerHTML = json.name
-    $("#image2").attr('src', `${json.pfp}`);
-    //$("#image").attr('src', `${json.pfp}`);
-    //plsworkgraph = json.subscribers.replace(/""/, "");
-    //stuff.series[0].addPoint([
-      //(new Date()).getTime(),
-      //json.followers
-    //]);
-    //if (stuff.series[0].data.length >= 700) {
-      //stuff.series[0].data[0].remove()
-    //}
-  }
-})
-$.ajax({
-  url: `https://bastet.socialblade.com/twitter/lookup?query=${channelid2}`,
-  // Handle as Text
-  dataType: "text",
-  success: function (data) {
-    var json = $.parseJSON(data);
-    ytsubs2.innerHTML = json
-    //ytname.innerHTML = json.name
-    //$("#image").attr('src', `${json.pfp}`);
-    //plsworkgraph = json.subscribers.replace(/""/, "");
-    count2 = json
+
+fetch(`${key}https://api.mixerno.space/twitter/user/${channelid2}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                ytname2.innerHTML = data.name
+          $("#image2").attr('src', `${data.pfp}`);
+
+            })
+fetch(`https://bastet.socialblade.com/twitter/lookup?query=${channelid2}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                ytsubs2.innerHTML = data
+                count2 = data
     difrence.innerHTML = count1 - count2
     stuff.series[0].addPoint([
             (new Date()).getTime(),
@@ -504,8 +472,8 @@ $.ajax({
           if (stuff.series[0].data.length >= 700) {
             stuff.series[0].data[0].remove()
           }
-  }
-})
+
+            })
 };
     setInterval(channelstatistics, 4000);
 

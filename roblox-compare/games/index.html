@@ -482,41 +482,36 @@ function getStyles() {
     var universsiid2 = 0
         //
         function getuniversid() {
-          $.ajax({
-            url: `${key}https://robloxvisitstrackerv2.herokuapp.com/roblox/api/game/${channelid}`,
-            // Handle as Text
-            dataType: "text",
-            success: function (data) {
-              var json = $.parseJSON(data);
-              universsiid = json.universeId,
-              $.ajax({
-            url: `${key}https://robloxvisitstrackerv2.herokuapp.com/roblox/api/game/${channelid2}`,
-            // Handle as Text
-            dataType: "text",
-            success: function (data) {
-              var json = $.parseJSON(data);
-              universsiid2 = json.universeId
+  
+          fetch(`${key}https://robloxvisitstrackerv2.herokuapp.com/roblox/api/game/${channelid}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                universsiid = data.universeId
+                fetch(`${key}https://robloxvisitstrackerv2.herokuapp.com/roblox/api/game/${channelid2}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                universsiid2 = data.universeId
               channelstatistics()
-            }
-          })
-              
-            }
-          })
+            })
+            })
+
+
           
         }
         function channelstatistics() {
     
-          $.ajax({
-            url: `${key}https://games.roblox.com/v1/games?universeIds=${universsiid}`,
-            // Handle as Text
-            dataType: "text",
-            success: function (data) {
-              var json = $.parseJSON(data);
-              vidname.innerHTML = json.data[0].name
+ 
+          fetch(`${key}https://games.roblox.com/v1/games?universeIds=${universsiid}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                vidname.innerHTML = data.data[0].name
              // like.innerHTML = json.data[0]
              // dislike.innerHTML = json.data[0]
              // $("#image").attr('src', `${json.data[0]}`);
-             visits = json.data[0].visits
+             visits = data.data[0].visits
              if (time > 0) {
             if (visits > visitsbefore) {
               newerdate = new Date()
@@ -548,35 +543,25 @@ function getStyles() {
               //plsworkgraph = json.subscribers.replace(/""/, "");
 
               channelstatistics2()
-            }
-          })
-          $.ajax({
-            url: `${key}https://thumbnails.roblox.com/v1/games/multiget/thumbnails?universeIds=${universsiid}&size=768x432&format=Png&isCircular=false`,
-            // Handle as Text
-            dataType: "text",
-            success: function (data) {
-              var json = $.parseJSON(data);
-              //view.innerHTML = json.data[0].playing
-              //vidname.innerHTML = json.data[0].name
-              //like.innerHTML = json.data[0].upVotes
-              //dislike.innerHTML = json.data[0].downVotes
-              //comment.innerHTML = json.data[0].visits
-              $("#image").attr('src', `${json.data[0].thumbnails[0].imageUrl}`);
-    
-              //plsworkgraph = json.subscribers.replace(/""/, "");
-            }
-          })
+            })
+            fetch(`${key}https://thumbnails.roblox.com/v1/games/multiget/thumbnails?universeIds=${universsiid}&size=768x432&format=Png&isCircular=false`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                $("#image").attr('src', `${data.data[0].thumbnails[0].imageUrl}`);
+            })
+
+
         };
         function channelstatistics2() {
     
-    $.ajax({
-      url: `${key}https://games.roblox.com/v1/games?universeIds=${universsiid2}`,
-      // Handle as Text
-      dataType: "text",
-      success: function (data) {
-        var json = $.parseJSON(data);
-        vidname2.innerHTML = json.data[0].name
-        visits2 = json.data[0].visits
+    
+    fetch(`${key}https://games.roblox.com/v1/games?universeIds=${universsiid2}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                vidname2.innerHTML = data.data[0].name
+        visits2 = data.data[0].visits
        // like.innerHTML = json.data[0]
        // dislike.innerHTML = json.data[0]
        if (time2 > 0) {
@@ -615,24 +600,14 @@ function getStyles() {
           if (stuff.series[0].data.length >= 700) {
             stuff.series[0].data[0].remove()
           }
-      }
-    })
-    $.ajax({
-      url: `${key}https://thumbnails.roblox.com/v1/games/multiget/thumbnails?universeIds=${universsiid2}&size=768x432&format=Png&isCircular=false`,
-      // Handle as Text
-      dataType: "text",
-      success: function (data) {
-        var json = $.parseJSON(data);
-        //view.innerHTML = json.data[0].playing
-        //vidname.innerHTML = json.data[0].name
-        //like.innerHTML = json.data[0].upVotes
-        //dislike.innerHTML = json.data[0].downVotes
-        //comment.innerHTML = json.data[0].visits
-        $("#image2").attr('src', `${json.data[0].thumbnails[0].imageUrl}`);
+            })
 
-        //plsworkgraph = json.subscribers.replace(/""/, "");
-      }
-    })
+    fetch(`${key}https://thumbnails.roblox.com/v1/games/multiget/thumbnails?universeIds=${universsiid2}&size=768x432&format=Png&isCircular=false`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                $("#image2").attr('src', `${data.data[0].thumbnails[0].imageUrl}`);
+            })
   };
         setInterval(channelstatistics, 4000);
     //location.href = params[0] + $('#country').val();;

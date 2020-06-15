@@ -288,106 +288,48 @@ function getStyles() {
     //
     function channelstatistics() {
 
-      $.ajax({
-        url: `${key}https://api.roblox.com/users/${channelid}`,
-        // Handle as Text
-        dataType: "text",
-        success: function (data) {
-          var json = $.parseJSON(data);
-          //ytsubs.innerHTML = json.followers
-          ytname.innerHTML = json.Username
-          //totalviews.innerHTML = json.posts
-          //$("#image").attr('src', `${json.pfp}`);
-          //plsworkgraph = json.subscribers.replace(/""/, "");
-          /*stuff.series[0].addPoint([
-            (new Date()).getTime(),
-            json.followers
-          ]);
-          if (stuff.series[0].data.length >= 700) {
-            stuff.series[0].data[0].remove()
-          }*/
-        }
-      })
-      $.ajax({
-        url: `${key}https://thumbnails.roblox.com/v1/users/avatar-headshot?size=150x150&format=Png&isCircular=false&userIds=${channelid}`,
-        // Handle as Text
-        dataType: "text",
-        success: function (data) {
-          var json = $.parseJSON(data);
-          //ytsubs.innerHTML = json.followers
-          //ytname.innerHTML = json.Username
-          //totalviews.innerHTML = json.posts
-          $("#image").attr('src', `${json.data[0].imageUrl}`);
-          //plsworkgraph = json.subscribers.replace(/""/, "");
-          /*stuff.series[0].addPoint([
-            (new Date()).getTime(),
-            json.followers
-          ]);
-          if (stuff.series[0].data.length >= 700) {
-            stuff.series[0].data[0].remove()
-          }*/
-        }
-      })
-      $.ajax({
-        url: `${key}https://friends.roblox.com/v1/users/${channelid}/followers/count`,
-        // Handle as Text
-        dataType: "text",
-        success: function (data) {
-          var json = $.parseJSON(data);
-          ytsubs.innerHTML = json.count
+      fetch(`${key}https://api.roblox.com/users/${channelid}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                ytname.innerHTML = data.Username
+            })
+            fetch(`${key}https://thumbnails.roblox.com/v1/users/avatar-headshot?size=150x150&format=Png&isCircular=false&userIds=${channelid}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                $("#image").attr('src', `${data.data[0].imageUrl}`);
+            })
+            fetch(`${key}https://friends.roblox.com/v1/users/${channelid}/followers/count`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                ytsubs.innerHTML = data.count
           //ytname.innerHTML = json.Username
           //totalviews.innerHTML = json.posts
           //$("#image").attr('src', `${json.pfp}`);
           //plsworkgraph = json.subscribers.replace(/""/, "");
           stuff.series[0].addPoint([
             (new Date()).getTime(),
-            json.count
+            data.count
           ]);
           if (stuff.series[0].data.length >= 700) {
             stuff.series[0].data[0].remove()
           }
-        }
-      })
-      $.ajax({
-        url: `${key}https://friends.roblox.com/v1/users/${channelid}/followings/count`,
-        // Handle as Text
-        dataType: "text",
-        success: function (data) {
-          var json = $.parseJSON(data);
-          //ytsubs.innerHTML = json.count
-          //ytname.innerHTML = json.Username
-          totalviews.innerHTML = json.count
-          //$("#image").attr('src', `${json.pfp}`);
-          //plsworkgraph = json.subscribers.replace(/""/, "");
-          /*stuff.series[0].addPoint([
-            (new Date()).getTime(),
-            json.count
-          ]);
-          if (stuff.series[0].data.length >= 700) {
-            stuff.series[0].data[0].remove()
-          }*/
-        }
-      })
-      $.ajax({
-        url: `${key}https://friends.roblox.com/v1/users/${channelid}/friends/count`,
-        // Handle as Text
-        dataType: "text",
-        success: function (data) {
-          var json = $.parseJSON(data);
-          //ytsubs.innerHTML = json.count
-          //ytname.innerHTML = json.Username
-          videos.innerHTML = json.count
-          //$("#image").attr('src', `${json.pfp}`);
-          //plsworkgraph = json.subscribers.replace(/""/, "");
-          /*stuff.series[0].addPoint([
-            (new Date()).getTime(),
-            json.count
-          ]);
-          if (stuff.series[0].data.length >= 700) {
-            stuff.series[0].data[0].remove()
-          }*/
-        }
-      })
+            })
+            fetch(`${key}https://friends.roblox.com/v1/users/${channelid}/followings/count`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                totalviews.innerHTML = data.count
+            })
+            fetch(`${key}https://friends.roblox.com/v1/users/${channelid}/friends/count`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                videos.innerHTML = data.count
+            })
+
     };
     setInterval(channelstatistics, 4000);
 
@@ -399,16 +341,14 @@ function getStyles() {
     });
     //
     $('#serch').click(function () {
-      $.ajax({
-        url: `${key}https://www.roblox.com/search/users/results?keyword=${$('#usersearch').val()}&maxRows=12&startIndex=0`,
-        // Handle as Text
-        dataType: "text",
-        success: function (data) {
-          var json = $.parseJSON(data);
-          location.href = `${params[0]}?user=${json.UserSearchResults[0].UserId}`;
-        }
-      })
-        
+
+
+      fetch(`${key}https://www.roblox.com/search/users/results?keyword=${$('#usersearch').val()}&maxRows=12&startIndex=0`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                location.href = `${params[0]}?user=${data.UserSearchResults[0].UserId}`;
+            })
 
     });
     $('#usersearch1x').on('keyup', function (e) {
