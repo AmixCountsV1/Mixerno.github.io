@@ -297,32 +297,27 @@
     //
     function channelstatistics() {
 
-      $.ajax({
-        url: `${key}https://api.mixerno.space/youtube/streamid/${channelid}`,
-        // Handle as Text
-        dataType: "text",
-        success: function (data) {
-          var json = $.parseJSON(data);
-          view.innerHTML = json.viewers
-          vidname.innerHTML = json.name
-          like.innerHTML = json.likes
-          dislike.innerHTML = json.dislikes
-          comment.innerHTML = json.comments
-          $("#image").attr('src', `${json.videoimageurl}`);
+      fetch(`${key}https://api.mixerno.space/youtube/streamid/${channelid}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                view.innerHTML = data.viewers
+          vidname.innerHTML = data.name
+          like.innerHTML = data.likes
+          dislike.innerHTML = data.dislikes
+          comment.innerHTML = data.comments
+          $("#image").attr('src', `${data.videoimageurl}`);
 
           //plsworkgraph = json.subscribers.replace(/""/, "");
           stuff.series[0].addPoint([
             (new Date()).getTime(),
-            parseFloat(json.viewers)
+            parseFloat(data.viewers)
           ]);
           if (stuff.series[0].data.length >= 700) {
             stuff.series[0].data[0].remove()
           }
-        },
-        error: function(probablyapikeydeadlol){
-            setTimeout(channelstatistics, 100)
-        }
-      })
+
+            })
     };
     setInterval(channelstatistics, 4000);
 
@@ -339,17 +334,14 @@
     });
     function searchchannel() {
 
+      fetch(`${key}https://mixernobest.herokuapp.com/youtube/searchvideo/${$('#usersearch').val()}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                channelid = data.videoid
+          location.href = `${params[0]}?user=${channelid}`;
 
-      $.ajax({
-        url: `${key}https://mixernobest.herokuapp.com/youtube/searchvideo/${$('#usersearch').val()}`,
-        // Handle as Text
-        dataType: "text",
-        success: function (data) {
-          var json = $.parseJSON(data);
-          channelid = json.videoid
-          location.href = `${params[0]}?id=${channelid}`;
-        }
-      })
+            })
     }
     //location.href = params[0] + $('#country').val();;
     $('#serch').click(function () {

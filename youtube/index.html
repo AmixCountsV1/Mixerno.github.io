@@ -441,31 +441,26 @@ testlocal()
   }
     function channelstatistics() {
 
-      $.ajax({
-        url: `${key}https://api.mixerno.space/youtube/channelUC/${channelid}`,
-        // Handle as Text
-        dataType: "text",
-        success: function (data) {
-          var json = $.parseJSON(data);
-          ytsubs.innerHTML = json.subscribers
-          ytname.innerHTML = json.name
-          totalviews.innerHTML = json.totalviews
-          videos.innerHTML = json.videos
-          $("#image").attr('src', `${json.avatarurl}`);
+      fetch(`${key}https://api.mixerno.space/youtube/channelUC/${channelid}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                ytsubs.innerHTML = data.subscribers
+          ytname.innerHTML = data.name
+          totalviews.innerHTML = data.totalviews
+          videos.innerHTML = data.videos
+          $("#image").attr('src', `${data.avatarurl}`);
 
           //plsworkgraph = json.subscribers.replace(/""/, "");
           stuff.series[0].addPoint([
             (new Date()).getTime(),
-            parseFloat(json.subscribers)
+            parseFloat(data.subscribers)
           ]);
           if (stuff.series[0].data.length >= 700) {
             stuff.series[0].data[0].remove()
           }
-        },
-        error: function(probablyapikeydeadlol){
-            setTimeout(channelstatistics, 100)
-        }
-      })
+
+            })
     };
     setInterval(channelstatistics, 15000);
 
@@ -477,17 +472,14 @@ testlocal()
     });
     function searchchannel() {
 
-
-      $.ajax({
-        url: `${key}https://api.mixerno.space/youtube/searchchannel/${$('#usersearch').val()}`,
-        // Handle as Text
-        dataType: "text",
-        success: function (data) {
-          var json = $.parseJSON(data);
-          channelid = json.channelid
+      fetch(`${key}https://api.mixerno.space/youtube/searchchannel/${$('#usersearch').val()}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                channelid = data.channelid
           location.href = `${params[0]}?user=${channelid}`;
-        }
-      })
+
+            })
     }
     //location.href = params[0] + $('#country').val();;
     $('#serch').click(function () {
