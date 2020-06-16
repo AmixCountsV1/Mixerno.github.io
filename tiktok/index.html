@@ -228,6 +228,12 @@
             <option value="s2">2 seconds (original)</option>
             <option value="s3">3 seconds</option>
             <option value="s4">4 seconds</option>
+          </select></p><br>
+          <p>Estimation: <select id="estimt" style="width: auto; color: white;background-color: black;">
+            <option value="sss" selected>Select</option>
+            <option value="disabled">Disabled (default)</option>
+            <option value="enabled">Enabled</option>
+            
           </select></p>
         </div>
         <div style="color: white; background-color: black;" class="modal-footer">
@@ -262,6 +268,13 @@ function saveStyles() {
     } else {
         localStorage.setItem('odospeed', document.getElementById("odospeed").value);
         console.log("Ok5")
+    }
+    if(document.getElementById("estimt").value == "sss") {
+        //non
+        console.log("Ok6")
+    } else {
+        localStorage.setItem('estimation', document.getElementById("estimt").value);
+        console.log("Ok7")
     }
     
   
@@ -388,28 +401,14 @@ function getStyles() {
       channelid = "charlidamelio"
     }
     var estimat;
-    checkest()
+    channelstatistics()
     var tiktokbypass = [
       'https://immense-castle-34936.herokuapp.com/@',
       'https://backuptiktokapi.glitch.me/',
       'https://backuptiktokapi.herokuapp.com/@',
       'https://honorable-hazel-atmosphere.glitch.me/'
     ]
-    function checkest() {
-      fetch(`${key}https://api.mixerno.space/tiktok_estimated/${channelid}`)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                if(data.estimated == true) {
-                  estimat = true
-                  channelstatistics()
-                }
-                if(data.estimated == false) {
-                  estimat = false
-                  channelstatistics()
-                }
-            })
-    }
+
 
     //
     var randomtiktokbypass = Math.floor(Math.random()*tiktokbypass.length);
@@ -423,7 +422,7 @@ function getStyles() {
     ]
       randomtiktokbypass = Math.floor(Math.random()*tiktokbypass.length);
       tiktokurl = tiktokbypass[randomtiktokbypass];
-if(estimat == true) {
+if(localStorage.getItem('estimation') == "enabled") {
   fetch(`${key}${tiktokurl}${channelid}`)
             .then(response => response.json())
             .then(data => {
