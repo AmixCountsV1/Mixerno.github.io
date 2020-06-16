@@ -440,10 +440,6 @@ if(estimat == true) {
             .then(data => {
                 console.log(data)
                 ytsubs.innerHTML = data.followers
-          ytname.innerHTML = data.name
-          videos.innerHTML = data.videos
-          totalviews.innerHTML = data.hearts
-          $("#image").attr('src', `${data.avatarurl}`);
           //plsworkgraph = json.subscribers.replace(/""/, "");
           stuff.series[0].addPoint([
             (new Date()).getTime(),
