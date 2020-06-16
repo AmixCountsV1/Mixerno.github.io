@@ -387,13 +387,29 @@ function getStyles() {
     if (params[1] == undefined) {
       channelid = "charlidamelio"
     }
-    channelstatistics()
+    var estimat;
+    checkest()
     var tiktokbypass = [
       'https://immense-castle-34936.herokuapp.com/@',
       'https://backuptiktokapi.glitch.me/',
       'https://backuptiktokapi.herokuapp.com/@',
       'https://honorable-hazel-atmosphere.glitch.me/'
     ]
+    function checkest() {
+      fetch(`${key}https://api.mixerno.space/tiktok_estimated/${channelid}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                if(data.estimated == true) {
+                  estimat = true
+                  channelstatistics()
+                }
+                if(data.estimated == false) {
+                  estimat = false
+                  channelstatistics()
+                }
+            })
+    }
 
     //
     var randomtiktokbypass = Math.floor(Math.random()*tiktokbypass.length);
@@ -407,8 +423,19 @@ function getStyles() {
     ]
       randomtiktokbypass = Math.floor(Math.random()*tiktokbypass.length);
       tiktokurl = tiktokbypass[randomtiktokbypass];
+if(estimat == true) {
+  fetch(`${key}${tiktokurl}${channelid}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+          ytname.innerHTML = data.name
+          videos.innerHTML = data.videos
+          totalviews.innerHTML = data.hearts
+          $("#image").attr('src', `${data.avatarurl}`);
+          //plsworkgraph = json.subscribers.replace(/""/, "");
 
-      fetch(`${key}${tiktokurl}${channelid}`)
+            })
+            fetch(`${key}https://api.mixerno.space/tiktok_estimated/${channelid}`)
             .then(response => response.json())
             .then(data => {
                 console.log(data)
@@ -426,6 +453,21 @@ function getStyles() {
             stuff.series[0].data[0].remove()
           }
             })
+} else {
+  fetch(`${key}${tiktokurl}${channelid}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+          ytname.innerHTML = data.name
+          videos.innerHTML = data.videos
+          totalviews.innerHTML = data.hearts
+          $("#image").attr('src', `${data.avatarurl}`);
+          //plsworkgraph = json.subscribers.replace(/""/, "");
+
+            })
+}
+      
+          
     };
     setInterval(channelstatistics, 4000);
 
