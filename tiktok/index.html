@@ -438,11 +438,11 @@ if(localStorage.getItem('estimation') == "enabled") {
             .then(response => response.json())
             .then(data => {
                 console.log(data)
-                ytsubs.innerHTML = data.followers
+                ytsubs.innerHTML = data.fols
           //plsworkgraph = json.subscribers.replace(/""/, "");
           stuff.series[0].addPoint([
             (new Date()).getTime(),
-            data.followers
+            data.fols
           ]);
           if (stuff.series[0].data.length >= 700) {
             stuff.series[0].data[0].remove()
@@ -453,10 +453,18 @@ if(localStorage.getItem('estimation') == "enabled") {
             .then(response => response.json())
             .then(data => {
                 console.log(data)
+                ytsubs.innerHTML = data.followers
           ytname.innerHTML = data.name
           videos.innerHTML = data.videos
           totalviews.innerHTML = data.hearts
           $("#image").attr('src', `${data.avatarurl}`);
+          stuff.series[0].addPoint([
+            (new Date()).getTime(),
+            data.followers
+          ]);
+          if (stuff.series[0].data.length >= 700) {
+            stuff.series[0].data[0].remove()
+          }
           //plsworkgraph = json.subscribers.replace(/""/, "");
 
             })
