@@ -23,13 +23,23 @@ function tabop(evt, social) {
   document.getElementById(social).style.display = "block";
   evt.currentTarget.className += " active";
 }
+$(document).ready(function () {
+settarnajaenoleruotsalainenolensuolainen()
+function settarnajaenoleruotsalainenolensuolainen() {
+  if(Math.floor(Math.random() * 10) > 4.9) {
+    lol.innerHTML = "Another Counter site"
+  } else {
+    lol.innerHTML = "Large collection of counters"
+  }
+}
+});
     </script>
     <body>
             <div class="boxed">
                 <center>
        <img src="https://mixerno.space/icons/2.png" height="80" width="80">
        <p style="font-size: 50px;">Mixerno.space</p>
-       <h1>The another counter site.</h1>
+       <h1 id="lol">.</h1>
        <p></p>
       
     </center>
@@ -46,10 +56,11 @@ function tabop(evt, social) {
         <button style="background-color: rgb(255, 69, 0);" class="tablinks" onclick="tabop(event, 'Reddit')">Reddit</button>
         <button style="background-color: rgb(0, 0, 0);color: white;" class="tablinks" onclick="tabop(event, 'Dailymotion')">Dailymotion</button>
         <button style="background-color: rgb(0, 68, 0);color: white;" class="tablinks" onclick="tabop(event, 'Minecraft')">Minecraft</button>
+        <button style="background-color: rgb(114, 137, 218);color: white;" class="tablinks" onclick="tabop(event, 'Discord')">Discord</button>
       </div>
     </center>
       <div id="Youtube" class="tabcontent">
-          <h3 style="font-size: 30px;">Youtube</h3>
+          <h3 style="font-size: 30px;">Youtube (unstable for long time! Sorry)</h3>
         <a style=" text-decoration: none; font-size: 25px;" href="https://mixerno.space/youtube">Subscriber Counter</a><br>
         <a style=" text-decoration: none; font-size: 25px;" href="https://mixerno.space/youtube/video">Video statistics</a><br>
         <a style=" text-decoration: none; font-size: 25px;" href="https://mixerno.space/youtube/stream">Stream statistics</a><br>
@@ -74,7 +85,6 @@ function tabop(evt, social) {
       
       <div id="Roblox" class="tabcontent">
         <h3 style="font-size: 30px;">Roblox</h3>
-        <p>:).</p>
         <a style=" text-decoration: none; font-size: 25px;" href="https://mixerno.space/roblox">Follower Counter</a><br>
         <a style=" text-decoration: none; font-size: 25px;" href="https://mixerno.space/roblox-compare">FollowerCompare</a><br>
         <a style=" text-decoration: none; font-size: 25px;" href="https://mixerno.space/roblox/games">Game visits Counter</a><br>
@@ -106,6 +116,10 @@ function tabop(evt, social) {
         <h3 style="font-size: 30px;">Minecraft</h3>
         <a style=" text-decoration: none; font-size: 25px;" href="https://mixerno.space/mc/">Server player count</a><br>
         <a style=" text-decoration: none; font-size: 25px;" href="https://mixerno.space/mc-compare/">Server player compare</a><br>
+      </div>
+      <div id="Discord" class="tabcontent">
+        <h3 style="font-size: 30px;">Discord</h3>
+        <a style=" text-decoration: none; font-size: 25px;" href="https://mixerno.space/discord/">Server member count</a><br>
       </div>
     </div>
     
