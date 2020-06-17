@@ -254,6 +254,12 @@
             <option value="s2">2 seconds (original)</option>
             <option value="s3">3 seconds</option>
             <option value="s4">4 seconds</option>
+          </select></p><br>
+          <p>Estimation: <select id="estimt" style="width: auto; color: white;background-color: black;">
+            <option value="sss" selected>Select</option>
+            <option value="disabled">Disabled (default)</option>
+            <option value="enabled">Enabled</option>
+            
           </select></p>
         </div>
         <div style="color: white; background-color: black;" class="modal-footer">
@@ -288,6 +294,13 @@ function saveStyles() {
     } else {
         localStorage.setItem('odospeed', document.getElementById("odospeed").value);
         console.log("Ok5")
+    }
+    if(document.getElementById("estimt").value == "sss") {
+        //non
+        console.log("Ok6")
+    } else {
+        localStorage.setItem('estimation', document.getElementById("estimt").value);
+        console.log("Ok7")
     }
     
   
@@ -440,22 +453,72 @@ function getStyles() {
     ]
       randomtiktokbypass = Math.floor(Math.random()*tiktokbypass.length);
       tiktokurl = tiktokbypass[randomtiktokbypass];
-
-      fetch(`${key}${tiktokurl}${channelid}`)
+      if(localStorage.getItem('estimation') == "enabled") {
+  fetch(`${key}${tiktokurl}${channelid}`)
             .then(response => response.json())
             .then(data => {
                 console.log(data)
-                count1 = data.followers
           ytname.innerHTML = data.name
-          ytsubs.innerHTML = data.followers
           $("#image").attr('src', `${data.avatarurl}`);
+          //plsworkgraph = json.subscribers.replace(/""/, "");
+
+            })
+            fetch(`${key}https://api.mixerno.space/tiktok_estimated/${channelid}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                ytsubs.innerHTML = data.fols
+          //plsworkgraph = json.subscribers.replace(/""/, "");
+          count1 = data.fols
           channelstatistics2()
             })
+} else {
+  fetch(`${key}${tiktokurl}${channelid}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                ytsubs.innerHTML = data.followers
+          ytname.innerHTML = data.name
+          $("#image").attr('src', `${data.avatarurl}`);
+          count1 = data.followers
+          channelstatistics2()
+          //plsworkgraph = json.subscribers.replace(/""/, "");
+
+            })
+}
 
     };
     function channelstatistics2() {
 
-      fetch(`${key}${tiktokurl}${channelid2}`)
+            if(localStorage.getItem('estimation') == "enabled") {
+  fetch(`${key}${tiktokurl}${channelid}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                ytname2.innerHTML = data.name
+          $("#image2").attr('src', `${data.avatarurl}`);
+          //plsworkgraph = json.subscribers.replace(/""/, "");
+
+            })
+            fetch(`${key}https://api.mixerno.space/tiktok_estimated/${channelid2}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                ytsubs2.innerHTML = data.fols
+          //plsworkgraph = json.subscribers.replace(/""/, "");
+          count2 = data.fols
+          difrence.innerHTML = count1 - count2
+          stuff.series[0].addPoint([
+            (new Date()).getTime(),
+            count1 - count2
+          ]);
+          if (stuff.series[0].data.length >= 700) {
+            stuff.series[0].data[0].remove()
+          }
+
+            })
+} else {
+  fetch(`${key}${tiktokurl}${channelid2}`)
             .then(response => response.json())
             .then(data => {
                 console.log(data)
@@ -471,7 +534,10 @@ function getStyles() {
           if (stuff.series[0].data.length >= 700) {
             stuff.series[0].data[0].remove()
           }
+          //plsworkgraph = json.subscribers.replace(/""/, "");
+
             })
+}
 };
     setInterval(channelstatistics, 4000);
 
