@@ -427,10 +427,15 @@ if(localStorage.getItem('estimation') == "enabled") {
             .then(response => response.json())
             .then(data => {
                 console.log(data)
-          ytname.innerHTML = data.name
+                if(data.name == undefined) {
+console.log("error")
+                } else {
+                  ytname.innerHTML = data.name
           videos.innerHTML = data.videos
           totalviews.innerHTML = data.hearts
           $("#image").attr('src', `${data.avatarurl}`);
+                }
+          
           //plsworkgraph = json.subscribers.replace(/""/, "");
 
             })
@@ -453,7 +458,10 @@ if(localStorage.getItem('estimation') == "enabled") {
             .then(response => response.json())
             .then(data => {
                 console.log(data)
-                ytsubs.innerHTML = data.followers
+                if(data.name == undefined) {
+console.log("error")
+                } else {
+                  ytsubs.innerHTML = data.followers
           ytname.innerHTML = data.name
           videos.innerHTML = data.videos
           totalviews.innerHTML = data.hearts
@@ -465,6 +473,8 @@ if(localStorage.getItem('estimation') == "enabled") {
           if (stuff.series[0].data.length >= 700) {
             stuff.series[0].data[0].remove()
           }
+                }
+                
           //plsworkgraph = json.subscribers.replace(/""/, "");
 
             })
