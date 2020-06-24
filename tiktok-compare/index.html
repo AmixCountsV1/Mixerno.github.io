@@ -467,9 +467,9 @@ function getStyles() {
             .then(response => response.json())
             .then(data => {
                 console.log(data)
-                ytsubs.innerHTML = data.fols
+                ytsubs.innerHTML = Math.floor(data.fols)
           //plsworkgraph = json.subscribers.replace(/""/, "");
-          count1 = data.fols
+          count1 = Math.floor(data.fols)
           channelstatistics2()
             })
 } else {
@@ -504,9 +504,9 @@ function getStyles() {
             .then(response => response.json())
             .then(data => {
                 console.log(data)
-                ytsubs2.innerHTML = data.fols
+                ytsubs2.innerHTML = Math.floor(data.fols)
           //plsworkgraph = json.subscribers.replace(/""/, "");
-          count2 = data.fols
+          count2 = Math.floor(data.fols)
           difrence.innerHTML = count1 - count2
           stuff.series[0].addPoint([
             (new Date()).getTime(),

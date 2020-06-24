@@ -438,11 +438,11 @@ if(localStorage.getItem('estimation') == "enabled") {
             .then(response => response.json())
             .then(data => {
                 console.log(data)
-                ytsubs.innerHTML = data.fols
+                ytsubs.innerHTML = Math.floor(data.fols)
           //plsworkgraph = json.subscribers.replace(/""/, "");
           stuff.series[0].addPoint([
             (new Date()).getTime(),
-            data.fols
+            Math.floor(data.fols)
           ]);
           if (stuff.series[0].data.length >= 700) {
             stuff.series[0].data[0].remove()
