@@ -1,0 +1,239 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+
+  <title>Mixerno | Tiktok Embed</title>
+  <link rel="shortcut icon" href="https://yt3.ggpht.com/a-/AOh14GhVWagi88Rfs6XXerg3-3PR4RPHYcolFIrYXZ4_=s288-c-k-c0xffffffff-no-rj-mo">
+  <link rel="stylesheet" href="../../o2.css" />
+  <script src="../../odometer.js"></script>
+  <script type="text/javascript" src="../../jquery-3.1.1.min.js"></script>
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <span class="l">
+    <img src="" id="img1" height="50" width="50" style="position: absolute; top: 0px; left: 0px;">
+    <div id="name1" class="names" style="position: absolute;top: 5px;font-size:15px;font-weight: bold;color:rgb(255, 255, 255)">Loading</div>
+    <div id="fans1" class="odometer" style="position: absolute;left: 59px;top: 20px;font-size:25px;color:rgb(255, 255, 255)">0</div>
+  </span>
+    
+    
+
+
+  <style>
+    .names {
+    position: absolute;
+    left: 60px;
+    top: 0px;
+    font-size: 15px;
+    width: 145px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
+
+
+    
+    .odometer {
+      font-size: 100px;
+    }
+
+    body {
+      background-color: transparent;
+      color: rgb(255, 255, 255);
+      font-family: Arial
+    }
+
+    div {
+      font-size: 36
+    }
+  </style>
+</head>
+
+
+
+
+
+<script>
+  //var key = ""
+  var key = "https://cors.mixerno.space/"
+    var videostufflol = window.location.href;
+    var params = videostufflol.split('?user=');
+var channelid = params[1];
+    if (params[1] == undefined) {
+      channelid = "charlidamelio"
+    }
+    var estimat;
+    channelstatistics()
+    var tiktokbypass = [
+      'https://immense-castle-34936.herokuapp.com/@',
+      'https://backuptiktokapi.glitch.me/',
+      'https://backuptiktokapi.herokuapp.com/@',
+      'https://honorable-hazel-atmosphere.glitch.me/'
+    ]
+
+
+    //
+    var randomtiktokbypass = Math.floor(Math.random()*tiktokbypass.length);
+    var tiktokurl = tiktokbypass[randomtiktokbypass];
+    function channelstatistics() {
+      tiktokbypass = [
+      'https://immense-castle-34936.herokuapp.com/@',
+      'https://backuptiktokapi.glitch.me/',
+      'https://backuptiktokapi.herokuapp.com/@',
+      'https://honorable-hazel-atmosphere.glitch.me/'
+    ]
+      randomtiktokbypass = Math.floor(Math.random()*tiktokbypass.length);
+      tiktokurl = tiktokbypass[randomtiktokbypass];
+if(localStorage.getItem('estimation') == "enabled") {
+  fetch(`${key}${tiktokbypass[0]}${channelid}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                if(data.name == undefined) {
+console.log("error")
+fetch(`${key}${tiktokbypass[1]}${channelid}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                if(data.name == undefined) {
+                  fetch(`${key}${tiktokbypass[2]}${channelid}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                if(data.name == undefined) {
+                  fetch(`${key}${tiktokbypass[3]}${channelid}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                if(data.name == undefined) {
+console.log("error")
+                } else {
+                  ytname.innerHTML = data.name
+
+          $("#image").attr('src', `${data.avatarurl}`);
+                }
+          
+          //plsworkgraph = json.subscribers.replace(/""/, "");
+
+            })
+console.log("error")
+                } else {
+                  ytname.innerHTML = data.name
+
+          $("#image").attr('src', `${data.avatarurl}`);
+                }
+          
+          //plsworkgraph = json.subscribers.replace(/""/, "");
+
+            })
+console.log("error")
+                } else {
+                  ytname.innerHTML = data.name
+
+          $("#image").attr('src', `${data.avatarurl}`);
+                }
+          
+          //plsworkgraph = json.subscribers.replace(/""/, "");
+
+            })
+                } else {
+                  ytname.innerHTML = data.name
+
+          $("#image").attr('src', `${data.avatarurl}`);
+                }
+          
+          //plsworkgraph = json.subscribers.replace(/""/, "");
+
+            })
+            fetch(`${key}https://api.mixerno.space/tiktok_estimated/${channelid}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                ytsubs.innerHTML = Math.floor(data.fols)
+          //plsworkgraph = json.subscribers.replace(/""/, "");
+            })
+} else {
+  fetch(`${key}${tiktokbypass[0]}${channelid}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                if(data.name == undefined) {
+console.log("error")
+fetch(`${key}${tiktokbypass[1]}${channelid}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                if(data.name == undefined) {
+console.log("error")
+fetch(`${key}${tiktokbypass[2]}${channelid}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                if(data.name == undefined) {
+console.log("error")
+fetch(`${key}${tiktokbypass[3]}${channelid}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                if(data.name == undefined) {
+console.log("error")
+                } else {
+                  ytsubs.innerHTML = data.followers
+          ytname.innerHTML = data.name
+          $("#image").attr('src', `${data.avatarurl}`);
+
+                }
+                
+          //plsworkgraph = json.subscribers.replace(/""/, "");
+
+            })
+                } else {
+                  ytsubs.innerHTML = data.followers
+          ytname.innerHTML = data.name
+
+          $("#image").attr('src', `${data.avatarurl}`);
+
+                }
+                
+          //plsworkgraph = json.subscribers.replace(/""/, "");
+
+            })
+                } else {
+                  ytsubs.innerHTML = data.followers
+          ytname.innerHTML = data.name
+
+          $("#image").attr('src', `${data.avatarurl}`);
+ 
+                }
+                
+          //plsworkgraph = json.subscribers.replace(/""/, "");
+
+            })
+                } else {
+                  ytsubs.innerHTML = data.followers
+          ytname.innerHTML = data.name
+
+          $("#image").attr('src', `${data.avatarurl}`);
+
+                }
+                
+          //plsworkgraph = json.subscribers.replace(/""/, "");
+
+            })
+}
+      
+          
+    };
+    setInterval(channelstatistics, 4000);
+</script>
+
+
+
+
+
+
+<body>
+
+</body>
+
+</html>
