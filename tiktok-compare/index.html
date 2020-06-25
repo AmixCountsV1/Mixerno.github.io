@@ -454,12 +454,55 @@ function getStyles() {
       randomtiktokbypass = Math.floor(Math.random()*tiktokbypass.length);
       tiktokurl = tiktokbypass[randomtiktokbypass];
       if(localStorage.getItem('estimation') == "enabled") {
-  fetch(`${key}${tiktokurl}${channelid}`)
+  fetch(`${key}${tiktokbypass[0]}${channelid}`)
             .then(response => response.json())
             .then(data => {
                 console.log(data)
-          ytname.innerHTML = data.name
+                if(data.name == undefined) {
+            console.log("error")
+            fetch(`${key}${tiktokbypass[1]}${channelid}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                if(data.name == undefined) {
+            console.log("error")
+            fetch(`${key}${tiktokbypass[2]}${channelid}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                if(data.name == undefined) {
+            console.log("error")
+            fetch(`${key}${tiktokbypass[3]}${channelid}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                if(data.name == undefined) {
+            console.log("error")
+                } else {
+                  ytname.innerHTML = data.name
           $("#image").attr('src', `${data.avatarurl}`);
+                }
+          //plsworkgraph = json.subscribers.replace(/""/, "");
+
+            })
+                } else {
+                  ytname.innerHTML = data.name
+          $("#image").attr('src', `${data.avatarurl}`);
+                }
+          //plsworkgraph = json.subscribers.replace(/""/, "");
+
+            })
+                } else {
+                  ytname.innerHTML = data.name
+          $("#image").attr('src', `${data.avatarurl}`);
+                }
+          //plsworkgraph = json.subscribers.replace(/""/, "");
+
+            })
+                } else {
+                  ytname.innerHTML = data.name
+          $("#image").attr('src', `${data.avatarurl}`);
+                }
           //plsworkgraph = json.subscribers.replace(/""/, "");
 
             })
@@ -473,15 +516,71 @@ function getStyles() {
           channelstatistics2()
             })
 } else {
-  fetch(`${key}${tiktokurl}${channelid}`)
+  fetch(`${key}${tiktokbypass[0]}${channelid}`)
             .then(response => response.json())
             .then(data => {
                 console.log(data)
-                ytsubs.innerHTML = data.followers
+                if(data.name == undefined) {
+console.log("error")
+fetch(`${key}${tiktokbypass[1]}${channelid}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                if(data.name == undefined) {
+console.log("error")
+fetch(`${key}${tiktokbypass[2]}${channelid}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                if(data.name == undefined) {
+console.log("error")
+fetch(`${key}${tiktokbypass[3]}${channelid}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                if(data.name == undefined) {
+console.log("error")
+                } else {
+                  ytsubs.innerHTML = data.followers
           ytname.innerHTML = data.name
           $("#image").attr('src', `${data.avatarurl}`);
           count1 = data.followers
           channelstatistics2()
+                }
+                
+          //plsworkgraph = json.subscribers.replace(/""/, "");
+
+            })
+                } else {
+                  ytsubs.innerHTML = data.followers
+          ytname.innerHTML = data.name
+          $("#image").attr('src', `${data.avatarurl}`);
+          count1 = data.followers
+          channelstatistics2()
+                }
+                
+          //plsworkgraph = json.subscribers.replace(/""/, "");
+
+            })
+                } else {
+                  ytsubs.innerHTML = data.followers
+          ytname.innerHTML = data.name
+          $("#image").attr('src', `${data.avatarurl}`);
+          count1 = data.followers
+          channelstatistics2()
+                }
+                
+          //plsworkgraph = json.subscribers.replace(/""/, "");
+
+            })
+                } else {
+                  ytsubs.innerHTML = data.followers
+          ytname.innerHTML = data.name
+          $("#image").attr('src', `${data.avatarurl}`);
+          count1 = data.followers
+          channelstatistics2()
+                }
+                
           //plsworkgraph = json.subscribers.replace(/""/, "");
 
             })
@@ -491,12 +590,55 @@ function getStyles() {
     function channelstatistics2() {
 
             if(localStorage.getItem('estimation') == "enabled") {
-  fetch(`${key}${tiktokurl}${channelid2}`)
+  fetch(`${key}${tiktokbypass[0]}${channelid2}`)
             .then(response => response.json())
             .then(data => {
                 console.log(data)
-                ytname2.innerHTML = data.name
+                if(data.name == undefined) {
+console.log("error2")
+fetch(`${key}${tiktokbypass[1]}${channelid2}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                if(data.name == undefined) {
+console.log("error2")
+fetch(`${key}${tiktokbypass[2]}${channelid2}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                if(data.name == undefined) {
+console.log("error2")
+fetch(`${key}${tiktokbypass[3]}${channelid2}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                if(data.name == undefined) {
+console.log("error2")
+                } else {
+                  ytname2.innerHTML = data.name
           $("#image2").attr('src', `${data.avatarurl}`);
+                }
+          //plsworkgraph = json.subscribers.replace(/""/, "");
+
+            })
+                } else {
+                  ytname2.innerHTML = data.name
+          $("#image2").attr('src', `${data.avatarurl}`);
+                }
+          //plsworkgraph = json.subscribers.replace(/""/, "");
+
+            })
+                } else {
+                  ytname2.innerHTML = data.name
+          $("#image2").attr('src', `${data.avatarurl}`);
+                }
+          //plsworkgraph = json.subscribers.replace(/""/, "");
+
+            })
+                } else {
+                  ytname2.innerHTML = data.name
+          $("#image2").attr('src', `${data.avatarurl}`);
+                }
           //plsworkgraph = json.subscribers.replace(/""/, "");
 
             })
@@ -518,11 +660,32 @@ function getStyles() {
 
             })
 } else {
-  fetch(`${key}${tiktokurl}${channelid2}`)
+  fetch(`${key}${tiktokbypass[0]}${channelid2}`)
             .then(response => response.json())
             .then(data => {
                 console.log(data)
-                ytname2.innerHTML = data.name
+                if(data.name == undefined) {
+console.log("error2")
+fetch(`${key}${tiktokbypass[1]}${channelid2}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                if(data.name == undefined) {
+console.log("error2")
+fetch(`${key}${tiktokbypass[2]}${channelid2}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                if(data.name == undefined) {
+console.log("error2")
+fetch(`${key}${tiktokbypass[3]}${channelid2}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                if(data.name == undefined) {
+console.log("error2")
+                } else {
+                  ytname2.innerHTML = data.name
           ytsubs2.innerHTML = data.followers
           $("#image2").attr('src', `${data.avatarurl}`);
           count2 = data.followers
@@ -534,6 +697,62 @@ function getStyles() {
           if (stuff.series[0].data.length >= 700) {
             stuff.series[0].data[0].remove()
           }
+                }
+                
+          //plsworkgraph = json.subscribers.replace(/""/, "");
+
+            })
+                } else {
+                  ytname2.innerHTML = data.name
+          ytsubs2.innerHTML = data.followers
+          $("#image2").attr('src', `${data.avatarurl}`);
+          count2 = data.followers
+          difrence.innerHTML = count1 - count2
+          stuff.series[0].addPoint([
+            (new Date()).getTime(),
+            count1 - count2
+          ]);
+          if (stuff.series[0].data.length >= 700) {
+            stuff.series[0].data[0].remove()
+          }
+                }
+                
+          //plsworkgraph = json.subscribers.replace(/""/, "");
+
+            })
+                } else {
+                  ytname2.innerHTML = data.name
+          ytsubs2.innerHTML = data.followers
+          $("#image2").attr('src', `${data.avatarurl}`);
+          count2 = data.followers
+          difrence.innerHTML = count1 - count2
+          stuff.series[0].addPoint([
+            (new Date()).getTime(),
+            count1 - count2
+          ]);
+          if (stuff.series[0].data.length >= 700) {
+            stuff.series[0].data[0].remove()
+          }
+                }
+                
+          //plsworkgraph = json.subscribers.replace(/""/, "");
+
+            })
+                } else {
+                  ytname2.innerHTML = data.name
+          ytsubs2.innerHTML = data.followers
+          $("#image2").attr('src', `${data.avatarurl}`);
+          count2 = data.followers
+          difrence.innerHTML = count1 - count2
+          stuff.series[0].addPoint([
+            (new Date()).getTime(),
+            count1 - count2
+          ]);
+          if (stuff.series[0].data.length >= 700) {
+            stuff.series[0].data[0].remove()
+          }
+                }
+                
           //plsworkgraph = json.subscribers.replace(/""/, "");
 
             })
