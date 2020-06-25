@@ -454,63 +454,15 @@ function getStyles() {
       randomtiktokbypass = Math.floor(Math.random()*tiktokbypass.length);
       tiktokurl = tiktokbypass[randomtiktokbypass];
       if(localStorage.getItem('estimation') == "enabled") {
-  fetch(`${key}${tiktokbypass[0]}${channelid}`)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                if(data.name == undefined) {
-            console.log("error")
-            fetch(`${key}${tiktokbypass[1]}${channelid}`)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                if(data.name == undefined) {
-            console.log("error")
-            fetch(`${key}${tiktokbypass[2]}${channelid}`)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                if(data.name == undefined) {
-            console.log("error")
-            fetch(`${key}${tiktokbypass[3]}${channelid}`)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                if(data.name == undefined) {
-            console.log("error")
-                } else {
-                  ytname.innerHTML = data.name
-          $("#image").attr('src', `${data.avatarurl}`);
-                }
-          //plsworkgraph = json.subscribers.replace(/""/, "");
 
-            })
-                } else {
-                  ytname.innerHTML = data.name
-          $("#image").attr('src', `${data.avatarurl}`);
-                }
-          //plsworkgraph = json.subscribers.replace(/""/, "");
-
-            })
-                } else {
-                  ytname.innerHTML = data.name
-          $("#image").attr('src', `${data.avatarurl}`);
-                }
-          //plsworkgraph = json.subscribers.replace(/""/, "");
-
-            })
-                } else {
-                  ytname.innerHTML = data.name
-          $("#image").attr('src', `${data.avatarurl}`);
-                }
-          //plsworkgraph = json.subscribers.replace(/""/, "");
-
-            })
             fetch(`${key}https://api.mixerno.space/tiktok_estimated/${channelid}`)
             .then(response => response.json())
             .then(data => {
                 console.log(data)
                 ytsubs.innerHTML = Math.floor(data.fols)
+                ytname.innerHTML = data.name
+
+          $("#image").attr('src', `${data.pfp}`);
           //plsworkgraph = json.subscribers.replace(/""/, "");
           count1 = Math.floor(data.fols)
           channelstatistics2()
@@ -590,63 +542,15 @@ console.log("error")
     function channelstatistics2() {
 
             if(localStorage.getItem('estimation') == "enabled") {
-  fetch(`${key}${tiktokbypass[0]}${channelid2}`)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                if(data.name == undefined) {
-console.log("error2")
-fetch(`${key}${tiktokbypass[1]}${channelid2}`)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                if(data.name == undefined) {
-console.log("error2")
-fetch(`${key}${tiktokbypass[2]}${channelid2}`)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                if(data.name == undefined) {
-console.log("error2")
-fetch(`${key}${tiktokbypass[3]}${channelid2}`)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                if(data.name == undefined) {
-console.log("error2")
-                } else {
-                  ytname2.innerHTML = data.name
-          $("#image2").attr('src', `${data.avatarurl}`);
-                }
-          //plsworkgraph = json.subscribers.replace(/""/, "");
 
-            })
-                } else {
-                  ytname2.innerHTML = data.name
-          $("#image2").attr('src', `${data.avatarurl}`);
-                }
-          //plsworkgraph = json.subscribers.replace(/""/, "");
-
-            })
-                } else {
-                  ytname2.innerHTML = data.name
-          $("#image2").attr('src', `${data.avatarurl}`);
-                }
-          //plsworkgraph = json.subscribers.replace(/""/, "");
-
-            })
-                } else {
-                  ytname2.innerHTML = data.name
-          $("#image2").attr('src', `${data.avatarurl}`);
-                }
-          //plsworkgraph = json.subscribers.replace(/""/, "");
-
-            })
             fetch(`${key}https://api.mixerno.space/tiktok_estimated/${channelid2}`)
             .then(response => response.json())
             .then(data => {
                 console.log(data)
                 ytsubs2.innerHTML = Math.floor(data.fols)
+                ytname2.innerHTML = data.name
+
+          $("#image2").attr('src', `${data.pfp}`);
           //plsworkgraph = json.subscribers.replace(/""/, "");
           count2 = Math.floor(data.fols)
           difrence.innerHTML = count1 - count2
