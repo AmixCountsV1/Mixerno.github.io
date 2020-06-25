@@ -349,6 +349,7 @@ function getStyles() {
     }
   });
   $(document).ready(function () {
+    //var key = ""
     var key = "https://cors.mixerno.space/"
     var videostufflol = window.location.href;
     var params = videostufflol.split('?user=');
@@ -423,12 +424,60 @@ function getStyles() {
       randomtiktokbypass = Math.floor(Math.random()*tiktokbypass.length);
       tiktokurl = tiktokbypass[randomtiktokbypass];
 if(localStorage.getItem('estimation') == "enabled") {
-  fetch(`${key}${tiktokurl}${channelid}`)
+  fetch(`${key}${tiktokbypass[0]}${channelid}`)
             .then(response => response.json())
             .then(data => {
                 console.log(data)
                 if(data.name == undefined) {
 console.log("error")
+fetch(`${key}${tiktokbypass[1]}${channelid}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                if(data.name == undefined) {
+                  fetch(`${key}${tiktokbypass[2]}${channelid}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                if(data.name == undefined) {
+                  fetch(`${key}${tiktokbypass[3]}${channelid}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                if(data.name == undefined) {
+console.log("error")
+                } else {
+                  ytname.innerHTML = data.name
+          videos.innerHTML = data.videos
+          totalviews.innerHTML = data.hearts
+          $("#image").attr('src', `${data.avatarurl}`);
+                }
+          
+          //plsworkgraph = json.subscribers.replace(/""/, "");
+
+            })
+console.log("error")
+                } else {
+                  ytname.innerHTML = data.name
+          videos.innerHTML = data.videos
+          totalviews.innerHTML = data.hearts
+          $("#image").attr('src', `${data.avatarurl}`);
+                }
+          
+          //plsworkgraph = json.subscribers.replace(/""/, "");
+
+            })
+console.log("error")
+                } else {
+                  ytname.innerHTML = data.name
+          videos.innerHTML = data.videos
+          totalviews.innerHTML = data.hearts
+          $("#image").attr('src', `${data.avatarurl}`);
+                }
+          
+          //plsworkgraph = json.subscribers.replace(/""/, "");
+
+            })
                 } else {
                   ytname.innerHTML = data.name
           videos.innerHTML = data.videos
@@ -454,12 +503,84 @@ console.log("error")
           }
             })
 } else {
-  fetch(`${key}${tiktokurl}${channelid}`)
+  fetch(`${key}${tiktokbypass[0]}${channelid}`)
             .then(response => response.json())
             .then(data => {
                 console.log(data)
                 if(data.name == undefined) {
 console.log("error")
+fetch(`${key}${tiktokbypass[1]}${channelid}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                if(data.name == undefined) {
+console.log("error")
+fetch(`${key}${tiktokbypass[2]}${channelid}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                if(data.name == undefined) {
+console.log("error")
+fetch(`${key}${tiktokbypass[3]}${channelid}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                if(data.name == undefined) {
+console.log("error")
+                } else {
+                  ytsubs.innerHTML = data.followers
+          ytname.innerHTML = data.name
+          videos.innerHTML = data.videos
+          totalviews.innerHTML = data.hearts
+          $("#image").attr('src', `${data.avatarurl}`);
+          stuff.series[0].addPoint([
+            (new Date()).getTime(),
+            data.followers
+          ]);
+          if (stuff.series[0].data.length >= 700) {
+            stuff.series[0].data[0].remove()
+          }
+                }
+                
+          //plsworkgraph = json.subscribers.replace(/""/, "");
+
+            })
+                } else {
+                  ytsubs.innerHTML = data.followers
+          ytname.innerHTML = data.name
+          videos.innerHTML = data.videos
+          totalviews.innerHTML = data.hearts
+          $("#image").attr('src', `${data.avatarurl}`);
+          stuff.series[0].addPoint([
+            (new Date()).getTime(),
+            data.followers
+          ]);
+          if (stuff.series[0].data.length >= 700) {
+            stuff.series[0].data[0].remove()
+          }
+                }
+                
+          //plsworkgraph = json.subscribers.replace(/""/, "");
+
+            })
+                } else {
+                  ytsubs.innerHTML = data.followers
+          ytname.innerHTML = data.name
+          videos.innerHTML = data.videos
+          totalviews.innerHTML = data.hearts
+          $("#image").attr('src', `${data.avatarurl}`);
+          stuff.series[0].addPoint([
+            (new Date()).getTime(),
+            data.followers
+          ]);
+          if (stuff.series[0].data.length >= 700) {
+            stuff.series[0].data[0].remove()
+          }
+                }
+                
+          //plsworkgraph = json.subscribers.replace(/""/, "");
+
+            })
                 } else {
                   ytsubs.innerHTML = data.followers
           ytname.innerHTML = data.name
