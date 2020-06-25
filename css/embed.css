@@ -1,0 +1,26 @@
+.names {
+    position: absolute;
+    left: 60px;
+    top: 0px;
+    font-size: 15px;
+    width: 145px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
+
+
+    
+    .odometer {
+      font-size: 100px;
+    }
+
+    body {
+      background-color: transparent;
+      color: rgb(0, 0, 0);
+      font-family: Arial
+    }
+
+    div {
+      font-size: 36
+    }
