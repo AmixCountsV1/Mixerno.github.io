@@ -191,13 +191,13 @@
       <button class="buton textlmao3"  id="serch">Search</button><br><br>
       <button class="buton textlmao3" data-toggle="modal" data-target="#hf">Customize</button>
     </div>
-
-    <br>
     <br>
 
     <br>
     <br>
 
+    <br>
+    <br>
   </center>
   <div class="modal fade" id="hf" role="dialog">
     <div class="modal-dialog">
@@ -393,16 +393,7 @@ function getStyles() {
 
     //
     function channelstatistics() {
-      fetch(`${key}https://api.mixerno.space/twitter/user/${channelid}`)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                ytname.innerHTML = data.name
-          totalviews.innerHTML = data.tweets
-          videos.innerHTML = data.following
-          $("#image").attr('src', `${data.pfp}`);
-
-            })
+      
             fetch(`https://bastet.socialblade.com/twitter/lookup?query=${channelid}`)
             .then(response => response.json())
             .then(data => {
@@ -419,7 +410,22 @@ function getStyles() {
             })
 
     };
+    
     setInterval(channelstatistics, 4000);
+    function userstats() {
+      fetch(`${key}https://api.mixerno.space/twitter/user/${channelid}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                ytname.innerHTML = data.name
+          totalviews.innerHTML = data.tweets
+          videos.innerHTML = data.following
+          $("#image").attr('src', `${data.pfp}`);
+
+            })
+    }
+    setInterval(userstats, 60000);
+
 
     //location.href = params[0] + $('#country').val();;
     $('#usersearch').on('keyup', function (e) {
