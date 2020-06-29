@@ -423,24 +423,46 @@ function getStyles() {
       channelid2 = "realdonaldtrump"
     }
     channelstatistics()
-
+    userstats()
 
     //
-    function channelstatistics() {
-
-
+    function userstats() {
       fetch(`${key}https://api.mixerno.space/twitter/user/${channelid}`)
             .then(response => response.json())
             .then(data => {
                 console.log(data)
-                ytname.innerHTML = data.name
+                if(data.name == undefined) {
+//Failed getting data moment
+                } else {
+                  ytname.innerHTML = data.name
           $("#image").attr('src', `${data.pfp}`);
+                }
+                
 
             })
+            fetch(`${key}https://api.mixerno.space/twitter/user/${channelid2}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                if(data.name == undefined) {
+//Failed getting data moment
+                } else {
+                  ytname2.innerHTML = data.name
+          $("#image2").attr('src', `${data.pfp}`);
+                }
+                
+
+            })
+    }
+    function channelstatistics() {
+
+
+     
       fetch(`https://bastet.socialblade.com/twitter/lookup?query=${channelid}`)
             .then(response => response.json())
             .then(data => {
                 console.log(data)
+                
                 count1 = data
           ytsubs.innerHTML = data
           channelstatistics2()
@@ -450,18 +472,12 @@ function getStyles() {
     function channelstatistics2() {
 
 
-fetch(`${key}https://api.mixerno.space/twitter/user/${channelid2}`)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                ytname2.innerHTML = data.name
-          $("#image2").attr('src', `${data.pfp}`);
 
-            })
 fetch(`https://bastet.socialblade.com/twitter/lookup?query=${channelid2}`)
             .then(response => response.json())
             .then(data => {
                 console.log(data)
+
                 ytsubs2.innerHTML = data
                 count2 = data
     difrence.innerHTML = count1 - count2
@@ -476,6 +492,7 @@ fetch(`https://bastet.socialblade.com/twitter/lookup?query=${channelid2}`)
             })
 };
     setInterval(channelstatistics, 4000);
+    setInterval(userstats, 60000);
 
     //location.href = params[0] + $('#country').val();;
     $('#usersearch').on('keyup', function (e) {
