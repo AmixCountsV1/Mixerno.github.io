@@ -195,15 +195,224 @@
           
             })  
     }
-    
+    var tiktokbypass = [
+      'https://immense-castle-34936.herokuapp.com/cors/',
+      'https://backuptiktokapi.herokuapp.com/cors/',
+      'https://backuptiktokapi.glitch.me/cors/',
+      'https://honorable-hazel-atmosphere.glitch.me/cors/'
+    ]
     function channelstatistics() {
 
-      fetch(`${key}https://mee6.xyz/api/plugins/levels/leaderboard/${channelid}`)
+      fetch(`${key}${tiktokbypass[0]}${channelid}`)
             .then(response => response.json())
             .then(data => {
                 console.log(data)
                 if(data.admin == undefined) {
                   //Hmm
+                  fetch(`${key}${tiktokbypass[1]}${channelid}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                if(data.admin == undefined) {
+                  //Hmm
+                  fetch(`${key}${tiktokbypass[2]}${channelid}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                if(data.admin == undefined) {
+                  //Hmm
+                  fetch(`${key}${tiktokbypass[3]}${channelid}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                if(data.admin == undefined) {
+                  //Hmm
+                } else {
+                  var i = 0;
+                  poopxdlolfunny()
+                  function poopxdlolfunny() {
+                    if(data.players[i].username == channelid1x.replace(/%20/, ' ')) {
+                      if(document.getElementById("estimatio").checked == true) {
+                        localStorage.setItem('mee6estimated', true)
+                        console.log("yesnt")
+                        if(data.players[i].xp > estbefcount) {
+betweeencount = data.players[i].xp - estbefcount
+                          nowcount = data.players[i].xp
+                          time = new Date()
+                          minus = time.getTime() - timebef.getTime()
+                          minus1k = minus / 1000
+                          rate = betweeencount / minus1k
+                          estbefcount = data.players[i].xp
+                          estimatedcount = estbefcount
+                        } else {
+                          estimatedcount = estimatedcount + rate * 2.5
+                          view.innerHTML = Math.floor(estimatedcount)
+                  stuff.series[0].addPoint([
+            (new Date()).getTime(),
+            parseFloat(Math.floor(estimatedcount))
+          ]);
+          if (stuff.series[0].data.length >= 700) {
+            stuff.series[0].data[0].remove()
+          }
+          vidname.innerHTML = data.players[i].username
+          msgs.innerHTML = data.players[i].message_count
+          lvls.innerHTML = data.players[i].level
+          $("#image").attr('src', `https://cdn.discordapp.com/avatars/${data.players[i].id}/${data.players[i].avatar}.png`);
+                        }
+                      } else {
+                        localStorage.setItem('mee6estimated', document.getElementById("estimatio").checked)
+                        console.log("yesnt")
+                    vidname.innerHTML = data.players[i].username
+                    view.innerHTML = data.players[i].xp
+                  stuff.series[0].addPoint([
+            (new Date()).getTime(),
+            parseFloat(data.players[i].xp)
+          ]);
+          if (stuff.series[0].data.length >= 700) {
+            stuff.series[0].data[0].remove()
+          }
+          msgs.innerHTML = data.players[i].message_count
+          lvls.innerHTML = data.players[i].level
+          $("#image").attr('src', `https://cdn.discordapp.com/avatars/${data.players[i].id}/${data.players[i].avatar}.png`);
+                      }
+                    
+                  } else {
+                    i++
+                    poopxdlolfunny()
+                    console.log("nosnt")
+                  }
+                  }
+                  
+                  
+                  
+                }
+
+          
+            })
+                } else {
+                  var i = 0;
+                  poopxdlolfunny()
+                  function poopxdlolfunny() {
+                    if(data.players[i].username == channelid1x.replace(/%20/, ' ')) {
+                      if(document.getElementById("estimatio").checked == true) {
+                        localStorage.setItem('mee6estimated', true)
+                        console.log("yesnt")
+                        if(data.players[i].xp > estbefcount) {
+betweeencount = data.players[i].xp - estbefcount
+                          nowcount = data.players[i].xp
+                          time = new Date()
+                          minus = time.getTime() - timebef.getTime()
+                          minus1k = minus / 1000
+                          rate = betweeencount / minus1k
+                          estbefcount = data.players[i].xp
+                          estimatedcount = estbefcount
+                        } else {
+                          estimatedcount = estimatedcount + rate * 2.5
+                          view.innerHTML = Math.floor(estimatedcount)
+                  stuff.series[0].addPoint([
+            (new Date()).getTime(),
+            parseFloat(Math.floor(estimatedcount))
+          ]);
+          if (stuff.series[0].data.length >= 700) {
+            stuff.series[0].data[0].remove()
+          }
+          vidname.innerHTML = data.players[i].username
+          msgs.innerHTML = data.players[i].message_count
+          lvls.innerHTML = data.players[i].level
+          $("#image").attr('src', `https://cdn.discordapp.com/avatars/${data.players[i].id}/${data.players[i].avatar}.png`);
+                        }
+                      } else {
+                        localStorage.setItem('mee6estimated', document.getElementById("estimatio").checked)
+                        console.log("yesnt")
+                    vidname.innerHTML = data.players[i].username
+                    view.innerHTML = data.players[i].xp
+                  stuff.series[0].addPoint([
+            (new Date()).getTime(),
+            parseFloat(data.players[i].xp)
+          ]);
+          if (stuff.series[0].data.length >= 700) {
+            stuff.series[0].data[0].remove()
+          }
+          msgs.innerHTML = data.players[i].message_count
+          lvls.innerHTML = data.players[i].level
+          $("#image").attr('src', `https://cdn.discordapp.com/avatars/${data.players[i].id}/${data.players[i].avatar}.png`);
+                      }
+                    
+                  } else {
+                    i++
+                    poopxdlolfunny()
+                    console.log("nosnt")
+                  }
+                  }
+                  
+                  
+                  
+                }
+
+          
+            })
+                } else {
+                  var i = 0;
+                  poopxdlolfunny()
+                  function poopxdlolfunny() {
+                    if(data.players[i].username == channelid1x.replace(/%20/, ' ')) {
+                      if(document.getElementById("estimatio").checked == true) {
+                        localStorage.setItem('mee6estimated', true)
+                        console.log("yesnt")
+                        if(data.players[i].xp > estbefcount) {
+betweeencount = data.players[i].xp - estbefcount
+                          nowcount = data.players[i].xp
+                          time = new Date()
+                          minus = time.getTime() - timebef.getTime()
+                          minus1k = minus / 1000
+                          rate = betweeencount / minus1k
+                          estbefcount = data.players[i].xp
+                          estimatedcount = estbefcount
+                        } else {
+                          estimatedcount = estimatedcount + rate * 2.5
+                          view.innerHTML = Math.floor(estimatedcount)
+                  stuff.series[0].addPoint([
+            (new Date()).getTime(),
+            parseFloat(Math.floor(estimatedcount))
+          ]);
+          if (stuff.series[0].data.length >= 700) {
+            stuff.series[0].data[0].remove()
+          }
+          vidname.innerHTML = data.players[i].username
+          msgs.innerHTML = data.players[i].message_count
+          lvls.innerHTML = data.players[i].level
+          $("#image").attr('src', `https://cdn.discordapp.com/avatars/${data.players[i].id}/${data.players[i].avatar}.png`);
+                        }
+                      } else {
+                        localStorage.setItem('mee6estimated', document.getElementById("estimatio").checked)
+                        console.log("yesnt")
+                    vidname.innerHTML = data.players[i].username
+                    view.innerHTML = data.players[i].xp
+                  stuff.series[0].addPoint([
+            (new Date()).getTime(),
+            parseFloat(data.players[i].xp)
+          ]);
+          if (stuff.series[0].data.length >= 700) {
+            stuff.series[0].data[0].remove()
+          }
+          msgs.innerHTML = data.players[i].message_count
+          lvls.innerHTML = data.players[i].level
+          $("#image").attr('src', `https://cdn.discordapp.com/avatars/${data.players[i].id}/${data.players[i].avatar}.png`);
+                      }
+                    
+                  } else {
+                    i++
+                    poopxdlolfunny()
+                    console.log("nosnt")
+                  }
+                  }
+                  
+                  
+                  
+                }
+
+          
+            })
                 } else {
                   var i = 0;
                   poopxdlolfunny()
