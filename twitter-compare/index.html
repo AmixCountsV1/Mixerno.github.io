@@ -462,9 +462,13 @@ function getStyles() {
             .then(response => response.json())
             .then(data => {
                 console.log(data)
-                
-                count1 = data
+                if(data == 0) {
+                  console.log("Twitter api pro moment")
+                } else {
+                  count1 = data
           ytsubs.innerHTML = data
+                }
+                
           channelstatistics2()
 
             })
@@ -477,8 +481,10 @@ fetch(`https://bastet.socialblade.com/twitter/lookup?query=${channelid2}`)
             .then(response => response.json())
             .then(data => {
                 console.log(data)
-
-                ytsubs2.innerHTML = data
+                if(data == 0) {
+                  console.log("Twitter api pro moment2")
+                } else {
+                  ytsubs2.innerHTML = data
                 count2 = data
     difrence.innerHTML = count1 - count2
     stuff.series[0].addPoint([
@@ -488,6 +494,8 @@ fetch(`https://bastet.socialblade.com/twitter/lookup?query=${channelid2}`)
           if (stuff.series[0].data.length >= 700) {
             stuff.series[0].data[0].remove()
           }
+                }
+                
 
             })
 };

@@ -399,14 +399,20 @@ function getStyles() {
             .then(response => response.json())
             .then(data => {
                 console.log(data)
-                ytsubs.innerHTML = data
-          stuff.series[0].addPoint([
+                
+                if(data == 0) {
+                  console.log("Twitter api pro moment")
+                } else {
+                  ytsubs.innerHTML = data
+                  stuff.series[0].addPoint([
             (new Date()).getTime(),
             data
           ]);
           if (stuff.series[0].data.length >= 700) {
             stuff.series[0].data[0].remove()
           }
+                }
+          
 
             })
 
