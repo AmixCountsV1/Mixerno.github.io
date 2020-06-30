@@ -79,9 +79,10 @@
       <input placeholder="mee6.xyz/leaderboard/" type="text" value="" id="usersearch"
         class="custominput textlmao2"></input><br>
         <input placeholder="Name in the leaderboard" type="text" value="" id="usernamesearch"
-        class="custominput textlmao2"></input><br>
-      <button class="buton textlmao3"  id="serch">Search</button><br><br>
-     
+        class="custominput textlmao2"></input><br><br>
+      <button class="buton textlmao3"  id="serch">Search (needs both)</button><br><br>
+     <br>
+     <input type="checkbox" name="estimt" id="estimatio"> Estimated
     </div>
 
     <br>
@@ -151,17 +152,50 @@
 
       }]
     })
+    var time = new Date()
+    var timebef = new Date()
+    var minus = time.getTime() - timebef.getTime()
+    var minus1k = minus / 1000
+    var rate = 0;
+    var estimatedcount = 0;
+    var estbefcount = 0;
+    var nowcount = 0;
+    var betweeencount = 0;
     var channelid = params[1];
     var channelid1x = params[2];
     var channelid1xx = params[3];
+    if(localStorage.getItem('mee6estimated') == true) {
+      document.getElementById("estimatio").checked = true
+    } else {
+      document.getElementById("estimatio").checked = false
+    }
     if (params[1] == undefined) {
       channelid = "357211471412985856"
     }
     if (params[2] == undefined) {
       channelid1x = "Mixerno"
     }
+    if(isNaN(channelid)) {
+      checkifvanity()
+    } else {
+      channelstatistics()
+    }
+    function checkifvanity() {
+      fetch(`${key}https://mee6.xyz/api/guilds/vanity/${channelid}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                if(data.id == undefined) {
+                  //Hmm
+                } else {
+                  channelid = data.id
+                  channelstatistics()
+                }
 
-    channelstatistics()
+          
+            })  
+    }
+    
     function channelstatistics() {
 
       fetch(`${key}https://mee6.xyz/api/plugins/levels/leaderboard/${channelid}`)
@@ -175,7 +209,36 @@
                   poopxdlolfunny()
                   function poopxdlolfunny() {
                     if(data.players[i].username == channelid1x) {
-                    console.log("yesnt")
+                      if(document.getElementById("estimatio").checked == true) {
+                        localStorage.setItem('mee6estimated', true)
+                        console.log("yesnt")
+                        if(data.players[i].xp > estbefcount) {
+betweeencount = data.players[i].xp - estbefcount
+                          nowcount = data.players[i].xp
+                          time = new Date()
+                          minus = time.getTime() - timebef.getTime()
+                          minus1k = minus / 1000
+                          rate = betweeencount / minus1k
+                          estbefcount = data.players[i].xp
+                          estimatedcount = estbefcount
+                        } else {
+                          estimatedcount = estimatedcount + rate * 2.5
+                          view.innerHTML = Math.floor(estimatedcount)
+                  stuff.series[0].addPoint([
+            (new Date()).getTime(),
+            parseFloat(Math.floor(estimatedcount))
+          ]);
+          if (stuff.series[0].data.length >= 700) {
+            stuff.series[0].data[0].remove()
+          }
+          vidname.innerHTML = data.players[i].username
+          msgs.innerHTML = data.players[i].message_count
+          lvls.innerHTML = data.players[i].level
+          $("#image").attr('src', `https://cdn.discordapp.com/avatars/${data.players[i].id}/${data.players[i].avatar}.png`);
+                        }
+                      } else {
+                        localStorage.setItem('mee6estimated', document.getElementById("estimatio").checked)
+                        console.log("yesnt")
                     vidname.innerHTML = data.players[i].username
                     view.innerHTML = data.players[i].xp
                   stuff.series[0].addPoint([
@@ -188,6 +251,8 @@
           msgs.innerHTML = data.players[i].message_count
           lvls.innerHTML = data.players[i].level
           $("#image").attr('src', `https://cdn.discordapp.com/avatars/${data.players[i].id}/${data.players[i].avatar}.png`);
+                      }
+                    
                   } else {
                     i++
                     poopxdlolfunny()
@@ -202,7 +267,7 @@
           
             })
     };
-    setInterval(channelstatistics, 10000);
+    setInterval(channelstatistics, 5000);
 
     //location.href = params[0] + $('#country').val();;
     $('#usersearch').on('keyup', function (e) {
