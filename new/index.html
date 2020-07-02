@@ -59,7 +59,7 @@
         <button data-toggle="modal" data-target="#changeuser">Change User</button><button data-toggle="modal" data-target="#compareuser">Compare</button><button data-toggle="modal" data-target="#changelog">Changelog</button>
     </div>
     <br><br><br><br><br><br>
-    <div>There is a chat coming soon maybe. Also this is a beta. Check the changelog for new stuff.</div>
+    <div id="disqus_thread">disqus</div>
     </center>
     <div style="background-color: rgb(32, 32, 32); color: white;" class="container">
         <div class="modal fade" id="changeuser" role="dialog">
@@ -122,7 +122,27 @@
         </div>
         
       </div>
+      <script id="dsq-count-scr" src="https://mixernospace-1.disqus.com/count.js" async></script>
     </body>
+    
+    <script>
+
+      /**
+      *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+      *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+      
+      var disqus_config = function () {
+      this.page.url = "mixerno.space";  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = undefined; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+      };
+      
+      (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = 'https://mixernospace-1.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+      })();
+      </script>
     <style>
         
 @font-face {
