@@ -216,10 +216,10 @@ var graphData = new Highcharts.chart('graph', {
                     nameuser.innerHTML = data.name
           $("#image").attr('src', `${data.avatarurl}`);
           followerCount.innerHTML = data.followers
-          followingCount.innerHTML = json.following
-          heartsCount.innerHTML = json.hearts
-          videosCount.innerHTML = json.videos
-          diggCount.innerHTML = json.digg
+          followingCount.innerHTML = data.following
+          heartsCount.innerHTML = data.hearts
+          videosCount.innerHTML = data.videos
+          diggCount.innerHTML = data.digg
           graphData.series[0].addPoint([
             (new Date()).getTime(),
             data.followers
