@@ -179,7 +179,7 @@ var graphData = new Highcharts.chart('graph', {
     
 
     function getVisuals(id) {
-      fetch(`${key}https://api.ecosia.org/v1/trees/count`)
+      fetch(`${cors}https://api.ecosia.org/v1/trees/count`)
             .then(response => response.json())
             .then(data => {
                 console.log(data)
