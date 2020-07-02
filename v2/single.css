@@ -62,7 +62,7 @@
               border: solid 1px;
               border-color: rgb(36, 36, 36);
               width: 50%;
-              height: 47vh;
+              height: auto;
           }
           #followerCount {
               font-size: 5vh;
