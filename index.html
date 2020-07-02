@@ -165,13 +165,33 @@
         
 @font-face {
   font-family: Roboto;
-    src: url(../fonts/Quicksand-Regular.ttf);
+    src: url(fonts/Quicksand-Regular.ttf);
 }
         body {
             background: rgb(41, 43, 44);
             font-family:Roboto;
             color: white;
         }
+        /* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(32, 32, 32); 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(36, 36, 36); 
+}
         .boxerino {
             margin-left: 25%;
             margin-right: 25%;
