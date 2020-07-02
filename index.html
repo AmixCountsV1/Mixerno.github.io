@@ -1,187 +1,219 @@
 <html>
     <head>
-      <link rel="shortcut icon" href="https://mixerno.space/icons/2.png">
-<title>Welcome to mixerno.space</title>
-<meta charset="UTF-8">
-    <meta name="description" content="Why does it need to look cool? If it works then its fine">
-    <meta name="keywords" content="green, gray, mixerno.space">
-    <meta name="author" content="Mixerno">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+        <!-- Primary Meta Tags -->
+<title>Mixerno.Space</title>
+<meta name="title" content="Mixerno.Space">
+<meta name="description" content="The counter site for you.">
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mixerno.space/">
+<meta property="og:title" content="Mixerno.Space">
+<meta property="og:description" content="The counter site for you.">
+<meta property="og:image" content="https://mixerno.space/muxarno2x2.jpg">
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://mixerno.space/">
+<meta property="twitter:title" content="Mixerno.Space">
+<meta property="twitter:description" content="The counter site for you.">
+<meta property="twitter:image" content="https://mixerno.space/muxarno2x2.jpg">
+
+
+  <link rel="shortcut icon"
+    href="https://mixerno.space/icons/2.png">
+  <link rel="stylesheet" href="../o2.css" />
+  <meta charset="UTF-8">
+  <meta name="keywords" content="mixerno.space">
+  <meta name="author" content="Mixerno">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="../odometer.js"></script>
+  <script type="text/javascript" src="../jquery-3.1.1.min.js"></script>
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <link rel="stylesheet" href="../bootstrap.css">
+  <script src="../bootstrap.js"></script>
     </head>
-    <script>
-function tabop(evt, social) {
-  var i, tabcontent, tablinks;
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
-  tablinks = document.getElementsByClassName("tablinks");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
-  }
-  document.getElementById(social).style.display = "block";
-  evt.currentTarget.className += " active";
-}
-$(document).ready(function () {
-settarnajaenoleruotsalainenolensuolainen()
-function settarnajaenoleruotsalainenolensuolainen() {
-  if(Math.floor(Math.random() * 10) > 4.9) {
-    lol.innerHTML = "Another Counter site"
-  } else {
-    lol.innerHTML = "Large collection of counters"
-  }
-}
-});
-    </script>
     <body>
-            <div class="boxed">
-                <center>
-       <img src="https://mixerno.space/icons/2.png" height="80" width="80">
-       <p style="font-size: 50px;">Mixerno.space</p>
-       <h1 id="lol">.</h1>
-       <p></p>
-      
-    </center>
-       <br>
-       <center>
-       <div class="tab">
-        <button style="background-color: rgb(255, 0, 0);" class="tablinks" onclick="tabop(event, 'Youtube')" id="defaultOpen">Youtube</button>
-        <button style="background-color: rgb(0, 247, 255);" class="tablinks" onclick="tabop(event, 'Twitter')">Twitter</button>
-        <button style="background-color: rgb(183, 0, 255);" class="tablinks" onclick="tabop(event, 'Twitch')">Twitch</button>
-        <button style="background-color: rgb(0, 0, 0); color: white;" class="tablinks" onclick="tabop(event, 'TikTok')">TikTok</button>
-        <button style="background-color: rgb(180, 0, 0);" class="tablinks" onclick="tabop(event, 'Roblox')">Roblox</button>
-        <button style="background-color: rgb(4, 0, 255);" class="tablinks" onclick="tabop(event, 'Mixer')">Mixer</button>
-        <button style="background-color: rgb(148, 79, 0);" class="tablinks" onclick="tabop(event, 'StoryFire')">StoryFire</button>
-        <button style="background-color: rgb(255, 69, 0);" class="tablinks" onclick="tabop(event, 'Reddit')">Reddit</button>
-        <button style="background-color: rgb(0, 0, 0);color: white;" class="tablinks" onclick="tabop(event, 'Dailymotion')">Dailymotion</button>
-        <button style="background-color: rgb(0, 68, 0);color: white;" class="tablinks" onclick="tabop(event, 'Minecraft')">Minecraft</button>
-        <button style="background-color: rgb(114, 137, 218);color: white;" class="tablinks" onclick="tabop(event, 'Discord')">Discord</button>
-        <button style="background-color: rgb(30, 255, 0);color: white;" class="tablinks" onclick="tabop(event, 'Ecosia')">Ecosia</button>
-        <button style="background-color: rgb(96, 209, 246);color: white;" class="tablinks" onclick="tabop(event, 'MEE6')">MEE6</button>
-      </div>
-    </center>
-      <div id="Youtube" class="tabcontent">
-          <h3 style="font-size: 30px;">Youtube (unstable for long time! Sorry)</h3>
-        <a style=" text-decoration: none; font-size: 25px;" href="https://mixerno.space/youtube">Subscriber Counter</a><br>
-        <a style=" text-decoration: none; font-size: 25px;" href="https://mixerno.space/youtube/video">Video statistics</a><br>
-        <a style=" text-decoration: none; font-size: 25px;" href="https://mixerno.space/youtube/stream">Stream statistics</a><br>
-      </div>
-      
-      <div id="Twitter" class="tabcontent">
-        <h3 style="font-size: 30px;">Twitter</h3>
-        <a style=" text-decoration: none; font-size: 25px;" href="https://mixerno.space/twitter">Follower Counter</a><br>
-        <a style=" text-decoration: none; font-size: 25px;" href="https://mixerno.space/twitter-compare">Follower Compare</a><br>
-      </div>
-      
-      <div id="Twitch" class="tabcontent">
-        <h3 style="font-size: 30px;">Twitch</h3>
-        <a style=" text-decoration: none; font-size: 25px;" href="https://mixerno.space/twitch">Follower Counter</a><br>
-        <a style=" text-decoration: none; font-size: 25px;" href="https://mixerno.space/twitch-compare">Follower Compare</a><br>
-      </div>
-      <div id="TikTok" class="tabcontent">
-        <h3 style="font-size: 30px;">TikTok</h3>
-        <a style=" text-decoration: none; font-size: 25px;" href="https://mixerno.space/tiktok">Follower Counter</a><br>
-        <a style=" text-decoration: none; font-size: 25px;" href="https://mixerno.space/tiktok-compare">Follower Compare</a><br>
-      </div>
-      
-      <div id="Roblox" class="tabcontent">
-        <h3 style="font-size: 30px;">Roblox</h3>
-        <a style=" text-decoration: none; font-size: 25px;" href="https://mixerno.space/roblox">Follower Counter</a><br>
-        <a style=" text-decoration: none; font-size: 25px;" href="https://mixerno.space/roblox-compare">FollowerCompare</a><br>
-        <a style=" text-decoration: none; font-size: 25px;" href="https://mixerno.space/roblox/games">Game visits Counter</a><br>
-        <a style=" text-decoration: none; font-size: 25px;" href="https://mixerno.space/roblox-compare/games">Game visits Compare</a><br>
-        <a style=" text-decoration: none; font-size: 25px;" href="https://mixerno.space/roblox/groups">Group Member Counter</a><br>
-      </div>
-      <div id="Mixer" class="tabcontent">
-        <h3 style="font-size: 30px;">Mixer</h3>
-        <a style=" text-decoration: none; font-size: 25px;" href="https://mixerno.space/mixer">Follower Counter</a><br>
-        <a style=" text-decoration: none; font-size: 25px;" href="https://mixerno.space/mixer-compare">Follower Compare</a><br>
-      </div>
-      
-      <div id="StoryFire" class="tabcontent">
-        <h3 style="font-size: 30px;">StoryFire</h3>
-        <a style=" text-decoration: none; font-size: 25px;" href="https://mixerno.space/storyfire">Subscriber Counter</a><br>
-        <a style=" text-decoration: none; font-size: 25px;" href="https://mixerno.space/storyfire-compare">Subscriber Compare</a><br>
-      </div>
-      <div id="Reddit" class="tabcontent">
-        <h3 style="font-size: 30px;">Reddit</h3>
-        <a style=" text-decoration: none; font-size: 25px;" href="https://mixerno.space/reddit">Post upvote counter</a><br>
-        <a style=" text-decoration: none; font-size: 25px;" href="https://mixerno.space/reddit/subreddit">Subreddit subscriber counter</a><br>
-      </div>
-      <div id="Dailymotion" class="tabcontent">
-        <h3 style="font-size: 30px;">Dailymotion</h3>
-        <a style=" text-decoration: none; font-size: 25px;" href="https://mixerno.space/dailymotion/">Follower count</a><br>
-        <a style=" text-decoration: none; font-size: 25px;" href="https://mixerno.space/dailymotion-compare/">Follower compare</a><br>
-      </div>
-      <div id="Minecraft" class="tabcontent">
-        <h3 style="font-size: 30px;">Minecraft</h3>
-        <a style=" text-decoration: none; font-size: 25px;" href="https://mixerno.space/mc/">Server player count</a><br>
-        <a style=" text-decoration: none; font-size: 25px;" href="https://mixerno.space/mc-compare/">Server player compare</a><br>
-      </div>
-      <div id="Discord" class="tabcontent">
-        <h3 style="font-size: 30px;">Discord</h3>
-        <a style=" text-decoration: none; font-size: 25px;" href="https://mixerno.space/discord/">Server member count</a><br>
-      </div>
-      <div id="Ecosia" class="tabcontent">
-        <h3 style="font-size: 30px;">Ecosia</h3>
-        <a style=" text-decoration: none; font-size: 25px;" href="https://mixerno.space/ecosia/">Trees planted count</a><br>
-      </div>
-      <div id="MEE6" class="tabcontent">
-        <h3 style="font-size: 30px;">MEE6</h3>
-        <a style=" text-decoration: none; font-size: 25px;" href="https://mixerno.space/mee6/">User xp counter</a><br>
-      </div>
+        <center><div style="padding: 2vh; font-size: 3vh; background-color: rgb(32, 32, 32);">Mixerno.Space</div><br>
+        <div class="boxerino"><br>
+            <h1 style="font-size: 6vh;">Hi and welcome to the site Mixerno.Space</h1>
+            <p style="font-size: 2vh;">We have here counters like: Twitter, Reddit and Twitch and some more.</p>
+            <p style="font-size: 2vh;">Here is the list [somewhat long list]</p>
+            <br>
+            <div class="row">
+            <h1 style="font-size: 4vh;">Youtube
+                <br>
+                <a style="font-size: 2vh;" href="youtube">Subscriber Counter</a><br>
+                <a style="font-size: 2vh;" href="youtube/video">Video View Counter</a><br>
+                <a style="font-size: 2vh;" href="youtube/stream">Stream Viewer Counter</a>
+            </h1>
+            <h1 style="font-size: 4vh;">Twitter
+                <br>
+                <a style="font-size: 2vh;" href="twitter">Follower Counter</a><br>
+                <a style="font-size: 2vh;" href="twitter-compare">Follower Compare</a><br>
+            </h1></div>
+        <div class="row">
+            <h1 style="font-size: 4vh;">Twitch
+                <br>
+                <a style="font-size: 2vh;" href="twitch">Follower Counter</a><br>
+                <a style="font-size: 2vh;" href="twitch-compare">Follower Compare</a><br>
+            </h1>
+            <h1 style="font-size: 4vh;">TikTok
+                <br>
+                <a style="font-size: 2vh;" href="tiktok">Follower Counter</a><br>
+                <a style="font-size: 2vh;" href="tiktok-compare">Follower Compare</a><br>
+            </h1>
+        </div>
+            <div class="row">
+            <h1 style="font-size: 4vh;">StoryFire
+                <br>
+                <a style="font-size: 2vh;" href="storyfire">Subscriber Counter</a><br>
+                <a style="font-size: 2vh;" href="storyfire-compare">Subscriber Compare</a><br>
+            </h1>
+            <h1 style="font-size: 4vh;">Roblox
+                <br>
+                <a style="font-size: 2vh;" href="roblox">Follower Counter</a><br>
+                <a style="font-size: 2vh;" href="roblox-compare">Follower Compare</a><br>
+                <a style="font-size: 2vh;" href="roblox/games">Game Visit Counter</a><br>
+                <a style="font-size: 2vh;" href="roblox-compare/games">Game Visit Compare</a><br>
+                <a style="font-size: 2vh;" href="roblox/groups">Group Member Counter</a><br>
+            </h1>
+        </div>
+            <div class="row">
+            <h1 style="font-size: 4vh;">Reddit
+                <br>
+                <a style="font-size: 2vh;" href="reddit/subreddit">Subreddit Member Counter</a><br>
+                <a style="font-size: 2vh;" href="reddit">Post Upvote Counter</a><br>
+            </h1>
+            <h1 style="font-size: 4vh;">Mee6
+                <br>
+                <a style="font-size: 2vh;" href="mee6">User Xp Counter</a><br>
+                <a style="font-size: 2vh;" href="mee6-compare">User Xp Compare</a><br>
+            </h1>
+        </div>
+            <div class="row">
+            <h1 style="font-size: 4vh;">Minecraft
+                <br>
+                <a style="font-size: 2vh;" href="mc">Server Player Counter</a><br>
+                <a style="font-size: 2vh;" href="mc-compare">Server Player Compare</a><br>
+            </h1>
+            <h1 style="font-size: 4vh;">Ecosia
+                <br>
+                <a style="font-size: 2vh;" href="ecosia">Tree's Planted Counter</a><br>
+            </h1>
+        </div>
+            <div class="row">
+            <h1 style="font-size: 4vh;">Discord
+                <br>
+                <a style="font-size: 2vh;" href="discord">Server Member Counter</a><br>
+            </h1>
+            <h1 style="font-size: 4vh;">Dailymotion
+                <br>
+                <a style="font-size: 2vh;" href="dailymotion">Follower Counter</a><br>
+                <a style="font-size: 2vh;" href="dailymotion-compare">Follower Compare</a><br>
+            </h1>
+        </div>
+        </div><br>
+        <div class="buttons">
+       <button data-toggle="modal" data-target="#changelog">Changelog</button>
     </div>
-    
+    <br><br><br><br><br><br>
+    </center>
+
+      <div style="background-color: rgb(32, 32, 32); color: white;" class="container2">
+        <div class="modal fade" id="changelog" role="dialog">
+          <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-dialog">
+            <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-content">
+              <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-header">
+               <!-- <button type="button" class="close" data-dismiss="modal">&times;</button>-->
+                <h4 class="modal-title">Changelog</h4>
+              </div>
+              <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-body">
+               <h1>Mixerno.Space v2 Beta 1.0: (actually v6 or v7 but now its v2)</h1>
+               <p>Chat for end of counter page's and no needing to refresh when changing user and Mixer counters leaved the site. Enjoy</p>
+              </div>
+              <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-footer">
+                <button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        
+      </div>
     </body>
+    
+
     <style>
+        
+@font-face {
+  font-family: Roboto;
+    src: url(../fonts/Quicksand-Regular.ttf);
+}
         body {
-            font-family: Arial, Helvetica, sans-serif;
-            margin: 0;
-            background-color: rgb(0, 0, 0);
-            color: rgb(255, 255, 255);
-        }
-        .boxed {
-            width: 100%;
-            background: rgb(0, 0, 0);
+            background: rgb(41, 43, 44);
+            font-family:Roboto;
             color: white;
         }
-        a {
-            color: white;
+        .boxerino {
+            margin-left: 25%;
+            margin-right: 25%;
+            background-color: rgb(32, 32, 32);
+            border: solid 1px;
+            border-color: rgb(36, 36, 36);
+            padding: 1vh;
         }
-        .selection {
+        .row {
+            margin-left: 25%;
+            margin-right: 25%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      flex: 4;
+    }
+#disqus_thread {
+  margin-left: 25%;
+            margin-right: 25%;
+            background-color: rgb(32, 32, 32);
+}
+        .justbox {
+            padding: 1vh;
+            font-size: 3vh;
+            background-color: rgb(32, 32, 32);
+            border: solid 1px;
+            border-color: rgb(36, 36, 36);
+            width: 50%;
+            height: 9vh;
+        }
+        .buttons {
+            margin-left: 25%;
+            margin-right: 25%;
+            display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      flex: 4;
+        }
+        button {
+            padding: 2vh;
+            background-color: rgb(32, 32, 32);
             width: 100%;
-            background: rgb(160, 160, 160);
+            font-size: 2vh;
+            color: white;
+            border: none;
         }
-        a:hover {
-  background-color: rgb(0, 91, 0);
-}
-.tab {
-  overflow: hidden;
-  border: 1px solid rgba(204, 204, 204, 0);
-  background-color: #f1f1f100;
-}
-.tab button {
-  background-color: inherit;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 14px 16px;
-  transition: 0.3s;
-  font-size: 17px;
-}
-.tab button:hover {
-  background-color: #ddd;
-}
-.tab button.active {
-  background-color: #ccc;
-}
-.tabcontent {
-    text-align: center;
-  display: none;
-  padding: 6px 12px;
-  border: 1px solid #ccc;
-  background-color: rgb(0, 71, 0);
-}
+        .graphbox {
+            padding: 1vh;
+            font-size: 2vh;
+            background-color: rgb(32, 32, 32);
+            border: solid 1px;
+            border-color: rgb(36, 36, 36);
+            width: 50%;
+            height: 47vh;
+        }
+        #followerCount {
+            font-size: 5vh;
+        }
+        #nameuser {
+            font-size: 4vh;
+        }
     </style>
+
 </html>
