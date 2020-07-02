@@ -185,28 +185,7 @@ var graphData = new Highcharts.chart('graph', {
     function getData(id) {
         windlochref = window.location.href;
         params = windlochref.split('&u=');
-        fetch(`https://bastet.socialblade.com/twitter/lookup?query=${id}`)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                if(data == 0) {
-                    console.log("GJ TWITTER API lol")
-                } else {
-                
-          /*ytname.innerHTML = data.username
-          totalviews.innerHTML = data.points
-          videos.innerHTML = data.followingCount
-          $("#image").attr('src', `${data.userimage}`);*/
-          graphData.series[0].addPoint([
-            (new Date()).getTime(),
-            data
-          ]);
-          if (graphData.series[0].data.length >= 700) {
-            graphData.series[0].data[0].remove()
-          }
-        }
-            })
-            fetch(`${cors}https://api.mixerno.space/twitter/user/${id}`)
+            fetch(`${cors}https://api.mixerno.space/twitter/tweet/${id}`)
             .then(response => response.json())
             .then(data => {
                 console.log(data)
@@ -283,9 +262,7 @@ var graphData = new Highcharts.chart('graph', {
 
       }]
     })
-        getData(params[1]);
-    getVisuals(params[1]);
-    
+        getData(params[1]); 
     });
     $('#userinput2').on('keyup', function (e) {
       if (e.keyCode === 13) {
