@@ -1,0 +1,87 @@
+       
+@font-face {
+    font-family: Roboto;
+      src: url(https://mixerno.space/fonts/Inconsolata-Regular.ttf);
+  }
+          body {
+              background: rgb(41, 43, 44);
+              font-family:Roboto;
+              color: white;
+              
+          }
+          .boxerino {
+              background-color: rgb(32, 32, 32);
+              border: solid 1px;
+              border-color: rgb(36, 36, 36);
+              padding: 1vh;
+              width: 49%;
+          }
+          .row {
+              margin-left: 25%;
+              margin-right: 25%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        flex: 4;
+      }
+      .row2 {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        flex: 4;
+      }
+  #disqus_thread {
+    margin-left: 25%;
+              margin-right: 25%;
+              background-color: rgb(32, 32, 32);
+  }
+  .margin {
+    margin-left: 25%;
+              margin-right: 25%;
+  }
+          .justbox {
+              padding: 1vh;
+              font-size: 3vh;
+              background-color: rgb(32, 32, 32);
+              border: solid 1px;
+              border-color: rgb(36, 36, 36);
+              width: 50%;
+              height: 9vh;
+          }
+          .buttons {
+              margin-left: 25%;
+              margin-right: 25%;
+              display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        flex: 4;
+          }
+          button {
+              padding: 2vh;
+              background-color: rgb(32, 32, 32);
+              width: 49%;
+              font-size: 2vh;
+              color: white;
+              border: none;
+          }
+          .graphbox {
+              padding: 1vh;
+              font-size: 2vh;
+              background-color: rgb(32, 32, 32);
+              border: solid 1px;
+              border-color: rgb(36, 36, 36);
+              width: 50%;
+              height: 49vh;
+          }
+          #followerCount {
+              font-size: 5vh;
+          }
+          #nameuser {
+              font-size: 4vh;
+          }
+          #followerCount2 {
+              font-size: 5vh;
+          }
+          #nameuser2 {
+              font-size: 4vh;
+          }

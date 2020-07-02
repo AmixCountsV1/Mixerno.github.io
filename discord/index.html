@@ -1,106 +1,131 @@
-<!--Yo man. Dont kill me with my bad coding lmao.-->
 <html>
+    <head>
+        <!-- Primary Meta Tags -->
+<title>Mixerno.Space</title>
+<meta name="title" content="Mixerno.Space">
+<meta name="description" content="The counter site for you.">
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mixerno.space/">
+<meta property="og:title" content="Mixerno.Space">
+<meta property="og:description" content="The counter site for you.">
+<meta property="og:image" content="https://mixerno.space/muxarno2x2.jpg">
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://mixerno.space/">
+<meta property="twitter:title" content="Mixerno.Space">
+<meta property="twitter:description" content="The counter site for you.">
+<meta property="twitter:image" content="https://mixerno.space/muxarno2x2.jpg">
 
-<head>
 
-  <title>Mixerno.space</title>
   <link rel="shortcut icon"
     href="https://mixerno.space/icons/2.png">
-    <meta charset="UTF-8">
-    <meta name="description" content="Another counter site. but its green-gray">
-    <meta name="keywords" content="green, gray, mixerno.space">
-    <meta name="author" content="Mixerno">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../o2.css" />
-  <!--<link rel="stylesheet" href="counters/estimation.css">-->
+  <meta charset="UTF-8">
+  <meta name="keywords" content="mixerno.space">
+  <meta name="author" content="Mixerno">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="../odometer.js"></script>
   <script type="text/javascript" src="../jquery-3.1.1.min.js"></script>
   <script src="https://code.highcharts.com/highcharts.js"></script>
-  <link rel="stylesheet" href="../css/loadawesome.css" />
   <link rel="stylesheet" href="../bootstrap.css">
+  <link rel="stylesheet" href="../v2/single.css">
   <script src="../bootstrap.js"></script>
-  <link rel="stylesheet" href="../css/reddit.css" />
-  
-  <script>
-    $(window).on("load", function () {
-      $(".loader-wrapper").fadeOut("slow");
-    });
-  </script>
-  <ul>
-    <li>
-      <li>
-      <a  href="https://discord.gg/KAB6222">Discord Server</a>
-      <a href="https://twitter.com/@MixernoSpace">Our twitter</a>
-      <a href="../">Other counters</a>
-    </li>
-    </li>
-    <br>
-  </ul>
-  <div class="loader-wrapper">
-    <div class="la-ball-fussion">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  </div>
-  <br>
-  <center>
-    <div class="maincount">
-        <br>
-        <div class="">
-        <div>
-      <div id="vidname" class="nameee textlmao ">Loading</div>
-      <div class="odometer" style="font-size: 60px;" id="view">0</div>
-      <div><strong>Members</strong></div>
-    </div>
-    </div>
-      <br>
-      <div class="">
-        <div id="graph"></div>
-      </div>
-    </div>
-    <br>
-    <div class="marg">
-      <div class="row">
-        <div class="backg textlmao">
-          <div class="odometer" id="onlin">0</div>
-          <div>Online</div>
+    </head>
+    <body>
+        <center><div style="padding: 2vh; font-size: 3vh; background-color: rgb(32, 32, 32);">Discord Live Server Member Counter <span style="font-size: 3vh;position: absolute; right: 90%;"><a  href="../">Home</a></span></div><br>
+        <div class="boxerino"><br>
+            <img src="https://mixerno.space/icons/2.png" id="image" style="border: solid 0.1vh;border-radius: 50%; height: 10vh; width: 10vh;" >
+            <div id="nameuser">Name</div>
+            <div class="odometer" id="followerCount">0</div>
+            <div style="font-size: 2vh;">Members</div><br>
+        </div><br>
+        <div class="row">
+            <div class="justbox" style="width: 100%;">
+                <div style="font-size: 4vh;" class="odometer" id="onlineCount">0</div>
+                <div style="font-size: 2vh;">Online</div>
+            </div>
         </div>
+        <br>
+        <div class="graphbox">
+            <div>Member Graph</div>
+            <div id="graph"></div>
+        </div>
+        <br>
+        <div class="buttons">
+        <button data-toggle="modal" data-target="#changeuser">Change server</button><button data-toggle="modal" data-target="#compareuser">Compare</button>
+    </div>
+    <br><br><br><br><br><br>
+    <div id="disqus_thread"></div>
+    </center>
+    <div style="background-color: rgb(32, 32, 32); color: white;" class="container">
+        <div class="modal fade" id="changeuser" role="dialog">
+          <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-dialog">
+            <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-content">
+              <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-header">
+               <!-- <button type="button" class="close" data-dismiss="modal">&times;</button>-->
+                <h4 class="modal-title">Change Discord Server</h4>
+              </div>
+              <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-body">
+               <input style="background-color: rgb(32, 32, 32); color: white;" placeholder="Discord Server invite code" id="userinput" type="text">
+              </div>
+              <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-footer">
+                <button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" id="submitbutton" data-dismiss="modal">Submit</button><button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" data-dismiss="modal">Cancel</button>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        
       </div>
-    </div>
-    <br>
-    <div class="maincount">
-      <input placeholder="https://discord.gg/" type="text" value="" id="usersearch"
-        class="custominput textlmao2"></input>
-      <button class="buton textlmao3"  id="serch">Search</button><br><br>
-     
-    </div>
+      <div style="background-color: rgb(32, 32, 32); color: white;" class="container2">
+        <div class="modal fade" id="compareuser" role="dialog">
+          <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-dialog">
+            <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-content">
+              <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-header">
+               <!-- <button type="button" class="close" data-dismiss="modal">&times;</button>-->
+                <h4 class="modal-title">Compare Discord Server</h4>
+              </div>
+              <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-body">
+               <input style="background-color: rgb(32, 32, 32); color: white;" placeholder="Discord Server invite code" id="userinput2" type="text">
+              </div>
+              <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-footer">
+                <button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" id="submitbutton2" data-dismiss="modal">Submit</button><button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" data-dismiss="modal">Cancel</button>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        
+      </div>
 
-    <br>
-    <br>
+     <!--<script id="dsq-count-scr" src="//mixernospace-1.disqus.com/count.js" async></script>-->
+    </body>
+    
+    <script>
 
-    <br>
-    <br>
+      /**
+      *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+      *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+      
+      var disqus_config = function () {
+      this.page.url = "http://mixerno.space";  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = undefined; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+      };
+      
+      (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = 'https://mixernospace-1.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+      })();
+      </script>
 
-  </center>
-</head>
-
-
-<script type="text/javascript">
-
-  jQuery.ajaxPrefilter(function (options) {
-    if (options.crossDomain && jQuery.support.cors) {
-      options.url = '' + options.url;
-
-    }
-  });
-  $(document).ready(function () {
-    //var key = ""
-    var key = "https://cors.mixerno.space/"
-    var videostufflol = window.location.href;
-    var params = videostufflol.split('?id=');
-    var stuff = new Highcharts.chart('graph', {
+    <script>
+         $(document).ready(function () {
+            // var cors = "";
+    var cors = "https://cors.mixerno.space/";
+var graphData = new Highcharts.chart('graph', {
       chart: {
         backgroundColor: 'transparent',
         renderTo: graph,
@@ -111,18 +136,18 @@
       },
       xAxis: {
         type: 'datetime',
-        tickPixelInterval: 500
+        tickPixelInterval: 500,
+        labels: {
+          style: {
+            color: "#FFFFFF"
+          }
+        }
       },
       yAxis: {
         title: {
           text: ''
         },
-        gridLineColor: "#53adcb",
-        labels: {
-          style: {
-            color: "#53adcb"
-          }
-        },
+        
         lineColor: "#53adcb",
         minorGridLineColor: "#53adcb",
         tickColor: "#53adcb"
@@ -144,62 +169,119 @@
 
       }]
     })
-    var channelid = params[1];
-    var channelid1x = params[2];
-    var channelid1xx = params[3];
-    if (params[1] == undefined) {
-      channelid = "minecraft"
+    var windlochref = window.location.href;
+    var params = windlochref.split('&u=');
+    if(params[1] == undefined) {
+        window.history.pushState("y", "g", `?&u=minecraft`);
+        windlochref = window.location.href;
+        params = windlochref.split('&u=');
+
+    getVisuals(params[1]);
+    } else {
+    getVisuals(params[1]); 
     }
+    
+   
+    
 
-    channelstatistics()
-    function channelstatistics() {
-
-      fetch(`${key}https://discord.com/api/v6/invites/${channelid}?with_counts=true`)
+    function getVisuals(id) {
+      fetch(`${cors}https://discord.com/api/v6/invites/${id}?with_counts=true`)
             .then(response => response.json())
             .then(data => {
                 console.log(data)
                 if(data.approximate_member_count == undefined) {
                   //Hmm
                 } else {
-                  view.innerHTML = data.approximate_member_count
-                  stuff.series[0].addPoint([
+                  followerCount.innerHTML = data.approximate_member_count
+                  graphData.series[0].addPoint([
             (new Date()).getTime(),
             parseFloat(data.approximate_member_count)
           ]);
-          if (stuff.series[0].data.length >= 700) {
-            stuff.series[0].data[0].remove()
+          if (graphData.series[0].data.length >= 700) {
+            graphData.series[0].data[0].remove()
           }
                 }
                 if(data.guild.name == undefined) {
                   //hm
                 } else {
-                  vidname.innerHTML = data.guild.name
+                  nameuser.innerHTML = data.guild.name
                 }
-                onlin.innerHTML = data.approximate_presence_count
-          vidname.innerHTML = data.guild.name
-          
+                onlineCount.innerHTML = data.approximate_presence_count
+                nameuser.innerHTML = data.guild.name
+                $("#image").attr('src', `https://cdn.discordapp.com/avatars/${data.guild.id}/${data.guild.icon}.png`);
             })
-    };
-    setInterval(channelstatistics, 10000);
+    }
 
-    //location.href = params[0] + $('#country').val();;
-    $('#usersearch').on('keyup', function (e) {
+    setInterval(function() {
+        getVisuals(params[1]);
+    }, 15000);
+    $('#userinput').on('keyup', function (e) {
       if (e.keyCode === 13) {
-        $('#serch').click();
+        $('#submitbutton').click();
       }
     });
-    function searchchannel() {
-        location.href = `${params[0]}?id=${$('#usersearch').val()}`;
+    //
+    $('#submitbutton').click(function () {
+      window.history.pushState("y", "g", `?&u=${$('#userinput').val()}`);
+      windlochref = window.location.href;
+        params = windlochref.split('&u=');
+      graphData = new Highcharts.chart('graph', {
+      chart: {
+        backgroundColor: 'transparent',
+        renderTo: graph,
+        type: 'spline'
+      },
+      title: {
+        text: ``
+      },
+      xAxis: {
+        type: 'datetime',
+        tickPixelInterval: 500,
+        labels: {
+          style: {
+            color: "#FFFFFF"
+          }
+        }
+      },
+      yAxis: {
+        title: {
+          text: ''
+        },
+        
+        lineColor: "#53adcb",
+        minorGridLineColor: "#53adcb",
+        tickColor: "#53adcb"
+      },
 
-      
-    }
-    //location.href = params[0] + $('#country').val();;
-    $('#serch').click(function () {
-      searchchannel()
+      credits: {
+        enabled: false,
+        text: "Mixerno.space"
+      },
 
+      series: [{
+        showInLegend: false,
+        name: 'Members',
+        marker: {
+          enabled: false
+        },
+        color: '#53adcb',
+        lineColor: '#53adcb'
+
+      }]
+    })
+    getVisuals(params[1]);
+    
     });
-  });
-</script>
-
-
+    $('#userinput2').on('keyup', function (e) {
+      if (e.keyCode === 13) {
+        $('#submitbutton2').click();
+      }
+    });
+    //
+    $('#submitbutton2').click(function () {
+      location.href = "../discord-compare/?&u="+params[1]+"&u="+$('#userinput2').val()
+    
+    });
+         });
+    </script>
 </html>

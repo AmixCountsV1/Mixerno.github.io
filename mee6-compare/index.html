@@ -34,27 +34,28 @@
   <link rel="stylesheet" href="../v2/compare.css" />
     </head>
     <body>
-        <center><div style="padding: 2vh; font-size: 3vh; background-color: rgb(32, 32, 32);">Twitch Live Follower Compare <span style="font-size: 3vh;position: absolute; right: 90%;"><a  href="../">Home</a></span></div><br>
+        <center><div style="padding: 2vh; font-size: 3vh; background-color: rgb(32, 32, 32);">MEE6 Live XP Compare <span style="font-size: 3vh;position: absolute; right: 90%;"><a  href="../">Home</a></span></div><br>
         <div class="margin row2"><div class="boxerino"><br>
             <img src="https://mixerno.space/icons/2.png" id="image" style="border: solid 0.1vh;border-radius: 50%; height: 10vh; width: 10vh;" >
             <div id="nameuser">Name</div>
             <div class="odometer" id="followerCount">0</div>
-            <div style="font-size: 2vh;">Followers</div><br>
+            <div style="font-size: 2vh;">XP</div><br>
         </div><br>
         <div class="boxerino"><br>
           <img src="https://mixerno.space/icons/2.png" id="image2" style="border: solid 0.1vh;border-radius: 50%; height: 10vh; width: 10vh;" >
           <div id="nameuser2">Name</div>
           <div class="odometer" id="followerCount2">0</div>
-          <div style="font-size: 2vh;">Followers</div><br>
+          <div style="font-size: 2vh;">XP</div><br>
       </div></div><br>
+
         <div class="graphbox">
           <div class="odometer" style="font-size: 3vh;" id="diffrence">0</div>
-            <div>Follower Diffrence</div>
+            <div>XP Diffrence</div>
             <div id="graph"></div>
         </div>
         <br>
         <div class="buttons">
-        <button data-toggle="modal" data-target="#changeuser">Change User 1</button><button data-toggle="modal" data-target="#compareuser">Change user 2</button>
+        <button data-toggle="modal" data-target="#changeuser">Change User 1</button><button data-toggle="modal" data-target="#servermee6">Change server</button><button data-toggle="modal" data-target="#compareuser">Change user 2</button>
     </div>
     <br><br><br><br><br><br>
     <div id="disqus_thread"></div>
@@ -68,7 +69,7 @@
                 <h4 class="modal-title">Change User 1</h4>
               </div>
               <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-body">
-               <input style="background-color: rgb(32, 32, 32); color: white;" placeholder="username" id="userinput" type="text">
+               <input style="background-color: rgb(32, 32, 32); color: white;" placeholder="Discord Username" id="userinput" type="text">
               </div>
               <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-footer">
                 <button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" id="submitbutton" data-dismiss="modal">Submit</button><button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" data-dismiss="modal">Cancel</button>
@@ -88,7 +89,7 @@
                 <h4 class="modal-title">Change user 2</h4>
               </div>
               <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-body">
-               <input style="background-color: rgb(32, 32, 32); color: white;" placeholder="username" id="userinput2" type="text">
+               <input style="background-color: rgb(32, 32, 32); color: white;" placeholder="Discord Username" id="userinput2" type="text">
               </div>
               <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-footer">
                 <button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" id="submitbutton2" data-dismiss="modal">Submit</button><button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" data-dismiss="modal">Cancel</button>
@@ -99,7 +100,26 @@
         </div>
         
       </div>
-
+      <div style="background-color: rgb(32, 32, 32); color: white;" class="container2">
+        <div class="modal fade" id="servermee6" role="dialog">
+          <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-dialog">
+            <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-content">
+              <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-header">
+               <!-- <button type="button" class="close" data-dismiss="modal">&times;</button>-->
+                <h4 class="modal-title">Change Server</h4>
+              </div>
+              <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-body">
+               <input style="background-color: rgb(32, 32, 32); color: white;" placeholder="mee6.xyz/leaderboard/" id="userinput3" type="text">
+              </div>
+              <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-footer">
+                <button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" id="submitbutton3" data-dismiss="modal">Submit</button><button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" data-dismiss="modal">Cancel</button>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        
+      </div>
      <!--<script id="dsq-count-scr" src="//mixernospace-1.disqus.com/count.js" async></script>-->
     </body>
     
@@ -124,7 +144,7 @@
     
     <script>
          $(document).ready(function () {
-             //var cors = "";
+           //  var cors = "";
     var cors = "https://cors.mixerno.space/";
 var graphData = new Highcharts.chart('graph', {
       chart: {
@@ -161,7 +181,7 @@ var graphData = new Highcharts.chart('graph', {
 
       series: [{
         showInLegend: false,
-        name: 'Followers Diffrence',
+        name: 'XP Diffrence',
         marker: {
           enabled: false
         },
@@ -170,71 +190,173 @@ var graphData = new Highcharts.chart('graph', {
 
       }]
     })
+    var tiktokbypass = [
+      'https://immense-castle-34936.herokuapp.com/cors/',
+      'https://backuptiktokapi.herokuapp.com/cors/',
+      'https://backuptiktokapi.glitch.me/cors/',
+      'https://honorable-hazel-atmosphere.glitch.me/cors/'
+    ]
+
     var windlochref = window.location.href;
     var params = windlochref.split('&u=');
     if(params[1] == undefined) {
       if(params[2] == undefined) {
-        window.history.pushState("y", "g", `?&u=tseries&u=redbull`);
+        if(params[3] == undefined) {
+        window.history.pushState("y", "g", `?&u=BariumPie&u=i epic&u=572107827020300288`);
         windlochref = window.location.href;
         params = windlochref.split('&u=');
+        }
       }
     }
     if(params[1] == undefined) {
-        window.history.pushState("y", "g", `?&u=tseries&u=${params[2]}`);
+        window.history.pushState("y", "g", `?&u=BariumPie&u=${params[2]}`);
         windlochref = window.location.href;
         params = windlochref.split('&u=');
-    getVisuals(params[1]);
+        getData(params[1]);
     } else {
-    getVisuals(params[1]); 
+      if(isNaN(params[3])) {
+      checkifvanity()
+    } else {
+      getData(params[1]);
+    }
+    
+        
     }
     if(params[2] == undefined) {
-        window.history.pushState("y", "g", `?&u=${params[1]}&u=redbull`);
+        window.history.pushState("y", "g", `?&u=${params[1]}&u=i epic`);
+        windlochref = window.location.href;
+        params = windlochref.split('&u=');
+    }
+    if(params[3] == undefined) {
+        window.history.pushState("y", "g", `?&u=${params[1]}&u=${params[2]}&u=572107827020300288`);
         windlochref = window.location.href;
         params = windlochref.split('&u=');
     }
     
     var count = 0;
     var count2 = 0;
-    
+    function checkifvanity() {
+      fetch(`${cors}https://mee6.xyz/api/guilds/vanity/${params[3]}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                if(data.id == undefined) {
+                  //Hmm
+                } else {
+                  window.history.pushState("y", "g", `?&u=${params[1]}&u=${params[2]}&u=${data.id}`);
+                  getData(data.id)
+                }
+
+          
+            })  
+    }
    
     
-    function getVisuals(id) {
-      fetch(`${cors}https://api.mixerno.space/dailymotion/user/${id}`)
-      .then(response => response.json())
-      .then(data => {
-          console.log(data)
-          nameuser.innerHTML = data.name
-    followerCount.innerHTML = data.followers
-    $("#image").attr('src', `${data.pfp}`);
-    count = data.followers
-    getVisuals2(params[2])
+    function getData(id) {
+     var tiktokbypass = [
+      'https://immense-castle-34936.herokuapp.com/cors/',
+      'https://backuptiktokapi.herokuapp.com/cors/',
+      'https://backuptiktokapi.glitch.me/cors/',
+      'https://honorable-hazel-atmosphere.glitch.me/cors/'
+    ]
+    var randomtiktokbypass = Math.floor(Math.random()*tiktokbypass.length);
+    var tiktokurl = tiktokbypass[randomtiktokbypass];
+        windlochref = window.location.href;
+        params = windlochref.split('&u=');
+        
+            fetch(`${cors}${tiktokurl}${params[3]}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                if(data.admin == undefined) {
+                  //Hmm
+                  
+                } else {
+                  var i = 0;
+                  poopxdlolfunny()
+                  function poopxdlolfunny() {
+                    if(data.players[i].username == params[1].replace(/%20/g, ' ')) {
+                        //console.log("yesnt")
+                    nameuser.innerHTML = data.players[i].username
+                    followerCount.innerHTML = data.players[i].xp
+                      count = data.players[i].xp
+         /* messageCount.innerHTML = data.players[i].message_count
+          levelCount.innerHTML = data.players[i].level*/
+          $("#image").attr('src', `https://cdn.discordapp.com/avatars/${data.players[i].id}/${data.players[i].avatar}.png`);
+          var i2 = 0;
+                  poopxdlolfunny2()
+                  function poopxdlolfunny2() {
+                    if(data.players[i2].username == params[2].replace(/%20/g, ' ')) {
+                        //console.log("yesnt")
+                    nameuser2.innerHTML = data.players[i2].username
+                    followerCount2.innerHTML = data.players[i2].xp
+                    count2 = data.players[i2].xp
+                    diffrence.innerHTML = count - count2
+                  graphData.series[0].addPoint([
+            (new Date()).getTime(),
+            count - count2
+          ]);
+          if (graphData.series[0].data.length >= 700) {
+            graphData.series[0].data[0].remove()
+          }
 
-      })
-    }
-    function getVisuals2(id) {
-     
-fetch(`${cors}https://api.mixerno.space/dailymotion/user/${id}`)
-      .then(response => response.json())
-      .then(data => {
-          console.log(data)
-          nameuser2.innerHTML = data.name
-    followerCount2.innerHTML = data.followers
-    $("#image2").attr('src', `${data.pfp}`);
-    count2 = data.followers
-    difrence.innerHTML = count1 - count2
-    graphData.series[0].addPoint([
-      (new Date()).getTime(),
-      count1 - count2
-    ]);
-    if (graphData.series[0].data.length >= 700) {
-      graphData.series[0].data[0].remove()
-    }
+          $("#image2").attr('src', `https://cdn.discordapp.com/avatars/${data.players[i2].id}/${data.players[i2].avatar}.png`);
+                      
+                    
+                  } else {
+                    i2++
+                    poopxdlolfunny2()
+                  //  console.log("nosnt")
+                  }
+                  }
+                  
+                  
+                  
+                    
+                  } else {
+                    i++
+                    poopxdlolfunny()
+                   // console.log("nosnt")
+                  }
+                  }
+                  
+                  
+                  
+                }
 
-      })
+          
+            })
     }
+  /*  function getData2(id) {
+        windlochref = window.location.href;
+        params = windlochref.split('&u=');
+        fetch(`https://friends.roblox.com/v1/users/${id}/followers/count`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                if(data.count == 0) {
+                    console.log("GJ TWITTER API lol")
+                } else {
+                followerCount2.innerHTML = data.count
+          ytname.innerHTML = data.username
+          totalviews.innerHTML = data.points
+          videos.innerHTML = data.followingCount
+          $("#image").attr('src', `${data.userimage}`);
+          count2 = data.count
+          diffrence.innerHTML = count - count2
+          graphData.series[0].addPoint([
+            (new Date()).getTime(),
+            count - count2
+          ]);
+          if (graphData.series[0].data.length >= 700) {
+            graphData.series[0].data[0].remove()
+          }
+        }
+            })
+    }*/
     setInterval(function() {
-        getVisuals(params[1]);
-    }, 2000);
+        getData(params[3]);
+    }, 10000);
     $('#userinput').on('keyup', function (e) {
       if (e.keyCode === 13) {
         $('#submitbutton').click();
@@ -242,7 +364,7 @@ fetch(`${cors}https://api.mixerno.space/dailymotion/user/${id}`)
     });
     //
     $('#submitbutton').click(function () {
-      window.history.pushState("y", "g", `?&u=${$('#userinput').val()}&u=${params[2]}`);
+      window.history.pushState("y", "g", `?&u=${$('#userinput').val()}&u=${params[2]}&u=${params[3]}`);
       windlochref = window.location.href;
         params = windlochref.split('&u=');
       graphData = new Highcharts.chart('graph', {
@@ -280,7 +402,7 @@ fetch(`${cors}https://api.mixerno.space/dailymotion/user/${id}`)
 
       series: [{
         showInLegend: false,
-        name: 'Follower Diffrence',
+        name: 'XP Diffrence',
         marker: {
           enabled: false
         },
@@ -289,7 +411,8 @@ fetch(`${cors}https://api.mixerno.space/dailymotion/user/${id}`)
 
       }]
     })
-    getVisuals(params[1]);
+        getData(params[1]);
+  //  getVisuals(params[1]);
     
     });
     $('#userinput2').on('keyup', function (e) {
@@ -299,7 +422,7 @@ fetch(`${cors}https://api.mixerno.space/dailymotion/user/${id}`)
     });
     //
     $('#submitbutton2').click(function () {
-      window.history.pushState("y", "g", `?&u=${params[1]}&u=${$('#userinput2').val()}`);
+      window.history.pushState("y", "g", `?&u=${params[1]}&u=${$('#userinput2').val()}&u=${params[3]}`);
       windlochref = window.location.href;
         params = windlochref.split('&u=');
       graphData = new Highcharts.chart('graph', {
@@ -337,7 +460,7 @@ fetch(`${cors}https://api.mixerno.space/dailymotion/user/${id}`)
 
       series: [{
         showInLegend: false,
-        name: 'Follower Diffrence',
+        name: 'XP Diffrence',
         marker: {
           enabled: false
         },
@@ -346,7 +469,67 @@ fetch(`${cors}https://api.mixerno.space/dailymotion/user/${id}`)
 
       }]
     })
-    getVisuals(params[1]);
+    
+        getData(params[1]);
+  //  getVisuals(params[1]);
+    
+    });
+    $('#userinput3').on('keyup', function (e) {
+      if (e.keyCode === 13) {
+        $('#submitbutton3').click();
+      }
+    });
+    //
+    $('#submitbutton3').click(function () {
+      window.history.pushState("y", "g", `?&u=${params[1]}&u=${params[2]}&u=${$('#userinput3').val()}`);
+      windlochref = window.location.href;
+        params = windlochref.split('&u=');
+      graphData = new Highcharts.chart('graph', {
+      chart: {
+        backgroundColor: 'transparent',
+        renderTo: graph,
+        type: 'spline'
+      },
+      title: {
+        text: ``
+      },
+      xAxis: {
+        type: 'datetime',
+        tickPixelInterval: 500,
+        labels: {
+          style: {
+            color: "#FFFFFF"
+          }
+        }
+      },
+      yAxis: {
+        title: {
+          text: ''
+        },
+        
+        lineColor: "#53adcb",
+        minorGridLineColor: "#53adcb",
+        tickColor: "#53adcb"
+      },
+
+      credits: {
+        enabled: false,
+        text: "Mixerno.space"
+      },
+
+      series: [{
+        showInLegend: false,
+        name: 'XP Diffrence',
+        marker: {
+          enabled: false
+        },
+        color: '#53adcb',
+        lineColor: '#53adcb'
+
+      }]
+    })
+    
+        getData(params[1]);
     
     });
          });

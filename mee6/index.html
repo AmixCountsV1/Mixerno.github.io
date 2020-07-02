@@ -1,114 +1,155 @@
-<!--Yo man. Dont kill me with my bad coding lmao.-->
 <html>
+    <head>
+        <!-- Primary Meta Tags -->
+<title>Mixerno.Space</title>
+<meta name="title" content="Mixerno.Space">
+<meta name="description" content="The counter site for you.">
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mixerno.space/">
+<meta property="og:title" content="Mixerno.Space">
+<meta property="og:description" content="The counter site for you.">
+<meta property="og:image" content="https://mixerno.space/muxarno2x2.jpg">
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://mixerno.space/">
+<meta property="twitter:title" content="Mixerno.Space">
+<meta property="twitter:description" content="The counter site for you.">
+<meta property="twitter:image" content="https://mixerno.space/muxarno2x2.jpg">
 
-<head>
 
-  <title>Mixerno.space</title>
   <link rel="shortcut icon"
     href="https://mixerno.space/icons/2.png">
-    <meta charset="UTF-8">
-    <meta name="description" content="Another counter site. but its green-gray">
-    <meta name="keywords" content="green, gray, mixerno.space">
-    <meta name="author" content="Mixerno">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../o2.css" />
-  <!--<link rel="stylesheet" href="counters/estimation.css">-->
+  <meta charset="UTF-8">
+  <meta name="keywords" content="mixerno.space">
+  <meta name="author" content="Mixerno">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="../odometer.js"></script>
   <script type="text/javascript" src="../jquery-3.1.1.min.js"></script>
   <script src="https://code.highcharts.com/highcharts.js"></script>
-  <link rel="stylesheet" href="../css/loadawesome.css" />
   <link rel="stylesheet" href="../bootstrap.css">
+  <link rel="stylesheet" href="../v2/single.css">
   <script src="../bootstrap.js"></script>
-  <link rel="stylesheet" href="../css/reddit.css" />
-  
-  <script>
-    $(window).on("load", function () {
-      $(".loader-wrapper").fadeOut("slow");
-    });
-  </script>
-  <ul>
-    <li>
-      <li>
-      <a  href="https://discord.gg/KAB6222">Discord Server</a>
-      <a href="https://twitter.com/@MixernoSpace">Our twitter</a>
-      <a href="../">Other counters</a>
-    </li>
-    </li>
-    <br>
-  </ul>
-  <div class="loader-wrapper">
-    <div class="la-ball-fussion">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  </div>
-  <br>
-  <center>
-    <div class="maincount">
+    </head>
+    <body>
+        <center><div style="padding: 2vh; font-size: 3vh; background-color: rgb(32, 32, 32);">MEE6 Live XP Counter <span style="font-size: 3vh;position: absolute; right: 90%;"><a  href="../">Home</a></span></div><br>
+        <div class="boxerino"><br>
+            <img src="https://mixerno.space/icons/2.png" id="image" style="border: solid 0.1vh;border-radius: 50%; height: 10vh; width: 10vh;" >
+            <div id="nameuser">Name</div>
+            <div class="odometer" id="followerCount">0</div>
+            <div style="font-size: 2vh;">XP</div><br>
+        </div><br><br><br>
+        <div class="row">
+            <div class="justbox">
+                <div style="font-size: 4vh;" class="odometer" id="messagesCount">0</div>
+                <div style="font-size: 2vh;">Messages</div>
+            </div><br><br><br><br><br><br>
+            <div class="justbox">
+                <div style="font-size: 4vh;" class="odometer" id="levelCount">0</div>
+                <div style="font-size: 2vh;">Level</div>
+            </div>
+        </div>
         <br>
-        <div class="">
-        <div>
-          <img src="" id="image" height="100" width="100">
-      <div id="vidname" class="nameee textlmao ">Loading</div>
-      <div class="odometer" style="font-size: 60px;" id="view">0</div>
-      <div><strong>XP</strong></div>
-    </div>
-    </div>
-      <br>
-      <div class="">
-        <div id="graph"></div>
-      </div>
-    </div>
-    <br>
-    <div class="marg">
-      <div class="row">
-        <div class="backg textlmao">
-          <div class="odometer" id="msgs">0</div>
-          <div>Messages</div>
+        <div class="graphbox">
+            <div>XP Graph</div>
+            <div id="graph"></div>
         </div>
-        <div class="backg textlmao">
-          <div class="odometer" id="lvls">0</div>
-          <div>Level</div>
+        <br>
+        <div class="buttons">
+        <button data-toggle="modal" data-target="#changeuser">Change User</button><button data-toggle="modal" data-target="#changeserver">Change Server</button><button data-toggle="modal" data-target="#compareuser">Compare</button>
+    </div>
+    <br><br><br><br><br><br>
+    <div id="disqus_thread"></div>
+    </center>
+    <div style="background-color: rgb(32, 32, 32); color: white;" class="container">
+        <div class="modal fade" id="changeuser" role="dialog">
+          <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-dialog">
+            <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-content">
+              <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-header">
+               <!-- <button type="button" class="close" data-dismiss="modal">&times;</button>-->
+                <h4 class="modal-title">Change User</h4>
+              </div>
+              <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-body">
+               <input style="background-color: rgb(32, 32, 32); color: white;" placeholder="Discord Username" id="userinput" type="text">
+              </div>
+              <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-footer">
+                <button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" id="submitbutton" data-dismiss="modal">Submit</button><button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" data-dismiss="modal">Cancel</button>
+              </div>
+            </div>
+            
+          </div>
         </div>
+        
       </div>
-    </div>
-    <br>
-    <div class="maincount">
-      <input placeholder="mee6.xyz/leaderboard/" type="text" value="" id="usersearch"
-        class="custominput textlmao2"></input><br>
-        <input placeholder="Name in the leaderboard" type="text" value="" id="usernamesearch"
-        class="custominput textlmao2"></input><br><br>
-      <button class="buton textlmao3"  id="serch">Search (needs both)</button><br><br>
-     <br>
-     <input type="checkbox" name="estimt" id="estimatio"> Estimated (beta. May not work properly :))
-    </div>
+      <div style="background-color: rgb(32, 32, 32); color: white;" class="container">
+        <div class="modal fade" id="changeserver" role="dialog">
+          <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-dialog">
+            <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-content">
+              <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-header">
+               <!-- <button type="button" class="close" data-dismiss="modal">&times;</button>-->
+                <h4 class="modal-title">Change Server</h4>
+              </div>
+              <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-body">
+               <input style="background-color: rgb(32, 32, 32); color: white;" placeholder="Server ID" id="userinput3" type="text">
+              </div>
+              <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-footer">
+                <button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" id="submitbutton3" data-dismiss="modal">Submit</button><button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" data-dismiss="modal">Cancel</button>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        
+      </div>
+      <div style="background-color: rgb(32, 32, 32); color: white;" class="container2">
+        <div class="modal fade" id="compareuser" role="dialog">
+          <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-dialog">
+            <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-content">
+              <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-header">
+               <!-- <button type="button" class="close" data-dismiss="modal">&times;</button>-->
+                <h4 class="modal-title">Compare user</h4>
+              </div>
+              <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-body">
+               <input style="background-color: rgb(32, 32, 32); color: white;" placeholder="www.roblox.com/users/" id="userinput2" type="text">
+              </div>
+              <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-footer">
+                <button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" id="submitbutton2" data-dismiss="modal">Submit</button><button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" data-dismiss="modal">Cancel</button>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        
+      </div>
 
-    <br>
-    <br>
+     <!--<script id="dsq-count-scr" src="//mixernospace-1.disqus.com/count.js" async></script>-->
+    </body>
+    
+    <script>
 
-    <br>
-    <br>
+      /**
+      *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+      *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+      
+      var disqus_config = function () {
+      this.page.url = "http://mixerno.space";  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = undefined; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+      };
+      
+      (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = 'https://mixernospace-1.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+      })();
+      </script>
 
-  </center>
-</head>
-
-
-<script type="text/javascript">
-
-  jQuery.ajaxPrefilter(function (options) {
-    if (options.crossDomain && jQuery.support.cors) {
-      options.url = '' + options.url;
-
-    }
-  });
-  $(document).ready(function () {
-    //var key = ""
-    var key = "https://cors.mixerno.space/"
-    var videostufflol = window.location.href;
-    var params = videostufflol.split('?id=');
-    var stuff = new Highcharts.chart('graph', {
+    <script>
+         $(document).ready(function () {
+          //   var cors = "";
+   var cors = "https://cors.mixerno.space/";
+var graphData = new Highcharts.chart('graph', {
       chart: {
         backgroundColor: 'transparent',
         renderTo: graph,
@@ -152,59 +193,45 @@
 
       }]
     })
-    var time = new Date()
-    var timebef = new Date()
-    var minus = time.getTime() - timebef.getTime()
-    var minus1k = minus / 1000
-    var rate = 0;
-    var estimatedcount = 0;
-    var estbefcount = 0;
-    var nowcount = 0;
-    var betweeencount = 0;
-    var channelid = params[1];
-    var channelid1x = params[2];
-    var channelid1xx = params[3];
-    if(localStorage.getItem('mee6estimated') == true) {
-      document.getElementById("estimatio").checked = true
-    } else {
-      document.getElementById("estimatio").checked = false
-    }
-    if (params[1] == undefined) {
-      channelid = "357211471412985856"
-    }
-    if (params[2] == undefined) {
-      channelid1x = "Mixerno"
-    }
-    if(isNaN(channelid)) {
+    var windlochref = window.location.href;
+    var params = windlochref.split('&u=');
+    if(params[1] == undefined) {
+        window.history.pushState("y", "g", `?&u=BariumPie&u=572107827020300288`);
+        windlochref = window.location.href;
+        params = windlochref.split('&u=');
+        if(isNaN(params[2])) {
       checkifvanity()
     } else {
-      channelstatistics()
+      getData(params[1]);
+    }
+    } else {
+      if(isNaN(params[2])) {
+      checkifvanity()
+    } else {
+      getData(params[1]);
+    }
+
     }
     function checkifvanity() {
-      fetch(`${key}https://mee6.xyz/api/guilds/vanity/${channelid}`)
+      fetch(`${cors}https://mee6.xyz/api/guilds/vanity/${params[2]}`)
             .then(response => response.json())
             .then(data => {
                 console.log(data)
                 if(data.id == undefined) {
                   //Hmm
                 } else {
-                  channelid = data.id
-                  channelstatistics()
+                  window.history.pushState("y", "g", `?&u=${params[1]}&u=${data.id}`);
+                  getData(data.id)
                 }
 
           
             })  
     }
-    channelid1x = channelid1x.replace(/%20/g, ' ')
-    console.log(channelid1x)
-    var tiktokbypass = [
-      'https://immense-castle-34936.herokuapp.com/cors/',
-      'https://backuptiktokapi.herokuapp.com/cors/',
-      'https://backuptiktokapi.glitch.me/cors/',
-      'https://honorable-hazel-atmosphere.glitch.me/cors/'
-    ]
-    function channelstatistics() {
-      tiktokbypass = [
+    
+   
+    
+    function getData(id) {
+      var tiktokbypass = [
       'https://immense-castle-34936.herokuapp.com/cors/',
       'https://backuptiktokapi.herokuapp.com/cors/',
       'https://backuptiktokapi.glitch.me/cors/',
@@ -212,95 +239,173 @@
     ]
     var randomtiktokbypass = Math.floor(Math.random()*tiktokbypass.length);
     var tiktokurl = tiktokbypass[randomtiktokbypass];
-      fetch(`${key}${tiktokurl}${channelid}`)
+        windlochref = window.location.href;
+        params = windlochref.split('&u=');
+        fetch(`${cors}${tiktokurl}${params[2]}`)
             .then(response => response.json())
             .then(data => {
                 console.log(data)
                 if(data.admin == undefined) {
-                  //Hmm
-                  
+                    console.log("GJ TWITTER API lol")
                 } else {
-                  var i = 0;
-                  poopxdlolfunny()
-                  function poopxdlolfunny() {
-                    if(data.players[i].username == channelid1x) {
-                      if(document.getElementById("estimatio").checked == true) {
-                        localStorage.setItem('mee6estimated', true)
-                        console.log("yesnt")
-                        if(data.players[i].xp > estbefcount) {
-betweeencount = data.players[i].xp - estbefcount
-                          nowcount = data.players[i].xp
-                          time = new Date()
-                          minus = time.getTime() - timebef.getTime()
-                          minus1k = minus / 1000
-                          rate = betweeencount / minus1k
-                          estbefcount = data.players[i].xp
-                          estimatedcount = estbefcount
-                        } else {
-                          estimatedcount = estimatedcount + rate * 2.5
-                          view.innerHTML = Math.floor(estimatedcount)
-                  stuff.series[0].addPoint([
+                  var i2 = 0;
+                  poopxdlolfunny2()
+                  function poopxdlolfunny2() {
+                    if(data.players[i2].username == params[1].replace(/%20/g, ' ')) {
+                        //console.log("yesnt")
+                    nameuser.innerHTML = data.players[i2].username
+                    followerCount.innerHTML = data.players[i2].xp
+                    messagesCount.innerHTML = data.players[i2].message_count
+                    levelCount.innerHTML = data.players[i2].level
+                  graphData.series[0].addPoint([
             (new Date()).getTime(),
-            parseFloat(Math.floor(estimatedcount))
+            data.players[i2].xp
           ]);
-          if (stuff.series[0].data.length >= 700) {
-            stuff.series[0].data[0].remove()
+          if (graphData.series[0].data.length >= 700) {
+            graphData.series[0].data[0].remove()
           }
-          vidname.innerHTML = data.players[i].username
-          msgs.innerHTML = data.players[i].message_count
-          lvls.innerHTML = data.players[i].level
-          $("#image").attr('src', `https://cdn.discordapp.com/avatars/${data.players[i].id}/${data.players[i].avatar}.png`);
-                        }
-                      } else {
-                        localStorage.setItem('mee6estimated', document.getElementById("estimatio").checked)
-                        console.log("yesnt")
-                    vidname.innerHTML = data.players[i].username
-                    view.innerHTML = data.players[i].xp
-                  stuff.series[0].addPoint([
-            (new Date()).getTime(),
-            parseFloat(data.players[i].xp)
-          ]);
-          if (stuff.series[0].data.length >= 700) {
-            stuff.series[0].data[0].remove()
-          }
-          msgs.innerHTML = data.players[i].message_count
-          lvls.innerHTML = data.players[i].level
-          $("#image").attr('src', `https://cdn.discordapp.com/avatars/${data.players[i].id}/${data.players[i].avatar}.png`);
-                      }
+          $("#image").attr('src', `https://cdn.discordapp.com/avatars/${data.players[i2].id}/${data.players[i2].avatar}.png`);
+                      
                     
                   } else {
-                    i++
-                    poopxdlolfunny()
-                    console.log("nosnt")
+                    i2++
+                    poopxdlolfunny2()
+                  //  console.log("nosnt")
                   }
-                  }
-                  
-                  
-                  
+        }
                 }
-
-          
             })
-    };
-    setInterval(channelstatistics, 5000);
 
-    //location.href = params[0] + $('#country').val();;
-    $('#usersearch').on('keyup', function (e) {
+    }
+
+    setInterval(function() {
+        getData(params[1]);
+    }, 10000);
+
+    $('#userinput').on('keyup', function (e) {
       if (e.keyCode === 13) {
-        $('#serch').click();
+        $('#submitbutton').click();
       }
     });
-    function searchchannel() {
+    //
+    $('#submitbutton').click(function () {
+      window.history.pushState("y", "g", `?&u=${$('#userinput').val()}&u=${params[2]}`);
+      windlochref = window.location.href;
+        params = windlochref.split('&u=');
+      graphData = new Highcharts.chart('graph', {
+      chart: {
+        backgroundColor: 'transparent',
+        renderTo: graph,
+        type: 'spline'
+      },
+      title: {
+        text: ``
+      },
+      xAxis: {
+        type: 'datetime',
+        tickPixelInterval: 500,
+        labels: {
+          style: {
+            color: "#FFFFFF"
+          }
+        }
+      },
+      yAxis: {
+        title: {
+          text: ''
+        },
         
+        lineColor: "#53adcb",
+        minorGridLineColor: "#53adcb",
+        tickColor: "#53adcb"
+      },
 
-      
-    }
-    //location.href = params[0] + $('#country').val();;
-    $('#serch').click(function () {
-      location.href = `${params[0]}?id=${$('#usersearch').val()}?id=${$('#usernamesearch').val()}`;
+      credits: {
+        enabled: false,
+        text: "Mixerno.space"
+      },
+
+      series: [{
+        showInLegend: false,
+        name: 'XP',
+        marker: {
+          enabled: false
+        },
+        color: '#53adcb',
+        lineColor: '#53adcb'
+
+      }]
+    })
+        getData(params[2]);
+    
     });
-  });
-</script>
+    $('#userinput3').on('keyup', function (e) {
+      if (e.keyCode === 13) {
+        $('#submitbutton3').click();
+      }
+    });
+    //
+    $('#submitbutton3').click(function () {
+      window.history.pushState("y", "g", `?&u=${params[1]}&u=${$('#userinput3').val()}`);
+      windlochref = window.location.href;
+        params = windlochref.split('&u=');
+      graphData = new Highcharts.chart('graph', {
+      chart: {
+        backgroundColor: 'transparent',
+        renderTo: graph,
+        type: 'spline'
+      },
+      title: {
+        text: ``
+      },
+      xAxis: {
+        type: 'datetime',
+        tickPixelInterval: 500,
+        labels: {
+          style: {
+            color: "#FFFFFF"
+          }
+        }
+      },
+      yAxis: {
+        title: {
+          text: ''
+        },
+        
+        lineColor: "#53adcb",
+        minorGridLineColor: "#53adcb",
+        tickColor: "#53adcb"
+      },
 
+      credits: {
+        enabled: false,
+        text: "Mixerno.space"
+      },
 
+      series: [{
+        showInLegend: false,
+        name: 'XP',
+        marker: {
+          enabled: false
+        },
+        color: '#53adcb',
+        lineColor: '#53adcb'
+
+      }]
+    })
+        getData(params[2]);
+    
+    });
+    $('#userinput2').on('keyup', function (e) {
+      if (e.keyCode === 13) {
+        $('#submitbutton2').click();
+      }
+    });
+    //
+    $('#submitbutton2').click(function () {
+      location.href = "../mee6-compare/?&u="+params[1]+"&u="+$('#userinput2').val()+"&u="+params[2]
+    
+    });
+         });
+    </script>
 </html>

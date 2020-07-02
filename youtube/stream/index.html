@@ -1,249 +1,139 @@
-<!--Yo man. Dont kill me with my bad coding lmao.-->
 <html>
+    <head>
+        <!-- Primary Meta Tags -->
+<title>Mixerno.Space</title>
+<meta name="title" content="Mixerno.Space">
+<meta name="description" content="The counter site for you.">
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mixerno.space/">
+<meta property="og:title" content="Mixerno.Space">
+<meta property="og:description" content="The counter site for you.">
+<meta property="og:image" content="https://mixerno.space/muxarno2x2.jpg">
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://mixerno.space/">
+<meta property="twitter:title" content="Mixerno.Space">
+<meta property="twitter:description" content="The counter site for you.">
+<meta property="twitter:image" content="https://mixerno.space/muxarno2x2.jpg">
 
-<head>
-  <title>Mixerno.space</title>
+
   <link rel="shortcut icon"
     href="https://mixerno.space/icons/2.png">
-    <meta charset="UTF-8">
-    <meta name="description" content="Another counter site. but its green-gray">
-    <meta name="keywords" content="green, gray, mixerno.space">
-    <meta name="author" content="Mixerno">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../../o2.css" />
-  <!--<link rel="stylesheet" href="counters/estimation.css">-->
+  <meta charset="UTF-8">
+  <meta name="keywords" content="mixerno.space">
+  <meta name="author" content="Mixerno">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="../../odometer.js"></script>
   <script type="text/javascript" src="../../jquery-3.1.1.min.js"></script>
   <script src="https://code.highcharts.com/highcharts.js"></script>
-  <link rel="stylesheet" href="../../css/loadawesome.css" />
-  <link rel="stylesheet" href="../../css/videosingle.css" />
-  <!--<style>
-    body {
-      margin: 0;
-    }
-
-    ::-webkit-scrollbar {
-      width: 5px;
-    }
-
-
-    ::-webkit-scrollbar-track {
-      background: #ffffff;
-    }
-
-
-    ::-webkit-scrollbar-thumb {
-      background: rgb(0, 0, 0);
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background: rgb(0, 0, 0);
-    }
-
-    .buton {
-      background-color: rgb(0, 0, 0);
-      border: none;
-      color: rgb(255, 255, 255);
-      padding: 2.5px 5px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 14px;
-      margin: 0px 0px;
-      cursor: pointer;
-    }
-
-    input[type=text],
-    select {
-      width: 10%;
-      padding: 2.5px 5px;
-      margin: 0px 0;
-      display: inline-block;
-      color: rgb(255, 255, 255);
-      background-color: rgb(0, 0, 0);
-      border: 1px solid rgb(255, 255, 255);
-      border-radius: 1px;
-      box-sizing: border-box;
-    }
-
-    body {
-      background-color: rgb(0, 99, 0);
-      color: rgb(255, 255, 255);
-      font-family: Arial
-    }
-
-    a:link {
-      color: white;
-    }
-
-    a:visited {
-      color: white;
-    }
-
-    a:hover {
-      color: rgb(255, 255, 255);
-    }
-
-    a:focus {
-      color: rgb(255, 255, 255);
-    }
-
-    a:active {
-      color: white;
-    }
-
-    ul {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      width: 12.5%;
-      background-color: #000000;
-      position: fixed;
-      height: 100%;
-      overflow: auto;
-    }
-
-    .maincount {
-      border-style: solid;
-      border-radius: 0px;
-      border-color: rgb(255, 255, 255);
-      padding: 20px;
-      background: rgb(37, 37, 37);
-      width: auto;
-      height: auto;
-      margin-left: 13.5%;
-      margin-right: 1%;
-    }
-    .marg {
-      margin-left: 13.5%;
-      margin-right: 1%;
-    }
-    .backg {
-      background: rgb(37, 37, 37);
-      border-style: solid;
-      border-radius: 0px;
-      border-color: rgb(255, 255, 255);
-      padding: 20px;
-      height: 60px;
-      width: 100%;
-
-    }
-    .row {
-      display: flex;
-      flex-direction: row;
-      margin-left: 0;
-      margin-right: 0;
-      justify-content: space-around;
-      flex: 4;
-    }
-
-    li a {
-      display: block;
-      color: #000;
-      padding: 8px 16px;
-      text-decoration: none;
-    }
-
-    li a.active {
-      background-color: #4CAF50;
-      color: white;
-    }
-
-    li a:hover:not(.active) {
-      background-color: #555;
-      color: white;
-    }
-  </style>-->
-  <script>
-    $(window).on("load", function () {
-      $(".loader-wrapper").fadeOut("slow");
-    });
-  </script>
-  <ul>
-    <li>
-      <li>
-      <a  href="https://discord.gg/KAB6222">Discord Server</a>
-      <a href="https://twitter.com/@MixernoSpace">Our twitter</a>
-      <a href="../../">Other counters</a>
-    </li>
-    </li>
-    <br>
-  </ul>
-  <div class="loader-wrapper">
-    <div class="la-ball-fussion">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  </div>
-  <br>
-  <center>
-    <div class="maincount">
-      <br>
-      <div class="row2">
-    <img id="image" style="border-radius: 0%;"
-      src="https://via.placeholder.com/320/585858/FFFFFF/?text=Mixerno.space" height="180" width="320">
-      <div>
-        <div id="vidname" class="textlmao">is loading. is nice
+  <link rel="stylesheet" href="../../bootstrap.css">
+  <link rel="stylesheet" href="../../v2/single.css">
+  <script src="../../bootstrap.js"></script>
+    </head>
+    <body>
+        <center><div style="padding: 2vh; font-size: 3vh; background-color: rgb(32, 32, 32);">Youtube Live Stream Viewer Counter <span style="font-size: 3vh;position: absolute; right: 90%;"><a  href="../">Home</a></span></div><br>
+        <div class="boxerino"><br>
+            <img src="https://mixerno.space/icons/2.png" id="image" style="border: solid 0.1vh;border-radius: 50%; height: 10vh; width: 10vh;" >
+            <div id="nameuser">Name</div>
+            <div class="odometer" id="followerCount">0</div>
+            <div style="font-size: 2vh;">Viewers</div><br>
+        </div><br>
+        <div class="row">
+            <div class="justbox" style="width: 100%;">
+                <div style="font-size: 4vh;" class="odometer" id="likeCount">0</div>
+                <div style="font-size: 2vh;">Likes</div>
+            </div>
+            <div class="justbox" style="width: 100%;">
+              <div style="font-size: 4vh;" class="odometer" id="dislikeCount">0</div>
+              <div style="font-size: 2vh;">Dislikes</div>
+          </div>
+          <div class="justbox" style="width: 100%;">
+            <div style="font-size: 4vh;" class="odometer" id="commentCount">0</div>
+            <div style="font-size: 2vh;">Views</div>
         </div>
-    <div class="odometer" style="font-size: 60px;" id="view">0</div>
-    <div><strong>Viewers</strong></div>
-  </div>
-  </div>
-    <br>
-    <div class="">
-      <div id="graph"></div>
-    </div>
-  </div>
-    <br>
-    <div class="marg">
-      <div class="row">
-      <div class="backg textlmao">
-        <div class="odometer" id="like">0</div>
-        <div>Likes</div>
-      </div>
+        </div>
         <br>
-        <div class="backg textlmao">
-        <div class="odometer" id="dislike">0</div>
-        <div>Dislikes</div>
-      </div>
-      <br>
-        <div class="backg textlmao">
-        <div class="odometer" id="comment">0</div>
-        <div>Comments</div>
-      </div>
-      </div>
+        <div class="graphbox">
+            <div>Viewer Graph</div>
+            <div id="graph"></div>
+        </div>
+        <br>
+        <div class="buttons">
+        <button data-toggle="modal" data-target="#changeuser">Change Stream</button><button data-toggle="modal" data-target="#compareuser">Compare</button>
     </div>
-    <br>
-    <div class="maincount">
-      <input placeholder="" type="text" value="" id="usersearch"
-        class="custominput textlmao2"></input><br><br>
-        <button class="buton textlmao3" id="serch">Search using name</button><button class="buton textlmao3" id="serchx">Search using ID</button>
-    </div>
+    <br><br><br><br><br><br>
+    <div id="disqus_thread"></div>
+    </center>
+    <div style="background-color: rgb(32, 32, 32); color: white;" class="container">
+        <div class="modal fade" id="changeuser" role="dialog">
+          <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-dialog">
+            <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-content">
+              <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-header">
+               <!-- <button type="button" class="close" data-dismiss="modal">&times;</button>-->
+                <h4 class="modal-title">Change Stream</h4>
+              </div>
+              <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-body">
+               <input style="background-color: rgb(32, 32, 32); color: white;" placeholder="Stream id" id="userinput" type="text">
+              </div>
+              <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-footer">
+                <button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" id="submitbutton" data-dismiss="modal">Submit</button><button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" data-dismiss="modal">Cancel</button>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        
+      </div>
+      <div style="background-color: rgb(32, 32, 32); color: white;" class="container2">
+        <div class="modal fade" id="compareuser" role="dialog">
+          <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-dialog">
+            <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-content">
+              <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-header">
+               <!-- <button type="button" class="close" data-dismiss="modal">&times;</button>-->
+                <h4 class="modal-title">Compare Stream</h4>
+              </div>
+              <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-body">
+               <input style="background-color: rgb(32, 32, 32); color: white;" placeholder="Stream id" id="userinput2" type="text">
+              </div>
+              <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-footer">
+                <button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" id="submitbutton2" data-dismiss="modal">Submit</button><button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" data-dismiss="modal">Cancel</button>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        
+      </div>
 
-    <br>
-    <br>
+     <!--<script id="dsq-count-scr" src="//mixernospace-1.disqus.com/count.js" async></script>-->
+    </body>
+    
+    <script>
 
-    <br>
-    <br>
+      /**
+      *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+      *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+      
+      var disqus_config = function () {
+      this.page.url = "http://mixerno.space";  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = undefined; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+      };
+      
+      (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = 'https://mixernospace-1.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+      })();
+      </script>
 
-  </center>
-</head>
-
-
-<script type="text/javascript">
-  jQuery.ajaxPrefilter(function (options) {
-    if (options.crossDomain && jQuery.support.cors) {
-      options.url = '' + options.url;
-
-    }
-  });
-  $(document).ready(function () {
-    var key = "https://cors.mixerno.space/"
-    var videostufflol = window.location.href;
-    var params = videostufflol.split('?id=');
-    var stuff = new Highcharts.chart('graph', {
+    <script>
+         $(document).ready(function () {
+            // var cors = "";
+    var cors = "https://cors.mixerno.space/";
+var graphData = new Highcharts.chart('graph', {
       chart: {
         backgroundColor: 'transparent',
         renderTo: graph,
@@ -287,32 +177,38 @@
 
       }]
     })
-    var channelid = params[1];
-    if (params[1] == undefined) {
-      channelid = "1e1NCIEKamA"
+    var windlochref = window.location.href;
+    var params = windlochref.split('&u=');
+    if(params[1] == undefined) {
+        window.history.pushState("y", "g", `?&u=kJQP7kiw5Fk`);
+        windlochref = window.location.href;
+        params = windlochref.split('&u=');
+
+    getVisuals(params[1]);
+    } else {
+    getVisuals(params[1]); 
     }
-    channelstatistics()
+    
+   
+    
 
-
-    //
-    function channelstatistics() {
-
-      fetch(`${key}https://api.mixerno.space/youtube/streamid/${channelid}`)
+    function getVisuals(id) {
+        fetch(`${cors}https://api.mixerno.space/youtube/streamid/${id}`)
             .then(response => response.json())
             .then(data => {
                 console.log(data)
-                if(data.viewers == undefined) {
-//Failed getting data moment
+                if(data.name == undefined) {
+                    console.log("#ERROR.")
                 } else {
-                  view.innerHTML = data.viewers
-          vidname.innerHTML = data.name
-          like.innerHTML = data.likes
-          dislike.innerHTML = data.dislikes
-          comment.innerHTML = data.comments
+                  followerCount.innerHTML = data.viewers
+          nameuser.innerHTML = data.name
+          likeCount.innerHTML = data.likes
+          dislikeCount.innerHTML = data.dislikes
+          commentCount.innerHTML = data.views
           $("#image").attr('src', `${data.videoimageurl}`);
 
           //plsworkgraph = json.subscribers.replace(/""/, "");
-          stuff.series[0].addPoint([
+          graphData.series[0].addPoint([
             (new Date()).getTime(),
             parseFloat(data.viewers)
           ]);
@@ -320,48 +216,79 @@
             stuff.series[0].data[0].remove()
           }
                 }
-                
-
-            })
-    };
-    setInterval(channelstatistics, 4000);
-
-    //location.href = params[0] + $('#country').val();;
-    $('#usersearch').on('keyup', function (e) {
-      if (e.keyCode === 13) {
-        $('#serch').click();
-      }
-    });
-    $('#usersearchx').on('keyup', function (e) {
-      if (e.keyCode === 13) {
-        $('#serchx').click();
-      }
-    });
-    function searchchannel() {
-
-      fetch(`${key}https://mixernobest.herokuapp.com/youtube/searchvideo/${$('#usersearch').val()}`)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                if(data.videoid == undefined) {
-//Failed getting data moment
-                } else {
-                  channelid = data.videoid
-          location.href = `${params[0]}?id=${channelid}`;
-                }
             })
     }
-    //location.href = params[0] + $('#country').val();;
-    $('#serch').click(function () {
-      searchchannel()
 
+    setInterval(function() {
+        getVisuals(params[1]);
+    }, 2000);
+    $('#userinput').on('keyup', function (e) {
+      if (e.keyCode === 13) {
+        $('#submitbutton').click();
+      }
     });
-    $('#serchx').click(function () {
-      location.href = `${params[0]}?id=${$('#usersearch').val()}`;
+    //
+    $('#submitbutton').click(function () {
+      window.history.pushState("y", "g", `?&u=${$('#userinput').val()}`);
+      windlochref = window.location.href;
+        params = windlochref.split('&u=');
+      graphData = new Highcharts.chart('graph', {
+      chart: {
+        backgroundColor: 'transparent',
+        renderTo: graph,
+        type: 'spline'
+      },
+      title: {
+        text: ``
+      },
+      xAxis: {
+        type: 'datetime',
+        tickPixelInterval: 500,
+        labels: {
+          style: {
+            color: "#FFFFFF"
+          }
+        }
+      },
+      yAxis: {
+        title: {
+          text: ''
+        },
+        
+        lineColor: "#53adcb",
+        minorGridLineColor: "#53adcb",
+        tickColor: "#53adcb"
+      },
 
+      credits: {
+        enabled: false,
+        text: "Mixerno.space"
+      },
+
+      series: [{
+        showInLegend: false,
+        name: 'Viewers',
+        marker: {
+          enabled: false
+        },
+        color: '#53adcb',
+        lineColor: '#53adcb'
+
+      }]
+    })
+    getVisuals(params[1]);
+    
     });
-  });
-</script>
-
-
+    $('#userinput2').on('keyup', function (e) {
+      if (e.keyCode === 13) {
+        $('#submitbutton2').click();
+      }
+    });
+    //
+    $('#submitbutton2').click(function () {
+      location.href = "../youtube-compare/stream/?&u="+params[1]+"&u="+$('#userinput2').val()
+    
+    });
+         });
+    </script>
 </html>

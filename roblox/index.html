@@ -1,239 +1,139 @@
-<!--Yo man. Dont kill me with my bad coding lmao.-->
 <html>
+    <head>
+        <!-- Primary Meta Tags -->
+<title>Mixerno.Space</title>
+<meta name="title" content="Mixerno.Space">
+<meta name="description" content="The counter site for you.">
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mixerno.space/">
+<meta property="og:title" content="Mixerno.Space">
+<meta property="og:description" content="The counter site for you.">
+<meta property="og:image" content="https://mixerno.space/muxarno2x2.jpg">
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://mixerno.space/">
+<meta property="twitter:title" content="Mixerno.Space">
+<meta property="twitter:description" content="The counter site for you.">
+<meta property="twitter:image" content="https://mixerno.space/muxarno2x2.jpg">
 
-<head>
-  
-  <title>Mixerno.space</title>
+
   <link rel="shortcut icon"
     href="https://mixerno.space/icons/2.png">
   <link rel="stylesheet" href="../o2.css" />
   <meta charset="UTF-8">
-  <meta name="description" content="Why does the design needs to look cool? Doesn't just simple look better?">
-  <meta name="keywords" content="customizable, live counter, mixerno.space">
+  <meta name="keywords" content="mixerno.space">
   <meta name="author" content="Mixerno">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!--<link rel="stylesheet" href="counters/estimation.css">-->
   <script src="../odometer.js"></script>
   <script type="text/javascript" src="../jquery-3.1.1.min.js"></script>
   <script src="https://code.highcharts.com/highcharts.js"></script>
-  <link rel="stylesheet" href="../css/loadawesome.css" />
   <link rel="stylesheet" href="../bootstrap.css">
+  <link rel="stylesheet" href="../v2/single.css">
   <script src="../bootstrap.js"></script>
-  <link rel="stylesheet" href="../css/single.css" />
- 
-  <script>
-    $(window).on("load",function(){
-   $(".loader-wrapper").fadeOut("slow");
-});
-  </script>
-  <ul>
-    <li>
-      <li>
-      <a  href="https://discord.gg/KAB6222">Discord Server</a>
-      <a href="https://twitter.com/@MixernoSpace">Our twitter</a>
-      <a href="../">Other counters</a>
-    </li>
-    </li>
-    <br>
-  </ul>
-  <div class="loader-wrapper">
-    <div class="la-ball-fussion">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  </div>
-  <br>
-  <center>
-    <div class="maincount">
-      <img id="image" style="border-radius: 50%;"
-        src="https://via.placeholder.com/130/585858/FFFFFF/?text=Mixerno.space" height="130" width="130">
-      <div style="font-size: 60px;" id="ytname" class="nameee">Mixerno.space</div>
-      <div class="odometer" style="font-size: 60px;" id="ytsubs">0</div>
-      <div><strong>Followers</strong></div>
-      <br>
-      <div class="">
-        <div id="graph"></div>
-      </div>
-    </div>
-    <br>
-    <div class="marg">
-      <div class="row">
-        <div class="backg textlmao">
-          <div class="odometer" style="font-size: 30px;" id="videos">0</div>
-          <div>Friends</div>
+    </head>
+    <body>
+        <center><div style="padding: 2vh; font-size: 3vh; background-color: rgb(32, 32, 32);">ROBLOX Live Follower Counter <span style="font-size: 3vh;position: absolute; right: 90%;"><a  href="../">Home</a></span></div><br>
+        <div class="boxerino"><br>
+            <img src="https://mixerno.space/icons/2.png" id="image" style="border: solid 0.1vh;border-radius: 50%; height: 10vh; width: 10vh;" >
+            <div id="nameuser">Name</div>
+            <div class="odometer" id="followerCount">0</div>
+            <div style="font-size: 2vh;">Followers</div><br>
+        </div><br><br><br>
+        <div class="row">
+            <div class="justbox">
+                <div style="font-size: 4vh;" class="odometer" id="friendsCount">0</div>
+                <div style="font-size: 2vh;">Friends</div>
+            </div><br><br><br><br><br><br>
+            <div class="justbox">
+                <div style="font-size: 4vh;" class="odometer" id="followingCount">0</div>
+                <div style="font-size: 2vh;">Following</div>
+            </div>
         </div>
         <br>
-        <div class="backg textlmao">
-          <div class="odometer" style="font-size: 30px;" id="totalviews">0</div>
-          <div>Following</div>
+        <div class="graphbox">
+            <div>Follower Graph</div>
+            <div id="graph"></div>
         </div>
-      </div>
+        <br>
+        <div class="buttons">
+        <button data-toggle="modal" data-target="#changeuser">Change User</button><button data-toggle="modal" data-target="#compareuser">Compare</button>
     </div>
-    <br>
-    <div class="maincount">
-      <input placeholder="Roblox username" type="text" value="" id="usersearch" class="custominput textlmao2"></input>
-      <button class="buton textlmao3" id="serch">Search</button><br><br>
-      <input placeholder="Roblox userID" type="text" value="" id="usersearch1x" class="custominput textlmao2"></input>
-  <button class="buton textlmao3" id="serch1x">Search</button><br><br>
-  <button class="buton textlmao3" data-toggle="modal" data-target="#hf">Customize</button>
-    </div>
-    
-    <br>
-    <br>
-
-    <br>
-    <br>
-
-  </center>
-  <div class="modal fade" id="hf" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div style="color: white; background-color: black;" class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Customize</h4>
+    <br><br><br><br><br><br>
+    <div id="disqus_thread"></div>
+    </center>
+    <div style="background-color: rgb(32, 32, 32); color: white;" class="container">
+        <div class="modal fade" id="changeuser" role="dialog">
+          <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-dialog">
+            <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-content">
+              <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-header">
+               <!-- <button type="button" class="close" data-dismiss="modal">&times;</button>-->
+                <h4 class="modal-title">Change User</h4>
+              </div>
+              <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-body">
+               <input style="background-color: rgb(32, 32, 32); color: white;" placeholder="www.roblox.com/users/" id="userinput" type="text">
+              </div>
+              <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-footer">
+                <button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" id="submitbutton" data-dismiss="modal">Submit</button><button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" data-dismiss="modal">Cancel</button>
+              </div>
+            </div>
+            
+          </div>
         </div>
-        <div style="color: white; background-color: black;" class="modal-body">
-          <p>Style: <select id="styel" style="width: auto; color: white;background-color: black;">
-            <option value="s" selected>Select</option>
-            <option value="gw">Green-White (original)</option>
-            <option value="bw">Black-White</option>
-            <option value="rw">Red-White</option>
-            <option value="grw">Gray-White</option>
-            <option value="bluw">Blue-White</option>
-            <option value="wb">White-Black</option>
-            <option value="darktheme">Dark Theme</option>
-            <option value="justblack">Darker Theme</option>
-            <option value="transparent">Transparent (Probably obs friendly)</option>
-          </select></p><br>
-          <p>Odometer speed: <select id="odospeed" style="width: auto; color: white;background-color: black;">
-            <option value="ss" selected>Select</option>
-            <option value="s00">0 seconds (:)</option>
-            <option value="s0">0.5 seconds (fast)</option>
-            <option value="s1">1 seconds</option>
-            <option value="s2">2 seconds (original)</option>
-            <option value="s3">3 seconds</option>
-            <option value="s4">4 seconds</option>
-          </select></p>
-        </div>
-        <div style="color: white; background-color: black;" class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-default" data-dismiss="modal" id="save" onclick="checkstorage()">Save</button>
-        </div>
+        
       </div>
+      <div style="background-color: rgb(32, 32, 32); color: white;" class="container2">
+        <div class="modal fade" id="compareuser" role="dialog">
+          <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-dialog">
+            <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-content">
+              <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-header">
+               <!-- <button type="button" class="close" data-dismiss="modal">&times;</button>-->
+                <h4 class="modal-title">Compare user</h4>
+              </div>
+              <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-body">
+               <input style="background-color: rgb(32, 32, 32); color: white;" placeholder="www.roblox.com/users/" id="userinput2" type="text">
+              </div>
+              <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-footer">
+                <button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" id="submitbutton2" data-dismiss="modal">Submit</button><button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" data-dismiss="modal">Cancel</button>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        
+      </div>
+
+     <!--<script id="dsq-count-scr" src="//mixernospace-1.disqus.com/count.js" async></script>-->
+    </body>
+    
+    <script>
+
+      /**
+      *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+      *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
       
-    </div>
-  </div>
-</head>
+      var disqus_config = function () {
+      this.page.url = "http://mixerno.space";  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = undefined; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+      };
+      
+      (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = 'https://mixernospace-1.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+      })();
+      </script>
 
-
-<script type="text/javascript">
-//theme start
-getStyles()
-  function checkstorage() {
-    saveStyles()
-    console.log("Ok1")
-  }
-function saveStyles() {
-    if(document.getElementById("styel").value == "s") {
-        //non
-        console.log("Ok2")
-    } else {
-        localStorage.setItem('style', document.getElementById("styel").value);
-        console.log("Ok3")
-    }
-    if(document.getElementById("odospeed").value == "ss") {
-        //non
-        console.log("Ok4")
-    } else {
-        localStorage.setItem('odospeed', document.getElementById("odospeed").value);
-        console.log("Ok5")
-    }
-    
-  
-    getStyles();
-}
-
-function getStyles() {
-    console.log("Ok6")
-    var stylecurrent = localStorage.getItem('style'); 
-    var ododspeed = localStorage.getItem('odospeed'); 
-    if(stylecurrent == "gw") {
-      console.log("Ok61")
-        $('head').append('<link rel="stylesheet" href="../styles/gw.css">');
-    } else if (stylecurrent == "bw") {
-      console.log("Ok62")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../styles/bw.css">');
-    } else if (stylecurrent == "rw") {
-      console.log("Ok62")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../styles/rw.css">');
-    } else if (stylecurrent == "grw") {
-      console.log("Ok62")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../styles/grw.css">');
-    } else if (stylecurrent == "bluw") {
-      console.log("Ok62")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../styles/bluw.css">');
-    } else if (stylecurrent == "wb") {
-      console.log("Ok62")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../styles/wb.css">');
-    } else if (stylecurrent == "darktheme") {
-      console.log("Ok62")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../styles/darktheme.css">');
-    } else if (stylecurrent == "transparent") {
-      console.log("Ok62")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../styles/transparent.css">');
-    } else if (stylecurrent == "justblack") {
-      console.log("Ok62")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../styles/pureblack.css">');
-    }
-    else {
-      console.log("Ok63")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../styles/gw.css">');
-    }
-    if(ododspeed == "s00") {
-      console.log("Ok64")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../odometerspeeds/s00.css">');
-    } else if (ododspeed == "s0") {
-      console.log("Ok65")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../odometerspeeds/s0.css">');
-    } else if (ododspeed == "s1") {
-      console.log("Ok66")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../odometerspeeds/s1.css">');
-    } else if (ododspeed == "s2") {
-      console.log("Ok67")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../odometerspeeds/s2.css">');
-    } else if (ododspeed == "s3") {
-      console.log("Ok68")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../odometerspeeds/s3.css">');
-    } else if (ododspeed == "s4") {
-      console.log("Ok69")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../odometerspeeds/s4.css">');
-    }
-    else {
-      console.log("Ok699")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../odometerspeeds/s2.css">');
-    }
-}
-//theme end
-  jQuery.ajaxPrefilter(function (options) {
-    if (options.crossDomain && jQuery.support.cors) {
-      options.url = '' + options.url;
-
-    }
-  });
-  $(document).ready(function () {
-    var key = "https://cors.mixerno.space/"
-    //var key = "";
-    var videostufflol = window.location.href;
-    var params = videostufflol.split('?user=');
-    var stuff = new Highcharts.chart('graph', {
+    <script>
+         $(document).ready(function () {
+            // var cors = "";
+   var cors = "https://cors.mixerno.space/";
+var graphData = new Highcharts.chart('graph', {
       chart: {
         backgroundColor: 'transparent',
         renderTo: graph,
-        type: 'line'
+        type: 'spline'
       },
       title: {
         text: ``
@@ -243,7 +143,7 @@ function getStyles() {
         tickPixelInterval: 500,
         labels: {
           style: {
-            color: "#53adcb"
+            color: "#FFFFFF"
           }
         }
       },
@@ -251,12 +151,7 @@ function getStyles() {
         title: {
           text: ''
         },
-        gridLineColor: "#53adcb",
-        labels: {
-          style: {
-            color: "#53adcb"
-          }
-        },
+        
         lineColor: "#53adcb",
         minorGridLineColor: "#53adcb",
         tickColor: "#53adcb"
@@ -278,90 +173,173 @@ function getStyles() {
 
       }]
     })
-    var channelid = params[1];
-    if (params[1] == undefined) {
-      channelid = "1"
+    var windlochref = window.location.href;
+    var params = windlochref.split('&u=');
+    if(params[1] == undefined) {
+        window.history.pushState("y", "g", `?&u=1`);
+        windlochref = window.location.href;
+        params = windlochref.split('&u=');
+        getData(params[1]);
+    getVisuals(params[1]);
+    } else {
+        getData(params[1]);
+    getVisuals(params[1]); 
     }
-    channelstatistics()
-
-
-    //
-    function channelstatistics() {
-
-      fetch(`${key}https://api.roblox.com/users/${channelid}`)
+    
+   
+    
+    function getData(id) {
+        windlochref = window.location.href;
+        params = windlochref.split('&u=');
+        fetch(`${cors}https://friends.roblox.com/v1/users/${id}/followers/count`)
             .then(response => response.json())
             .then(data => {
                 console.log(data)
-                ytname.innerHTML = data.Username
-            })
-            fetch(`${key}https://thumbnails.roblox.com/v1/users/avatar-headshot?size=150x150&format=Png&isCircular=false&userIds=${channelid}`)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                $("#image").attr('src', `${data.data[0].imageUrl}`);
-            })
-            fetch(`${key}https://friends.roblox.com/v1/users/${channelid}/followers/count`)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                ytsubs.innerHTML = data.count
-          //ytname.innerHTML = json.Username
-          //totalviews.innerHTML = json.posts
-          //$("#image").attr('src', `${json.pfp}`);
-          //plsworkgraph = json.subscribers.replace(/""/, "");
-          stuff.series[0].addPoint([
+                if(data.count == 0) {
+                    console.log("GJ TWITTER API lol")
+                } else {
+                followerCount.innerHTML = data.count
+          /*ytname.innerHTML = data.username
+          totalviews.innerHTML = data.points
+          videos.innerHTML = data.followingCount
+          $("#image").attr('src', `${data.userimage}`);*/
+          graphData.series[0].addPoint([
             (new Date()).getTime(),
             data.count
           ]);
-          if (stuff.series[0].data.length >= 700) {
-            stuff.series[0].data[0].remove()
+          if (graphData.series[0].data.length >= 700) {
+            graphData.series[0].data[0].remove()
           }
+        }
             })
-            fetch(`${key}https://friends.roblox.com/v1/users/${channelid}/followings/count`)
+            fetch(`${cors}https://friends.roblox.com/v1/users/${id}/friends/count`)
             .then(response => response.json())
             .then(data => {
                 console.log(data)
-                totalviews.innerHTML = data.count
+                if(data.count == 0) {
+                    console.log("GJ TWITTER API lol")
+                } else {
+                friendsCount.innerHTML = data.count
+          /*ytname.innerHTML = data.username
+          totalviews.innerHTML = data.points
+          videos.innerHTML = data.followingCount
+          $("#image").attr('src', `${data.userimage}`);*/
+          
+        }
             })
-            fetch(`${key}https://friends.roblox.com/v1/users/${channelid}/friends/count`)
+            fetch(`${cors}https://friends.roblox.com/v1/users/${id}/followings/count`)
             .then(response => response.json())
             .then(data => {
                 console.log(data)
-                videos.innerHTML = data.count
+                if(data.count == 0) {
+                    console.log("GJ TWITTER API lol")
+                } else {
+                followingCount.innerHTML = data.count
+          /*ytname.innerHTML = data.username
+          totalviews.innerHTML = data.points
+          videos.innerHTML = data.followingCount
+          $("#image").attr('src', `${data.userimage}`);*/
+          
+        }
             })
+    }
+    function getVisuals(id) {
+        fetch(`${cors}https://api.roblox.com/users/${id}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                if(data.Username == undefined) {
+                    console.log("#ERROR.")
+                } else {
+                    nameuser.innerHTML = data.Username
+                }
+            })
+            fetch(`${cors}https://thumbnails.roblox.com/v1/users/avatar-headshot?size=150x150&format=Png&isCircular=false&userIds=${id}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                if(data.data[0].imageUrl == undefined) {
+                    console.log("#ERROR.")
+                } else {
 
-    };
-    setInterval(channelstatistics, 4000);
-
-    //location.href = params[0] + $('#country').val();;
-    $('#usersearch').on('keyup', function (e) {
+          $("#image").attr('src', `${data.data[0].imageUrl}`);
+                }
+            })
+    }
+    setInterval(function() {
+        getData(params[1]);
+    }, 2000);
+    setInterval(function() {
+        getVisuals(params[1]);
+    }, 30000);
+    $('#userinput').on('keyup', function (e) {
       if (e.keyCode === 13) {
-        $('#serch').click();
+        $('#submitbutton').click();
       }
     });
     //
-    $('#serch').click(function () {
+    $('#submitbutton').click(function () {
+      window.history.pushState("y", "g", `?&u=${$('#userinput').val()}`);
+      windlochref = window.location.href;
+        params = windlochref.split('&u=');
+      graphData = new Highcharts.chart('graph', {
+      chart: {
+        backgroundColor: 'transparent',
+        renderTo: graph,
+        type: 'spline'
+      },
+      title: {
+        text: ``
+      },
+      xAxis: {
+        type: 'datetime',
+        tickPixelInterval: 500,
+        labels: {
+          style: {
+            color: "#FFFFFF"
+          }
+        }
+      },
+      yAxis: {
+        title: {
+          text: ''
+        },
+        
+        lineColor: "#53adcb",
+        minorGridLineColor: "#53adcb",
+        tickColor: "#53adcb"
+      },
 
+      credits: {
+        enabled: false,
+        text: "Mixerno.space"
+      },
 
-      fetch(`${key}https://www.roblox.com/search/users/results?keyword=${$('#usersearch').val()}&maxRows=12&startIndex=0`)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                location.href = `${params[0]}?user=${data.UserSearchResults[0].UserId}`;
-            })
+      series: [{
+        showInLegend: false,
+        name: 'Followers',
+        marker: {
+          enabled: false
+        },
+        color: '#53adcb',
+        lineColor: '#53adcb'
 
+      }]
+    })
+        getData(params[1]);
+    getVisuals(params[1]);
+    
     });
-    $('#usersearch1x').on('keyup', function (e) {
+    $('#userinput2').on('keyup', function (e) {
       if (e.keyCode === 13) {
-        $('#serch1x').click();
+        $('#submitbutton2').click();
       }
     });
     //
-    $('#serch1x').click(function () {
-        location.href = `${params[0]}?user=${$('#usersearch1x').val()}`;
-
+    $('#submitbutton2').click(function () {
+      location.href = "../roblox-compare/?&u="+params[1]+"&u="+$('#userinput2').val()
+    
     });
-  });
-</script>
-
+         });
+    </script>
 </html>

@@ -1,384 +1,277 @@
-<!--Yo man. Dont kill me with my bad coding lmao.-->
 <html>
+    <head>
+        <!-- Primary Meta Tags -->
+<title>Mixerno.Space</title>
+<meta name="title" content="Mixerno.Space">
+<meta name="description" content="The counter site for you.">
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mixerno.space/">
+<meta property="og:title" content="Mixerno.Space">
+<meta property="og:description" content="The counter site for you.">
+<meta property="og:image" content="https://mixerno.space/muxarno2x2.jpg">
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://mixerno.space/">
+<meta property="twitter:title" content="Mixerno.Space">
+<meta property="twitter:description" content="The counter site for you.">
+<meta property="twitter:image" content="https://mixerno.space/muxarno2x2.jpg">
 
-<head>
-  
-  <title>Mixerno.space</title>
+
   <link rel="shortcut icon"
     href="https://mixerno.space/icons/2.png">
-  <link rel="stylesheet" href="../o2.css" />
+  <link rel="stylesheet" href="https://mixerno.space/o2.css" />
+  
   <meta charset="UTF-8">
-  <meta name="description" content="Another counter site. but its green-gray">
-  <meta name="keywords" content="green, gray, mixerno.space">
+  <meta name="keywords" content="mixerno.space">
   <meta name="author" content="Mixerno">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!--<link rel="stylesheet" href="counters/estimation.css">-->
-  <script src="../odometer.js"></script>
-  <script type="text/javascript" src="../jquery-3.1.1.min.js"></script>
+  <script src="https://mixerno.space/odometer.js"></script>
+  <script type="text/javascript" src="https://mixerno.space/jquery-3.1.1.min.js"></script>
   <script src="https://code.highcharts.com/highcharts.js"></script>
-  <link rel="stylesheet" href="../css/loadawesome.css" />
-  <link rel="stylesheet" href="../bootstrap.css">
-  <script src="../bootstrap.js"></script>
-  <link rel="stylesheet" href="../css/compare.css" />
-  <!--<style>
-    body {
-      margin: 0;
-    }
-
-    ::-webkit-scrollbar {
-      width: 5px;
-    }
-
-
-    ::-webkit-scrollbar-track {
-      background: #ffffff;
-    }
-
-
-    ::-webkit-scrollbar-thumb {
-      background: rgb(0, 0, 0);
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background: rgb(0, 0, 0);
-    }
-
-    .buton {
-      background-color: rgb(0, 0, 0);
-      border: none;
-      color: rgb(255, 255, 255);
-      padding: 2.5px 5px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 14px;
-      margin: 0px 0px;
-      cursor: pointer;
-    }
-
-    input[type=text],
-    select {
-      width: 10%;
-      padding: 2.5px 5px;
-      margin: 0px 0;
-      display: inline-block;
-      color: rgb(255, 255, 255);
-      background-color: rgb(0, 0, 0);
-      border: 1px solid rgb(255, 255, 255);
-      border-radius: 1px;
-      box-sizing: border-box;
-    }
-
-    body {
-      background-color: rgb(0, 99, 0);
-      color: rgb(255, 255, 255);
-      font-family: Arial
-    }
-
-    a:link {
-      color: white;
-    }
-
-    a:visited {
-      color: white;
-    }
-
-    a:hover {
-      color: rgb(255, 255, 255);
-    }
-
-    a:focus {
-      color: rgb(255, 255, 255);
-    }
-
-    a:active {
-      color: white;
-    }
-
-    ul {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      width: 12.5%;
-      background-color: #000000;
-      position: fixed;
-      height: 100%;
-      overflow: auto;
-    }
-
-    .maincount {
-      text-align: center;
-      border-radius: 25px;
-      padding: 20px;
-      background: rgb(37, 37, 37);
-      width: auto;
-      height: auto;
-      margin-left: 13.5%;
-      margin-right: 1%;
-    }
-    .row {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-around;
-      flex: 4;
-    }
-    .maincount2 {
-      border-radius: 25px;
-      padding: 20px;
-      background: rgb(37, 37, 37);
-      width: auto;
-      height: auto;
-      margin-left: 13.5%;
-      margin-right: 1%;
-    }
-
-    li a {
-      display: block;
-      color: #000;
-      padding: 8px 16px;
-      text-decoration: none;
-    }
-
-    li a.active {
-      background-color: #4CAF50;
-      color: white;
-    }
-
-    li a:hover:not(.active) {
-      background-color: #555;
-      color: white;
-    }
-  </style>-->
-  <script>
-    $(window).on("load",function(){
-   $(".loader-wrapper").fadeOut("slow");
-});
-  </script>
-  <ul>
-    <li>
-      <li>
-      <a  href="https://discord.gg/KAB6222">Discord Server</a>
-      <a href="https://twitter.com/@MixernoSpace">Our twitter</a>
-      <a href="../">Other counters</a>
-    </li>
-    </li>
-    <br>
-  </ul>
-  <div class="loader-wrapper">
-    <div class="la-ball-fussion">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  </div>
-  <br>
-  <center>
-    <div class="maincount">
-      <div class="row">
-      <div>
-      <img id="image" style="border-radius: 50%;"
-        src="https://via.placeholder.com/130/585858/FFFFFF/?text=Mixerno.space" height="130" width="130">
-      <div id="ytname" class="textlmao">21</div>
-      <div class="odometer" style="font-size: 60px;" id="ytsubs">0</div>
-      <div><strong>Followers</strong></div>
-    </div>
-    <br>
-      <div>
-        <img id="image2" style="border-radius: 50%;"
-          src="https://via.placeholder.com/130/585858/FFFFFF/?text=Mixerno.space" height="130" width="130">
-        <div id="ytname2" class="textlmao">12</div>
-        <div class="odometer" style="font-size: 60px;" id="ytsubs2">0</div>
-        <div><strong>Followers</strong></div>
-      </div>
-    </div>
+  <link rel="stylesheet" href="https://mixerno.space/bootstrap.css">
+  <script src="https://mixerno.space/bootstrap.js"></script>
+  <link rel="stylesheet" href="../v2/compare.css" />
+    </head>
+    <body>
+        <center><div style="padding: 2vh; font-size: 3vh; background-color: rgb(32, 32, 32);">TikTok Live Follower Compare <span style="font-size: 3vh;position: absolute; right: 90%;"><a  href="../">Home</a></span></div><br>
+        <div class="margin row2"><div class="boxerino"><br>
+            <img src="https://mixerno.space/icons/2.png" id="image" style="border: solid 0.1vh;border-radius: 50%; height: 10vh; width: 10vh;" >
+            <div id="nameuser">Name</div>
+            <div class="odometer" id="followerCount">0</div>
+            <div style="font-size: 2vh;">Followers</div><br>
+        </div><br>
+        <div class="boxerino"><br>
+          <img src="https://mixerno.space/icons/2.png" id="image2" style="border: solid 0.1vh;border-radius: 50%; height: 10vh; width: 10vh;" >
+          <div id="nameuser2">Name</div>
+          <div class="odometer" id="followerCount2">0</div>
+          <div style="font-size: 2vh;">Followers</div><br>
+      </div></div><br>
+        <div class="graphbox">
+          <div class="odometer" style="font-size: 3vh;" id="diffrence">0</div>
+            <div>Follower Diffrence</div>
+            <div id="graph"></div>
+        </div>
         <br>
+        <div class="buttons">
+        <button data-toggle="modal" data-target="#changeuser">Change User 1</button><button data-toggle="modal" data-target="#compareuser">Change user 2</button>
     </div>
-    <br>
-    <div class="maincount">
-      <div class="">
-        <div id="difrence" class="odometer" style="font-size: 30px;"></div>
-        <div>Follower diffrence</div>
-      <div id="graph"></div>
-    </div></div>
-    <br>
-    <div class="maincount">
-      <div class="row">
-      <div>
-        <input placeholder="TikTok username" type="text" value="" id="usersearch" class="custominput textlmao2"></input><br><br>
-  <button class="buton textlmao3" id="serch">Search</button>
-</div>
-<br>
-<div>
-  <input placeholder="TikTok username" type="text" value="" id="usersearch2" class="custominput textlmao2"></input><br><br>
-<button class="buton textlmao3" id="serch2">Search</button>
-</div>
-</div>
-<button class="buton textlmao3" data-toggle="modal" data-target="#hf">Customize</button>
-    </div>
-    
-    <br>
-    <br>
-
-    <br>
-    <br>
-
-  </center>
-  <div class="modal fade" id="hf" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div style="color: white; background-color: black;" class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Customize</h4>
-        </div>
-        <div style="color: white; background-color: black;" class="modal-body">
-          <p>Style: <select id="styel" style="width: auto; color: white;background-color: black;">
-            <option value="s" selected>Select</option>
-            <option value="gw">Green-White (original)</option>
-            <option value="bw">Black-White</option>
-            <option value="rw">Red-White</option>
-            <option value="grw">Gray-White</option>
-            <option value="bluw">Blue-White</option>
-            <option value="wb">White-Black</option>
-            <option value="darktheme">Dark Theme</option>
-            <option value="justblack">Darker Theme</option>
-            <option value="transparent">Transparent (Probably obs friendly)</option>
-          </select></p><br>
-          <p>Odometer speed: <select id="odospeed" style="width: auto; color: white;background-color: black;">
-            <option value="ss" selected>Select</option>
-            <option value="s00">0 seconds (:)</option>
-            <option value="s0">0.5 seconds (fast)</option>
-            <option value="s1">1 seconds</option>
-            <option value="s2">2 seconds (original)</option>
-            <option value="s3">3 seconds</option>
-            <option value="s4">4 seconds</option>
-          </select></p><br>
-          <p>Estimation: <select id="estimt" style="width: auto; color: white;background-color: black;">
-            <option value="sss" selected>Select</option>
-            <option value="disabled">Disabled (default)</option>
-            <option value="enabled">Enabled</option>
+    <br><br><br><br><br><br>
+    <div id="disqus_thread"></div>
+    </center>
+    <div style="background-color: rgb(32, 32, 32); color: white;" class="container">
+        <div class="modal fade" id="changeuser" role="dialog">
+          <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-dialog">
+            <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-content">
+              <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-header">
+               <!-- <button type="button" class="close" data-dismiss="modal">&times;</button>-->
+                <h4 class="modal-title">Change User 1</h4>
+              </div>
+              <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-body">
+               <input style="background-color: rgb(32, 32, 32); color: white;" placeholder="@" id="userinput" type="text">
+              </div>
+              <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-footer">
+                <button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" id="submitbutton" data-dismiss="modal">Submit</button><button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" data-dismiss="modal">Cancel</button>
+              </div>
+            </div>
             
-          </select></p>
+          </div>
         </div>
-        <div style="color: white; background-color: black;" class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-default" data-dismiss="modal" id="save" onclick="checkstorage()">Save</button>
-        </div>
+        
       </div>
+      <div style="background-color: rgb(32, 32, 32); color: white;" class="container2">
+        <div class="modal fade" id="compareuser" role="dialog">
+          <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-dialog">
+            <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-content">
+              <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-header">
+               <!-- <button type="button" class="close" data-dismiss="modal">&times;</button>-->
+                <h4 class="modal-title">Change user 2</h4>
+              </div>
+              <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-body">
+               <input style="background-color: rgb(32, 32, 32); color: white;" placeholder="@" id="userinput2" type="text">
+              </div>
+              <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-footer">
+                <button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" id="submitbutton2" data-dismiss="modal">Submit</button><button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" data-dismiss="modal">Cancel</button>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        
+      </div>
+
+     <!--<script id="dsq-count-scr" src="//mixernospace-1.disqus.com/count.js" async></script>-->
+    </body>
+    
+    <script>
+
+      /**
+      *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+      *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
       
-    </div>
-  </div>
-</head>
+      var disqus_config = function () {
+      this.page.url = "http://mixerno.space";  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = undefined; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+      };
+      
+      (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = 'https://mixernospace-1.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+      })();
+      </script>
+    
+    <script>
+         $(document).ready(function () {
+             //var cors = "";
+    var cors = "https://cors.mixerno.space/";
+var graphData = new Highcharts.chart('graph', {
+      chart: {
+        backgroundColor: 'transparent',
+        renderTo: graph,
+        type: 'spline'
+      },
+      title: {
+        text: ``
+      },
+      xAxis: {
+        type: 'datetime',
+        tickPixelInterval: 500,
+        labels: {
+          style: {
+            color: "#FFFFFF"
+          }
+        }
+      },
+      yAxis: {
+        title: {
+          text: ''
+        },
+        
+        lineColor: "#53adcb",
+        minorGridLineColor: "#53adcb",
+        tickColor: "#53adcb"
+      },
 
+      credits: {
+        enabled: false,
+        text: "Mixerno.space"
+      },
 
-<script type="text/javascript">
-//theme start
-getStyles()
-  function checkstorage() {
-    saveStyles()
-    console.log("Ok1")
-  }
-function saveStyles() {
-    if(document.getElementById("styel").value == "s") {
-        //non
-        console.log("Ok2")
-    } else {
-        localStorage.setItem('style', document.getElementById("styel").value);
-        console.log("Ok3")
+      series: [{
+        showInLegend: false,
+        name: 'Followers Diffrence',
+        marker: {
+          enabled: false
+        },
+        color: '#53adcb',
+        lineColor: '#53adcb'
+
+      }]
+    })
+    var windlochref = window.location.href;
+    var params = windlochref.split('&u=');
+    if(params[1] == undefined) {
+      if(params[2] == undefined) {
+        window.history.pushState("y", "g", `?&u=charlidamelio&u=addisonre`);
+        windlochref = window.location.href;
+        params = windlochref.split('&u=');
+      }
     }
-    if(document.getElementById("odospeed").value == "ss") {
-        //non
-        console.log("Ok4")
+    if(params[1] == undefined) {
+        window.history.pushState("y", "g", `?&u=charlidamelio&u=${params[2]}`);
+        windlochref = window.location.href;
+        params = windlochref.split('&u=');
+    getVisuals(params[1]);
     } else {
-        localStorage.setItem('odospeed', document.getElementById("odospeed").value);
-        console.log("Ok5")
+    getVisuals(params[1]); 
     }
-    if(document.getElementById("estimt").value == "sss") {
-        //non
-        console.log("Ok6")
-    } else {
-        localStorage.setItem('estimation', document.getElementById("estimt").value);
-        console.log("Ok7")
+    if(params[2] == undefined) {
+        window.history.pushState("y", "g", `?&u=${params[1]}&u=addisonre`);
+        windlochref = window.location.href;
+        params = windlochref.split('&u=');
     }
     
-  
-    getStyles();
-}
-
-function getStyles() {
-    console.log("Ok6")
-    var stylecurrent = localStorage.getItem('style'); 
-    var ododspeed = localStorage.getItem('odospeed'); 
-    if(stylecurrent == "gw") {
-      console.log("Ok61")
-        $('head').append('<link rel="stylesheet" href="../styles/gw.css">');
-    } else if (stylecurrent == "bw") {
-      console.log("Ok62")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../styles/bw.css">');
-    } else if (stylecurrent == "rw") {
-      console.log("Ok62")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../styles/rw.css">');
-    } else if (stylecurrent == "grw") {
-      console.log("Ok62")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../styles/grw.css">');
-    } else if (stylecurrent == "bluw") {
-      console.log("Ok62")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../styles/bluw.css">');
-    } else if (stylecurrent == "wb") {
-      console.log("Ok62")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../styles/wb.css">');
-    } else if (stylecurrent == "darktheme") {
-      console.log("Ok62")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../styles/darktheme.css">');
-    } else if (stylecurrent == "transparent") {
-      console.log("Ok62")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../styles/transparent.css">');
-    } else if (stylecurrent == "justblack") {
-      console.log("Ok62")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../styles/pureblack.css">');
+    var count = 0;
+    var count2 = 0;
+    
+   
+    
+    function getVisuals(id) {
+      var tiktokbypass = [
+      'https://immense-castle-34936.herokuapp.com/@',
+      'https://backuptiktokapi.glitch.me/',
+      'https://backuptiktokapi.herokuapp.com/@',
+      'https://honorable-hazel-atmosphere.glitch.me/'
+    ]
+    var randomtiktokbypass = Math.floor(Math.random()*tiktokbypass.length);
+    var tiktokurl = tiktokbypass[randomtiktokbypass];
+        fetch(`${cors}${tiktokurl}${id}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                if(data.name == undefined) {
+                    console.log("#ERROR.")
+                } else {
+                    nameuser.innerHTML = data.name
+          $("#image").attr('src', `${data.avatarurl}`);
+          followerCount.innerHTML = data.followers
+          count = data.followers
+          /*followingCount.innerHTML = json.following
+          heartsCount.innerHTML = json.hearts
+          videosCount.innerHTML = json.videos*/
+          
+          
+                }
+                getVisuals2(params[2])
+            })
     }
-    else {
-      console.log("Ok63")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../styles/gw.css">');
+    function getVisuals2(id) {
+      var tiktokbypass = [
+      'https://immense-castle-34936.herokuapp.com/@',
+      'https://backuptiktokapi.glitch.me/',
+      'https://backuptiktokapi.herokuapp.com/@',
+      'https://honorable-hazel-atmosphere.glitch.me/'
+    ]
+    var randomtiktokbypass = Math.floor(Math.random()*tiktokbypass.length);
+    var tiktokurl = tiktokbypass[randomtiktokbypass];
+        fetch(`${cors}${tiktokurl}${id}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                if(data.name == undefined) {
+                    console.log("#ERROR.")
+                } else {
+                  nameuser2.innerHTML = data.name
+          $("#image2").attr('src', `${data.avatarurl}`);
+          followerCount2.innerHTML = data.followers
+          count2 = data.followers
+          diffrence.innerHTML = count - count2
+          graphData.series[0].addPoint([
+            (new Date()).getTime(),
+            count - count2
+          ]);
+          if (graphData.series[0].data.length >= 700) {
+            graphData.series[0].data[0].remove()
+          }
+                }
+            })
     }
-    if(ododspeed == "s00") {
-      console.log("Ok64")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../odometerspeeds/s00.css">');
-    } else if (ododspeed == "s0") {
-      console.log("Ok65")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../odometerspeeds/s0.css">');
-    } else if (ododspeed == "s1") {
-      console.log("Ok66")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../odometerspeeds/s1.css">');
-    } else if (ododspeed == "s2") {
-      console.log("Ok67")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../odometerspeeds/s2.css">');
-    } else if (ododspeed == "s3") {
-      console.log("Ok68")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../odometerspeeds/s3.css">');
-    } else if (ododspeed == "s4") {
-      console.log("Ok69")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../odometerspeeds/s4.css">');
-    }
-    else {
-      console.log("Ok699")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../odometerspeeds/s2.css">');
-    }
-}
-//theme end
-  jQuery.ajaxPrefilter(function (options) {
-    if (options.crossDomain && jQuery.support.cors) {
-      options.url = '' + options.url;
-
-    }
-  });
-  $(document).ready(function () {
-    var key = "https://cors.mixerno.space/"
-    var videostufflol = window.location.href;
-    var params = videostufflol.split('?user=');
-    var stuff = new Highcharts.chart('graph', {
+    setInterval(function() {
+        getVisuals(params[1]);
+    }, 2000);
+    $('#userinput').on('keyup', function (e) {
+      if (e.keyCode === 13) {
+        $('#submitbutton').click();
+      }
+    });
+    //
+    $('#submitbutton').click(function () {
+      window.history.pushState("y", "g", `?&u=${$('#userinput').val()}&u=${params[2]}`);
+      windlochref = window.location.href;
+        params = windlochref.split('&u=');
+      graphData = new Highcharts.chart('graph', {
       chart: {
         backgroundColor: 'transparent',
         renderTo: graph,
@@ -422,270 +315,66 @@ function getStyles() {
 
       }]
     })
-    var count1;
-    var count2;
-    var tiktokbypass = [
-      'https://immense-castle-34936.herokuapp.com/@',
-      'https://backuptiktokapi.glitch.me/',
-      'https://backuptiktokapi.herokuapp.com/@',
-      'https://honorable-hazel-atmosphere.glitch.me/'
-    ]
-    var randomtiktokbypass = Math.floor(Math.random()*tiktokbypass.length);
-    var tiktokurl = tiktokbypass[randomtiktokbypass];
-    var channelid = params[1];
-    if (params[1] == undefined) {
-      channelid = "charlidamelio"
-    }
-    var channelid2 = params[2];
-    if (params[2] == undefined) {
-      channelid2 = "addisonre"
-    }
-    channelstatistics()
-
-
-    //
-    function channelstatistics() {
-      tiktokbypass = [
-      'https://immense-castle-34936.herokuapp.com/@',
-      'https://backuptiktokapi.glitch.me/',
-      'https://backuptiktokapi.herokuapp.com/@',
-      'https://honorable-hazel-atmosphere.glitch.me/'
-    ]
-      randomtiktokbypass = Math.floor(Math.random()*tiktokbypass.length);
-      tiktokurl = tiktokbypass[randomtiktokbypass];
-      if(localStorage.getItem('estimation') == "enabled") {
-
-            fetch(`${key}https://api.mixerno.space/tiktok_estimated/${channelid}`)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                ytsubs.innerHTML = Math.floor(data.fols)
-                ytname.innerHTML = data.name
-
-          $("#image").attr('src', `${data.pfp}`);
-          //plsworkgraph = json.subscribers.replace(/""/, "");
-          count1 = Math.floor(data.fols)
-          channelstatistics2()
-            })
-} else {
-  fetch(`${key}${tiktokbypass[0]}${channelid}`)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                if(data.name == undefined) {
-console.log("error")
-fetch(`${key}${tiktokbypass[1]}${channelid}`)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                if(data.name == undefined) {
-console.log("error")
-fetch(`${key}${tiktokbypass[2]}${channelid}`)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                if(data.name == undefined) {
-console.log("error")
-fetch(`${key}${tiktokbypass[3]}${channelid}`)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                if(data.name == undefined) {
-console.log("error")
-                } else {
-                  ytsubs.innerHTML = data.followers
-          ytname.innerHTML = data.name
-          $("#image").attr('src', `${data.avatarurl}`);
-          count1 = data.followers
-          channelstatistics2()
-                }
-                
-          //plsworkgraph = json.subscribers.replace(/""/, "");
-
-            })
-                } else {
-                  ytsubs.innerHTML = data.followers
-          ytname.innerHTML = data.name
-          $("#image").attr('src', `${data.avatarurl}`);
-          count1 = data.followers
-          channelstatistics2()
-                }
-                
-          //plsworkgraph = json.subscribers.replace(/""/, "");
-
-            })
-                } else {
-                  ytsubs.innerHTML = data.followers
-          ytname.innerHTML = data.name
-          $("#image").attr('src', `${data.avatarurl}`);
-          count1 = data.followers
-          channelstatistics2()
-                }
-                
-          //plsworkgraph = json.subscribers.replace(/""/, "");
-
-            })
-                } else {
-                  ytsubs.innerHTML = data.followers
-          ytname.innerHTML = data.name
-          $("#image").attr('src', `${data.avatarurl}`);
-          count1 = data.followers
-          channelstatistics2()
-                }
-                
-          //plsworkgraph = json.subscribers.replace(/""/, "");
-
-            })
-}
-
-    };
-    function channelstatistics2() {
-
-            if(localStorage.getItem('estimation') == "enabled") {
-
-            fetch(`${key}https://api.mixerno.space/tiktok_estimated/${channelid2}`)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                ytsubs2.innerHTML = Math.floor(data.fols)
-                ytname2.innerHTML = data.name
-
-          $("#image2").attr('src', `${data.pfp}`);
-          //plsworkgraph = json.subscribers.replace(/""/, "");
-          count2 = Math.floor(data.fols)
-          difrence.innerHTML = count1 - count2
-          stuff.series[0].addPoint([
-            (new Date()).getTime(),
-            count1 - count2
-          ]);
-          if (stuff.series[0].data.length >= 700) {
-            stuff.series[0].data[0].remove()
-          }
-
-            })
-} else {
-  fetch(`${key}${tiktokbypass[0]}${channelid2}`)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                if(data.name == undefined) {
-console.log("error2")
-fetch(`${key}${tiktokbypass[1]}${channelid2}`)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                if(data.name == undefined) {
-console.log("error2")
-fetch(`${key}${tiktokbypass[2]}${channelid2}`)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                if(data.name == undefined) {
-console.log("error2")
-fetch(`${key}${tiktokbypass[3]}${channelid2}`)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                if(data.name == undefined) {
-console.log("error2")
-                } else {
-                  ytname2.innerHTML = data.name
-          ytsubs2.innerHTML = data.followers
-          $("#image2").attr('src', `${data.avatarurl}`);
-          count2 = data.followers
-          difrence.innerHTML = count1 - count2
-          stuff.series[0].addPoint([
-            (new Date()).getTime(),
-            count1 - count2
-          ]);
-          if (stuff.series[0].data.length >= 700) {
-            stuff.series[0].data[0].remove()
-          }
-                }
-                
-          //plsworkgraph = json.subscribers.replace(/""/, "");
-
-            })
-                } else {
-                  ytname2.innerHTML = data.name
-          ytsubs2.innerHTML = data.followers
-          $("#image2").attr('src', `${data.avatarurl}`);
-          count2 = data.followers
-          difrence.innerHTML = count1 - count2
-          stuff.series[0].addPoint([
-            (new Date()).getTime(),
-            count1 - count2
-          ]);
-          if (stuff.series[0].data.length >= 700) {
-            stuff.series[0].data[0].remove()
-          }
-                }
-                
-          //plsworkgraph = json.subscribers.replace(/""/, "");
-
-            })
-                } else {
-                  ytname2.innerHTML = data.name
-          ytsubs2.innerHTML = data.followers
-          $("#image2").attr('src', `${data.avatarurl}`);
-          count2 = data.followers
-          difrence.innerHTML = count1 - count2
-          stuff.series[0].addPoint([
-            (new Date()).getTime(),
-            count1 - count2
-          ]);
-          if (stuff.series[0].data.length >= 700) {
-            stuff.series[0].data[0].remove()
-          }
-                }
-                
-          //plsworkgraph = json.subscribers.replace(/""/, "");
-
-            })
-                } else {
-                  ytname2.innerHTML = data.name
-          ytsubs2.innerHTML = data.followers
-          $("#image2").attr('src', `${data.avatarurl}`);
-          count2 = data.followers
-          difrence.innerHTML = count1 - count2
-          stuff.series[0].addPoint([
-            (new Date()).getTime(),
-            count1 - count2
-          ]);
-          if (stuff.series[0].data.length >= 700) {
-            stuff.series[0].data[0].remove()
-          }
-                }
-                
-          //plsworkgraph = json.subscribers.replace(/""/, "");
-
-            })
-}
-};
-    setInterval(channelstatistics, 4000);
-
-    //location.href = params[0] + $('#country').val();;
-    $('#usersearch').on('keyup', function (e) {
+    getVisuals(params[1]);
+    
+    });
+    $('#userinput2').on('keyup', function (e) {
       if (e.keyCode === 13) {
-        $('#serch').click();
+        $('#submitbutton2').click();
       }
     });
     //
-    $('#serch').click(function () {
-        location.href = `${params[0]}?user=${$('#usersearch').val()}?user=${channelid2}`;
+    $('#submitbutton2').click(function () {
+      window.history.pushState("y", "g", `?&u=${params[1]}&u=${$('#userinput2').val()}`);
+      windlochref = window.location.href;
+        params = windlochref.split('&u=');
+      graphData = new Highcharts.chart('graph', {
+      chart: {
+        backgroundColor: 'transparent',
+        renderTo: graph,
+        type: 'spline'
+      },
+      title: {
+        text: ``
+      },
+      xAxis: {
+        type: 'datetime',
+        tickPixelInterval: 500,
+        labels: {
+          style: {
+            color: "#FFFFFF"
+          }
+        }
+      },
+      yAxis: {
+        title: {
+          text: ''
+        },
+        
+        lineColor: "#53adcb",
+        minorGridLineColor: "#53adcb",
+        tickColor: "#53adcb"
+      },
 
-    });
-    $('#usersearch2').on('keyup', function (e) {
-      if (e.keyCode === 13) {
-        $('#serch2').click();
-      }
-    });
-    //
-    $('#serch2').click(function () {
-        location.href = `${params[0]}?user=${channelid}?user=${$('#usersearch2').val()}`;
+      credits: {
+        enabled: false,
+        text: "Mixerno.space"
+      },
 
-    });
-  });
-</script>
+      series: [{
+        showInLegend: false,
+        name: 'Follower Diffrence',
+        marker: {
+          enabled: false
+        },
+        color: '#53adcb',
+        lineColor: '#53adcb'
 
+      }]
+    })
+    getVisuals(params[1]);
+    
+    });
+         });
+    </script>
 </html>
