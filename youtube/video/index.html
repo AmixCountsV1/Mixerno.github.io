@@ -212,8 +212,8 @@ var graphData = new Highcharts.chart('graph', {
             (new Date()).getTime(),
             parseFloat(data.views)
           ]);
-          if (stuff.series[0].data.length >= 700) {
-            stuff.series[0].data[0].remove()
+          if (graphData.series[0].data.length >= 700) {
+            graphData.series[0].data[0].remove()
           }
                 }
             })
