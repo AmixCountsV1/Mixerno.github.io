@@ -216,7 +216,7 @@ var graphData = new Highcharts.chart('graph', {
             })
     }
     function getVisuals2(id) {
-        fetch(`${cors}https://api.mixerno.space/twitter/user/${id}`)
+        fetch(`${cors}https://api.mixerno.space/twitch/user/${id}`)
             .then(response => response.json())
             .then(data => {
                 console.log(data)

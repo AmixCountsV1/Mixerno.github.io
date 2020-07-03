@@ -221,7 +221,7 @@ fetch(`${cors}https://api.mixerno.space/dailymotion/user/${id}`)
     followerCount2.innerHTML = data.followers
     $("#image2").attr('src', `${data.pfp}`);
     count2 = data.followers
-    difrence.innerHTML = count1 - count2
+    diffrence.innerHTML = count1 - count2
     graphData.series[0].addPoint([
       (new Date()).getTime(),
       count1 - count2
