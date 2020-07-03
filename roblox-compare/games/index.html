@@ -216,7 +216,7 @@ var graphData = new Highcharts.chart('graph', {
     var count2 = 0;
     
     function getUniverseID(id) {
-      fetch(`https://robloxvisitstrackerv2.herokuapp.com/roblox/api/game/${id}`)
+      fetch(`${cors}https://robloxvisitstrackerv2.herokuapp.com/roblox/api/game/${id}`)
             .then(response => response.json())
             .then(data => {
                 console.log(data)
@@ -234,7 +234,7 @@ var graphData = new Highcharts.chart('graph', {
             })
     }
     function getUniverseID2(id) {
-      fetch(`https://robloxvisitstrackerv2.herokuapp.com/roblox/api/game/${id}`)
+      fetch(`${cors}https://robloxvisitstrackerv2.herokuapp.com/roblox/api/game/${id}`)
             .then(response => response.json())
             .then(data => {
                 console.log(data)
