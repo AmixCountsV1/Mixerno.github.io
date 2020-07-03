@@ -213,7 +213,7 @@
             console.log("#ERROR.")
             setTimeout(check(channelid), 250);
           } else {
-            subscribercount = data.subscribers
+            subscribercount = parseFloat(data.subscribers)
             if (subscribercount > subsbefore) {
               subsbefore = subscribercount
               fakecount = subscribercount
