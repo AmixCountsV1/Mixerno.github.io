@@ -180,30 +180,30 @@ var graphData = new Highcharts.chart('graph', {
         windlochref = window.location.href;
         params = windlochref.split('&u=');
 
-    getVisuals(params[1]);
+        getData(params[1]); 
+    getVisuals(params[1]); 
     } else {
+      getData(params[1]); 
     getVisuals(params[1]); 
     }
     
-   
-    
-
-    function getVisuals(id) {
-        fetch(`${cors}https://api.mixerno.space/youtube/channelUC/${id}`)
+    function getData(id) {
+        fetch(`${cors}https://api.mixerno.space/youtube/channels/snippet/${id}`)
             .then(response => response.json())
             .then(data => {
                 console.log(data)
-                if(data.name == undefined) {
+                if(data.items[0].statistics.subscriberCount == undefined) {
                     console.log("#ERROR.")
+                    setTimeout(getData(params[1]), 100)
                 } else {
-                    nameuser.innerHTML = data.name
-                  viewsCount.innerHTML = data.totalviews
-                  videosCount.innerHTML = data.videos
-          $("#image").attr('src', `${data.avatarurl}`);
-          followerCount.innerHTML = data.subscribers
+                    /*nameuser.innerHTML = data.items[0].snippet.title
+                    $("#image").attr('src', `${data.items[0].snippet.thumbnails.high.url}`);*/
+                  viewsCount.innerHTML = data.items[0].statistics.viewCount
+                  videosCount.innerHTML = data.items[0].statistics.videoCount
+          followerCount.innerHTML = data.items[0].statistics.subscriberCount
           graphData.series[0].addPoint([
             (new Date()).getTime(),
-            parseFloat(data.subscribers)
+            parseFloat(data.items[0].statistics.subscriberCount)
           ]);
           if (graphData.series[0].data.length >= 700) {
             graphData.series[0].data[0].remove()
@@ -211,10 +211,39 @@ var graphData = new Highcharts.chart('graph', {
                 }
             })
     }
+    
 
+    function getVisuals(id) {
+        fetch(`${cors}https://api.mixerno.space/youtube/channels/snippet/${id}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                if(data.name == undefined) {
+                    console.log("#ERROR.")
+                    setTimeout(getVisuals(params[1]), 100)
+                } else {
+                    nameuser.innerHTML = data.items[0].snippet.title
+                    $("#image").attr('src', `${data.items[0].snippet.thumbnails.high.url}`);
+                /*  viewsCount.innerHTML = data.totalviews
+                  videosCount.innerHTML = data.videos
+          
+          followerCount.innerHTML = data.subscribers
+          graphData.series[0].addPoint([
+            (new Date()).getTime(),
+            parseFloat(data.subscribers)
+          ]);
+          if (graphData.series[0].data.length >= 700) {
+            graphData.series[0].data[0].remove()
+          }*/
+                }
+            })
+    }
+    setInterval(function() {
+        getData(params[1]);
+    }, 20000);
     setInterval(function() {
         getVisuals(params[1]);
-    }, 2000);
+    }, 120000);
     $('#userinput').on('keyup', function (e) {
       if (e.keyCode === 13) {
         $('#submitbutton').click();
