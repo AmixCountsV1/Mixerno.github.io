@@ -212,7 +212,7 @@
         .then(response => response.json())
         .then(data => {
           console.log(data)
-          if (data.items[0].snippet.title == undefined) {
+          if (data.items[0].statistics.viewCount == undefined) {
             console.log("#ERROR.")
             setTimeout(getData(params[1]), 100)
           } else {

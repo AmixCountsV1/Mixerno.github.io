@@ -197,9 +197,9 @@ var graphData = new Highcharts.chart('graph', {
         .then(response => response.json())
         .then(data => {
           console.log(data)
-          if (data.items[0].snippet.title == undefined) {
-            console.log("#ERROR.")
-            setTimeout(getData(params[1]), 100)
+          if (data.items[0].liveStreamingDetails.liveStreamingDetails == undefined) {
+            console.log("This is not a stream or an api key might die. Sorry.")
+    
           } else {
             followerCount.innerHTML = data.items[0].liveStreamingDetails.liveStreamingDetails
             graphData.series[0].addPoint([
@@ -232,7 +232,7 @@ var graphData = new Highcharts.chart('graph', {
         .then(response => response.json())
         .then(data => {
           console.log(data)
-          if (data.items[0].snippet.title == undefined) {
+          if (data.items[0].statistics.likeCount == undefined) {
             console.log("#ERROR.")
             setTimeout(getData(params[1]), 100)
           } else {
