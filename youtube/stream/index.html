@@ -197,14 +197,14 @@ var graphData = new Highcharts.chart('graph', {
         .then(response => response.json())
         .then(data => {
           console.log(data)
-          if (data.items[0].liveStreamingDetails.liveStreamingDetails == undefined) {
+          if (data.items[0].liveStreamingDetails.concurrentViewers == undefined) {
             console.log("This is not a stream or an api key might die. Sorry.")
     
           } else {
-            followerCount.innerHTML = data.items[0].liveStreamingDetails.liveStreamingDetails
+            followerCount.innerHTML = data.items[0].liveStreamingDetails.concurrentViewers
             graphData.series[0].addPoint([
               (new Date()).getTime(),
-              parseFloat(data.items[0].liveStreamingDetails.liveStreamingDetails)
+              parseFloat(data.items[0].liveStreamingDetails.concurrentViewers)
             ]);
             if (graphData.series[0].data.length >= 700) {
               graphData.series[0].data[0].remove()
