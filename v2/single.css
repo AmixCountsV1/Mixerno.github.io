@@ -63,6 +63,14 @@
             color: white;
             border: none;
         }
+        select,option {
+            padding: 2vh;
+            background-color: rgb(32, 32, 32);
+            width: 49%;
+            font-size: 2vh;
+            color: white;
+            border: none;
+        }
           .graphbox {
               padding: 1vh;
               font-size: 2vh;
