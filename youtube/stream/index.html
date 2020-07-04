@@ -179,49 +179,75 @@ var graphData = new Highcharts.chart('graph', {
     })
     var windlochref = window.location.href;
     var params = windlochref.split('&u=');
-    if(params[1] == undefined) {
-        window.history.pushState("y", "g", `?&u=kJQP7kiw5Fk`);
-        windlochref = window.location.href;
-        params = windlochref.split('&u=');
+    if (params[1] == undefined) {
+      window.history.pushState("y", "g", `?&u=kJQP7kiw5Fk`);
+      windlochref = window.location.href;
+      params = windlochref.split('&u=');
 
-    getVisuals(params[1]);
+      getVisuals(params[1]);
+      getData(params[1]);
     } else {
-    getVisuals(params[1]); 
+      getVisuals(params[1]);
+      getData(params[1]);
     }
-    
-   
-    
+
+
+    function getData(id) {
+      fetch(`${cors}https://api.mixerno.space/youtube/videoid/liveStreamingDetails/${id}`)
+        .then(response => response.json())
+        .then(data => {
+          console.log(data)
+          if (data.items[0].snippet.title == undefined) {
+            console.log("#ERROR.")
+            setTimeout(getData(params[1]), 100)
+          } else {
+            followerCount.innerHTML = data.items[0].liveStreamingDetails.liveStreamingDetails
+            graphData.series[0].addPoint([
+              (new Date()).getTime(),
+              parseFloat(data.items[0].liveStreamingDetails.liveStreamingDetails)
+            ]);
+            if (graphData.series[0].data.length >= 700) {
+              graphData.series[0].data[0].remove()
+            }
+          }
+        })
+    }
 
     function getVisuals(id) {
-        fetch(`${cors}https://api.mixerno.space/youtube/streamid/${id}`)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                if(data.name == undefined) {
-                    console.log("#ERROR.")
-                } else {
-                  followerCount.innerHTML = data.viewers
-          nameuser.innerHTML = data.name
-          likeCount.innerHTML = data.likes
-          dislikeCount.innerHTML = data.dislikes
-          commentCount.innerHTML = data.views
-          $("#image").attr('src', `${data.videoimageurl}`);
+      fetch(`${cors}https://api.mixerno.space/youtube/videoid/snippet/${id}`)
+        .then(response => response.json())
+        .then(data => {
+          console.log(data)
+          if (data.items[0].snippet.title == undefined) {
+            console.log("#ERROR.")
+            setTimeout(getVisuals(params[1]), 100)
+          } else {
 
-          //plsworkgraph = json.subscribers.replace(/""/, "");
-          graphData.series[0].addPoint([
-            (new Date()).getTime(),
-            parseFloat(data.viewers)
-          ]);
-          if (graphData.series[0].data.length >= 700) {
-            graphData.series[0].data[0].remove()
+            nameuser.innerHTML = data.items[0].snippet.title
+            $("#image").attr('src', `${data.items[0].snippet.thumbnails.maxres.url}`);
+
           }
-                }
-            })
+        })
+        fetch(`${cors}https://api.mixerno.space/youtube/videoid/statistics/${id}`)
+        .then(response => response.json())
+        .then(data => {
+          console.log(data)
+          if (data.items[0].snippet.title == undefined) {
+            console.log("#ERROR.")
+            setTimeout(getData(params[1]), 100)
+          } else {
+            likeCount.innerHTML = data.items[0].statistics.likeCount
+            dislikeCount.innerHTML = data.items[0].statistics.dislikeCount
+            commentCount.innerHTML = data.items[0].statistics.viewCount
+          }
+        })
     }
-
-    setInterval(function() {
-        getVisuals(params[1]);
-    }, 2000);
+    setInterval(function () {
+      getData(params[1]);
+    }, 10000);
+    setInterval(function () {
+      getVisuals(params[1]);
+    }, 120000);
     $('#userinput').on('keyup', function (e) {
       if (e.keyCode === 13) {
         $('#submitbutton').click();

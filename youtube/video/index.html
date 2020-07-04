@@ -1,25 +1,25 @@
 <html>
-    <head>
-        <!-- Primary Meta Tags -->
-<title>Mixerno.Space</title>
-<meta name="title" content="Mixerno.Space">
-<meta name="description" content="The counter site for you.">
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://mixerno.space/">
-<meta property="og:title" content="Mixerno.Space">
-<meta property="og:description" content="The counter site for you.">
-<meta property="og:image" content="https://mixerno.space/muxarno2x2.jpg">
-<!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:url" content="https://mixerno.space/">
-<meta property="twitter:title" content="Mixerno.Space">
-<meta property="twitter:description" content="The counter site for you.">
-<meta property="twitter:image" content="https://mixerno.space/muxarno2x2.jpg">
+
+<head>
+  <!-- Primary Meta Tags -->
+  <title>Mixerno.Space</title>
+  <meta name="title" content="Mixerno.Space">
+  <meta name="description" content="The counter site for you.">
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mixerno.space/">
+  <meta property="og:title" content="Mixerno.Space">
+  <meta property="og:description" content="The counter site for you.">
+  <meta property="og:image" content="https://mixerno.space/muxarno2x2.jpg">
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://mixerno.space/">
+  <meta property="twitter:title" content="Mixerno.Space">
+  <meta property="twitter:description" content="The counter site for you.">
+  <meta property="twitter:image" content="https://mixerno.space/muxarno2x2.jpg">
 
 
-  <link rel="shortcut icon"
-    href="https://mixerno.space/icons/2.png">
+  <link rel="shortcut icon" href="https://mixerno.space/icons/2.png">
   <link rel="stylesheet" href="../../o2.css" />
   <meta charset="UTF-8">
   <meta name="keywords" content="mixerno.space">
@@ -31,109 +31,124 @@
   <link rel="stylesheet" href="../../bootstrap.css">
   <link rel="stylesheet" href="../../v2/single.css">
   <script src="../../bootstrap.js"></script>
-    </head>
-    <body>
-        <center><div style="padding: 2vh; font-size: 3vh; background-color: rgb(32, 32, 32);">Youtube Live Video View Counter <span style="font-size: 3vh;position: absolute; right: 90%;"><a  href="../">Home</a></span></div><br>
-        <div class="boxerino"><br>
-            <img src="https://mixerno.space/icons/2.png" id="image" style="border: solid 0.1vh;border-radius: 50%; height: 10vh; width: 10vh;" >
-            <div id="nameuser">Name</div>
-            <div class="odometer" id="followerCount">0</div>
-            <div style="font-size: 2vh;">Views</div><br>
-        </div><br>
-        <div class="row">
-            <div class="justbox" style="width: 100%;">
-                <div style="font-size: 4vh;" class="odometer" id="likeCount">0</div>
-                <div style="font-size: 2vh;">Likes</div>
-            </div>
-            <div class="justbox" style="width: 100%;">
-              <div style="font-size: 4vh;" class="odometer" id="dislikeCount">0</div>
-              <div style="font-size: 2vh;">Dislikes</div>
-          </div>
-          <div class="justbox" style="width: 100%;">
-            <div style="font-size: 4vh;" class="odometer" id="commentCount">0</div>
-            <div style="font-size: 2vh;">Comments</div>
-        </div>
-        </div>
-        <br>
-        <div class="graphbox">
-            <div>View Graph</div>
-            <div id="graph"></div>
-        </div>
-        <br>
-        <div class="buttons">
-        <button data-toggle="modal" data-target="#changeuser">Change Video</button><button data-toggle="modal" data-target="#compareuser">Compare</button>
+</head>
+
+<body>
+  <center>
+    <div style="padding: 2vh; font-size: 3vh; background-color: rgb(32, 32, 32);">Youtube Live Video View Counter <span
+        style="font-size: 3vh;position: absolute; right: 90%;"><a href="../">Home</a></span></div><br>
+    <div class="boxerino"><br>
+      <img src="https://mixerno.space/icons/2.png" id="image"
+        style="border: solid 0.1vh;border-radius: 50%; height: 10vh; width: 10vh;">
+      <div id="nameuser">Name</div>
+      <div class="odometer" id="followerCount">0</div>
+      <div style="font-size: 2vh;">Views</div><br>
+    </div><br>
+    <div class="row">
+      <div class="justbox" style="width: 100%;">
+        <div style="font-size: 4vh;" class="odometer" id="likeCount">0</div>
+        <div style="font-size: 2vh;">Likes</div>
+      </div>
+      <div class="justbox" style="width: 100%;">
+        <div style="font-size: 4vh;" class="odometer" id="dislikeCount">0</div>
+        <div style="font-size: 2vh;">Dislikes</div>
+      </div>
+      <div class="justbox" style="width: 100%;">
+        <div style="font-size: 4vh;" class="odometer" id="commentCount">0</div>
+        <div style="font-size: 2vh;">Comments</div>
+      </div>
+    </div>
+    <br>
+    <div class="graphbox">
+      <div>View Graph</div>
+      <div id="graph"></div>
+    </div>
+    <br>
+    <div class="buttons">
+      <button data-toggle="modal" data-target="#changeuser">Change Video</button><button data-toggle="modal"
+        data-target="#compareuser">Compare</button>
     </div>
     <br><br><br><br><br><br>
     <div id="disqus_thread"></div>
-    </center>
-    <div style="background-color: rgb(32, 32, 32); color: white;" class="container">
-        <div class="modal fade" id="changeuser" role="dialog">
-          <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-dialog">
-            <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-content">
-              <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-header">
-               <!-- <button type="button" class="close" data-dismiss="modal">&times;</button>-->
-                <h4 class="modal-title">Change Video</h4>
-              </div>
-              <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-body">
-               <input style="background-color: rgb(32, 32, 32); color: white;" placeholder="Video id" id="userinput" type="text">
-              </div>
-              <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-footer">
-                <button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" id="submitbutton" data-dismiss="modal">Submit</button><button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" data-dismiss="modal">Cancel</button>
-              </div>
-            </div>
-            
+  </center>
+  <div style="background-color: rgb(32, 32, 32); color: white;" class="container">
+    <div class="modal fade" id="changeuser" role="dialog">
+      <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-dialog">
+        <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-content">
+          <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-header">
+            <!-- <button type="button" class="close" data-dismiss="modal">&times;</button>-->
+            <h4 class="modal-title">Change Video</h4>
+          </div>
+          <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-body">
+            <input style="background-color: rgb(32, 32, 32); color: white;" placeholder="Video id" id="userinput"
+              type="text">
+          </div>
+          <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-footer">
+            <button type="button"
+              style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);"
+              id="submitbutton" data-dismiss="modal">Submit</button><button type="button"
+              style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);"
+              data-dismiss="modal">Cancel</button>
           </div>
         </div>
-        
+
       </div>
-      <div style="background-color: rgb(32, 32, 32); color: white;" class="container2">
-        <div class="modal fade" id="compareuser" role="dialog">
-          <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-dialog">
-            <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-content">
-              <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-header">
-               <!-- <button type="button" class="close" data-dismiss="modal">&times;</button>-->
-                <h4 class="modal-title">Compare Video</h4>
-              </div>
-              <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-body">
-               <input style="background-color: rgb(32, 32, 32); color: white;" placeholder="Video id" id="userinput2" type="text">
-              </div>
-              <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-footer">
-                <button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" id="submitbutton2" data-dismiss="modal">Submit</button><button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" data-dismiss="modal">Cancel</button>
-              </div>
-            </div>
-            
+    </div>
+
+  </div>
+  <div style="background-color: rgb(32, 32, 32); color: white;" class="container2">
+    <div class="modal fade" id="compareuser" role="dialog">
+      <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-dialog">
+        <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-content">
+          <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-header">
+            <!-- <button type="button" class="close" data-dismiss="modal">&times;</button>-->
+            <h4 class="modal-title">Compare Video</h4>
+          </div>
+          <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-body">
+            <input style="background-color: rgb(32, 32, 32); color: white;" placeholder="Video id" id="userinput2"
+              type="text">
+          </div>
+          <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-footer">
+            <button type="button"
+              style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);"
+              id="submitbutton2" data-dismiss="modal">Submit</button><button type="button"
+              style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);"
+              data-dismiss="modal">Cancel</button>
           </div>
         </div>
-        
+
       </div>
+    </div>
 
-     <!--<script id="dsq-count-scr" src="//mixernospace-1.disqus.com/count.js" async></script>-->
-    </body>
-    
-    <script>
+  </div>
 
-      /**
-      *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-      *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-      
-      var disqus_config = function () {
-      this.page.url = "http://mixerno.space";  // Replace PAGE_URL with your page's canonical URL variable
-      this.page.identifier = undefined; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-      };
-      
-      (function() { // DON'T EDIT BELOW THIS LINE
-      var d = document, s = d.createElement('script');
-      s.src = 'https://mixernospace-1.disqus.com/embed.js';
-      s.setAttribute('data-timestamp', +new Date());
-      (d.head || d.body).appendChild(s);
-      })();
-      </script>
+  <!--<script id="dsq-count-scr" src="//mixernospace-1.disqus.com/count.js" async></script>-->
+</body>
 
-    <script>
-         $(document).ready(function () {
-            // var cors = "";
+<script>
+
+  /**
+  *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+  *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+  var disqus_config = function () {
+    this.page.url = "http://mixerno.space";  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = undefined; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+  };
+
+  (function () { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://mixernospace-1.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+
+<script>
+  $(document).ready(function () {
+    // var cors = "";
     var cors = "https://cors.mixerno.space/";
-var graphData = new Highcharts.chart('graph', {
+    var graphData = new Highcharts.chart('graph', {
       chart: {
         backgroundColor: 'transparent',
         renderTo: graph,
@@ -155,7 +170,7 @@ var graphData = new Highcharts.chart('graph', {
         title: {
           text: ''
         },
-        
+
         lineColor: "#53adcb",
         minorGridLineColor: "#53adcb",
         tickColor: "#53adcb"
@@ -179,49 +194,65 @@ var graphData = new Highcharts.chart('graph', {
     })
     var windlochref = window.location.href;
     var params = windlochref.split('&u=');
-    if(params[1] == undefined) {
-        window.history.pushState("y", "g", `?&u=kJQP7kiw5Fk`);
-        windlochref = window.location.href;
-        params = windlochref.split('&u=');
+    if (params[1] == undefined) {
+      window.history.pushState("y", "g", `?&u=kJQP7kiw5Fk`);
+      windlochref = window.location.href;
+      params = windlochref.split('&u=');
 
-    getVisuals(params[1]);
+      getVisuals(params[1]);
+      getData(params[1]);
     } else {
-    getVisuals(params[1]); 
+      getVisuals(params[1]);
+      getData(params[1]);
     }
-    
-   
-    
+
+
+    function getData(id) {
+      fetch(`${cors}https://api.mixerno.space/youtube/videoid/statistics/${id}`)
+        .then(response => response.json())
+        .then(data => {
+          console.log(data)
+          if (data.items[0].snippet.title == undefined) {
+            console.log("#ERROR.")
+            setTimeout(getData(params[1]), 100)
+          } else {
+            followerCount.innerHTML = data.items[0].statistics.viewCount
+            likeCount.innerHTML = data.items[0].statistics.likeCount
+            dislikeCount.innerHTML = data.items[0].statistics.dislikeCount
+            commentCount.innerHTML = data.items[0].statistics.commentCount
+            graphData.series[0].addPoint([
+              (new Date()).getTime(),
+              parseFloat(data.items[0].statistics.viewCount)
+            ]);
+            if (graphData.series[0].data.length >= 700) {
+              graphData.series[0].data[0].remove()
+            }
+          }
+        })
+    }
 
     function getVisuals(id) {
-        fetch(`${cors}https://api.mixerno.space/youtube/videoid/${id}`)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                if(data.name == undefined) {
-                    console.log("#ERROR.")
-                } else {
-                  followerCount.innerHTML = data.views
-          nameuser.innerHTML = data.name
-          likeCount.innerHTML = data.likes
-          dislikeCount.innerHTML = data.dislikes
-          commentCount.innerHTML = data.comments
-          $("#image").attr('src', `${data.videoimageurl}`);
+      fetch(`${cors}https://api.mixerno.space/youtube/videoid/snippet/${id}`)
+        .then(response => response.json())
+        .then(data => {
+          console.log(data)
+          if (data.items[0].snippet.title == undefined) {
+            console.log("#ERROR.")
+            setTimeout(getVisuals(params[1]), 100)
+          } else {
 
-          //plsworkgraph = json.subscribers.replace(/""/, "");
-          graphData.series[0].addPoint([
-            (new Date()).getTime(),
-            parseFloat(data.views)
-          ]);
-          if (graphData.series[0].data.length >= 700) {
-            graphData.series[0].data[0].remove()
+            nameuser.innerHTML = data.items[0].snippet.title
+            $("#image").attr('src', `${data.items[0].snippet.thumbnails.maxres.url}`);
+
           }
-                }
-            })
+        })
     }
-
-    setInterval(function() {
-        getVisuals(params[1]);
-    }, 2000);
+    setInterval(function () {
+      getData(params[1]);
+    }, 10000);
+    setInterval(function () {
+      getVisuals(params[1]);
+    }, 120000);
     $('#userinput').on('keyup', function (e) {
       if (e.keyCode === 13) {
         $('#submitbutton').click();
@@ -231,53 +262,53 @@ var graphData = new Highcharts.chart('graph', {
     $('#submitbutton').click(function () {
       window.history.pushState("y", "g", `?&u=${$('#userinput').val()}`);
       windlochref = window.location.href;
-        params = windlochref.split('&u=');
+      params = windlochref.split('&u=');
       graphData = new Highcharts.chart('graph', {
-      chart: {
-        backgroundColor: 'transparent',
-        renderTo: graph,
-        type: 'spline'
-      },
-      title: {
-        text: ``
-      },
-      xAxis: {
-        type: 'datetime',
-        tickPixelInterval: 500,
-        labels: {
-          style: {
-            color: "#FFFFFF"
-          }
-        }
-      },
-      yAxis: {
+        chart: {
+          backgroundColor: 'transparent',
+          renderTo: graph,
+          type: 'spline'
+        },
         title: {
-          text: ''
+          text: ``
         },
-        
-        lineColor: "#53adcb",
-        minorGridLineColor: "#53adcb",
-        tickColor: "#53adcb"
-      },
-
-      credits: {
-        enabled: false,
-        text: "Mixerno.space"
-      },
-
-      series: [{
-        showInLegend: false,
-        name: 'Views',
-        marker: {
-          enabled: false
+        xAxis: {
+          type: 'datetime',
+          tickPixelInterval: 500,
+          labels: {
+            style: {
+              color: "#FFFFFF"
+            }
+          }
         },
-        color: '#53adcb',
-        lineColor: '#53adcb'
+        yAxis: {
+          title: {
+            text: ''
+          },
 
-      }]
-    })
-    getVisuals(params[1]);
-    
+          lineColor: "#53adcb",
+          minorGridLineColor: "#53adcb",
+          tickColor: "#53adcb"
+        },
+
+        credits: {
+          enabled: false,
+          text: "Mixerno.space"
+        },
+
+        series: [{
+          showInLegend: false,
+          name: 'Views',
+          marker: {
+            enabled: false
+          },
+          color: '#53adcb',
+          lineColor: '#53adcb'
+
+        }]
+      })
+      getVisuals(params[1]);
+
     });
     $('#userinput2').on('keyup', function (e) {
       if (e.keyCode === 13) {
@@ -286,9 +317,10 @@ var graphData = new Highcharts.chart('graph', {
     });
     //
     $('#submitbutton2').click(function () {
-      location.href = "../youtube-compare/video/?&u="+params[1]+"&u="+$('#userinput2').val()
-    
+      location.href = "../youtube-compare/video/?&u=" + params[1] + "&u=" + $('#userinput2').val()
+
     });
-         });
-    </script>
+  });
+</script>
+
 </html>

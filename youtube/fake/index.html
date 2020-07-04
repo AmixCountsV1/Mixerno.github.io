@@ -216,9 +216,9 @@
             setTimeout(check(channelid), 250);
           } else {
             subscribercount = parseFloat(data.subscribers)
-            if (subscribercount > subsbefore) {
+            if (subscribercount > fakecount) {
               subsbefore = subscribercount
-              fakecount = subscribercount
+              fakecount = subscribercount + 1
             }
           /*  if (subscribercount > 999) {
               if (subscribercount > 9999) {
