@@ -208,7 +208,7 @@
             $("#image").attr('src', `${imge.replace('s48', 's88')}`);
             graphData.series[0].addPoint([
               (new Date()).getTime(),
-              parseFloat(data.items[0].statistics.likeCount)
+              parseFloat(data.items[0].snippet.likeCount)
             ]);
             if (graphData.series[0].data.length >= 700) {
               graphData.series[0].data[0].remove()
