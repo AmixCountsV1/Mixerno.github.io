@@ -204,7 +204,8 @@
           } else {
             followerCount.innerHTML = data.items[0].snippet.likeCount
             nameuser.innerHTML = data.items[0].snippet.textDisplay
-            $("#image").attr('src', `${data.items[0].snippet.authorProfileImageUrl}`);
+            var imge = data.items[0].snippet.authorProfileImageUrl
+            $("#image").attr('src', `${imge.replace('s48', 's88')}`);
             graphData.series[0].addPoint([
               (new Date()).getTime(),
               parseFloat(data.items[0].statistics.likeCount)
