@@ -35,57 +35,44 @@
 
 <body>
   <center>
-    <div style="padding: 2vh; font-size: 3vh; background-color: rgb(32, 32, 32);">Youtube Fake Subscriber Counter <span
+    <div style="padding: 2vh; font-size: 3vh; background-color: rgb(32, 32, 32);">Youtube Live Comment Like Counter <span
         style="font-size: 3vh;position: absolute; right: 90%;"><a href="../../">Home</a></span></div><br>
     <div class="boxerino"><br>
       <img src="https://mixerno.space/icons/2.png" id="image"
         style="border: solid 0.1vh;border-radius: 50%; height: 10vh; width: 10vh;">
       <div id="nameuser">Name</div>
       <div class="odometer" id="followerCount">0</div>
-      <div style="font-size: 2vh;">Subscribers</div><br>
+      <div style="font-size: 2vh;">Like</div><br>
     </div>
     <br>
     <div class="graphbox">
-      <div>Subscriber Graph</div>
+      <div>Like Graph</div>
       <div id="graph"></div>
     </div>
     <br>
     <div class="buttons">
-      <input type="text" placeholder="Name" id="username"><input type="text" placeholder="Image URL" id="imgurl">
-      <input type="text" placeholder="Subscribers" id="subs"><button id="setvisuals">Set Visuals</button><br>
-    </div>
-    <div class="buttons">
-      <input type="text" placeholder="Min Sub Rate" id="minsubrate">
-      <input type="text" placeholder="Max Sub Rate" id="maxsubrate">
-      <button id="setrates">Set Rates</button><br>
-    </div>
-    <div class="buttons">
-      <p>Api Updates (checks every 2 minutes):</p>
-      <input type="text" placeholder="Channel ID (keep blank if you dont want any)" id="channelid">
-      <button id="setapiupdates">Set Value</button><br>
-    </div>
-    <div class="buttons">
-      <button id="cleargraph" style="width: 50%;">Clear Graph</button> <button data-toggle="modal" data-target="#cnglog"
-        style="width: 50%;">Changelog (for this)</button>
-      <!--   <button data-toggle="modal" data-target="#changeuser">Change User</button><button data-toggle="modal" data-target="#compareuser">Compare</button>-->
+      <button data-toggle="modal" data-target="#changeuser">Change Comment</button><button data-toggle="modal"
+        data-target="#compareuser">Compare</button>
     </div>
     <br><br><br><br><br><br>
     <div id="disqus_thread"></div>
   </center>
   <div style="background-color: rgb(32, 32, 32); color: white;" class="container">
-    <div class="modal fade" id="cnglog" role="dialog">
+    <div class="modal fade" id="changeuser" role="dialog">
       <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-dialog">
         <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-content">
           <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-header">
             <!-- <button type="button" class="close" data-dismiss="modal">&times;</button>-->
-            <h4 class="modal-title">Changelog</h4>
+            <h4 class="modal-title">Change Comment</h4>
           </div>
           <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-body">
-            <h1>Update 1</h1>
-            <p>Release.</p>
+            <input style="background-color: rgb(32, 32, 32); color: white;" placeholder="Comment id" id="userinput"
+              type="text">
           </div>
           <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-footer">
             <button type="button"
+              style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);"
+              id="submitbutton" data-dismiss="modal">Submit</button><button type="button"
               style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);"
               data-dismiss="modal">Cancel</button>
           </div>
@@ -95,7 +82,31 @@
     </div>
 
   </div>
+  <div style="background-color: rgb(32, 32, 32); color: white;" class="container2">
+    <div class="modal fade" id="compareuser" role="dialog">
+      <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-dialog">
+        <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-content">
+          <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-header">
+            <!-- <button type="button" class="close" data-dismiss="modal">&times;</button>-->
+            <h4 class="modal-title">Compare Comment</h4>
+          </div>
+          <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-body">
+            <input style="background-color: rgb(32, 32, 32); color: white;" placeholder="Comment id" id="userinput2"
+              type="text">
+          </div>
+          <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-footer">
+            <button type="button"
+              style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);"
+              id="submitbutton2" data-dismiss="modal">Submit</button><button type="button"
+              style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);"
+              data-dismiss="modal">Cancel</button>
+          </div>
+        </div>
 
+      </div>
+    </div>
+
+  </div>
 
   <!--<script id="dsq-count-scr" src="//mixernospace-1.disqus.com/count.js" async></script>-->
 </body>
@@ -158,7 +169,7 @@
 
       series: [{
         showInLegend: false,
-        name: 'Subscribers',
+        name: 'Likes',
         marker: {
           enabled: false
         },
@@ -169,181 +180,74 @@
     })
     var windlochref = window.location.href;
     var params = windlochref.split('&u=');
-    // window.history.pushState("y", "g", `?&u=UC-lHJZR3Gqxm24_Vd_AJ5Yw`);
-    var fakecount = 0;
-    var minrate = 0;
-    var maxrate = 0;
-    var name = "User Name";
-    var image = "https://yt3.ggpht.com/a/AATXAJzZZ9e1aCGOhZ_9RfWUbxb5tji30Re8V6kRFv1Zxw=s88-c-k-c0xffffffff-no-rj-mo";
-    var apiupdates = false;
-    var milestone = 0;
-    var subsbefore = 0;
-    var subscribercount = 0;
-    if (fakecount == 0) {
+    if (params[1] == undefined) {
+      window.history.pushState("y", "g", `?&u=Ugyb0OkJoZemhn5BD194AaABAg`);
+      windlochref = window.location.href;
+      params = windlochref.split('&u=');
 
+    //  getVisuals(params[1]);
+      getData(params[1]);
     } else {
-      test("lohl")
-    }
-
-    function test(h) {
-      fakecount = fakecount + randomIntFromInterval(minrate, maxrate)
-      nameuser.innerHTML = name
-      $("#image").attr('src', `${image}`);
-      followerCount.innerHTML = Math.floor(fakecount)
-      graphData.series[0].addPoint([
-        (new Date()).getTime(),
-        parseFloat(Math.floor(fakecount))
-      ]);
-      if (graphData.series[0].data.length >= 700) {
-        graphData.series[0].data[0].remove()
-      }
-    }
-    function randomIntFromInterval(min, max) { // min and max included 
-      var lol = Math.floor(Math.random() * (max - min + 1) + min);
-      console.log(lol)
-      return lol
+     // getVisuals(params[1]);
+      getData(params[1]);
     }
 
 
-
-    function check(id) {
-      fetch(`https://cors.mixerno.space/https://api.mixerno.space/youtube/fakecounts/${id}`)
-        .then(res => res.json())
+    function getData(id) {
+      fetch(`${cors}https://api.mixerno.space/youtube/comments/snippet/${id}`)
+        .then(response => response.json())
         .then(data => {
           console.log(data)
-          if (data.subscribers == undefined) {
+          if (data.items[0].snippet.likeCount == undefined) {
             console.log("#ERROR.")
-            setTimeout(check(channelid), 250);
+            setTimeout(getData(params[1]), 100)
           } else {
-            subscribercount = parseFloat(data.subscribers)
-            if (subscribercount > fakecount) {
-              subsbefore = subscribercount
-              fakecount = subscribercount + 1
+            followerCount.innerHTML = data.items[0].snippet.likeCount
+            nameuser.innerHTML = data.items[0].snippet.textDisplay
+            $("#image").attr('src', `${data.items[0].snippet.authorProfileImageUrl}`);
+            graphData.series[0].addPoint([
+              (new Date()).getTime(),
+              parseFloat(data.items[0].statistics.likeCount)
+            ]);
+            if (graphData.series[0].data.length >= 700) {
+              graphData.series[0].data[0].remove()
             }
-          /*  if (subscribercount > 999) {
-              if (subscribercount > 9999) {
-                if (subscribercount > 99999) {
-              if (subscribercount > 999999) {
-                if (subscribercount > 9999999) {
-              if (subscribercount > 99999999) {
-                if (subscribercount > 999999999) {
-              if (subscribercount > 9999999999) {
-                console.log("Congratz")
-              } else {
-                milestone = 10000000
-              }
-            } else {
-              milestone = 1000000
-            }
-              } else {
-                milestone = 100000
-              }
-            } else {
-              milestone = 10000
-            }
-              } else {
-                milestone = 1000
-              }
-            } else {
-              milestone = 100
-            }
-              } else {
-                milestone = 10
-              }
-            } else {
-              milestone = 1
-            }
-            if (fakecount < subscribercount - milestone) {
-              subsbefore = subscribercount
-              fakecount = subscribercount
-            }*/
           }
         })
     }
 
+    function getVisuals(id) {
+      fetch(`${cors}https://api.mixerno.space/youtube/videoid/snippet/${id}`)
+        .then(response => response.json())
+        .then(data => {
+          console.log(data)
+          if (data.items[0].snippet.title == undefined) {
+            console.log("#ERROR.")
+            setTimeout(getVisuals(params[1]), 100)
+          } else {
 
+            nameuser.innerHTML = data.items[0].snippet.title
+            $("#image").attr('src', `${data.items[0].snippet.thumbnails.maxres.url}`);
 
+          }
+        })
+    }
     setInterval(function () {
-      if (fakecount == 0) {
-
-      } else {
-        test(1)
-      }
-
-    }, 2000);
-    setInterval(function () {
-      if (apiupdates == false) {
-
-      } else {
-        check(channelid)
-      }
-
-    }, 120000);
-
-    $('#userinput2').on('keyup', function (e) {
+      getData(params[1]);
+    }, 10000);
+  /*  setInterval(function () {
+      getVisuals(params[1]);
+    }, 120000);*/
+    $('#userinput').on('keyup', function (e) {
       if (e.keyCode === 13) {
-        $('#setvalues').click();
+        $('#submitbutton').click();
       }
     });
     //
-    $('#setrates').click(function () {
-
-      if ($('#minsubrate').val() == '') {
-        //Dont set it
-      } else {
-        //Set the sub count
-        minrate = parseFloat($('#minsubrate').val())
-      }
-      if ($('#maxsubrate').val() == '') {
-        //Dont set it
-      } else {
-        //Set the sub count
-        maxrate = parseFloat($('#maxsubrate').val())
-      }
-
-
-
-    });
-    $('#setvisuals').click(function () {
-
-      if ($('#subs').val() == '') {
-        //Dont set it
-      } else {
-        //Set the sub count
-        fakecount = parseFloat($('#subs').val())
-      }
-      if ($('#username').val() == '') {
-        //Dont set it
-      } else {
-        //Set the sub count
-        name = $('#username').val()
-      }
-      if ($('#imgurl').val() == '') {
-        //Dont set it
-      } else {
-        //Set the sub count
-        image = $('#imgurl').val()
-      }
-
-
-
-    });
-    $('#setapiupdates').click(function () {
-
-      if ($('#channelid').val() == '') {
-        //Dont set it
-        apiupdates = false;
-      } else {
-        //Set the sub count
-        channelid = $('#channelid').val()
-        apiupdates = true
-      }
-
-
-
-    });
-    $('#cleargraph').click(function () {
-
+    $('#submitbutton').click(function () {
+      window.history.pushState("y", "g", `?&u=${$('#userinput').val()}`);
+      windlochref = window.location.href;
+      params = windlochref.split('&u=');
       graphData = new Highcharts.chart('graph', {
         chart: {
           backgroundColor: 'transparent',
@@ -379,7 +283,7 @@
 
         series: [{
           showInLegend: false,
-          name: 'Subscribers',
+          name: 'Likes',
           marker: {
             enabled: false
           },
@@ -388,7 +292,17 @@
 
         }]
       })
+      getVisuals(params[1]);
 
+    });
+    $('#userinput2').on('keyup', function (e) {
+      if (e.keyCode === 13) {
+        $('#submitbutton2').click();
+      }
+    });
+    //
+    $('#submitbutton2').click(function () {
+      location.href = "../youtube-compare/comment/?&u=" + params[1] + "&u=" + $('#userinput2').val()
 
     });
   });
