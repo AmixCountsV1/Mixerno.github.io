@@ -189,7 +189,7 @@ var graphData = new Highcharts.chart('graph', {
     }
     
     function getData(id) {
-        fetch(`${cors}https://api.mixerno.space/youtube/channels/snippet/${id}`)
+        fetch(`${cors}https://api.mixerno.space/youtube/channels/statistics/${id}`)
             .then(response => response.json())
             .then(data => {
                 console.log(data)
@@ -219,7 +219,7 @@ var graphData = new Highcharts.chart('graph', {
             .then(response => response.json())
             .then(data => {
                 console.log(data)
-                if(data.name == undefined) {
+                if(data.items[0].snippet.title == undefined) {
                     console.log("#ERROR.")
                     setTimeout(getVisuals(params[1]), 100)
                 } else {
