@@ -57,7 +57,12 @@
     <div class="buttons">
       <input type="text" placeholder="Min Sub Rate" id="minsubrate">
       <input type="text" placeholder="Max Sub Rate" id="maxsubrate">
-      <button id="setrates">Set Rates</button><br>
+      <button id="setrates">Set Rates</button><select name="Rate in" id="rtin">
+        <option value="seconds">Rate in subs/second</option>
+        <option value="minutes">Rate in subs/minute</option>
+        <option value="hours">Rate in subs/hour</option>
+        <option value="days">Rate in subs/day</option>
+      </select><br>
     </div>
     <div class="buttons">
       <p>Api Updates (checks every 2 minutes):</p>
@@ -293,13 +298,35 @@ var params = windlochref.split('&u=');
         //Dont set it
       } else {
         //Set the sub count
-        minrate = parseFloat($('#minsubrate').val())
+        if(document.getElementById("rtin").value == "seconds") {
+          minrate = parseFloat($('#minsubrate').val()) * 2
+        } else if(document.getElementById("rtin").value == "minutes") {
+          minrate = parseFloat($('#minsubrate').val()) / 30
+        } else if(document.getElementById("rtin").value == "hours") {
+          minrate = parseFloat($('#minsubrate').val()) / 60 / 30
+        } else if(document.getElementById("rtin").value == "days") {
+          minrate = parseFloat($('#minsubrate').val()) / 24 / 60 / 30
+        } else {
+          minrate = parseFloat($('#minsubrate').val()) * 2
+        }
+        
       }
       if ($('#maxsubrate').val() == '') {
         //Dont set it
       } else {
         //Set the sub count
         maxrate = parseFloat($('#maxsubrate').val())
+        if(document.getElementById("rtin").value == "seconds") {
+          maxrate = parseFloat($('#maxsubrate').val()) * 2
+        } else if(document.getElementById("rtin").value == "minutes") {
+          maxrate = parseFloat($('#maxsubrate').val()) / 30
+        } else if(document.getElementById("rtin").value == "hours") {
+          maxrate = parseFloat($('#maxsubrate').val()) / 60 / 30
+        } else if(document.getElementById("rtin").value == "days") {
+          maxrate = parseFloat($('#maxsubrate').val()) / 24 / 60 / 30
+        } else {
+          maxrate = parseFloat($('#maxsubrate').val()) * 2
+        }
       }
 
 
