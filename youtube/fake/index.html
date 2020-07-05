@@ -65,6 +65,11 @@
       </select><br>
     </div>
     <div class="buttons">
+      <p>Update interval (in seconds):</p>
+      <input type="text" placeholder="here" id="time">
+      <button id="setupdateinterval">Set Update Interval</button><br>
+    </div>
+    <div class="buttons">
       <p>Api Updates (checks every 2 minutes):</p>
       <input type="text" placeholder="Channel ID (keep blank if you dont want any)" id="channelid">
       <button id="setapiupdates">Set Value</button><br>
@@ -185,6 +190,7 @@ var params = windlochref.split('&u=');
     var milestone = 0;
     var subsbefore = 0;
     var subscribercount = 0;
+    var timewait = 2;
     if (fakecount == 0) {
 
     } else {
@@ -267,16 +273,27 @@ var params = windlochref.split('&u=');
         })
     }
 
-
-
-    setInterval(function () {
+    everywait()
+function everywait() {
+  setTimeout(function() {
+    if (fakecount == 0) {
+    everywait()
+} else {
+    test(1)
+    everywait()
+  
+}
+  }, timewait*1000)
+  
+}
+  /*  setInterval(function () {
       if (fakecount == 0) {
 
       } else {
         test(1)
       }
 
-    }, 2000);
+    }, 2000);*/
     setInterval(function () {
       if (apiupdates == false) {
 
@@ -370,6 +387,18 @@ var params = windlochref.split('&u=');
 
 
     });
+    $('#setupdateinterval').click(function () {
+
+if ($('#time').val() == '') {
+  //Dont set it
+} else {
+  //Set the sub count
+  timewait = $('#time').val()
+}
+
+
+
+});
     $('#cleargraph').click(function () {
 
       graphData = new Highcharts.chart('graph', {
