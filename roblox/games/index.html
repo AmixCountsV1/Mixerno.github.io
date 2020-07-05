@@ -198,13 +198,14 @@ var graphData = new Highcharts.chart('graph', {
     var loadedvisits = 0;
     var universsiid = 0;
     if(params[1] == undefined) {
-        window.history.pushState("y", "g", `?&u=606849621`);
+        window.history.pushState("y", "g", `?&u=606849621&u=0`);
         windlochref = window.location.href;
         params = windlochref.split('&u=');
         getUniverseID(params[1])
     } else {
       getUniverseID(params[1])
     }
+    
     function getUniverseID(id) {
       fetch(`${cors}https://robloxvisitstrackerv2.herokuapp.com/roblox/api/game/${id}`)
             .then(response => response.json())
@@ -304,8 +305,17 @@ visitsbefore = visits;
 time++
 console.log(estimatedvisit + ' | Currently')
 console.log(som1x + ' | Gain')
-
-if(Math.floor(estimatedvisit) < loadedvisits) {
+if(params[2] == 0) {
+  followerCount.innerHTML = data.data[0].visits
+    graphData.series[0].addPoint([
+            (new Date()).getTime(),
+            data.data[0].visits
+          ]);
+          if (graphData.series[0].data.length >= 700) {
+            graphData.series[0].data[0].remove()
+          }
+} else {
+  if(Math.floor(estimatedvisit) < loadedvisits) {
   followerCount.innerHTML = data.data[0].visits
     graphData.series[0].addPoint([
             (new Date()).getTime(),
@@ -324,6 +334,8 @@ if(Math.floor(estimatedvisit) < loadedvisits) {
             graphData.series[0].data[0].remove()
           }
 }
+}
+
     
 
 
