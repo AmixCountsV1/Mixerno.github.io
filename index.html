@@ -20,7 +20,7 @@
 
   <link rel="shortcut icon"
     href="https://mixerno.space/icons/2.png">
-  <link rel="stylesheet" href="o2.css" />
+  <link rel="stylesheet" href="v2/odometerfast.css" />
   <meta charset="UTF-8">
   <meta name="keywords" content="mixerno.space">
   <meta name="author" content="Mixerno">
@@ -117,8 +117,10 @@
         </div><br>
         <div class="buttons">
        <button data-toggle="modal" data-target="#changelog">Changelog</button>
-    </div>
-    <br>
+    </div><br>
+    <div>Mixer Shutting Down In:</div>
+    <div class="odometer" id="dayse">0</div> days<br> <div class="odometer" id="houre">0</div> hours<br><div class="odometer" id="minute">0</div> minutes<br><div class="odometer" id="time">0</div> seconds
+    <br><br>
     <div id="disqus_thread"></div>
     </center>
 
@@ -162,6 +164,19 @@
       s.setAttribute('data-timestamp', +new Date());
       (d.head || d.body).appendChild(s);
       })();
+      </script>
+      <script>
+        function lool() {
+          var oof = new Date('July 22, 20 00:00:00 GMT+00:00')
+        var nau = new Date()
+        time.innerHTML = Math.floor(oof.getTime() / 1000 - nau.getTime() / 1000) 
+        var lol = oof.getTime() / 1000 - nau.getTime() / 1000
+        minute.innerHTML = Math.floor(lol / 60) 
+        houre.innerHTML = Math.floor(lol / 60 / 60) 
+        dayse.innerHTML = Math.floor(lol / 60 / 60 / 24) 
+        console.log(oof.getTime(), nau.getTime(), oof.getTime() - nau.getTime())
+        } setInterval(lool, 100);
+       
       </script>
 
     <style>
