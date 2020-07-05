@@ -186,6 +186,11 @@ var graphData = new Highcharts.chart('graph', {
         getData(params[1]);
     getVisuals(params[1]); 
     }
+    if(params[2] == 1) {
+      $('head').append('<link rel="stylesheet" type="text/css" href="../v2/odometerfast.css">');
+    } else {
+      window.history.pushState("y", "g", `?&u=${params[1]}&u=0`);
+    }
     
    
     

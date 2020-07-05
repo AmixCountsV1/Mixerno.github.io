@@ -213,6 +213,11 @@ var graphData = new Highcharts.chart('graph', {
     }
 
     }
+    if(params[3] == 1) {
+      $('head').append('<link rel="stylesheet" type="text/css" href="../v2/odometerfast.css">');
+    } else {
+      window.history.pushState("y", "g", `?&u=${params[1]}&u=${params[2]}&u=0`);
+    }
     function checkifvanity() {
       fetch(`${cors}https://mee6.xyz/api/guilds/vanity/${params[2]}`)
             .then(response => response.json())

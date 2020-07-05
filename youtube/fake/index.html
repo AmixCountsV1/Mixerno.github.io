@@ -180,7 +180,12 @@ var params = windlochref.split('&u=');
     })
     var windlochref = window.location.href;
     var params = windlochref.split('&u=');
-    // window.history.pushState("y", "g", `?&u=UC-lHJZR3Gqxm24_Vd_AJ5Yw`);
+    if(params[1] == 1) {
+      $('head').append('<link rel="stylesheet" type="text/css" href="../../v2/odometerfast.css">');
+    } else {
+      window.history.pushState("y", "g", `?&u=0`);
+    }
+     
     var fakecount = 0;
     var minrate = 0;
     var maxrate = 0;

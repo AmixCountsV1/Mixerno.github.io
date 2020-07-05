@@ -233,6 +233,11 @@ var graphData = new Highcharts.chart('graph', {
         windlochref = window.location.href;
         params = windlochref.split('&u=');
     }
+    if(params[4] == 1) {
+      $('head').append('<link rel="stylesheet" type="text/css" href="../v2/odometerfast.css">');
+    } else {
+      window.history.pushState("y", "g", `?&u=${params[1]}&u=${params[2]}&u=${params[3]}&u=0`);
+    }
     
     var count = 0;
     var count2 = 0;
