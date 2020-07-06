@@ -176,6 +176,7 @@ var graphData = new Highcharts.chart('graph', {
     })
     var windlochref = window.location.href;
     var params = windlochref.split('&u=');
+    var t1ch = true;
     if(params[1] == undefined) {
         window.history.pushState("y", "g", `?&u=UC-lHJZR3Gqxm24_Vd_AJ5Yw`);
         windlochref = window.location.href;
@@ -194,13 +195,33 @@ var graphData = new Highcharts.chart('graph', {
     }
     
     function getData(id) {
+      if(t1ch == true) {
+        fetch(`${cors}https://api.t1ch.com/youtube/${id}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                if(data.error == "No such channel found, boomer. And stop using inspect html!") {
+                    console.log("No its not in the api")
+
+                } else {
+
+          followerCount.innerHTML = data.subscriberCount
+          graphData.series[0].addPoint([
+            (new Date()).getTime(),
+            parseFloat(data.subscriberCount)
+          ]);
+          if (graphData.series[0].data.length >= 700) {
+            graphData.series[0].data[0].remove()
+          }
+                }
+            })
+      } else {
         fetch(`${cors}https://api.mixerno.space/youtube/channels/statistics/${id}`)
             .then(response => response.json())
             .then(data => {
                 console.log(data)
                 if(data.items[0].statistics.subscriberCount == undefined) {
                     console.log("#ERROR.")
-                    setTimeout(getData(params[1]), 100)
                 } else {
                     /*nameuser.innerHTML = data.items[0].snippet.title
                     $("#image").attr('src', `${data.items[0].snippet.thumbnails.high.url}`);*/
@@ -216,6 +237,9 @@ var graphData = new Highcharts.chart('graph', {
           }
                 }
             })
+      }
+      
+        
     }
     
 
@@ -243,10 +267,35 @@ var graphData = new Highcharts.chart('graph', {
           }*/
                 }
             })
+            if(t1ch == true) {
+              fetch(`${cors}https://api.mixerno.space/youtube/channels/statistics/${id}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                if(data.items[0].statistics.subscriberCount == undefined) {
+                    console.log("#ERROR.")
+                   // setTimeout(getData(params[1]), 100)
+                } else {
+                    /*nameuser.innerHTML = data.items[0].snippet.title
+                    $("#image").attr('src', `${data.items[0].snippet.thumbnails.high.url}`);*/
+                  viewsCount.innerHTML = data.items[0].statistics.viewCount
+                  videosCount.innerHTML = data.items[0].statistics.videoCount
+        /*  followerCount.innerHTML = data.items[0].statistics.subscriberCount
+          graphData.series[0].addPoint([
+            (new Date()).getTime(),
+            parseFloat(data.items[0].statistics.subscriberCount)
+          ]);
+          if (graphData.series[0].data.length >= 700) {
+            graphData.series[0].data[0].remove()
+          }*/
+                }
+            })
+            }
+            
     }
     setInterval(function() {
         getData(params[1]);
-    }, 20000);
+    }, 5000);
     setInterval(function() {
         getVisuals(params[1]);
     }, 120000);
