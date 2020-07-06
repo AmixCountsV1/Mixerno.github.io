@@ -131,19 +131,19 @@
   *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
   *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
   var windlochref = window.location.href;
-var params = windlochref.split('&u=');
+  var params = windlochref.split('&u=');
   var disqus_config = function () {
-  this.page.url = params[0]+'&u='+params[1];  // Replace PAGE_URL with your page's canonical URL variable
-  this.page.identifier = params[1]; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    this.page.url = params[0] + '&u=' + params[1];  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = params[1]; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
   };
-  
-  (function() { // DON'T EDIT BELOW THIS LINE
-  var d = document, s = d.createElement('script');
-  s.src = 'https://mixernospace-1.disqus.com/embed.js';
-  s.setAttribute('data-timestamp', +new Date());
-  (d.head || d.body).appendChild(s);
+
+  (function () { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://mixernospace-1.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
   })();
-  </script>
+</script>
 
 <script>
   $(document).ready(function () {
@@ -195,6 +195,16 @@ var params = windlochref.split('&u=');
     })
     var windlochref = window.location.href;
     var params = windlochref.split('&u=');
+
+    var newamount = 0;
+    var oldamount = 0;
+    var hiton = new Date();
+    var beforeon = new Date();
+    var betweenon = hiton.getTime() - beforeon.getTime()
+    var betweesplit1000 = betweenon / 1000
+    var rate = newamount - oldamount / betweesplit1000
+    var viewEstimated = false;
+
     if (params[1] == undefined) {
       window.history.pushState("y", "g", `?&u=kJQP7kiw5Fk`);
       windlochref = window.location.href;
@@ -206,10 +216,15 @@ var params = windlochref.split('&u=');
       getVisuals(params[1]);
       getData(params[1]);
     }
-    if(params[2] == 1) {
+    if (params[2] == 1) {
       $('head').append('<link rel="stylesheet" type="text/css" href="../../v2/odometerfast.css">');
     } else {
       window.history.pushState("y", "g", `?&u=${params[1]}&u=0`);
+    }
+    if (params[3] == 1) {
+      viewEstimated = true
+    } else {
+      window.history.pushState("y", "g", `?&u=${params[1]}&u=${params[2]}&u=0`);
     }
 
 
@@ -222,6 +237,20 @@ var params = windlochref.split('&u=');
             console.log("#ERROR.")
             setTimeout(getData(params[1]), 100)
           } else {
+            if (viewEstimated == true) {
+              if (data.items[0].statistics.viewCount > oldamount) {
+                newamount = data.items[0].statistics.viewCount
+                hiton = new Date();
+                betweenon = hiton.getTime() - beforeon.getTime()
+                betweesplit1000 = betweenon / 1000
+                rate = newamount - oldamount / betweesplit1000
+                beforeon = new Date();
+                oldamount = data.items[0].statistics.viewCount
+              } else {
+                newamount = data.items[0].statistics.viewCount
+                oldamount = data.items[0].statistics.viewCount
+              }
+            }
             followerCount.innerHTML = data.items[0].statistics.viewCount
             likeCount.innerHTML = data.items[0].statistics.likeCount
             dislikeCount.innerHTML = data.items[0].statistics.dislikeCount
