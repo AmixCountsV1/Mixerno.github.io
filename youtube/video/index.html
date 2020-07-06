@@ -204,7 +204,7 @@
     var betweesplit1000 = betweenon / 1000
     var rate = newamount - oldamount / betweesplit1000
     var viewEstimated = false;
-
+    var estimt = 0;
     if (params[1] == undefined) {
       window.history.pushState("y", "g", `?&u=kJQP7kiw5Fk`);
       windlochref = window.location.href;
@@ -238,30 +238,43 @@
             setTimeout(getData(params[1]), 100)
           } else {
             if (viewEstimated == true) {
-              if (data.items[0].statistics.viewCount > oldamount) {
-                newamount = data.items[0].statistics.viewCount
+              if (data.items[0].statistics.viewCount > oldamount || data.items[0].statistics.viewCount < oldamount) {
+                newamount = parseFloat(data.items[0].statistics.viewCount)
+                estimt = newamount
                 hiton = new Date();
                 betweenon = hiton.getTime() - beforeon.getTime()
                 betweesplit1000 = betweenon / 1000
                 rate = newamount - oldamount / betweesplit1000
                 beforeon = new Date();
-                oldamount = data.items[0].statistics.viewCount
+                oldamount = parseFloat(data.items[0].statistics.viewCount)
               } else {
-                newamount = data.items[0].statistics.viewCount
-                oldamount = data.items[0].statistics.viewCount
-              }
+                estimt = estimt + rate * 10000
+                newamount = parseFloat(data.items[0].statistics.viewCount)
+                oldamount = parseFloat(data.items[0].statistics.viewCount)
+                followerCount.innerHTML = estimt
+              graphData.series[0].addPoint([
+              (new Date()).getTime(),
+              parseFloat(estimt)
+            ]);
+            if (graphData.series[0].data.length >= 700) {
+              graphData.series[0].data[0].remove()
             }
-            followerCount.innerHTML = data.items[0].statistics.viewCount
-            likeCount.innerHTML = data.items[0].statistics.likeCount
-            dislikeCount.innerHTML = data.items[0].statistics.dislikeCount
-            commentCount.innerHTML = data.items[0].statistics.commentCount
-            graphData.series[0].addPoint([
+              }
+            } else {
+              followerCount.innerHTML = data.items[0].statistics.viewCount
+              graphData.series[0].addPoint([
               (new Date()).getTime(),
               parseFloat(data.items[0].statistics.viewCount)
             ]);
             if (graphData.series[0].data.length >= 700) {
               graphData.series[0].data[0].remove()
             }
+            }
+            
+            likeCount.innerHTML = data.items[0].statistics.likeCount
+            dislikeCount.innerHTML = data.items[0].statistics.dislikeCount
+            commentCount.innerHTML = data.items[0].statistics.commentCount
+            
           }
         })
     }
