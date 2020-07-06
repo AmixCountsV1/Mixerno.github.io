@@ -49,21 +49,21 @@
               height: 9vh;
           }
           .buttons {
-              margin-left: 25%;
-              margin-right: 25%;
+            /* margin-left: 25%;
+              margin-right: 25%;*/
               display: flex;
         flex-direction: row;
         justify-content: space-between;
         flex: 4;
           }
-          button {
-              padding: 2vh;
-              background-color: rgb(32, 32, 32);
-              width: 49%;
-              font-size: 2vh;
-              color: white;
-              border: none;
-          }
+      select,option,input,button {
+          padding: 2vh;
+          background-color: rgb(32, 32, 32);
+          width: 49%;
+          font-size: 2vh;
+          color: white;
+          border: none;
+      }
           .graphbox {
               padding: 1vh;
               font-size: 2vh;
