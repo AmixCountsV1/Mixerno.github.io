@@ -258,11 +258,57 @@
               graphData.series[0].data[0].remove()
             }
               } else {
-                
+                if(estimt > oldamount * 1.5) {
+                  estimt = oldamount
+                  graphData = new Highcharts.chart('graph', {
+      chart: {
+        backgroundColor: 'transparent',
+        renderTo: graph,
+        type: 'spline'
+      },
+      title: {
+        text: ``
+      },
+      xAxis: {
+        type: 'datetime',
+        tickPixelInterval: 500,
+        labels: {
+          style: {
+            color: "#FFFFFF"
+          }
+        }
+      },
+      yAxis: {
+        title: {
+          text: ''
+        },
+
+        lineColor: "#53adcb",
+        minorGridLineColor: "#53adcb",
+        tickColor: "#53adcb"
+      },
+
+      credits: {
+        enabled: false,
+        text: "Mixerno.space"
+      },
+
+      series: [{
+        showInLegend: false,
+        name: 'Views',
+        marker: {
+          enabled: false
+        },
+        color: '#53adcb',
+        lineColor: '#53adcb'
+
+      }]
+    })
+                }
                 estimt = estimt + rate * 10
                 newamount = parseFloat(data.items[0].statistics.viewCount)
                 oldamount = parseFloat(data.items[0].statistics.viewCount)
-                console.log(estimt, "ESTIMATED")
+                console.log(estimt, "ESTIMATED",rate, "rate ESTIMATED",newamount, "newamount ESTIMATED",oldamount, "oldamount ESTIMATED",betweesplit1000, "betweesplit1000 ESTIMATED",)
                 followerCount.innerHTML = estimt
               graphData.series[0].addPoint([
               (new Date()).getTime(),

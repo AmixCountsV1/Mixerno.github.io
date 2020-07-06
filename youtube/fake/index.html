@@ -70,9 +70,14 @@
       <button id="setupdateinterval">Set Update Interval</button><br>
     </div>
     <div class="buttons">
+      <input type="text" placeholder="How much it gives" id="auditgive"><input type="text" placeholder="When (in seconds)" id="auditwait">
+      <button id="setaudit">Set Audit values</button><br>
+    </div>
+    <div class="buttons">
       <p>Api Updates (checks every 2 minutes):</p>
       <input type="text" placeholder="Channel ID (keep blank if you dont want any)" id="channelid">
       <button id="setapiupdates">Set Value</button><br>
+      <p>Channel id: <div id="worksornot">works.</div></p><br>
     </div>
     <div class="buttons">
       <button id="cleargraph" style="width: 50%;">Clear Graph</button> <button data-toggle="modal" data-target="#cnglog"
@@ -196,6 +201,9 @@ var params = windlochref.split('&u=');
     var subsbefore = 0;
     var subscribercount = 0;
     var timewait = 2;
+
+    var audit = 0;
+    var auditwhen = 2;
     if (fakecount == 0) {
 
     } else {
@@ -230,8 +238,10 @@ var params = windlochref.split('&u=');
           console.log(data)
           if (data.subscribers == undefined) {
             console.log("#ERROR.")
+            worksornot.innerHTML = "Doesnt work"
             setTimeout(check(channelid), 250);
           } else {
+            worksornot.innerHTML = "Works"
             subscribercount = parseFloat(data.subscribers)
             if (subscribercount > fakecount) {
               subsbefore = subscribercount
@@ -289,8 +299,22 @@ function everywait() {
   
 }
   }, timewait*1000)
+}
+adit()
+function adit() {
+  setTimeout(function() {
+    if (audit == 0) {
+      console.log("nothing")
+      adit()
+} else {
+   fakecount = fakecount + audit
+   console.log("added/decreased")
+   adit()
   
 }
+  }, auditwhen*1000)
+}
+  
   /*  setInterval(function () {
       if (fakecount == 0) {
 
@@ -321,15 +345,15 @@ function everywait() {
       } else {
         //Set the sub count
         if(document.getElementById("rtin").value == "seconds") {
-          minrate = parseFloat($('#minsubrate').val()) * 2
+          minrate = parseFloat($('#minsubrate').val())
         } else if(document.getElementById("rtin").value == "minutes") {
-          minrate = parseFloat($('#minsubrate').val()) / 30
+          minrate = parseFloat($('#minsubrate').val()) / 60
         } else if(document.getElementById("rtin").value == "hours") {
-          minrate = parseFloat($('#minsubrate').val()) / 60 / 30
+          minrate = parseFloat($('#minsubrate').val()) / 60 / 60
         } else if(document.getElementById("rtin").value == "days") {
-          minrate = parseFloat($('#minsubrate').val()) / 24 / 60 / 30
+          minrate = parseFloat($('#minsubrate').val()) / 24 / 60 / 60
         } else {
-          minrate = parseFloat($('#minsubrate').val()) * 2
+          minrate = parseFloat($('#minsubrate').val())
         }
         
       }
@@ -339,15 +363,15 @@ function everywait() {
         //Set the sub count
         maxrate = parseFloat($('#maxsubrate').val())
         if(document.getElementById("rtin").value == "seconds") {
-          maxrate = parseFloat($('#maxsubrate').val()) * 2
+          maxrate = parseFloat($('#maxsubrate').val())
         } else if(document.getElementById("rtin").value == "minutes") {
-          maxrate = parseFloat($('#maxsubrate').val()) / 30
+          maxrate = parseFloat($('#maxsubrate').val()) / 60
         } else if(document.getElementById("rtin").value == "hours") {
-          maxrate = parseFloat($('#maxsubrate').val()) / 60 / 30
+          maxrate = parseFloat($('#maxsubrate').val()) / 60 / 60
         } else if(document.getElementById("rtin").value == "days") {
-          maxrate = parseFloat($('#maxsubrate').val()) / 24 / 60 / 30
+          maxrate = parseFloat($('#maxsubrate').val()) / 24 / 60 / 60
         } else {
-          maxrate = parseFloat($('#maxsubrate').val()) * 2
+          maxrate = parseFloat($('#maxsubrate').val())
         }
       }
 
@@ -400,6 +424,25 @@ if ($('#time').val() == '') {
   //Set the sub count
   timewait = $('#time').val()
 }
+
+
+
+});
+$('#setaudit').click(function () {
+
+if ($('#auditwait').val() == '') {
+  //Dont set it
+} else {
+  //Set the sub count
+  auditwhen = parseFloat($('#auditwait').val())
+}
+if ($('#auditgive').val() == '') {
+  //Dont set it
+} else {
+  //Set the sub count
+  audit = parseFloat($('#auditgive').val())
+}
+
 
 
 
