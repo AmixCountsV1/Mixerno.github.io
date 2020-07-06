@@ -20,17 +20,17 @@
 
   <link rel="shortcut icon"
     href="https://mixerno.space/icons/2.png">
-  <link rel="stylesheet" href="../o2.css" />
+  <link rel="stylesheet" href="../../o2.css" />
   <meta charset="UTF-8">
   <meta name="keywords" content="mixerno.space">
   <meta name="author" content="Mixerno">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="../odometer.js"></script>
-  <script type="text/javascript" src="../jquery-3.1.1.min.js"></script>
+  <script src="../../odometer.js"></script>
+  <script type="text/javascript" src="../../jquery-3.1.1.min.js"></script>
   <script src="https://code.highcharts.com/highcharts.js"></script>
-  <link rel="stylesheet" href="../bootstrap.css">
-  <link rel="stylesheet" href="../v2/single.css">
-  <script src="../bootstrap.js"></script>
+  <link rel="stylesheet" href="../../bootstrap.css">
+  <link rel="stylesheet" href="../../v2/single.css">
+  <script src="../../bootstrap.js"></script>
     </head>
     <body>
         <center><div style="padding: 2vh; font-size: 3vh; background-color: rgb(32, 32, 32);">Coronavirus Live Total Cases (for a country) Counter <span style="font-size: 3vh;position: absolute; right: 90%;"><a  href="../">Home</a></span></div><br>
@@ -190,7 +190,7 @@ var graphData = new Highcharts.chart('graph', {
     getVisuals(params[1]); 
     }
     if(params[2] == 1) {
-      $('head').append('<link rel="stylesheet" type="text/css" href="../v2/odometerfast.css">');
+      $('head').append('<link rel="stylesheet" type="text/css" href="../../v2/odometerfast.css">');
     } else {
       window.history.pushState("y", "g", `?&u=${params[1]}&u=0`);
     }
