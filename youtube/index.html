@@ -200,7 +200,7 @@ var graphData = new Highcharts.chart('graph', {
             .then(response => response.json())
             .then(data => {
                 console.log(data)
-                if(data.error == "No such channel found, boomer. And stop using inspect html!") {
+                if(data.subscriberCount == undefined) {
                     console.log("No its not in the api")
 t1ch = false
                 } else {
