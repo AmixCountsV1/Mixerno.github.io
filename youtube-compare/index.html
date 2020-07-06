@@ -349,8 +349,15 @@ t1ch = false
             
     }
     setInterval(function() {
+      if(t1ch == true) {
         getData(params[1]);
-    }, 5000);
+      } else {
+        setTimeout(function() {
+          getData(params[1]);
+        }, 18000);
+      }
+        
+    }, 2000);
     setInterval(function() {
         getVisuals(params[1]);
     }, 120000);
