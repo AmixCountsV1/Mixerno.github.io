@@ -246,6 +246,9 @@
                 betweesplit1000 = betweenon / 1000
                 rate = parseFloat(data.items[0].statistics.viewCount) - oldamount
                 rate = rate / betweesplit1000
+                if(rate > parseFloat(data.items[0].statistics.viewCount)) {
+                  rate = 0;
+                }
                 beforeon = new Date();
                 oldamount = parseFloat(data.items[0].statistics.viewCount)
                 console.log(rate, "RATE ESTIMATED",newamount, "newamount ESTIMATED",oldamount, "oldamount ESTIMATED",betweesplit1000, "betweesplit1000 ESTIMATED",)
