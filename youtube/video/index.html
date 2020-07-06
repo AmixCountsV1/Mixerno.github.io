@@ -238,7 +238,7 @@
             setTimeout(getData(params[1]), 100)
           } else {
             if (viewEstimated == true) {
-              if (data.items[0].statistics.viewCount > oldamount || data.items[0].statistics.viewCount < oldamount) {
+              if (data.items[0].statistics.viewCount > oldamount) {
                 newamount = parseFloat(data.items[0].statistics.viewCount)
                 estimt = newamount
                 hiton = new Date();
