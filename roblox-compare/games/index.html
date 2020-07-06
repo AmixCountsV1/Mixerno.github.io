@@ -358,10 +358,18 @@ console.log(som1x2 + ' | Gain')
 if(params[4] == 0) {
   followerCount2.innerHTML = data.data[0].visits
   count2 = data.data[0].visits
+  diffrence.innerHTML = count - count2
+          graphData.series[0].addPoint([
+            (new Date()).getTime(),
+            count - count2
+          ]);
+          if (graphData.series[0].data.length >= 700) {
+            graphData.series[0].data[0].remove()
+          }
 } else {
 
   followerCount2.innerHTML = Math.floor(estimatedvisit2)
-  count2 = Math.floor(estimatedvisit)
+  count2 = Math.floor(estimatedvisit2)
   diffrence.innerHTML = count - count2
           graphData.series[0].addPoint([
             (new Date()).getTime(),
