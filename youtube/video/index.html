@@ -206,7 +206,7 @@
     var viewEstimated = false;
     var estimt = 0;
     if (params[1] == undefined) {
-      window.history.pushState("y", "g", `?&u=kJQP7kiw5Fk`);
+      window.history.pushState("y", "g", `?&u=kJQP7kiw5Fk&u=${params[3]}&u=${params[3]}`);
       windlochref = window.location.href;
       params = windlochref.split('&u=');
 
@@ -219,7 +219,7 @@
     if (params[2] == 1) {
       $('head').append('<link rel="stylesheet" type="text/css" href="../../v2/odometerfast.css">');
     } else {
-      window.history.pushState("y", "g", `?&u=${params[1]}&u=0`);
+      window.history.pushState("y", "g", `?&u=${params[1]}&u=0&u=${params[3]}`);
     }
     if (params[3] == 1) {
       viewEstimated = true
