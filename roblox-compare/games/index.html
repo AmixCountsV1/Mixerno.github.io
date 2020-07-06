@@ -173,15 +173,16 @@ var graphData = new Highcharts.chart('graph', {
     })
     var windlochref = window.location.href;
     var params = windlochref.split('&u=');
+    var estimoitu = false;
     if(params[1] == undefined) {
       if(params[2] == undefined) {
-        window.history.pushState("y", "g", `?&u=606849621&u=4623386862`);
+        window.history.pushState("y", "g", `?&u=735030788&u=606849621&u=${params[3]}&u=${params[4]}`);
         windlochref = window.location.href;
         params = windlochref.split('&u=');
       }
     }
     if(params[1] == undefined) {
-        window.history.pushState("y", "g", `?&u=606849621&u=${params[2]}`);
+        window.history.pushState("y", "g", `?&u=735030788&u=${params[2]}&u=${params[3]}&u=${params[4]}`);
         windlochref = window.location.href;
         params = windlochref.split('&u=');
         getUniverseID(params[1])
@@ -189,14 +190,20 @@ var graphData = new Highcharts.chart('graph', {
       getUniverseID(params[1])
     }
     if(params[2] == undefined) {
-        window.history.pushState("y", "g", `?&u=${params[1]}&u=4623386862`);
+        window.history.pushState("y", "g", `?&u=${params[1]}&u=606849621&u=${params[3]}&u=${params[4]}`);
         windlochref = window.location.href;
         params = windlochref.split('&u=');
     }
     if(params[3] == 1) {
       $('head').append('<link rel="stylesheet" type="text/css" href="../../v2/odometerfast.css">');
     } else {
-      window.history.pushState("y", "g", `?&u=${params[1]}&u=${params[2]}&u=0`);
+      window.history.pushState("y", "g", `?&u=${params[1]}&u=${params[2]}&u=0&u=${params[4]}`);
+    }
+    if(params[4] == 1) {
+      estimoitu = true;
+    } else {
+      window.history.pushState("y", "g", `?&u=${params[1]}&u=${params[2]}&u=${params[3]}&u=0`);
+      estimoitu = false;
     }
     var visits = 0;
     var visitsbefore = 0;
@@ -214,9 +221,13 @@ var graphData = new Highcharts.chart('graph', {
     var newerdate2 = new Date()
     var olderdate2 = new Date()
     var time2 = 0;
+  
+   
+    var universsiid = 0;
+    var universsiid2 = 0;
 
-    var universsiid = 0
-    var universsiid2 = 0
+    var loadedvisits = 0;
+    var loadedvisits2 = 0;
 
     var count = 0;
     var count2 = 0;
@@ -271,7 +282,40 @@ var graphData = new Highcharts.chart('graph', {
 
                   nameuser.innerHTML = data.data[0].name
                 followerCount.innerHTML = data.data[0].visits
-              count = data.data[0].visits
+          visits = data.data[0].visits
+
+if (time > 0) {
+  if (visits > visitsbefore) {
+    newerdate = new Date()
+    som1 = visits - visitsbefore
+
+    som1x = som1 / 60 * 2
+    olderdate = new Date()
+    estimatedvisit = visits
+    visitsbefore = visits;
+  }
+}
+
+estimatedvisit = estimatedvisit + som1x
+//view.innerHTML = json.data[0].visits
+visitsbefore = visits;
+time++
+console.log(estimatedvisit + ' | Currently')
+console.log(som1x + ' | Gain')
+if(params[4] == 0) {
+  followerCount.innerHTML = data.data[0].visits
+  count = data.data[0].visits
+} else {
+
+  followerCount.innerHTML = Math.floor(estimatedvisit)
+  count = Math.floor(estimatedvisit)
+
+}
+
+    
+
+
+         
           
           
         }
@@ -289,10 +333,36 @@ var graphData = new Highcharts.chart('graph', {
                     console.log("GJ TWITTER API lol")
                 } else {
 
-                nameuser2.innerHTML = data.data[0].name
+                  nameuser2.innerHTML = data.data[0].name
                 followerCount2.innerHTML = data.data[0].visits
-              count2 = data.data[0].visits
-          diffrence.innerHTML = count - count2
+              visits2 = data.data[0].visits
+
+if (time2 > 0) {
+  if (visits2 > visitsbefore2) {
+    newerdate2 = new Date()
+    som12 = visits2 - visitsbefore2
+
+    som1x2 = som12 / 60 * 2
+    olderdate2 = new Date()
+    estimatedvisit2 = visits2
+    visitsbefore2 = visits2;
+  }
+}
+
+estimatedvisit2 = estimatedvisit2 + som1x2
+//view.innerHTML = json.data[0].visits
+visitsbefore2 = visits2;
+time2++
+console.log(estimatedvisit2 + ' | Currently')
+console.log(som1x2 + ' | Gain')
+if(params[4] == 0) {
+  followerCount2.innerHTML = data.data[0].visits
+  count2 = data.data[0].visits
+} else {
+
+  followerCount2.innerHTML = Math.floor(estimatedvisit2)
+  count2 = Math.floor(estimatedvisit)
+  diffrence.innerHTML = count - count2
           graphData.series[0].addPoint([
             (new Date()).getTime(),
             count - count2
@@ -300,6 +370,16 @@ var graphData = new Highcharts.chart('graph', {
           if (graphData.series[0].data.length >= 700) {
             graphData.series[0].data[0].remove()
           }
+}
+
+    
+
+
+         
+          
+          
+                
+          
             
           /*ytname.innerHTML = data.username
           totalviews.innerHTML = data.points
