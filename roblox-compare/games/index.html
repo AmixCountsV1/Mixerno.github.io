@@ -224,11 +224,10 @@ var graphData = new Highcharts.chart('graph', {
   
    
     var universsiid = 0;
-    var universsiid2 = 0;
-
+    var universsiid = 0
+    var universsiid2 = 0
     var loadedvisits = 0;
     var loadedvisits2 = 0;
-
     var count = 0;
     var count2 = 0;
     
@@ -282,40 +281,7 @@ var graphData = new Highcharts.chart('graph', {
 
                   nameuser.innerHTML = data.data[0].name
                 followerCount.innerHTML = data.data[0].visits
-          visits = data.data[0].visits
-
-if (time > 0) {
-  if (visits > visitsbefore) {
-    newerdate = new Date()
-    som1 = visits - visitsbefore
-
-    som1x = som1 / 60 * 2
-    olderdate = new Date()
-    estimatedvisit = visits
-    visitsbefore = visits;
-  }
-}
-
-estimatedvisit = estimatedvisit + som1x
-//view.innerHTML = json.data[0].visits
-visitsbefore = visits;
-time++
-console.log(estimatedvisit + ' | Currently')
-console.log(som1x + ' | Gain')
-if(params[4] == 0) {
-  followerCount.innerHTML = data.data[0].visits
-  count = data.data[0].visits
-} else {
-
-  followerCount.innerHTML = Math.floor(estimatedvisit)
-  count = Math.floor(estimatedvisit)
-
-}
-
-    
-
-
-         
+              count = data.data[0].visits
           
           
         }
@@ -333,32 +299,10 @@ if(params[4] == 0) {
                     console.log("GJ TWITTER API lol")
                 } else {
 
-                  nameuser2.innerHTML = data.data[0].name
+                nameuser2.innerHTML = data.data[0].name
                 followerCount2.innerHTML = data.data[0].visits
-              visits2 = data.data[0].visits
-
-if (time2 > 0) {
-  if (visits2 > visitsbefore2) {
-    newerdate2 = new Date()
-    som12 = visits2 - visitsbefore2
-
-    som1x2 = som12 / 60 * 2
-    olderdate2 = new Date()
-    estimatedvisit2 = visits2
-    visitsbefore2 = visits2;
-  }
-}
-
-estimatedvisit2 = estimatedvisit2 + som1x2
-//view.innerHTML = json.data[0].visits
-visitsbefore2 = visits2;
-time2++
-console.log(estimatedvisit2 + ' | Currently')
-console.log(som1x2 + ' | Gain')
-if(params[4] == 0) {
-  followerCount2.innerHTML = data.data[0].visits
-  count2 = data.data[0].visits
-  diffrence.innerHTML = count - count2
+              count2 = data.data[0].visits
+          diffrence.innerHTML = count - count2
           graphData.series[0].addPoint([
             (new Date()).getTime(),
             count - count2
@@ -366,32 +310,6 @@ if(params[4] == 0) {
           if (graphData.series[0].data.length >= 700) {
             graphData.series[0].data[0].remove()
           }
-} else {
-if(data.data[0].visits >= Math.floor(estimatedvisit2)) {
-
-} else {
-  followerCount2.innerHTML = Math.floor(estimatedvisit2)
-  count2 = Math.floor(estimatedvisit2)
-  diffrence.innerHTML = count - count2
-          graphData.series[0].addPoint([
-            (new Date()).getTime(),
-            count - count2
-          ]);
-          if (graphData.series[0].data.length >= 700) {
-            graphData.series[0].data[0].remove()
-          }
-}
-  
-}
-
-    
-
-
-         
-          
-          
-                
-          
             
           /*ytname.innerHTML = data.username
           totalviews.innerHTML = data.points
