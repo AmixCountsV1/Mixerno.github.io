@@ -247,10 +247,13 @@
                 rate = newamount - oldamount / betweesplit1000
                 beforeon = new Date();
                 oldamount = parseFloat(data.items[0].statistics.viewCount)
+                console.log(rate, "RATE ESTIMATED")
               } else {
+                
                 estimt = estimt + rate * 10000
                 newamount = parseFloat(data.items[0].statistics.viewCount)
                 oldamount = parseFloat(data.items[0].statistics.viewCount)
+                console.log(estimt, "ESTIMATED")
                 followerCount.innerHTML = estimt
               graphData.series[0].addPoint([
               (new Date()).getTime(),
@@ -261,6 +264,7 @@
             }
               }
             } else {
+              console.log(data.items[0].statistics.viewCount, "BASIC")
               followerCount.innerHTML = data.items[0].statistics.viewCount
               graphData.series[0].addPoint([
               (new Date()).getTime(),
