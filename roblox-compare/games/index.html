@@ -367,7 +367,9 @@ if(params[4] == 0) {
             graphData.series[0].data[0].remove()
           }
 } else {
+if(data.data[0].visits >= count2) {
 
+} else {
   followerCount2.innerHTML = Math.floor(estimatedvisit2)
   count2 = Math.floor(estimatedvisit2)
   diffrence.innerHTML = count - count2
@@ -378,6 +380,8 @@ if(params[4] == 0) {
           if (graphData.series[0].data.length >= 700) {
             graphData.series[0].data[0].remove()
           }
+}
+  
 }
 
     
