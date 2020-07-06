@@ -238,7 +238,7 @@
             setTimeout(getData(params[1]), 100)
           } else {
             if (viewEstimated == true) {
-              if (data.items[0].statistics.viewCount > oldamount) {
+              if (parseFloat(data.items[0].statistics.viewCount) > oldamount) {
                 newamount = parseFloat(data.items[0].statistics.viewCount)
                 estimt = newamount
                 hiton = new Date();
@@ -248,6 +248,14 @@
                 beforeon = new Date();
                 oldamount = parseFloat(data.items[0].statistics.viewCount)
                 console.log(rate, "RATE ESTIMATED")
+                followerCount.innerHTML = estimt
+              graphData.series[0].addPoint([
+              (new Date()).getTime(),
+              parseFloat(estimt)
+            ]);
+            if (graphData.series[0].data.length >= 700) {
+              graphData.series[0].data[0].remove()
+            }
               } else {
                 
                 estimt = estimt + rate * 10
