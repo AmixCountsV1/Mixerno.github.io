@@ -258,8 +258,8 @@
               graphData.series[0].data[0].remove()
             }
               } else {
-                if(estimt > oldamount * 1.5) {
-                  estimt = oldamount
+                if(estimt > parseFloat(data.items[0].statistics.viewCount) * 1.5) {
+                  estimt = parseFloat(data.items[0].statistics.viewCount)
                   graphData = new Highcharts.chart('graph', {
       chart: {
         backgroundColor: 'transparent',
