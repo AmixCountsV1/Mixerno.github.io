@@ -476,15 +476,15 @@
       } else {
         //Set the sub count
         if (document.getElementById("rtin2").value == "seconds") {
-          minrate2 = parseFloat($('#minsubrate2').val()) * 2
+          minrate2 = parseFloat($('#minsubrate2').val())
         } else if (document.getElementById("rtin2").value == "minutes") {
-          minrate2 = parseFloat($('#minsubrate2').val()) / 30
+          minrate2 = parseFloat($('#minsubrate2').val()) / 60
         } else if (document.getElementById("rtin2").value == "hours") {
-          minrate2 = parseFloat($('#minsubrate2').val()) / 60 / 30
+          minrate2 = parseFloat($('#minsubrate2').val()) / 60 / 60
         } else if (document.getElementById("rtin2").value == "days") {
-          minrate2 = parseFloat($('#minsubrate2').val()) / 24 / 60 / 30
+          minrate2 = parseFloat($('#minsubrate2').val()) / 24 / 60 / 60
         } else {
-          minrate2 = parseFloat($('#minsubrate2').val()) * 2
+          minrate2 = parseFloat($('#minsubrate2').val())
         }
 
       }
@@ -494,15 +494,15 @@
         //Set the sub count
         maxrate2 = parseFloat($('#maxsubrate2').val())
         if (document.getElementById("rtin2").value == "seconds") {
-          maxrate2 = parseFloat($('#maxsubrate2').val()) * 2
+          maxrate2 = parseFloat($('#maxsubrate2').val())
         } else if (document.getElementById("rtin2").value == "minutes") {
-          maxrate2 = parseFloat($('#maxsubrate2').val()) / 30
+          maxrate2 = parseFloat($('#maxsubrate2').val()) / 60
         } else if (document.getElementById("rtin2").value == "hours") {
-          maxrate2 = parseFloat($('#maxsubrate2').val()) / 60 / 30
+          maxrate2 = parseFloat($('#maxsubrate2').val()) / 60 / 60
         } else if (document.getElementById("rtin2").value == "days") {
-          maxrate2 = parseFloat($('#maxsubrate2').val()) / 24 / 60 / 30
+          maxrate2 = parseFloat($('#maxsubrate2').val()) / 24 / 60 / 60
         } else {
-          maxrate2 = parseFloat($('#maxsubrate2').val()) * 2
+          maxrate2 = parseFloat($('#maxsubrate2').val())
         }
       }
 
