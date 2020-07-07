@@ -248,8 +248,8 @@
                 rate = parseFloat(data.items[0].statistics.viewCount) - oldamount
                 rateReal = rate / betweesplit1000
                 rateReal = rateReal * 10
-                if(rate > parseFloat(data.items[0].statistics.viewCount)) {
-                  rate = 0;
+                if(rateReal > parseFloat(data.items[0].statistics.viewCount)) {
+                  rateReal = 0;
                 }
                 beforeon = new Date();
                 oldamount = parseFloat(data.items[0].statistics.viewCount)
@@ -272,8 +272,8 @@
                 rate = parseFloat(data.items[0].statistics.viewCount) - oldamount
                 rateReal = rate / betweesplit1000
                 rateReal = rateReal * 10
-                if(rate > parseFloat(data.items[0].statistics.viewCount)) {
-                  rate = 0;
+                if(rateReal > parseFloat(data.items[0].statistics.viewCount)) {
+                  rateReal = 0;
                 }
                 beforeon = new Date();
                 oldamount = parseFloat(data.items[0].statistics.viewCount)
