@@ -252,10 +252,10 @@
                 beforeon = new Date();
                 oldamount = parseFloat(data.items[0].statistics.viewCount)
                 console.log(rate, "RATE ESTIMATED",newamount, "newamount ESTIMATED",oldamount, "oldamount ESTIMATED",betweesplit1000, "betweesplit1000 ESTIMATED",)
-                followerCount.innerHTML = estimt
+                followerCount.innerHTML = Math.floor(estimt)
               graphData.series[0].addPoint([
               (new Date()).getTime(),
-              parseFloat(estimt)
+              parseFloat(Math.floor(estimt))
             ]);
             if (graphData.series[0].data.length >= 700) {
               graphData.series[0].data[0].remove()
@@ -308,14 +308,14 @@
       }]
     })
                 }
-                estimt = estimt + rate * 10
+                estimt = estimt + rate * 5
                 newamount = parseFloat(data.items[0].statistics.viewCount)
                 oldamount = parseFloat(data.items[0].statistics.viewCount)
                 console.log(estimt, "ESTIMATED",rate, "rate ESTIMATED",newamount, "newamount ESTIMATED",oldamount, "oldamount ESTIMATED",betweesplit1000, "betweesplit1000 ESTIMATED",)
-                followerCount.innerHTML = estimt
+                followerCount.innerHTML = Math.floor(estimt)
               graphData.series[0].addPoint([
               (new Date()).getTime(),
-              parseFloat(estimt)
+              parseFloat(Math.floor(estimt))
             ]);
             if (graphData.series[0].data.length >= 700) {
               graphData.series[0].data[0].remove()
