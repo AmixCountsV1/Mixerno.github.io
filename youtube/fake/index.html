@@ -70,14 +70,21 @@
       <button id="setupdateinterval">Set Update Interval</button><br>
     </div>
     <div class="buttons">
-      <input type="text" placeholder="How much it gives" id="auditgive"><input type="text" placeholder="When (in seconds)" id="auditwait">
+      <input type="text" placeholder="How much it gives" id="auditgive"><input type="text"
+        placeholder="When (in seconds)" id="auditwait">
       <button id="setaudit">Set Audit values</button><br>
     </div>
     <div class="buttons">
       <p>Api Updates (checks every 2 minutes):</p>
-      <input type="text" placeholder="Channel ID (keep blank if you dont want any)" id="channelid">
+      <input type="text" placeholder="Channel ID/user tag" id="channelid"><select
+        name="Platform" id="platforma">
+        <option value="youtube">Youtube</option>
+        <option value="tiktok">TikTok</option>
+      </select>
       <button id="setapiupdates">Set Value</button><br>
-      <p>ChannelID: <div id="worksornot">works.</div></p><br>
+      <p> API:
+      <div id="worksornot">works.</div>
+      </p><br>
     </div>
     <div class="buttons">
       <button id="cleargraph" style="width: 50%;">Clear Graph</button> <button data-toggle="modal" data-target="#cnglog"
@@ -121,19 +128,19 @@
   *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
   *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
   var windlochref = window.location.href;
-var params = windlochref.split('&u=');
+  var params = windlochref.split('&u=');
   var disqus_config = function () {
-  this.page.url = params[0]+'&u='+params[1];  // Replace PAGE_URL with your page's canonical URL variable
-  this.page.identifier = params[1]; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    this.page.url = params[0] + '&u=' + params[1];  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = params[1]; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
   };
-  
-  (function() { // DON'T EDIT BELOW THIS LINE
-  var d = document, s = d.createElement('script');
-  s.src = 'https://mixernospace-1.disqus.com/embed.js';
-  s.setAttribute('data-timestamp', +new Date());
-  (d.head || d.body).appendChild(s);
+
+  (function () { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://mixernospace-1.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
   })();
-  </script>
+</script>
 
 <script>
   $(document).ready(function () {
@@ -185,12 +192,12 @@ var params = windlochref.split('&u=');
     })
     var windlochref = window.location.href;
     var params = windlochref.split('&u=');
-    if(params[1] == 1) {
+    if (params[1] == 1) {
       $('head').append('<link rel="stylesheet" type="text/css" href="../../v2/odometerfast.css">');
     } else {
       window.history.pushState("y", "g", `?&u=0`);
     }
-     
+
     var fakecount = 0;
     var minrate = 0;
     var maxrate = 0;
@@ -247,82 +254,82 @@ var params = windlochref.split('&u=');
               subsbefore = subscribercount
               fakecount = subscribercount + 1
             }
-          /*  if (subscribercount > 999) {
-              if (subscribercount > 9999) {
-                if (subscribercount > 99999) {
-              if (subscribercount > 999999) {
-                if (subscribercount > 9999999) {
-              if (subscribercount > 99999999) {
-                if (subscribercount > 999999999) {
-              if (subscribercount > 9999999999) {
-                console.log("Congratz")
+            /*  if (subscribercount > 999) {
+                if (subscribercount > 9999) {
+                  if (subscribercount > 99999) {
+                if (subscribercount > 999999) {
+                  if (subscribercount > 9999999) {
+                if (subscribercount > 99999999) {
+                  if (subscribercount > 999999999) {
+                if (subscribercount > 9999999999) {
+                  console.log("Congratz")
+                } else {
+                  milestone = 10000000
+                }
               } else {
-                milestone = 10000000
+                milestone = 1000000
               }
-            } else {
-              milestone = 1000000
-            }
+                } else {
+                  milestone = 100000
+                }
               } else {
-                milestone = 100000
+                milestone = 10000
               }
-            } else {
-              milestone = 10000
-            }
+                } else {
+                  milestone = 1000
+                }
               } else {
-                milestone = 1000
+                milestone = 100
               }
-            } else {
-              milestone = 100
-            }
+                } else {
+                  milestone = 10
+                }
               } else {
-                milestone = 10
+                milestone = 1
               }
-            } else {
-              milestone = 1
-            }
-            if (fakecount < subscribercount - milestone) {
-              subsbefore = subscribercount
-              fakecount = subscribercount
-            }*/
+              if (fakecount < subscribercount - milestone) {
+                subsbefore = subscribercount
+                fakecount = subscribercount
+              }*/
           }
         })
     }
 
     everywait()
-function everywait() {
-  setTimeout(function() {
-    if (fakecount == 0) {
-    everywait()
-} else {
-    test(1)
-    everywait()
-  
-}
-  }, timewait*1000)
-}
-adit()
-function adit() {
-  setTimeout(function() {
-    if (audit == 0) {
-      console.log("nothing")
-      adit()
-} else {
-   fakecount = fakecount + audit
-   console.log("added/decreased")
-   adit()
-  
-}
-  }, auditwhen*1000)
-}
-  
-  /*  setInterval(function () {
-      if (fakecount == 0) {
+    function everywait() {
+      setTimeout(function () {
+        if (fakecount == 0) {
+          everywait()
+        } else {
+          test(1)
+          everywait()
 
-      } else {
-        test(1)
-      }
+        }
+      }, timewait * 1000)
+    }
+    adit()
+    function adit() {
+      setTimeout(function () {
+        if (audit == 0) {
+          console.log("nothing")
+          adit()
+        } else {
+          fakecount = fakecount + audit
+          console.log("added/decreased")
+          adit()
 
-    }, 2000);*/
+        }
+      }, auditwhen * 1000)
+    }
+
+    /*  setInterval(function () {
+        if (fakecount == 0) {
+  
+        } else {
+          test(1)
+        }
+  
+      }, 2000);*/
     setInterval(function () {
       if (apiupdates == false) {
 
@@ -344,31 +351,31 @@ function adit() {
         //Dont set it
       } else {
         //Set the sub count
-        if(document.getElementById("rtin").value == "seconds") {
+        if (document.getElementById("rtin").value == "seconds") {
           minrate = parseFloat($('#minsubrate').val())
-        } else if(document.getElementById("rtin").value == "minutes") {
+        } else if (document.getElementById("rtin").value == "minutes") {
           minrate = parseFloat($('#minsubrate').val()) / 60
-        } else if(document.getElementById("rtin").value == "hours") {
+        } else if (document.getElementById("rtin").value == "hours") {
           minrate = parseFloat($('#minsubrate').val()) / 60 / 60
-        } else if(document.getElementById("rtin").value == "days") {
+        } else if (document.getElementById("rtin").value == "days") {
           minrate = parseFloat($('#minsubrate').val()) / 24 / 60 / 60
         } else {
           minrate = parseFloat($('#minsubrate').val())
         }
-        
+
       }
       if ($('#maxsubrate').val() == '') {
         //Dont set it
       } else {
         //Set the sub count
         maxrate = parseFloat($('#maxsubrate').val())
-        if(document.getElementById("rtin").value == "seconds") {
+        if (document.getElementById("rtin").value == "seconds") {
           maxrate = parseFloat($('#maxsubrate').val())
-        } else if(document.getElementById("rtin").value == "minutes") {
+        } else if (document.getElementById("rtin").value == "minutes") {
           maxrate = parseFloat($('#maxsubrate').val()) / 60
-        } else if(document.getElementById("rtin").value == "hours") {
+        } else if (document.getElementById("rtin").value == "hours") {
           maxrate = parseFloat($('#maxsubrate').val()) / 60 / 60
-        } else if(document.getElementById("rtin").value == "days") {
+        } else if (document.getElementById("rtin").value == "days") {
           maxrate = parseFloat($('#maxsubrate').val()) / 24 / 60 / 60
         } else {
           maxrate = parseFloat($('#maxsubrate').val())
@@ -418,35 +425,35 @@ function adit() {
     });
     $('#setupdateinterval').click(function () {
 
-if ($('#time').val() == '') {
-  //Dont set it
-} else {
-  //Set the sub count
-  timewait = $('#time').val()
-}
+      if ($('#time').val() == '') {
+        //Dont set it
+      } else {
+        //Set the sub count
+        timewait = $('#time').val()
+      }
 
 
 
-});
-$('#setaudit').click(function () {
+    });
+    $('#setaudit').click(function () {
 
-if ($('#auditwait').val() == '') {
-  //Dont set it
-} else {
-  //Set the sub count
-  auditwhen = parseFloat($('#auditwait').val())
-}
-if ($('#auditgive').val() == '') {
-  //Dont set it
-} else {
-  //Set the sub count
-  audit = parseFloat($('#auditgive').val())
-}
-
-
+      if ($('#auditwait').val() == '') {
+        //Dont set it
+      } else {
+        //Set the sub count
+        auditwhen = parseFloat($('#auditwait').val())
+      }
+      if ($('#auditgive').val() == '') {
+        //Dont set it
+      } else {
+        //Set the sub count
+        audit = parseFloat($('#auditgive').val())
+      }
 
 
-});
+
+
+    });
     $('#cleargraph').click(function () {
 
       graphData = new Highcharts.chart('graph', {

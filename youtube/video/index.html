@@ -261,6 +261,29 @@
               graphData.series[0].data[0].remove()
             }
               } else {
+                if(parseFloat(data.items[0].statistics.viewCount) < oldamount) {
+                  newamount = parseFloat(data.items[0].statistics.viewCount)
+                estimt = newamount
+                hiton = new Date();
+                betweenon = hiton.getTime() - beforeon.getTime()
+                betweesplit1000 = betweenon / 1000
+                rate = parseFloat(data.items[0].statistics.viewCount) - oldamount
+                rate = rate / betweesplit1000
+                if(rate > parseFloat(data.items[0].statistics.viewCount)) {
+                  rate = 0;
+                }
+                beforeon = new Date();
+                oldamount = parseFloat(data.items[0].statistics.viewCount)
+                console.log(rate, "RATE ESTIMATED",newamount, "newamount ESTIMATED",oldamount, "oldamount ESTIMATED",betweesplit1000, "betweesplit1000 ESTIMATED",)
+                followerCount.innerHTML = Math.floor(estimt)
+              graphData.series[0].addPoint([
+              (new Date()).getTime(),
+              parseFloat(Math.floor(estimt))
+            ]);
+            if (graphData.series[0].data.length >= 700) {
+              graphData.series[0].data[0].remove()
+            }
+                }
                 if(estimt > parseFloat(data.items[0].statistics.viewCount) * 1.5) {
                   estimt = parseFloat(data.items[0].statistics.viewCount)
                   graphData = new Highcharts.chart('graph', {
