@@ -52,7 +52,7 @@
     <br>
     <div class="buttons">
       <input type="text" placeholder="Name" id="username"><input type="text" placeholder="Image URL" id="imgurl">
-      <input type="text" placeholder="Subscribers" id="subs"><button id="setvisuals">Set Visuals</button><br>
+      <input type="text" placeholder="Subscribers" id="subs"><h1><input type="checkbox" name="Abbreivated?" id="abbrevated">Abbreivated?</h1><button id="setvisuals">Set Visuals</button><br>
     </div>
     <div class="buttons">
       <input type="text" placeholder="Min Sub Rate" id="minsubrate">
@@ -69,6 +69,7 @@
       <input type="text" placeholder="here" id="time">
       <button id="setupdateinterval">Set Update Interval</button><br>
     </div>
+    
     <div class="buttons">
       <input type="text" placeholder="How much it gives" id="auditgive"><input type="text"
         placeholder="When (in seconds)" id="auditwait">
@@ -76,8 +77,7 @@
     </div>
     <div class="buttons">
       <p>Api Updates (checks every 2 minutes):</p>
-      <input type="text" placeholder="Channel ID/user tag" id="channelid"><select
-        name="Platform" id="platforma">
+      <input type="text" placeholder="Channel ID/user tag" id="channelid"><select name="Platform" id="platforma">
         <option value="youtube">Youtube</option>
         <option value="tiktok">TikTok</option>
       </select>
@@ -192,11 +192,11 @@
     })
     var windlochref = window.location.href;
     var params = windlochref.split('&u=');
-    if (params[1] == 1) {
+
+    if (params[2] == 1) {
       $('head').append('<link rel="stylesheet" type="text/css" href="../../v2/odometerfast.css">');
-    } else {
-      window.history.pushState("y", "g", `?&u=0`);
     }
+
 
     var fakecount = 0;
     var minrate = 0;
@@ -208,7 +208,7 @@
     var subsbefore = 0;
     var subscribercount = 0;
     var timewait = 2;
-
+    var abbreivated = false;
     var audit = 0;
     var auditwhen = 2;
     if (fakecount == 0) {
@@ -221,14 +221,214 @@
       fakecount = fakecount + randomIntFromInterval(minrate, maxrate)
       nameuser.innerHTML = name
       $("#image").attr('src', `${image}`);
-      followerCount.innerHTML = Math.floor(fakecount)
-      graphData.series[0].addPoint([
-        (new Date()).getTime(),
-        parseFloat(Math.floor(fakecount))
-      ]);
-      if (graphData.series[0].data.length >= 700) {
-        graphData.series[0].data[0].remove()
+      if (abbreivated == true) {
+        var number1 = fakecount
+        if (1000 < number1) {
+          if (10000 < number1) {
+            if (100000 < number1) {
+              if (1000000 < number1) {
+                if (10000000 < number1) {
+                  if (100000000 < number1) {
+                    if (1000000000 < number1) {
+                      if (10000000000 < number1) {
+                        if (100000000000 < number1) {
+                          if (1000000000000 < number1) {
+                            if (10000000000000 < number1) {
+                              if (100000000000000 < number1) {
+                                followerCount.innerHTML = Math.floor(number1)
+                                graphData.series[0].addPoint([
+                                  (new Date()).getTime(),
+                                  parseFloat(Math.floor(number1))
+                                ]);
+                                if (graphData.series[0].data.length >= 700) {
+                                  graphData.series[0].data[0].remove()
+                                }
+                              } else {
+                                var numb1 = number1.toString()
+                                console.log(numb1)
+                                var num1 = numb1.slice(0, 3);
+                                console.log(num1)
+                                num1 = num1 + '00000000000'
+                                followerCount.innerHTML = Math.floor(num1)
+                                graphData.series[0].addPoint([
+                                  (new Date()).getTime(),
+                                  parseFloat(Math.floor(num1))
+                                ]);
+                                if (graphData.series[0].data.length >= 700) {
+                                  graphData.series[0].data[0].remove()
+                                }
+                              }
+                            } else {
+                              var numb1 = number1.toString()
+                              console.log(numb1)
+                              var num1 = numb1.slice(0, 3);
+                              console.log(num1)
+                              num1 = num1 + '0000000000'
+                              followerCount.innerHTML = Math.floor(num1)
+                              graphData.series[0].addPoint([
+                                (new Date()).getTime(),
+                                parseFloat(Math.floor(num1))
+                              ]);
+                              if (graphData.series[0].data.length >= 700) {
+                                graphData.series[0].data[0].remove()
+                              }
+                            }
+                          } else {
+                            var numb1 = number1.toString()
+                            console.log(numb1)
+                            var num1 = numb1.slice(0, 3);
+                            console.log(num1)
+                            num1 = num1 + '000000000'
+                            followerCount.innerHTML = Math.floor(num1)
+                            graphData.series[0].addPoint([
+                              (new Date()).getTime(),
+                              parseFloat(Math.floor(num1))
+                            ]);
+                            if (graphData.series[0].data.length >= 700) {
+                              graphData.series[0].data[0].remove()
+                            }
+                          }
+                        } else {
+                          var numb1 = number1.toString()
+                          console.log(numb1)
+                          var num1 = numb1.slice(0, 3);
+                          console.log(num1)
+                          num1 = num1 + '00000000'
+                          followerCount.innerHTML = Math.floor(num1)
+                          graphData.series[0].addPoint([
+                            (new Date()).getTime(),
+                            parseFloat(Math.floor(num1))
+                          ]);
+                          if (graphData.series[0].data.length >= 700) {
+                            graphData.series[0].data[0].remove()
+                          }
+                        }
+                      } else {
+                        var numb1 = number1.toString()
+                        console.log(numb1)
+                        var num1 = numb1.slice(0, 3);
+                        console.log(num1)
+                        num1 = num1 + '0000000'
+                        followerCount.innerHTML = Math.floor(num1)
+                        graphData.series[0].addPoint([
+                          (new Date()).getTime(),
+                          parseFloat(Math.floor(num1))
+                        ]);
+                        if (graphData.series[0].data.length >= 700) {
+                          graphData.series[0].data[0].remove()
+                        }
+                      }
+                    } else {
+                      var numb1 = number1.toString()
+                      console.log(numb1)
+                      var num1 = numb1.slice(0, 3);
+                      console.log(num1)
+                      num1 = num1 + '000000'
+                      followerCount.innerHTML = Math.floor(num1)
+                      graphData.series[0].addPoint([
+                        (new Date()).getTime(),
+                        parseFloat(Math.floor(num1))
+                      ]);
+                      if (graphData.series[0].data.length >= 700) {
+                        graphData.series[0].data[0].remove()
+                      }
+                    }
+                  } else {
+                    var numb1 = number1.toString()
+                    console.log(numb1)
+                    var num1 = numb1.slice(0, 3);
+                    console.log(num1)
+                    num1 = num1 + '00000'
+                    followerCount.innerHTML = Math.floor(num1)
+                    graphData.series[0].addPoint([
+                      (new Date()).getTime(),
+                      parseFloat(Math.floor(num1))
+                    ]);
+                    if (graphData.series[0].data.length >= 700) {
+                      graphData.series[0].data[0].remove()
+                    }
+                  }
+                } else {
+                  var numb1 = number1.toString()
+                  console.log(numb1)
+                  var num1 = numb1.slice(0, 3);
+                  console.log(num1)
+                  num1 = num1 + '0000'
+                  followerCount.innerHTML = Math.floor(num1)
+                  graphData.series[0].addPoint([
+                    (new Date()).getTime(),
+                    parseFloat(Math.floor(num1))
+                  ]);
+                  if (graphData.series[0].data.length >= 700) {
+                    graphData.series[0].data[0].remove()
+                  }
+                }
+              } else {
+                var numb1 = number1.toString()
+                console.log(numb1)
+                var num1 = numb1.slice(0, 3);
+                console.log(num1)
+                num1 = num1 + '000'
+                followerCount.innerHTML = Math.floor(num1)
+                graphData.series[0].addPoint([
+                  (new Date()).getTime(),
+                  parseFloat(Math.floor(num1))
+                ]);
+                if (graphData.series[0].data.length >= 700) {
+                  graphData.series[0].data[0].remove()
+                }
+              }
+            } else {
+              var numb1 = number1.toString()
+              console.log(numb1)
+              var num1 = numb1.slice(0, 3);
+              console.log(num1)
+              num1 = num1 + '00'
+              followerCount.innerHTML = Math.floor(num1)
+              graphData.series[0].addPoint([
+                (new Date()).getTime(),
+                parseFloat(Math.floor(num1))
+              ]);
+              if (graphData.series[0].data.length >= 700) {
+                graphData.series[0].data[0].remove()
+              }
+            }
+          } else {
+            var numb1 = number1.toString()
+            console.log(numb1)
+            var num1 = numb1.slice(0, 3);
+            console.log(num1)
+            num1 = num1 + '0'
+            followerCount.innerHTML = Math.floor(num1)
+            graphData.series[0].addPoint([
+              (new Date()).getTime(),
+              parseFloat(Math.floor(num1))
+            ]);
+            if (graphData.series[0].data.length >= 700) {
+              graphData.series[0].data[0].remove()
+            }
+          }
+        } else {
+          followerCount.innerHTML = Math.floor(number1)
+          graphData.series[0].addPoint([
+            (new Date()).getTime(),
+            parseFloat(Math.floor(number1))
+          ]);
+          if (graphData.series[0].data.length >= 700) {
+            graphData.series[0].data[0].remove()
+          }
+        }
+      } else {
+        followerCount.innerHTML = Math.floor(fakecount)
+        graphData.series[0].addPoint([
+          (new Date()).getTime(),
+          parseFloat(Math.floor(fakecount))
+        ]);
+        if (graphData.series[0].data.length >= 700) {
+          graphData.series[0].data[0].remove()
+        }
       }
+
     }
     function randomIntFromInterval(min, max) { // min and max included 
       var lol = Math.floor(Math.random() * (max - min + 1) + min);
@@ -404,6 +604,13 @@
       } else {
         //Set the sub count
         image = $('#imgurl').val()
+      }
+      if (document.getElementById("abbrevated").checked == true) {
+        //Dont set it
+        abbreivated = true
+      } else {
+        //Set the sub count
+        abbreivated = false
       }
 
 
