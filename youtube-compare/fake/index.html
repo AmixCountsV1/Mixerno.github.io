@@ -29,7 +29,7 @@
   <script type="text/javascript" src="../../jquery-3.1.1.min.js"></script>
   <script src="https://code.highcharts.com/highcharts.js"></script>
   <link rel="stylesheet" href="../../bootstrap.css">
-  <link rel="stylesheet" href="../../v2/compare.css">
+  <link rel="stylesheet" href="../../v2/fakecompare.css">
   <script src="../../bootstrap.js"></script>
 </head>
 
@@ -60,7 +60,7 @@
     </div>
     <br>
     <div class="row2">
-      <div style="width: 45%;">
+      <div style="width: 100%;">
         <div class="buttons">
           <input type="text" placeholder="Name" id="username"><input type="text" placeholder="Image URL" id="imgurl">
           <input type="text" placeholder="Subscribers" id="subs"><button id="setvisuals">Set Visuals</button><br>
@@ -81,7 +81,7 @@
           <button id="setapiupdates">Set Value</button><br>
         </div>
       </div><br>
-      <div style="width: 45%;">
+      <div style="width: 100%;">
         <div class="buttons">
           <input type="text" placeholder="Name" id="username2"><input type="text" placeholder="Image URL" id="imgurl2">
           <input type="text" placeholder="Subscribers" id="subs2"><button id="setvisuals2">Set Visuals</button><br>
@@ -217,9 +217,8 @@
     var params = windlochref.split('&u=');
     if (params[1] == 1) {
       $('head').append('<link rel="stylesheet" type="text/css" href="../../v2/odometerfast.css">');
-    } else {
-      window.history.pushState("y", "g", `?&u=0`);
     }
+
 
     var fakecount = 0;
     var minrate = 0;
