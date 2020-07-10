@@ -177,8 +177,8 @@ var graphData = new Highcharts.chart('graph', {
     var windlochref = window.location.href;
     var params = windlochref.split('&u=');
     var t1ch = true;
-  /*  if(params[1] == undefined) {
-        window.history.pushState("y", "g", `?&u=charlidamelio`);
+    if(params[1] == undefined) {
+        location.href = `?&u=charlidamelio`;
         windlochref = window.location.href;
         params = windlochref.split('&u=');
 
@@ -189,8 +189,8 @@ var graphData = new Highcharts.chart('graph', {
     if(params[2] == 1) {
       $('head').append('<link rel="stylesheet" type="text/css" href="../v2/odometerfast.css">');
     } else {
-      window.history.pushState("y", "g", `?&u=${params[1]}&u=0`);
-    }*/
+      location.href = `?&u=${params[1]}&u=0`;
+    }
     
    
     
