@@ -191,7 +191,7 @@ var graphData = new Highcharts.chart('graph', {
     getData(params[1]);
     getVisuals(params[1]); 
     function getData(id) {
-      fetch(`${cors}https://livecounts.space/youtube/videoid/liveStreamingDetails/${id}`)
+      fetch(`${cors}https://api.mixerno.space/youtube/videoid/liveStreamingDetails/${id}`)
         .then(response => response.json())
         .then(data => {
           console.log(data)
@@ -212,7 +212,7 @@ var graphData = new Highcharts.chart('graph', {
     }
 
     function getVisuals(id) {
-      fetch(`${cors}https://livecounts.space/youtube/videoid/snippet/${id}`)
+      fetch(`${cors}https://api.mixerno.space/youtube/videoid/snippet/${id}`)
         .then(response => response.json())
         .then(data => {
           console.log(data)
@@ -226,7 +226,7 @@ var graphData = new Highcharts.chart('graph', {
 
           }
         })
-        fetch(`${cors}https://livecounts.space/youtube/videoid/statistics/${id}`)
+        fetch(`${cors}https://api.mixerno.space/youtube/videoid/statistics/${id}`)
         .then(response => response.json())
         .then(data => {
           console.log(data)

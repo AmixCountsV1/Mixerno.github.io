@@ -219,7 +219,7 @@
     getVisuals(params[1]); 
 
     function getData(id) {
-      fetch(`${cors}https://livecounts.space/youtube/videoid/statistics/${id}`)
+      fetch(`${cors}https://api.mixerno.space/youtube/videoid/statistics/${id}`)
         .then(response => response.json())
         .then(data => {
           console.log(data)

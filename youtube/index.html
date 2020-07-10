@@ -207,7 +207,7 @@ t1ch = false
                 }
             })
       } else {
-        fetch(`${cors}https://livecounts.space/youtube/channels/statistics/${id}`)
+        fetch(`${cors}https://api.mixerno.space/youtube/channels/statistics/${id}`)
             .then(response => response.json())
             .then(data => {
                 console.log(data)

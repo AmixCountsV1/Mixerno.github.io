@@ -192,7 +192,7 @@ var params = windlochref.split('&u=');
     getData(params[1]);
 
     function getData(id) {
-      fetch(`${cors}https://livecounts.space/youtube/comments/snippet/${id}`)
+      fetch(`${cors}https://api.mixerno.space/youtube/comments/snippet/${id}`)
         .then(response => response.json())
         .then(data => {
           console.log(data)
