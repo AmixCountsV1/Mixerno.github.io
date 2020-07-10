@@ -193,9 +193,13 @@
     var windlochref = window.location.href;
     var params = windlochref.split('&u=');
 
-    if (params[2] == 1) {
+    if (params[1] == 1) {
       $('head').append('<link rel="stylesheet" type="text/css" href="../../v2/odometerfast.css">');
     }
+    if (params[1] == undefined) {
+      location.href = "?&u=0"
+    }
+
 
 
     var fakecount = 0;
@@ -439,7 +443,7 @@
 
 
     function check(id) {
-      fetch(`https://cors.mixerno.space/https://api.mixerno.space/youtube/fakecounts/${id}`)
+      fetch(`https://cors.mixerno.space/https://livecounts.space/youtube/fakecounts/${id}`)
         .then(res => res.json())
         .then(data => {
           console.log(data)
