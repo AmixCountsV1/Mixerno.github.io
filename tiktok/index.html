@@ -178,18 +178,15 @@ var graphData = new Highcharts.chart('graph', {
     var params = windlochref.split('&u=');
     var t1ch = true;
     if(params[1] == undefined) {
-        location.href = `?&u=charlidamelio`;
-        windlochref = window.location.href;
-        params = windlochref.split('&u=');
-
-    getVisuals(params[1]);
-    } else {
-    getVisuals(params[1]); 
+        location.href = `?&u=charlidamelio&u=0`;
     }
-    if(params[2] == 1) {
+    if (params[2] == 1) {
       $('head').append('<link rel="stylesheet" type="text/css" href="../v2/odometerfast.css">');
-    } else {
-      location.href = `?&u=${params[1]}&u=0`;
+    } else if(params[2] == 2) {
+      $('head').append('<link rel="stylesheet" type="text/css" href="../v2/odometercolors.css">');
+    } else if(params[2] == 3) {
+      $('head').append('<link rel="stylesheet" type="text/css" href="../v2/odometerfast.css">');
+      $('head').append('<link rel="stylesheet" type="text/css" href="../v2/odometercolors.css">');
     }
     
    
