@@ -206,31 +206,20 @@
     var rateReal = rate / betweesplit1000
     var viewEstimated = false;
     var estimt = 0;
-    if (params[1] == undefined) {
-      window.history.pushState("y", "g", `?&u=kJQP7kiw5Fk&u=${params[3]}&u=${params[3]}`);
-      windlochref = window.location.href;
-      params = windlochref.split('&u=');
-
-      getVisuals(params[1]);
-      getData(params[1]);
-    } else {
-      getVisuals(params[1]);
-      getData(params[1]);
+    if(params[1] == undefined) {
+        location.href = `?&u=kJQP7kiw5Fk&u=0&u=0`;
     }
     if (params[2] == 1) {
       $('head').append('<link rel="stylesheet" type="text/css" href="../../v2/odometerfast.css">');
-    } else {
-      window.history.pushState("y", "g", `?&u=${params[1]}&u=0&u=${params[3]}`);
     }
     if (params[3] == 1) {
       viewEstimated = true
-    } else {
-      window.history.pushState("y", "g", `?&u=${params[1]}&u=${params[2]}&u=0`);
     }
-
+    getData(params[1]);
+    getVisuals(params[1]); 
 
     function getData(id) {
-      fetch(`${cors}https://api.mixerno.space/youtube/videoid/statistics/${id}`)
+      fetch(`${cors}https://livecounts.space/youtube/videoid/statistics/${id}`)
         .then(response => response.json())
         .then(data => {
           console.log(data)
@@ -396,7 +385,7 @@
     });
     //
     $('#submitbutton').click(function () {
-      window.history.pushState("y", "g", `?&u=${$('#userinput').val()}`);
+      location.href = `?&u=${$('#userinput').val()}`;
       windlochref = window.location.href;
       params = windlochref.split('&u=');
       graphData = new Highcharts.chart('graph', {

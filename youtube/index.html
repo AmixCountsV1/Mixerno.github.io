@@ -178,22 +178,13 @@ var graphData = new Highcharts.chart('graph', {
     var params = windlochref.split('&u=');
     var t1ch = true;
     if(params[1] == undefined) {
-        window.history.pushState("y", "g", `?&u=UC-lHJZR3Gqxm24_Vd_AJ5Yw`);
-        windlochref = window.location.href;
-        params = windlochref.split('&u=');
-
-        getData(params[1]); 
-    getVisuals(params[1]); 
-    } else {
-      getData(params[1]); 
-    getVisuals(params[1]); 
+        location.href = `?&u=UC-lHJZR3Gqxm24_Vd_AJ5Yw&u=0`;
     }
     if(params[2] == 1) {
       $('head').append('<link rel="stylesheet" type="text/css" href="../v2/odometerfast.css">');
-    } else {
-      window.history.pushState("y", "g", `?&u=${params[1]}&u=0`);
     }
-    
+    getData(params[1]);
+    getVisuals(params[1]); 
     function getData(id) {
       if(t1ch == true) {
         fetch(`${cors}https://api.t1ch.com/youtube/${id}`)
@@ -216,7 +207,7 @@ t1ch = false
                 }
             })
       } else {
-        fetch(`${cors}https://api.mixerno.space/youtube/channels/statistics/${id}`)
+        fetch(`${cors}https://livecounts.space/youtube/channels/statistics/${id}`)
             .then(response => response.json())
             .then(data => {
                 console.log(data)
@@ -313,7 +304,7 @@ t1ch = false
     });
     //
     $('#submitbutton').click(function () {
-      window.history.pushState("y", "g", `?&u=${$('#userinput').val()}`);
+      location.href = `?&u=${$('#userinput').val()}`;
       windlochref = window.location.href;
         params = windlochref.split('&u=');
       graphData = new Highcharts.chart('graph', {

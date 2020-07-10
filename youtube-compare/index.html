@@ -175,36 +175,19 @@ var graphData = new Highcharts.chart('graph', {
     var t1ch = true;
     var t1ch2 = true;
     if(params[1] == undefined) {
-      if(params[2] == undefined) {
-        window.history.pushState("y", "g", `?&u=UC-lHJZR3Gqxm24_Vd_AJ5Yw&u=UCbCmjCuTUZos6Inko4u57UQ`);
-        windlochref = window.location.href;
-        params = windlochref.split('&u=');
-      }
+        location.href = `?&u=UC-lHJZR3Gqxm24_Vd_AJ5Yw&u=UCbCmjCuTUZos6Inko4u57UQ&u=0`;
+      
     }
-    if(params[1] == undefined) {
-        window.history.pushState("y", "g", `?&u=UC-lHJZR3Gqxm24_Vd_AJ5Yw&u=${params[2]}`);
-        windlochref = window.location.href;
-        params = windlochref.split('&u=');
-        getData(params[1]);
-    getVisuals(params[1]);
-    } else {
-        getData(params[1]);
-    getVisuals(params[1]); 
-    }
-    if(params[2] == undefined) {
-        window.history.pushState("y", "g", `?&u=${params[1]}&u=UCbCmjCuTUZos6Inko4u57UQ`);
-        windlochref = window.location.href;
-        params = windlochref.split('&u=');
-    }
-    if(params[3] == 1) {
+    if(params[2] == 1) {
       $('head').append('<link rel="stylesheet" type="text/css" href="../v2/odometerfast.css">');
-    } else {
-      window.history.pushState("y", "g", `?&u=${params[1]}&u=${params[2]}&u=0`);
     }
+
+
     
     var count = 0;
     var count2 = 0;
-    
+    getData(params[1]);
+    getVisuals(params[1]); 
     function getData(id) {
       if(t1ch == true) {
         fetch(`${cors}https://api.t1ch.com/youtube/${id}`)
@@ -222,7 +205,7 @@ t1ch = false
                 }
             })
       } else {
-        fetch(`${cors}https://api.mixerno.space/youtube/channels/statistics/${id}`)
+        fetch(`${cors}https://livecounts.space/youtube/channels/statistics/${id}`)
             .then(response => response.json())
             .then(data => {
                 console.log(data)
@@ -243,7 +226,7 @@ t1ch = false
     
 
     function getVisuals(id) {
-        fetch(`${cors}https://api.mixerno.space/youtube/channels/snippet/${id}`)
+        fetch(`${cors}https://livecounts.space/youtube/channels/snippet/${id}`)
             .then(response => response.json())
             .then(data => {
                 console.log(data)
@@ -294,7 +277,7 @@ t1ch = false
                 }
             })
       } else {
-        fetch(`${cors}https://api.mixerno.space/youtube/channels/statistics/${id}`)
+        fetch(`${cors}https://livecounts.space/youtube/channels/statistics/${id}`)
             .then(response => response.json())
             .then(data => {
                 console.log(data)
@@ -323,7 +306,7 @@ t1ch = false
     
 
     function getVisuals2(id) {
-        fetch(`${cors}https://api.mixerno.space/youtube/channels/snippet/${id}`)
+        fetch(`${cors}https://livecounts.space/youtube/channels/snippet/${id}`)
             .then(response => response.json())
             .then(data => {
                 console.log(data)
@@ -368,7 +351,7 @@ t1ch = false
     });
     //
     $('#submitbutton').click(function () {
-      window.history.pushState("y", "g", `?&u=${$('#userinput').val()}&u=${params[2]}`);
+      location.href = `?&u=${$('#userinput').val()}&u=${params[2]}&u=${params[3]}`;
       windlochref = window.location.href;
         params = windlochref.split('&u=');
       graphData = new Highcharts.chart('graph', {
@@ -426,7 +409,8 @@ t1ch = false
     });
     //
     $('#submitbutton2').click(function () {
-      window.history.pushState("y", "g", `?&u=${params[1]}&u=${$('#userinput2').val()}`);
+
+      location.href = `?&u=${params[1]}&u=${$('#userinput2').val()}&u=${params[3]}`;
       windlochref = window.location.href;
         params = windlochref.split('&u=');
       graphData = new Highcharts.chart('graph', {
