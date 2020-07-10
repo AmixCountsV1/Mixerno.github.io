@@ -173,37 +173,27 @@ var graphData = new Highcharts.chart('graph', {
     })
     var windlochref = window.location.href;
     var params = windlochref.split('&u=');
+
     if(params[1] == undefined) {
-      if(params[2] == undefined) {
-        window.history.pushState("y", "g", `?&u=charlidamelio&u=addisonre`);
-        windlochref = window.location.href;
-        params = windlochref.split('&u=');
-      }
+        location.href = `?&u=charlidamelio&u=addisonre&u=0`;
     }
-    if(params[1] == undefined) {
-        window.history.pushState("y", "g", `?&u=charlidamelio&u=${params[2]}`);
-        windlochref = window.location.href;
-        params = windlochref.split('&u=');
-    getVisuals(params[1]);
-    } else {
-    getVisuals(params[1]); 
-    }
-    if(params[2] == undefined) {
-        window.history.pushState("y", "g", `?&u=${params[1]}&u=addisonre`);
-        windlochref = window.location.href;
-        params = windlochref.split('&u=');
-    }
-    if(params[3] == 1) {
+    if (params[3] == 1) {
       $('head').append('<link rel="stylesheet" type="text/css" href="../v2/odometerfast.css">');
-    } else {
-      window.history.pushState("y", "g", `?&u=${params[1]}&u=${params[2]}&u=0`);
+    } else if(params[3] == 2) {
+      $('head').append('<link rel="stylesheet" type="text/css" href="../v2/odometercolors.css">');
+    } else if(params[3] == 3) {
+      $('head').append('<link rel="stylesheet" type="text/css" href="../v2/odometerfast.css">');
+      $('head').append('<link rel="stylesheet" type="text/css" href="../v2/odometercolors.css">');
     }
     
     var count = 0;
     var count2 = 0;
+    var t1ch = true;
+    var t1ch2 = true;
     
    
-    
+
+    getVisuals(params[1]); 
     function getVisuals(id) {
       var tiktokbypass = [
       'https://immense-castle-34936.herokuapp.com/@',
@@ -213,6 +203,22 @@ var graphData = new Highcharts.chart('graph', {
     ]
     var randomtiktokbypass = Math.floor(Math.random()*tiktokbypass.length);
     var tiktokurl = tiktokbypass[randomtiktokbypass];
+            if(t1ch == true) {
+        fetch(`${cors}https://tiktokapi.t1ch.com/tt/${id}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                if(data.followersCount == undefined) {
+                    console.log("No its not in the api")
+t1ch = false
+                } else {
+
+          followerCount.innerHTML = data.followersCount
+          count = data.followersCount
+                }
+                getVisuals2(params[2])
+            })
+      } else {
         fetch(`${cors}${tiktokurl}${id}`)
             .then(response => response.json())
             .then(data => {
@@ -220,18 +226,16 @@ var graphData = new Highcharts.chart('graph', {
                 if(data.name == undefined) {
                     console.log("#ERROR.")
                 } else {
+
                     nameuser.innerHTML = data.name
           $("#image").attr('src', `${data.avatarurl}`);
           followerCount.innerHTML = data.followers
           count = data.followers
-          /*followingCount.innerHTML = json.following
-          heartsCount.innerHTML = json.hearts
-          videosCount.innerHTML = json.videos*/
-          
-          
                 }
                 getVisuals2(params[2])
             })
+      }
+      
     }
     function getVisuals2(id) {
       var tiktokbypass = [
@@ -242,6 +246,31 @@ var graphData = new Highcharts.chart('graph', {
     ]
     var randomtiktokbypass = Math.floor(Math.random()*tiktokbypass.length);
     var tiktokurl = tiktokbypass[randomtiktokbypass];
+            if(t1ch2 == true) {
+        fetch(`${cors}https://tiktokapi.t1ch.com/tt/${id}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                if(data.followersCount == undefined) {
+                    console.log("No its not in the api")
+t1ch2 = false
+                } else {
+
+
+          followerCount2.innerHTML = data.followersCount
+          count2 = data.followersCount
+          diffrence.innerHTML = count - count2
+          graphData.series[0].addPoint([
+            (new Date()).getTime(),
+            count - count2
+          ]);
+          if (graphData.series[0].data.length >= 700) {
+            graphData.series[0].data[0].remove()
+          }
+                }
+               
+            })
+      } else {
         fetch(`${cors}${tiktokurl}${id}`)
             .then(response => response.json())
             .then(data => {
@@ -262,7 +291,9 @@ var graphData = new Highcharts.chart('graph', {
             graphData.series[0].data[0].remove()
           }
                 }
+                
             })
+      }
     }
     setInterval(function() {
         getVisuals(params[1]);
@@ -274,7 +305,7 @@ var graphData = new Highcharts.chart('graph', {
     });
     //
     $('#submitbutton').click(function () {
-      window.history.pushState("y", "g", `?&u=${$('#userinput').val()}&u=${params[2]}`);
+      location.href = `?&u=${$('#userinput').val()}&u=${params[2]}&u=${params[3]}`;
       windlochref = window.location.href;
         params = windlochref.split('&u=');
       graphData = new Highcharts.chart('graph', {
@@ -331,7 +362,7 @@ var graphData = new Highcharts.chart('graph', {
     });
     //
     $('#submitbutton2').click(function () {
-      window.history.pushState("y", "g", `?&u=${params[1]}&u=${$('#userinput2').val()}`);
+      location.href = `?&u=${params[1]}&u=${$('#userinput2').val()}&u=${params[3]}`;
       windlochref = window.location.href;
         params = windlochref.split('&u=');
       graphData = new Highcharts.chart('graph', {

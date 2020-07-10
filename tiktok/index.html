@@ -176,7 +176,8 @@ var graphData = new Highcharts.chart('graph', {
     })
     var windlochref = window.location.href;
     var params = windlochref.split('&u=');
-    if(params[1] == undefined) {
+    var t1ch = true;
+  /*  if(params[1] == undefined) {
         window.history.pushState("y", "g", `?&u=charlidamelio`);
         windlochref = window.location.href;
         params = windlochref.split('&u=');
@@ -189,11 +190,12 @@ var graphData = new Highcharts.chart('graph', {
       $('head').append('<link rel="stylesheet" type="text/css" href="../v2/odometerfast.css">');
     } else {
       window.history.pushState("y", "g", `?&u=${params[1]}&u=0`);
-    }
+    }*/
     
    
     
 
+    getVisuals(params[1]); 
     function getVisuals(id) {
       var tiktokbypass = [
       'https://immense-castle-34936.herokuapp.com/@',
@@ -203,6 +205,42 @@ var graphData = new Highcharts.chart('graph', {
     ]
     var randomtiktokbypass = Math.floor(Math.random()*tiktokbypass.length);
     var tiktokurl = tiktokbypass[randomtiktokbypass];
+    if(t1ch == true) {
+        fetch(`${cors}https://tiktokapi.t1ch.com/tt/${id}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                if(data.followersCount == undefined) {
+                    console.log("No its not in the api")
+t1ch = false
+                } else {
+
+          followerCount.innerHTML = data.followersCount
+          graphData.series[0].addPoint([
+            (new Date()).getTime(),
+            parseFloat(data.followersCount)
+          ]);
+          if (graphData.series[0].data.length >= 700) {
+            graphData.series[0].data[0].remove()
+          }
+                }
+            })
+            fetch(`${cors}${tiktokurl}${id}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                if(data.name == undefined) {
+                    console.log("#ERROR.")
+                } else {
+
+                    nameuser.innerHTML = data.name
+          $("#image").attr('src', `${data.avatarurl}`);
+          heartsCount.innerHTML = data.hearts
+          videosCount.innerHTML = data.videos
+
+                }
+            })
+      } else {
         fetch(`${cors}${tiktokurl}${id}`)
             .then(response => response.json())
             .then(data => {
@@ -225,6 +263,7 @@ var graphData = new Highcharts.chart('graph', {
           }
                 }
             })
+      }
     }
 
     setInterval(function() {
@@ -237,7 +276,7 @@ var graphData = new Highcharts.chart('graph', {
     });
     //
     $('#submitbutton').click(function () {
-      window.history.pushState("y", "g", `?&u=${$('#userinput').val()}`);
+      location.href = `?&u=${$('#userinput').val()}`;
       windlochref = window.location.href;
         params = windlochref.split('&u=');
       graphData = new Highcharts.chart('graph', {
