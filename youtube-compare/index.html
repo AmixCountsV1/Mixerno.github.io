@@ -203,7 +203,9 @@ t1ch = false
           count = parseFloat(data.subscriberCount)
           getData2(params[2])
                 }
-            })
+            }).catch(function() {
+        t1ch = false
+    });
       } else {
         fetch(`${cors}https://api.mixerno.space/youtube/channels/statistics/${id}`)
             .then(response => response.json())
@@ -275,7 +277,9 @@ t1ch = false
             graphData.series[0].data[0].remove()
           }
                 }
-            })
+            }).catch(function() {
+        t1ch2 = false
+    });
       } else {
         fetch(`${cors}https://api.mixerno.space/youtube/channels/statistics/${id}`)
             .then(response => response.json())

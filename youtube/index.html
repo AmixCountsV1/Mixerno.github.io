@@ -205,7 +205,9 @@ t1ch = false
             graphData.series[0].data[0].remove()
           }
                 }
-            })
+            }).catch(function() {
+        t1ch = false
+    });
       } else {
         fetch(`${cors}https://api.mixerno.space/youtube/channels/statistics/${id}`)
             .then(response => response.json())
