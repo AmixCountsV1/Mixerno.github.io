@@ -193,17 +193,20 @@ var graphData = new Highcharts.chart('graph', {
     
    
 
-    getVisuals(params[1]); 
+    getData(params[1]); 
+
+
     function getVisuals(id) {
+
       var tiktokbypass = [
       'https://immense-castle-34936.herokuapp.com/@',
-      'https://backuptiktokapi.glitch.me/',
+      'https://backuptiktokapi.glitch.me/@',
       'https://backuptiktokapi.herokuapp.com/@',
-      'https://honorable-hazel-atmosphere.glitch.me/'
+      'https://honorable-hazel-atmosphere.glitch.me/@'
     ]
     var randomtiktokbypass = Math.floor(Math.random()*tiktokbypass.length);
     var tiktokurl = tiktokbypass[randomtiktokbypass];
-            if(t1ch == true) {
+    if(t1ch == true) {
         fetch(`${cors}https://tiktokapi.t1ch.com/tt/${id}`)
             .then(response => response.json())
             .then(data => {
@@ -217,19 +220,10 @@ t1ch = false
           count = data.followersCount
                 }
                 getVisuals2(params[2])
-            })
-            fetch(`${cors}${tiktokurl}${id}`)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                if(data.name == undefined) {
-                    console.log("#ERROR.")
-                } else {
-
-                    nameuser.innerHTML = data.name
-          $("#image").attr('src', `${data.avatarurl}`);
-                }
-            })
+            }).catch(function() {
+        t1ch = false
+    });
+            
       } else {
         fetch(`${cors}${tiktokurl}${id}`)
             .then(response => response.json())
@@ -242,13 +236,15 @@ t1ch = false
                     nameuser.innerHTML = data.name
           $("#image").attr('src', `${data.avatarurl}`);
           followerCount.innerHTML = data.followers
-          count = data.followers
+                  count = data.followers
                 }
                 getVisuals2(params[2])
             })
       }
-      
     }
+
+
+    
     function getVisuals2(id) {
       var tiktokbypass = [
       'https://immense-castle-34936.herokuapp.com/@',
@@ -281,7 +277,9 @@ t1ch2 = false
           }
                 }
                
-            })
+            }).catch(function() {
+        t1ch2 = false
+    });
             fetch(`${cors}${tiktokurl}${id}`)
             .then(response => response.json())
             .then(data => {

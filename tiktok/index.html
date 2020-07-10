@@ -192,8 +192,9 @@ var graphData = new Highcharts.chart('graph', {
    
     
 
-    getVisuals(params[1]); 
-    function getVisuals(id) {
+    getData(params[1]); 
+    getVisuals(params[1]);
+    function getData(id) {
       var tiktokbypass = [
       'https://immense-castle-34936.herokuapp.com/@',
       'https://backuptiktokapi.glitch.me/@',
@@ -221,22 +222,10 @@ t1ch = false
             graphData.series[0].data[0].remove()
           }
                 }
-            })
-            fetch(`${cors}${tiktokurl}${id}`)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                if(data.name == undefined) {
-                    console.log("#ERROR.")
-                } else {
-
-                    nameuser.innerHTML = data.name
-          $("#image").attr('src', `${data.avatarurl}`);
-          heartsCount.innerHTML = data.hearts
-          videosCount.innerHTML = data.videos
-
-                }
-            })
+            }).catch(function() {
+        t1ch = false
+    });
+            
       } else {
         fetch(`${cors}${tiktokurl}${id}`)
             .then(response => response.json())
@@ -262,10 +251,45 @@ t1ch = false
             })
       }
     }
+    function getVisuals(id) {
+      var tiktokbypass = [
+      'https://immense-castle-34936.herokuapp.com/@',
+      'https://backuptiktokapi.glitch.me/@',
+      'https://backuptiktokapi.herokuapp.com/@',
+      'https://honorable-hazel-atmosphere.glitch.me/@'
+    ]
+    var randomtiktokbypass = Math.floor(Math.random()*tiktokbypass.length);
+    var tiktokurl = tiktokbypass[randomtiktokbypass];
+    if(t1ch == true) {
+      fetch(`${cors}${tiktokurl}${id}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                if(data.name == undefined) {
+                    console.log("#ERROR.")
+                } else {
+
+                    nameuser.innerHTML = data.name
+          $("#image").attr('src', `${data.avatarurl}`);
+          heartsCount.innerHTML = data.hearts
+          videosCount.innerHTML = data.videos
+                }
+            })
+            
+      } else {
+       //no
+           //pls
+              //dont 
+      }
+    }
+
 
     setInterval(function() {
-        getVisuals(params[1]);
+      getData(params[1]);
     }, 2000);
+    setInterval(function() {
+        getVisuals(params[1]);
+    }, 30000);
     $('#userinput').on('keyup', function (e) {
       if (e.keyCode === 13) {
         $('#submitbutton').click();
