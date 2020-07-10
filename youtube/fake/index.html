@@ -45,7 +45,7 @@
       <div style="font-size: 2vh;">Subscribers</div><br>
     </div>
     <br>
-    <div class="graphbox">
+    <div class="graphbox" id="graphbox">
       <div>Subscriber Graph</div>
       <div id="graph"></div>
     </div>
@@ -88,7 +88,7 @@
     </div>
     <div class="buttons">
       <button id="cleargraph" style="width: 50%;">Clear Graph</button> <button data-toggle="modal" data-target="#cnglog"
-        style="width: 50%;">Changelog (for this)</button>
+        style="width: 50%;">Changelog (for this)</button><div>Disable Graph: <input type="checkbox" name="checcarna?" id="checcarna"></div>
       <!--   <button data-toggle="modal" data-target="#changeuser">Change User</button><button data-toggle="modal" data-target="#compareuser">Compare</button>-->
     </div>
     <br><br><br><br><br><br>
@@ -240,13 +240,7 @@
                             if (10000000000000 < number1) {
                               if (100000000000000 < number1) {
                                 followerCount.innerHTML = Math.floor(number1)
-                                graphData.series[0].addPoint([
-                                  (new Date()).getTime(),
-                                  parseFloat(Math.floor(number1))
-                                ]);
-                                if (graphData.series[0].data.length >= 700) {
-                                  graphData.series[0].data[0].remove()
-                                }
+                                GraphManager(parseFloat(Math.floor(num1)))
                               } else {
                                 var numb1 = number1.toString()
                                 console.log(numb1)
@@ -254,13 +248,7 @@
                                 console.log(num1)
                                 num1 = num1 + '00000000000'
                                 followerCount.innerHTML = Math.floor(num1)
-                                graphData.series[0].addPoint([
-                                  (new Date()).getTime(),
-                                  parseFloat(Math.floor(num1))
-                                ]);
-                                if (graphData.series[0].data.length >= 700) {
-                                  graphData.series[0].data[0].remove()
-                                }
+                                GraphManager(parseFloat(Math.floor(num1)))
                               }
                             } else {
                               var numb1 = number1.toString()
@@ -269,13 +257,7 @@
                               console.log(num1)
                               num1 = num1 + '0000000000'
                               followerCount.innerHTML = Math.floor(num1)
-                              graphData.series[0].addPoint([
-                                (new Date()).getTime(),
-                                parseFloat(Math.floor(num1))
-                              ]);
-                              if (graphData.series[0].data.length >= 700) {
-                                graphData.series[0].data[0].remove()
-                              }
+                              GraphManager(parseFloat(Math.floor(num1)))
                             }
                           } else {
                             var numb1 = number1.toString()
@@ -284,13 +266,7 @@
                             console.log(num1)
                             num1 = num1 + '000000000'
                             followerCount.innerHTML = Math.floor(num1)
-                            graphData.series[0].addPoint([
-                              (new Date()).getTime(),
-                              parseFloat(Math.floor(num1))
-                            ]);
-                            if (graphData.series[0].data.length >= 700) {
-                              graphData.series[0].data[0].remove()
-                            }
+                            GraphManager(parseFloat(Math.floor(num1)))
                           }
                         } else {
                           var numb1 = number1.toString()
@@ -299,13 +275,7 @@
                           console.log(num1)
                           num1 = num1 + '00000000'
                           followerCount.innerHTML = Math.floor(num1)
-                          graphData.series[0].addPoint([
-                            (new Date()).getTime(),
-                            parseFloat(Math.floor(num1))
-                          ]);
-                          if (graphData.series[0].data.length >= 700) {
-                            graphData.series[0].data[0].remove()
-                          }
+                          GraphManager(parseFloat(Math.floor(num1)))
                         }
                       } else {
                         var numb1 = number1.toString()
@@ -314,13 +284,7 @@
                         console.log(num1)
                         num1 = num1 + '0000000'
                         followerCount.innerHTML = Math.floor(num1)
-                        graphData.series[0].addPoint([
-                          (new Date()).getTime(),
-                          parseFloat(Math.floor(num1))
-                        ]);
-                        if (graphData.series[0].data.length >= 700) {
-                          graphData.series[0].data[0].remove()
-                        }
+                        GraphManager(parseFloat(Math.floor(num1)))
                       }
                     } else {
                       var numb1 = number1.toString()
@@ -329,13 +293,7 @@
                       console.log(num1)
                       num1 = num1 + '000000'
                       followerCount.innerHTML = Math.floor(num1)
-                      graphData.series[0].addPoint([
-                        (new Date()).getTime(),
-                        parseFloat(Math.floor(num1))
-                      ]);
-                      if (graphData.series[0].data.length >= 700) {
-                        graphData.series[0].data[0].remove()
-                      }
+                      GraphManager(parseFloat(Math.floor(num1)))
                     }
                   } else {
                     var numb1 = number1.toString()
@@ -344,13 +302,7 @@
                     console.log(num1)
                     num1 = num1 + '00000'
                     followerCount.innerHTML = Math.floor(num1)
-                    graphData.series[0].addPoint([
-                      (new Date()).getTime(),
-                      parseFloat(Math.floor(num1))
-                    ]);
-                    if (graphData.series[0].data.length >= 700) {
-                      graphData.series[0].data[0].remove()
-                    }
+                    GraphManager(parseFloat(Math.floor(num1)))
                   }
                 } else {
                   var numb1 = number1.toString()
@@ -359,13 +311,7 @@
                   console.log(num1)
                   num1 = num1 + '0000'
                   followerCount.innerHTML = Math.floor(num1)
-                  graphData.series[0].addPoint([
-                    (new Date()).getTime(),
-                    parseFloat(Math.floor(num1))
-                  ]);
-                  if (graphData.series[0].data.length >= 700) {
-                    graphData.series[0].data[0].remove()
-                  }
+                  GraphManager(parseFloat(Math.floor(num1)))
                 }
               } else {
                 var numb1 = number1.toString()
@@ -374,13 +320,7 @@
                 console.log(num1)
                 num1 = num1 + '000'
                 followerCount.innerHTML = Math.floor(num1)
-                graphData.series[0].addPoint([
-                  (new Date()).getTime(),
-                  parseFloat(Math.floor(num1))
-                ]);
-                if (graphData.series[0].data.length >= 700) {
-                  graphData.series[0].data[0].remove()
-                }
+                GraphManager(parseFloat(Math.floor(num1)))
               }
             } else {
               var numb1 = number1.toString()
@@ -389,13 +329,7 @@
               console.log(num1)
               num1 = num1 + '00'
               followerCount.innerHTML = Math.floor(num1)
-              graphData.series[0].addPoint([
-                (new Date()).getTime(),
-                parseFloat(Math.floor(num1))
-              ]);
-              if (graphData.series[0].data.length >= 700) {
-                graphData.series[0].data[0].remove()
-              }
+              GraphManager(parseFloat(Math.floor(num1)))
             }
           } else {
             var numb1 = number1.toString()
@@ -404,33 +338,16 @@
             console.log(num1)
             num1 = num1 + '0'
             followerCount.innerHTML = Math.floor(num1)
-            graphData.series[0].addPoint([
-              (new Date()).getTime(),
-              parseFloat(Math.floor(num1))
-            ]);
-            if (graphData.series[0].data.length >= 700) {
-              graphData.series[0].data[0].remove()
-            }
+
+            GraphManager(parseFloat(Math.floor(num1)))
           }
         } else {
           followerCount.innerHTML = Math.floor(number1)
-          graphData.series[0].addPoint([
-            (new Date()).getTime(),
-            parseFloat(Math.floor(number1))
-          ]);
-          if (graphData.series[0].data.length >= 700) {
-            graphData.series[0].data[0].remove()
-          }
+          GraphManager(parseFloat(Math.floor(number1)))
         }
       } else {
         followerCount.innerHTML = Math.floor(fakecount)
-        graphData.series[0].addPoint([
-          (new Date()).getTime(),
-          parseFloat(Math.floor(fakecount))
-        ]);
-        if (graphData.series[0].data.length >= 700) {
-          graphData.series[0].data[0].remove()
-        }
+        GraphManager(Math.floor(fakecount))
       }
 
     }
@@ -438,6 +355,20 @@
       var lol = Math.floor(Math.random() * (max - min + 1) + min);
       console.log(lol)
       return lol
+    }
+    function GraphManager(id) {
+      if(document.getElementById("checcarna").checked == false) {
+        document.getElementById("graphbox").style.display = ""
+        graphData.series[0].addPoint([
+        (new Date()).getTime(),
+        id
+      ]);
+      if (graphData.series[0].data.length >= 700) {
+        graphData.series[0].data[0].remove()
+      }
+} else {
+  document.getElementById("graphbox").style.display = "none"
+}
     }
 
 

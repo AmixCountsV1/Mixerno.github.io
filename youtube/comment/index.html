@@ -216,7 +216,7 @@ var params = windlochref.split('&u=');
     }
 
     function getVisuals(id) {
-      fetch(`${cors}https://livecounts.space/youtube/videoid/snippet/${id}`)
+      fetch(`${cors}https://api.mixerno.space/youtube/videoid/snippet/${id}`)
         .then(response => response.json())
         .then(data => {
           console.log(data)

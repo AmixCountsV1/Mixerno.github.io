@@ -111,7 +111,7 @@
     </div><br>
     <div class="buttons">
       <button id="cleargraph" style="width: 49%;">Clear Graph</button> <button data-toggle="modal" data-target="#cnglog"
-        style="width: 49%;">Changelog (for this)</button><br>
+        style="width: 49%;">Changelog (for this)</button><br><div>Disable Graph: <input type="checkbox" name="checcarna?" id="checcarna"></div>
       <!--   <button data-toggle="modal" data-target="#changeuser">Change User</button><button data-toggle="modal" data-target="#compareuser">Compare</button>-->
     </div>
     <br><br><br><br><br><br>
@@ -251,8 +251,10 @@
     }
 
     function test(h) {
+      
       fakecount = fakecount + randomIntFromInterval(minrate, maxrate)
       nameuser.innerHTML = name
+      
       $("#image").attr('src', `${image}`);
       followerCount.innerHTML = Math.floor(fakecount)
       if (fakecount2 == 0) {
@@ -435,13 +437,19 @@
       $("#image2").attr('src', `${image2}`);
       followerCount2.innerHTML = Math.floor(fakecount2)
       diffrence.innerHTML = Math.floor(fakecount - fakecount2)
-      graphData.series[0].addPoint([
+      if(document.getElementById("checcarna").checked == false) {
+        document.getElementById("graph").style.display = ""
+        graphData.series[0].addPoint([
         (new Date()).getTime(),
         Math.floor(fakecount - fakecount2)
       ]);
       if (graphData.series[0].data.length >= 700) {
         graphData.series[0].data[0].remove()
       }
+} else {
+  document.getElementById("graph").style.display = "none"
+}
+      
     }
     function randomIntFromInterval2(min, max) { // min and max included 
       var lol = Math.floor(Math.random() * (max - min + 1) + min);
