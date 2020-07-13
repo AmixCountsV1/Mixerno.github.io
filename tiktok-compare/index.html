@@ -223,6 +223,18 @@ t1ch = false
             }).catch(function() {
         t1ch = false
     });
+    fetch(`${cors}${tiktokurl}${id}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                if(data.name == undefined) {
+                    console.log("#ERROR.")
+                } else {
+                  nameuser.innerHTML = data.name
+          $("#image").attr('src', `${data.avatarurl}`);
+                }
+                
+            })
             
       } else {
         fetch(`${cors}${tiktokurl}${id}`)
