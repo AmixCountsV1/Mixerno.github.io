@@ -188,6 +188,7 @@ var graphData = new Highcharts.chart('graph', {
     var count2 = 0;
     getData(params[1]);
     getVisuals(params[1]); 
+
     function getData(id) {
       if(t1ch == true) {
         fetch(`${cors}https://api.t1ch.com/youtube/${id}`)
@@ -204,10 +205,18 @@ t1ch = false
           getData2(params[2])
                 }
             }).catch(function() {
-        t1ch = false
+        myapi(params[1])
     });
       } else {
-        fetch(`${cors}https://api.mixerno.space/youtube/channels/statistics/${id}`)
+        myapi(params[1])
+      }
+      
+      
+      
+        
+    }
+    function myapi(id) {
+      fetch(`${cors}https://api.mixerno.space/youtube/channels/statistics/${id}`)
             .then(response => response.json())
             .then(data => {
                 console.log(data)
@@ -221,9 +230,6 @@ t1ch = false
           getData2(params[2])
                 }
             })
-      }
-      
-        
     }
     
 
@@ -278,10 +284,18 @@ t1ch = false
           }
                 }
             }).catch(function() {
-        t1ch2 = false
+              myapi2(params[2])
     });
       } else {
-        fetch(`${cors}https://api.mixerno.space/youtube/channels/statistics/${id}`)
+        myapi2(params[2])
+      }
+      
+      
+      
+        
+    }
+    function myapi2(id) {
+      fetch(`${cors}https://api.mixerno.space/youtube/channels/statistics/${id}`)
             .then(response => response.json())
             .then(data => {
                 console.log(data)
@@ -303,9 +317,6 @@ t1ch = false
           
                 }
             })
-      }
-      
-        
     }
     
 
