@@ -219,6 +219,7 @@
             likeCount.innerHTML = data.video.likesCount
             commentCount.innerHTML = data.video.commentsCount 
             $("#image").attr('src', `${data.video.storyImage}`);
+            nameuser.innerHTML = data.video.title
           }
         })
     }
