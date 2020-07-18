@@ -191,7 +191,12 @@ var graphData = new Highcharts.chart('graph', {
     
    
     
-
+    var tiktokbypass = [
+      'https://immense-castle-34936.herokuapp.com/@',
+      'https://backuptiktokapi.glitch.me/@',
+      'https://backuptiktokapi.herokuapp.com/@',
+      'https://honorable-hazel-atmosphere.glitch.me/@'
+    ]
     getData(params[1]); 
     getVisuals(params[1]);
     function getData(id) {
@@ -263,10 +268,8 @@ var graphData = new Highcharts.chart('graph', {
             })
     }
     function getVisuals(id) {
-      
     var randomtiktokbypass = Math.floor(Math.random()*tiktokbypass.length);
     var tiktokurl = tiktokbypass[randomtiktokbypass];
-    if(t1ch == true) {
       fetch(`${cors}https://api.mixerno.space/tiktok/${id}`)
             .then(response => response.json())
             .then(data => {
@@ -281,12 +284,6 @@ var graphData = new Highcharts.chart('graph', {
           videosCount.innerHTML = data.videos
                 }
             })
-            
-      } else {
-       //no
-           //pls
-              //dont 
-      }
     }
 
 

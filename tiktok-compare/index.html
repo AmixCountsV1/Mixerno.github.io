@@ -192,10 +192,12 @@ var graphData = new Highcharts.chart('graph', {
     var t1ch2 = true;
     
    
-
+    getData(params[1]); 
     getVisuals(params[1]); 
 
+function getData(id) {
 
+}
     function getVisuals(id) {
 
       var tiktokbypass = [
@@ -223,10 +225,10 @@ t1ch = false
             }).catch(function() {
               myapi(params[1])
     });
-    myapi(params[1])
+    
             
       } else {
-        
+        myapi(params[1])
       }
     }
     function myapi(id) {
