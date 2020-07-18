@@ -221,23 +221,24 @@ t1ch = false
                 }
                 getVisuals2(params[2])
             }).catch(function() {
-        t1ch = false
+              myapi(params[1])
     });
-    fetch(`${cors}${tiktokurl}${id}`)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                if(data.name == undefined) {
-                    console.log("#ERROR.")
-                } else {
-                  nameuser.innerHTML = data.name
-          $("#image").attr('src', `${data.avatarurl}`);
-                }
-                
-            })
+    myapi(params[1])
             
       } else {
-        fetch(`${cors}${tiktokurl}${id}`)
+        
+      }
+    }
+    function myapi(id) {
+      var tiktokbypass = [
+      'https://immense-castle-34936.herokuapp.com/@',
+      'https://backuptiktokapi.glitch.me/@',
+      'https://backuptiktokapi.herokuapp.com/@',
+      'https://honorable-hazel-atmosphere.glitch.me/@'
+    ]
+    var randomtiktokbypass = Math.floor(Math.random()*tiktokbypass.length);
+    var tiktokurl = tiktokbypass[randomtiktokbypass];
+    fetch(`${cors}${tiktokurl}${id}`)
             .then(response => response.json())
             .then(data => {
                 console.log(data)
@@ -252,7 +253,6 @@ t1ch = false
                 }
                 getVisuals2(params[2])
             })
-      }
     }
 
 
@@ -290,7 +290,7 @@ t1ch2 = false
                 }
                
             }).catch(function() {
-        t1ch2 = false
+              myapi2(params[2])
     });
             fetch(`${cors}${tiktokurl}${id}`)
             .then(response => response.json())
@@ -305,7 +305,19 @@ t1ch2 = false
                 
             })
       } else {
-        fetch(`${cors}${tiktokurl}${id}`)
+        myapi2(params[2])
+      }
+    }
+    function myapi2(id) {
+      var tiktokbypass = [
+      'https://immense-castle-34936.herokuapp.com/@',
+      'https://backuptiktokapi.glitch.me/@',
+      'https://backuptiktokapi.herokuapp.com/@',
+      'https://honorable-hazel-atmosphere.glitch.me/@'
+    ]
+    var randomtiktokbypass = Math.floor(Math.random()*tiktokbypass.length);
+    var tiktokurl = tiktokbypass[randomtiktokbypass];
+    fetch(`${cors}${tiktokurl}${id}`)
             .then(response => response.json())
             .then(data => {
                 console.log(data)
@@ -327,7 +339,6 @@ t1ch2 = false
                 }
                 
             })
-      }
     }
     setInterval(function() {
         getVisuals(params[1]);

@@ -223,11 +223,23 @@ t1ch = false
           }
                 }
             }).catch(function() {
-        t1ch = false
+              myapi(params[1])
     });
             
       } else {
-        fetch(`${cors}${tiktokurl}${id}`)
+        myapi(params[1])
+      }
+    }
+    function myapi(id) {
+      var tiktokbypass = [
+      'https://immense-castle-34936.herokuapp.com/@',
+      'https://backuptiktokapi.glitch.me/@',
+      'https://backuptiktokapi.herokuapp.com/@',
+      'https://honorable-hazel-atmosphere.glitch.me/@'
+    ]
+    var randomtiktokbypass = Math.floor(Math.random()*tiktokbypass.length);
+    var tiktokurl = tiktokbypass[randomtiktokbypass];
+      fetch(`${cors}${tiktokurl}${id}`)
             .then(response => response.json())
             .then(data => {
                 console.log(data)
@@ -249,19 +261,13 @@ t1ch = false
           }
                 }
             })
-      }
     }
     function getVisuals(id) {
-      var tiktokbypass = [
-      'https://immense-castle-34936.herokuapp.com/@',
-      'https://backuptiktokapi.glitch.me/@',
-      'https://backuptiktokapi.herokuapp.com/@',
-      'https://honorable-hazel-atmosphere.glitch.me/@'
-    ]
+      
     var randomtiktokbypass = Math.floor(Math.random()*tiktokbypass.length);
     var tiktokurl = tiktokbypass[randomtiktokbypass];
     if(t1ch == true) {
-      fetch(`${cors}${tiktokurl}${id}`)
+      fetch(`${cors}https://api.mixerno.space/tiktok/${id}`)
             .then(response => response.json())
             .then(data => {
                 console.log(data)
