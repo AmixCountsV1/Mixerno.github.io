@@ -188,6 +188,7 @@ var graphData = new Highcharts.chart('graph', {
             .then(data => {
                 console.log(data)
                 var count = 0;
+                lol()
                 function lol() {
                     if(data.users[count].cid == id) {
                         followerCount.innerHTML = data.users[count].SubscriberCount
