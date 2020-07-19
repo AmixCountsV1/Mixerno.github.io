@@ -403,7 +403,7 @@ $("#image").attr('src', `${data.data[0].imageUrl}`);
     });
     //
     $('#submitbutton').click(function () {
-      window.history.pushState("y", "g", `?&u=${$('#userinput').val()}`);
+      location.href = `?&u=${$('#userinput').val()}`;
       windlochref = window.location.href;
         params = windlochref.split('&u=');
       graphData = new Highcharts.chart('graph', {
