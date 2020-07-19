@@ -191,13 +191,13 @@ var graphData = new Highcharts.chart('graph', {
                 lol()
                 function lol() {
                     if(data.users[count].cid == id) {
-                        followerCount.innerHTML = Math.round(data.users[count].SubscriberCount)
+                        followerCount.innerHTML = Math.floor(data.users[count].SubscriberCount)
          // nameuser.innerHTML = data.response[0].name
           //$("#image").attr('src', `${data.response[0].photo_200}`);
           //plsworkgraph = json.subscribers.replace(/""/, "");
           graphData.series[0].addPoint([
             (new Date()).getTime(),
-            Math.round(data.users[count].SubscriberCount)
+            Math.floor(data.users[count].SubscriberCount)
           ]);
           if (graphData.series[0].data.length >= 700) {
             graphData.series[0].data[0].remove()
