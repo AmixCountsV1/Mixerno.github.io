@@ -1,0 +1,170 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+
+  <title>Mixerno | Roblock Embed</title>
+  <link rel="shortcut icon" href="https://yt3.ggpht.com/a-/AOh14GhVWagi88Rfs6XXerg3-3PR4RPHYcolFIrYXZ4_=s288-c-k-c0xffffffff-no-rj-mo">
+  <link rel="stylesheet" href="../../../o2.css" />
+  <script src="../../../odometer.js"></script>
+  <script type="text/javascript" src="../../../jquery-3.1.1.min.js"></script>
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <span class="l">
+    <img src="https://t1.rbxcdn.com/9763631bb5894722573f7cd9f1d30181" id="image" height="50" width="50" style="position: absolute; top: 0px; left: 0px;">
+    <div id="ytname" class="names" style="position: absolute;top: 5px;font-size:15px;font-weight: bold;">Adopt Me!</div>
+    <div id="view" class="odometer" style="position: absolute;left: 57px;top: 20px;font-size:25px;">0</div>
+  </span>
+    
+    
+
+
+  <style>
+    .names {
+    position: absolute;
+    left: 54px;
+    top: 0px;
+    font-size: 15px;
+    width: 145px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
+
+
+    
+    .odometer {
+      font-size: 100px;
+    }
+
+    body {
+      background-color: transparent;
+      font-family: Arial
+    }
+
+    div {
+      font-size: 36
+    }
+  </style>
+</head>
+
+
+
+
+
+<script>
+  //var key = ""
+  var key = "https://cors.mixerno.space/"
+    var videostufflol = window.location.href;
+    var params = videostufflol.split('?id=');
+var channelid = params[1];
+    if (params[1] == undefined) {
+      channelid = "4490140733"
+    }
+    getuniversid()
+    var visits = 0;
+    var visitsbefore = 0;
+    var som1;
+    var som1x = 0;
+    var estimatedvisit = 1;
+    var newerdate = new Date()
+    var olderdate = new Date()
+    var time = 0;
+    var do1,do2,do3,do4;
+
+    var universsiid = 0
+    //
+    function getuniversid() {
+      fetch(`${key}https://robloxvisitstrackerv2.herokuapp.com/roblox/api/game/${channelid}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                universsiid = data.universeId
+                fetch(`${key}https://games.roblox.com/v1/games?universeIds=${universsiid}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+              ytname.innerHTML = data.data[0].name
+              // like.innerHTML = json.data[0]
+              // dislike.innerHTML = json.data[0]
+
+              visits = data.data[0].visits
+              view.innerHTML = visits
+            })
+
+
+            fetch(`${key}https://thumbnails.roblox.com/v1/games/icons?universeIds=${universsiid}&size=50x50&format=Png&isCircular=false`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                $("#image").attr('src', `${data.data[0].imageUrl}`);
+            })
+            })
+    }
+    function channelstatistics() {
+
+
+      fetch(`${key}https://games.roblox.com/v1/games?universeIds=${universsiid}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+          ytname.innerHTML = data.data[0].name
+          // like.innerHTML = json.data[0]
+          // dislike.innerHTML = json.data[0]
+
+          visits = data.data[0].visits
+
+          if (time > 0) {
+            if (visits > visitsbefore) {
+              newerdate = new Date()
+              som1 = visits - visitsbefore
+
+              som1x = som1 / 60 * 4
+              olderdate = new Date()
+              estimatedvisit = visits
+              visitsbefore = visits;
+            }
+          }
+
+          estimatedvisit = estimatedvisit + som1x
+          //view.innerHTML = json.data[0].visits
+          visitsbefore = visits;
+          time++
+          console.log(estimatedvisit + ' | Currently')
+          console.log(som1x + ' | Gain')
+          // $("#image").attr('src', `${json.data[0]}`);
+
+          //plsworkgraph = json.subscribers.replace(/""/, "");
+          if (localStorage.getItem('robloxgameest') == "1") {
+            if (estimatedvisit > 2) {
+              view.innerHTML = Math.floor(estimatedvisit)
+
+            }
+
+          } else {
+            view.innerHTML = visits
+
+          }
+
+            })
+            fetch(`${key}https://thumbnails.roblox.com/v1/games/icons?universeIds=${universsiid}&size=50x50&format=Png&isCircular=false`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                $("#image").attr('src', `${data.data[0].imageUrl}`);
+            })
+
+    };
+    setInterval(channelstatistics, 4000);
+</script>
+
+
+
+
+
+
+<body>
+
+</body>
+
+</html>

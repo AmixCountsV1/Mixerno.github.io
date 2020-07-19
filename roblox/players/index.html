@@ -1,0 +1,469 @@
+<html>
+    <head>
+        <!-- Primary Meta Tags -->
+<title>Mixerno.Space</title>
+<meta name="title" content="Mixerno.Space">
+<meta name="description" content="The counter site for you.">
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mixerno.space/">
+<meta property="og:title" content="Mixerno.Space">
+<meta property="og:description" content="The counter site for you.">
+<meta property="og:image" content="https://mixerno.space/muxarno2x2.jpg">
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://mixerno.space/">
+<meta property="twitter:title" content="Mixerno.Space">
+<meta property="twitter:description" content="The counter site for you.">
+<meta property="twitter:image" content="https://mixerno.space/muxarno2x2.jpg">
+
+
+  <link rel="shortcut icon"
+    href="https://mixerno.space/icons/2.png">
+  <link rel="stylesheet" href="../../o2.css" />
+  <meta charset="UTF-8">
+  <meta name="keywords" content="mixerno.space">
+  <meta name="author" content="Mixerno">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="../../odometer.js"></script>
+  <script type="text/javascript" src="../../jquery-3.1.1.min.js"></script>
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <link rel="stylesheet" href="../../bootstrap.css">
+  <link rel="stylesheet" href="../../v2/single.css">
+  <script src="../../bootstrap.js"></script>
+    </head>
+    <body>
+        <center><div style="padding: 2vh; font-size: 3vh; background-color: rgb(32, 32, 32);">ROBLOX Live Game Player Counter <span style="font-size: 3vh;position: absolute; right: 90%;"><a  href="../../">Home</a></span></div><br>
+        <div class="boxerino"><br>
+            <img src="https://mixerno.space/icons/2.png" id="image" style="border: solid 0.1vh;border-radius: 50%; height: 10vh; width: 10vh;" >
+            <div id="nameuser">Name</div>
+            <div class="odometer" id="followerCount">0</div>
+            <div style="font-size: 2vh;">Playing</div><br>
+        </div><br>
+        <div class="row">
+            <div class="justbox">
+                <div style="font-size: 4vh;" class="odometer" id="favouriteCount">0</div>
+                <div style="font-size: 2vh;">Favourites</div>
+            </div>
+            <div class="justbox">
+                <div style="font-size: 4vh;" class="odometer" id="playerCount">0</div>
+                <div style="font-size: 2vh;">Visits</div>
+            </div>
+        </div>
+        <div class="row">
+          <div class="justbox">
+              <div style="font-size: 4vh;" class="odometer" id="likeCount">0</div>
+              <div style="font-size: 2vh;">Likes</div>
+          </div>
+          <div class="justbox">
+              <div style="font-size: 4vh;" class="odometer" id="dislikeCount">0</div>
+              <div style="font-size: 2vh;">Dislikes</div>
+          </div>
+      </div>
+        <br>
+        <div class="graphbox">
+            <div>Visits Graph</div>
+            <div id="graph"></div>
+        </div>
+        <br>
+        <div class="buttons">
+        <button data-toggle="modal" data-target="#changeuser">Change Game</button><button data-toggle="modal" data-target="#compareuser">Compare</button>
+    </div>
+    <br><br><br><br><br><br>
+    <div id="disqus_thread"></div>
+    </center>
+    <div style="background-color: rgb(32, 32, 32); color: white;" class="container">
+        <div class="modal fade" id="changeuser" role="dialog">
+          <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-dialog">
+            <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-content">
+              <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-header">
+               <!-- <button type="button" class="close" data-dismiss="modal">&times;</button>-->
+                <h4 class="modal-title">Change Game</h4>
+              </div>
+              <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-body">
+               <input style="background-color: rgb(32, 32, 32); color: white;" placeholder="www.roblox.com/games/" id="userinput" type="text">
+              </div>
+              <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-footer">
+                <button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" id="submitbutton" data-dismiss="modal">Submit</button><button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" data-dismiss="modal">Cancel</button>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        
+      </div>
+      <div style="background-color: rgb(32, 32, 32); color: white;" class="container2">
+        <div class="modal fade" id="compareuser" role="dialog">
+          <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-dialog">
+            <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-content">
+              <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-header">
+               <!-- <button type="button" class="close" data-dismiss="modal">&times;</button>-->
+                <h4 class="modal-title">Compare Game</h4>
+              </div>
+              <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-body">
+               <input style="background-color: rgb(32, 32, 32); color: white;" placeholder="www.roblox.com/games/" id="userinput2" type="text">
+              </div>
+              <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-footer">
+                <button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" id="submitbutton2" data-dismiss="modal">Submit</button><button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" data-dismiss="modal">Cancel</button>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        
+      </div>
+
+     <!--<script id="dsq-count-scr" src="//mixernospace-1.disqus.com/count.js" async></script>-->
+    </body>
+    
+    <script>
+
+      /**
+      *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+      *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+      var windlochref = window.location.href;
+    var params = windlochref.split('&u=');
+      var disqus_config = function () {
+      this.page.url = params[0]+'&u='+params[1];  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = params[1]; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+      };
+      
+      (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = 'https://mixernospace-1.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+      })();
+      </script>
+
+    <script>
+         $(document).ready(function () {
+            // var cors = "";
+   var cors = "https://cors.mixerno.space/";
+var graphData = new Highcharts.chart('graph', {
+      chart: {
+        backgroundColor: 'transparent',
+        renderTo: graph,
+        type: 'spline'
+      },
+      title: {
+        text: ``
+      },
+      xAxis: {
+        type: 'datetime',
+        tickPixelInterval: 500,
+        labels: {
+          style: {
+            color: "#FFFFFF"
+          }
+        }
+      },
+      yAxis: {
+        title: {
+          text: ''
+        },
+        
+        lineColor: "#53adcb",
+        minorGridLineColor: "#53adcb",
+        tickColor: "#53adcb"
+      },
+
+      credits: {
+        enabled: false,
+        text: "Mixerno.space"
+      },
+
+      series: [{
+        showInLegend: false,
+        name: 'Players',
+        marker: {
+          enabled: false
+        },
+        color: '#53adcb',
+        lineColor: '#53adcb'
+
+      }]
+    })
+    var windlochref = window.location.href;
+    var params = windlochref.split('&u=');
+    var visits = 0;
+    var visitsbefore = 0;
+    var som1;
+    var som1x = 0;
+    var estimatedvisit = 1;
+    var newerdate = new Date()
+    var olderdate = new Date()
+    var time = 0;
+    var do1,do2,do3,do4;
+    var loadedvisits = 0;
+    var universsiid = 0;
+    if(params[1] == undefined) {
+        window.history.pushState("y", "g", `?&u=920587237&u=0`);
+        windlochref = window.location.href;
+        params = windlochref.split('&u=');
+        getUniverseID(params[1])
+    } else {
+      getUniverseID(params[1])
+    }
+    if(params[3] == 1) {
+      $('head').append('<link rel="stylesheet" type="text/css" href="../../v2/odometerfast.css">');
+    } else {
+      window.history.pushState("y", "g", `?&u=${params[1]}&u=${params[2]}&u=0`);
+    }
+    
+    function getUniverseID(id) {
+      fetch(`${cors}https://robloxvisitstrackerv2.herokuapp.com/roblox/api/game/${id}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                if(data.universeId == 0) {
+                    console.log("GJ TWITTER API lol")
+                } else {
+                universsiid = data.universeId
+                fetch(`${cors}https://games.roblox.com/v1/games?universeIds=${universsiid}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                if(data.data[0].playing == 0) {
+                    console.log("GJ TWITTER API lol")
+                } else {
+
+                  nameuser.innerHTML = data.data[0].name
+                playerCount.innerHTML = data.data[0].visits 
+          visits = data.data[0].playing
+          loadedvisits = data.data[0].playing
+
+if (time > 0) {
+  if (!visits == visitsbefore) {
+    newerdate = new Date()
+    som1 = visits - visitsbefore
+
+    som1x = som1 / 60 * 4
+    olderdate = new Date()
+    estimatedvisit = visits
+    visitsbefore = visits;
+  }
+}
+
+estimatedvisit = estimatedvisit + som1x
+//view.innerHTML = json.data[0].visits
+visitsbefore = visits;
+time++
+console.log(estimatedvisit + ' | Currently')
+console.log(som1x + ' | Gain')
+
+
+    followerCount.innerHTML = data.data[0].playing
+    graphData.series[0].addPoint([
+            (new Date()).getTime(),
+            data.data[0].playing
+          ]);
+          if (graphData.series[0].data.length >= 700) {
+            graphData.series[0].data[0].remove()
+          }
+
+
+          
+        }
+            })
+                getVisuals(universsiid)
+          /*ytname.innerHTML = data.username
+          totalviews.innerHTML = data.points
+          videos.innerHTML = data.followingCount
+          $("#image").attr('src', `${data.userimage}`);*/
+          
+        }
+            })
+    }
+   
+    
+    function getData(id) {
+        windlochref = window.location.href;
+        params = windlochref.split('&u=');
+        fetch(`${cors}https://games.roblox.com/v1/games?universeIds=${id}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                if(data.data[0].playing == 0) {
+                    console.log("GJ TWITTER API lol")
+                } else {
+
+                  nameuser.innerHTML = data.data[0].name
+                playerCount.innerHTML = data.data[0].visits 
+          visits = data.data[0].playing
+
+if (time > 0) {
+  if (!visits == visitsbefore) {
+    newerdate = new Date()
+    som1 = visits - visitsbefore
+
+    som1x = som1 / 60 * 2
+    olderdate = new Date()
+    estimatedvisit = visits
+    visitsbefore = visits;
+  }
+}
+
+estimatedvisit = estimatedvisit + som1x
+//view.innerHTML = json.data[0].visits
+visitsbefore = visits;
+time++
+console.log(estimatedvisit + ' | Currently')
+console.log(som1x + ' | Gain')
+if(params[2] == 0) {
+  followerCount.innerHTML = data.data[0].playing
+    graphData.series[0].addPoint([
+            (new Date()).getTime(),
+            data.data[0].playing
+          ]);
+          if (graphData.series[0].data.length >= 700) {
+            graphData.series[0].data[0].remove()
+          }
+} else {
+  if(!Math.floor(estimatedvisit) == loadedvisits) {
+  followerCount.innerHTML = data.data[0].playing
+    graphData.series[0].addPoint([
+            (new Date()).getTime(),
+            data.data[0].playing
+          ]);
+          if (graphData.series[0].data.length >= 700) {
+            graphData.series[0].data[0].remove()
+          }
+} else {
+  followerCount.innerHTML = Math.floor(estimatedvisit)
+    graphData.series[0].addPoint([
+            (new Date()).getTime(),
+            Math.floor(estimatedvisit)
+          ]);
+          if (graphData.series[0].data.length >= 700) {
+            graphData.series[0].data[0].remove()
+          }
+}
+}
+
+    
+
+
+          
+        }
+            })
+            fetch(`${cors}https://games.roblox.com/v1/games/votes?universeIds=${id}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                if(data.data[0].upVotes == 0) {
+                    console.log("GJ TWITTER API lol")
+                } else {
+
+
+                likeCount.innerHTML = data.data[0].upVotes
+                dislikeCount.innerHTML = data.data[0].downVotes
+                
+          
+        }
+            })
+            fetch(`${cors}https://games.roblox.com/v1/games/${id}/favorites/count`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                if(data.favoritesCount == 0) {
+                    console.log("GJ TWITTER API lol")
+                } else {
+
+
+                favouriteCount.innerHTML = data.favoritesCount
+                
+          
+        }
+            })
+    }
+    function getVisuals(id) {
+
+fetch(`${cors}https://thumbnails.roblox.com/v1/games/icons?universeIds=${id}&size=512x512&format=Png&isCircular=false`)
+.then(response => response.json())
+.then(data => {
+    console.log(data)
+    if(data.data[0].imageUrl == undefined) {
+        console.log("#ERROR.")
+    } else {
+$("#image").attr('src', `${data.data[0].imageUrl}`);
+    }
+})
+}
+    setInterval(function() {
+        getData(universsiid);
+    }, 2000);
+    setInterval(function() {
+        getVisuals(universsiid);
+    }, 30000);
+    $('#userinput').on('keyup', function (e) {
+      if (e.keyCode === 13) {
+        $('#submitbutton').click();
+      }
+    });
+    //
+    $('#submitbutton').click(function () {
+      location.href = `?&u=${$('#userinput').val()}`;
+      windlochref = window.location.href;
+        params = windlochref.split('&u=');
+      graphData = new Highcharts.chart('graph', {
+      chart: {
+        backgroundColor: 'transparent',
+        renderTo: graph,
+        type: 'spline'
+      },
+      title: {
+        text: ``
+      },
+      xAxis: {
+        type: 'datetime',
+        tickPixelInterval: 500,
+        labels: {
+          style: {
+            color: "#FFFFFF"
+          }
+        }
+      },
+      yAxis: {
+        title: {
+          text: ''
+        },
+        
+        lineColor: "#53adcb",
+        minorGridLineColor: "#53adcb",
+        tickColor: "#53adcb"
+      },
+
+      credits: {
+        enabled: false,
+        text: "Mixerno.space"
+      },
+
+      series: [{
+        showInLegend: false,
+        name: 'Visits',
+        marker: {
+          enabled: false
+        },
+        color: '#53adcb',
+        lineColor: '#53adcb'
+
+      }]
+    })
+        getData(params[1]);
+    getVisuals(params[1]);
+    
+    });
+    $('#userinput2').on('keyup', function (e) {
+      if (e.keyCode === 13) {
+        $('#submitbutton2').click();
+      }
+    });
+    //
+    $('#submitbutton2').click(function () {
+      location.href = "../roblox-compare/games/?&u="+params[1]+"&u="+$('#userinput2').val()
+    
+    });
+         });
+    </script>
+</html>
