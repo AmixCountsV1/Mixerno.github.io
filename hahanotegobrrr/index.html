@@ -1,0 +1,21 @@
+
+<html>
+    <head>
+        <title>a funny note thing ok</title>
+    </head>
+    <body>
+        hey. youve gotta be atleast 18 or older to come here. If ur not 18 or older then press the back button. And if you come "check" and you dont like it then dont cry to me ok thanks bye
+    <button onclick="go()">ok go i am 18 or 18+ lol xd</button>
+    </body>
+    
+    <script>
+        function go() {
+            console.log("ok")
+            var lamao = window.location.href
+            console.log(lamao)
+            var lamoa = lamao.split('&link=')
+            console.log(lamoa)
+            location.href = lamoa[1];
+        }
+    </script>
+</html>
