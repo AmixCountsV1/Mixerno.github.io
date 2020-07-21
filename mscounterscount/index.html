@@ -36,7 +36,7 @@
         <center><div style="padding: 2vh; font-size: 3vh; background-color: rgb(32, 32, 32);">Counter Site's Live Counters Counter <span style="font-size: 3vh;position: absolute; right: 90%;"><a  href="../">Home</a></span></div><br>
         <div class="boxerino"><br>
             <img src="https://mixerno.space/icons/2.png" id="image" style="border: solid 0.1vh;border-radius: 50%; height: 10vh; width: 10vh;" >
-            <div id="nameuser">Mixerno.Space</div>
+            <div id="nameuser">Name</div>
             <div class="odometer" id="followerCount">0</div>
             <div style="font-size: 2vh;">Counters</div><br>
         </div>
@@ -47,7 +47,7 @@
         </div>
         <br>
         <div class="buttons">
-        <!--<button data-toggle="modal" data-target="#changeuser">Change User</button><button data-toggle="modal" data-target="#compareuser">Compare</button>-->
+        <button data-toggle="modal" data-target="#changeuser">Change Site</button><button data-toggle="modal" data-target="#compareuser">Compare</button>
     </div>
     <br><br><br><br><br><br>
     <div id="disqus_thread"></div>
@@ -58,10 +58,11 @@
             <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-content">
               <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-header">
                <!-- <button type="button" class="close" data-dismiss="modal">&times;</button>-->
-                <h4 class="modal-title">Change User</h4>
+                <h4 class="modal-title">Change Site</h4>
               </div>
               <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-body">
-               <input style="background-color: rgb(32, 32, 32); color: white;" placeholder="www.pornhub.com/users/" id="userinput" type="text">
+                <p>sites: nextcounts,livecountsio,mixernospace,countslive,statcounts</p>
+               <input style="background-color: rgb(32, 32, 32); color: white;" placeholder="some site from the list" id="userinput" type="text">
               </div>
               <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-footer">
                 <button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" id="submitbutton" data-dismiss="modal">Submit</button><button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" data-dismiss="modal">Cancel</button>
@@ -78,10 +79,11 @@
             <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-content">
               <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-header">
                <!-- <button type="button" class="close" data-dismiss="modal">&times;</button>-->
-                <h4 class="modal-title">Compare user</h4>
+                <h4 class="modal-title">Compare Site</h4>
               </div>
               <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-body">
-               <input style="background-color: rgb(32, 32, 32); color: white;" placeholder="www.pornhub.com/users/" id="userinput2" type="text">
+                <p>sites: nextcounts,livecountsio,mixernospace,countslive,statcounts</p>
+               <input style="background-color: rgb(32, 32, 32); color: white;" placeholder="some site from the list" id="userinput2" type="text">
               </div>
               <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-footer">
                 <button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" id="submitbutton2" data-dismiss="modal">Submit</button><button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" data-dismiss="modal">Cancel</button>
@@ -167,7 +169,7 @@ var graphData = new Highcharts.chart('graph', {
     var windlochref = window.location.href;
     var params = windlochref.split('&u=');
     if(params[1] == undefined) {
-        location.href = `?&u=mixerno.space&u=0`;
+        location.href = `?&u=livecountsio&u=0`;
     }
     if (params[2] == 1) {
       $('head').append('<link rel="stylesheet" type="text/css" href="../../v2/odometerfast.css">');
@@ -176,13 +178,35 @@ var graphData = new Highcharts.chart('graph', {
     
     getVisuals(params[1]); 
     function getVisuals(id) {
-        fetch(`${cors}https://api.mixerno.space/mixernospace/counters`)
+        fetch(`${cors}https://api.mixerno.space/mixernospace/counters/${id}`)
             .then(response => response.json())
             .then(data => {
                 console.log(data)
                 if(data == undefined) {
                     console.log("#ERROR.")
                 } else {
+                  switch(id){
+                    case "mixernospace":
+      nameuser.innerHTML = "Mixerno.Space"
+      document.getElementById('image').src = "https://mixerno.space/icons/2.png"
+    break;
+    case "nextcounts":
+    nameuser.innerHTML = "Nextcounts.live"
+    document.getElementById('image').src = "https://nextcounts.live/assets/img/favicon.png"
+    break;
+    case "countslive":
+      nameuser.innerHTML = "Counts.live"
+      document.getElementById('image').src = "https://static.counts.live/images/core/logo.png"
+    break;
+    case "livecountsio":
+    nameuser.innerHTML = "Livecounts.io"
+    document.getElementById('image').src = "https://beta.livecounts.io/static/logo.png"
+    break;
+    case "statcounts":
+    nameuser.innerHTML = "site.statcounts.com"
+    document.getElementById('image').src = "https://yt3.ggpht.com/a/AATXAJwxygD22e0KW3JCGPHOJoebPsCLGoODnmzjymwE6A=s88-c-k-c0xffffffff-no-rj-mo"
+                  }
+                  
           followerCount.innerHTML = data
           graphData.series[0].addPoint([
             (new Date()).getTime(),
