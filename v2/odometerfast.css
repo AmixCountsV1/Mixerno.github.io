@@ -88,7 +88,7 @@
 .odometer.odometer-auto-theme, .odometer.odometer-theme-default {
   line-height: 1.1em;
 }
-.odometer.odometer-auto-theme .odometer-value, .odometer.odometer-theme-default .odometer-value {
+.odometer.odometer-auto-theme .odometer-value, .odometer.odometer-theme-default .odometer-value,.odometer-formatting-mark {
   text-align: center;
   font-family: robotolight;
 }
