@@ -192,8 +192,8 @@ var graphData = new Highcharts.chart('graph', {
                 function lol() {
                     if(data.users[count].cid == id) {
                         followerCount.innerHTML = Math.floor(data.users[count].SubscriberCount)
-         // nameuser.innerHTML = data.response[0].name
-          //$("#image").attr('src', `${data.response[0].photo_200}`);
+          nameuser.innerHTML = data.users[count].name
+          $("#image").attr('src', `${data.users[count].image}`);
           //plsworkgraph = json.subscribers.replace(/""/, "");
           graphData.series[0].addPoint([
             (new Date()).getTime(),
