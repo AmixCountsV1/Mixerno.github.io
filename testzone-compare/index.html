@@ -172,8 +172,6 @@ var graphData = new Highcharts.chart('graph', {
     })
     var windlochref = window.location.href;
     var params = windlochref.split('&u=');
-    var t1ch = true;
-    var t1ch2 = true;
     if(params[1] == undefined) {
         location.href = `?&u=UC-lHJZR3Gqxm24_Vd_AJ5Yw&u=UCbCmjCuTUZos6Inko4u57UQ&u=0`;
       
@@ -187,10 +185,8 @@ var graphData = new Highcharts.chart('graph', {
     var count = 0;
     var count2 = 0;
     getData(params[1]);
-    getVisuals(params[1]); 
 
     function getData(id) {
-      if(t1ch == true) {
         fetch(`${cors}https://api.mixerno.space/youtube/estimated/user/${id}`)
             .then(response => response.json())
             .then(data => {
@@ -200,12 +196,12 @@ var graphData = new Highcharts.chart('graph', {
                 } else {
                   nameuser.innerHTML = data.name
                   document.getElementById('image').src = data.image
-          followerCount.innerHTML = data.SubscriberCount
-          count = parseFloat(data.SubscriberCount)
+          followerCount.innerHTML = Math.floor(data.SubscriberCount)
+          count = parseFloat(Math.floor(data.SubscriberCount))
           getData2(params[2])
                 }
             })
-      }
+      
       
       
       
@@ -223,8 +219,8 @@ var graphData = new Highcharts.chart('graph', {
                 } else {
                   nameuser2.innerHTML = data.name
                   document.getElementById('image2').src = data.image
-          followerCount2.innerHTML = data.SubscriberCount
-          count2 = parseFloat(data.SubscriberCount)
+          followerCount2.innerHTML = Math.floor(data.SubscriberCount)
+          count2 = parseFloat(Math.floor(data.SubscriberCount))
           diffrence.innerHTML = count - count2
           graphData.series[0].addPoint([
             (new Date()).getTime(),
