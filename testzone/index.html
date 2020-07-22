@@ -36,7 +36,7 @@
         <center><div style="padding: 2vh; font-size: 3vh; background-color: rgb(32, 32, 32);">Youtube Live Estimations (by mixerno) Test Counter <span style="font-size: 3vh;position: absolute; right: 90%;"><a  href="../">Home</a></span></div><br>
         <div class="boxerino"><br>
             <img src="https://mixerno.space/icons/2.png" id="image" style="border: solid 0.1vh;border-radius: 50%; height: 10vh; width: 10vh;" >
-            <div id="nameuser">heya. Pewdiepie only supported rightnow. ok bye :)</div>
+            <div id="nameuser">Name</div>
             <div class="odometer" id="followerCount">0</div>
             <div style="font-size: 2vh;">Subscribers</div><br>
         </div>
@@ -132,6 +132,7 @@ var graphData = new Highcharts.chart('graph', {
       xAxis: {
         type: 'datetime',
         tickPixelInterval: 500,
+        gridLineWidth: 1,
         labels: {
           style: {
             color: "#FFFFFF"
@@ -142,7 +143,7 @@ var graphData = new Highcharts.chart('graph', {
         title: {
           text: ''
         },
-        
+        gridLineWidth: 1,
         lineColor: "#53adcb",
         minorGridLineColor: "#53adcb",
         tickColor: "#53adcb"
@@ -167,7 +168,7 @@ var graphData = new Highcharts.chart('graph', {
     var windlochref = window.location.href;
     var params = windlochref.split('&u=');
     if(params[1] == undefined) {
-        location.href = `?&u=UC-lHJZR3Gqxm24_Vd_AJ5Yw&u=0`;
+        location.href = `?&u=UCX6OQ3DkcsbYNE6H8uQQuVA&u=0`;
     }
     if (params[2] == 1) {
       $('head').append('<link rel="stylesheet" type="text/css" href="../v2/odometerfast.css">');
