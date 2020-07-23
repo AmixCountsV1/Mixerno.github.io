@@ -1,0 +1,292 @@
+<html>
+    <head>
+        <!-- Primary Meta Tags -->
+<title>Mixerno.Space</title>
+<meta name="title" content="Mixerno.Space">
+<meta name="description" content="The counter site for you.">
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mixerno.space/">
+<meta property="og:title" content="Mixerno.Space">
+<meta property="og:description" content="The counter site for you.">
+<meta property="og:image" content="https://mixerno.space/muxarno2x2.jpg">
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://mixerno.space/">
+<meta property="twitter:title" content="Mixerno.Space">
+<meta property="twitter:description" content="The counter site for you.">
+<meta property="twitter:image" content="https://mixerno.space/muxarno2x2.jpg">
+
+
+  <link rel="shortcut icon"
+    href="https://mixerno.space/icons/2.png">
+  <link rel="stylesheet" href="../o2.css" />
+  <meta charset="UTF-8">
+  <meta name="keywords" content="mixerno.space">
+  <meta name="author" content="Mixerno">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="../odometer.js"></script>
+  <script type="text/javascript" src="../jquery-3.1.1.min.js"></script>
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <link rel="stylesheet" href="../bootstrap.css">
+  <link rel="stylesheet" href="../v2/single.css">
+  <script src="../bootstrap.js"></script>
+    </head>
+    <body>
+        <center><div style="padding: 2vh; font-size: 3vh; background-color: rgb(32, 32, 32);">TikTok Live Estimations (by mixerno) Test Counter <span style="font-size: 3vh;position: absolute; right: 90%;"><a  href="../">Home</a></span></div><br>
+        <div class="boxerino"><br>
+            <img src="https://mixerno.space/icons/2.png" id="image" style="border: solid 0.1vh;border-radius: 50%; height: 10vh; width: 10vh;" >
+            <div id="nameuser">Name</div>
+            <div class="odometer" id="followerCount">0</div>
+            <div style="font-size: 2vh;">Followers</div><br>
+        </div>
+        <br>
+        <div class="graphbox">
+            <div>Followers Graph</div>
+            <div id="graph"></div>
+        </div>
+        <br>
+        <div class="buttons">
+        <button data-toggle="modal" data-target="#changeuser">Change User</button><button data-toggle="modal" data-target="#compareuser">Compare</button>
+    </div>
+    <br><br><br><br><br><br>
+    <div id="disqus_thread"></div>
+    </center>
+    <div style="background-color: rgb(32, 32, 32); color: white;" class="container">
+        <div class="modal fade" id="changeuser" role="dialog">
+          <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-dialog">
+            <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-content">
+              <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-header">
+               <!-- <button type="button" class="close" data-dismiss="modal">&times;</button>-->
+                <h4 class="modal-title">Change Group</h4>
+              </div>
+              <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-body">
+               <input style="background-color: rgb(32, 32, 32); color: white;" placeholder="vk.com/" id="userinput" type="text">
+              </div>
+              <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-footer">
+                <button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" id="submitbutton" data-dismiss="modal">Submit</button><button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" data-dismiss="modal">Cancel</button>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        
+      </div>
+      <div style="background-color: rgb(32, 32, 32); color: white;" class="container2">
+        <div class="modal fade" id="compareuser" role="dialog">
+          <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-dialog">
+            <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-content">
+              <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-header">
+               <!-- <button type="button" class="close" data-dismiss="modal">&times;</button>-->
+                <h4 class="modal-title">Compare Group</h4>
+              </div>
+              <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-body">
+               <input style="background-color: rgb(32, 32, 32); color: white;" placeholder="vk.com/" id="userinput2" type="text">
+              </div>
+              <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-footer">
+                <button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" id="submitbutton2" data-dismiss="modal">Submit</button><button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" data-dismiss="modal">Cancel</button>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        
+      </div>
+
+     <!--<script id="dsq-count-scr" src="//mixernospace-1.disqus.com/count.js" async></script>-->
+    </body>
+    
+    <script>
+
+      /**
+      *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+      *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+      var windlochref = window.location.href;
+    var params = windlochref.split('&u=');
+      var disqus_config = function () {
+      this.page.url = params[0]+'&u='+params[1];  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = params[1]; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+      };
+      
+      (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = 'https://mixernospace-1.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+      })();
+      </script>
+
+    <script>
+         $(document).ready(function () {
+            // var cors = "";
+    var cors = "https://cors.mixerno.space/";
+var graphData = new Highcharts.chart('graph', {
+      chart: {
+        backgroundColor: 'transparent',
+        renderTo: graph,
+        type: 'spline'
+      },
+      title: {
+        text: ``
+      },
+      xAxis: {
+        type: 'datetime',
+        tickPixelInterval: 500,
+        gridLineWidth: 1,
+        labels: {
+          style: {
+            color: "#FFFFFF"
+          }
+        }
+      },
+      yAxis: {
+        title: {
+          text: ''
+        },
+        gridLineWidth: 1,
+        lineColor: "#53adcb",
+        minorGridLineColor: "#53adcb",
+        tickColor: "#53adcb"
+      },
+
+      credits: {
+        enabled: false,
+        text: "Mixerno.space"
+      },
+
+      series: [{
+        showInLegend: false,
+        name: 'Followers',
+        marker: {
+          enabled: false
+        },
+        color: '#53adcb',
+        lineColor: '#53adcb'
+
+      }]
+    })
+    var windlochref = window.location.href;
+    var params = windlochref.split('&u=');
+    if(params[1] == undefined) {
+        location.href = `?&u=UCX6OQ3DkcsbYNE6H8uQQuVA&u=0`;
+    }
+    if (params[2] == 1) {
+      $('head').append('<link rel="stylesheet" type="text/css" href="../v2/odometerfast.css">');
+    } else if(params[2] == 2) {
+      $('head').append('<link rel="stylesheet" type="text/css" href="../v2/odometercolors.css">');
+    } else if(params[2] == 3) {
+      $('head').append('<link rel="stylesheet" type="text/css" href="../v2/odometerfast.css">');
+      $('head').append('<link rel="stylesheet" type="text/css" href="../v2/odometercolors.css">');
+    }
+    
+   
+    
+
+    getVisuals(params[1]); 
+    function getVisuals(id) {
+      fetch(`${cors}https://api.mixerno.space/tiktok/estimated/${id}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                var count = 0;
+                lol()
+                function lol() {
+                    if(data.users[count].cid == id) {
+                        followerCount.innerHTML = Math.floor(data.users[count].SubscriberCount)
+          nameuser.innerHTML = data.users[count].name
+          $("#image").attr('src', `${data.users[count].image}`);
+          //plsworkgraph = json.subscribers.replace(/""/, "");
+          graphData.series[0].addPoint([
+            (new Date()).getTime(),
+            Math.floor(data.users[count].SubscriberCount)
+          ]);
+          if (graphData.series[0].data.length >= 700) {
+            graphData.series[0].data[0].remove()
+          }
+                    } else {
+                        if(count >= data.users.length - 1) {
+                            console.log("Not found. uhh.. rip?")
+                        } else {
+                            count++
+                            lol()
+                        }
+                    }
+                }
+                
+
+            })
+    }
+
+    setInterval(function() {
+        getVisuals(params[1]);
+    }, 2000);
+    $('#userinput').on('keyup', function (e) {
+      if (e.keyCode === 13) {
+        $('#submitbutton').click();
+      }
+    });
+    //
+    $('#submitbutton').click(function () {
+      location.href = `?&u=${$('#userinput').val()}`;
+      windlochref = window.location.href;
+        params = windlochref.split('&u=');
+      graphData = new Highcharts.chart('graph', {
+      chart: {
+        backgroundColor: 'transparent',
+        renderTo: graph,
+        type: 'spline'
+      },
+      title: {
+        text: ``
+      },
+      xAxis: {
+        type: 'datetime',
+        tickPixelInterval: 500,
+        labels: {
+          style: {
+            color: "#FFFFFF"
+          }
+        }
+      },
+      yAxis: {
+        title: {
+          text: ''
+        },
+        
+        lineColor: "#53adcb",
+        minorGridLineColor: "#53adcb",
+        tickColor: "#53adcb"
+      },
+
+      credits: {
+        enabled: false,
+        text: "Mixerno.space"
+      },
+
+      series: [{
+        showInLegend: false,
+        name: 'Subscribers',
+        marker: {
+          enabled: false
+        },
+        color: '#53adcb',
+        lineColor: '#53adcb'
+
+      }]
+    })
+    getVisuals(params[1]);
+    
+    });
+    $('#userinput2').on('keyup', function (e) {
+      if (e.keyCode === 13) {
+        $('#submitbutton2').click();
+      }
+    });
+    //
+    $('#submitbutton2').click(function () {
+      location.href = "../vk-compare/?&u="+params[1]+"&u="+$('#userinput2').val()
+    
+    });
+         });
+    </script>
+</html>
