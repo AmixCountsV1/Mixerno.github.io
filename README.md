@@ -1,4 +1,4 @@
-# Mixerno.github.io
+# Mixerno.github.io / Mixerno.Space
 
 
 
@@ -7,19 +7,6 @@
 
 
 
-Stuff.
-
-Link: Mixerno.github.io
-
-
-
-
-i dont have more to say.
-Just stuff here.
-Nothing else. yeah.
-:|
-
-
-the guy making this
-[@Mixerno](https://github.com/mixerno).
+The Counter Site: Mixerno.Space's Files.
+oh hi btw.
 
