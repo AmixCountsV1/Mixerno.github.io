@@ -1,0 +1,109 @@
+<html>
+    <head>
+        <!-- Primary Meta Tags -->
+<title>Mixerno.Space</title>
+<meta name="title" content="Mixerno.Space">
+<meta name="description" content="The counter site for you.">
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mixerno.space/">
+<meta property="og:title" content="Mixerno.Space">
+<meta property="og:description" content="The counter site for you.">
+<meta property="og:image" content="https://mixerno.space/muxarno2x2.jpg">
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://mixerno.space/">
+<meta property="twitter:title" content="Mixerno.Space">
+<meta property="twitter:description" content="The counter site for you.">
+<meta property="twitter:image" content="https://mixerno.space/muxarno2x2.jpg">
+
+
+  <link rel="shortcut icon"
+    href="https://mixerno.space/icons/2.png">
+  <meta charset="UTF-8">
+  <meta name="keywords" content="mixerno.space">
+  <meta name="author" content="Mixerno">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="text/javascript" src="../jquery-3.1.1.min.js"></script>
+    </head>
+    <body>
+      <div id="subgap" style="font-size: 50px;">Sub Gap: PewDiePie: +17,000,000</div>
+    </body>
+    
+
+
+    <script>
+         $(document).ready(function () {
+             var cors = "";
+   // cors = "https://cors.mixerno.space/";
+    var windlochref = window.location.href;
+    var params = windlochref.split('&u=');
+    if(params[1] == undefined) {
+        location.href = `?&u=UC-lHJZR3Gqxm24_Vd_AJ5Yw&u=UCbCmjCuTUZos6Inko4u57UQ&u=0`;
+      
+    }
+    if(params[2] == 1) {
+      $('head').append('<link rel="stylesheet" type="text/css" href="../v2/odometerfast.css">');
+    }
+
+
+    
+    var count = 0;
+    var count2 = 0;
+    var nameuser;
+var nameuser2;
+    getData(params[1]);
+
+    function getData(id) {
+        fetch(`${cors}https://api.mixerno.space/youtube/estimated/user/${id}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                if(data.SubscriberCount == undefined) {
+                    console.log("Nope")
+                } else {
+                  nameuser = data.name
+          count = parseFloat(Math.floor(data.SubscriberCount))
+          getData2(params[2])
+                }
+            })
+      
+      
+      
+      
+        
+    }
+
+    function getData2(id) {
+
+        fetch(`${cors}https://api.mixerno.space/youtube/estimated/user/${id}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                if(data.SubscriberCount == undefined) {
+                    console.log("Nope2")
+                } else {
+                  nameuser2 = data.name
+          count2 = parseFloat(Math.floor(data.SubscriberCount))
+          if(count > count2) {
+            document.getElementById('subgap').innerHTML = `Sub Gap: ${nameuser}: +${(count - count2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`
+          } else if(count2 > count) {
+            document.getElementById('subgap').innerHTML = `Sub Gap: ${nameuser2}: +${(count2 - count).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`
+          }
+          
+                }
+            })
+      
+      
+      
+      
+        
+    }
+
+
+    setInterval(function() {
+      getData(params[1]);
+    }, 2000);
+         });
+    </script>
+</html>
