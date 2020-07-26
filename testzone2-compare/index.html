@@ -231,7 +231,7 @@ var graphData = new Highcharts.chart('graph', {
             (new Date()).getTime(),
             count - count2
           ]);
-          if (graphData.series[0].data.length >= 3600) {
+          if (graphData.series[0].data.length >= 900) {
             graphData.series[0].data[0].remove()
           }
                 }
