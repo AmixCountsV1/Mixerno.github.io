@@ -28,6 +28,7 @@
   <script src="../odometer.js"></script>
   <script type="text/javascript" src="../jquery-3.1.1.min.js"></script>
   <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/modules/boost.js"></script>
   <link rel="stylesheet" href="../bootstrap.css">
   <link rel="stylesheet" href="../v2/compare.css">
   <script src="../bootstrap.js"></script>
@@ -135,6 +136,10 @@ var graphData = new Highcharts.chart('graph', {
       title: {
         text: ``
       },
+      
+    boost: {
+        useGPUTranslations: true
+    },
       xAxis: {
         type: 'datetime',
         tickPixelInterval: 500,
@@ -226,7 +231,7 @@ var graphData = new Highcharts.chart('graph', {
             (new Date()).getTime(),
             count - count2
           ]);
-          if (graphData.series[0].data.length >= 700) {
+          if (graphData.series[0].data.length >= 3600) {
             graphData.series[0].data[0].remove()
           }
                 }
