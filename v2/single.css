@@ -80,7 +80,7 @@
             box-shadow: 0 0 2.5px rgb(32, 32, 32);
           }
           #followerCount {
-              font-size: calc(35px + 0.5vw) !important;
+              font-size: calc(45px + 0.5vw) !important;
           }
           #nameuser {
               font-size: calc(32px + 0.5vw) !important;
