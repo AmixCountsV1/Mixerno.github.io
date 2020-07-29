@@ -111,25 +111,29 @@
        }
 
        #followerCount {
-           font-size: 5vh;
+        font-size: calc(35px + 0.5vw) !important;
        }
 
        #nameuser {
-           font-size: 4vh;
+        font-size: calc(32px + 0.5vw) !important;
        }
 
        #followerCount2 {
-           font-size: 5vh;
+        font-size: calc(35px + 0.5vw) !important;
        }
 
        #nameuser2 {
-           font-size: 4vh;
+        font-size: calc(32px + 0.5vw) !important;
+       }
+       #diffrence {
+        font-size: calc(30px + 0.5vw) !important; 
        }
 
        #image,
        #image2 {
-
-           outline: none;
-           border-color: #ffffff;
-           box-shadow: 0 0 2.5px #ffffff;
+        outline: none !important;
+        border-color: #ffffff !important;
+        box-shadow: 0 0 2.5px #ffffff !important;
+        height: calc(100px + 1.5vw) !important;
+        width: calc(100px + 1.5vw) !important;
        }

@@ -15,7 +15,7 @@
               background-color: rgb(32, 32, 32);
               border: solid 1px;
               border-color: rgb(36, 36, 36);
-              padding: 1vh;
+              padding: 10px;
               box-shadow: 0 0 2.5px rgb(32, 32, 32);
           }
           .row {
@@ -36,13 +36,13 @@
               box-shadow: 0 0 2.5px rgb(32, 32, 32);
   }
           .justbox {
-              padding: 1vh;
-              font-size: 3vh;
+              padding: 10px;
+              font-size: 20px;
               background-color: rgb(32, 32, 32);
               border: solid 1px;
               border-color: rgb(36, 36, 36);
               width: 50%;
-              height: 9vh;
+              height: 90px;
               outline: none;
               box-shadow: 0 0 2.5px rgb(32, 32, 32);
           }
@@ -69,25 +69,30 @@
               
           }
           .graphbox {
-              padding: 1vh;
-              font-size: 2vh;
+              padding: 5px;
+              font-size: calc(8px + 0.5vw);
               background-color: rgb(32, 32, 32);
               border: solid 1px;
               border-color: rgb(36, 36, 36);
               width: 50%;
-              height: auto;
+              height: calc(450px + 0.5vw);
               outline: none;
             box-shadow: 0 0 2.5px rgb(32, 32, 32);
           }
           #followerCount {
-              font-size: 5vh;
+              font-size: calc(35px + 0.5vw) !important;
           }
           #nameuser {
-              font-size: 4vh;
+              font-size: calc(32px + 0.5vw) !important;
               
           }
+          .justbox div{
+            font-size: calc(16px + 0.5vw) !important;
+          }
           #image {
-            outline: none;
-            border-color: #ffffff;
-            box-shadow: 0 0 2.5px #ffffff;
+            outline: none !important;
+            border-color: #ffffff !important;
+            box-shadow: 0 0 2.5px #ffffff !important;
+            height: calc(100px + 1.5vw) !important;
+            width: calc(100px + 1.5vw) !important;
           }
