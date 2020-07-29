@@ -39,7 +39,13 @@
             <div id="nameuser">Name</div>
             <div class="odometer" id="followerCount">0</div>
             <div style="font-size: 2vh;">Trees planted</div><br>
-        </div>
+        </div><br>
+        <div class="row">
+          <div class="justbox" style="width: 100%;">
+              <div style="font-size: 4vh;" class="odometer" id="GoalCount">0</div>
+              <div style="font-size: 2vh;">Goal</div>
+          </div>
+      </div>
         <br>
         <div class="graphbox">
             <div>Trees planted Graph</div>
@@ -200,6 +206,7 @@ var graphData = new Highcharts.chart('graph', {
           if (graphData.series[0].data.length >= 700) {
             graphData.series[0].data[0].remove()
           }
+          if (data < 10) return goal = 10;x1 = Math.floor(Math.log10(data));x2 = Math.ceil(data / 10 ** x1);x3 = x2 * 10 ** x1;goal = x3 - data;document.getElementById('GoalCount').innerHTML = goal
 
             })
     }

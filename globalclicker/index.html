@@ -39,7 +39,13 @@
             <div id="nameuser">Name</div>
             <div class="odometer" id="followerCount">0</div>
             <div style="font-size: 2vh;">Clicks</div><br>
-        </div>
+        </div><br>
+        <div class="row">
+          <div class="justbox" style="width: 100%;">
+              <div style="font-size: 4vh;" class="odometer" id="GoalCount">0</div>
+              <div style="font-size: 2vh;">Goal</div>
+          </div>
+      </div>
         <br>
         <div class="graphbox">
             <div>Clicks Graph</div>
@@ -118,8 +124,8 @@
 
     <script>
          $(document).ready(function () {
-            // var cors = "";
-    var cors = "https://cors.mixerno.space/";
+             var cors = "";
+     cors = "https://cors.mixerno.space/";
 var graphData = new Highcharts.chart('graph', {
       chart: {
         backgroundColor: 'transparent',
@@ -181,13 +187,14 @@ var graphData = new Highcharts.chart('graph', {
       window.history.pushState("y", "g", `?&u=${params[1]}&u=0`);
     }
     
-   
+   var x1,x2,x3;
     
 
     function getVisuals(id) {
       fetch(`${cors}http://global-clicker.mrcode.io/getpoints`)
             .then(response => response.json())
             .then(data => {
+              var goal = 0;
                 console.log(data)
                 followerCount.innerHTML = data
           nameuser.innerHTML = "Global Clicker"
@@ -200,6 +207,7 @@ var graphData = new Highcharts.chart('graph', {
           if (graphData.series[0].data.length >= 700) {
             graphData.series[0].data[0].remove()
           }
+          if (data < 10) return goal = 10;x1 = Math.floor(Math.log10(data));x2 = Math.ceil(data / 10 ** x1);x3 = x2 * 10 ** x1;goal = x3 - data;document.getElementById('GoalCount').innerHTML = goal
           
 
             })
