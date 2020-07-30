@@ -188,34 +188,21 @@ var graphData = new Highcharts.chart('graph', {
 
     getVisuals(params[1]); 
     function getVisuals(id) {
-      fetch(`${cors}https://api.mixerno.space/tiktok/estimated/${id}`)
+      fetch(`${cors}https://api.mixerno.space/tiktok/estimated/user/${id}`)
             .then(response => response.json())
             .then(data => {
                 console.log(data)
-                var count = 0;
-                lol()
-                function lol() {
-                    if(data.users[count].cid == id) {
-                        followerCount.innerHTML = Math.floor(data.users[count].SubscriberCount)
-          nameuser.innerHTML = data.users[count].name
-          $("#image").attr('src', `${data.users[count].image}`);
+                followerCount.innerHTML = Math.floor(data.SubscriberCount)
+          nameuser.innerHTML = data.name
+          $("#image").attr('src', `${data.image}`);
           //plsworkgraph = json.subscribers.replace(/""/, "");
           graphData.series[0].addPoint([
             (new Date()).getTime(),
-            Math.floor(data.users[count].SubscriberCount)
+            Math.floor(data.SubscriberCount)
           ]);
           if (graphData.series[0].data.length >= 900) {
             graphData.series[0].data[0].remove()
           }
-                    } else {
-                        if(count >= data.users.length - 1) {
-                            console.log("Not found. uhh.. rip?")
-                        } else {
-                            count++
-                            lol()
-                        }
-                    }
-                }
                 
 
             })

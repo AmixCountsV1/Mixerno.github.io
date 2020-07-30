@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+
+  <title>Mixerno | YT Embed</title>
+  <link rel="shortcut icon"
+    href="https://yt3.ggpht.com/a-/AOh14GhVWagi88Rfs6XXerg3-3PR4RPHYcolFIrYXZ4_=s288-c-k-c0xffffffff-no-rj-mo">
+  <link rel="stylesheet" href="../../o2.css" />
+  <script src="../../odometer.js"></script>
+  <script type="text/javascript" src="../../jquery-3.1.1.min.js"></script>
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+</head>
+
+<body id="lmao">
+  <div class="l" id="lal" style="background-color: limegreen;">
+    <img src="" id="image" class="clar" height="70" width="70" style="position: absolute; top: 0px; left: 0px;">
+    <div id="nameuser" class="names clar" style="position: absolute;top: 5px;font-size:15px;font-weight: bold;">Aiah</div>
+    <div id="followerCount" class="odometer clar" style="position: absolute;left: 79px;top: 20px;font-size:25px;">0</div>
+  </div>
+</body>
+<style>
+  @font-face {
+  font-family: varela;
+    src: url(https://fonts.gstatic.com/s/varelaround/v12/w8gdH283Tvk__Lua32TysjIfp8uP.woff2);
+}
+  .names {
+    position: absolute;
+    left: 80px;
+    top: 0px;
+    font-size: 15px;
+    width: 145px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+  }
+
+  .odometer.odometer-auto-theme, .odometer.odometer-theme-default {
+  line-height: 1.5em !important;
+}
+
+  .odometer {
+    font-size: 100px;
+  }
+  .odometer.odometer-auto-theme.odometer-animating-up .odometer-ribbon-inner, .odometer.odometer-theme-default.odometer-animating-up .odometer-ribbon-inner {
+  color: lime;
+}
+.odometer.odometer-auto-theme.odometer-animating-down.odometer-animating .odometer-ribbon-inner, .odometer.odometer-theme-default.odometer-animating-down.odometer-animating .odometer-ribbon-inner {
+  color: red;
+}
+
+  body {
+    background-color: transparent;
+    font-family: varela!important
+  }
+
+  div {
+    font-size: 36
+  }
+</style>
+<script>
+  var cors = ""
+  //cors = "https://cors.mixerno.space/"
+  var videostufflol = window.location.href;
+  var params = videostufflol.split('?u=');
+  var channelid = params[1];
+
+  getData(params[1]);
+
+  function getData(id) {
+    fetch(`${cors}https://api.mixerno.space/youtube/estimated/user/${id}`)
+      .then(response => response.json())
+      .then(data => {
+        console.log(data)
+        if (data.SubscriberCount == undefined) {
+          console.log("Nope")
+        } else {
+          nameuser.innerHTML = data.name
+          document.getElementById('image').src = data.image
+          followerCount.innerHTML = Math.floor(data.SubscriberCount)
+        }
+      })
+
+
+
+
+
+  }
+
+  setInterval(function () {
+    getData(params[1]);
+  }, 2000);
+</script>
+
+</html>
