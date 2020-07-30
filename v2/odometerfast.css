@@ -47,11 +47,11 @@
   position: absolute;
 }
 .odometer.odometer-auto-theme.odometer-animating-up .odometer-ribbon-inner, .odometer.odometer-theme-default.odometer-animating-up .odometer-ribbon-inner {
-  -webkit-transition: -webkit-transform 0.5s;
-  -moz-transition: -moz-transform 0.5s;
-  -ms-transition: -ms-transform 0.5s;
-  -o-transition: -o-transform 0.5s;
-  transition: transform 0.5s;
+  -webkit-transition: -webkit-transform 0.5s !important;
+  -moz-transition: -moz-transform 0.5s !important;
+  -ms-transition: -ms-transform 0.5s !important;
+  -o-transition: -o-transform 0.5s !important;
+  transition: transform 0.5s !important;
 }
 .odometer.odometer-auto-theme.odometer-animating-up.odometer-animating .odometer-ribbon-inner, .odometer.odometer-theme-default.odometer-animating-up.odometer-animating .odometer-ribbon-inner {
   -webkit-transform: translateY(-100%);
@@ -68,11 +68,11 @@
   transform: translateY(-100%);
 }
 .odometer.odometer-auto-theme.odometer-animating-down.odometer-animating .odometer-ribbon-inner, .odometer.odometer-theme-default.odometer-animating-down.odometer-animating .odometer-ribbon-inner {
-  -webkit-transition: -webkit-transform 0.5s;
-  -moz-transition: -moz-transform 0.5s;
-  -ms-transition: -ms-transform 0.5s;
-  -o-transition: -o-transform 0.5s;
-  transition: transform 0.5s;
+  -webkit-transition: -webkit-transform 0.5s !important;
+  -moz-transition: -moz-transform 0.5s !important;
+  -ms-transition: -ms-transform 0.5s !important;
+  -o-transition: -o-transform 0.5s !important;
+  transition: transform 0.5s !important;
   -webkit-transform: translateY(0);
   -moz-transform: translateY(0);
   -ms-transform: translateY(0);
@@ -86,9 +86,9 @@
 }
 
 .odometer.odometer-auto-theme, .odometer.odometer-theme-default {
-  line-height: 1.1em;
+  line-height: 1.1em !important;
 }
 .odometer.odometer-auto-theme .odometer-value, .odometer.odometer-theme-default .odometer-value,.odometer-formatting-mark {
-  text-align: center;
-  font-family: robotolight;
+  text-align: center !important;
+  font-family: robotolight !important;
 }
