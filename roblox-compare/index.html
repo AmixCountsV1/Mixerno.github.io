@@ -189,7 +189,7 @@ var graphData = new Highcharts.chart('graph', {
     function getData(id) {
         windlochref = window.location.href;
         params = windlochref.split('&u=');
-        fetch(`https://friends.roblox.com/v1/users/${id}/followers/count`)
+        fetch(`${cors}https://friends.roblox.com/v1/users/${id}/followers/count`)
             .then(response => response.json())
             .then(data => {
                 console.log(data)
@@ -210,7 +210,7 @@ var graphData = new Highcharts.chart('graph', {
     function getData2(id) {
         windlochref = window.location.href;
         params = windlochref.split('&u=');
-        fetch(`https://friends.roblox.com/v1/users/${id}/followers/count`)
+        fetch(`${cors}https://friends.roblox.com/v1/users/${id}/followers/count`)
             .then(response => response.json())
             .then(data => {
                 console.log(data)
