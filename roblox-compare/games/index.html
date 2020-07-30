@@ -174,36 +174,15 @@ var graphData = new Highcharts.chart('graph', {
     var windlochref = window.location.href;
     var params = windlochref.split('&u=');
     var estimoitu = false;
+
     if(params[1] == undefined) {
-      if(params[2] == undefined) {
-        window.history.pushState("y", "g", `?&u=735030788&u=606849621&u=${params[3]}&u=${params[4]}`);
-        windlochref = window.location.href;
-        params = windlochref.split('&u=');
-      }
+        location.href = `?&u=735030788&u=606849621&u=0&u=0`;
     }
-    if(params[1] == undefined) {
-        window.history.pushState("y", "g", `?&u=735030788&u=${params[2]}&u=${params[3]}&u=${params[4]}`);
-        windlochref = window.location.href;
-        params = windlochref.split('&u=');
-        getUniverseID(params[1])
-    } else {
-      getUniverseID(params[1])
-    }
-    if(params[2] == undefined) {
-        window.history.pushState("y", "g", `?&u=${params[1]}&u=606849621&u=${params[3]}&u=${params[4]}`);
-        windlochref = window.location.href;
-        params = windlochref.split('&u=');
-    }
-    if(params[3] == 1) {
+    if (params[3] == 1) {
       $('head').append('<link rel="stylesheet" type="text/css" href="../../v2/odometerfast.css">');
-    } else {
-      window.history.pushState("y", "g", `?&u=${params[1]}&u=${params[2]}&u=0&u=${params[4]}`);
     }
-    if(params[4] == 1) {
+    if (params[4] == 1) {
       estimoitu = true;
-    } else {
-      window.history.pushState("y", "g", `?&u=${params[1]}&u=${params[2]}&u=${params[3]}&u=0`);
-      estimoitu = false;
     }
     var visits = 0;
     var visitsbefore = 0;
@@ -230,7 +209,7 @@ var graphData = new Highcharts.chart('graph', {
     var loadedvisits2 = 0;
     var count = 0;
     var count2 = 0;
-    
+    getUniverseID(params[1])
     function getUniverseID(id) {
       fetch(`${cors}https://robloxvisitstrackerv2.herokuapp.com/roblox/api/game/${id}`)
             .then(response => response.json())
@@ -359,7 +338,7 @@ var graphData = new Highcharts.chart('graph', {
     });
     //
     $('#submitbutton').click(function () {
-      window.history.pushState("y", "g", `?&u=${$('#userinput').val()}&u=${params[2]}`);
+      window.history.pushState("y", "g", `?&u=${$('#userinput').val()}&u=${params[2]}&u=${params[3]}`);
       windlochref = window.location.href;
         params = windlochref.split('&u=');
       graphData = new Highcharts.chart('graph', {
@@ -417,7 +396,7 @@ var graphData = new Highcharts.chart('graph', {
     });
     //
     $('#submitbutton2').click(function () {
-      window.history.pushState("y", "g", `?&u=${params[1]}&u=${$('#userinput2').val()}`);
+      window.history.pushState("y", "g", `?&u=${params[1]}&u=${$('#userinput2').val()}&u=${params[3]}`);
       windlochref = window.location.href;
         params = windlochref.split('&u=');
       graphData = new Highcharts.chart('graph', {
