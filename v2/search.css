@@ -1,0 +1,98 @@
+       
+@font-face {
+    font-family: Roboto;
+      src: url(../fonts/Roboto-Regular.ttf);
+  }
+          body {
+              background: rgb(41, 43, 44);
+              font-family:Roboto;
+              color: white;
+              
+          }
+          .boxerino {
+              margin-left: 12%;
+              margin-right: 12%;
+              background-color: rgb(32, 32, 32);
+              border: solid 1px;
+              border-color: rgb(36, 36, 36);
+              padding: 10px;
+              box-shadow: 0 0 2.5px rgb(32, 32, 32);
+          }
+          .row,.users {
+            /*  margin-left: 12%;
+              margin-right: 12%;*/
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        flex: 4;
+      }
+  #disqus_thread {
+    margin-left: 12%;
+              margin-right: 12%;
+              background-color: rgb(32, 32, 32);
+              border: solid 1px;
+              border-color: rgb(36, 36, 36);
+              outline: none;
+              box-shadow: 0 0 2.5px rgb(32, 32, 32);
+  }
+          .justbox {
+              padding: 10px;
+              font-size: 20px;
+              background-color: rgb(32, 32, 32);
+              border: solid 1px;
+              border-color: rgb(36, 36, 36);
+              width: 50%;
+              height: 90px;
+              outline: none;
+              box-shadow: 0 0 2.5px rgb(32, 32, 32);
+          }
+          .buttons {
+            margin-left: 12%;
+            margin-right: 12%;
+              display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        flex: 4;
+        background-color: rgb(32, 32, 32);
+        border: solid 1px;
+        outline: none;
+              border-color: rgb(36, 36, 36);
+              box-shadow: 0 0 2.5px rgb(32, 32, 32);
+          }
+          button,select,option,input {
+              padding: 2vh;
+              background-color: rgb(32, 32, 32);
+              width: 49%;
+              font-size: 2vh;
+              color: white;
+              border: none;
+              
+          }
+          .graphbox {
+              padding: 5px;
+              font-size: calc(8px + 0.5vw);
+              background-color: rgb(32, 32, 32);
+              border: solid 1px;
+              border-color: rgb(36, 36, 36);
+              width: 50%;
+              height: calc(450px + 0.5vw);
+              outline: none;
+            box-shadow: 0 0 2.5px rgb(32, 32, 32);
+          }
+          #followerCount {
+              font-size: calc(45px + 0.5vw) !important;
+          }
+          #nameuser {
+              font-size: calc(32px + 0.5vw) !important;
+              
+          }
+          .justbox div{
+            font-size: calc(16px + 0.5vw) !important;
+          }
+          #image {
+            outline: none !important;
+            border-color: #ffffff !important;
+            box-shadow: 0 0 2.5px #ffffff !important;
+            height: calc(100px + 1.5vw) !important;
+            width: calc(100px + 1.5vw) !important;
+          }
