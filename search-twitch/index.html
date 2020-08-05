@@ -1,0 +1,196 @@
+<html>
+    <head>
+        <!-- Primary Meta Tags -->
+<title>Mixerno.Space</title>
+<meta name="title" content="Mixerno.Space">
+<meta name="description" content="The counter site for you.">
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mixerno.space/">
+<meta property="og:title" content="Mixerno.Space">
+<meta property="og:description" content="The counter site for you.">
+<meta property="og:image" content="https://mixerno.space/muxarno2x2.jpg">
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://mixerno.space/">
+<meta property="twitter:title" content="Mixerno.Space">
+<meta property="twitter:description" content="The counter site for you.">
+<meta property="twitter:image" content="https://mixerno.space/muxarno2x2.jpg">
+
+
+  <link rel="shortcut icon"
+    href="https://mixerno.space/icons/2.png">
+  <link rel="stylesheet" href="../o2.css" />
+  <meta charset="UTF-8">
+  <meta name="keywords" content="mixerno.space">
+  <meta name="author" content="Mixerno">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="../odometer.js"></script>
+  <script type="text/javascript" src="../jquery-3.1.1.min.js"></script>
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <link rel="stylesheet" href="../bootstrap.css">
+  <link rel="stylesheet" href="../v2/search.css">
+  <script src="../bootstrap.js"></script>
+    </head>
+    <body>
+        <center><div style="padding: 2vh; font-size: 3vh; background-color: rgb(32, 32, 32);">Twitch Follower Counter <span style="font-size: 3vh;position: absolute; right: 90%;"><a  href="../">Home</a></span></div><br>
+        <div class="boxerino"><br>
+            <h1>Twitch Follower Counter. <br> Search for an user.</h1><br>
+            <input style="border: solid 1px black !important;" id="funynthing" value="1" type="text" placeholder="Twitch Username"><br>
+            <button style="border: solid 1px black !important;" onclick="search(document.getElementById('funynthing').value)">Search</button><br>
+            <h3>Click on the profile picture you want after searched</h3>
+            <div class="users">
+                <div class="user" id="u1" style="display:none;">
+                    <img id="img1" src="" onclick="location.href = `https://mixerno.space/twitch/?&u=${document.getElementById('name1').title}`">
+                    <h1 id="name1" title="">a</h1>
+                    <!--<h2 id="fol1"> Followers</h2>-->
+                </div>
+                <div class="user" id="u2" style="display: none;">
+                    <img id="img2" src="" onclick="location.href = `https://mixerno.space/twitch/?&u=${document.getElementById('name2').title}`">
+                    <h1 id="name2">b</h1>
+                    <!--<h2 id="fol2"> Followers</h2>-->
+                </div>
+                <div class="user" id="u3" style="display: none;">
+                    <img id="img3" src="" onclick="location.href = `https://mixerno.space/twitch/?&u=${document.getElementById('name3').title}`">
+                    <h1 id="name3">c</h1>
+                    <!--<h2 id="fol3"> Followers</h2>-->
+                </div>
+                <div class="user" id="u4" style="display: none;">
+                    <img id="img4" src="" onclick="location.href = `https://mixerno.space/twitch/?&u=${document.getElementById('name4').title}`">
+                    <h1 id="name4">d</h1>
+                    <!--<h2 id="fol4"> Followers</h2>-->
+                </div>
+                <div class="user" id="u5" style="display: none;">
+                    <img id="img5" src="" onclick="location.href = `https://mixerno.space/twitch/?&u=${document.getElementById('name5').title}`">
+                    <h1 id="name5">e</h1>
+                    <!--<h2 id="fol5"> Followers</h2>-->
+                </div>
+            </div>
+        </div><br><br><br>
+
+    </center>
+
+
+     <!--<script id="dsq-count-scr" src="//mixernospace-1.disqus.com/count.js" async></script>-->
+    </body>
+    
+
+
+    <script>
+        var cors = "";
+    //cors = "https://cors.mixerno.space/";
+        function search(name) {
+            fetch(cors+'https://api.mixerno.space/twitch/search/'+name).then(res => res.json())
+            .then(data => {
+                if(data.length == 1) {
+                    document.getElementById('u1').style.display = "block"
+                    document.getElementById('name1').innerHTML = data[0].name
+                    document.getElementById('name1').title = data[0].id
+                    document.getElementById('img1').src = data[0].pfp
+                }
+                else if(data.length == 2) {
+                    document.getElementById('u1').style.display = "block"
+                    document.getElementById('name1').innerHTML = data[0].name
+                    document.getElementById('name1').title = data[0].id
+                    document.getElementById('img1').src = data[0].pfp
+
+                    document.getElementById('u2').style.display = "block"
+                    document.getElementById('name2').innerHTML = data[1].name
+                    document.getElementById('name2').title = data[1].id
+                    document.getElementById('img2').src = data[1].pfp
+                }
+                else if(data.length == 3) {
+                    document.getElementById('u1').style.display = "block"
+                    document.getElementById('name1').innerHTML = data[0].name
+                    document.getElementById('name1').title = data[0].id
+                    document.getElementById('img1').src = data[0].pfp
+
+document.getElementById('u2').style.display = "block"
+document.getElementById('name2').innerHTML = data[1].name
+document.getElementById('name2').title = data[1].id
+document.getElementById('img2').src = data[1].pfp
+
+document.getElementById('u3').style.display = "block"
+document.getElementById('name3').innerHTML = data[2].name
+document.getElementById('name3').title = data[2].id
+document.getElementById('img3').src = data[2].pfp
+                }
+                else if(data.length == 4) {
+                    document.getElementById('u1').style.display = "block"
+                    document.getElementById('name1').innerHTML = data[0].name
+                    document.getElementById('name1').title = data[0].id
+                    document.getElementById('img1').src = data[0].pfp
+
+document.getElementById('u2').style.display = "block"
+document.getElementById('name2').innerHTML = data[1].name
+document.getElementById('name2').title = data[1].id
+document.getElementById('img2').src = data[1].pfp
+
+document.getElementById('u3').style.display = "block"
+document.getElementById('name3').innerHTML = data[2].name
+document.getElementById('name3').title = data[2].id
+document.getElementById('img3').src = data[2].pfp
+
+document.getElementById('u4').style.display = "block"
+document.getElementById('name4').innerHTML = data[3].name
+document.getElementById('name4').title = data[3].id
+document.getElementById('img4').src = data[3].pfp
+                } else {
+                    document.getElementById('u1').style.display = "block"
+                    document.getElementById('name1').innerHTML = data[0].name
+                    document.getElementById('name1').title = data[0].id
+                    document.getElementById('img1').src = data[0].pfp
+
+document.getElementById('u2').style.display = "block"
+document.getElementById('name2').innerHTML = data[1].name
+document.getElementById('name2').title = data[1].id
+document.getElementById('img2').src = data[1].pfp
+
+document.getElementById('u3').style.display = "block"
+document.getElementById('name3').innerHTML = data[2].name
+document.getElementById('name3').title = data[2].id
+document.getElementById('img3').src = data[2].pfp
+
+document.getElementById('u4').style.display = "block"
+document.getElementById('name4').innerHTML = data[3].name
+document.getElementById('name4').title = data[3].id
+document.getElementById('img4').src = data[3].pfp
+
+document.getElementById('u5').style.display = "block"
+document.getElementById('name5').innerHTML = data[4].name
+document.getElementById('name5').title = data[4].id
+document.getElementById('img5').src = data[4].pfp
+                }
+            })
+        }
+         /*$(document).ready(function () {
+             var cors = "";
+    cors = "https://cors.mixerno.space/";
+
+
+   
+
+    
+    $('#userinput').on('keyup', function (e) {
+      if (e.keyCode === 13) {
+        $('#submitbutton').click();
+      }
+    });
+    //
+    $('#submitbutton').click(function () {
+      
+    
+    });
+    $('#userinput2').on('keyup', function (e) {
+      if (e.keyCode === 13) {
+        $('#submitbutton2').click();
+      }
+    });
+    //
+    $('#submitbutton2').click(function () {
+      
+    
+    });
+         });*/
+    </script>
+</html>
