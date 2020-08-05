@@ -192,14 +192,14 @@ var graphData = new Highcharts.chart('graph', {
                     nameuser.innerHTML = data.name
                   viewsCount.innerHTML = data.views
           $("#image").attr('src', `${data.pfp}`);
-          /*followerCount.innerHTML = data.followers
+          followerCount.innerHTML = data.followers
           graphData.series[0].addPoint([
             (new Date()).getTime(),
             data.followers
           ]);
           if (graphData.series[0].data.length >= 700) {
             graphData.series[0].data[0].remove()
-          }*/
+          }
                 }
             })
     }
