@@ -173,36 +173,24 @@ var graphData = new Highcharts.chart('graph', {
     })
     var windlochref = window.location.href;
     var params = windlochref.split('&u=');
+
     if(params[1] == undefined) {
-      if(params[2] == undefined) {
-        window.history.pushState("y", "g", `?&u=ninja&u=tfue`);
-        windlochref = window.location.href;
-        params = windlochref.split('&u=');
-      }
+        location.href = `?&u=19571641&u=60056333&u=0`;
     }
-    if(params[1] == undefined) {
-        window.history.pushState("y", "g", `?&u=ninja&u=${params[2]}`);
-        windlochref = window.location.href;
-        params = windlochref.split('&u=');
-    getVisuals(params[1]);
-    } else {
-    getVisuals(params[1]); 
-    }
-    if(params[2] == undefined) {
-        window.history.pushState("y", "g", `?&u=${params[1]}&u=tfue`);
-        windlochref = window.location.href;
-        params = windlochref.split('&u=');
-    }
-    if(params[3] == 1) {
+    if (params[3] == 1) {
       $('head').append('<link rel="stylesheet" type="text/css" href="../v2/odometerfast.css">');
-    } else {
-      window.history.pushState("y", "g", `?&u=${params[1]}&u=${params[2]}&u=0`);
+    } else if(params[3] == 2) {
+      $('head').append('<link rel="stylesheet" type="text/css" href="../v2/odometercolors.css">');
+    } else if(params[3] == 3) {
+      $('head').append('<link rel="stylesheet" type="text/css" href="../v2/odometerfast.css">');
+      $('head').append('<link rel="stylesheet" type="text/css" href="../v2/odometercolors.css">');
     }
     
     var count = 0;
     var count2 = 0;
     
-   
+
+    getVisuals(params[1]); 
     
     function getVisuals(id) {
         fetch(`${cors}https://api.mixerno.space/twitch/user/${id}`)
@@ -254,7 +242,7 @@ var graphData = new Highcharts.chart('graph', {
     });
     //
     $('#submitbutton').click(function () {
-      window.history.pushState("y", "g", `?&u=${$('#userinput').val()}&u=${params[2]}`);
+      location.href = `?&u=${$('#userinput').val()}&u=${params[2]}&u=${params[3]}`;
       windlochref = window.location.href;
         params = windlochref.split('&u=');
       graphData = new Highcharts.chart('graph', {
@@ -311,7 +299,7 @@ var graphData = new Highcharts.chart('graph', {
     });
     //
     $('#submitbutton2').click(function () {
-      window.history.pushState("y", "g", `?&u=${params[1]}&u=${$('#userinput2').val()}`);
+      location.href = `?&u=${params[1]}&u=${$('#userinput2').val()}&u=${params[3]}`;
       windlochref = window.location.href;
         params = windlochref.split('&u=');
       graphData = new Highcharts.chart('graph', {
