@@ -68,7 +68,7 @@
                 <h4 class="modal-title">Change User 1</h4>
               </div>
               <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-body">
-               <input style="background-color: rgb(32, 32, 32); color: white;" placeholder="twitch.tv/" id="userinput" type="text">
+               <input style="background-color: rgb(32, 32, 32); color: white;" placeholder="user id (get one in by going to twitch follower counter.)" id="userinput" type="text">
               </div>
               <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-footer">
                 <button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" id="submitbutton" data-dismiss="modal">Submit</button><button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" data-dismiss="modal">Cancel</button>
@@ -88,7 +88,7 @@
                 <h4 class="modal-title">Change user 2</h4>
               </div>
               <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-body">
-               <input style="background-color: rgb(32, 32, 32); color: white;" placeholder="twitch.tv/" id="userinput2" type="text">
+               <input style="background-color: rgb(32, 32, 32); color: white;" placeholder="user id (get one in by going to twitch follower counter.)" id="userinput2" type="text">
               </div>
               <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-footer">
                 <button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" id="submitbutton2" data-dismiss="modal">Submit</button><button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" data-dismiss="modal">Cancel</button>
@@ -234,7 +234,7 @@ var graphData = new Highcharts.chart('graph', {
     }
     setInterval(function() {
         getVisuals(params[1]);
-    }, 2000);
+    }, 5000);
     $('#userinput').on('keyup', function (e) {
       if (e.keyCode === 13) {
         $('#submitbutton').click();

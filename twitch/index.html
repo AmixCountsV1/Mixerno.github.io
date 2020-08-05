@@ -53,7 +53,7 @@
         </div>
         <br>
         <div class="buttons">
-        <button data-toggle="modal" data-target="#changeuser">Change User</button><button data-toggle="modal" data-target="#compareuser">Compare</button>
+        <button data-toggle="modal" data-target="#changeuser" onclick="location.href='https://mixerno.space/search-twitch'">Change User</button><button data-toggle="modal" data-target="#compareuser">Compare</button>
     </div>
     <br><br><br><br><br><br>
     <div id="disqus_thread"></div>
@@ -67,7 +67,7 @@
                 <h4 class="modal-title">Change User</h4>
               </div>
               <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-body">
-               <input style="background-color: rgb(32, 32, 32); color: white;" placeholder="twitch.tv/" id="userinput" type="text">
+               <input style="background-color: rgb(32, 32, 32); color: white;" placeholder="user id." id="userinput" type="text">
               </div>
               <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-footer">
                 <button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" id="submitbutton" data-dismiss="modal">Submit</button><button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" data-dismiss="modal">Cancel</button>
@@ -87,7 +87,7 @@
                 <h4 class="modal-title">Compare user</h4>
               </div>
               <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-body">
-               <input style="background-color: rgb(32, 32, 32); color: white;" placeholder="twitch.tv/" id="userinput2" type="text">
+               <input style="background-color: rgb(32, 32, 32); color: white;" placeholder="user id. (get one in the search)" id="userinput2" type="text">
               </div>
               <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-footer">
                 <button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" id="submitbutton2" data-dismiss="modal">Submit</button><button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" data-dismiss="modal">Cancel</button>
@@ -206,7 +206,7 @@ var graphData = new Highcharts.chart('graph', {
 
     setInterval(function() {
         getVisuals(params[1]);
-    }, 2000);
+    }, 5000);
     $('#userinput').on('keyup', function (e) {
       if (e.keyCode === 13) {
         $('#submitbutton').click();
