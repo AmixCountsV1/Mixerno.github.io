@@ -1,0 +1,189 @@
+<html>
+
+<head>
+    <title>RAWBLOC TOP %= VISITS</title>
+    <link rel="stylesheet" href="https://mixerno.space/o2.css" />
+    <script src="https://mixerno.space/odometer.js"></script>
+</head>
+
+<body>
+    <div class="row">
+        <div class="box">
+            <div>1. <div id="gamename1">Name</div><br>
+                <div class="odometer" id="gamevisits1">0</div><br><br>
+                <div>Visits</div>
+            </div>
+        </div><br>
+        <div class="box">
+            <div>2. <div id="gamename2">Name</div><br>
+                <div class="odometer" id="gamevisits2">0</div><br><br>
+                <div>Visits</div>
+            </div>
+        </div><br>
+        <div class="box">
+            <div>3. <div id="gamename3">Name</div><br>
+                <div class="odometer" id="gamevisits3">0</div><br><br>
+                <div>Visits</div>
+            </div>
+        </div><br>
+        <div class="box">
+            <div>4. <div id="gamename4">Name</div><br>
+                <div class="odometer" id="gamevisits4">0</div><br><br>
+                <div>Visits</div>
+            </div>
+        </div><br>
+        <div class="box">
+            <div>5. <div id="gamename5">Name</div><br>
+                <div class="odometer" id="gamevisits5">0</div><br><br>
+                <div>Visits</div>
+            </div>
+        </div><br>
+        <div class="box">
+            <div>6. <div id="gamename6">Name</div><br>
+                <div class="odometer" id="gamevisits6">0</div><br><br>
+                <div>Visits</div>
+            </div>
+        </div><br>
+        <div class="box">
+            <div>7. <div id="gamename7">Name</div><br>
+                <div class="odometer" id="gamevisits7">0</div><br><br>
+                <div>Visits</div>
+            </div>
+        </div><br>
+        <div class="box">
+            <div>8. <div id="gamename8">Name</div><br>
+                <div class="odometer" id="gamevisits8">0</div><br><br>
+                <div>Visits</div>
+            </div>
+        </div><br>
+        <div class="box">
+            <div>9. <div id="gamename9">Name</div><br>
+                <div class="odometer" id="gamevisits9">0</div><br><br>
+                <div>Visits</div>
+            </div>
+        </div><br>
+        <div class="box">
+            <div>10. <div id="gamename10">Name</div><br>
+                <div class="odometer" id="gamevisits10">0</div><br><br>
+                <div>Visits</div>
+            </div>
+        </div>
+    </div><br>
+    <div class="row">
+        <div class="box">
+            <div>11. <div id="gamename11">Name</div><br>
+                <div class="odometer" id="gamevisits11">0</div><br><br>
+                <div>Visits</div>
+            </div>
+        </div><br>
+        <div class="box">
+            <div>12. <div id="gamename12">Name</div><br>
+                <div class="odometer" id="gamevisits12">0</div><br><br>
+                <div>Visits</div>
+            </div>
+        </div><br>
+        <div class="box">
+            <div>13. <div id="gamename13">Name</div><br>
+                <div class="odometer" id="gamevisits13">0</div><br><br>
+                <div>Visits</div>
+            </div>
+        </div><br>
+        <div class="box">
+            <div>14. <div id="gamename14">Name</div><br>
+                <div class="odometer" id="gamevisits14">0</div><br><br>
+                <div>Visits</div>
+            </div>
+        </div><br>
+        <div class="box">
+            <div>15. <div id="gamename15">Name</div><br>
+                <div class="odometer" id="gamevisits15">0</div><br><br>
+                <div>Visits</div>
+            </div>
+        </div><br>
+        <div class="box">
+            <div>16. <div id="gamename16">Name</div><br>
+                <div class="odometer" id="gamevisits16">0</div><br><br>
+                <div>Visits</div>
+            </div>
+        </div><br>
+        <div class="box">
+            <div>17. <div id="gamename17">Name</div><br>
+                <div class="odometer" id="gamevisits17">0</div><br><br>
+                <div>Visits</div>
+            </div>
+        </div><br>
+        <div class="box">
+            <div>18. <div id="gamename18">Name</div><br>
+                <div class="odometer" id="gamevisits18">0</div><br><br>
+                <div>Visits</div>
+            </div>
+        </div><br>
+        <div class="box">
+            <div>19. <div id="gamename19">Name</div><br>
+                <div class="odometer" id="gamevisits19">0</div><br><br>
+                <div>Visits</div>
+            </div>
+        </div><br>
+        <div class="box">
+            <div>20. <div id="gamename20">Name</div><br>
+                <div class="odometer" id="gamevisits20">0</div><br><br>
+                <div>Visits</div>
+            </div>
+        </div>
+    </div>
+</body>
+<style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: black;
+    }
+
+    .box {
+        width: 15%;
+        padding: 20px;
+        text-align: center;
+        background-color: rgb(0, 0, 0);
+        border: 1px green;
+
+        color: white;
+    }
+
+    .row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        flex: 4;
+    }
+</style>
+<script>
+    var array
+    getData()
+    function getData() {
+        fetch('https://api.allorigins.win/raw?url=https://games.roblox.com/v1/games?universeIds=383310974,140239261,1516533665,245662005,321778215,703124385,66654135,88070565,47545,372226183,73885730,228573408,498490399,65241,93740418,111958650,110181652,5215344,819564192,601130232')
+            .then(res => res.json())
+            .then(data => {
+                console.log(data.data)
+                array = data.data
+                var number = 0
+                numbar()
+                function numbar() {
+                    updateManager(number)
+                    if (number == array.length) {
+                        console.log("Stopdt")
+                    } else {
+                        number++
+                        setTimeout(function () {
+                            numbar()
+                        }, 50)
+                    }
+                }
+            })
+    }
+    
+    function updateManager(id) {
+        document.getElementById(`gamename${[id + 1]}`).innerHTML = array[id].name
+        document.getElementById(`gamevisits${[id + 1]}`).innerHTML = array[id].visits
+    } 
+</script>
+
+</html>

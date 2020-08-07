@@ -32,7 +32,7 @@
   <link rel="stylesheet" href="../v2/single.css">
   <script src="../bootstrap.js"></script>
     </head>
-    <body>
+    <body id="bodi">
         <center><div style="padding: 2vh; font-size: 3vh; background-color: rgb(32, 32, 32);">VK Live Group Member Counter <span style="font-size: 3vh;position: absolute; right: 90%;"><a  href="../">Home</a></span></div><br>
         <div class="boxerino"><br>
             <img src="https://mixerno.space/icons/2.png" id="image" style="border: solid 0.1vh;border-radius: 50%; height: 10vh; width: 10vh;" >
@@ -47,7 +47,8 @@
         </div>
         <br>
         <div class="buttons">
-        <button data-toggle="modal" data-target="#changeuser">Change Group</button><button data-toggle="modal" data-target="#compareuser">Compare</button>
+        <button data-toggle="modal" data-target="#changeuser">Change Group</button><button data-toggle="modal" data-target="#compareuser">Compare</button><br>
+        <button data-toggle="modal" data-target="#customize">Customize</button>
     </div>
     <br><br><br><br><br><br>
     <div id="disqus_thread"></div>
@@ -92,6 +93,34 @@
         </div>
         
       </div>
+      
+      <div style="background-color: rgb(32, 32, 32); color: white;" class="container2">
+        <div class="modal fade" id="customize" role="dialog">
+          <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-dialog">
+            <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-content">
+              <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-header">
+               <!-- <button type="button" class="close" data-dismiss="modal">&times;</button>-->
+                <h4 class="modal-title">Customize</h4>
+              </div>
+              <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-body">
+                <h4>Change Text Color <input type="text" placeholder="color name like green" id="textclr"></h4><br>
+                <h4>Change Background Color <input type="text" placeholder="color name like green" id="backclr"></h4><br>
+                <h4>Change Box Color <input type="text" placeholder="color name like green" id="boxclr"></h4><br>
+                <h4>Odometer: Up Color <input type="text" placeholder="color name like green" id="odoupclr"></h4><br>
+                <h4>Odometer: Down Color <input type="text" placeholder="color name like green" id="ododownclr"></h4><br>
+                <h4>Odometer: Speed <input type="text" placeholder="seconds like 2 or 0.5" id="odospeedclr"></h4><br>
+                <h4>Font: Font Name <input type="text" placeholder="some font that is installed" id="fontfamilyclr"></h4><br>
+                <h4>Font: Font Weight <input type="text" placeholder="100-900" id="fontweightclr"></h4>
+              </div>
+              <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-footer">
+                <button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" id="submitbutton5" data-dismiss="modal">Submit</button><button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" id="submitbutton6" data-dismiss="modal">Reset Changes</button><button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" data-dismiss="modal">Cancel</button>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        
+      </div>
 
      <!--<script id="dsq-count-scr" src="//mixernospace-1.disqus.com/count.js" async></script>-->
     </body>
@@ -115,8 +144,110 @@
       (d.head || d.body).appendChild(s);
       })();
       </script>
-
+<style></style>
     <script>
+      localstorageGet()
+     function localstorageGet() {
+      if(localStorage.getItem('fontweight')) {
+        $('style').append('#bodi { font-weight:'+localStorage.getItem('fontweight')+" !important"+'}');
+      }
+      if(localStorage.getItem('fontfamily')) {
+        $('style').append('#bodi { font-family:'+localStorage.getItem('fontfamily')+" !important"+'}');
+      }
+      if(localStorage.getItem('odospeed')) {
+        $('style').append('.odometer.odometer-auto-theme.odometer-animating-up .odometer-ribbon-inner, .odometer.odometer-theme-default.odometer-animating-up .odometer-ribbon-inner { -webkit-transition: -webkit-transform '+localStorage.getItem('odospeed')+'s;-moz-transition: -moz-transform '+localStorage.getItem('odospeed')+'s;-ms-transition: -ms-transform '+localStorage.getItem('odospeed')+'s;-o-transition: -o-transform '+localStorage.getItem('odospeed')+'s;transition: transform '+localStorage.getItem('odospeed')+'s;}');
+        $('style').append('.odometer.odometer-auto-theme.odometer-animating-down.odometer-animating .odometer-ribbon-inner, .odometer.odometer-theme-default.odometer-animating-down.odometer-animating .odometer-ribbon-inner { -webkit-transition: -webkit-transform '+localStorage.getItem('odospeed')+'s;-moz-transition: -moz-transform '+localStorage.getItem('odospeed')+'s;-ms-transition: -ms-transform '+localStorage.getItem('odospeed')+'s;-o-transition: -o-transform '+localStorage.getItem('odospeed')+'s;transition: transform '+localStorage.getItem('odospeed')+'s;}');
+      
+      }
+      if(localStorage.getItem('ododownclr')) {
+        $('style').append('.odometer.odometer-auto-theme.odometer-animating-down.odometer-animating .odometer-ribbon-inner, .odometer.odometer-theme-default.odometer-animating-down.odometer-animating .odometer-ribbon-inner { color:'+localStorage.getItem('ododownclr')+" !important"+'}');
+
+      }
+      if(localStorage.getItem('odoupclr')) {
+        $('style').append('.odometer.odometer-auto-theme.odometer-animating-up .odometer-ribbon-inner, .odometer.odometer-theme-default.odometer-animating-up .odometer-ribbon-inner { color:'+localStorage.getItem('odoupclr')+" !important"+'}');
+      
+      }
+      if(localStorage.getItem('boxclr')) {
+        $('style').append('.boxerino,.justbox,.graphbox { background:'+localStorage.getItem('boxclr')+" !important"+'}');
+      }
+      if(localStorage.getItem('backclr')) {
+        $('style').append('#bodi { background:'+localStorage.getItem('backclr')+" !important"+'}');
+      }
+      if(localStorage.getItem('textclr')) {
+        $('style').append('#bodi { color:'+localStorage.getItem('textclr')+" !important"+'}');
+      }
+      //fontweight fontfamily odospeed ododownclr odoupclr boxclr backclr textclr 
+      }
+      $('#submitbutton5').click(function () {
+      setTimeout(function() {
+        if(document.getElementById('textclr').value == '') {
+        //Dont
+        console.log("No1")
+      } else {
+        $('style').append('#bodi { color:'+document.getElementById('textclr').value+" !important"+'}');
+        console.log('#bodi { color:'+document.getElementById('textclr').value+" !important"+'}')
+        localStorage.setItem('textclr', document.getElementById('textclr').value);
+      }
+      if(document.getElementById('backclr').value == '') {
+        //Dont
+        console.log("No2")
+      } else {
+        $('style').append('#bodi { background:'+document.getElementById('backclr').value+" !important"+'}');
+        console.log('#bodi { background:'+document.getElementById('backclr').value+" !important"+'}')
+        localStorage.setItem('backclr', document.getElementById('backclr').value);
+      }
+      if(document.getElementById('boxclr').value == '') {
+        //Dont
+        console.log("No3")
+      } else {
+        $('style').append('.boxerino,.justbox,.graphbox { background:'+document.getElementById('boxclr').value+" !important"+'}');
+        console.log('.boxerino,.justbox,.graphbox { background:'+document.getElementById('boxclr').value+" !important"+'}')
+        localStorage.setItem('boxclr', document.getElementById('boxclr').value);
+      }
+      if(document.getElementById('odoupclr').value == '') {} else {
+        $('style').append('.odometer.odometer-auto-theme.odometer-animating-up .odometer-ribbon-inner, .odometer.odometer-theme-default.odometer-animating-up .odometer-ribbon-inner { color:'+document.getElementById('odoupclr').value+" !important"+'}');
+      
+        localStorage.setItem('odoupclr', document.getElementById('odoupclr').value);
+      }
+      if(document.getElementById('ododownclr').value == '') {} else {
+        $('style').append('.odometer.odometer-auto-theme.odometer-animating-down.odometer-animating .odometer-ribbon-inner, .odometer.odometer-theme-default.odometer-animating-down.odometer-animating .odometer-ribbon-inner { color:'+document.getElementById('ododownclr').value+" !important"+'}');
+
+        localStorage.setItem('ododownclr', document.getElementById('ododownclr').value);      
+      }
+      if(document.getElementById('odospeedclr').value == '') {} else {
+        $('style').append('.odometer.odometer-auto-theme.odometer-animating-up .odometer-ribbon-inner, .odometer.odometer-theme-default.odometer-animating-up .odometer-ribbon-inner { -webkit-transition: -webkit-transform '+document.getElementById('odospeedclr').value+'s;-moz-transition: -moz-transform '+document.getElementById('odospeedclr').value+'s;-ms-transition: -ms-transform '+document.getElementById('odospeedclr').value+'s;-o-transition: -o-transform '+document.getElementById('odospeedclr').value+'s;transition: transform '+document.getElementById('odospeedclr').value+'s;}');
+        $('style').append('.odometer.odometer-auto-theme.odometer-animating-down.odometer-animating .odometer-ribbon-inner, .odometer.odometer-theme-default.odometer-animating-down.odometer-animating .odometer-ribbon-inner { -webkit-transition: -webkit-transform '+document.getElementById('odospeedclr').value+'s;-moz-transition: -moz-transform '+document.getElementById('odospeedclr').value+'s;-ms-transition: -ms-transform '+document.getElementById('odospeedclr').value+'s;-o-transition: -o-transform '+document.getElementById('odospeedclr').value+'s;transition: transform '+document.getElementById('odospeedclr').value+'s;}');
+      
+        localStorage.setItem('odospeed', document.getElementById('odospeedclr').value);
+      }
+      if(document.getElementById('fontfamilyclr').value == '') {} else {
+        $('style').append('#bodi { font-family:'+document.getElementById('fontfamilyclr').value+" !important"+'}');
+        localStorage.setItem('fontfamily', document.getElementById('fontfamilyclr').value);
+      }
+      if(document.getElementById('fontweightclr').value == '') {} else {
+        $('style').append('#bodi { font-weight:'+document.getElementById('fontweightclr').value+" !important"+'}');
+        localStorage.setItem('fontweight', document.getElementById('fontweightclr').value);
+  
+      }
+      }, 1000);
+     
+    
+    });
+      $('#submitbutton6').click(function () {
+      setTimeout(function() {
+        localStorage.removeItem('fontweight');
+        localStorage.removeItem('fontfamily');
+        localStorage.removeItem('odospeed');
+        localStorage.removeItem('ododownclr');
+        localStorage.removeItem('odoupclr');
+        localStorage.removeItem('boxclr');
+        localStorage.removeItem('backclr');
+        localStorage.removeItem('textclr');
+        location.reload();
+      }, 1000);
+     
+    
+    });
          $(document).ready(function () {
             // var cors = "";
     var cors = "https://cors.mixerno.space/";
@@ -167,23 +298,21 @@ var graphData = new Highcharts.chart('graph', {
     var windlochref = window.location.href;
     var params = windlochref.split('&u=');
     if(params[1] == undefined) {
-        window.history.pushState("y", "g", `?&u=forbes`);
-        windlochref = window.location.href;
-        params = windlochref.split('&u=');
-
-    getVisuals(params[1]);
-    } else {
-    getVisuals(params[1]); 
+        location.href = `?&u=forbes&u=0`;
     }
-    if(params[2] == 1) {
+    if (params[2] == 1) {
       $('head').append('<link rel="stylesheet" type="text/css" href="../v2/odometerfast.css">');
-    } else {
-      window.history.pushState("y", "g", `?&u=${params[1]}&u=0`);
+    } else if(params[2] == 2) {
+      $('head').append('<link rel="stylesheet" type="text/css" href="../v2/odometercolors.css">');
+    } else if(params[2] == 3) {
+      $('head').append('<link rel="stylesheet" type="text/css" href="../v2/odometerfast.css">');
+      $('head').append('<link rel="stylesheet" type="text/css" href="../v2/odometercolors.css">');
     }
     
    
     
 
+    getVisuals(params[1]); 
     function getVisuals(id) {
       fetch(`${cors}https://api.mixerno.space/vk/group/${id}`)
             .then(response => response.json())
@@ -214,7 +343,7 @@ var graphData = new Highcharts.chart('graph', {
     });
     //
     $('#submitbutton').click(function () {
-      window.history.pushState("y", "g", `?&u=${$('#userinput').val()}`);
+      location.href = `?&u=${$('#userinput').val()}`;
       windlochref = window.location.href;
         params = windlochref.split('&u=');
       graphData = new Highcharts.chart('graph', {
@@ -252,7 +381,7 @@ var graphData = new Highcharts.chart('graph', {
 
       series: [{
         showInLegend: false,
-        name: 'Trees',
+        name: 'Members',
         marker: {
           enabled: false
         },
@@ -271,7 +400,7 @@ var graphData = new Highcharts.chart('graph', {
     });
     //
     $('#submitbutton2').click(function () {
-      location.href = "../ecosia-compare/?&u="+params[1]+"&u="+$('#userinput2').val()
+      location.href = "../vk-compare/?&u="+params[1]+"&u="+$('#userinput2').val()
     
     });
          });
