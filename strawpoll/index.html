@@ -321,15 +321,13 @@ var graphData = new Highcharts.chart('graph', {
     var windlochref = window.location.href;
     var params = windlochref.split('&u=');
     if(params[1] == undefined) {
-        location.href = `?&u=EverythingkkkdbgfkbgfkkkfbkbfkfbiskkkdbgfkbgfkkkfbkbfkfbCake&u=20726617`;
+        location.href = `?&u=EverythingkkkdbgfkbgfkkkfbkbfkfbiskkkdbgfkbgfkkkfbkbfkfbCake&u=20726617&u=0`;
         windlochref = window.location.href;
         params = windlochref.split('&u=');
 
     }
     if(params[3] == 1) {
       $('head').append('<link rel="stylesheet" type="text/css" href="../v2/odometerfast.css">');
-    } else {
-      location.href = `?&u=${params[1]}&u=${params[2]}&u=0`;
     }
 
     
