@@ -1,0 +1,20 @@
+<html>
+    <head>
+
+    </head>
+    <body onload="check(window.location.href.split('?cid=')[1])">
+        <div id="lol">count</div>
+    </body>
+
+    <script>
+        function check(id) {
+            fetch('https://api.mixerno.space/youtube/estimated/user/'+id).then(res => res.json()).then(data => {
+                console.log(data)
+                document.getElementById('lol').innerHTML = data.name+' gains about: '+(Math.floor(data.subrate*60*60*24)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+' subscribers per day';
+            })
+        }
+        setInterval(function() {
+            check(window.location.href.split('?cid=')[1])
+        },2000)
+    </script>
+</html>
