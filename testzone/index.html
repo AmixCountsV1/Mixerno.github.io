@@ -40,7 +40,21 @@
             <div id="nameuser">Name</div>
             <div class="odometer" id="followerCount">0</div>
             <div style="font-size: 2vh;">Subscribers</div><br>
+        </div><br>
+        <div class="row">
+          <div class="justbox" style="width: 33%;">
+              <div style="font-size: 3vh;" class="odometer" id="avgcount2">0</div>
+              <div style="font-size: 2vh;">Avg. Subs / 2 Sec.</div>
+          </div>
+          <div class="justbox" style="width: 33%;">
+            <div style="font-size: 3vh;" class="odometer" id="avgcount1">0</div>
+            <div style="font-size: 2vh;">Avg. Subs / 1 Min.</div>
         </div>
+        <div class="justbox" style="width: 33%;">
+          <div style="font-size: 3vh;" class="odometer" id="avgcount1x">0</div>
+          <div style="font-size: 2vh;">Avg. Subs / 1 Hr.</div>
+      </div>
+      </div>
         <br>
         <div class="graphbox">
             <div>Subscribers Graph</div>
@@ -119,8 +133,10 @@
 
     <script>
          $(document).ready(function () {
-            // var cors = "";
-    var cors = "https://cors.mixerno.space/";
+             var cors = "";
+    //var cors = "https://cors.mixerno.space/";
+    var estimatedArray = [];
+    var previousCount;
 var graphData = new Highcharts.chart('graph', {
       chart: {
         backgroundColor: 'transparent',
@@ -203,9 +219,30 @@ var graphData = new Highcharts.chart('graph', {
           if (graphData.series[0].data.length >= 900) {
             graphData.series[0].data[0].remove()
           }
+          if (!isNaN(data.SubscriberCount)) {
+					if (previousCount) {
+						estimatedArray.push(data.SubscriberCount - previousCount)
+						if (estimatedArray.length > 61) {
+							estimatedArray.shift()
+						}
+					}
+				}
+				previousCount = data.SubscriberCount
+				var estimated2Seconds = parseFloat(estimatedArray.reduce((a, b) => a + b, 0) * 2 / estimatedArray.length).toFixed(2)
+				var estimated1Minute = parseFloat(estimatedArray.reduce((a, b) => a + b, 0) * 30 / estimatedArray.length).toFixed(2)
+				var estimated1Hour = parseFloat(estimatedArray.reduce((a, b) => a + b, 0) * 1800 / estimatedArray.length).toFixed(2)
+
+				updateEstimatedCounts(estimated2Seconds, estimated1Minute, estimated1Hour)
+			
                 
 
             })
+    }
+    function updateEstimatedCounts(s2,m1,h1) {
+      document.getElementById('avgcount2').innerHTML = s2
+      document.getElementById('avgcount1').innerHTML = m1
+      document.getElementById('avgcount1x').innerHTML = h1
+      
     }
 
     setInterval(function() {
