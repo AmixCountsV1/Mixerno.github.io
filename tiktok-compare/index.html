@@ -323,46 +323,10 @@ var graphData = new Highcharts.chart('graph', {
     
    
     getData(params[1]); 
-    getVisuals(params[1]); 
+
 
 function getData(id) {
-
-}
-    function getVisuals(id) {
-
-      var tiktokbypass = [
-      'https://immense-castle-34936.herokuapp.com/@',
-      'https://backuptiktokapi.glitch.me/@',
-      'https://backuptiktokapi.herokuapp.com/@',
-      'https://honorable-hazel-atmosphere.glitch.me/@'
-    ]
-    var randomtiktokbypass = Math.floor(Math.random()*tiktokbypass.length);
-    var tiktokurl = tiktokbypass[randomtiktokbypass];
-    if(t1ch == true) {
-        fetch(`${cors}https://tiktokapi.t1ch.com/tt/${id}`)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                if(data.followersCount == undefined) {
-                    console.log("No its not in the api")
-t1ch = false
-                } else {
-
-          followerCount.innerHTML = data.followersCount
-          count = data.followersCount
-                }
-                getVisuals2(params[2])
-            }).catch(function() {
-              myapi(params[1])
-    });
-    
-            
-      } else {
-        myapi(params[1])
-      }
-    }
-    function myapi(id) {
-      var tiktokbypass = [
+  var tiktokbypass = [
       'https://immense-castle-34936.herokuapp.com/@',
       'https://backuptiktokapi.glitch.me/@',
       'https://backuptiktokapi.herokuapp.com/@',
@@ -383,65 +347,12 @@ t1ch = false
           followerCount.innerHTML = data.followers
                   count = data.followers
                 }
-                getVisuals2(params[2])
+                getData2(params[2])
             })
-    }
-
-
-    
-    function getVisuals2(id) {
-      var tiktokbypass = [
-      'https://immense-castle-34936.herokuapp.com/@',
-      'https://backuptiktokapi.glitch.me/@',
-      'https://backuptiktokapi.herokuapp.com/@',
-      'https://honorable-hazel-atmosphere.glitch.me/@'
-    ]
-    var randomtiktokbypass = Math.floor(Math.random()*tiktokbypass.length);
-    var tiktokurl = tiktokbypass[randomtiktokbypass];
-            if(t1ch2 == true) {
-        fetch(`${cors}https://tiktokapi.t1ch.com/tt/${id}`)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                if(data.followersCount == undefined) {
-                    console.log("No its not in the api")
-t1ch2 = false
-                } else {
-
-
-          followerCount2.innerHTML = data.followersCount
-          count2 = data.followersCount
-          diffrence.innerHTML = count - count2
-          graphData.series[0].addPoint([
-            (new Date()).getTime(),
-            count - count2
-          ]);
-          if (graphData.series[0].data.length >= 700) {
-            graphData.series[0].data[0].remove()
-          }
-                }
-               
-            }).catch(function() {
-              myapi2(params[2])
-    });
-            fetch(`${cors}${tiktokurl}${id}`)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                if(data.name == undefined) {
-                    console.log("#ERROR.")
-                } else {
-                  nameuser2.innerHTML = data.name
-          $("#image2").attr('src', `${data.avatarurl}`);
-                }
-                
-            })
-      } else {
-        myapi2(params[2])
-      }
-    }
-    function myapi2(id) {
-      var tiktokbypass = [
+}
+  
+function getData2(id) {
+  var tiktokbypass = [
       'https://immense-castle-34936.herokuapp.com/@',
       'https://backuptiktokapi.glitch.me/@',
       'https://backuptiktokapi.herokuapp.com/@',
@@ -471,10 +382,10 @@ t1ch2 = false
                 }
                 
             })
-    }
+}
     setInterval(function() {
-        getVisuals(params[1]);
-    }, 2000);
+      getData(params[1]);
+    }, 10000);
 
 
          function setName(count) {
