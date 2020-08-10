@@ -309,7 +309,7 @@ var graphData = new Highcharts.chart('graph', {
     var windlochref = window.location.href;
     var params = windlochref.split('&u=');
     var estimatedApi = true;
-    var t1ch = true
+    var estapi = true
     if(params[1] == undefined) {
         location.href = `?&u=UC-lHJZR3Gqxm24_Vd_AJ5Yw&u=0`;
     }
@@ -320,20 +320,24 @@ var graphData = new Highcharts.chart('graph', {
     getData(params[1]);
     getVisuals(params[1]); 
     function getData(id) {
-      if(t1ch == true) {
-        fetch(`${cors}https://api.t1ch.com/youtube/${id}`)
+      if(estapi == true) {
+        fetch(`https://api.mixerno.space/youtube/estimated/user/${id}`)
             .then(response => response.json())
             .then(data => {
                 console.log(data)
-                if(data.subscriberCount == undefined) {
+                if(data.SubscriberCount == undefined) {
                     console.log("No its not in the api")
-t1ch = false
+estapi = false
+myapi(params[1])
                 } else {
-
-          followerCount.innerHTML = data.subscriberCount
+nameuser.innerHTML = data.name
+                    $("#image").attr('src', `${data.image}`);
+                    viewsCount.innerHTML = data.totalviews
+                  videosCount.innerHTML = data.videos
+          followerCount.innerHTML = data.SubscriberCount
           graphData.series[0].addPoint([
             (new Date()).getTime(),
-            parseFloat(data.subscriberCount)
+            parseFloat(data.SubscriberCount)
           ]);
           if (graphData.series[0].data.length >= 700) {
             graphData.series[0].data[0].remove()
@@ -397,41 +401,10 @@ t1ch = false
           }*/
                 }
             })
-            if(t1ch == true) {
-              fetch(`${cors}https://api.mixerno.space/youtube/channels/statistics/${id}`)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                if(data.items[0].statistics.subscriberCount == undefined) {
-                    console.log("#ERROR.")
-                   // setTimeout(getData(params[1]), 100)
-                } else {
-                    /*nameuser.innerHTML = data.items[0].snippet.title
-                    $("#image").attr('src', `${data.items[0].snippet.thumbnails.high.url}`);*/
-                  viewsCount.innerHTML = data.items[0].statistics.viewCount
-                  videosCount.innerHTML = data.items[0].statistics.videoCount
-        /*  followerCount.innerHTML = data.items[0].statistics.subscriberCount
-          graphData.series[0].addPoint([
-            (new Date()).getTime(),
-            parseFloat(data.items[0].statistics.subscriberCount)
-          ]);
-          if (graphData.series[0].data.length >= 700) {
-            graphData.series[0].data[0].remove()
-          }*/
-                }
-            })
-            }
             
     }
     setInterval(function() {
-      if(t1ch == true) {
-        getData(params[1]);
-      } else {
-        setTimeout(function() {
-          getData(params[1]);
-        }, 18000);
-      }
-        
+        getData(params[1]); 
     }, 2000);
     setInterval(function() {
         getVisuals(params[1]);

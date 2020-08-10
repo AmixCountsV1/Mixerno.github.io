@@ -1,25 +1,25 @@
 <html>
-    <head>
-        <!-- Primary Meta Tags -->
-<title>Mixerno.Space</title>
-<meta name="title" content="Mixerno.Space">
-<meta name="description" content="The counter site for you.">
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://mixerno.space/">
-<meta property="og:title" content="Mixerno.Space">
-<meta property="og:description" content="The counter site for you.">
-<meta property="og:image" content="https://mixerno.space/muxarno2x2.jpg">
-<!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:url" content="https://mixerno.space/">
-<meta property="twitter:title" content="Mixerno.Space">
-<meta property="twitter:description" content="The counter site for you.">
-<meta property="twitter:image" content="https://mixerno.space/muxarno2x2.jpg">
+
+<head>
+  <!-- Primary Meta Tags -->
+  <title>Mixerno.Space</title>
+  <meta name="title" content="Mixerno.Space">
+  <meta name="description" content="The counter site for you.">
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mixerno.space/">
+  <meta property="og:title" content="Mixerno.Space">
+  <meta property="og:description" content="The counter site for you.">
+  <meta property="og:image" content="https://mixerno.space/muxarno2x2.jpg">
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://mixerno.space/">
+  <meta property="twitter:title" content="Mixerno.Space">
+  <meta property="twitter:description" content="The counter site for you.">
+  <meta property="twitter:image" content="https://mixerno.space/muxarno2x2.jpg">
 
 
-  <link rel="shortcut icon"
-    href="https://mixerno.space/icons/2.png">
+  <link rel="shortcut icon" href="https://mixerno.space/icons/2.png">
   <link rel="stylesheet" href="../o2.css" />
   <meta charset="UTF-8">
   <meta name="keywords" content="mixerno.space">
@@ -31,233 +31,258 @@
   <link rel="stylesheet" href="../bootstrap.css">
   <link rel="stylesheet" href="../v2/compare.css">
   <script src="../bootstrap.js"></script>
-    </head>
-    <body id="bodi">
-      <center><div style="padding: 2vh; font-size: 3vh; background-color: rgb(32, 32, 32);">Youtube Live Subscriber Compare <span style="font-size: 3vh;position: absolute; right: 90%;"><a  href="../">Home</a></span></div><br>
-        <div class="margin row2"><div class="boxerino"><br>
-            <img src="https://mixerno.space/icons/2.png" id="image" style="border: solid 0.1vh;border-radius: 50%; height: 10vh; width: 10vh;" >
-            <div id="nameuser">Name</div>
-            <div class="odometer" id="followerCount">0</div>
-            <div style="font-size: 2vh;">Subscribers</div><br>
-        </div><br>
-        <div class="boxerino"><br>
-          <img src="https://mixerno.space/icons/2.png" id="image2" style="border: solid 0.1vh;border-radius: 50%; height: 10vh; width: 10vh;" >
-          <div id="nameuser2">Name</div>
-          <div class="odometer" id="followerCount2">0</div>
-          <div style="font-size: 2vh;">Subscribers</div><br>
-      </div></div><br>
-        <div class="graphbox">
-          <div class="odometer" style="font-size: 3vh;" id="diffrence">0</div>
-            <div>Subscriber Diffrence</div>
-            <div id="graph"></div>
-        </div>
-        <br>
-        <div class="buttons">
-        <button data-toggle="modal" data-target="#changeuser">Change User 1</button><button data-toggle="modal" data-target="#compareuser">Change user 2</button><br>
-        <button data-toggle="modal" data-target="#customize">Customize</button>
+</head>
+
+<body id="bodi">
+  <center>
+    <div style="padding: 2vh; font-size: 3vh; background-color: rgb(32, 32, 32);">Youtube Live Subscriber Compare <span
+        style="font-size: 3vh;position: absolute; right: 90%;"><a href="../">Home</a></span></div><br>
+    <div class="margin row2">
+      <div class="boxerino"><br>
+        <img src="https://mixerno.space/icons/2.png" id="image"
+          style="border: solid 0.1vh;border-radius: 50%; height: 10vh; width: 10vh;">
+        <div id="nameuser">Name</div>
+        <div class="odometer" id="followerCount">0</div>
+        <div style="font-size: 2vh;">Subscribers</div><br>
+      </div><br>
+      <div class="boxerino"><br>
+        <img src="https://mixerno.space/icons/2.png" id="image2"
+          style="border: solid 0.1vh;border-radius: 50%; height: 10vh; width: 10vh;">
+        <div id="nameuser2">Name</div>
+        <div class="odometer" id="followerCount2">0</div>
+        <div style="font-size: 2vh;">Subscribers</div><br>
+      </div>
+    </div><br>
+    <div class="graphbox">
+      <div class="odometer" style="font-size: 3vh;" id="diffrence">0</div>
+      <div>Subscriber Diffrence</div>
+      <div id="graph"></div>
+    </div>
+    <br>
+    <div class="buttons">
+      <button data-toggle="modal" data-target="#changeuser">Change User 1</button><button data-toggle="modal"
+        data-target="#compareuser">Change user 2</button><br>
+      <button data-toggle="modal" data-target="#customize">Customize</button>
     </div>
     <br><br><br><br><br><br>
     <div id="disqus_thread"></div>
-    </center>
-    <div style="background-color: rgb(32, 32, 32); color: white;" class="container">
-      <div class="modal fade" id="changeuser" role="dialog">
-        <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-dialog">
-          <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-content">
-            <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-header">
-             <!-- <button type="button" class="close" data-dismiss="modal">&times;</button>-->
-              <h4 class="modal-title">Change User 1</h4>
-            </div>
-            <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-body">
-             <input style="background-color: rgb(32, 32, 32); color: white;" placeholder="Channel ID" id="userinput" type="text">
-            </div>
-            <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-footer">
-              <button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" id="submitbutton" data-dismiss="modal">Submit</button><button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" data-dismiss="modal">Cancel</button>
-            </div>
+  </center>
+  <div style="background-color: rgb(32, 32, 32); color: white;" class="container">
+    <div class="modal fade" id="changeuser" role="dialog">
+      <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-dialog">
+        <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-content">
+          <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-header">
+            <!-- <button type="button" class="close" data-dismiss="modal">&times;</button>-->
+            <h4 class="modal-title">Change User 1</h4>
           </div>
-          
-        </div>
-      </div>
-      
-    </div>
-    <div style="background-color: rgb(32, 32, 32); color: white;" class="container2">
-      <div class="modal fade" id="compareuser" role="dialog">
-        <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-dialog">
-          <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-content">
-            <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-header">
-             <!-- <button type="button" class="close" data-dismiss="modal">&times;</button>-->
-              <h4 class="modal-title">Change user 2</h4>
-            </div>
-            <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-body">
-             <input style="background-color: rgb(32, 32, 32); color: white;" placeholder="Channel ID" id="userinput2" type="text">
-            </div>
-            <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-footer">
-              <button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" id="submitbutton2" data-dismiss="modal">Submit</button><button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" data-dismiss="modal">Cancel</button>
-            </div>
+          <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-body">
+            <input style="background-color: rgb(32, 32, 32); color: white;" placeholder="Channel ID" id="userinput"
+              type="text">
           </div>
-          
-        </div>
-      </div>
-      
-    </div>
-    
-    <div style="background-color: rgb(32, 32, 32); color: white;" class="container2">
-      <div class="modal fade" id="customize" role="dialog">
-        <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-dialog">
-          <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-content">
-            <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-header">
-             <!-- <button type="button" class="close" data-dismiss="modal">&times;</button>-->
-              <h4 class="modal-title">Customize</h4>
-            </div>
-            <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-body">
-              <h4>Change Text Color <input type="text" placeholder="color name like green" id="textclr"></h4><br>
-              <h4>Change Background Color <input type="text" placeholder="color name like green" id="backclr"></h4><br>
-              <h4>Change Box Color <input type="text" placeholder="color name like green" id="boxclr"></h4><br>
-              <h4>Odometer: Up Color <input type="text" placeholder="color name like green" id="odoupclr"></h4><br>
-              <h4>Odometer: Down Color <input type="text" placeholder="color name like green" id="ododownclr"></h4><br>
-              <h4>Odometer: Speed <input type="text" placeholder="seconds like 2 or 0.5" id="odospeedclr"></h4><br>
-              <h4>Font: Font Name <input type="text" placeholder="some font that is installed" id="fontfamilyclr"></h4><br>
-              <h4>Font: Font Weight <input type="text" placeholder="100-900" id="fontweightclr"></h4>
-            </div>
-            <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-footer">
-              <button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" id="submitbutton5" data-dismiss="modal">Submit</button><button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" id="submitbutton6" data-dismiss="modal">Reset Changes</button><button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" data-dismiss="modal">Cancel</button>
-            </div>
+          <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-footer">
+            <button type="button"
+              style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);"
+              id="submitbutton" data-dismiss="modal">Submit</button><button type="button"
+              style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);"
+              data-dismiss="modal">Cancel</button>
           </div>
-          
         </div>
+
       </div>
-      
     </div>
 
-     <!--<script id="dsq-count-scr" src="//mixernospace-1.disqus.com/count.js" async></script>-->
-    </body>
-    
-    <script>
+  </div>
+  <div style="background-color: rgb(32, 32, 32); color: white;" class="container2">
+    <div class="modal fade" id="compareuser" role="dialog">
+      <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-dialog">
+        <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-content">
+          <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-header">
+            <!-- <button type="button" class="close" data-dismiss="modal">&times;</button>-->
+            <h4 class="modal-title">Change user 2</h4>
+          </div>
+          <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-body">
+            <input style="background-color: rgb(32, 32, 32); color: white;" placeholder="Channel ID" id="userinput2"
+              type="text">
+          </div>
+          <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-footer">
+            <button type="button"
+              style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);"
+              id="submitbutton2" data-dismiss="modal">Submit</button><button type="button"
+              style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);"
+              data-dismiss="modal">Cancel</button>
+          </div>
+        </div>
 
-      /**
-      *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-      *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-      var windlochref = window.location.href;
-    var params = windlochref.split('&u=');
-      var disqus_config = function () {
-      this.page.url = params[0]+'&u='+params[1];  // Replace PAGE_URL with your page's canonical URL variable
-      this.page.identifier = params[1]; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-      };
-      
-      (function() { // DON'T EDIT BELOW THIS LINE
-      var d = document, s = d.createElement('script');
-      s.src = 'https://mixernospace-1.disqus.com/embed.js';
-      s.setAttribute('data-timestamp', +new Date());
-      (d.head || d.body).appendChild(s);
-      })();
-      </script>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="background-color: rgb(32, 32, 32); color: white;" class="container2">
+    <div class="modal fade" id="customize" role="dialog">
+      <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-dialog">
+        <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-content">
+          <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-header">
+            <!-- <button type="button" class="close" data-dismiss="modal">&times;</button>-->
+            <h4 class="modal-title">Customize</h4>
+          </div>
+          <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-body">
+            <h4>Change Text Color <input type="text" placeholder="color name like green" id="textclr"></h4><br>
+            <h4>Change Background Color <input type="text" placeholder="color name like green" id="backclr"></h4><br>
+            <h4>Change Box Color <input type="text" placeholder="color name like green" id="boxclr"></h4><br>
+            <h4>Odometer: Up Color <input type="text" placeholder="color name like green" id="odoupclr"></h4><br>
+            <h4>Odometer: Down Color <input type="text" placeholder="color name like green" id="ododownclr"></h4><br>
+            <h4>Odometer: Speed <input type="text" placeholder="seconds like 2 or 0.5" id="odospeedclr"></h4><br>
+            <h4>Font: Font Name <input type="text" placeholder="some font that is installed" id="fontfamilyclr"></h4>
+            <br>
+            <h4>Font: Font Weight <input type="text" placeholder="100-900" id="fontweightclr"></h4>
+          </div>
+          <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-footer">
+            <button type="button"
+              style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);"
+              id="submitbutton5" data-dismiss="modal">Submit</button><button type="button"
+              style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);"
+              id="submitbutton6" data-dismiss="modal">Reset Changes</button><button type="button"
+              style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);"
+              data-dismiss="modal">Cancel</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!--<script id="dsq-count-scr" src="//mixernospace-1.disqus.com/count.js" async></script>-->
+</body>
+
+<script>
+
+  /**
+  *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+  *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+  var windlochref = window.location.href;
+  var params = windlochref.split('&u=');
+  var disqus_config = function () {
+    this.page.url = params[0] + '&u=' + params[1];  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = params[1]; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+  };
+
+  (function () { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://mixernospace-1.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
 <style></style>
-    <script>
-      localstorageGet()
-     function localstorageGet() {
-      if(localStorage.getItem('fontweight')) {
-        $('style').append('#bodi { font-weight:'+localStorage.getItem('fontweight')+" !important"+'}');
-      }
-      if(localStorage.getItem('fontfamily')) {
-        $('style').append('#bodi { font-family:'+localStorage.getItem('fontfamily')+" !important"+'}');
-      }
-      if(localStorage.getItem('odospeed')) {
-        $('style').append('.odometer.odometer-auto-theme.odometer-animating-up .odometer-ribbon-inner, .odometer.odometer-theme-default.odometer-animating-up .odometer-ribbon-inner { -webkit-transition: -webkit-transform '+localStorage.getItem('odospeed')+'s;-moz-transition: -moz-transform '+localStorage.getItem('odospeed')+'s;-ms-transition: -ms-transform '+localStorage.getItem('odospeed')+'s;-o-transition: -o-transform '+localStorage.getItem('odospeed')+'s;transition: transform '+localStorage.getItem('odospeed')+'s;}');
-        $('style').append('.odometer.odometer-auto-theme.odometer-animating-down.odometer-animating .odometer-ribbon-inner, .odometer.odometer-theme-default.odometer-animating-down.odometer-animating .odometer-ribbon-inner { -webkit-transition: -webkit-transform '+localStorage.getItem('odospeed')+'s;-moz-transition: -moz-transform '+localStorage.getItem('odospeed')+'s;-ms-transition: -ms-transform '+localStorage.getItem('odospeed')+'s;-o-transition: -o-transform '+localStorage.getItem('odospeed')+'s;transition: transform '+localStorage.getItem('odospeed')+'s;}');
-      
-      }
-      if(localStorage.getItem('ododownclr')) {
-        $('style').append('.odometer.odometer-auto-theme.odometer-animating-down.odometer-animating .odometer-ribbon-inner, .odometer.odometer-theme-default.odometer-animating-down.odometer-animating .odometer-ribbon-inner { color:'+localStorage.getItem('ododownclr')+" !important"+'}');
+<script>
+  localstorageGet()
+  function localstorageGet() {
+    if (localStorage.getItem('fontweight')) {
+      $('style').append('#bodi { font-weight:' + localStorage.getItem('fontweight') + " !important" + '}');
+    }
+    if (localStorage.getItem('fontfamily')) {
+      $('style').append('#bodi { font-family:' + localStorage.getItem('fontfamily') + " !important" + '}');
+    }
+    if (localStorage.getItem('odospeed')) {
+      $('style').append('.odometer.odometer-auto-theme.odometer-animating-up .odometer-ribbon-inner, .odometer.odometer-theme-default.odometer-animating-up .odometer-ribbon-inner { -webkit-transition: -webkit-transform ' + localStorage.getItem('odospeed') + 's;-moz-transition: -moz-transform ' + localStorage.getItem('odospeed') + 's;-ms-transition: -ms-transform ' + localStorage.getItem('odospeed') + 's;-o-transition: -o-transform ' + localStorage.getItem('odospeed') + 's;transition: transform ' + localStorage.getItem('odospeed') + 's;}');
+      $('style').append('.odometer.odometer-auto-theme.odometer-animating-down.odometer-animating .odometer-ribbon-inner, .odometer.odometer-theme-default.odometer-animating-down.odometer-animating .odometer-ribbon-inner { -webkit-transition: -webkit-transform ' + localStorage.getItem('odospeed') + 's;-moz-transition: -moz-transform ' + localStorage.getItem('odospeed') + 's;-ms-transition: -ms-transform ' + localStorage.getItem('odospeed') + 's;-o-transition: -o-transform ' + localStorage.getItem('odospeed') + 's;transition: transform ' + localStorage.getItem('odospeed') + 's;}');
 
-      }
-      if(localStorage.getItem('odoupclr')) {
-        $('style').append('.odometer.odometer-auto-theme.odometer-animating-up .odometer-ribbon-inner, .odometer.odometer-theme-default.odometer-animating-up .odometer-ribbon-inner { color:'+localStorage.getItem('odoupclr')+" !important"+'}');
-      
-      }
-      if(localStorage.getItem('boxclr')) {
-        $('style').append('.boxerino,.justbox,.graphbox { background:'+localStorage.getItem('boxclr')+" !important"+'}');
-      }
-      if(localStorage.getItem('backclr')) {
-        $('style').append('#bodi { background:'+localStorage.getItem('backclr')+" !important"+'}');
-      }
-      if(localStorage.getItem('textclr')) {
-        $('style').append('#bodi { color:'+localStorage.getItem('textclr')+" !important"+'}');
-      }
-      //fontweight fontfamily odospeed ododownclr odoupclr boxclr backclr textclr 
-      }
-      $('#submitbutton5').click(function () {
-      setTimeout(function() {
-        if(document.getElementById('textclr').value == '') {
+    }
+    if (localStorage.getItem('ododownclr')) {
+      $('style').append('.odometer.odometer-auto-theme.odometer-animating-down.odometer-animating .odometer-ribbon-inner, .odometer.odometer-theme-default.odometer-animating-down.odometer-animating .odometer-ribbon-inner { color:' + localStorage.getItem('ododownclr') + " !important" + '}');
+
+    }
+    if (localStorage.getItem('odoupclr')) {
+      $('style').append('.odometer.odometer-auto-theme.odometer-animating-up .odometer-ribbon-inner, .odometer.odometer-theme-default.odometer-animating-up .odometer-ribbon-inner { color:' + localStorage.getItem('odoupclr') + " !important" + '}');
+
+    }
+    if (localStorage.getItem('boxclr')) {
+      $('style').append('.boxerino,.justbox,.graphbox { background:' + localStorage.getItem('boxclr') + " !important" + '}');
+    }
+    if (localStorage.getItem('backclr')) {
+      $('style').append('#bodi { background:' + localStorage.getItem('backclr') + " !important" + '}');
+    }
+    if (localStorage.getItem('textclr')) {
+      $('style').append('#bodi { color:' + localStorage.getItem('textclr') + " !important" + '}');
+    }
+    //fontweight fontfamily odospeed ododownclr odoupclr boxclr backclr textclr 
+  }
+  $('#submitbutton5').click(function () {
+    setTimeout(function () {
+      if (document.getElementById('textclr').value == '') {
         //Dont
         console.log("No1")
       } else {
-        $('style').append('#bodi { color:'+document.getElementById('textclr').value+" !important"+'}');
-        console.log('#bodi { color:'+document.getElementById('textclr').value+" !important"+'}')
+        $('style').append('#bodi { color:' + document.getElementById('textclr').value + " !important" + '}');
+        console.log('#bodi { color:' + document.getElementById('textclr').value + " !important" + '}')
         localStorage.setItem('textclr', document.getElementById('textclr').value);
       }
-      if(document.getElementById('backclr').value == '') {
+      if (document.getElementById('backclr').value == '') {
         //Dont
         console.log("No2")
       } else {
-        $('style').append('#bodi { background:'+document.getElementById('backclr').value+" !important"+'}');
-        console.log('#bodi { background:'+document.getElementById('backclr').value+" !important"+'}')
+        $('style').append('#bodi { background:' + document.getElementById('backclr').value + " !important" + '}');
+        console.log('#bodi { background:' + document.getElementById('backclr').value + " !important" + '}')
         localStorage.setItem('backclr', document.getElementById('backclr').value);
       }
-      if(document.getElementById('boxclr').value == '') {
+      if (document.getElementById('boxclr').value == '') {
         //Dont
         console.log("No3")
       } else {
-        $('style').append('.boxerino,.justbox,.graphbox { background:'+document.getElementById('boxclr').value+" !important"+'}');
-        console.log('.boxerino,.justbox,.graphbox { background:'+document.getElementById('boxclr').value+" !important"+'}')
+        $('style').append('.boxerino,.justbox,.graphbox { background:' + document.getElementById('boxclr').value + " !important" + '}');
+        console.log('.boxerino,.justbox,.graphbox { background:' + document.getElementById('boxclr').value + " !important" + '}')
         localStorage.setItem('boxclr', document.getElementById('boxclr').value);
       }
-      if(document.getElementById('odoupclr').value == '') {} else {
-        $('style').append('.odometer.odometer-auto-theme.odometer-animating-up .odometer-ribbon-inner, .odometer.odometer-theme-default.odometer-animating-up .odometer-ribbon-inner { color:'+document.getElementById('odoupclr').value+" !important"+'}');
-      
+      if (document.getElementById('odoupclr').value == '') { } else {
+        $('style').append('.odometer.odometer-auto-theme.odometer-animating-up .odometer-ribbon-inner, .odometer.odometer-theme-default.odometer-animating-up .odometer-ribbon-inner { color:' + document.getElementById('odoupclr').value + " !important" + '}');
+
         localStorage.setItem('odoupclr', document.getElementById('odoupclr').value);
       }
-      if(document.getElementById('ododownclr').value == '') {} else {
-        $('style').append('.odometer.odometer-auto-theme.odometer-animating-down.odometer-animating .odometer-ribbon-inner, .odometer.odometer-theme-default.odometer-animating-down.odometer-animating .odometer-ribbon-inner { color:'+document.getElementById('ododownclr').value+" !important"+'}');
+      if (document.getElementById('ododownclr').value == '') { } else {
+        $('style').append('.odometer.odometer-auto-theme.odometer-animating-down.odometer-animating .odometer-ribbon-inner, .odometer.odometer-theme-default.odometer-animating-down.odometer-animating .odometer-ribbon-inner { color:' + document.getElementById('ododownclr').value + " !important" + '}');
 
-        localStorage.setItem('ododownclr', document.getElementById('ododownclr').value);      
+        localStorage.setItem('ododownclr', document.getElementById('ododownclr').value);
       }
-      if(document.getElementById('odospeedclr').value == '') {} else {
-        $('style').append('.odometer.odometer-auto-theme.odometer-animating-up .odometer-ribbon-inner, .odometer.odometer-theme-default.odometer-animating-up .odometer-ribbon-inner { -webkit-transition: -webkit-transform '+document.getElementById('odospeedclr').value+'s;-moz-transition: -moz-transform '+document.getElementById('odospeedclr').value+'s;-ms-transition: -ms-transform '+document.getElementById('odospeedclr').value+'s;-o-transition: -o-transform '+document.getElementById('odospeedclr').value+'s;transition: transform '+document.getElementById('odospeedclr').value+'s;}');
-        $('style').append('.odometer.odometer-auto-theme.odometer-animating-down.odometer-animating .odometer-ribbon-inner, .odometer.odometer-theme-default.odometer-animating-down.odometer-animating .odometer-ribbon-inner { -webkit-transition: -webkit-transform '+document.getElementById('odospeedclr').value+'s;-moz-transition: -moz-transform '+document.getElementById('odospeedclr').value+'s;-ms-transition: -ms-transform '+document.getElementById('odospeedclr').value+'s;-o-transition: -o-transform '+document.getElementById('odospeedclr').value+'s;transition: transform '+document.getElementById('odospeedclr').value+'s;}');
-      
+      if (document.getElementById('odospeedclr').value == '') { } else {
+        $('style').append('.odometer.odometer-auto-theme.odometer-animating-up .odometer-ribbon-inner, .odometer.odometer-theme-default.odometer-animating-up .odometer-ribbon-inner { -webkit-transition: -webkit-transform ' + document.getElementById('odospeedclr').value + 's;-moz-transition: -moz-transform ' + document.getElementById('odospeedclr').value + 's;-ms-transition: -ms-transform ' + document.getElementById('odospeedclr').value + 's;-o-transition: -o-transform ' + document.getElementById('odospeedclr').value + 's;transition: transform ' + document.getElementById('odospeedclr').value + 's;}');
+        $('style').append('.odometer.odometer-auto-theme.odometer-animating-down.odometer-animating .odometer-ribbon-inner, .odometer.odometer-theme-default.odometer-animating-down.odometer-animating .odometer-ribbon-inner { -webkit-transition: -webkit-transform ' + document.getElementById('odospeedclr').value + 's;-moz-transition: -moz-transform ' + document.getElementById('odospeedclr').value + 's;-ms-transition: -ms-transform ' + document.getElementById('odospeedclr').value + 's;-o-transition: -o-transform ' + document.getElementById('odospeedclr').value + 's;transition: transform ' + document.getElementById('odospeedclr').value + 's;}');
+
         localStorage.setItem('odospeed', document.getElementById('odospeedclr').value);
       }
-      if(document.getElementById('fontfamilyclr').value == '') {} else {
-        $('style').append('#bodi { font-family:'+document.getElementById('fontfamilyclr').value+" !important"+'}');
+      if (document.getElementById('fontfamilyclr').value == '') { } else {
+        $('style').append('#bodi { font-family:' + document.getElementById('fontfamilyclr').value + " !important" + '}');
         localStorage.setItem('fontfamily', document.getElementById('fontfamilyclr').value);
       }
-      if(document.getElementById('fontweightclr').value == '') {} else {
-        $('style').append('#bodi { font-weight:'+document.getElementById('fontweightclr').value+" !important"+'}');
+      if (document.getElementById('fontweightclr').value == '') { } else {
+        $('style').append('#bodi { font-weight:' + document.getElementById('fontweightclr').value + " !important" + '}');
         localStorage.setItem('fontweight', document.getElementById('fontweightclr').value);
-  
+
       }
-      }, 1000);
-     
-    
-    });
-      $('#submitbutton6').click(function () {
-      setTimeout(function() {
-        localStorage.removeItem('fontweight');
-        localStorage.removeItem('fontfamily');
-        localStorage.removeItem('odospeed');
-        localStorage.removeItem('ododownclr');
-        localStorage.removeItem('odoupclr');
-        localStorage.removeItem('boxclr');
-        localStorage.removeItem('backclr');
-        localStorage.removeItem('textclr');
-        location.reload();
-      }, 1000);
-     
-    
-    });
-         $(document).ready(function () {
-             var cors = "";
+    }, 1000);
+
+
+  });
+  $('#submitbutton6').click(function () {
+    setTimeout(function () {
+      localStorage.removeItem('fontweight');
+      localStorage.removeItem('fontfamily');
+      localStorage.removeItem('odospeed');
+      localStorage.removeItem('ododownclr');
+      localStorage.removeItem('odoupclr');
+      localStorage.removeItem('boxclr');
+      localStorage.removeItem('backclr');
+      localStorage.removeItem('textclr');
+      location.reload();
+    }, 1000);
+
+
+  });
+  $(document).ready(function () {
+    var cors = "";
     //var cors = "https://cors.mixerno.space/";
-var graphData = new Highcharts.chart('graph', {
+    var graphData = new Highcharts.chart('graph', {
       chart: {
         backgroundColor: 'transparent',
         renderTo: graph,
@@ -279,7 +304,7 @@ var graphData = new Highcharts.chart('graph', {
         title: {
           text: ''
         },
-        
+
         lineColor: "#53adcb",
         minorGridLineColor: "#53adcb",
         tickColor: "#53adcb"
@@ -303,223 +328,218 @@ var graphData = new Highcharts.chart('graph', {
     })
     var windlochref = window.location.href;
     var params = windlochref.split('&u=');
-    var t1ch = true;
-    var t1ch2 = true;
-    if(params[1] == undefined) {
-        location.href = `?&u=UC-lHJZR3Gqxm24_Vd_AJ5Yw&u=UCbCmjCuTUZos6Inko4u57UQ&u=0`;
-      
+    var estapi = true;
+    var estapi2 = true;
+    if (params[1] == undefined) {
+      location.href = `?&u=UC-lHJZR3Gqxm24_Vd_AJ5Yw&u=UCbCmjCuTUZos6Inko4u57UQ&u=0`;
+
     }
-    if(params[2] == 1) {
+    if (params[2] == 1) {
       $('head').append('<link rel="stylesheet" type="text/css" href="../v2/odometerfast.css">');
     }
 
 
-    
+
     var count = 0;
     var count2 = 0;
     getData(params[1]);
-    getVisuals(params[1]); 
+    getVisuals(params[1]);
 
     function getData(id) {
-      if(t1ch == true) {
-        fetch(`${cors}https://api.t1ch.com/youtube/${id}`)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                if(data.subscriberCount == undefined) {
-                    console.log("No its not in the api")
-t1ch = false
-                } else {
-
-          followerCount.innerHTML = data.subscriberCount
-          count = parseFloat(data.subscriberCount)
-          getData2(params[2])
-                }
-            }).catch(function() {
-        myapi(params[1])
-    });
+      if (estapi == true) {
+        fetch(`${cors}https://api.mixerno.space/youtube/estimated/user/${id}`)
+          .then(response => response.json())
+          .then(data => {
+            console.log(data)
+            if (data.SubscriberCount == undefined) {
+              console.log("No its not in the api")
+              estapi = false
+            } else {
+              nameuser.innerHTML = data.name
+              $("#image").attr('src', `${data.image}`);
+              followerCount.innerHTML = data.SubscriberCount
+              count = parseFloat(data.SubscriberCount)
+              getData2(params[2])
+            }
+          })
       } else {
         myapi(params[1])
       }
-      
-      
-      
-        
+
+
+
+
     }
     function myapi(id) {
       fetch(`${cors}https://api.mixerno.space/youtube/channels/statistics/${id}`)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                if(data.items[0].statistics.subscriberCount == undefined) {
-                    console.log("#ERROR.")
-                } else {
-                    /*nameuser.innerHTML = data.items[0].snippet.title
-                    $("#image").attr('src', `${data.items[0].snippet.thumbnails.high.url}`);*/
-          followerCount.innerHTML = data.items[0].statistics.subscriberCount
-          count = parseFloat(data.items[0].statistics.subscriberCount)
-          getData2(params[2])
-                }
-            })
+        .then(response => response.json())
+        .then(data => {
+          console.log(data)
+          if (data.items[0].statistics.subscriberCount == undefined) {
+            console.log("#ERROR.")
+          } else {
+            /*nameuser.innerHTML = data.items[0].snippet.title
+            $("#image").attr('src', `${data.items[0].snippet.thumbnails.high.url}`);*/
+            followerCount.innerHTML = data.items[0].statistics.subscriberCount
+            count = parseFloat(data.items[0].statistics.subscriberCount)
+            getData2(params[2])
+          }
+        })
     }
-    
+
 
     function getVisuals(id) {
+      if (estapi == false) {
         fetch(`${cors}https://api.mixerno.space/youtube/channels/snippet/${id}`)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                if(data.items[0].snippet.title == undefined) {
-                    console.log("#ERROR.")
-                    setTimeout(getVisuals(params[1]), 100)
-                } else {
-                    nameuser.innerHTML = data.items[0].snippet.title
-                    $("#image").attr('src', `${data.items[0].snippet.thumbnails.high.url}`);
-                    getVisuals2(params[2])
-                /*  viewsCount.innerHTML = data.totalviews
-                  videosCount.innerHTML = data.videos
-          
-          followerCount.innerHTML = data.subscribers
-          graphData.series[0].addPoint([
-            (new Date()).getTime(),
-            parseFloat(data.subscribers)
-          ]);
-          if (graphData.series[0].data.length >= 700) {
-            graphData.series[0].data[0].remove()
-          }*/
-                }
-            })
-            
+          .then(response => response.json())
+          .then(data => {
+            console.log(data)
+            if (data.items[0].snippet.title == undefined) {
+              console.log("#ERROR.")
+            } else {
+              nameuser.innerHTML = data.items[0].snippet.title
+              $("#image").attr('src', `${data.items[0].snippet.thumbnails.high.url}`);
+              getVisuals2(params[2])
+              /*  viewsCount.innerHTML = data.totalviews
+                videosCount.innerHTML = data.videos
+        
+        followerCount.innerHTML = data.subscribers
+        graphData.series[0].addPoint([
+          (new Date()).getTime(),
+          parseFloat(data.subscribers)
+        ]);
+        if (graphData.series[0].data.length >= 700) {
+          graphData.series[0].data[0].remove()
+        }*/
+            }
+          })
+      }
+
+
     }
 
     function getData2(id) {
-      if(t1ch2 == true) {
-        fetch(`${cors}https://api.t1ch.com/youtube/${id}`)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                if(data.subscriberCount == undefined) {
-                    console.log("No its not in the api")
-                    t1ch2 = false
-                } else {
-
-          followerCount2.innerHTML = data.subscriberCount
-          count2 = parseFloat(data.subscriberCount)
-          diffrence.innerHTML = count - count2
-          graphData.series[0].addPoint([
-            (new Date()).getTime(),
-            count - count2
-          ]);
-          if (graphData.series[0].data.length >= 700) {
-            graphData.series[0].data[0].remove()
-          }
-                }
-            }).catch(function() {
-              myapi2(params[2])
-    });
+      if (estapi2 == true) {
+        fetch(`${cors}https://api.mixerno.space/youtube/estimated/user/${id}`)
+          .then(response => response.json())
+          .then(data => {
+            console.log(data)
+            if (data.SubscriberCount == undefined) {
+              console.log("No its not in the api")
+              estapi2 = false
+            } else {
+              nameuser2.innerHTML = data.name
+              $("#image2").attr('src', `${data.image}`);
+              followerCount2.innerHTML = data.SubscriberCount
+              count2 = parseFloat(data.SubscriberCount)
+              diffrence.innerHTML = count - count2
+              graphData.series[0].addPoint([
+                (new Date()).getTime(),
+                count - count2
+              ]);
+              if (graphData.series[0].data.length >= 700) {
+                graphData.series[0].data[0].remove()
+              }
+            }
+          })
       } else {
         myapi2(params[2])
       }
-      
-      
-      
-        
+
+
+
+
     }
     function myapi2(id) {
       fetch(`${cors}https://api.mixerno.space/youtube/channels/statistics/${id}`)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                if(data.items[0].statistics.subscriberCount == undefined) {
-                    console.log("#ERROR.")
-                } else {
-                    /*nameuser.innerHTML = data.items[0].snippet.title
-                    $("#image").attr('src', `${data.items[0].snippet.thumbnails.high.url}`);*/
-          followerCount2.innerHTML = data.items[0].statistics.subscriberCount
-          count2 = parseFloat(data.items[0].statistics.subscriberCount)
-          diffrence.innerHTML = count - count2
-          graphData.series[0].addPoint([
-            (new Date()).getTime(),
-            count - count2
-          ]);
-          if (graphData.series[0].data.length >= 700) {
-            graphData.series[0].data[0].remove()
+        .then(response => response.json())
+        .then(data => {
+          console.log(data)
+          if (data.items[0].statistics.subscriberCount == undefined) {
+            console.log("#ERROR.")
+          } else {
+            /*nameuser.innerHTML = data.items[0].snippet.title
+            $("#image").attr('src', `${data.items[0].snippet.thumbnails.high.url}`);*/
+            followerCount2.innerHTML = data.items[0].statistics.subscriberCount
+            count2 = parseFloat(data.items[0].statistics.subscriberCount)
+            diffrence.innerHTML = count - count2
+            graphData.series[0].addPoint([
+              (new Date()).getTime(),
+              count - count2
+            ]);
+            if (graphData.series[0].data.length >= 700) {
+              graphData.series[0].data[0].remove()
+            }
+
           }
-          
-                }
-            })
+        })
     }
-    
+
 
     function getVisuals2(id) {
+      if (estapi2 == false) {
         fetch(`${cors}https://api.mixerno.space/youtube/channels/snippet/${id}`)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                if(data.items[0].snippet.title == undefined) {
-                    console.log("#ERROR.")
-                    setTimeout(getVisuals2(params[2]), 100)
-                } else {
-                    nameuser2.innerHTML = data.items[0].snippet.title
-                    $("#image2").attr('src', `${data.items[0].snippet.thumbnails.high.url}`);
-                /*  viewsCount.innerHTML = data.totalviews
-                  videosCount.innerHTML = data.videos
-          
-          followerCount.innerHTML = data.subscribers
-          graphData.series[0].addPoint([
-            (new Date()).getTime(),
-            parseFloat(data.subscribers)
-          ]);
-          if (graphData.series[0].data.length >= 700) {
-            graphData.series[0].data[0].remove()
-          }*/
-                }
-            })
-            
-    }
-    setInterval(function() {
-      if(t1ch == true) {
-        getData(params[1]);
-      } else {
-        setTimeout(function() {
-          getData(params[1]);
-        }, 18000);
-      }
+          .then(response => response.json())
+          .then(data => {
+            console.log(data)
+            if (data.items[0].snippet.title == undefined) {
+              console.log("#ERROR.")
+            } else {
+              nameuser2.innerHTML = data.items[0].snippet.title
+              $("#image2").attr('src', `${data.items[0].snippet.thumbnails.high.url}`);
+              /*  viewsCount.innerHTML = data.totalviews
+                videosCount.innerHTML = data.videos
         
+        followerCount.innerHTML = data.subscribers
+        graphData.series[0].addPoint([
+          (new Date()).getTime(),
+          parseFloat(data.subscribers)
+        ]);
+        if (graphData.series[0].data.length >= 700) {
+          graphData.series[0].data[0].remove()
+        }*/
+            }
+          })
+      }
+
+
+    }
+    setInterval(function () {
+      getData(params[1]);
     }, 2000);
-    setInterval(function() {
-        getVisuals(params[1]);
+    setInterval(function () {
+      getVisuals(params[1]);
     }, 120000);
-         function setName(count) {
-           document.getElementById('nameuser').innerHTML = count
-         }
-         function setImage(count) {
-           document.getElementById('image').src = count
-         }
-         function setSubCount(count) {
-           document.getElementById('followerCount').innerHTML = Math.floor(count)
-         }
-         function setName2(count) {
-           document.getElementById('nameuser2').innerHTML = count
-         }
-         function setImage2(count) {
-           document.getElementById('image2').src = count
-         }
-         function setSubCount2(count) {
-           document.getElementById('followerCount2').innerHTML = Math.floor(count)
-         }
-         function setDiffrenceCount(count) {
-           document.getElementById('diffrence').innerHTML = Math.floor(count)
-         }
-         function setGraphPoint(count) {
-           graphData.series[0].addPoint([
-           (new Date()).getTime(),
-           parseFloat(Math.floor(count))
-         ]);
-         if (graphData.series[0].data.length >= 700) {
-           graphData.series[0].data[0].remove()
-         }
-         }
+    function setName(count) {
+      document.getElementById('nameuser').innerHTML = count
+    }
+    function setImage(count) {
+      document.getElementById('image').src = count
+    }
+    function setSubCount(count) {
+      document.getElementById('followerCount').innerHTML = Math.floor(count)
+    }
+    function setName2(count) {
+      document.getElementById('nameuser2').innerHTML = count
+    }
+    function setImage2(count) {
+      document.getElementById('image2').src = count
+    }
+    function setSubCount2(count) {
+      document.getElementById('followerCount2').innerHTML = Math.floor(count)
+    }
+    function setDiffrenceCount(count) {
+      document.getElementById('diffrence').innerHTML = Math.floor(count)
+    }
+    function setGraphPoint(count) {
+      graphData.series[0].addPoint([
+        (new Date()).getTime(),
+        parseFloat(Math.floor(count))
+      ]);
+      if (graphData.series[0].data.length >= 700) {
+        graphData.series[0].data[0].remove()
+      }
+    }
     $('#userinput').on('keyup', function (e) {
       if (e.keyCode === 13) {
         $('#submitbutton').click();
@@ -529,54 +549,54 @@ t1ch = false
     $('#submitbutton').click(function () {
       location.href = `?&u=${$('#userinput').val()}&u=${params[2]}&u=${params[3]}`;
       windlochref = window.location.href;
-        params = windlochref.split('&u=');
+      params = windlochref.split('&u=');
       graphData = new Highcharts.chart('graph', {
-      chart: {
-        backgroundColor: 'transparent',
-        renderTo: graph,
-        type: 'spline'
-      },
-      title: {
-        text: ``
-      },
-      xAxis: {
-        type: 'datetime',
-        tickPixelInterval: 500,
-        labels: {
-          style: {
-            color: "#FFFFFF"
-          }
-        }
-      },
-      yAxis: {
+        chart: {
+          backgroundColor: 'transparent',
+          renderTo: graph,
+          type: 'spline'
+        },
         title: {
-          text: ''
+          text: ``
         },
-        
-        lineColor: "#53adcb",
-        minorGridLineColor: "#53adcb",
-        tickColor: "#53adcb"
-      },
-
-      credits: {
-        enabled: false,
-        text: "Mixerno.space"
-      },
-
-      series: [{
-        showInLegend: false,
-        name: 'Subscriber Diffrence',
-        marker: {
-          enabled: false
+        xAxis: {
+          type: 'datetime',
+          tickPixelInterval: 500,
+          labels: {
+            style: {
+              color: "#FFFFFF"
+            }
+          }
         },
-        color: '#53adcb',
-        lineColor: '#53adcb'
+        yAxis: {
+          title: {
+            text: ''
+          },
 
-      }]
-    })
-        getData(params[1]);
-    getVisuals(params[1]);
-    
+          lineColor: "#53adcb",
+          minorGridLineColor: "#53adcb",
+          tickColor: "#53adcb"
+        },
+
+        credits: {
+          enabled: false,
+          text: "Mixerno.space"
+        },
+
+        series: [{
+          showInLegend: false,
+          name: 'Subscriber Diffrence',
+          marker: {
+            enabled: false
+          },
+          color: '#53adcb',
+          lineColor: '#53adcb'
+
+        }]
+      })
+      getData(params[1]);
+      getVisuals(params[1]);
+
     });
     $('#userinput2').on('keyup', function (e) {
       if (e.keyCode === 13) {
@@ -588,55 +608,56 @@ t1ch = false
 
       location.href = `?&u=${params[1]}&u=${$('#userinput2').val()}&u=${params[3]}`;
       windlochref = window.location.href;
-        params = windlochref.split('&u=');
+      params = windlochref.split('&u=');
       graphData = new Highcharts.chart('graph', {
-      chart: {
-        backgroundColor: 'transparent',
-        renderTo: graph,
-        type: 'spline'
-      },
-      title: {
-        text: ``
-      },
-      xAxis: {
-        type: 'datetime',
-        tickPixelInterval: 500,
-        labels: {
-          style: {
-            color: "#FFFFFF"
-          }
-        }
-      },
-      yAxis: {
+        chart: {
+          backgroundColor: 'transparent',
+          renderTo: graph,
+          type: 'spline'
+        },
         title: {
-          text: ''
+          text: ``
         },
-        
-        lineColor: "#53adcb",
-        minorGridLineColor: "#53adcb",
-        tickColor: "#53adcb"
-      },
-
-      credits: {
-        enabled: false,
-        text: "Mixerno.space"
-      },
-
-      series: [{
-        showInLegend: false,
-        name: 'Subscriber Diffrence',
-        marker: {
-          enabled: false
+        xAxis: {
+          type: 'datetime',
+          tickPixelInterval: 500,
+          labels: {
+            style: {
+              color: "#FFFFFF"
+            }
+          }
         },
-        color: '#53adcb',
-        lineColor: '#53adcb'
+        yAxis: {
+          title: {
+            text: ''
+          },
 
-      }]
-    })
-        getData(params[1]);
-    getVisuals(params[1]);
-    
+          lineColor: "#53adcb",
+          minorGridLineColor: "#53adcb",
+          tickColor: "#53adcb"
+        },
+
+        credits: {
+          enabled: false,
+          text: "Mixerno.space"
+        },
+
+        series: [{
+          showInLegend: false,
+          name: 'Subscriber Diffrence',
+          marker: {
+            enabled: false
+          },
+          color: '#53adcb',
+          lineColor: '#53adcb'
+
+        }]
+      })
+      getData(params[1]);
+      getVisuals(params[1]);
+
     });
-         });
-    </script>
+  });
+</script>
+
 </html>
