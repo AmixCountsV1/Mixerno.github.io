@@ -1,258 +1,270 @@
-<!--Yo man. Dont kill me with my bad coding lmao.-->
 <html>
+    <head>
+        <!-- Primary Meta Tags -->
+<title>Mixerno.Space</title>
+<meta name="title" content="Mixerno.Space">
+<meta name="description" content="The counter site for you.">
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mixerno.space/">
+<meta property="og:title" content="Mixerno.Space">
+<meta property="og:description" content="The counter site for you.">
+<meta property="og:image" content="https://mixerno.space/muxarno2x2.jpg">
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://mixerno.space/">
+<meta property="twitter:title" content="Mixerno.Space">
+<meta property="twitter:description" content="The counter site for you.">
+<meta property="twitter:image" content="https://mixerno.space/muxarno2x2.jpg">
 
-<head>
-  
-  <title>Mixerno.space</title>
+
   <link rel="shortcut icon"
-    href="https://yt3.ggpht.com/a-/AOh14GhVWagi88Rfs6XXerg3-3PR4RPHYcolFIrYXZ4_=s288-c-k-c0xffffffff-no-rj-mo">
+    href="https://mixerno.space/icons/2.png">
   <link rel="stylesheet" href="../o2.css" />
   <meta charset="UTF-8">
-  <meta name="description" content="Another counter site. but its green-gray">
-  <meta name="keywords" content="green, gray, mixerno.space">
+  <meta name="keywords" content="mixerno.space">
   <meta name="author" content="Mixerno">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!--<link rel="stylesheet" href="counters/estimation.css">-->
   <script src="../odometer.js"></script>
   <script type="text/javascript" src="../jquery-3.1.1.min.js"></script>
   <script src="https://code.highcharts.com/highcharts.js"></script>
-  <link rel="stylesheet" href="../css/loadawesome.css" />
   <link rel="stylesheet" href="../bootstrap.css">
+  <link rel="stylesheet" href="../v2/single.css">
   <script src="../bootstrap.js"></script>
-  <link rel="stylesheet" href="../css/single.css" />
- 
-  <script>
-    $(window).on("load",function(){
-   $(".loader-wrapper").fadeOut("slow");
-});
-  </script>
-  <ul>
-    <li>
-      <li>Discord Server <br>
-      <a  href="https://discord.gg/KAB6222">https://discord.gg/KAB6222</a>
-    </li>
-    </li>
-    <br>
-    <li>
-      <li>Youtube Counters <br>
-      <a  href="../?user=UC-lHJZR3Gqxm24_Vd_AJ5Yw">Subscriber count</a>
-      <a  href="../youtube-compare/">Subscriber compare</a>
-    </li>
-    </li>
-    <br>
-    <li>
-      <li>Twitter Counters <br>
-      <a  href="../twitter/?user=barackobama">Follower count</a>
-      <a  href="../twitter-compare/?user=barackobama?user=realdonaldtrump">Follower compare</a>
-    </li>
-    </li>
-    <br>
-    <li>
-      <li>Twitch Counters <br>
-      <a  href="../twitch/?user=tfue">Follower count</a>
-      <a  href="../twitch-compare/?user=ninja?user=tfue">Follower compare</a>
-    </li>
-    </li>
-    <br>
-    <li>
-      <li>TikTok Counters <br>
-      <a  href="../tiktok/?user=charlidamelio">Follower count</a>
-      <a  href="../tiktok-compare/?user=charlidamelio?user=addisonre">Follower compare</a>
-    </li>
-    </li>
-    <br>
-    <li>
-      <li>Roblox Counters <br>
-        <a  href="roblox/?user=1">Follower count</a>
-        <a  href="roblox-compare/?user=1?user=2">Follower compare</a>
-        <a  href="roblox/games/">Games visit count</a>
-    </li>
-    </li>
-    <br>
-    <li>
-      <li>Mixer Counters <br>
-      <a  href="../mixer/?user=ninja">Follower count</a>
-      <a  href="../mixer-compare/?user=ninja?user=shroud">Follower compare</a>
-    </li>
-    </li>
-    <br>
-  </ul>
-  <div class="loader-wrapper">
-    <div class="la-ball-fussion">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  </div>
-  <br>
-  <center>
-    <div class="maincount">
-      <img id="image" style="border-radius: 50%;"
-        src="https://via.placeholder.com/130/585858/FFFFFF/?text=Mixerno.space" height="130" width="130">
-      <div style="font-size: 60px;" id="ytname" class="nameee">Mixerno.space</div>
-      <div class="odometer" style="font-size: 60px;" id="ytsubs">0</div>
-      <div><strong>Followers</strong></div>
-      <br>
-      <div class="">
-        <div id="graph"></div>
-      </div>
-    </div>
-    <br>
-    <div class="marg">
-      <div class="row">
-        <div class="backg">
-          <div class="odometer" style="font-size: 30px;" id="totalviews">0</div>
-          <div>Posts</div>
+    </head>
+    <body id="bodi">
+        <center><div style="padding: 2vh; font-size: 3vh; background-color: rgb(32, 32, 32);">Instagram Live Follower Counter <span style="font-size: 3vh;position: absolute; right: 90%;"><a  href="../">Home</a></span></div><br>
+        <div class="boxerino"><br>
+            <img src="https://mixerno.space/icons/2.png" id="image" style="border: solid 0.1vh;border-radius: 50%; height: 10vh; width: 10vh;" >
+            <div id="nameuser">Name</div>
+            <div class="odometer" id="followerCount">0</div>
+            <div style="font-size: 2vh;">Followers</div><br>
+        </div><br>
+        <div class="row">
+          <div class="justbox" style="width: 100%;">
+              <div style="font-size: 4vh;" class="odometer" id="mediaCount">0</div>
+              <div style="font-size: 2vh;">Media</div>
+          </div>
+          <div class="justbox" style="width: 100%;">
+              <div style="font-size: 4vh;" class="odometer" id="followingCount">0</div>
+              <div style="font-size: 2vh;">Following</div>
+          </div>
         </div>
-        <!--<br>
-        <div class="backg">
-          <div class="odometer" style="font-size: 30px;" id="videos">0</div>
-          <div>Viewers currently</div>
-        </div>-->
+        <br>
+        <div class="graphbox">
+            <div>Follower Graph</div>
+            <div id="graph"></div>
+        </div>
+        <br>
+        <div class="buttons">
+        <button data-toggle="modal" data-target="#changeuser" onclick="location.href='https://mixerno.space/search-twitch'">Change User</button><button data-toggle="modal" data-target="#compareuser">Compare</button><br>
+        <button data-toggle="modal" data-target="#customize">Customize</button>
+    </div>
+    <br><br><br><br><br><br>
+    <div id="disqus_thread"></div>
+    </center>
+    <div style="background-color: rgb(32, 32, 32); color: white;" class="container">
+        <div class="modal fade" id="changeuser" role="dialog">
+          <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-dialog">
+            <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-content">
+              <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-header">
+               <!-- <button type="button" class="close" data-dismiss="modal">&times;</button>-->
+                <h4 class="modal-title">Change User</h4>
+              </div>
+              <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-body">
+               <input style="background-color: rgb(32, 32, 32); color: white;" placeholder="user tag" id="userinput" type="text">
+              </div>
+              <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-footer">
+                <button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" id="submitbutton" data-dismiss="modal">Submit</button><button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" data-dismiss="modal">Cancel</button>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        
       </div>
-    </div>
-    <br>
-    <div class="maincount">
-        <input placeholder="Instagram username" type="text" style="width: 500px; font-size: 20px;" value="" id="usersearch" class="custominput"></input>
-  <button class="buton" style="font-size: 20px;" id="serch">Search</button><br><br>
-  <button style="font-size: 20px;" class="buton" data-toggle="modal" data-target="#hf">Customize</button>
-    </div>
-    
-    <br>
-    <br>
+      <div style="background-color: rgb(32, 32, 32); color: white;" class="container2">
+        <div class="modal fade" id="compareuser" role="dialog">
+          <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-dialog">
+            <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-content">
+              <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-header">
+               <!-- <button type="button" class="close" data-dismiss="modal">&times;</button>-->
+                <h4 class="modal-title">Compare user</h4>
+              </div>
+              <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-body">
+               <input style="background-color: rgb(32, 32, 32); color: white;" placeholder="user tag" id="userinput2" type="text">
+              </div>
+              <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-footer">
+                <button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" id="submitbutton2" data-dismiss="modal">Submit</button><button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" data-dismiss="modal">Cancel</button>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        
+      </div>
 
-    <br>
-    <br>
-
-  </center>
-  <div class="modal fade" id="hf" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div style="color: white; background-color: black;" class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Customize</h4>
+      <div style="background-color: rgb(32, 32, 32); color: white;" class="container2">
+        <div class="modal fade" id="customize" role="dialog">
+          <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-dialog">
+            <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-content">
+              <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-header">
+               <!-- <button type="button" class="close" data-dismiss="modal">&times;</button>-->
+                <h4 class="modal-title">Customize</h4>
+              </div>
+              <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-body">
+                <h4>Change Text Color <input type="text" placeholder="color name like green" id="textclr"></h4><br>
+                <h4>Change Background Color <input type="text" placeholder="color name like green" id="backclr"></h4><br>
+                <h4>Change Box Color <input type="text" placeholder="color name like green" id="boxclr"></h4><br>
+                <h4>Odometer: Up Color <input type="text" placeholder="color name like green" id="odoupclr"></h4><br>
+                <h4>Odometer: Down Color <input type="text" placeholder="color name like green" id="ododownclr"></h4><br>
+                <h4>Odometer: Speed <input type="text" placeholder="seconds like 2 or 0.5" id="odospeedclr"></h4><br>
+                <h4>Font: Font Name <input type="text" placeholder="some font that is installed" id="fontfamilyclr"></h4><br>
+                <h4>Font: Font Weight <input type="text" placeholder="100-900" id="fontweightclr"></h4>
+              </div>
+              <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-footer">
+                <button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" id="submitbutton5" data-dismiss="modal">Submit</button><button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" id="submitbutton6" data-dismiss="modal">Reset Changes</button><button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" data-dismiss="modal">Cancel</button>
+              </div>
+            </div>
+            
+          </div>
         </div>
-        <div style="color: white; background-color: black;" class="modal-body">
-          <p>Style: <select id="styel" style="width: auto; color: white;background-color: black;">
-            <option value="s" selected>Select</option>
-            <option value="gw">Green-White (original)</option>
-            <option value="bw">Black-White</option>
-            <option value="rw">Red-White</option>
-            <option value="wb">White-Black</option>
-          </select></p><br>
-          <p>Odometer speed: <select id="odospeed" style="width: auto; color: white;background-color: black;">
-            <option value="ss" selected>Select</option>
-            <option value="s00">0 seconds (:)</option>
-            <option value="s0">0.5 seconds (fast)</option>
-            <option value="s1">1 seconds</option>
-            <option value="s2">2 seconds (original)</option>
-            <option value="s3">3 seconds</option>
-            <option value="s4">4 seconds</option>
-          </select></p>
-        </div>
-        <div style="color: white; background-color: black;" class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-default" data-dismiss="modal" id="save" onclick="checkstorage()">Save</button>
-        </div>
+        
       </div>
+     <!--<script id="dsq-count-scr" src="//mixernospace-1.disqus.com/count.js" async></script>-->
+    </body>
+    
+    <script>
+
+      /**
+      *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+      *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+      var windlochref = window.location.href;
+    var params = windlochref.split('&u=');
+      var disqus_config = function () {
+      this.page.url = params[0]+'&u='+params[1];  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = params[0] + '&u=' + params[1]; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+      };
       
-    </div>
-  </div>
-</head>
+      (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = 'https://mixernospace-1.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+      })();
+      </script>
+<style></style>
+    <script>
+      localstorageGet()
+     function localstorageGet() {
+      if(localStorage.getItem('fontweight')) {
+        $('style').append('#bodi { font-weight:'+localStorage.getItem('fontweight')+" !important"+'}');
+      }
+      if(localStorage.getItem('fontfamily')) {
+        $('style').append('#bodi { font-family:'+localStorage.getItem('fontfamily')+" !important"+'}');
+      }
+      if(localStorage.getItem('odospeed')) {
+        $('style').append('.odometer.odometer-auto-theme.odometer-animating-up .odometer-ribbon-inner, .odometer.odometer-theme-default.odometer-animating-up .odometer-ribbon-inner { -webkit-transition: -webkit-transform '+localStorage.getItem('odospeed')+'s;-moz-transition: -moz-transform '+localStorage.getItem('odospeed')+'s;-ms-transition: -ms-transform '+localStorage.getItem('odospeed')+'s;-o-transition: -o-transform '+localStorage.getItem('odospeed')+'s;transition: transform '+localStorage.getItem('odospeed')+'s;}');
+        $('style').append('.odometer.odometer-auto-theme.odometer-animating-down.odometer-animating .odometer-ribbon-inner, .odometer.odometer-theme-default.odometer-animating-down.odometer-animating .odometer-ribbon-inner { -webkit-transition: -webkit-transform '+localStorage.getItem('odospeed')+'s;-moz-transition: -moz-transform '+localStorage.getItem('odospeed')+'s;-ms-transition: -ms-transform '+localStorage.getItem('odospeed')+'s;-o-transition: -o-transform '+localStorage.getItem('odospeed')+'s;transition: transform '+localStorage.getItem('odospeed')+'s;}');
+      
+      }
+      if(localStorage.getItem('ododownclr')) {
+        $('style').append('.odometer.odometer-auto-theme.odometer-animating-down.odometer-animating .odometer-ribbon-inner, .odometer.odometer-theme-default.odometer-animating-down.odometer-animating .odometer-ribbon-inner { color:'+localStorage.getItem('ododownclr')+" !important"+'}');
 
+      }
+      if(localStorage.getItem('odoupclr')) {
+        $('style').append('.odometer.odometer-auto-theme.odometer-animating-up .odometer-ribbon-inner, .odometer.odometer-theme-default.odometer-animating-up .odometer-ribbon-inner { color:'+localStorage.getItem('odoupclr')+" !important"+'}');
+      
+      }
+      if(localStorage.getItem('boxclr')) {
+        $('style').append('.boxerino,.justbox,.graphbox { background:'+localStorage.getItem('boxclr')+" !important"+'}');
+      }
+      if(localStorage.getItem('backclr')) {
+        $('style').append('#bodi { background:'+localStorage.getItem('backclr')+" !important"+'}');
+      }
+      if(localStorage.getItem('textclr')) {
+        $('style').append('#bodi { color:'+localStorage.getItem('textclr')+" !important"+'}');
+      }
+      //fontweight fontfamily odospeed ododownclr odoupclr boxclr backclr textclr 
+      }
+      $('#submitbutton5').click(function () {
+      setTimeout(function() {
+        if(document.getElementById('textclr').value == '') {
+        //Dont
+        console.log("No1")
+      } else {
+        $('style').append('#bodi { color:'+document.getElementById('textclr').value+" !important"+'}');
+        console.log('#bodi { color:'+document.getElementById('textclr').value+" !important"+'}')
+        localStorage.setItem('textclr', document.getElementById('textclr').value);
+      }
+      if(document.getElementById('backclr').value == '') {
+        //Dont
+        console.log("No2")
+      } else {
+        $('style').append('#bodi { background:'+document.getElementById('backclr').value+" !important"+'}');
+        console.log('#bodi { background:'+document.getElementById('backclr').value+" !important"+'}')
+        localStorage.setItem('backclr', document.getElementById('backclr').value);
+      }
+      if(document.getElementById('boxclr').value == '') {
+        //Dont
+        console.log("No3")
+      } else {
+        $('style').append('.boxerino,.justbox,.graphbox { background:'+document.getElementById('boxclr').value+" !important"+'}');
+        console.log('.boxerino,.justbox,.graphbox { background:'+document.getElementById('boxclr').value+" !important"+'}')
+        localStorage.setItem('boxclr', document.getElementById('boxclr').value);
+      }
+      if(document.getElementById('odoupclr').value == '') {} else {
+        $('style').append('.odometer.odometer-auto-theme.odometer-animating-up .odometer-ribbon-inner, .odometer.odometer-theme-default.odometer-animating-up .odometer-ribbon-inner { color:'+document.getElementById('odoupclr').value+" !important"+'}');
+      
+        localStorage.setItem('odoupclr', document.getElementById('odoupclr').value);
+      }
+      if(document.getElementById('ododownclr').value == '') {} else {
+        $('style').append('.odometer.odometer-auto-theme.odometer-animating-down.odometer-animating .odometer-ribbon-inner, .odometer.odometer-theme-default.odometer-animating-down.odometer-animating .odometer-ribbon-inner { color:'+document.getElementById('ododownclr').value+" !important"+'}');
 
-<script type="text/javascript">
-//theme start
-getStyles()
-  function checkstorage() {
-    saveStyles()
-    console.log("Ok1")
-  }
-function saveStyles() {
-    if(document.getElementById("styel").value == "s") {
-        //non
-        console.log("Ok2")
-    } else {
-        localStorage.setItem('style', document.getElementById("styel").value);
-        console.log("Ok3")
-    }
-    if(document.getElementById("odospeed").value == "ss") {
-        //non
-        console.log("Ok4")
-    } else {
-        localStorage.setItem('odospeed', document.getElementById("odospeed").value);
-        console.log("Ok5")
-    }
-    
+        localStorage.setItem('ododownclr', document.getElementById('ododownclr').value);      
+      }
+      if(document.getElementById('odospeedclr').value == '') {} else {
+        $('style').append('.odometer.odometer-auto-theme.odometer-animating-up .odometer-ribbon-inner, .odometer.odometer-theme-default.odometer-animating-up .odometer-ribbon-inner { -webkit-transition: -webkit-transform '+document.getElementById('odospeedclr').value+'s;-moz-transition: -moz-transform '+document.getElementById('odospeedclr').value+'s;-ms-transition: -ms-transform '+document.getElementById('odospeedclr').value+'s;-o-transition: -o-transform '+document.getElementById('odospeedclr').value+'s;transition: transform '+document.getElementById('odospeedclr').value+'s;}');
+        $('style').append('.odometer.odometer-auto-theme.odometer-animating-down.odometer-animating .odometer-ribbon-inner, .odometer.odometer-theme-default.odometer-animating-down.odometer-animating .odometer-ribbon-inner { -webkit-transition: -webkit-transform '+document.getElementById('odospeedclr').value+'s;-moz-transition: -moz-transform '+document.getElementById('odospeedclr').value+'s;-ms-transition: -ms-transform '+document.getElementById('odospeedclr').value+'s;-o-transition: -o-transform '+document.getElementById('odospeedclr').value+'s;transition: transform '+document.getElementById('odospeedclr').value+'s;}');
+      
+        localStorage.setItem('odospeed', document.getElementById('odospeedclr').value);
+      }
+      if(document.getElementById('fontfamilyclr').value == '') {} else {
+        $('style').append('#bodi { font-family:'+document.getElementById('fontfamilyclr').value+" !important"+'}');
+        localStorage.setItem('fontfamily', document.getElementById('fontfamilyclr').value);
+      }
+      if(document.getElementById('fontweightclr').value == '') {} else {
+        $('style').append('#bodi { font-weight:'+document.getElementById('fontweightclr').value+" !important"+'}');
+        localStorage.setItem('fontweight', document.getElementById('fontweightclr').value);
   
-    getStyles();
-}
-
-function getStyles() {
-    console.log("Ok6")
-    var stylecurrent = localStorage.getItem('style'); 
-    var ododspeed = localStorage.getItem('odospeed'); 
-    if(stylecurrent == "gw") {
-      console.log("Ok61")
-        $('head').append('<link rel="stylesheet" href="../styles/gw.css">');
-    } else if (stylecurrent == "bw") {
-      console.log("Ok62")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../styles/bw.css">');
-    } else if (stylecurrent == "rw") {
-      console.log("Ok62")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../styles/rw.css">');
-    } else if (stylecurrent == "wb") {
-      console.log("Ok62")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../styles/wb.css">');
-    }
-    else {
-      console.log("Ok63")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../styles/gw.css">');
-    }
-    if(ododspeed == "s00") {
-      console.log("Ok64")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../odometerspeeds/s00.css">');
-    } else if (ododspeed == "s0") {
-      console.log("Ok65")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../odometerspeeds/s0.css">');
-    } else if (ododspeed == "s1") {
-      console.log("Ok66")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../odometerspeeds/s1.css">');
-    } else if (ododspeed == "s2") {
-      console.log("Ok67")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../odometerspeeds/s2.css">');
-    } else if (ododspeed == "s3") {
-      console.log("Ok68")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../odometerspeeds/s3.css">');
-    } else if (ododspeed == "s4") {
-      console.log("Ok69")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../odometerspeeds/s4.css">');
-    }
-    else {
-      console.log("Ok699")
-        $('head').append('<link rel="stylesheet" type="text/css" href="../odometerspeeds/s2.css">');
-    }
-}
-//theme end
-  jQuery.ajaxPrefilter(function (options) {
-    if (options.crossDomain && jQuery.support.cors) {
-      options.url = '' + options.url;
-
-    }
-  });
-  $(document).ready(function () {
-    var key = "https://cors.mixerno.space/"
-    //var key = "";
-    var videostufflol = window.location.href;
-    var params = videostufflol.split('?user=');
-    var stuff = new Highcharts.chart('graph', {
+      }
+      }, 1000);
+     
+    
+    });
+      $('#submitbutton6').click(function () {
+      setTimeout(function() {
+        localStorage.removeItem('fontweight');
+        localStorage.removeItem('fontfamily');
+        localStorage.removeItem('odospeed');
+        localStorage.removeItem('ododownclr');
+        localStorage.removeItem('odoupclr');
+        localStorage.removeItem('boxclr');
+        localStorage.removeItem('backclr');
+        localStorage.removeItem('textclr');
+        location.reload();
+      }, 1000);
+     
+    
+    });
+         $(document).ready(function () {
+             //var cors = "";
+    var cors = "https://cors.mixerno.space/";
+var graphData = new Highcharts.chart('graph', {
       chart: {
         backgroundColor: 'transparent',
         renderTo: graph,
-        type: 'line'
+        type: 'spline'
       },
       title: {
         text: ``
@@ -262,7 +274,7 @@ function getStyles() {
         tickPixelInterval: 500,
         labels: {
           style: {
-            color: "blue"
+            color: "#FFFFFF"
           }
         }
       },
@@ -270,15 +282,10 @@ function getStyles() {
         title: {
           text: ''
         },
-        gridLineColor: "blue",
-        labels: {
-          style: {
-            color: "blue"
-          }
-        },
-        lineColor: "blue",
-        minorGridLineColor: "blue",
-        tickColor: "blue"
+        
+        lineColor: "#53adcb",
+        minorGridLineColor: "#53adcb",
+        tickColor: "#53adcb"
       },
 
       credits: {
@@ -292,56 +299,116 @@ function getStyles() {
         marker: {
           enabled: false
         },
-        color: 'blue',
-        lineColor: 'blue'
+        color: '#53adcb',
+        lineColor: '#53adcb'
 
       }]
     })
-    var channelid = params[1];
-    if (params[1] == undefined) {
-      channelid = "instagram"
+    var windlochref = window.location.href;
+    var params = windlochref.split('&u=');
+
+    if(params[1] == undefined) {
+        location.href = `?&u=instagram&u=0`;
     }
-    channelstatistics()
-
-
-    //
-    function channelstatistics() {
-
-      $.ajax({
-        url: `${key}https://api.mixerno.space/instagram/user/${channelid}`,
-        // Handle as Text
-        dataType: "text",
-        success: function (data) {
-          var json = $.parseJSON(data);
-          ytsubs.innerHTML = json.followers
-          ytname.innerHTML = json.name
-          totalviews.innerHTML = json.posts
-          $("#image").attr('src', `${json.pfp}`);
-          //plsworkgraph = json.subscribers.replace(/""/, "");
-          stuff.series[0].addPoint([
+    if (params[2] == 1) {
+      $('head').append('<link rel="stylesheet" type="text/css" href="../v2/odometerfast.css">');
+    }
+   
+    getVisuals(params[1]); 
+    function getVisuals(id) {
+        fetch(`https://www.instagram.com/${id}/?__a=1`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                if(data.graphql == undefined) {
+                    console.log("lol u been blocked or it not right username :)")
+                } else {
+                    nameuser.innerHTML = data.graphql.user.full_name
+                  followingCount.innerHTML = data.graphql.user.edge_follow.count
+                  mediaCount.innerHTML = data.graphql.user.edge_owner_to_timeline_media.count
+          $("#image").attr('src', `${data.graphql.user.profile_pic_url_hd}`);
+          followerCount.innerHTML = data.graphql.user.edge_followed_by.count
+          graphData.series[0].addPoint([
             (new Date()).getTime(),
-            json.followers
+            data.graphql.user.edge_followed_by.count
           ]);
-          if (stuff.series[0].data.length >= 700) {
-            stuff.series[0].data[0].remove()
+          if (graphData.series[0].data.length >= 700) {
+            graphData.series[0].data[0].remove()
           }
-        }
-      })
-    };
-    setInterval(channelstatistics, 4000);
+                }
+            })
+    }
 
-    //location.href = params[0] + $('#country').val();;
-    $('#usersearch').on('keyup', function (e) {
+    setInterval(function() {
+        getVisuals(params[1]);
+    }, 6000);
+    $('#userinput').on('keyup', function (e) {
       if (e.keyCode === 13) {
-        $('#serch').click();
+        $('#submitbutton').click();
       }
     });
     //
-    $('#serch').click(function () {
-        location.href = `${params[0]}?user=${$('#usersearch').val()}`;
+    $('#submitbutton').click(function () {
+      location.href = `?&u=${$('#userinput').val()}`;
+      windlochref = window.location.href;
+        params = windlochref.split('&u=');
+      graphData = new Highcharts.chart('graph', {
+      chart: {
+        backgroundColor: 'transparent',
+        renderTo: graph,
+        type: 'spline'
+      },
+      title: {
+        text: ``
+      },
+      xAxis: {
+        type: 'datetime',
+        tickPixelInterval: 500,
+        labels: {
+          style: {
+            color: "#FFFFFF"
+          }
+        }
+      },
+      yAxis: {
+        title: {
+          text: ''
+        },
+        
+        lineColor: "#53adcb",
+        minorGridLineColor: "#53adcb",
+        tickColor: "#53adcb"
+      },
 
+      credits: {
+        enabled: false,
+        text: "Mixerno.space"
+      },
+
+      series: [{
+        showInLegend: false,
+        name: 'Followers',
+        marker: {
+          enabled: false
+        },
+        color: '#53adcb',
+        lineColor: '#53adcb'
+
+      }]
+    })
+    getVisuals(params[1]);
+    
     });
-  });
-</script>
-
+    $('#userinput2').on('keyup', function (e) {
+      if (e.keyCode === 13) {
+        $('#submitbutton2').click();
+      }
+    });
+    //
+    $('#submitbutton2').click(function () {
+      location.href = "../instagram-compare/?&u="+params[1]+"&u="+$('#userinput2').val()
+    
+    });
+         });
+    </script>
 </html>
