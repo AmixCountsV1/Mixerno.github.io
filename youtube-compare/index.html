@@ -357,8 +357,8 @@
             } else {
               nameuser.innerHTML = data.name
               $("#image").attr('src', `${data.image}`);
-              followerCount.innerHTML = data.SubscriberCount
-              count = parseFloat(data.SubscriberCount)
+              followerCount.innerHTML = Math.floor(data.SubscriberCount)
+              count = parseFloat(Math.floor(data.SubscriberCount))
               getData2(params[2])
             }
           })
@@ -430,12 +430,12 @@
             } else {
               nameuser2.innerHTML = data.name
               $("#image2").attr('src', `${data.image}`);
-              followerCount2.innerHTML = data.SubscriberCount
-              count2 = parseFloat(data.SubscriberCount)
-              diffrence.innerHTML = count - count2
+              followerCount2.innerHTML = Math.floor(data.SubscriberCount)
+              count2 = parseFloat(Math.floor(data.SubscriberCount))
+              diffrence.innerHTML = Math.floor(count-count2)
               graphData.series[0].addPoint([
                 (new Date()).getTime(),
-                count - count2
+                Math.floor(count-count2)
               ]);
               if (graphData.series[0].data.length >= 700) {
                 graphData.series[0].data[0].remove()
@@ -462,10 +462,10 @@
             $("#image").attr('src', `${data.items[0].snippet.thumbnails.high.url}`);*/
             followerCount2.innerHTML = data.items[0].statistics.subscriberCount
             count2 = parseFloat(data.items[0].statistics.subscriberCount)
-            diffrence.innerHTML = count - count2
+            diffrence.innerHTML = Math.floor(count-count2)
             graphData.series[0].addPoint([
               (new Date()).getTime(),
-              count - count2
+              Math.floor(count-count2)
             ]);
             if (graphData.series[0].data.length >= 700) {
               graphData.series[0].data[0].remove()

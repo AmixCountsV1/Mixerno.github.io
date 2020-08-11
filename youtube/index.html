@@ -334,10 +334,10 @@ nameuser.innerHTML = data.name
                     $("#image").attr('src', `${data.image}`);
                     viewsCount.innerHTML = data.totalviews
                   videosCount.innerHTML = data.videos
-          followerCount.innerHTML = data.SubscriberCount
+          followerCount.innerHTML = Math.floor(data.SubscriberCount)
           graphData.series[0].addPoint([
             (new Date()).getTime(),
-            parseFloat(data.SubscriberCount)
+            parseFloat(Math.floor(data.SubscriberCount))
           ]);
           if (graphData.series[0].data.length >= 700) {
             graphData.series[0].data[0].remove()
