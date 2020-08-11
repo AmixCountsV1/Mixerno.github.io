@@ -306,7 +306,6 @@ var graphData = new Highcharts.chart('graph', {
     })
     var windlochref = window.location.href;
     var params = windlochref.split('&u=');
-    var estapi = false;
     if(params[1] == undefined) {
         location.href = `?&u=charlidamelio&u=0`;
     }
@@ -318,9 +317,8 @@ var graphData = new Highcharts.chart('graph', {
       $('head').append('<link rel="stylesheet" type="text/css" href="../v2/odometerfast.css">');
       $('head').append('<link rel="stylesheet" type="text/css" href="../v2/odometercolors.css">');
     }
-    
-   
-    
+    var estimatedApi = true;
+    var estapi = true
     var tiktokbypass = [
       'https://immense-castle-34936.herokuapp.com/@',
       'https://backuptiktokapi.glitch.me/@',
@@ -329,6 +327,39 @@ var graphData = new Highcharts.chart('graph', {
     ]
     getData(params[1]);
     function getData(id) {
+      if(estapi == true) {
+        fetch(`https://api.mixerno.space/tiktok/estimated/user/${id}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                if(data.SubscriberCount == undefined) {
+                    console.log("No its not in the api")
+estapi = false
+myapi(params[1])
+                } else {
+nameuser.innerHTML = data.name
+                    $("#image").attr('src', `${data.image}`);
+                    heartsCount.innerHTML = data.hearts
+                  videosCount.innerHTML = data.videos
+          followerCount.innerHTML = Math.floor(data.SubscriberCount)
+          graphData.series[0].addPoint([
+            (new Date()).getTime(),
+            parseFloat(Math.floor(data.SubscriberCount))
+          ]);
+          if (graphData.series[0].data.length >= 700) {
+            graphData.series[0].data[0].remove()
+          }
+                }
+            }).catch(function() {
+              myapi(params[1])
+    });
+      } else {
+        myapi(params[1])
+      }
+      
+        
+    }
+    function myapi(id) {
       var tiktokbypass = [
       'https://immense-castle-34936.herokuapp.com/@',
       'https://backuptiktokapi.glitch.me/@',
@@ -341,33 +372,29 @@ var graphData = new Highcharts.chart('graph', {
             .then(response => response.json())
             .then(data => {
                 console.log(data)
-                if(data.name == undefined) {
+                if(data.followers == undefined) {
                     console.log("#ERROR.")
                 } else {
-
                     nameuser.innerHTML = data.name
-          $("#image").attr('src', `${data.avatarurl}`);
+                    $("#image").attr('src', `${data.avatarurl}`);
+                    heartsCount.innerHTML = data.hearts
+                  videosCount.innerHTML = data.videos
           followerCount.innerHTML = data.followers
-          heartsCount.innerHTML = data.hearts
-          videosCount.innerHTML = data.videos
           graphData.series[0].addPoint([
             (new Date()).getTime(),
-            data.followers
+            parseFloat(data.followers)
           ]);
           if (graphData.series[0].data.length >= 700) {
             graphData.series[0].data[0].remove()
           }
                 }
             })
-            
-      
     }
-
-
-
+    
     setInterval(function() {
-      getData(params[1]);
-    }, 10000);
+        getData(params[1]); 
+    }, 2000);
+  
           function setName(count) {
             document.getElementById('nameuser').innerHTML = count
           }

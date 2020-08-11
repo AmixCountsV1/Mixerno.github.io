@@ -315,18 +315,48 @@ var graphData = new Highcharts.chart('graph', {
       $('head').append('<link rel="stylesheet" type="text/css" href="../v2/odometerfast.css">');
       $('head').append('<link rel="stylesheet" type="text/css" href="../v2/odometercolors.css">');
     }
-     
+    var tiktokbypass = [
+      'https://immense-castle-34936.herokuapp.com/@',
+      'https://backuptiktokapi.glitch.me/@',
+      'https://backuptiktokapi.herokuapp.com/@',
+      'https://honorable-hazel-atmosphere.glitch.me/@'
+    ]
+    var randomtiktokbypass = Math.floor(Math.random()*tiktokbypass.length);
+    var tiktokurl = tiktokbypass[randomtiktokbypass];
+    
+    var estapi = true;
+    var estapi2 = true;
     var count = 0;
     var count2 = 0;
-    var t1ch = true;
-    var t1ch2 = true;
-    
-   
-    getData(params[1]); 
+    getData(params[1]);
+
+    function getData(id) {
+      if (estapi == true) {
+        fetch(`${cors}https://api.mixerno.space/tiktok/estimated/user/${id}`)
+          .then(response => response.json())
+          .then(data => {
+            console.log(data)
+            if (data.SubscriberCount == undefined) {
+              console.log("No its not in the api")
+              estapi = false
+            } else {
+              nameuser.innerHTML = data.name
+              $("#image").attr('src', `${data.image}`);
+              followerCount.innerHTML = Math.floor(data.SubscriberCount)
+              count = parseFloat(Math.floor(data.SubscriberCount))
+              getData2(params[2])
+            }
+          })
+      } else {
+        myapi(params[1])
+      }
 
 
-function getData(id) {
-  var tiktokbypass = [
+
+
+    }
+    function myapi(id) {
+      var tiktokbypass = [
       'https://immense-castle-34936.herokuapp.com/@',
       'https://backuptiktokapi.glitch.me/@',
       'https://backuptiktokapi.herokuapp.com/@',
@@ -334,58 +364,90 @@ function getData(id) {
     ]
     var randomtiktokbypass = Math.floor(Math.random()*tiktokbypass.length);
     var tiktokurl = tiktokbypass[randomtiktokbypass];
-    fetch(`${cors}${tiktokurl}${id}`)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                if(data.name == undefined) {
-                    console.log("#ERROR.")
-                } else {
-
-                    nameuser.innerHTML = data.name
-          $("#image").attr('src', `${data.avatarurl}`);
-          followerCount.innerHTML = data.followers
-                  count = data.followers
-                }
-                getData2(params[2])
-            })
-}
-  
-function getData2(id) {
-  var tiktokbypass = [
-      'https://immense-castle-34936.herokuapp.com/@',
-      'https://backuptiktokapi.glitch.me/@',
-      'https://backuptiktokapi.herokuapp.com/@',
-      'https://honorable-hazel-atmosphere.glitch.me/@'
-    ]
-    var randomtiktokbypass = Math.floor(Math.random()*tiktokbypass.length);
-    var tiktokurl = tiktokbypass[randomtiktokbypass];
-    fetch(`${cors}${tiktokurl}${id}`)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                if(data.name == undefined) {
-                    console.log("#ERROR.")
-                } else {
-                  nameuser2.innerHTML = data.name
-          $("#image2").attr('src', `${data.avatarurl}`);
-          followerCount2.innerHTML = data.followers
-          count2 = data.followers
-          diffrence.innerHTML = count - count2
-          graphData.series[0].addPoint([
-            (new Date()).getTime(),
-            count - count2
-          ]);
-          if (graphData.series[0].data.length >= 700) {
-            graphData.series[0].data[0].remove()
+      fetch(`${cors}${tiktokurl}${id}`)
+        .then(response => response.json())
+        .then(data => {
+          console.log(data)
+          if (data.followers == undefined) {
+            console.log("#ERROR.")
+          } else {
+            nameuser.innerHTML = data.name
+            $("#image").attr('src', `${data.avatarurl}`);
+            followerCount.innerHTML = data.followers
+            count = parseFloat(data.items[0].statistics.subscriberCount)
+            getData2(params[2])
           }
-                }
-                
-            })
-}
-    setInterval(function() {
+        })
+    }
+
+    function getData2(id) {
+      if (estapi2 == true) {
+        fetch(`${cors}https://api.mixerno.space/tiktok/estimated/user/${id}`)
+          .then(response => response.json())
+          .then(data => {
+            console.log(data)
+            if (data.SubscriberCount == undefined) {
+              console.log("No its not in the api")
+              estapi2 = false
+            } else {
+              nameuser2.innerHTML = data.name
+              $("#image2").attr('src', `${data.image}`);
+              followerCount2.innerHTML = Math.floor(data.SubscriberCount)
+              count2 = parseFloat(Math.floor(data.SubscriberCount))
+              diffrence.innerHTML = Math.floor(count-count2)
+              graphData.series[0].addPoint([
+                (new Date()).getTime(),
+                Math.floor(count-count2)
+              ]);
+              if (graphData.series[0].data.length >= 700) {
+                graphData.series[0].data[0].remove()
+              }
+            }
+          })
+      } else {
+        myapi2(params[2])
+      }
+
+
+
+
+    }
+    function myapi2(id) {
+      var tiktokbypass = [
+      'https://immense-castle-34936.herokuapp.com/@',
+      'https://backuptiktokapi.glitch.me/@',
+      'https://backuptiktokapi.herokuapp.com/@',
+      'https://honorable-hazel-atmosphere.glitch.me/@'
+    ]
+    var randomtiktokbypass = Math.floor(Math.random()*tiktokbypass.length);
+    var tiktokurl = tiktokbypass[randomtiktokbypass];
+      fetch(`${cors}${tiktokurl}${id}`)
+        .then(response => response.json())
+        .then(data => {
+          console.log(data)
+          if (data.followers == undefined) {
+            console.log("#ERROR.")
+          } else {
+            nameuser2.innerHTML = data.name
+            $("#image2").attr('src', `${data.avatarurl}`);
+            followerCount2.innerHTML = Math.floor(data.followers)
+            count2 = parseFloat(data.followers)
+            diffrence.innerHTML = Math.floor(count-count2)
+            graphData.series[0].addPoint([
+              (new Date()).getTime(),
+              Math.floor(count-count2)
+            ]);
+            if (graphData.series[0].data.length >= 700) {
+              graphData.series[0].data[0].remove()
+            }
+
+          }
+        })
+    }
+
+    setInterval(function () {
       getData(params[1]);
-    }, 10000);
+    }, 2000);
 
 
          function setName(count) {
