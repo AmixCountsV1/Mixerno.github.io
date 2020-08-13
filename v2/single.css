@@ -19,6 +19,25 @@
         justify-content: space-between;
         flex: 4;
       }
+      ::-webkit-scrollbar {
+        width: 1px;
+      }
+      
+      /* Track */
+      ::-webkit-scrollbar-track {
+        border-radius: 10px;
+      }
+       
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        background: rgb(32, 32, 32); 
+        border-radius: 10px;
+      }
+      
+      /* Handle on hover */
+      ::-webkit-scrollbar-thumb:hover {
+        background: rgb(36, 36, 36); 
+      }
   #disqus_thread {
     margin-left: 25%;
               margin-right: 25%;
