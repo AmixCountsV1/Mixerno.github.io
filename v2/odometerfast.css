@@ -99,7 +99,7 @@
 */
 @font-face {
   font-family: robotolight;
-    src: url(../fonts/Roboto-Thin.ttf);
+    src: url(../fonts/Roboto-Light.ttf);
 }
 
 .odometer.odometer-auto-theme, .odometer.odometer-theme-default {
