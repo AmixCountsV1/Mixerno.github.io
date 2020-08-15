@@ -323,7 +323,6 @@ var graphData = new Highcharts.chart('graph', {
 
                 } else {
                   followerCount.innerHTML = data.data.children[0].data.subreddit_subscribers
-          nameuser.innerHTML = data.data.children[0].data.subreddit_name_prefixed
          // $('#image').attr('src', `${data[0].data.children[0].data.url}`);
           graphData.series[0].addPoint([
             (new Date()).getTime(),
@@ -332,6 +331,19 @@ var graphData = new Highcharts.chart('graph', {
           if (graphData.series[0].data.length >= 700) {
             graphData.series[0].data[0].remove()
           }
+                }
+          
+            })
+            fetch(`${cors}https://api.reddit.com/r/${id}/about`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                if(data.data.active_user_count == undefined) {
+
+                } else {
+          $('#image').attr('src', `${data.data.icon_img}`);
+          nameuser.innerHTML = data.data.display_name
+          activeCount.innerHTML = data.data.active_user_count
                 }
           
             })
