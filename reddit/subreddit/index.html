@@ -86,7 +86,7 @@ href="https://mixerno.space/icons/2.png">
                 <h4 class="modal-title">Compare Subreddits</h4>
               </div>
               <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-body">
-               <input style="background-color: rgb(32, 32, 32); color: white;" placeholder="www.reddit.com/" id="userinput2" type="text">
+               <input style="background-color: rgb(32, 32, 32); color: white;" placeholder="www.reddit.com/r/" id="userinput2" type="text">
               </div>
               <div style="background-color: rgb(32, 32, 32); color: white;" class="modal-footer">
                 <button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" id="submitbutton2" data-dismiss="modal">Submit</button><button type="button" style="background-color: rgb(32, 32, 32); color: white; border: solid 1px;border-color: rgb(46, 46, 46);" data-dismiss="modal">Cancel</button>
@@ -301,7 +301,7 @@ var graphData = new Highcharts.chart('graph', {
     var windlochref = window.location.href;
     var params = windlochref.split('&u=');
     if(params[1] == undefined) {
-        window.history.pushState("y", "g", `?&u=rJ1h43tgyvdtfrobloxJ1h43tgyvdtf`);
+        window.history.pushState("y", "g", `?&u=roblox`);
         windlochref = window.location.href;
         params = windlochref.split('&u=');
         getData(params[1].replace(/J1h43tgyvdtf/g, '/'));
@@ -321,7 +321,7 @@ var graphData = new Highcharts.chart('graph', {
     function getData(id) {
         windlochref = window.location.href;
         params = windlochref.split('&u=');
-            fetch(`${cors}https://www.reddit.com/${id}.json?limit=1`)
+            fetch(`${cors}https://www.reddit.com/r/${id}.json?limit=1`)
             .then(response => response.json())
             .then(data => {
                 console.log(data)
@@ -340,7 +340,7 @@ var graphData = new Highcharts.chart('graph', {
                 }
           
             })
-            fetch(`${cors}https://api.reddit.com/r/${id}/about`)
+            fetch(`${cors}https://api.reddit.com/${id}/about`)
             .then(response => response.json())
             .then(data => {
                 console.log(data)
