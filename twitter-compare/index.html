@@ -313,57 +313,9 @@ var graphData = new Highcharts.chart('graph', {
     var count = 0;
     var count2 = 0;
     
-   
-    getData(params[1]);
+
     getVisuals(params[1]); 
-    function getData(id) {
-        windlochref = window.location.href;
-        params = windlochref.split('&u=');
-        fetch(`https://bastet.socialblade.com/twitter/lookup?query=${id}`)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                if(data == 0) {
-                    console.log("GJ TWITTER API lol")
-                } else {
-                followerCount.innerHTML = data
-                count = data
-          /*ytname.innerHTML = data.username
-          totalviews.innerHTML = data.points
-          videos.innerHTML = data.followingCount
-          $("#image").attr('src', `${data.userimage}`);*/
-          
-        }
-        getData2(params[2])
-            })
-    }
-    function getData2(id) {
-        windlochref = window.location.href;
-        params = windlochref.split('&u=');
-        fetch(`https://bastet.socialblade.com/twitter/lookup?query=${id}`)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                if(data == 0) {
-                    console.log("GJ TWITTER API lol")
-                } else {
-                followerCount2.innerHTML = data
-          /*ytname.innerHTML = data.username
-          totalviews.innerHTML = data.points
-          videos.innerHTML = data.followingCount
-          $("#image").attr('src', `${data.userimage}`);*/
-          count2 = data
-          diffrence.innerHTML = count - count2
-          graphData.series[0].addPoint([
-            (new Date()).getTime(),
-            count - count2
-          ]);
-          if (graphData.series[0].data.length >= 700) {
-            graphData.series[0].data[0].remove()
-          }
-        }
-            })
-    }
+
     function getVisuals(id) {
         fetch(`${cors}https://api.mixerno.space/twitter/user/${id}`)
             .then(response => response.json())
@@ -374,6 +326,8 @@ var graphData = new Highcharts.chart('graph', {
                 } else {
                     nameuser.innerHTML = data.name
           $("#image").attr('src', `${data.pfp}`);
+                followerCount.innerHTML = data.followers
+          count = data.followers
                 }
                 getVisuals2(params[2])
             })
@@ -388,15 +342,23 @@ var graphData = new Highcharts.chart('graph', {
                 } else {
                     nameuser2.innerHTML = data.name
           $("#image2").attr('src', `${data.pfp}`);
+                followerCount2.innerHTML = data.followers
+          count2 = data.followers
+          diffrence.innerHTML = count - count2
+          graphData.series[0].addPoint([
+            (new Date()).getTime(),
+            count - count2
+          ]);
+          if (graphData.series[0].data.length >= 700) {
+            graphData.series[0].data[0].remove()
+          }
                 }
             })
     }
-    setInterval(function() {
-        getData(params[1]);
-    }, 2000);
+    
     setInterval(function() {
         getVisuals(params[1]);
-    }, 30000);
+    }, 6000);
     $('#userinput').on('keyup', function (e) {
       if (e.keyCode === 13) {
         $('#submitbutton').click();

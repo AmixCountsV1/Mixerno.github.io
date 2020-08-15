@@ -313,35 +313,9 @@ var graphData = new Highcharts.chart('graph', {
     if (params[2] == 1) {
       $('head').append('<link rel="stylesheet" type="text/css" href="../v2/odometerfast.css">');
     }
-    
-   
-    getData(params[1]);
+
     getVisuals(params[1]); 
-    function getData(id) {
-        windlochref = window.location.href;
-        params = windlochref.split('&u=');
-        fetch(`https://bastet.socialblade.com/twitter/lookup?query=${id}`)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                if(data == 0) {
-                    console.log("GJ TWITTER API lol")
-                } else {
-                followerCount.innerHTML = data
-          /*ytname.innerHTML = data.username
-          totalviews.innerHTML = data.points
-          videos.innerHTML = data.followingCount
-          $("#image").attr('src', `${data.userimage}`);*/
-          graphData.series[0].addPoint([
-            (new Date()).getTime(),
-            data
-          ]);
-          if (graphData.series[0].data.length >= 700) {
-            graphData.series[0].data[0].remove()
-          }
-        }
-            })
-    }
+    
     function getVisuals(id) {
         fetch(`${cors}https://api.mixerno.space/twitter/user/${id}`)
             .then(response => response.json())
@@ -354,15 +328,21 @@ var graphData = new Highcharts.chart('graph', {
                   tweetsCount.innerHTML = data.tweets
           followingCount.innerHTML = data.following
           $("#image").attr('src', `${data.pfp}`);
+                followerCount.innerHTML = data.followers
+          graphData.series[0].addPoint([
+            (new Date()).getTime(),
+            data.followers
+          ]);
+          if (graphData.series[0].data.length >= 700) {
+            graphData.series[0].data[0].remove()
+          }
                 }
             })
     }
-    setInterval(function() {
-        getData(params[1]);
-    }, 2000);
+
     setInterval(function() {
         getVisuals(params[1]);
-    }, 30000);
+    }, 6000);
     $('#userinput').on('keyup', function (e) {
       if (e.keyCode === 13) {
         $('#submitbutton').click();
