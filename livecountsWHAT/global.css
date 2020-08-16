@@ -1,0 +1,176 @@
+
+@font-face {
+  font-family: Roboto Regular;
+    src: url(https://mixerno.space/fonts/Roboto-Regular.ttf);
+}
+@font-face {
+  font-family: Roboto Medium;
+    src: url(https://mixerno.space/fonts/Roboto-Medium.ttf);
+}
+@font-face {
+  font-family: Roboto Light ;
+    src: url(https://mixerno.space/fonts/Roboto-Light.ttf);
+}
+@font-face {
+  font-family: Varela Round;
+    src: url(https://mixerno.space/fonts/VarelaRound-Regular.ttf);
+}
+body {
+    font-family: Roboto Regular !important;
+    background-color: rgb(246, 246, 246);
+    margin: 0;
+    overflow-x: hidden;
+    overflow-x: hidden;
+  }
+
+  #YTsubs {
+    font-size: calc(3.5em + 2vw) !important;;
+  }
+
+  #YTname {
+    font-size: calc(1em + 1vw) !important;
+  }
+
+  #YTimg {
+    width: calc(4em + 4vw) !important;
+    height: calc(4em + 4vw) !important;
+    border-radius: 50%;
+    border: groove black 1px;
+
+  }
+  .grid {
+    display: grid;
+    grid-gap: 2rem;
+    gap: 2rem;
+  }
+.grid {
+    grid-template-columns: repeat(3,minmax(0,1fr));
+}
+.grid2 {
+  display: grid;
+  grid-gap: 2rem;
+  gap: 2rem;
+}
+.grid2 {
+  grid-template-columns: repeat(2,minmax(0,1fr));
+}
+.grid3 {
+  display: grid;
+  grid-gap: 2rem;
+  gap: 2rem;
+}
+.grid3 {
+  grid-template-columns: repeat(4,minmax(0,1fr));
+}
+  .uppercayts {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: Roboto Medium;
+  }
+  #thingy {
+    font-size: calc(0.5em + 0.5vw) !important;
+  }
+  #lolxd {
+    vertical-align:middle
+  }
+
+  #channelidinput,
+  #buotn {
+    padding: 5px;
+    background-color: rgb(246, 246, 246);
+    font-size: 20px;
+    color: black;
+    border: groove black 1px;
+
+  }
+
+  #channelidinput {
+    width: 75%;
+
+  }
+
+  #buotn {
+    width: 25%;
+
+  }
+
+  #countbox,
+  #searchpart,
+  #graph,.buttosn {
+    background-color: rgb(255, 255, 255);
+    width: 70%;
+    padding: 10px;
+    border-color: rgba(0, 0, 0, 0.500);
+    border: 0.5px solid rgba(0,0,0,.500);
+    border-radius: .50rem;
+  }
+  button {
+    padding: 20px;
+    background-color: whitesmoke;
+    color: black;
+    -webkit-appearance: button;
+    border-color: rgba(0, 0, 0, 0.500);
+    border: 0.5px solid rgba(0,0,0,.500);
+    border-radius: .50rem;
+    width: 100%;
+  }
+
+  #countbox2 {
+    /*background-color: rgb(255, 255, 255);*/
+    width: 70%;
+    padding: 10px;
+    /*display: flex;
+    flex-direction: row;
+    justify-content: space-between;*/
+    flex: 4;
+    margin: 0;
+
+  }
+
+  .countbox3 {
+    margin: 0;
+    padding: 10px;
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    border-color: rgba(0, 0, 0, 0.500);
+    border: 0.5px solid rgba(0,0,0,.500);
+    border-radius: .50rem;
+
+  }
+  .countbox3x {
+    margin: 0;
+    padding: 10px;
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    border-color: rgba(0, 0, 0, 0.500);
+    border: 0.5px solid rgba(0,0,0,.500);
+    border-radius: .50rem;
+
+  }
+
+
+  .fsize {
+    font-size: calc(0.8em + 0.8vw);
+  }
+  .fsize2 {
+    font-size: calc(0.5em + 0.5vw);
+  }
+
+  #randomshitlmao {
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    padding: 10px;
+    border-color: rgba(0, 0, 0, 0.500);
+    border-bottom: 0.5px solid rgba(0,0,0,.500);
+    flex-wrap: wrap;
+  }
+  .about {
+    width: 70%;
+    padding: 10px;
+    text-align: center;
+    background-color: white;
+    font-weight: 100 !important;
+    border-color: rgba(0, 0, 0, 0.500);
+    border: 0.5px solid rgba(0,0,0,.500);
+    border-radius: .50rem;
+  }
