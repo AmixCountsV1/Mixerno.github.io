@@ -46,15 +46,27 @@
   }
   .odometer.odometer-auto-theme.odometer-animating-up .odometer-ribbon-inner, .odometer.odometer-theme-default.odometer-animating-up .odometer-ribbon-inner {
   color: lime;
+  -webkit-transition: -webkit-transform 4s;
+  -moz-transition: -moz-transform 4s;
+  -ms-transition: -ms-transform 4s;
+  -o-transition: -o-transform 4s;
+  transition: transform 4s;
 }
 .odometer.odometer-auto-theme.odometer-animating-down.odometer-animating .odometer-ribbon-inner, .odometer.odometer-theme-default.odometer-animating-down.odometer-animating .odometer-ribbon-inner {
   color: red;
+  -webkit-transition: -webkit-transform 4s;
+  -moz-transition: -moz-transform 4s;
+  -ms-transition: -ms-transform 4s;
+  -o-transition: -o-transform 4s;
+  transition: transform 4s;
 }
 
   body {
     background-color: transparent;
     font-family: varela!important
   }
+  body { background-color: rgba(0, 0, 0, 0); margin: 0px auto; overflow: hidden; color: white !important;
+ }
 
   div {
     font-size: 36
@@ -62,7 +74,7 @@
 </style>
 <script>
   var cors = ""
-  cors = "https://cors.mixerno.space/"
+  //cors = "https://cors.mixerno.space/"
   var videostufflol = window.location.href;
   var params = videostufflol.split('?u=');
   var channelid = params[1];
@@ -91,7 +103,7 @@
 
   setInterval(function () {
     getData(params[1]);
-  }, 2000);
+  }, 4000);
 </script>
 
 </html>
