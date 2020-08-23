@@ -326,7 +326,7 @@ var graphData = new Highcharts.chart('graph', {
     
     getVisuals(params[1]); 
     function getVisuals(id) {
-        fetch(`${cors}https://api.mixerno.space/onlyfans/user/${id}`)
+        fetch(`${cors}https://api.mixerno.space/onlyfans/${id}`)
             .then(response => response.json())
             .then(data => {
                 console.log(data)
