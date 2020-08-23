@@ -1,0 +1,73 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <table>
+            <tr>
+              <th>UserName</th>
+              <th>Avg Subs per Second</th> 
+              <th>Avg Subs per Minute</th>
+              <th>Avg Subs per Hour</th> 
+              <th>Avg Subs per Day</th>
+            </tr>
+            <tr>
+              <td id="user1">MrBeast</td>
+              <td id="user1x">1</td>
+              <td id="user1xx">1</td>
+              <td id="user1xxx">1</td>
+              <td id="user1xxxx">1</td>
+            </tr>
+            <tr>
+              <td id="user2">Big Hit Labels</td>
+              <td id="user2x">2</td>
+              <td id="user2xx">2</td>
+              <td id="user2xxx">2</td>
+              <td id="user2xxxx">2</td>
+            </tr>
+            <tr>
+              <td id="user3">BLACKPINK</td>
+              <td id="user3x">3</td>
+              <td id="user3xx">3</td>
+              <td id="user3xxx">3</td>
+              <td id="user3xxxx">3</td>
+            </tr>
+          </table>
+    </body>
+    <style>
+
+table {
+  width:100%;
+}
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+    </style>
+    <script>
+        getDat()
+        async function getDat() {
+            await fetch(`https://api.mixerno.space/youtube/estimated/user/${window.location.href.split('?')[1]}`).then(res => res.json()).then(data => {
+                user1x.innerHTML = (data.subrate).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                user1xx.innerHTML = ((data.subrate)*60).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                user1xxx.innerHTML = (((data.subrate)*60)*60).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                user1xxxx.innerHTML = ((((data.subrate)*60)*60)*24).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            })
+            await fetch(`https://api.mixerno.space/youtube/estimated/user/${window.location.href.split('?')[2]}`).then(res => res.json()).then(data => {
+                user2x.innerHTML = (data.subrate).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                user2xx.innerHTML = ((data.subrate)*60).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                user2xxx.innerHTML = (((data.subrate)*60)*60).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                user2xxxx.innerHTML = ((((data.subrate)*60)*60)*24).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+            })
+            await fetch(`https://api.mixerno.space/youtube/estimated/user/${window.location.href.split('?')[3]}`).then(res => res.json()).then(data => {
+                user3x.innerHTML = (data.subrate).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                user3xx.innerHTML = ((data.subrate)*60).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                user3xxx.innerHTML = (((data.subrate)*60)*60).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                user3xxxx.innerHTML = ((((data.subrate)*60)*60)*24).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+            })
+        }
+        setInterval(getDat,2000);
+    </script>
+</html>
