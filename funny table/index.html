@@ -48,12 +48,14 @@ table, th, td {
         getDat()
         async function getDat() {
             await fetch(`https://api.mixerno.space/youtube/estimated/user/${window.location.href.split('?')[1]}`).then(res => res.json()).then(data => {
+              user1.innerHTML = data.name
                 user1x.innerHTML = ((((data.subrate)/24)/60)/60).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                 user1xx.innerHTML = (((data.subrate)/24)/60).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                 user1xxx.innerHTML = (((data.subrate)/24)).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                 user1xxxx.innerHTML = ((((data.subrate)*1)*1)*1).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
             })
             await fetch(`https://api.mixerno.space/youtube/estimated/user/${window.location.href.split('?')[2]}`).then(res => res.json()).then(data => {
+              user2.innerHTML = data.name
                 user2x.innerHTML = ((((data.subrate)/24)/60)/60).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                 user2xx.innerHTML = (((data.subrate)/24)/60).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                 user2xxx.innerHTML = (((data.subrate)/24)).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -61,6 +63,7 @@ table, th, td {
 
             })
             await fetch(`https://api.mixerno.space/youtube/estimated/user/${window.location.href.split('?')[3]}`).then(res => res.json()).then(data => {
+              user3.innerHTML = data.name
                 user3x.innerHTML = ((((data.subrate)/24)/60)/60).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                 user3xx.innerHTML = (((data.subrate)/24)/60).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                 user3xxx.innerHTML = (((data.subrate)/24)).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
