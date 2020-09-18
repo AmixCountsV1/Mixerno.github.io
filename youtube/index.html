@@ -31,7 +31,7 @@
   <link rel="stylesheet" href="../bootstrap.css">
   <link rel="stylesheet" href="../v2/single.css">
   <script src="../bootstrap.js"></script>
-    </head>
+    <script async src="https://arc.io/widget.js#jnEJG9ET"></script></head>
     <body id="bodi" style="color:white" class="bodi">
         <center id="lol"><div style="padding: 2vh; font-size: 3vh; background-color: rgb(32, 32, 32);">Youtube Live Subscriber Counter <span style="font-size: 3vh;position: absolute; right: 90%;"><a  href="../">Home</a></span></div><br>
         <div class="boxerino"><br>
@@ -308,15 +308,15 @@ var graphData = new Highcharts.chart('graph', {
     })
     var windlochref = window.location.href;
     var params = windlochref.split('&u=');
-    var estimatedApi = true;
-    var estapi = true
+    
     if(params[1] == undefined) {
         location.href = `?&u=UC-lHJZR3Gqxm24_Vd_AJ5Yw&u=0`;
     }
     if(params[2] == 1) {
       $('head').append('<link rel="stylesheet" type="text/css" href="../v2/odometerfast.css">');
     }
-
+    var estimatedApi = true;
+    var estapi = true
     getData(params[1]);
     getVisuals(params[1]); 
     function getData(id) {
